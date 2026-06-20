@@ -1,0 +1,53 @@
+{
+  "best_model": "Logistic Regression",
+  "feature_columns": [
+    "purchase_hour",
+    "estimated_delivery_days",
+    "item_count",
+    "product_count",
+    "seller_count",
+    "total_price",
+    "mean_item_price",
+    "total_freight",
+    "freight_to_price_ratio",
+    "payment_value",
+    "payment_installments",
+    "payment_method_count",
+    "mean_product_weight_g",
+    "mean_product_volume_cm3",
+    "purchase_month",
+    "purchase_weekday",
+    "payment_type",
+    "product_category",
+    "customer_state",
+    "seller_state"
+  ],
+  "numeric_features": [
+    "purchase_hour",
+    "estimated_delivery_days",
+    "item_count",
+    "product_count",
+    "seller_count",
+    "total_price",
+    "mean_item_price",
+    "total_freight",
+    "freight_to_price_ratio",
+    "payment_value",
+    "payment_installments",
+    "payment_method_count",
+    "mean_product_weight_g",
+    "mean_product_volume_cm3"
+  ],
+  "categorical_features": [
+    "purchase_month",
+    "purchase_weekday",
+    "payment_type",
+    "product_category",
+    "customer_state",
+    "seller_state"
+  ],
+  "train_end": "2018-05-26 18:16:57",
+  "test_start": "2018-05-26 18:18:03",
+  "test_end": "2018-08-29 15:00:37",
+  "delayed_definition": "order_delivered_customer_date > order_estimated_delivery_date"
+}

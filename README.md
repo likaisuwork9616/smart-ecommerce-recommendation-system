@@ -445,23 +445,21 @@ DB_CONFIG = {
 
 ---
 
-## 下一步規劃
+## Stage 4：訂單是否延遲預測
 
-### Stage 4：訂單是否延遲預測
+已完成第一個機器學習分類專案，使用下單當下可取得的資訊預測訂單是否晚於預估日期送達。
 
-下一階段將進入第一個機器學習分類模型，目標是預測訂單是否會延遲送達。
-
-預計流程：
+完成流程：
 
 1. 建立 `delayed` label
 2. 整理特徵資料表
 3. 處理缺失值與類別欄位
 4. 切分訓練集與測試集
-5. 訓練第一版分類模型
+5. 比較 Logistic Regression、Decision Tree、Random Forest
 6. 評估模型表現
 7. 分析哪些因素最容易造成延遲
 
-預計使用特徵：
+使用特徵：
 
 - 商品價格
 - 運費
@@ -476,6 +474,34 @@ DB_CONFIG = {
 - 商品重量
 - 商品尺寸
 
+模型採時間切分：較早的 80% 訂單作為訓練集、較新的 20% 作為測試集，避免隨機切分高估未來訂單的預測效果。
+
+主要結果：
+
+- 可用已送達訂單：96,470 筆
+- 整體延遲率：8.11%
+- 最佳模型：Logistic Regression
+- ROC-AUC：0.7217
+- Precision：0.1080
+- Recall：0.2076
+- F1-score：0.1421
+
+延遲訂單屬於少數類別，因此不能只看 Accuracy。完整模型比較、重要特徵與高風險群組請參考：
+
+- `notebooks/02_olist_delivery_delay_prediction.ipynb`
+- `scripts/train_olist_delay_model.py`
+- `reports/stage4_delay_prediction_summary.md`
+- `reports/images/olist_delay_model_comparison.png`
+- `reports/images/olist_delay_best_model_evaluation.png`
+- `reports/images/olist_delay_precision_recall_curve.png`
+- `reports/images/olist_delay_feature_importance.png`
+
+重新訓練：
+
+```bash
+python scripts/train_olist_delay_model.py
+```
+
 ---
 
 ## 目前專案狀態
@@ -484,7 +510,7 @@ DB_CONFIG = {
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ⬜ 尚未開始
+Stage 4：訂單是否延遲預測               ✅ 已完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始
