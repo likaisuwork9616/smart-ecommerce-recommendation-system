@@ -106,7 +106,7 @@ smart-ecommerce-recommendation-system
 
 本專案已完成 Olist 核心資料表關係圖。
 
-![Olist Core ERD](reports/images/olist_core_erd.png)
+![Olist Core ERD](docs/olist_core_erd.png)
 
 核心資料關係：
 
