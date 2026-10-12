@@ -4,6 +4,8 @@ Smart E-Commerce Recommendation System
 
 本機安裝、啟動與驗證方式請見 [環境建置指南](docs/LOCAL_SETUP.md)。
 
+每次推送 GitHub 都會同步更新本 README，記錄功能、進度與實驗結果；協作規則見 [AGENTS.md](AGENTS.md)。Python 套件安裝於 `.venv/`；MySQL 是獨立服務，放在專案 `.runtime/`，不在 Python 虛擬環境裡。
+
 本專案以電商資料分析與推薦系統為主軸，使用 **Olist Brazilian E-Commerce Dataset** 與 **Retailrocket Recommender System Dataset**，逐步完成從資料匯入、SQL 分析、商業 EDA、機器學習預測、推薦系統，到後續 API 與前端展示的完整資料產品流程。
 
 目前專案已完成：
@@ -11,7 +13,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測初版
+- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較
 
 下一步將進入：
 
@@ -81,14 +83,19 @@ Retailrocket 資料集主要用於推薦系統與使用者行為分析。
 
 ## 目前專案資料夾結構
 
-目前專案以 Olist SQL 與商業 EDA 為主，因此保留核心分析資料夾。後續進入推薦系統與 API 階段時，再逐步新增 `src/`、`api/`、`frontend/`、`dashboard/` 等資料夾。
+目前已包含 Olist SQL、商業 EDA 與訂單延遲預測。後續進入推薦系統與 API 階段時，再逐步新增對應資料夾；下列 `.venv/`、`.runtime/`、原始資料與模型僅保留在本機。
 
 ```text
 smart-ecommerce-recommendation-system/
 │
 ├── README.md
+├── AGENTS.md
 ├── requirements.txt
+├── requirements-lock.txt
 ├── .gitignore
+├── .venv/                         # 本機 Python 套件
+├── .runtime/                      # 本機 MySQL、DBeaver 與執行狀態
+├── models/                        # 本機模型 artifact
 │
 ├── data/
 │   ├── README.md
@@ -99,7 +106,9 @@ smart-ecommerce-recommendation-system/
 │   └── sample/
 │
 ├── docs/
-│   └── olist_core_erd.png
+│   ├── olist_core_erd.png
+│   ├── LOCAL_SETUP.md
+│   └── STAGE4_DELAY_PREDICTION.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -108,20 +117,25 @@ smart-ecommerce-recommendation-system/
 │   └── 04_olist_delay_prediction.ipynb
 │
 ├── reports/
-│   └── images/
-│       ├── olist_monthly_order_count.png
-│       ├── olist_monthly_revenue.png
-│       ├── olist_top10_categories_revenue.png
-│       ├── olist_payment_type_distribution.png
-│       ├── olist_review_score_distribution.png
-│       ├── olist_delivery_days_distribution.png
-│       ├── olist_delayed_orders.png
-│       └── olist_customer_state_order_count.png
+│   ├── stage4/                    # 固定測試與模型回測指標
+│   └── images/                    # EDA 與 Stage 4 圖表
 │
 ├── scripts/
 │   ├── load_olist_to_mysql.py
 │   ├── db_config.py
-│   └── db_config_example.py
+│   ├── db_config_example.py
+│   ├── delay_features.py
+│   ├── train_delay_model.py
+│   ├── compare_delay_models.py
+│   ├── predict_delay.py
+│   ├── setup_local_mysql.py
+│   ├── start_mysql.ps1
+│   ├── stop_mysql.ps1
+│   ├── start_jupyter.ps1
+│   ├── start_dbeaver.ps1
+│   └── verify_environment.py
+│
+├── tests/                         # 特徵、時間切分與模型比較檢查
 │
 └── sql/
     ├── 01_create_database.sql
@@ -137,12 +151,15 @@ smart-ecommerce-recommendation-system/
 |---|---|
 | `data/raw/olist/` | Olist 原始 CSV 資料 |
 | `data/raw/retailrocket/` | Retailrocket 原始資料 |
-| `docs/` | 專案文件與 ERD 圖，目前放置 Olist 核心資料表 ERD |
+| `docs/` | 本機環境、Stage 4 方法說明與 Olist 核心 ERD |
 | `notebooks/` | Jupyter Notebook 分析流程 |
-| `reports/images/` | EDA 圖表輸出，供 README 與作品集展示使用 |
-| `scripts/` | 資料匯入與資料庫連線設定 |
+| `reports/stage4/` | 模型評估指標、時間回測比較與資料版本 |
+| `reports/images/` | EDA 與模型評估圖表 |
+| `scripts/` | 資料匯入、環境啟動、特徵建置、模型訓練與推論 |
+| `tests/` | 資料聚合、標記與避免時間洩漏的自動檢查 |
 | `sql/` | MySQL 建表、檢查與商業分析 SQL |
 | `requirements.txt` | Python 套件需求 |
+| `requirements-lock.txt` | 本機 Python 3.12／Windows 套件鎖定版本 |
 | `.gitignore` | Git 忽略規則 |
 
 ---
@@ -335,9 +352,9 @@ reports/images/
 
 商業意義：
 
-延遲訂單比例是後續 Stage 4「訂單是否延遲預測」的重要基礎，可以直接轉換成機器學習 Label。
+延遲訂單比例是 Stage 4「訂單是否延遲預測」的分析基礎。Stage 3 下列公式比較完整 timestamp；Stage 4 改為比較日曆日期，預估當日送達算準時，不能直接沿用兩者的延遲率。
 
-Label 設計：
+Stage 3 的延遲定義：
 
 ```text
 order_delivered_customer_date > order_estimated_delivery_date
@@ -438,11 +455,11 @@ DB_CONFIG = {
 - Jupyter Notebook
 - Scikit-learn
 - Joblib
+- XGBoost / LightGBM
 - Git / GitHub
 
 後續預計使用：
 
-- XGBoost / LightGBM
 - Streamlit
 - FastAPI
 - JavaScript
@@ -452,7 +469,9 @@ DB_CONFIG = {
 
 ## Stage 4：訂單是否延遲預測
 
-已完成每訂單一列的 21 個特徵、延遲標記、缺值處理、類別編碼、時間切分、模型比較、門檻選擇、保留資料評估與本機推論。
+已完成每訂單一列的 21 個特徵、延遲標記、缺值處理、類別編碼、時間切分、模型比較、門檻選擇、保留資料評估與本機推論。目前預設推論模型仍為 **Random Forest**；新增 6 種模型的開發時間回測，與原版固定測試分開呈現。
+
+### 原版固定測試結果
 
 - **預測時點**：訂單／付款核准時 `order_approved_at`。
 - **標記定義**：實際送達的日曆日期晚於預估日期才算延遲；預估當日送達算準時。Stage 3 使用完整 timestamp，因此兩階段延遲率口徑不同。
@@ -487,10 +506,44 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 ![Test confusion matrix](reports/images/stage4_test_confusion_matrix.png)
 ![Validation feature importance](reports/images/stage4_validation_permutation_importance.png)
 
+### 新增：6 種模型的時間回測比較
+
+使用同一套 21 欄特徵，比較 Logistic Regression、Random Forest、Extra Trees、HistGradientBoosting、XGBoost、LightGBM，另外保留全猜準時的 Dummy 基準。XGBoost 3.4.1 與 LightGBM 4.7.0 已安裝於 `.venv/`，版本記錄在 `requirements-lock.txt`。
+
+三組 evaluation 分別是 **2017-12、2018-02、2018-04**；validation 分別是 2017-10、2017-12、2018-02，中間各留一個月等待配送結果。每組只用更早且標籤已成熟的 train 訓練，門檻只依 validation F1 選擇。原版 test 訂單不參與比較，原模型與原 test 報告保留。
+
+以下是實際回測的 AP（Average Precision，衡量延遲訂單的排序能力，越高越好，並非 accuracy）。三個月份等權平均；標準差描述月份差異，不是信賴區間。
+
+| 模型 | 2017-12 AP | 2018-02 AP | 2018-04 AP | 平均 AP | AP 標準差 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **Logistic Regression** | **0.1085** | 0.2074 | **0.1420** | **0.1526** | 0.0411 |
+| Random Forest | 0.0834 | 0.2067 | 0.1202 | 0.1368 | 0.0517 |
+| Extra Trees | 0.0799 | 0.2060 | 0.1225 | 0.1361 | 0.0524 |
+| XGBoost | 0.0809 | 0.2111 | 0.1155 | 0.1358 | 0.0551 |
+| LightGBM | 0.0770 | **0.2150** | 0.1090 | 0.1337 | 0.0590 |
+| HistGradientBoosting | 0.0779 | 0.2000 | 0.0921 | 0.1233 | 0.0545 |
+| Dummy：全猜準時 | 0.0786 | 0.1362 | 0.0462 | 0.0870 | 0.0372 |
+
+| 模型 | 平均 ROC-AUC | 平均 F1 | 平均 Recall | 平均 Precision |
+| --- | ---: | ---: | ---: | ---: |
+| Logistic Regression | 0.6590 | 0.1763 | 54.49% | 13.50% |
+| Random Forest | 0.6349 | 0.1727 | 63.71% | 10.16% |
+| Extra Trees | 0.6339 | 0.1667 | 57.10% | 10.36% |
+| XGBoost | 0.6180 | 0.1338 | 64.13% | 8.21% |
+| LightGBM | 0.6110 | 0.1439 | 65.64% | 8.48% |
+| HistGradientBoosting | 0.5950 | 0.1389 | 60.94% | 8.69% |
+
+**本設定下，Logistic Regression 的平均 AP、F1 與 precision 最高；LightGBM 在 2018-02 單月的 AP 最高。** 新增的樹模型沒有穩定勝過 Random Forest。月份差異明顯，延遲比例依序為 7.86%、13.62%、4.62%；各模型仍有大量誤報，門檻也受成熟標籤篩選影響。
+
+這是開發回測排名，不能當成新模型在未知最終測試集上的成績，也不能與前表原版 test 直接比較。評估使用事後已送達結果，部分標籤在原 test 起點後才可觀察。目前預設推論仍用原版 Random Forest；後續可優先驗證 Logistic Regression，並改善特徵與門檻成本。完整切分、排除筆數與限制見 [Stage 4 方法文件](docs/STAGE4_DELAY_PREDICTION.md)。
+
+![Three-window development model comparison](reports/images/stage4_backtest_model_comparison.png)
+
 在專案根目錄執行：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\train_delay_model.py
+.\.venv\Scripts\python.exe scripts\compare_delay_models.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
@@ -500,10 +553,13 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 - [Stage 4 教學 Notebook](notebooks/04_olist_delay_prediction.ipynb)
 - [特徵、標記、限制與推論說明](docs/STAGE4_DELAY_PREDICTION.md)
 - [完整實驗指標及資料版本](reports/stage4/metrics.json)
+- [多模型開發回測完整結果](reports/stage4/model_comparison.json)
+
+本次驗證：21／21 次模型訓練成功、19 項自動測試通過，更新後 Stage 4 Notebook 的 11 個程式區塊完整執行通過。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。開始前需先定義預測時點與低評分 label，並決定是否優先改善 Stage 4 的時間漂移、誤報與門檻成本。
+Stage 5 原定進行評論好壞預測。可以先討論是否繼續 Stage 4：優先驗證 Logistic Regression、加入有時間限制的賣家配送歷史，並依誤報與漏報成本訂門檻；或進入 Stage 5，先定義評論預測時點與低評分 label。
 
 ---
 
@@ -513,7 +569,7 @@ Stage 5 原定進行評論好壞預測。開始前需先定義預測時點與低
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 初版完成
+Stage 4：訂單是否延遲預測               ✅ 初版與多模型回測完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始

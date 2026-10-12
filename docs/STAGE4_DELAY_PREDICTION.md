@@ -2,9 +2,9 @@
 
 這一階段把 Olist 訂單資料轉成二元分類問題：假設在訂單核准時點 `order_approved_at` 做預測，判斷該訂單是否會晚於承諾的送達日期。每筆樣本是一張訂單，不是一個商品明細或一筆付款。
 
-目前提供離線訓練、評估、模型儲存與命令列推論。教學入口是 `notebooks/04_olist_delay_prediction.ipynb`；目前沒有 FastAPI、前端或即時通知服務。正式訓練結果、選定模型與指標見 `reports/stage4/metrics.json` 及專案 README。
+目前提供離線訓練、評估、模型儲存、命令列推論與多模型時間回測。教學入口是 `notebooks/04_olist_delay_prediction.ipynb`；目前沒有 FastAPI、前端或即時通知服務。原版固定切分結果見 `reports/stage4/metrics.json`，新增開發回測見 `reports/stage4/model_comparison.json`。
 
-## 本次實驗結果
+## 原版固定切分實驗
 
 本機正式訓練使用 seed 42、scikit-learn 1.9.1。原始 99,441 張訂單依序排除 2,963 張非已送達訂單、22 張必要時間缺失、61 張送達早於核准、1 張承諾日期早於核准當日的訂單，保留 **96,394 張、6,532 個延遲正例（6.78%）**。
 
@@ -47,6 +47,68 @@ Validation 抽樣的重要性前五項是顧客州別、運費、跨州比例、
 | `reports/images/stage4_*.png` | Validation 模型比較、test PR curve、ROC curve、confusion matrix、validation permutation importance |
 
 重新執行會更新上述產物。要保留不同實驗，請同時指定不同的 `--output-dir` 與 `--model-path`。
+
+## 多模型時間回測
+
+原版 test 已經讀取過，新增模型比較不再用同一個 test 反覆挑冠軍。`compare_delay_models.py` 在原 test 訂單核准起點 2018-05-26 之前的開發期間，對所有模型使用相同的三組時間回測：
+
+| Fold | Train 核准日期 | Validation 核准日期 | 等待驗證標籤 | Evaluation 核准日期 |
+| --- | --- | --- | --- | --- |
+| 1 | 2017-10-01 以前 | 2017-10 | 2017-11 | 2017-12 |
+| 2 | 2017-12-01 以前 | 2017-12 | 2018-01 | 2018-02 |
+| 3 | 2018-02-01 以前 | 2018-02 | 2018-03 | 2018-04 |
+
+Train 僅保留在 validation 起點前已送達的結果；validation 僅保留在 evaluation 起點前已送達的結果。等待一個月可減少驗證資料中慢件被排除的問題，但不能完全消除偏差。等待期間的訂單不加入該 fold 訓練。模型只在 train fit，不會合併 validation 重訓。
+
+| Fold | Train 保留筆數／延遲數 | Validation 原筆數／延遲數 | Validation 保留筆數／延遲數 | Evaluation 筆數／延遲數 |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 24,804／761 | 4,441／184 | 4,408／155 | 5,675／446 |
+| 2 | 33,968／1,134 | 5,675／446 | 5,605／381 | 6,534／890 |
+| 3 | 47,770／2,387 | 6,534／890 | 6,239／603 | 6,624／306 |
+
+第三組 validation 即使多等待一個月，仍排除 287／890（32.25%）的原延遲正例；門檻調整存在明顯選擇偏差，不能把這些已成熟訂單當成完整當月樣本。
+
+Evaluation 保留該月全部符合原版資料條件的已送達訂單，以事後完整標籤計分。部分配送結果到原 test 起點以後才可觀察，因此只能說「沒有評分原 test 訂單」，不能說所有結果在 2018-05-26 前已知。這仍是已送達訂單的回溯評估，沒有包含最後取消或未送達者。
+
+| 模型 | 比較目的 |
+| --- | --- |
+| Dummy most frequent | 全猜準時的參考線，固定門檻 0.5，不參與選模 |
+| Logistic Regression | 線性基準，數值欄標準化，使用 balanced class weight |
+| Random Forest | 原版森林設定，作為新增模型的共同對照 |
+| Extra Trees | 比較更隨機的樹切分能否改善泛化 |
+| HistGradientBoosting | scikit-learn 的直方圖梯度提升樹 |
+| XGBoost | 比較另一種有正則化的梯度提升實作 |
+| LightGBM | 比較葉節點生長的梯度提升實作 |
+
+六種可學習模型使用同一套 21 欄特徵、training-only 補值與 one-hot encoding。HistGradientBoosting 使用 dense 輸入；Logistic Regression 另外標準化。各模型固定參數，不在回測結果出來後搜尋超參數；XGBoost／LightGBM 的 `scale_pos_weight` 只由該 fold 的 train 正負例比例計算。
+
+HistGradientBoosting 設定 `early_stopping=False`，不使用預設的內部驗證切分；參數可參考 [scikit-learn 官方文件](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html)。類別權重影響模型分數的解讀，不能把輸出的 `predict_proba` 直接當成已校準的延遲機率，參見 [XGBoost 不平衡資料說明](https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html) 與 [LightGBM 權重參數說明](https://lightgbm.readthedocs.io/en/stable/Parameters.html)。
+
+每個 fold 的分類門檻只用該模型的 validation F1 選擇，再固定門檻評估 evaluation。報告按三個 evaluation 月份的 AP 等權平均排序，並列 AP 標準差、每月 AP、正例率、ROC-AUC、F1、precision、recall、confusion matrix、警告與執行時間。三個月的標準差只描述月份差異，不是信賴區間；各 fold 訓練資料重疊，也不能視為獨立實驗。
+
+```powershell
+.\.venv\Scripts\python.exe scripts\compare_delay_models.py --n-jobs 4
+```
+
+預設產出 `reports/stage4/model_comparison.json` 與 `reports/images/stage4_backtest_model_comparison.png`；自訂 `--output-dir` 時圖表放在該目錄的 `images/`。流程不改原版 `metrics.json`、模型 artifact 或 test 逐筆預測。
+
+這份排名用於後續開發選擇，不是新模型在未知最終測試集上的成績。原版推論目前仍使用 Random Forest；若要替換模型，需先固定候選設定與門檻策略，再用新資料確認泛化，並評估誤報和漏報成本。
+
+### 本次回測結果
+
+Seed 42、每模型最多 4 執行緒；21／21 次 fit 成功，沒有捕捉到模型警告。各 evaluation 月份延遲率分別為 7.86%、13.62%、4.62%。
+
+| 模型 | 平均 AP | AP 標準差 | 平均 ROC-AUC | 平均 F1 | 平均 Recall | 平均 Precision |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Logistic Regression | 0.1526 | 0.0411 | 0.6590 | 0.1763 | 54.49% | 13.50% |
+| Random Forest | 0.1368 | 0.0517 | 0.6349 | 0.1727 | 63.71% | 10.16% |
+| Extra Trees | 0.1361 | 0.0524 | 0.6339 | 0.1667 | 57.10% | 10.36% |
+| XGBoost | 0.1358 | 0.0551 | 0.6180 | 0.1338 | 64.13% | 8.21% |
+| LightGBM | 0.1337 | 0.0590 | 0.6110 | 0.1439 | 65.64% | 8.48% |
+| HistGradientBoosting | 0.1233 | 0.0545 | 0.5950 | 0.1389 | 60.94% | 8.69% |
+| Dummy | 0.0870 | 0.0372 | 0.5000 | 0.0000 | 0.00% | 0.00% |
+
+Logistic Regression 的平均 AP、F1、precision 最好，且在 2017-12、2018-04 的 AP 最高；LightGBM 在 2018-02 的 AP 最高（0.2150）。新增的樹模型沒有穩定勝過原版 Random Forest。這只是固定參數下的比較，尚未證明模型差距具有統計顯著性，也未解決低 precision 與月份漂移問題。
 
 ## 推論
 
@@ -161,7 +223,7 @@ Permutation importance 在最多 5,000 筆分層抽樣的 validation 資料上�
 - 這是最終已送達訂單的回溯 cohort。訓練篩選依賴最後狀態，對取消、未送達、仍在處理中的訂單沒有完成泛化驗證；CLI 允許有合理 approval 時間的訂單推論，不代表這些族群已被驗證。
 - CSV 是資料集匯出快照。付款明細與商品 catalog 沒有逐次更新 timestamp，本版假設相關金額、付款方式、商品屬性與地區資料在 approval 時已知且可取得。缺乏歷史快照，無法從資料本身證明這項假設。
 - 時間欄位沒有時區標記，本版直接使用原始資料中的當地日期與時間，不轉換成台灣時間。日曆 label、星期與月份都依同一原始時間基準計算。
-- 配送表現與正例比例會隨月份改變，單次歷史切分不能保證未來期間仍有相同表現；目前沒有線上監測、定期重訓或多窗口 backtest。
+- 配送表現與正例比例會隨月份改變，單次歷史切分與三窗口開發回測都不能保證未來期間仍有相同表現；目前沒有線上監測或定期重訓。
 - Class weight 與 F1 threshold 是開發設定，尚未對接客服人力、誤報成本或漏報成本；模型分數也尚未校準。
 - 商品重量為 0、分期數為 0、付款金額為 0 等原始異常值目前仍保留，沒有宣稱已完成完整商業資料清理。缺值補值解決的是模型輸入格式，不會自動修復來源資料的商業意義。
 - 模型使用訂單內聚合與靜態屬性，尚未加入帶有嚴格時點限制的賣家歷史績效、節日、天氣或路線資料。特徵重要度不提供因果結論。

@@ -1,6 +1,6 @@
 # 本機環境與操作方式
 
-此環境建置於 `E:\kai_work\shop`，供目前的 Olist 資料匯入、SQL 與 EDA 使用。
+此環境建置於 `E:\kai_work\shop`，供 Olist 資料匯入、SQL、EDA 與 Stage 4 模型實驗使用。
 
 ## 已安裝的環境
 
@@ -13,6 +13,7 @@
 | SQLAlchemy／PyMySQL | 2.1.4／1.2.3 |
 | cryptography | 50.0.2 |
 | scikit-learn／joblib | 1.9.1／1.6.0，Stage 4 訓練與模型保存 |
+| XGBoost／LightGBM | 3.4.1／4.7.0，Stage 4 多模型時間回測 |
 | JupyterLab／Notebook | 4.6.4／7.6.3 |
 | Jupyter kernel | `.venv`，顯示名稱 `Shop (Python 3.12)` |
 | MySQL Community | 8.4.11，`.runtime/tools/mysql-8.4.11-winx64/` |
@@ -22,7 +23,11 @@
 
 MySQL ZIP 已比對官方 MD5；DBeaver ZIP 已比對官方 SHA-256。下載檔保存在 `.runtime/downloads/`。這些工具沒有註冊 Windows 開機服務。
 
+Python 套件（包含 XGBoost、LightGBM）都安裝在 `.venv/`。MySQL 是獨立程式與服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。重新建立 Python 環境可使用 `requirements-lock.txt`；該鎖定清單對應目前的 Windows x64／Python 3.12。
+
 2026-10-12 已實測通過：套件相依性檢查、9 張資料表筆數檢查、三本 Notebook 完整執行，並重新產出 8 張 EDA 圖表。MySQL 停止／重啟與 JupyterLab HTTP API、kernel、Notebook 根目錄也已通過檢查。驗證摘要保存在 `.runtime/verification/summary.json` 與 `jupyter-server.json`。
+
+Stage 4 更新亦已驗證：21 次多模型時間回測訓練成功、19 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 11 個程式區塊完整執行。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
 
 ## 開始分析
 
