@@ -4,6 +4,8 @@
 
 目前提供離線訓練、評估、模型儲存、命令列推論與多模型時間回測。教學入口是 `notebooks/04_olist_delay_prediction.ipynb`；目前沒有 FastAPI、前端或即時通知服務。原版固定切分結果見 `reports/stage4/metrics.json`，新增開發回測見 `reports/stage4/model_comparison.json`。
 
+減少誤報的新版實驗採 validation 召回至少 30%、提醒量最少的策略，並加入當下已知的配送歷史；使用獨立平衡模式 artifact，詳見 [誤報改善方法與操作](STAGE4_ALERT_OPTIMIZATION.md)。本文件以下保留原版實驗定義。
+
 ## 原版固定切分實驗
 
 本機正式訓練使用 seed 42、scikit-learn 1.9.1。原始 99,441 張訂單依序排除 2,963 張非已送達訂單、22 張必要時間缺失、61 張送達早於核准、1 張承諾日期早於核准當日的訂單，保留 **96,394 張、6,532 個延遲正例（6.78%）**。

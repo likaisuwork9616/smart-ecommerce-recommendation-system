@@ -27,7 +27,7 @@ Python 套件（包含 XGBoost、LightGBM）都安裝在 `.venv/`。MySQL 是獨
 
 2026-10-12 已實測通過：套件相依性檢查、9 張資料表筆數檢查、三本 Notebook 完整執行，並重新產出 8 張 EDA 圖表。MySQL 停止／重啟與 JupyterLab HTTP API、kernel、Notebook 根目錄也已通過檢查。驗證摘要保存在 `.runtime/verification/summary.json` 與 `jupyter-server.json`。
 
-Stage 4 更新亦已驗證：21 次多模型時間回測訓練成功、19 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 11 個程式區塊完整執行。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
+Stage 4 更新亦已驗證：前次 21 次多模型時間回測、本次 16 次誤報改善候選訓練成功；43 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 12 個程式區塊完整執行。平衡模型重載後的 19,380 筆批次分類與報告吻合；RF 新候選的推論固定單執行緒，避免門檻邊界受平行加總影響。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
 
 ## 開始分析
 

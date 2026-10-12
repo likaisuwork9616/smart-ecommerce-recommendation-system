@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+import sys
 
 import joblib
 import numpy as np
@@ -13,6 +14,19 @@ except ImportError:
     from delay_features import build_order_features, load_olist_tables
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+
+def build_inference_features(artifact: dict, tables: dict) -> pd.DataFrame:
+    """Use the exact static/history contract saved with the chosen artifact."""
+    feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set == 'delivery_history_90d':
+        from scripts.delay_history_features import build_history_order_features
+        return build_history_order_features(tables)
+    if feature_set == 'approval_static':
+        return build_order_features(tables)
+    raise ValueError(f'Unsupported feature set: {feature_set}')
 
 
 def predict_features(artifact: dict, features: pd.DataFrame) -> pd.DataFrame:
@@ -45,20 +59,24 @@ def predict_features(artifact: dict, features: pd.DataFrame) -> pd.DataFrame:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--model', type=Path, default=ROOT / 'models/olist_delay_model.joblib')
+    parser.add_argument('--profile', choices=['original', 'balanced'], default='original',
+                        help='original: frozen first model; balanced: validation recall target with fewer alerts.')
+    parser.add_argument('--model', type=Path, help='Custom model artifact; overrides --profile.')
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument('--order-id', help='An approved order ID from the local raw CSV files.')
-    source.add_argument('--features-csv', type=Path, help='CSV with all 21 Stage 4 features.')
+    source.add_argument('--features-csv', type=Path, help='CSV containing every feature required by the selected model.')
     parser.add_argument('--data-dir', type=Path, default=ROOT / 'data/raw/olist')
     parser.add_argument('--output', type=Path, help='Optional output CSV path.')
     args = parser.parse_args()
-    artifact = joblib.load(args.model)
+    model_path = args.model or ROOT / 'models' / (
+        'olist_delay_balanced.joblib' if args.profile == 'balanced' else 'olist_delay_model.joblib')
+    artifact = joblib.load(model_path)
     if args.features_csv:
         features = pd.read_csv(args.features_csv)
     else:
         tables = load_olist_tables(args.data_dir)
-        # Only feature-time fields are needed; actual delivery is never consulted.
-        features = build_order_features(tables)
+        # History consults previously completed orders only, excluding the current outcome.
+        features = build_inference_features(artifact, tables)
         features = features.loc[features['order_id'].eq(args.order_id)].copy()
         if features.empty:
             raise ValueError(f'Order not found: {args.order_id}')
@@ -74,6 +92,7 @@ def main():
         args.output.parent.mkdir(parents=True, exist_ok=True)
         predictions.to_csv(args.output, index=False)
     print(json.dumps({
+        'profile': 'custom' if args.model else args.profile,
         'selected_model': artifact['selected_model'],
         'rows': len(predictions),
         'preview': predictions.head(10).to_dict(orient='records'),

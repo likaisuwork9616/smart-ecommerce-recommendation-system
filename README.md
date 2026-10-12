@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較
+- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較與誤報改善
 
 下一步將進入：
 
@@ -108,7 +108,8 @@ smart-ecommerce-recommendation-system/
 ├── docs/
 │   ├── olist_core_erd.png
 │   ├── LOCAL_SETUP.md
-│   └── STAGE4_DELAY_PREDICTION.md
+│   ├── STAGE4_DELAY_PREDICTION.md
+│   └── STAGE4_ALERT_OPTIMIZATION.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -125,8 +126,11 @@ smart-ecommerce-recommendation-system/
 │   ├── db_config.py
 │   ├── db_config_example.py
 │   ├── delay_features.py
+│   ├── delay_history_features.py
+│   ├── delay_alert_policy.py
 │   ├── train_delay_model.py
 │   ├── compare_delay_models.py
+│   ├── improve_delay_alerts.py
 │   ├── predict_delay.py
 │   ├── setup_local_mysql.py
 │   ├── start_mysql.ps1
@@ -539,27 +543,53 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 
 ![Three-window development model comparison](reports/images/stage4_backtest_model_comparison.png)
 
+### 誤報改善：平衡模式
+
+依使用者指定，改為 **validation 至少抓到 30% 延遲，再選提醒量最少的模型與門檻**。實測 RF／Logistic 的原特徵與近 90 天配送歷史特徵，共 4 候選；歷史結果嚴格限制在該訂單核准前已送達者。
+
+最終仍選 **原特徵 Random Forest**，門檻由 0.450103 改為 **0.453508**，validation 召回為 **30.05%**。新增歷史特徵沒有改善這次的誤報，因此沒有採用。
+
+已檢視保留資料的回溯診斷（不是新的獨立測試）：
+
+| 指標 | 原版 | 平衡模式 |
+| --- | ---: | ---: |
+| 誤報 FP | 2,571 | **2,401** |
+| 抓到延遲 TP | 155 | 152 |
+| 漏掉延遲 FN | 517 | 520 |
+| Precision | 5.69% | 5.95% |
+| Recall | 23.07% | 22.62% |
+
+誤報少 **170 張（6.61%）**，代價是少抓 **3 張**延遲訂單。這是小幅改善，仍有大量誤報。原特徵 RF 在三組開發回測合計的誤報由 8,825 降至 7,712（減少 12.61%），抓到延遲由 1,183 降至 1,099。
+
+逐月自動選模的實驗方案有一個月份召回僅 1.12%，平衡 RF 也有月份低於 30%；因此**保留原版預設**，新門檻以 `--profile balanced` 明確選用，不能保證未來召回率。完整候選、月份差異與限制見 [誤報改善說明](docs/STAGE4_ALERT_OPTIMIZATION.md)。
+
+![False alerts and recall trade-off](reports/images/stage4_alert_tradeoff.png)
+
 在專案根目錄執行：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\train_delay_model.py
 .\.venv\Scripts\python.exe scripts\compare_delay_models.py --n-jobs 4
+.\.venv\Scripts\python.exe scripts\improve_delay_alerts.py --min-recall 0.30 --n-jobs 4
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
+.\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-本階段直接讀 CSV，不需要 MySQL。模型檔存於 `models/olist_delay_model.joblib`，資料與逐筆預測存於 `data/processed/`，均由 Git 忽略；GitHub 保留程式、Notebook、指標與圖表，模型可依指令重建。
+本階段直接讀 CSV，不需要 MySQL。原模型存於 `models/olist_delay_model.joblib`，平衡模型獨立存於 `models/olist_delay_balanced.joblib`，資料與逐筆預測存於 `data/processed/`，均由 Git 忽略；GitHub 保留程式、Notebook、指標與圖表，模型可依指令重建。
 
 - [Stage 4 教學 Notebook](notebooks/04_olist_delay_prediction.ipynb)
 - [特徵、標記、限制與推論說明](docs/STAGE4_DELAY_PREDICTION.md)
 - [完整實驗指標及資料版本](reports/stage4/metrics.json)
 - [多模型開發回測完整結果](reports/stage4/model_comparison.json)
+- [誤報改善方法與平衡模式操作](docs/STAGE4_ALERT_OPTIMIZATION.md)
+- [誤報改善完整結果](reports/stage4/alert_optimization.json)
 
-本次驗證：21／21 次模型訓練成功、19 項自動測試通過，更新後 Stage 4 Notebook 的 11 個程式區塊完整執行通過。
+前次多模型比較完成 21 次訓練；本次誤報改善完成 16 次候選訓練、43 項自動測試與 19,380 筆模型重載驗證。更新後 Notebook 的 12 個程式區塊完整執行通過。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。可以先討論是否繼續 Stage 4：優先驗證 Logistic Regression、加入有時間限制的賣家配送歷史，並依誤報與漏報成本訂門檻；或進入 Stage 5，先定義評論預測時點與低評分 label。
+Stage 5 原定進行評論好壞預測。Stage 4 已完成歷史特徵實驗與平衡模式；接下來若繼續改善，應優先處理月份間分布漂移與慢件尚未完成造成的標籤偏差，再用新期間資料驗證。也可進入 Stage 5，先定義評論預測時點與低評分 label。
 
 ---
 
@@ -569,7 +599,7 @@ Stage 5 原定進行評論好壞預測。可以先討論是否繼續 Stage 4：�
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 初版與多模型回測完成
+Stage 4：訂單是否延遲預測               ✅ 多模型回測與平衡模式完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始

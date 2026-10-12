@@ -1,0 +1,3493 @@
+{
+  "format_version": 1,
+  "status": "ok",
+  "seed": 42,
+  "min_validation_recall": 0.3,
+  "versions": {
+    "python": "3.12.10",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "source_files": [
+    {
+      "filename": "olist_customers_dataset.csv",
+      "bytes": 9033957,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "filename": "olist_order_items_dataset.csv",
+      "bytes": 15438671,
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "filename": "olist_order_payments_dataset.csv",
+      "bytes": 5777138,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "filename": "olist_orders_dataset.csv",
+      "bytes": 17654914,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "filename": "olist_products_dataset.csv",
+      "bytes": 2379446,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "filename": "olist_sellers_dataset.csv",
+      "bytes": 174703,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    }
+  ],
+  "history_numeric_features": [
+    "global_completed_90d",
+    "global_delay_rate_90d",
+    "global_delivery_days_90d",
+    "seller_completed_90d",
+    "seller_delay_rate_90d",
+    "seller_delivery_days_90d",
+    "route_completed_90d",
+    "route_delay_rate_90d",
+    "route_delivery_days_90d",
+    "route_promise_margin_days"
+  ],
+  "policies": {
+    "purpose": "development alert optimization; no new independent final test",
+    "selection": "minimum validation alerts at recall target; tie: fewer FP, higher AP, candidate order",
+    "threshold": "highest score threshold achieving min recall on validation only; ties stay together",
+    "history": "[approval - 90 days, approval), using completed eligible deliveries only",
+    "history_update": "known delivery outcomes update features as time passes, including within validation/evaluation",
+    "history_prior": "global rate fixed prior .05 with strength20; seller/route rates shrink to current global rate",
+    "preprocessing": "fit only on each maturity-purged train; numeric history columns are included in pipeline",
+    "original_holdout": "already inspected; final-period scores are retrospective diagnostics only, never model/threshold selection",
+    "promotion": "save separate balanced artifact; original artifact and original reports remain intact",
+    "recall_guarantee": "validation target is not a guarantee for later evaluation or live orders"
+  },
+  "folds": [
+    {
+      "name": "2017-12",
+      "split": {
+        "validation_start": "2017-10-01T00:00:00",
+        "validation_end": "2017-11-01T00:00:00",
+        "evaluation_start": "2017-12-01T00:00:00",
+        "evaluation_end": "2018-01-01T00:00:00",
+        "validation_wait": {
+          "start": "2017-11-01T00:00:00",
+          "end": "2017-12-01T00:00:00",
+          "days": 30,
+          "prediction_rows_not_assigned": 7149
+        },
+        "partitions": {
+          "train": {
+            "rows_before_purge": 26347,
+            "positive_rows_before_purge": 951,
+            "positive_rate_before_purge": 0.03609519110335142,
+            "purged_rows": 1543,
+            "purged_positive_rows": 190,
+            "purged_positive_rate": 0.12313674659753726,
+            "rows": 24804,
+            "positive_rows": 761,
+            "positive_rate": 0.03068053539751653,
+            "positive_retention_rate": 0.8002103049421662,
+            "prediction_time_min": "2016-09-15T12:16:38",
+            "prediction_time_max": "2017-09-29T15:04:29",
+            "label_available_time_max": "2017-09-30T20:09:53",
+            "label_maturity_cutoff": "2017-10-01T00:00:00"
+          },
+          "validation": {
+            "rows_before_purge": 4441,
+            "positive_rows_before_purge": 184,
+            "positive_rate_before_purge": 0.041432109885161,
+            "purged_rows": 33,
+            "purged_positive_rows": 29,
+            "purged_positive_rate": 0.8787878787878788,
+            "rows": 4408,
+            "positive_rows": 155,
+            "positive_rate": 0.03516333938294011,
+            "positive_retention_rate": 0.842391304347826,
+            "prediction_time_min": "2017-10-01T00:28:20",
+            "prediction_time_max": "2017-10-31T23:15:23",
+            "label_available_time_max": "2017-11-30T21:04:02",
+            "label_maturity_cutoff": "2017-12-01T00:00:00"
+          },
+          "evaluation": {
+            "rows_before_purge": 5675,
+            "positive_rows_before_purge": 446,
+            "positive_rate_before_purge": 0.07859030837004405,
+            "purged_rows": 0,
+            "purged_positive_rows": 0,
+            "purged_positive_rate": null,
+            "rows": 5675,
+            "positive_rows": 446,
+            "positive_rate": 0.07859030837004405,
+            "positive_retention_rate": 1.0,
+            "prediction_time_min": "2017-12-01T09:30:48",
+            "prediction_time_max": "2017-12-31T23:32:40",
+            "label_available_time_max": "2018-05-21T18:22:18",
+            "label_maturity_cutoff": null,
+            "labels_not_yet_available_at_evaluation_end": 2150,
+            "late_known_at_original_holdout_count": 0
+          }
+        }
+      },
+      "experiment": {
+        "selected_model": "logistic_history",
+        "models": {
+          "random_forest_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.22470832576143032,
+              "balanced": 0.23670174078980696
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 4407,
+                "selected_threshold": 0.22470832576143032
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.23670174078980696,
+                "min_recall": 0.3,
+                "achieved_recall": 0.3032258064516129,
+                "predicted_positive_rows": 807,
+                "true_positive_rows": 47,
+                "false_positive_rows": 760,
+                "alert_rate": 0.18307622504537205,
+                "precision": 0.058240396530359353,
+                "candidate_thresholds": 4407,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.22470832576143032,
+                "average_precision": 0.0752718125816729,
+                "roc_auc": 0.6252360762421971,
+                "f1": 0.10832659660468877,
+                "recall": 0.432258064516129,
+                "precision": 0.06192236598890943,
+                "balanced_accuracy": 0.5968014987523038,
+                "accuracy": 0.7497731397459165,
+                "predicted_positive_rows": 1082,
+                "confusion_matrix": [
+                  [
+                    3238,
+                    1015
+                  ],
+                  [
+                    88,
+                    67
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.23670174078980696,
+                "average_precision": 0.0752718125816729,
+                "roc_auc": 0.6252360762421971,
+                "f1": 0.09771309771309772,
+                "recall": 0.3032258064516129,
+                "precision": 0.058240396530359353,
+                "balanced_accuracy": 0.5622642081870103,
+                "accuracy": 0.8030852994555354,
+                "predicted_positive_rows": 807,
+                "confusion_matrix": [
+                  [
+                    3493,
+                    760
+                  ],
+                  [
+                    108,
+                    47
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.22470832576143032,
+                "average_precision": 0.08337063222039334,
+                "roc_auc": 0.5470028737628283,
+                "f1": 0.11962224554039874,
+                "recall": 0.2556053811659193,
+                "precision": 0.07808219178082192,
+                "balanced_accuracy": 0.4990973932029634,
+                "accuracy": 0.7043171806167401,
+                "predicted_positive_rows": 1460,
+                "confusion_matrix": [
+                  [
+                    3883,
+                    1346
+                  ],
+                  [
+                    332,
+                    114
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.23670174078980696,
+                "average_precision": 0.08337063222039334,
+                "roc_auc": 0.5470028737628283,
+                "f1": 0.10469798657718121,
+                "recall": 0.17488789237668162,
+                "precision": 0.07471264367816093,
+                "balanced_accuracy": 0.4950744682766942,
+                "accuracy": 0.7649339207048458,
+                "predicted_positive_rows": 1044,
+                "confusion_matrix": [
+                  [
+                    4263,
+                    966
+                  ],
+                  [
+                    368,
+                    78
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.3699096194109087,
+              "balanced": 0.3999489277276952
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 4408,
+                "selected_threshold": 0.3699096194109087
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.3999489277276952,
+                "min_recall": 0.3,
+                "achieved_recall": 0.3032258064516129,
+                "predicted_positive_rows": 622,
+                "true_positive_rows": 47,
+                "false_positive_rows": 575,
+                "alert_rate": 0.1411070780399274,
+                "precision": 0.07556270096463022,
+                "candidate_thresholds": 4408,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.3699096194109087,
+                "average_precision": 0.06987990787735947,
+                "roc_auc": 0.6798040093141084,
+                "f1": 0.12642487046632125,
+                "recall": 0.3935483870967742,
+                "precision": 0.07530864197530865,
+                "balanced_accuracy": 0.6087187033062051,
+                "accuracy": 0.8087568058076225,
+                "predicted_positive_rows": 810,
+                "confusion_matrix": [
+                  [
+                    3504,
+                    749
+                  ],
+                  [
+                    94,
+                    61
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.3999489277276952,
+                "average_precision": 0.06987990787735947,
+                "roc_auc": 0.6798040093141084,
+                "f1": 0.12097812097812098,
+                "recall": 0.3032258064516129,
+                "precision": 0.07556270096463022,
+                "balanced_accuracy": 0.584013561584612,
+                "accuracy": 0.84505444646098,
+                "predicted_positive_rows": 622,
+                "confusion_matrix": [
+                  [
+                    3678,
+                    575
+                  ],
+                  [
+                    108,
+                    47
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.3699096194109087,
+                "average_precision": 0.10852321133554585,
+                "roc_auc": 0.5945048612129492,
+                "f1": 0.07804878048780488,
+                "recall": 0.053811659192825115,
+                "precision": 0.14201183431952663,
+                "balanced_accuracy": 0.5130408458519108,
+                "accuracy": 0.9000881057268723,
+                "predicted_positive_rows": 169,
+                "confusion_matrix": [
+                  [
+                    5084,
+                    145
+                  ],
+                  [
+                    422,
+                    24
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.3999489277276952,
+                "average_precision": 0.10852321133554585,
+                "roc_auc": 0.5945048612129492,
+                "f1": 0.06666666666666667,
+                "recall": 0.042600896860986545,
+                "precision": 0.1532258064516129,
+                "balanced_accuracy": 0.511260287787923,
+                "accuracy": 0.9062555066079295,
+                "predicted_positive_rows": 124,
+                "confusion_matrix": [
+                  [
+                    5124,
+                    105
+                  ],
+                  [
+                    427,
+                    19
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "random_forest_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.14052325661761703,
+              "balanced": 0.12373562457587989
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 4407,
+                "selected_threshold": 0.14052325661761703
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.12373562457587989,
+                "min_recall": 0.3,
+                "achieved_recall": 0.3032258064516129,
+                "predicted_positive_rows": 673,
+                "true_positive_rows": 47,
+                "false_positive_rows": 626,
+                "alert_rate": 0.15267695099818512,
+                "precision": 0.06983655274888559,
+                "candidate_thresholds": 4407,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.14052325661761703,
+                "average_precision": 0.06742907390672676,
+                "roc_auc": 0.6369014661377548,
+                "f1": 0.12392426850258176,
+                "recall": 0.23225806451612904,
+                "precision": 0.08450704225352113,
+                "balanced_accuracy": 0.5702790440144717,
+                "accuracy": 0.8845281306715064,
+                "predicted_positive_rows": 426,
+                "confusion_matrix": [
+                  [
+                    3863,
+                    390
+                  ],
+                  [
+                    119,
+                    36
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.12373562457587989,
+                "average_precision": 0.06742907390672676,
+                "roc_auc": 0.6369014661377548,
+                "f1": 0.11352657004830918,
+                "recall": 0.3032258064516129,
+                "precision": 0.06983655274888559,
+                "balanced_accuracy": 0.5780177938912191,
+                "accuracy": 0.8334845735027223,
+                "predicted_positive_rows": 673,
+                "confusion_matrix": [
+                  [
+                    3627,
+                    626
+                  ],
+                  [
+                    108,
+                    47
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.14052325661761703,
+                "average_precision": 0.10573014785101828,
+                "roc_auc": 0.5980998518953027,
+                "f1": 0.11461988304093568,
+                "recall": 0.10986547085201794,
+                "precision": 0.1198044009779951,
+                "balanced_accuracy": 0.5205093275086252,
+                "accuracy": 0.8666079295154185,
+                "predicted_positive_rows": 409,
+                "confusion_matrix": [
+                  [
+                    4869,
+                    360
+                  ],
+                  [
+                    397,
+                    49
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.12373562457587989,
+                "average_precision": 0.10573014785101828,
+                "roc_auc": 0.5980998518953027,
+                "f1": 0.1414141414141414,
+                "recall": 0.2040358744394619,
+                "precision": 0.10820451843043995,
+                "balanced_accuracy": 0.5303025040585146,
+                "accuracy": 0.8052863436123348,
+                "predicted_positive_rows": 841,
+                "confusion_matrix": [
+                  [
+                    4479,
+                    750
+                  ],
+                  [
+                    355,
+                    91
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.26277245371050734,
+              "balanced": 0.29428336805098226
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 4408,
+                "selected_threshold": 0.26277245371050734
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.29428336805098226,
+                "min_recall": 0.3,
+                "achieved_recall": 0.3032258064516129,
+                "predicted_positive_rows": 578,
+                "true_positive_rows": 47,
+                "false_positive_rows": 531,
+                "alert_rate": 0.13112522686025407,
+                "precision": 0.08131487889273356,
+                "candidate_thresholds": 4408,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.26277245371050734,
+                "average_precision": 0.06983522073418058,
+                "roc_auc": 0.6877801627693545,
+                "f1": 0.14149947201689547,
+                "recall": 0.432258064516129,
+                "precision": 0.0845959595959596,
+                "balanced_accuracy": 0.6308950797539498,
+                "accuracy": 0.815562613430127,
+                "predicted_positive_rows": 792,
+                "confusion_matrix": [
+                  [
+                    3528,
+                    725
+                  ],
+                  [
+                    88,
+                    67
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 4408,
+                "positive_rate": 0.03516333938294011,
+                "threshold": 0.29428336805098226,
+                "average_precision": 0.06983522073418058,
+                "roc_auc": 0.6877801627693545,
+                "f1": 0.12824010914051842,
+                "recall": 0.3032258064516129,
+                "precision": 0.08131487889273356,
+                "balanced_accuracy": 0.5891863807710687,
+                "accuracy": 0.8550362976406534,
+                "predicted_positive_rows": 578,
+                "confusion_matrix": [
+                  [
+                    3722,
+                    531
+                  ],
+                  [
+                    108,
+                    47
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.26277245371050734,
+                "average_precision": 0.08670630275385768,
+                "roc_auc": 0.524261899187611,
+                "f1": 0.022429906542056073,
+                "recall": 0.013452914798206279,
+                "precision": 0.06741573033707865,
+                "balanced_accuracy": 0.4987899494625952,
+                "accuracy": 0.90784140969163,
+                "predicted_positive_rows": 89,
+                "confusion_matrix": [
+                  [
+                    5146,
+                    83
+                  ],
+                  [
+                    440,
+                    6
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5675,
+                "positive_rate": 0.07859030837004405,
+                "threshold": 0.29428336805098226,
+                "average_precision": 0.08670630275385768,
+                "roc_auc": 0.524261899187611,
+                "f1": 0.019880715705765408,
+                "recall": 0.011210762331838564,
+                "precision": 0.08771929824561403,
+                "balanced_accuracy": 0.5006331111334082,
+                "accuracy": 0.9131277533039648,
+                "predicted_positive_rows": 57,
+                "confusion_matrix": [
+                  [
+                    5177,
+                    52
+                  ],
+                  [
+                    441,
+                    5
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "2018-02",
+      "split": {
+        "validation_start": "2017-12-01T00:00:00",
+        "validation_end": "2018-01-01T00:00:00",
+        "evaluation_start": "2018-02-01T00:00:00",
+        "evaluation_end": "2018-03-01T00:00:00",
+        "validation_wait": {
+          "start": "2018-01-01T00:00:00",
+          "end": "2018-02-01T00:00:00",
+          "days": 31,
+          "prediction_rows_not_assigned": 6991
+        },
+        "partitions": {
+          "train": {
+            "rows_before_purge": 37937,
+            "positive_rows_before_purge": 2009,
+            "positive_rate_before_purge": 0.052956216885889765,
+            "purged_rows": 3969,
+            "purged_positive_rows": 875,
+            "purged_positive_rate": 0.2204585537918871,
+            "rows": 33968,
+            "positive_rows": 1134,
+            "positive_rate": 0.0333843617522374,
+            "positive_retention_rate": 0.5644599303135889,
+            "prediction_time_min": "2016-09-15T12:16:38",
+            "prediction_time_max": "2017-11-29T07:35:20",
+            "label_available_time_max": "2017-11-30T23:59:03",
+            "label_maturity_cutoff": "2017-12-01T00:00:00"
+          },
+          "validation": {
+            "rows_before_purge": 5675,
+            "positive_rows_before_purge": 446,
+            "positive_rate_before_purge": 0.07859030837004405,
+            "purged_rows": 70,
+            "purged_positive_rows": 65,
+            "purged_positive_rate": 0.9285714285714286,
+            "rows": 5605,
+            "positive_rows": 381,
+            "positive_rate": 0.0679750223015165,
+            "positive_retention_rate": 0.8542600896860987,
+            "prediction_time_min": "2017-12-01T09:30:48",
+            "prediction_time_max": "2017-12-31T23:32:40",
+            "label_available_time_max": "2018-01-31T23:45:08",
+            "label_maturity_cutoff": "2018-02-01T00:00:00"
+          },
+          "evaluation": {
+            "rows_before_purge": 6534,
+            "positive_rows_before_purge": 890,
+            "positive_rate_before_purge": 0.1362105907560453,
+            "purged_rows": 0,
+            "purged_positive_rows": 0,
+            "purged_positive_rate": null,
+            "rows": 6534,
+            "positive_rows": 890,
+            "positive_rate": 0.1362105907560453,
+            "positive_retention_rate": 1.0,
+            "prediction_time_min": "2018-02-01T01:29:49",
+            "prediction_time_max": "2018-02-28T23:48:19",
+            "label_available_time_max": "2018-09-19T23:24:07",
+            "label_maturity_cutoff": null,
+            "labels_not_yet_available_at_evaluation_end": 3328,
+            "late_known_at_original_holdout_count": 6
+          }
+        }
+      },
+      "experiment": {
+        "selected_model": "random_forest_history",
+        "models": {
+          "random_forest_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.218821742379484,
+              "balanced": 0.23994277467281594
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 5605,
+                "selected_threshold": 0.218821742379484
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.23994277467281594,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30183727034120733,
+                "predicted_positive_rows": 1074,
+                "true_positive_rows": 115,
+                "false_positive_rows": 959,
+                "alert_rate": 0.19161462979482605,
+                "precision": 0.10707635009310987,
+                "candidate_thresholds": 5605,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.218821742379484,
+                "average_precision": 0.09822484961983673,
+                "roc_auc": 0.6319148850650943,
+                "f1": 0.17795753286147623,
+                "recall": 0.46194225721784776,
+                "precision": 0.11020663744520977,
+                "balanced_accuracy": 0.5949642373378672,
+                "accuracy": 0.7099018733273863,
+                "predicted_positive_rows": 1597,
+                "confusion_matrix": [
+                  [
+                    3803,
+                    1421
+                  ],
+                  [
+                    205,
+                    176
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.23994277467281594,
+                "average_precision": 0.09822484961983673,
+                "roc_auc": 0.6319148850650943,
+                "f1": 0.15807560137457044,
+                "recall": 0.30183727034120733,
+                "precision": 0.10707635009310987,
+                "balanced_accuracy": 0.559130733179792,
+                "accuracy": 0.7814451382694023,
+                "predicted_positive_rows": 1074,
+                "confusion_matrix": [
+                  [
+                    4265,
+                    959
+                  ],
+                  [
+                    266,
+                    115
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.218821742379484,
+                "average_precision": 0.20666486916081248,
+                "roc_auc": 0.6324946846208364,
+                "f1": 0.2463351537798218,
+                "recall": 0.9629213483146067,
+                "precision": 0.1412326961107449,
+                "balanced_accuracy": 0.5198199937887704,
+                "accuracy": 0.19742883379247014,
+                "predicted_positive_rows": 6068,
+                "confusion_matrix": [
+                  [
+                    433,
+                    5211
+                  ],
+                  [
+                    33,
+                    857
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.23994277467281594,
+                "average_precision": 0.20666486916081248,
+                "roc_auc": 0.6324946846208364,
+                "f1": 0.2484123467730025,
+                "recall": 0.9449438202247191,
+                "precision": 0.14300289066485292,
+                "balanced_accuracy": 0.5259800603604106,
+                "accuracy": 0.2211509029690848,
+                "predicted_positive_rows": 5881,
+                "confusion_matrix": [
+                  [
+                    604,
+                    5040
+                  ],
+                  [
+                    49,
+                    841
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.3792840815429456,
+              "balanced": 0.38061710125071685
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 5605,
+                "selected_threshold": 0.3792840815429456
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.38061710125071685,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30183727034120733,
+                "predicted_positive_rows": 919,
+                "true_positive_rows": 115,
+                "false_positive_rows": 804,
+                "alert_rate": 0.1639607493309545,
+                "precision": 0.1251360174102285,
+                "candidate_thresholds": 5605,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.3792840815429456,
+                "average_precision": 0.11322836805583825,
+                "roc_auc": 0.6448548592605098,
+                "f1": 0.17889908256880735,
+                "recall": 0.30708661417322836,
+                "precision": 0.1262135922330097,
+                "balanced_accuracy": 0.5760165076991717,
+                "accuracy": 0.808385370205174,
+                "predicted_positive_rows": 927,
+                "confusion_matrix": [
+                  [
+                    4414,
+                    810
+                  ],
+                  [
+                    264,
+                    117
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.38061710125071685,
+                "average_precision": 0.11322836805583825,
+                "roc_auc": 0.6448548592605098,
+                "f1": 0.17692307692307693,
+                "recall": 0.30183727034120733,
+                "precision": 0.1251360174102285,
+                "balanced_accuracy": 0.5739661083712162,
+                "accuracy": 0.8090990187332738,
+                "predicted_positive_rows": 919,
+                "confusion_matrix": [
+                  [
+                    4420,
+                    804
+                  ],
+                  [
+                    266,
+                    115
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.3792840815429456,
+                "average_precision": 0.20738505040686173,
+                "roc_auc": 0.6244045580869414,
+                "f1": 0.2583854918953619,
+                "recall": 0.9044943820224719,
+                "precision": 0.15072083879423329,
+                "balanced_accuracy": 0.5504045262344819,
+                "accuracy": 0.2927762473217019,
+                "predicted_positive_rows": 5341,
+                "confusion_matrix": [
+                  [
+                    1108,
+                    4536
+                  ],
+                  [
+                    85,
+                    805
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.38061710125071685,
+                "average_precision": 0.20738505040686173,
+                "roc_auc": 0.6244045580869414,
+                "f1": 0.2589256995818591,
+                "recall": 0.9044943820224719,
+                "precision": 0.1510885885885886,
+                "balanced_accuracy": 0.5515561917199532,
+                "accuracy": 0.29476584022038566,
+                "predicted_positive_rows": 5328,
+                "confusion_matrix": [
+                  [
+                    1121,
+                    4523
+                  ],
+                  [
+                    85,
+                    805
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "random_forest_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.11352485553256447,
+              "balanced": 0.12166637115731989
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 5604,
+                "selected_threshold": 0.11352485553256447
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.12166637115731989,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30183727034120733,
+                "predicted_positive_rows": 892,
+                "true_positive_rows": 115,
+                "false_positive_rows": 777,
+                "alert_rate": 0.1591436217662801,
+                "precision": 0.1289237668161435,
+                "candidate_thresholds": 5604,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.11352485553256447,
+                "average_precision": 0.1280892132221893,
+                "roc_auc": 0.648197497518017,
+                "f1": 0.186429930247305,
+                "recall": 0.3858267716535433,
+                "precision": 0.12290969899665552,
+                "balanced_accuracy": 0.5925113950151331,
+                "accuracy": 0.7710972346119536,
+                "predicted_positive_rows": 1196,
+                "confusion_matrix": [
+                  [
+                    4175,
+                    1049
+                  ],
+                  [
+                    234,
+                    147
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.12166637115731989,
+                "average_precision": 0.1280892132221893,
+                "roc_auc": 0.648197497518017,
+                "f1": 0.18067556952081698,
+                "recall": 0.30183727034120733,
+                "precision": 0.1289237668161435,
+                "balanced_accuracy": 0.5765503350174643,
+                "accuracy": 0.8139161462979483,
+                "predicted_positive_rows": 892,
+                "confusion_matrix": [
+                  [
+                    4447,
+                    777
+                  ],
+                  [
+                    266,
+                    115
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.11352485553256447,
+                "average_precision": 0.25917191423843056,
+                "roc_auc": 0.679239761425079,
+                "f1": 0.23994601889338732,
+                "recall": 0.998876404494382,
+                "precision": 0.13634969325153373,
+                "balanced_accuracy": 0.5005898677326622,
+                "accuracy": 0.13804713804713806,
+                "predicted_positive_rows": 6520,
+                "confusion_matrix": [
+                  [
+                    13,
+                    5631
+                  ],
+                  [
+                    1,
+                    889
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.12166637115731989,
+                "average_precision": 0.25917191423843056,
+                "roc_auc": 0.679239761425079,
+                "f1": 0.24002164795020972,
+                "recall": 0.996629213483146,
+                "precision": 0.1364405476080603,
+                "balanced_accuracy": 0.5009722963234299,
+                "accuracy": 0.14034282216100397,
+                "predicted_positive_rows": 6501,
+                "confusion_matrix": [
+                  [
+                    30,
+                    5614
+                  ],
+                  [
+                    3,
+                    887
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.20309709909829138,
+              "balanced": 0.27205207660695047
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 5605,
+                "selected_threshold": 0.20309709909829138
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.27205207660695047,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30183727034120733,
+                "predicted_positive_rows": 1222,
+                "true_positive_rows": 115,
+                "false_positive_rows": 1107,
+                "alert_rate": 0.21801962533452274,
+                "precision": 0.09410801963993454,
+                "candidate_thresholds": 5605,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.20309709909829138,
+                "average_precision": 0.09373080358320661,
+                "roc_auc": 0.6013513241932048,
+                "f1": 0.15572519083969466,
+                "recall": 0.5354330708661418,
+                "precision": 0.09111210361768647,
+                "balanced_accuracy": 0.5729424159843726,
+                "accuracy": 0.6053523639607493,
+                "predicted_positive_rows": 2239,
+                "confusion_matrix": [
+                  [
+                    3189,
+                    2035
+                  ],
+                  [
+                    177,
+                    204
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 5605,
+                "positive_rate": 0.0679750223015165,
+                "threshold": 0.27205207660695047,
+                "average_precision": 0.09373080358320661,
+                "roc_auc": 0.6013513241932048,
+                "f1": 0.14348097317529632,
+                "recall": 0.30183727034120733,
+                "precision": 0.09410801963993454,
+                "balanced_accuracy": 0.5449653426744321,
+                "accuracy": 0.7550401427297057,
+                "predicted_positive_rows": 1222,
+                "confusion_matrix": [
+                  [
+                    4117,
+                    1107
+                  ],
+                  [
+                    266,
+                    115
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.20309709909829138,
+                "average_precision": 0.17320922156834406,
+                "roc_auc": 0.5517903072966022,
+                "f1": 0.23985985716210753,
+                "recall": 1.0,
+                "precision": 0.13627315878119736,
+                "balanced_accuracy": 0.5002657689581856,
+                "accuracy": 0.13666972757881848,
+                "predicted_positive_rows": 6531,
+                "confusion_matrix": [
+                  [
+                    3,
+                    5641
+                  ],
+                  [
+                    0,
+                    890
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6534,
+                "positive_rate": 0.1362105907560453,
+                "threshold": 0.27205207660695047,
+                "average_precision": 0.17320922156834406,
+                "roc_auc": 0.5517903072966022,
+                "f1": 0.23985985716210753,
+                "recall": 1.0,
+                "precision": 0.13627315878119736,
+                "balanced_accuracy": 0.5002657689581856,
+                "accuracy": 0.13666972757881848,
+                "predicted_positive_rows": 6531,
+                "confusion_matrix": [
+                  [
+                    3,
+                    5641
+                  ],
+                  [
+                    0,
+                    890
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "2018-04",
+      "split": {
+        "validation_start": "2018-02-01T00:00:00",
+        "validation_end": "2018-03-01T00:00:00",
+        "evaluation_start": "2018-04-01T00:00:00",
+        "evaluation_end": "2018-05-01T00:00:00",
+        "validation_wait": {
+          "start": "2018-03-01T00:00:00",
+          "end": "2018-04-01T00:00:00",
+          "days": 31,
+          "prediction_rows_not_assigned": 7083
+        },
+        "partitions": {
+          "train": {
+            "rows_before_purge": 50603,
+            "positive_rows_before_purge": 2852,
+            "positive_rate_before_purge": 0.0563602948441792,
+            "purged_rows": 2833,
+            "purged_positive_rows": 465,
+            "purged_positive_rate": 0.16413695728909283,
+            "rows": 47770,
+            "positive_rows": 2387,
+            "positive_rate": 0.04996859953945991,
+            "positive_retention_rate": 0.8369565217391305,
+            "prediction_time_min": "2016-09-15T12:16:38",
+            "prediction_time_max": "2018-01-30T04:31:29",
+            "label_available_time_max": "2018-01-31T23:58:36",
+            "label_maturity_cutoff": "2018-02-01T00:00:00"
+          },
+          "validation": {
+            "rows_before_purge": 6534,
+            "positive_rows_before_purge": 890,
+            "positive_rate_before_purge": 0.1362105907560453,
+            "purged_rows": 295,
+            "purged_positive_rows": 287,
+            "purged_positive_rate": 0.9728813559322034,
+            "rows": 6239,
+            "positive_rows": 603,
+            "positive_rate": 0.09665010418336271,
+            "positive_retention_rate": 0.6775280898876405,
+            "prediction_time_min": "2018-02-01T01:29:49",
+            "prediction_time_max": "2018-02-28T23:35:49",
+            "label_available_time_max": "2018-03-31T13:51:44",
+            "label_maturity_cutoff": "2018-04-01T00:00:00"
+          },
+          "evaluation": {
+            "rows_before_purge": 6624,
+            "positive_rows_before_purge": 306,
+            "positive_rate_before_purge": 0.04619565217391304,
+            "purged_rows": 0,
+            "purged_positive_rows": 0,
+            "purged_positive_rate": null,
+            "rows": 6624,
+            "positive_rows": 306,
+            "positive_rate": 0.04619565217391304,
+            "positive_retention_rate": 1.0,
+            "prediction_time_min": "2018-04-01T00:11:16",
+            "prediction_time_max": "2018-04-30T21:29:47",
+            "label_available_time_max": "2018-08-01T22:15:02",
+            "label_maturity_cutoff": null,
+            "labels_not_yet_available_at_evaluation_end": 2345,
+            "late_known_at_original_holdout_count": 97
+          }
+        }
+      },
+      "experiment": {
+        "selected_model": "logistic_static",
+        "models": {
+          "random_forest_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.3720506240048867,
+              "balanced": 0.3979202020425295
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 6234,
+                "selected_threshold": 0.3720506240048867
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.3979202020425295,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30016583747927034,
+                "predicted_positive_rows": 851,
+                "true_positive_rows": 181,
+                "false_positive_rows": 670,
+                "alert_rate": 0.1364000641128386,
+                "precision": 0.21269095182138661,
+                "candidate_thresholds": 6234,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.3720506240048867,
+                "average_precision": 0.19798716666110225,
+                "roc_auc": 0.667931927775365,
+                "f1": 0.2693877551020408,
+                "recall": 0.43781094527363185,
+                "precision": 0.19454679439941047,
+                "balanced_accuracy": 0.6219395393507975,
+                "accuracy": 0.7704760378265748,
+                "predicted_positive_rows": 1357,
+                "confusion_matrix": [
+                  [
+                    4543,
+                    1093
+                  ],
+                  [
+                    339,
+                    264
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.3979202020425295,
+                "average_precision": 0.19798716666110225,
+                "roc_auc": 0.667931927775365,
+                "f1": 0.24896836313617607,
+                "recall": 0.30016583747927034,
+                "precision": 0.21269095182138661,
+                "balanced_accuracy": 0.5906436000739148,
+                "accuracy": 0.8249719506331142,
+                "predicted_positive_rows": 851,
+                "confusion_matrix": [
+                  [
+                    4966,
+                    670
+                  ],
+                  [
+                    422,
+                    181
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.3720506240048867,
+                "average_precision": 0.1202264325235618,
+                "roc_auc": 0.7252450204519921,
+                "f1": 0.15218951902368988,
+                "recall": 0.6928104575163399,
+                "precision": 0.08548387096774193,
+                "balanced_accuracy": 0.6669180492709905,
+                "accuracy": 0.6434178743961353,
+                "predicted_positive_rows": 2480,
+                "confusion_matrix": [
+                  [
+                    4050,
+                    2268
+                  ],
+                  [
+                    94,
+                    212
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.3979202020425295,
+                "average_precision": 0.1202264325235618,
+                "roc_auc": 0.7252450204519921,
+                "f1": 0.16423357664233576,
+                "recall": 0.5882352941176471,
+                "precision": 0.09544008483563096,
+                "balanced_accuracy": 0.6591065676032997,
+                "accuracy": 0.7234299516908212,
+                "predicted_positive_rows": 1886,
+                "confusion_matrix": [
+                  [
+                    4612,
+                    1706
+                  ],
+                  [
+                    126,
+                    180
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_static": {
+            "feature_set": "approval_static",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.3949125633449927,
+              "balanced": 0.43666125109142045
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 6239,
+                "selected_threshold": 0.3949125633449927
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.43666125109142045,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30016583747927034,
+                "predicted_positive_rows": 778,
+                "true_positive_rows": 181,
+                "false_positive_rows": 597,
+                "alert_rate": 0.12469947106908158,
+                "precision": 0.2326478149100257,
+                "candidate_thresholds": 6239,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.3949125633449927,
+                "average_precision": 0.19804181470750698,
+                "roc_auc": 0.6756285405242536,
+                "f1": 0.2821869488536155,
+                "recall": 0.39800995024875624,
+                "precision": 0.2185792349726776,
+                "balanced_accuracy": 0.6228871610718586,
+                "accuracy": 0.8042955601859272,
+                "predicted_positive_rows": 1098,
+                "confusion_matrix": [
+                  [
+                    4778,
+                    858
+                  ],
+                  [
+                    363,
+                    240
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.43666125109142045,
+                "average_precision": 0.19804181470750698,
+                "roc_auc": 0.6756285405242536,
+                "f1": 0.2621288921071687,
+                "recall": 0.30016583747927034,
+                "precision": 0.2326478149100257,
+                "balanced_accuracy": 0.5971198243464485,
+                "accuracy": 0.8366725436768713,
+                "predicted_positive_rows": 778,
+                "confusion_matrix": [
+                  [
+                    5039,
+                    597
+                  ],
+                  [
+                    422,
+                    181
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.3949125633449927,
+                "average_precision": 0.14196118009991837,
+                "roc_auc": 0.7580483813236172,
+                "f1": 0.1925581395348837,
+                "recall": 0.6764705882352942,
+                "precision": 0.11225596529284165,
+                "balanced_accuracy": 0.7086848034560453,
+                "accuracy": 0.7379227053140096,
+                "predicted_positive_rows": 1844,
+                "confusion_matrix": [
+                  [
+                    4681,
+                    1637
+                  ],
+                  [
+                    99,
+                    207
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.43666125109142045,
+                "average_precision": 0.14196118009991837,
+                "roc_auc": 0.7580483813236172,
+                "f1": 0.20504009163802978,
+                "recall": 0.5849673202614379,
+                "precision": 0.12430555555555556,
+                "balanced_accuracy": 0.6926894214475914,
+                "accuracy": 0.7904589371980676,
+                "predicted_positive_rows": 1440,
+                "confusion_matrix": [
+                  [
+                    5057,
+                    1261
+                  ],
+                  [
+                    127,
+                    179
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "random_forest_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "bootstrap": true,
+              "ccp_alpha": 0.0,
+              "class_weight": "balanced_subsample",
+              "criterion": "gini",
+              "max_depth": 14,
+              "max_features": "sqrt",
+              "max_leaf_nodes": null,
+              "max_samples": null,
+              "min_impurity_decrease": 0.0,
+              "min_samples_leaf": 8,
+              "min_samples_split": 2,
+              "min_weight_fraction_leaf": 0.0,
+              "monotonic_cst": null,
+              "n_estimators": 200,
+              "n_jobs": 1,
+              "oob_score": false,
+              "random_state": 42,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 1,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.037391115245885,
+              "balanced": 0.05220719209873298
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 6225,
+                "selected_threshold": 0.037391115245885
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.05220719209873298,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30016583747927034,
+                "predicted_positive_rows": 1553,
+                "true_positive_rows": 181,
+                "false_positive_rows": 1372,
+                "alert_rate": 0.2489180958486937,
+                "precision": 0.11654861558274308,
+                "candidate_thresholds": 6225,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.037391115245885,
+                "average_precision": 0.11439486652325248,
+                "roc_auc": 0.5546282368615875,
+                "f1": 0.18991678903573175,
+                "recall": 0.6434494195688225,
+                "precision": 0.1113982199253517,
+                "balanced_accuracy": 0.5471505437091806,
+                "accuracy": 0.4694662606186889,
+                "predicted_positive_rows": 3483,
+                "confusion_matrix": [
+                  [
+                    2541,
+                    3095
+                  ],
+                  [
+                    215,
+                    388
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.05220719209873298,
+                "average_precision": 0.11439486652325248,
+                "roc_auc": 0.5546282368615875,
+                "f1": 0.1679035250463822,
+                "recall": 0.30016583747927034,
+                "precision": 0.11654861558274308,
+                "balanced_accuracy": 0.5283653885763988,
+                "accuracy": 0.7124539188972592,
+                "predicted_positive_rows": 1553,
+                "confusion_matrix": [
+                  [
+                    4264,
+                    1372
+                  ],
+                  [
+                    422,
+                    181
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.037391115245885,
+                "average_precision": 0.06693801493515217,
+                "roc_auc": 0.6137058864909265,
+                "f1": 0.09671111111111111,
+                "recall": 0.8888888888888888,
+                "precision": 0.05113743184809175,
+                "balanced_accuracy": 0.5450300728078505,
+                "accuracy": 0.23294082125603865,
+                "predicted_positive_rows": 5319,
+                "confusion_matrix": [
+                  [
+                    1271,
+                    5047
+                  ],
+                  [
+                    34,
+                    272
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.05220719209873298,
+                "average_precision": 0.06693801493515217,
+                "roc_auc": 0.6137058864909265,
+                "f1": 0.11093990755007704,
+                "recall": 0.7058823529411765,
+                "precision": 0.06020066889632107,
+                "balanced_accuracy": 0.5860845762806548,
+                "accuracy": 0.4773550724637681,
+                "predicted_positive_rows": 3588,
+                "confusion_matrix": [
+                  [
+                    2946,
+                    3372
+                  ],
+                  [
+                    90,
+                    216
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          },
+          "logistic_history": {
+            "feature_set": "delivery_history_90d",
+            "feature_names": [
+              "item_count",
+              "seller_count",
+              "product_count",
+              "total_price",
+              "total_freight_value",
+              "freight_ratio",
+              "payment_total",
+              "payment_count",
+              "payment_installments_max",
+              "product_weight_g_mean",
+              "product_volume_cm3_mean",
+              "estimated_delivery_days",
+              "approval_wait_hours",
+              "purchase_month",
+              "purchase_dayofweek",
+              "purchase_hour",
+              "interstate_item_ratio",
+              "global_completed_90d",
+              "global_delay_rate_90d",
+              "global_delivery_days_90d",
+              "seller_completed_90d",
+              "seller_delay_rate_90d",
+              "seller_delivery_days_90d",
+              "route_completed_90d",
+              "route_delay_rate_90d",
+              "route_delivery_days_90d",
+              "route_promise_margin_days",
+              "customer_state",
+              "primary_seller_state",
+              "primary_category",
+              "payment_type"
+            ],
+            "classifier_parameters": {
+              "C": 1.0,
+              "class_weight": "balanced",
+              "dual": false,
+              "fit_intercept": true,
+              "intercept_scaling": 1,
+              "l1_ratio": 0.0,
+              "max_iter": 2000,
+              "n_jobs": null,
+              "penalty": "deprecated",
+              "random_state": 42,
+              "solver": "lbfgs",
+              "tol": 0.0001,
+              "verbose": 0,
+              "warm_start": false
+            },
+            "training_jobs": 4,
+            "prediction_jobs": 4,
+            "fit_warnings": [],
+            "thresholds": {
+              "f1": 0.013467737913929655,
+              "balanced": 0.014892041747158394
+            },
+            "threshold_policies": {
+              "f1": {
+                "data": "validation only",
+                "objective": "maximize validation F1 over unique validation prediction scores",
+                "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+                "prediction_rule": "delay_score >= threshold",
+                "candidate_thresholds": 6239,
+                "selected_threshold": 0.013467737913929655
+              },
+              "balanced": {
+                "data": "validation only",
+                "objective": "minimize validation alert count subject to recall >= min_recall",
+                "prediction_rule": "delay_score >= threshold",
+                "selected_threshold": 0.014892041747158394,
+                "min_recall": 0.3,
+                "achieved_recall": 0.30016583747927034,
+                "predicted_positive_rows": 807,
+                "true_positive_rows": 181,
+                "false_positive_rows": 626,
+                "alert_rate": 0.12934765186728642,
+                "precision": 0.22428748451053285,
+                "candidate_thresholds": 6239,
+                "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+                "evaluation_recall_guarantee": false,
+                "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+              }
+            },
+            "validation": {
+              "f1": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.013467737913929655,
+                "average_precision": 0.20272174801796822,
+                "roc_auc": 0.683652355680787,
+                "f1": 0.27901077996195306,
+                "recall": 0.3648424543946932,
+                "precision": 0.22587268993839835,
+                "balanced_accuracy": 0.6155298148481627,
+                "accuracy": 0.8177592562910723,
+                "predicted_positive_rows": 974,
+                "confusion_matrix": [
+                  [
+                    4882,
+                    754
+                  ],
+                  [
+                    383,
+                    220
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6239,
+                "positive_rate": 0.09665010418336271,
+                "threshold": 0.014892041747158394,
+                "average_precision": 0.20272174801796822,
+                "roc_auc": 0.683652355680787,
+                "f1": 0.25673758865248225,
+                "recall": 0.30016583747927034,
+                "precision": 0.22428748451053285,
+                "balanced_accuracy": 0.5945470777176337,
+                "accuracy": 0.8320243628786664,
+                "predicted_positive_rows": 807,
+                "confusion_matrix": [
+                  [
+                    5010,
+                    626
+                  ],
+                  [
+                    422,
+                    181
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            },
+            "evaluation": {
+              "f1": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.013467737913929655,
+                "average_precision": 0.16040935177570603,
+                "roc_auc": 0.7850244244579757,
+                "f1": 0.1537511577647422,
+                "recall": 0.8137254901960784,
+                "precision": 0.08489601091033072,
+                "balanced_accuracy": 0.6944537549112713,
+                "accuracy": 0.5862016908212561,
+                "predicted_positive_rows": 2933,
+                "confusion_matrix": [
+                  [
+                    3634,
+                    2684
+                  ],
+                  [
+                    57,
+                    249
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              },
+              "balanced": {
+                "rows": 6624,
+                "positive_rate": 0.04619565217391304,
+                "threshold": 0.014892041747158394,
+                "average_precision": 0.16040935177570603,
+                "roc_auc": 0.7850244244579757,
+                "f1": 0.16426116838487972,
+                "recall": 0.7810457516339869,
+                "precision": 0.09178187403993855,
+                "balanced_accuracy": 0.7033592164311119,
+                "accuracy": 0.6328502415458938,
+                "predicted_positive_rows": 2604,
+                "confusion_matrix": [
+                  [
+                    3953,
+                    2365
+                  ],
+                  [
+                    67,
+                    239
+                  ]
+                ],
+                "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "summary": [
+    {
+      "model": "random_forest_static",
+      "policy": "f1",
+      "rows": 18833,
+      "true_positives": 1183,
+      "false_positives": 8825,
+      "false_negatives": 459,
+      "true_negatives": 8366,
+      "alert_rows": 10008,
+      "alert_rate": 0.5314076355333722,
+      "precision": 0.11820543565147881,
+      "recall": 0.7204628501827041,
+      "f1": 0.2030901287553648,
+      "false_positive_rate": 0.5133500087254959,
+      "false_positives_per_1000_orders": 468.5923644666277,
+      "average_precision_mean": 0.13675397796825586,
+      "recall_by_fold": [
+        0.2556053811659193,
+        0.9629213483146067,
+        0.6928104575163399
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.0,
+      "true_positive_retention_vs_rf_f1": 1.0
+    },
+    {
+      "model": "random_forest_static",
+      "policy": "balanced",
+      "rows": 18833,
+      "true_positives": 1099,
+      "false_positives": 7712,
+      "false_negatives": 543,
+      "true_negatives": 9479,
+      "alert_rows": 8811,
+      "alert_rate": 0.46784898847767215,
+      "precision": 0.1247304505731472,
+      "recall": 0.669305724725944,
+      "f1": 0.2102745623266048,
+      "false_positive_rate": 0.4486068291547903,
+      "false_positives_per_1000_orders": 409.49397334466096,
+      "average_precision_mean": 0.13675397796825586,
+      "recall_by_fold": [
+        0.17488789237668162,
+        0.9449438202247191,
+        0.5882352941176471
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.1261189801699717,
+      "true_positive_retention_vs_rf_f1": 0.9289940828402367
+    },
+    {
+      "model": "logistic_static",
+      "policy": "f1",
+      "rows": 18833,
+      "true_positives": 1036,
+      "false_positives": 6318,
+      "false_negatives": 606,
+      "true_negatives": 10873,
+      "alert_rows": 7354,
+      "alert_rate": 0.3904847873413689,
+      "precision": 0.1408757138971988,
+      "recall": 0.630937880633374,
+      "f1": 0.2303245887060916,
+      "false_positive_rate": 0.36751788726659296,
+      "false_positives_per_1000_orders": 335.47496415865766,
+      "average_precision_mean": 0.15262314728077533,
+      "recall_by_fold": [
+        0.053811659192825115,
+        0.9044943820224719,
+        0.6764705882352942
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.2840793201133145,
+      "true_positive_retention_vs_rf_f1": 0.8757396449704142
+    },
+    {
+      "model": "logistic_static",
+      "policy": "balanced",
+      "rows": 18833,
+      "true_positives": 1003,
+      "false_positives": 5889,
+      "false_negatives": 639,
+      "true_negatives": 11302,
+      "alert_rows": 6892,
+      "alert_rate": 0.3659533797058355,
+      "precision": 0.1455310504933256,
+      "recall": 0.6108404384896468,
+      "f1": 0.2350597609561753,
+      "false_positive_rate": 0.34256296899540456,
+      "false_positives_per_1000_orders": 312.6957999256624,
+      "average_precision_mean": 0.15262314728077533,
+      "recall_by_fold": [
+        0.042600896860986545,
+        0.9044943820224719,
+        0.5849673202614379
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.33269121813031166,
+      "true_positive_retention_vs_rf_f1": 0.8478444632290786
+    },
+    {
+      "model": "random_forest_history",
+      "policy": "f1",
+      "rows": 18833,
+      "true_positives": 1210,
+      "false_positives": 11038,
+      "false_negatives": 432,
+      "true_negatives": 6153,
+      "alert_rows": 12248,
+      "alert_rate": 0.6503477937662614,
+      "precision": 0.098791639451339,
+      "recall": 0.7369062119366626,
+      "f1": 0.1742260619150468,
+      "false_positive_rate": 0.6420801582223257,
+      "false_positives_per_1000_orders": 586.0988690065311,
+      "average_precision_mean": 0.14394669234153368,
+      "recall_by_fold": [
+        0.10986547085201794,
+        0.998876404494382,
+        0.8888888888888888
+      ],
+      "false_positive_reduction_vs_rf_f1": -0.25076487252124635,
+      "true_positive_retention_vs_rf_f1": 1.0228233305156382
+    },
+    {
+      "model": "random_forest_history",
+      "policy": "balanced",
+      "rows": 18833,
+      "true_positives": 1194,
+      "false_positives": 9736,
+      "false_negatives": 448,
+      "true_negatives": 7455,
+      "alert_rows": 10930,
+      "alert_rate": 0.5803642542345883,
+      "precision": 0.10924062214089661,
+      "recall": 0.7271619975639464,
+      "f1": 0.18994591154947502,
+      "false_positive_rate": 0.5663428538188587,
+      "false_positives_per_1000_orders": 516.9649020336643,
+      "average_precision_mean": 0.14394669234153368,
+      "recall_by_fold": [
+        0.2040358744394619,
+        0.996629213483146,
+        0.7058823529411765
+      ],
+      "false_positive_reduction_vs_rf_f1": -0.10322946175637404,
+      "true_positive_retention_vs_rf_f1": 1.0092983939137785
+    },
+    {
+      "model": "logistic_history",
+      "policy": "f1",
+      "rows": 18833,
+      "true_positives": 1145,
+      "false_positives": 8408,
+      "false_negatives": 497,
+      "true_negatives": 8783,
+      "alert_rows": 9553,
+      "alert_rate": 0.5072479158923167,
+      "precision": 0.1198576363446038,
+      "recall": 0.6973203410475031,
+      "f1": 0.20455560518088434,
+      "false_positive_rate": 0.48909313012622885,
+      "false_positives_per_1000_orders": 446.45037965273724,
+      "average_precision_mean": 0.14010829203263594,
+      "recall_by_fold": [
+        0.013452914798206279,
+        1.0,
+        0.8137254901960784
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.047252124645892346,
+      "true_positive_retention_vs_rf_f1": 0.9678782755705833
+    },
+    {
+      "model": "logistic_history",
+      "policy": "balanced",
+      "rows": 18833,
+      "true_positives": 1134,
+      "false_positives": 8058,
+      "false_negatives": 508,
+      "true_negatives": 9133,
+      "alert_rows": 9192,
+      "alert_rate": 0.4880794350342484,
+      "precision": 0.12336814621409922,
+      "recall": 0.6906211936662606,
+      "f1": 0.2093409636330072,
+      "false_positive_rate": 0.46873363969518933,
+      "false_positives_per_1000_orders": 427.8659799288483,
+      "average_precision_mean": 0.14010829203263594,
+      "recall_by_fold": [
+        0.011210762331838564,
+        1.0,
+        0.7810457516339869
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.08691218130311618,
+      "true_positive_retention_vs_rf_f1": 0.9585798816568047
+    },
+    {
+      "model": "validation_selected",
+      "policy": "balanced",
+      "rows": 18833,
+      "true_positives": 1071,
+      "false_positives": 6927,
+      "false_negatives": 571,
+      "true_negatives": 10264,
+      "alert_rows": 7998,
+      "alert_rate": 0.4246800828333245,
+      "precision": 0.1339084771192798,
+      "recall": 0.6522533495736906,
+      "f1": 0.22219917012448132,
+      "false_positive_rate": 0.4029434006166017,
+      "false_positives_per_1000_orders": 367.81181967822437,
+      "average_precision_mean": 0.16261313236406888,
+      "recall_by_fold": [
+        0.011210762331838564,
+        0.996629213483146,
+        0.5849673202614379
+      ],
+      "false_positive_reduction_vs_rf_f1": 0.215070821529745,
+      "true_positive_retention_vs_rf_f1": 0.9053254437869822
+    }
+  ],
+  "final": {
+    "split": {
+      "method": "chronological prediction dates, row-count targets 60%/20%/20%",
+      "validation_start": "2018-03-03T00:00:00",
+      "test_start": "2018-05-26T00:00:00",
+      "boundary_inclusion": "Boundary dates belong entirely to the later split",
+      "label_maturity_policy": "Training labels must be available strictly before validation boundary midnight; validation labels must be available strictly before test boundary midnight.",
+      "partitions": {
+        "train": {
+          "rows_before_purge": 57710,
+          "purged_rows": 3565,
+          "rows": 54145,
+          "positive_rows": 2741,
+          "positive_rate": 0.050623326253578356,
+          "prediction_time_min": "2016-09-15T12:16:38",
+          "prediction_time_max": "2018-03-01T10:50:23",
+          "label_available_time_max": "2018-03-02T23:58:53"
+        },
+        "validation": {
+          "rows_before_purge": 19304,
+          "purged_rows": 1948,
+          "rows": 17356,
+          "positive_rows": 1441,
+          "positive_rate": 0.08302604286702005,
+          "prediction_time_min": "2018-03-03T00:09:28",
+          "prediction_time_max": "2018-05-24T17:35:05",
+          "label_available_time_max": "2018-05-25T23:51:46"
+        },
+        "test": {
+          "rows_before_purge": 19380,
+          "purged_rows": 0,
+          "rows": 19380,
+          "positive_rows": 672,
+          "positive_rate": 0.0346749226006192,
+          "prediction_time_min": "2018-05-26T00:18:24",
+          "prediction_time_max": "2018-08-29T15:10:26",
+          "label_available_time_max": "2018-10-17T13:22:46"
+        }
+      }
+    },
+    "experiment": {
+      "selected_model": "random_forest_static",
+      "models": {
+        "random_forest_static": {
+          "feature_set": "approval_static",
+          "feature_names": [
+            "item_count",
+            "seller_count",
+            "product_count",
+            "total_price",
+            "total_freight_value",
+            "freight_ratio",
+            "payment_total",
+            "payment_count",
+            "payment_installments_max",
+            "product_weight_g_mean",
+            "product_volume_cm3_mean",
+            "estimated_delivery_days",
+            "approval_wait_hours",
+            "purchase_month",
+            "purchase_dayofweek",
+            "purchase_hour",
+            "interstate_item_ratio",
+            "customer_state",
+            "primary_seller_state",
+            "primary_category",
+            "payment_type"
+          ],
+          "classifier_parameters": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "class_weight": "balanced_subsample",
+            "criterion": "gini",
+            "max_depth": 14,
+            "max_features": "sqrt",
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 8,
+            "min_samples_split": 2,
+            "min_weight_fraction_leaf": 0.0,
+            "monotonic_cst": null,
+            "n_estimators": 200,
+            "n_jobs": 1,
+            "oob_score": false,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          },
+          "training_jobs": 4,
+          "prediction_jobs": 1,
+          "fit_warnings": [],
+          "thresholds": {
+            "f1": 0.45010280383942347,
+            "balanced": 0.4535081396168959
+          },
+          "threshold_policies": {
+            "f1": {
+              "data": "validation only",
+              "objective": "maximize validation F1 over unique validation prediction scores",
+              "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+              "prediction_rule": "delay_score >= threshold",
+              "candidate_thresholds": 17345,
+              "selected_threshold": 0.45010280383942347
+            },
+            "balanced": {
+              "data": "validation only",
+              "objective": "minimize validation alert count subject to recall >= min_recall",
+              "prediction_rule": "delay_score >= threshold",
+              "selected_threshold": 0.4535081396168959,
+              "min_recall": 0.3,
+              "achieved_recall": 0.3004857737682165,
+              "predicted_positive_rows": 2132,
+              "true_positive_rows": 433,
+              "false_positive_rows": 1699,
+              "alert_rate": 0.12283936390873473,
+              "precision": 0.20309568480300189,
+              "candidate_thresholds": 17345,
+              "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+              "evaluation_recall_guarantee": false,
+              "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+            }
+          },
+          "validation": {
+            "f1": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.45010280383942347,
+              "average_precision": 0.1593298439117633,
+              "roc_auc": 0.6663923955834944,
+              "f1": 0.24556689951638905,
+              "recall": 0.31714087439278277,
+              "precision": 0.20035072336694432,
+              "balanced_accuracy": 0.601266007413168,
+              "accuracy": 0.8382115694860567,
+              "predicted_positive_rows": 2281,
+              "confusion_matrix": [
+                [
+                  14091,
+                  1824
+                ],
+                [
+                  984,
+                  457
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.4535081396168959,
+              "average_precision": 0.1593298439117633,
+              "roc_auc": 0.6663923955834944,
+              "f1": 0.24237335572348168,
+              "recall": 0.3004857737682165,
+              "precision": 0.20309568480300189,
+              "balanced_accuracy": 0.5968655698875641,
+              "accuracy": 0.8440308826918644,
+              "predicted_positive_rows": 2132,
+              "confusion_matrix": [
+                [
+                  14216,
+                  1699
+                ],
+                [
+                  1008,
+                  433
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          },
+          "evaluation": {
+            "f1": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.45010280383942347,
+              "average_precision": 0.056840218675294,
+              "roc_auc": 0.6690132722695663,
+              "f1": 0.09123013537374926,
+              "recall": 0.23065476190476192,
+              "precision": 0.05685986793837124,
+              "balanced_accuracy": 0.5466134617734201,
+              "accuracy": 0.8406604747162023,
+              "predicted_positive_rows": 2726,
+              "confusion_matrix": [
+                [
+                  16137,
+                  2571
+                ],
+                [
+                  517,
+                  155
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.4535081396168959,
+              "average_precision": 0.056840218675294,
+              "roc_auc": 0.6690132722695663,
+              "f1": 0.09426356589147286,
+              "recall": 0.2261904761904762,
+              "precision": 0.05953779866823345,
+              "balanced_accuracy": 0.548924829713797,
+              "accuracy": 0.8492776057791538,
+              "predicted_positive_rows": 2553,
+              "confusion_matrix": [
+                [
+                  16307,
+                  2401
+                ],
+                [
+                  520,
+                  152
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          }
+        },
+        "logistic_static": {
+          "feature_set": "approval_static",
+          "feature_names": [
+            "item_count",
+            "seller_count",
+            "product_count",
+            "total_price",
+            "total_freight_value",
+            "freight_ratio",
+            "payment_total",
+            "payment_count",
+            "payment_installments_max",
+            "product_weight_g_mean",
+            "product_volume_cm3_mean",
+            "estimated_delivery_days",
+            "approval_wait_hours",
+            "purchase_month",
+            "purchase_dayofweek",
+            "purchase_hour",
+            "interstate_item_ratio",
+            "customer_state",
+            "primary_seller_state",
+            "primary_category",
+            "payment_type"
+          ],
+          "classifier_parameters": {
+            "C": 1.0,
+            "class_weight": "balanced",
+            "dual": false,
+            "fit_intercept": true,
+            "intercept_scaling": 1,
+            "l1_ratio": 0.0,
+            "max_iter": 2000,
+            "n_jobs": null,
+            "penalty": "deprecated",
+            "random_state": 42,
+            "solver": "lbfgs",
+            "tol": 0.0001,
+            "verbose": 0,
+            "warm_start": false
+          },
+          "training_jobs": 4,
+          "prediction_jobs": 4,
+          "fit_warnings": [],
+          "thresholds": {
+            "f1": 0.5264921788879114,
+            "balanced": 0.56429523655323
+          },
+          "threshold_policies": {
+            "f1": {
+              "data": "validation only",
+              "objective": "maximize validation F1 over unique validation prediction scores",
+              "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+              "prediction_rule": "delay_score >= threshold",
+              "candidate_thresholds": 17355,
+              "selected_threshold": 0.5264921788879114
+            },
+            "balanced": {
+              "data": "validation only",
+              "objective": "minimize validation alert count subject to recall >= min_recall",
+              "prediction_rule": "delay_score >= threshold",
+              "selected_threshold": 0.56429523655323,
+              "min_recall": 0.3,
+              "achieved_recall": 0.3004857737682165,
+              "predicted_positive_rows": 2244,
+              "true_positive_rows": 433,
+              "false_positive_rows": 1811,
+              "alert_rate": 0.12929246370131367,
+              "precision": 0.1929590017825312,
+              "candidate_thresholds": 17355,
+              "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+              "evaluation_recall_guarantee": false,
+              "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+            }
+          },
+          "validation": {
+            "f1": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.5264921788879114,
+              "average_precision": 0.15107003178809864,
+              "roc_auc": 0.651700709638274,
+              "f1": 0.242276061346966,
+              "recall": 0.37820957668285915,
+              "precision": 0.17822105951602354,
+              "balanced_accuracy": 0.6101541128780303,
+              "accuracy": 0.8035837750633786,
+              "predicted_positive_rows": 3058,
+              "confusion_matrix": [
+                [
+                  13402,
+                  2513
+                ],
+                [
+                  896,
+                  545
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.56429523655323,
+              "average_precision": 0.15107003178809864,
+              "roc_auc": 0.651700709638274,
+              "f1": 0.2350067842605156,
+              "recall": 0.3004857737682165,
+              "precision": 0.1929590017825312,
+              "balanced_accuracy": 0.5933468768306995,
+              "accuracy": 0.8375777828992855,
+              "predicted_positive_rows": 2244,
+              "confusion_matrix": [
+                [
+                  14104,
+                  1811
+                ],
+                [
+                  1008,
+                  433
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          },
+          "evaluation": {
+            "f1": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.5264921788879114,
+              "average_precision": 0.06888971110035215,
+              "roc_auc": 0.7001076856603237,
+              "f1": 0.11553672316384181,
+              "recall": 0.6086309523809523,
+              "precision": 0.06382646691635456,
+              "balanced_accuracy": 0.6439829981062342,
+              "accuracy": 0.6768833849329206,
+              "predicted_positive_rows": 6408,
+              "confusion_matrix": [
+                [
+                  12709,
+                  5999
+                ],
+                [
+                  263,
+                  409
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.56429523655323,
+              "average_precision": 0.06888971110035215,
+              "roc_auc": 0.7001076856603237,
+              "f1": 0.11947136563876652,
+              "recall": 0.5044642857142857,
+              "precision": 0.06775934439336398,
+              "balanced_accuracy": 0.6275795878004826,
+              "accuracy": 0.7421568627450981,
+              "predicted_positive_rows": 5003,
+              "confusion_matrix": [
+                [
+                  14044,
+                  4664
+                ],
+                [
+                  333,
+                  339
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          }
+        },
+        "random_forest_history": {
+          "feature_set": "delivery_history_90d",
+          "feature_names": [
+            "item_count",
+            "seller_count",
+            "product_count",
+            "total_price",
+            "total_freight_value",
+            "freight_ratio",
+            "payment_total",
+            "payment_count",
+            "payment_installments_max",
+            "product_weight_g_mean",
+            "product_volume_cm3_mean",
+            "estimated_delivery_days",
+            "approval_wait_hours",
+            "purchase_month",
+            "purchase_dayofweek",
+            "purchase_hour",
+            "interstate_item_ratio",
+            "global_completed_90d",
+            "global_delay_rate_90d",
+            "global_delivery_days_90d",
+            "seller_completed_90d",
+            "seller_delay_rate_90d",
+            "seller_delivery_days_90d",
+            "route_completed_90d",
+            "route_delay_rate_90d",
+            "route_delivery_days_90d",
+            "route_promise_margin_days",
+            "customer_state",
+            "primary_seller_state",
+            "primary_category",
+            "payment_type"
+          ],
+          "classifier_parameters": {
+            "bootstrap": true,
+            "ccp_alpha": 0.0,
+            "class_weight": "balanced_subsample",
+            "criterion": "gini",
+            "max_depth": 14,
+            "max_features": "sqrt",
+            "max_leaf_nodes": null,
+            "max_samples": null,
+            "min_impurity_decrease": 0.0,
+            "min_samples_leaf": 8,
+            "min_samples_split": 2,
+            "min_weight_fraction_leaf": 0.0,
+            "monotonic_cst": null,
+            "n_estimators": 200,
+            "n_jobs": 1,
+            "oob_score": false,
+            "random_state": 42,
+            "verbose": 0,
+            "warm_start": false
+          },
+          "training_jobs": 4,
+          "prediction_jobs": 1,
+          "fit_warnings": [],
+          "thresholds": {
+            "f1": 0.1425373035134264,
+            "balanced": 0.16666749547550824
+          },
+          "threshold_policies": {
+            "f1": {
+              "data": "validation only",
+              "objective": "maximize validation F1 over unique validation prediction scores",
+              "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+              "prediction_rule": "delay_score >= threshold",
+              "candidate_thresholds": 17343,
+              "selected_threshold": 0.1425373035134264
+            },
+            "balanced": {
+              "data": "validation only",
+              "objective": "minimize validation alert count subject to recall >= min_recall",
+              "prediction_rule": "delay_score >= threshold",
+              "selected_threshold": 0.16666749547550824,
+              "min_recall": 0.3,
+              "achieved_recall": 0.3004857737682165,
+              "predicted_positive_rows": 3381,
+              "true_positive_rows": 433,
+              "false_positive_rows": 2948,
+              "alert_rate": 0.1948029499884766,
+              "precision": 0.12806861875184858,
+              "candidate_thresholds": 17343,
+              "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+              "evaluation_recall_guarantee": false,
+              "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+            }
+          },
+          "validation": {
+            "f1": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.1425373035134264,
+              "average_precision": 0.10859159207342792,
+              "roc_auc": 0.6111863794102212,
+              "f1": 0.19939577039274925,
+              "recall": 0.5038167938931297,
+              "precision": 0.12429378531073447,
+              "balanced_accuracy": 0.5912109417156506,
+              "accuracy": 0.6640931090112929,
+              "predicted_positive_rows": 5841,
+              "confusion_matrix": [
+                [
+                  10800,
+                  5115
+                ],
+                [
+                  715,
+                  726
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.16666749547550824,
+              "average_precision": 0.10859159207342792,
+              "roc_auc": 0.6111863794102212,
+              "f1": 0.17959352965574452,
+              "recall": 0.3004857737682165,
+              "precision": 0.12806861875184858,
+              "balanced_accuracy": 0.5576258589230652,
+              "accuracy": 0.7720672966121226,
+              "predicted_positive_rows": 3381,
+              "confusion_matrix": [
+                [
+                  12967,
+                  2948
+                ],
+                [
+                  1008,
+                  433
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          },
+          "evaluation": {
+            "f1": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.1425373035134264,
+              "average_precision": 0.08297852816689891,
+              "roc_auc": 0.7502206529928626,
+              "f1": 0.08337675872850443,
+              "recall": 0.9523809523809523,
+              "precision": 0.043596730245231606,
+              "balanced_accuracy": 0.6009499373835486,
+              "accuracy": 0.273890608875129,
+              "predicted_positive_rows": 14680,
+              "confusion_matrix": [
+                [
+                  4668,
+                  14040
+                ],
+                [
+                  32,
+                  640
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.16666749547550824,
+              "average_precision": 0.08297852816689891,
+              "roc_auc": 0.7502206529928626,
+              "f1": 0.0922525750111957,
+              "recall": 0.9196428571428571,
+              "precision": 0.04856199905704856,
+              "balanced_accuracy": 0.6362165536516081,
+              "accuracy": 0.37244582043343655,
+              "predicted_positive_rows": 12726,
+              "confusion_matrix": [
+                [
+                  6600,
+                  12108
+                ],
+                [
+                  54,
+                  618
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          }
+        },
+        "logistic_history": {
+          "feature_set": "delivery_history_90d",
+          "feature_names": [
+            "item_count",
+            "seller_count",
+            "product_count",
+            "total_price",
+            "total_freight_value",
+            "freight_ratio",
+            "payment_total",
+            "payment_count",
+            "payment_installments_max",
+            "product_weight_g_mean",
+            "product_volume_cm3_mean",
+            "estimated_delivery_days",
+            "approval_wait_hours",
+            "purchase_month",
+            "purchase_dayofweek",
+            "purchase_hour",
+            "interstate_item_ratio",
+            "global_completed_90d",
+            "global_delay_rate_90d",
+            "global_delivery_days_90d",
+            "seller_completed_90d",
+            "seller_delay_rate_90d",
+            "seller_delivery_days_90d",
+            "route_completed_90d",
+            "route_delay_rate_90d",
+            "route_delivery_days_90d",
+            "route_promise_margin_days",
+            "customer_state",
+            "primary_seller_state",
+            "primary_category",
+            "payment_type"
+          ],
+          "classifier_parameters": {
+            "C": 1.0,
+            "class_weight": "balanced",
+            "dual": false,
+            "fit_intercept": true,
+            "intercept_scaling": 1,
+            "l1_ratio": 0.0,
+            "max_iter": 2000,
+            "n_jobs": null,
+            "penalty": "deprecated",
+            "random_state": 42,
+            "solver": "lbfgs",
+            "tol": 0.0001,
+            "verbose": 0,
+            "warm_start": false
+          },
+          "training_jobs": 4,
+          "prediction_jobs": 4,
+          "fit_warnings": [],
+          "thresholds": {
+            "f1": 0.5738206886938226,
+            "balanced": 0.6324634706242729
+          },
+          "threshold_policies": {
+            "f1": {
+              "data": "validation only",
+              "objective": "maximize validation F1 over unique validation prediction scores",
+              "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+              "prediction_rule": "delay_score >= threshold",
+              "candidate_thresholds": 17355,
+              "selected_threshold": 0.5738206886938226
+            },
+            "balanced": {
+              "data": "validation only",
+              "objective": "minimize validation alert count subject to recall >= min_recall",
+              "prediction_rule": "delay_score >= threshold",
+              "selected_threshold": 0.6324634706242729,
+              "min_recall": 0.3,
+              "achieved_recall": 0.3004857737682165,
+              "predicted_positive_rows": 3042,
+              "true_positive_rows": 433,
+              "false_positive_rows": 2609,
+              "alert_rate": 0.1752707997234386,
+              "precision": 0.1423405654174885,
+              "candidate_thresholds": 17355,
+              "tie_policy": "highest feasible observed threshold; all equal scores receive the same prediction",
+              "evaluation_recall_guarantee": false,
+              "evaluation_note": "Validation recall does not guarantee recall on evaluation or future orders"
+            }
+          },
+          "validation": {
+            "f1": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.5738206886938226,
+              "average_precision": 0.12221182490491778,
+              "roc_auc": 0.6109193466418035,
+              "f1": 0.20885748750646219,
+              "recall": 0.4205412907702984,
+              "precision": 0.13892709766162312,
+              "balanced_accuracy": 0.5922687603710116,
+              "accuracy": 0.7354805254666974,
+              "predicted_positive_rows": 4362,
+              "confusion_matrix": [
+                [
+                  12159,
+                  3756
+                ],
+                [
+                  835,
+                  606
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 17356,
+              "positive_rate": 0.08302604286702005,
+              "threshold": 0.6324634706242729,
+              "average_precision": 0.12221182490491778,
+              "roc_auc": 0.6109193466418035,
+              "f1": 0.1931742136961856,
+              "recall": 0.3004857737682165,
+              "precision": 0.1423405654174885,
+              "balanced_accuracy": 0.5682761888005393,
+              "accuracy": 0.7915994468771607,
+              "predicted_positive_rows": 3042,
+              "confusion_matrix": [
+                [
+                  13306,
+                  2609
+                ],
+                [
+                  1008,
+                  433
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          },
+          "evaluation": {
+            "f1": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.5738206886938226,
+              "average_precision": 0.05270514602244559,
+              "roc_auc": 0.6194151088915361,
+              "f1": 0.08371174728529121,
+              "recall": 0.31547619047619047,
+              "precision": 0.048258593216480766,
+              "balanced_accuracy": 0.5459944561532117,
+              "accuracy": 0.7605263157894737,
+              "predicted_positive_rows": 4393,
+              "confusion_matrix": [
+                [
+                  14527,
+                  4181
+                ],
+                [
+                  460,
+                  212
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            },
+            "balanced": {
+              "rows": 19380,
+              "positive_rate": 0.0346749226006192,
+              "threshold": 0.6324634706242729,
+              "average_precision": 0.05270514602244559,
+              "roc_auc": 0.6194151088915361,
+              "f1": 0.08669897684437264,
+              "recall": 0.23958333333333334,
+              "precision": 0.05292570677186062,
+              "balanced_accuracy": 0.542792521915758,
+              "accuracy": 0.8249742002063983,
+              "predicted_positive_rows": 3042,
+              "confusion_matrix": [
+                [
+                  15827,
+                  2881
+                ],
+                [
+                  511,
+                  161
+                ]
+              ],
+              "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+            }
+          }
+        }
+      }
+    },
+    "evaluation_role": "already-inspected holdout retrospective diagnostic"
+  },
+  "outputs": {
+    "model": "E:\\kai_work\\shop\\models\\olist_delay_balanced.joblib",
+    "image": "E:\\kai_work\\shop\\reports\\images\\stage4_alert_tradeoff.png",
+    "features": "E:\\kai_work\\shop\\data\\processed\\olist_delay_history_features.csv"
+  }
+}
