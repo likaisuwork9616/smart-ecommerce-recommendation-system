@@ -2,6 +2,8 @@
 
 Smart E-Commerce Recommendation System
 
+本機安裝、啟動與驗證方式請見 [環境建置指南](docs/LOCAL_SETUP.md)。
+
 本專案以電商資料分析與推薦系統為主軸，使用 **Olist Brazilian E-Commerce Dataset** 與 **Retailrocket Recommender System Dataset**，逐步完成從資料匯入、SQL 分析、商業 EDA、機器學習預測、推薦系統，到後續 API 與前端展示的完整資料產品流程。
 
 目前專案已完成：
@@ -9,10 +11,11 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
+- Stage 4：Olist 訂單延遲預測初版
 
 下一步將進入：
 
-- Stage 4：Olist 訂單是否延遲預測
+- Stage 5：Olist 評論好壞預測
 
 ---
 
@@ -101,7 +104,8 @@ smart-ecommerce-recommendation-system/
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
 │   ├── 02_olist_sql_analysis.ipynb
-│   └── 03_olist_business_analysis.ipynb
+│   ├── 03_olist_business_analysis.ipynb
+│   └── 04_olist_delay_prediction.ipynb
 │
 ├── reports/
 │   └── images/
@@ -432,11 +436,12 @@ DB_CONFIG = {
 - MySQL
 - DBeaver
 - Jupyter Notebook
+- Scikit-learn
+- Joblib
 - Git / GitHub
 
 後續預計使用：
 
-- Scikit-learn
 - XGBoost / LightGBM
 - Streamlit
 - FastAPI
@@ -445,36 +450,60 @@ DB_CONFIG = {
 
 ---
 
+## Stage 4：訂單是否延遲預測
+
+已完成每訂單一列的 21 個特徵、延遲標記、缺值處理、類別編碼、時間切分、模型比較、門檻選擇、保留資料評估與本機推論。
+
+- **預測時點**：訂單／付款核准時 `order_approved_at`。
+- **標記定義**：實際送達的日曆日期晚於預估日期才算延遲；預估當日送達算準時。Stage 3 使用完整 timestamp，因此兩階段延遲率口徑不同。
+- **可用資料**：96,394 張時間完整且合理的已送達訂單，6,532 張延遲（6.78%）。實際配送時間、最終狀態、評論及 ID 不進模型。
+- **切分方法**：依核准日期建立約 60%／20%／20% 的 train／validation／test，同一天不跨組；排除在下一區間起點尚未送達的 train／validation 標籤。
+- **選模方法**：只用 train 學習補值、編碼與模型；依 validation AP 選模型，再依 validation F1 選門檻，最後固定模型與門檻評估 test。
+
+| 區段 | 核准日期 | 成熟標籤篩選後筆數 | 延遲比例 |
+| --- | --- | ---: | ---: |
+| Train | 2016-09-15 至 2018-03-02 | 54,145 | 5.06% |
+| Validation | 2018-03-03 至 2018-05-25 | 17,356 | 8.30% |
+| Test | 2018-05-26 至 2018-08-29 | 19,380 | 3.47% |
+
+Validation AP：Dummy 0.0830、Logistic Regression 0.1511、Random Forest 0.1593。選定 **Random Forest**，決策門檻 **0.450103**。
+
+| Test 指標 | Random Forest | 全猜準時基準 |
+| --- | ---: | ---: |
+| Average Precision | 0.0568 | 0.0347 |
+| ROC-AUC | 0.6690 | 0.5000 |
+| Precision | 5.69% | 0.00% |
+| Recall | 23.07% | 0.00% |
+| F1 | 0.0912 | 0.0000 |
+| Balanced accuracy | 54.66% | 50.00% |
+| Accuracy | 84.07% | 96.53% |
+
+模型抓到 672 張延遲訂單中的 155 張，但產生 2,571 張誤報。排序能力高於基準，誤報與漏報仍多；這是可重現的第一版離線模型，尚未達到可直接自動處置訂單的品質。期間延遲率有明顯變化，成熟標籤篩選也會偏向保留較快送達的訂單，詳見方法文件。
+
+Validation permutation importance 顯示模型較依賴顧客州別、運費、跨州比例、預估配送天數與賣家州別；這是模型依賴程度，不能解讀成延遲的因果因素。模型分數未經機率校準。
+
+![Validation model comparison](reports/images/stage4_validation_model_comparison.png)
+![Test precision-recall curve](reports/images/stage4_test_precision_recall.png)
+![Test confusion matrix](reports/images/stage4_test_confusion_matrix.png)
+![Validation feature importance](reports/images/stage4_validation_permutation_importance.png)
+
+在專案根目錄執行：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\train_delay_model.py
+.\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+本階段直接讀 CSV，不需要 MySQL。模型檔存於 `models/olist_delay_model.joblib`，資料與逐筆預測存於 `data/processed/`，均由 Git 忽略；GitHub 保留程式、Notebook、指標與圖表，模型可依指令重建。
+
+- [Stage 4 教學 Notebook](notebooks/04_olist_delay_prediction.ipynb)
+- [特徵、標記、限制與推論說明](docs/STAGE4_DELAY_PREDICTION.md)
+- [完整實驗指標及資料版本](reports/stage4/metrics.json)
+
 ## 下一步規劃
 
-### Stage 4：訂單是否延遲預測
-
-下一階段將進入第一個機器學習分類模型，目標是預測訂單是否會延遲送達。
-
-預計流程：
-
-1. 建立 `delayed` label
-2. 整理特徵資料表
-3. 處理缺失值與類別欄位
-4. 切分訓練集與測試集
-5. 訓練第一版分類模型
-6. 評估模型表現
-7. 分析哪些因素最容易造成延遲
-
-預計使用特徵：
-
-- 商品價格
-- 運費
-- 付款方式
-- 分期數
-- 商品品類
-- 顧客州別
-- 賣家州別
-- 下單月份
-- 下單星期幾
-- 預估配送天數
-- 商品重量
-- 商品尺寸
+Stage 5 原定進行評論好壞預測。開始前需先定義預測時點與低評分 label，並決定是否優先改善 Stage 4 的時間漂移、誤報與門檻成本。
 
 ---
 
@@ -484,7 +513,7 @@ DB_CONFIG = {
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ⬜ 尚未開始
+Stage 4：訂單是否延遲預測               ✅ 初版完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始

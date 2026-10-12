@@ -1,0 +1,488 @@
+{
+  "format_version": 1,
+  "dataset": {
+    "rows": 96394,
+    "positive_rows": 6532,
+    "positive_rate": 0.0677635537481586
+  },
+  "features": {
+    "numeric": [
+      "item_count",
+      "seller_count",
+      "product_count",
+      "total_price",
+      "total_freight_value",
+      "freight_ratio",
+      "payment_total",
+      "payment_count",
+      "payment_installments_max",
+      "product_weight_g_mean",
+      "product_volume_cm3_mean",
+      "estimated_delivery_days",
+      "approval_wait_hours",
+      "purchase_month",
+      "purchase_dayofweek",
+      "purchase_hour",
+      "interstate_item_ratio"
+    ],
+    "categorical": [
+      "customer_state",
+      "primary_seller_state",
+      "primary_category",
+      "payment_type"
+    ]
+  },
+  "metadata": {
+    "label_metadata": {
+      "positive_label": "actual delivery calendar date > estimated delivery calendar date",
+      "prediction_time": "order approval timestamp (order_approved_at)",
+      "label_available_time": "actual customer delivery timestamp",
+      "stage3_difference": "Stage 3 compares full delivery timestamps against estimated-date midnight; Stage 4 compares calendar dates, so delivery during the estimated day is on time.",
+      "maturity_purge": "Training labels must be available strictly before validation boundary midnight; validation labels must be available strictly before test boundary midnight."
+    },
+    "random_state": 42,
+    "split": {
+      "method": "chronological prediction dates, row-count targets 60%/20%/20%",
+      "validation_start": "2018-03-03T00:00:00",
+      "test_start": "2018-05-26T00:00:00",
+      "boundary_inclusion": "Boundary dates belong entirely to the later split",
+      "label_maturity_policy": "Training labels must be available strictly before validation boundary midnight; validation labels must be available strictly before test boundary midnight.",
+      "partitions": {
+        "train": {
+          "rows_before_purge": 57710,
+          "purged_rows": 3565,
+          "rows": 54145,
+          "positive_rows": 2741,
+          "positive_rate": 0.050623326253578356,
+          "prediction_time_min": "2016-09-15T12:16:38",
+          "prediction_time_max": "2018-03-01T10:50:23",
+          "label_available_time_max": "2018-03-02T23:58:53"
+        },
+        "validation": {
+          "rows_before_purge": 19304,
+          "purged_rows": 1948,
+          "rows": 17356,
+          "positive_rows": 1441,
+          "positive_rate": 0.08302604286702005,
+          "prediction_time_min": "2018-03-03T00:09:28",
+          "prediction_time_max": "2018-05-24T17:35:05",
+          "label_available_time_max": "2018-05-25T23:51:46"
+        },
+        "test": {
+          "rows_before_purge": 19380,
+          "purged_rows": 0,
+          "rows": 19380,
+          "positive_rows": 672,
+          "positive_rate": 0.0346749226006192,
+          "prediction_time_min": "2018-05-26T00:18:24",
+          "prediction_time_max": "2018-08-29T15:10:26",
+          "label_available_time_max": "2018-10-17T13:22:46"
+        }
+      }
+    },
+    "feature_policy": "Only explicitly listed approval-time features; no metadata or target columns",
+    "preprocessing_fit": "purged training split only; validation/test never fit preprocessing",
+    "final_refit": false,
+    "model_selection": {
+      "data": "validation only",
+      "metric": "average_precision",
+      "tie_break": "first candidate in the recorded candidate order",
+      "candidate_order": [
+        "dummy_most_frequent",
+        "balanced_logistic_regression",
+        "random_forest"
+      ],
+      "eligible_candidates": [
+        "balanced_logistic_regression",
+        "random_forest"
+      ],
+      "dummy_role": "validation reference only; never eligible for model or threshold selection",
+      "selected_model": "random_forest",
+      "validation_ap_above_dummy": true
+    },
+    "threshold_policy": {
+      "data": "validation only",
+      "objective": "maximize validation F1 over unique validation prediction scores",
+      "tie_break": "highest threshold among equal F1 values (numerical tolerance 1e-12)",
+      "prediction_rule": "delay_score >= threshold",
+      "candidate_thresholds": 17345,
+      "selected_threshold": 0.4501028038394235
+    },
+    "score_semantics": "delay_score is an uncalibrated positive-class predict_proba score",
+    "test_policy": "Only the selected frozen learned pipeline makes one test prediction pass; the all-on-time baseline is computed from a constant zero score without fitting another model",
+    "versions": {
+      "python": "3.12.10",
+      "pandas": "3.0.6",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2"
+    },
+    "raw_source_files": [
+      {
+        "filename": "olist_customers_dataset.csv",
+        "bytes": 9033957,
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+      },
+      {
+        "filename": "olist_order_items_dataset.csv",
+        "bytes": 15438671,
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+      },
+      {
+        "filename": "olist_order_payments_dataset.csv",
+        "bytes": 5777138,
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+      },
+      {
+        "filename": "olist_orders_dataset.csv",
+        "bytes": 17654914,
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+      },
+      {
+        "filename": "olist_products_dataset.csv",
+        "bytes": 2379446,
+        "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+      },
+      {
+        "filename": "olist_sellers_dataset.csv",
+        "bytes": 174703,
+        "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+      }
+    ]
+  },
+  "model_comparison": {
+    "dummy_most_frequent": {
+      "status": "ok",
+      "fit_seconds": 0.3612720999517478,
+      "classifier_parameters": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "most_frequent"
+      },
+      "fit_warning_types": [],
+      "validation_at_0_5": {
+        "rows": 17356,
+        "positive_rate": 0.08302604286702005,
+        "threshold": 0.5,
+        "average_precision": 0.08302604286702005,
+        "roc_auc": 0.5,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.9169739571329799,
+        "predicted_positive_rows": 0,
+        "confusion_matrix": [
+          [
+            15915,
+            0
+          ],
+          [
+            1441,
+            0
+          ]
+        ],
+        "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+      }
+    },
+    "balanced_logistic_regression": {
+      "status": "ok",
+      "fit_seconds": 0.972253100015223,
+      "classifier_parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 2000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "lbfgs",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "fit_warning_types": [],
+      "validation_at_0_5": {
+        "rows": 17356,
+        "positive_rate": 0.08302604286702005,
+        "threshold": 0.5,
+        "average_precision": 0.15107003178809864,
+        "roc_auc": 0.651700709638274,
+        "f1": 0.23423775131758734,
+        "recall": 0.4163775156141568,
+        "precision": 0.16295491580662683,
+        "balanced_accuracy": 0.6113618649387152,
+        "accuracy": 0.7739686563724361,
+        "predicted_positive_rows": 3682,
+        "confusion_matrix": [
+          [
+            12833,
+            3082
+          ],
+          [
+            841,
+            600
+          ]
+        ],
+        "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+      }
+    },
+    "random_forest": {
+      "status": "ok",
+      "fit_seconds": 7.870732299983501,
+      "classifier_parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced_subsample",
+        "criterion": "gini",
+        "max_depth": 14,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 8,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "fit_warning_types": [],
+      "validation_at_0_5": {
+        "rows": 17356,
+        "positive_rate": 0.08302604286702005,
+        "threshold": 0.5,
+        "average_precision": 0.1593298439117633,
+        "roc_auc": 0.6663923955834944,
+        "f1": 0.12506354855109303,
+        "recall": 0.08535739070090215,
+        "precision": 0.2338403041825095,
+        "balanced_accuracy": 0.5300176837261972,
+        "accuracy": 0.9008412076515326,
+        "predicted_positive_rows": 526,
+        "confusion_matrix": [
+          [
+            15512,
+            403
+          ],
+          [
+            1318,
+            123
+          ]
+        ],
+        "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+      }
+    }
+  },
+  "selected_model": "random_forest",
+  "threshold": 0.4501028038394235,
+  "validation": {
+    "rows": 17356,
+    "positive_rate": 0.08302604286702005,
+    "threshold": 0.4501028038394235,
+    "average_precision": 0.1593298439117633,
+    "roc_auc": 0.6663923955834944,
+    "f1": 0.24556689951638905,
+    "recall": 0.31714087439278277,
+    "precision": 0.20035072336694432,
+    "balanced_accuracy": 0.601266007413168,
+    "accuracy": 0.8382115694860567,
+    "predicted_positive_rows": 2281,
+    "confusion_matrix": [
+      [
+        14091,
+        1824
+      ],
+      [
+        984,
+        457
+      ]
+    ],
+    "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+  },
+  "test": {
+    "rows": 19380,
+    "positive_rate": 0.0346749226006192,
+    "threshold": 0.4501028038394235,
+    "average_precision": 0.056840218675294,
+    "roc_auc": 0.6690132722695663,
+    "f1": 0.09123013537374926,
+    "recall": 0.23065476190476192,
+    "precision": 0.05685986793837124,
+    "balanced_accuracy": 0.5466134617734201,
+    "accuracy": 0.8406604747162023,
+    "predicted_positive_rows": 2726,
+    "confusion_matrix": [
+      [
+        16137,
+        2571
+      ],
+      [
+        517,
+        155
+      ]
+    ],
+    "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+  },
+  "test_baseline": {
+    "rows": 19380,
+    "positive_rate": 0.0346749226006192,
+    "threshold": 0.5,
+    "average_precision": 0.0346749226006192,
+    "roc_auc": 0.5,
+    "f1": 0.0,
+    "recall": 0.0,
+    "precision": 0.0,
+    "balanced_accuracy": 0.5,
+    "accuracy": 0.9653250773993808,
+    "predicted_positive_rows": 0,
+    "confusion_matrix": [
+      [
+        18708,
+        0
+      ],
+      [
+        672,
+        0
+      ]
+    ],
+    "confusion_matrix_order": "rows=true [on_time, delayed], columns=predicted [on_time, delayed]"
+  },
+  "validation_permutation_importance": {
+    "method": "permutation importance of original feature columns",
+    "data": "stratified validation sample only; test data is not used",
+    "sample_rows": 5000,
+    "n_repeats": 3,
+    "random_state": 42,
+    "scoring": "average_precision",
+    "interpretation": "validation AP decrease when a feature is shuffled; not a causal effect",
+    "values": [
+      {
+        "feature": "customer_state",
+        "ap_delta_mean": 0.059796312954245555,
+        "ap_delta_std": 0.0032233558450594562
+      },
+      {
+        "feature": "total_freight_value",
+        "ap_delta_mean": 0.0195902374378371,
+        "ap_delta_std": 0.0014781777637972945
+      },
+      {
+        "feature": "interstate_item_ratio",
+        "ap_delta_mean": 0.016171040610272636,
+        "ap_delta_std": 0.002269225723893653
+      },
+      {
+        "feature": "estimated_delivery_days",
+        "ap_delta_mean": 0.014256784116467516,
+        "ap_delta_std": 0.0008966109795143745
+      },
+      {
+        "feature": "primary_seller_state",
+        "ap_delta_mean": 0.012881343573989373,
+        "ap_delta_std": 0.0010433986698296133
+      },
+      {
+        "feature": "item_count",
+        "ap_delta_mean": 0.00449423170245299,
+        "ap_delta_std": 0.0005166321957934522
+      },
+      {
+        "feature": "primary_category",
+        "ap_delta_mean": 0.004400016708959666,
+        "ap_delta_std": 0.0025293299395760297
+      },
+      {
+        "feature": "seller_count",
+        "ap_delta_mean": 0.001119020839840501,
+        "ap_delta_std": 0.0004882726122365962
+      },
+      {
+        "feature": "purchase_dayofweek",
+        "ap_delta_mean": 0.0009494991561842895,
+        "ap_delta_std": 0.0016902262888110419
+      },
+      {
+        "feature": "payment_total",
+        "ap_delta_mean": 0.0006315787745163245,
+        "ap_delta_std": 0.0008349442637174353
+      },
+      {
+        "feature": "payment_type",
+        "ap_delta_mean": 0.0002914996239312684,
+        "ap_delta_std": 0.0008688702517207787
+      },
+      {
+        "feature": "product_count",
+        "ap_delta_mean": 4.992380895197749e-05,
+        "ap_delta_std": 0.0006242897479218587
+      },
+      {
+        "feature": "freight_ratio",
+        "ap_delta_mean": -0.0001745701954529444,
+        "ap_delta_std": 0.0005520120152919804
+      },
+      {
+        "feature": "payment_count",
+        "ap_delta_mean": -0.00023962637961869038,
+        "ap_delta_std": 0.0005576680310803466
+      },
+      {
+        "feature": "total_price",
+        "ap_delta_mean": -0.0006132551932776786,
+        "ap_delta_std": 0.0009729480081299034
+      },
+      {
+        "feature": "payment_installments_max",
+        "ap_delta_mean": -0.0014538213249922771,
+        "ap_delta_std": 0.0009559958307264701
+      },
+      {
+        "feature": "product_weight_g_mean",
+        "ap_delta_mean": -0.0024493311248539595,
+        "ap_delta_std": 0.002348520334082732
+      },
+      {
+        "feature": "purchase_month",
+        "ap_delta_mean": -0.002807609105648636,
+        "ap_delta_std": 0.00029897932996049236
+      },
+      {
+        "feature": "product_volume_cm3_mean",
+        "ap_delta_mean": -0.0037519151860908686,
+        "ap_delta_std": 0.0017223769649458924
+      },
+      {
+        "feature": "approval_wait_hours",
+        "ap_delta_mean": -0.004678941034470456,
+        "ap_delta_std": 0.005410341693262702
+      },
+      {
+        "feature": "purchase_hour",
+        "ap_delta_mean": -0.00469304387945733,
+        "ap_delta_std": 0.0006203638665008992
+      }
+    ]
+  },
+  "outputs": {
+    "model": "E:\\kai_work\\shop\\models\\olist_delay_model.joblib",
+    "dataset": "E:\\kai_work\\shop\\data\\processed\\olist_delay_features.csv",
+    "test_predictions": "E:\\kai_work\\shop\\data\\processed\\olist_delay_test_predictions.csv",
+    "images": [
+      "E:\\kai_work\\shop\\reports\\images\\stage4_validation_model_comparison.png",
+      "E:\\kai_work\\shop\\reports\\images\\stage4_test_precision_recall.png",
+      "E:\\kai_work\\shop\\reports\\images\\stage4_test_roc.png",
+      "E:\\kai_work\\shop\\reports\\images\\stage4_test_confusion_matrix.png",
+      "E:\\kai_work\\shop\\reports\\images\\stage4_validation_permutation_importance.png"
+    ]
+  }
+}
