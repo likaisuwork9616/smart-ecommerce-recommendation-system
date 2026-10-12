@@ -37,6 +37,8 @@
 
 本輪完成 16 次候選訓練（3 組回測加最終切分、每組 4 候選），完整數字見 `reports/stage4/alert_optimization.json`。
 
+後續已固定此平衡 artifact 分析逐月與分群誤報，包含跨州路線、承諾窗口變化及成熟標籤取樣偏差，見 [月份落差與誤報診斷](STAGE4_MONTHLY_DIAGNOSTICS.md)。該輪僅定位問題，模型與門檻保持不變。
+
 ## 改動
 
 原版使用 validation F1 選門檻。新版改為按分數由高到低累計延遲正例，選出達到最低召回率的最高分數門檻。預測規則仍是 `delay_score >= threshold`，相同分數的訂單一起提醒，不拆開同分資料來湊目標。

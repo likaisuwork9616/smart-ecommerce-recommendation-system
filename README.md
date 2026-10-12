@@ -13,10 +13,11 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較與誤報改善
+- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較、平衡模式與月份誤報診斷
 
-下一步將進入：
+接續可進行：
 
+- Stage 4：依月份診斷設計成熟資料等待期與新期間驗證
 - Stage 5：Olist 評論好壞預測
 
 ---
@@ -109,7 +110,8 @@ smart-ecommerce-recommendation-system/
 │   ├── olist_core_erd.png
 │   ├── LOCAL_SETUP.md
 │   ├── STAGE4_DELAY_PREDICTION.md
-│   └── STAGE4_ALERT_OPTIMIZATION.md
+│   ├── STAGE4_ALERT_OPTIMIZATION.md
+│   └── STAGE4_MONTHLY_DIAGNOSTICS.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -131,6 +133,7 @@ smart-ecommerce-recommendation-system/
 │   ├── train_delay_model.py
 │   ├── compare_delay_models.py
 │   ├── improve_delay_alerts.py
+│   ├── diagnose_delay_errors.py
 │   ├── predict_delay.py
 │   ├── setup_local_mysql.py
 │   ├── start_mysql.ps1
@@ -565,12 +568,36 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 
 ![False alerts and recall trade-off](reports/images/stage4_alert_tradeoff.png)
 
+### 月份落差與容易誤報的情況
+
+固定平衡模式 RF 與門檻 0.453508，檢查同一批已看過的保留資料。本次新增診斷程式、逐月與八維分群報告，沒有重新訓練或修改提醒規則；以下是**回溯診斷，不是新的獨立測試或改善成績**。
+
+| 核准期間 | 訂單數 | 誤報 FP | FPR：FP／準時數 | 抓到 TP | 漏掉 FN | Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2018-06 | 6,094 | 427 | 7.09% | 21 | 50 | 29.58% |
+| 2018-07 | 6,021 | 982 | 16.85% | 55 | 138 | 28.50% |
+| 2018-08-01～29 | 6,495 | 985 | 16.18% | 76 | 330 | 18.72% |
+
+另有 5 月 26～31 日的 770 單、7 張誤報、兩張延遲皆漏掉；5、8 月不是完整月份。6、7 月單量接近，誤報率卻明顯上升。
+
+- **跨州路線是優先檢查對象**：SP → RJ 誤報 556／1,313 張準時單（FPR 42.35%），占全部誤報 23.16%；SP → SC 為 223／373（59.79%）。路線方向是主賣家州到顧客州，兩者在不同月份也反覆誤報。全部商品均跨州的 FPR 18.11%，同州為 4.90%；不能直接停掉跨州提醒，因為它也抓到 100 張延遲。
+- **承諾與資料組成持續改變**：6→8 月平均承諾由 28.06 降至 15.38 天，已完成訂單的實際平均配送由 8.91 降至 7.39 天；延遲率上升不能直接解讀成配送變慢。22～30 天承諾群誤報最多（928 張），不是只有最短承諾容易誤報。
+- **成熟標籤有明顯取樣偏差**：validation 的 5 月 1～25 日原有 452 張延遲，截止前可用的只剩 27 張；最終 validation 的延遲樣本有 82.72% 來自 3 月，合計 recall 達 30% 不代表逐月達標。
+
+完整 6、7 月在共同「顧客州 × 承諾區間」固定組成後，FPR 為 8.06%／9.65%，共同樣本涵蓋各月準時單 84.36%／76.75%。族群組成與差距有關，但仍不能解釋全部；這是部分樣本的描述性比較，不是因果估計。新賣家與高運費分群的差異較小，尚不足以當作主要原因。
+
+![Monthly false alerts](reports/images/stage4_monthly_errors.png)
+![False-positive groups](reports/images/stage4_false_positive_groups.png)
+
+完整分母、部分月份、小樣本、標籤篩選與後續實驗設計見 [月份誤報診斷](docs/STAGE4_MONTHLY_DIAGNOSTICS.md)。本輪先完成問題定位，保留現有模型與門檻。
+
 在專案根目錄執行：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\train_delay_model.py
 .\.venv\Scripts\python.exe scripts\compare_delay_models.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\improve_delay_alerts.py --min-recall 0.30 --n-jobs 4
+.\.venv\Scripts\python.exe scripts\diagnose_delay_errors.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -584,12 +611,14 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 - [多模型開發回測完整結果](reports/stage4/model_comparison.json)
 - [誤報改善方法與平衡模式操作](docs/STAGE4_ALERT_OPTIMIZATION.md)
 - [誤報改善完整結果](reports/stage4/alert_optimization.json)
+- [月份落差與誤報診斷說明](docs/STAGE4_MONTHLY_DIAGNOSTICS.md)
+- [逐月、分群與標籤偏差完整結果](reports/stage4/monthly_error_diagnostics.json)
 
-前次多模型比較完成 21 次訓練；本次誤報改善完成 16 次候選訓練、43 項自動測試與 19,380 筆模型重載驗證。更新後 Notebook 的 12 個程式區塊完整執行通過。
+前次多模型比較完成 21 次訓練，誤報改善完成 16 次候選訓練。本次月份診斷新增 8 項手算與邊界測試，合計 51 項自動測試通過；19,380 筆診斷與原平衡報告混淆矩陣一致。Notebook 新增可選的唯讀診斷摘要，13 個程式區塊完整執行通過。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。Stage 4 已完成歷史特徵實驗與平衡模式；接下來若繼續改善，應優先處理月份間分布漂移與慢件尚未完成造成的標籤偏差，再用新期間資料驗證。也可進入 Stage 5，先定義評論預測時點與低評分 label。
+Stage 5 原定進行評論好壞預測。Stage 4 已定位跨州路線誤報、承諾窗口變化與成熟標籤取樣偏差；若繼續改善，先在 train／validation 邊界前設定固定等待期，呈現尚未解決訂單比例，再驗證路線相對承諾特徵與提醒策略。現有月份已用於診斷，不能拿來選規則後宣稱未知資料效果；需保留新期間驗證。也可進入 Stage 5，先定義評論預測時點與低評分 label。
 
 ---
 
@@ -599,7 +628,7 @@ Stage 5 原定進行評論好壞預測。Stage 4 已完成歷史特徵實驗與�
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 多模型回測與平衡模式完成
+Stage 4：訂單是否延遲預測               ✅ 多模型、平衡模式與月份診斷完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始
