@@ -27,9 +27,11 @@ Python 套件（包含 XGBoost、LightGBM）都安裝在 `.venv/`。MySQL 是獨
 
 2026-10-12 已實測通過：套件相依性檢查、9 張資料表筆數檢查、三本 Notebook 完整執行，並重新產出 8 張 EDA 圖表。MySQL 停止／重啟與 JupyterLab HTTP API、kernel、Notebook 根目錄也已通過檢查。驗證摘要保存在 `.runtime/verification/summary.json` 與 `jupyter-server.json`。
 
-Stage 4 更新亦已驗證：前次 21 次多模型時間回測、16 次誤報改善候選訓練成功；加入月份診斷後共 51 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 13 個程式區塊完整執行。平衡模型重載後的 19,380 筆批次分類與月份診斷均與原平衡報告吻合；RF 新候選的推論固定單執行緒，避免門檻邊界受平行加總影響。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
+Stage 4 更新亦已驗證：前次 21 次多模型時間回測、16 次誤報改善候選訓練成功；本次等待期與路線承諾比較完成 24 次訓練。共 81 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 14 個程式區塊完整執行。六份研究模型重載後的 validation／evaluation 分類吻合，150,664 筆候選預測也與舊回測的 evaluation 訂單集合核對一致。原模型、平衡模型與既有報告雜湊不變；RF 新候選的推論固定單執行緒，避免門檻邊界受平行加總影響。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
 
 月份診斷可執行 `.\.venv\Scripts\python.exe scripts\diagnose_delay_errors.py`，只讀取既有模型與原始 CSV，不需要資料庫；方法與逐月限制見 [月份誤報診斷](STAGE4_MONTHLY_DIAGNOSTICS.md)。
+
+等待期與路線承諾實驗可執行 `.\.venv\Scripts\python.exe scripts\compare_waiting_strategies.py --n-jobs 4`，不需新增套件。這會重建研究報告及 `models/research/` 內的六份模型；研究模型需以 `--model` 明確載入。切分方式、實際取捨及推論指令見 [等待期實驗](STAGE4_WAITING_EXPERIMENT.md)。
 
 ## 開始分析
 

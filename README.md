@@ -13,11 +13,11 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、6 種模型時間回測比較、平衡模式與月份誤報診斷
+- Stage 4：Olist 訂單延遲預測、多模型回測、平衡模式、月份診斷及等待期／路線特徵實驗
 
 接續可進行：
 
-- Stage 4：依月份診斷設計成熟資料等待期與新期間驗證
+- Stage 4：多月份驗證穩定性、誤報／漏報成本與新期間驗證
 - Stage 5：Olist 評論好壞預測
 
 ---
@@ -111,7 +111,8 @@ smart-ecommerce-recommendation-system/
 │   ├── LOCAL_SETUP.md
 │   ├── STAGE4_DELAY_PREDICTION.md
 │   ├── STAGE4_ALERT_OPTIMIZATION.md
-│   └── STAGE4_MONTHLY_DIAGNOSTICS.md
+│   ├── STAGE4_MONTHLY_DIAGNOSTICS.md
+│   └── STAGE4_WAITING_EXPERIMENT.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -129,9 +130,12 @@ smart-ecommerce-recommendation-system/
 │   ├── db_config_example.py
 │   ├── delay_features.py
 │   ├── delay_history_features.py
+│   ├── delay_route_features.py
+│   ├── delay_waiting_split.py
 │   ├── delay_alert_policy.py
 │   ├── train_delay_model.py
 │   ├── compare_delay_models.py
+│   ├── compare_waiting_strategies.py
 │   ├── improve_delay_alerts.py
 │   ├── diagnose_delay_errors.py
 │   ├── predict_delay.py
@@ -591,6 +595,32 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 
 完整分母、部分月份、小樣本、標籤篩選與後續實驗設計見 [月份誤報診斷](docs/STAGE4_MONTHLY_DIAGNOSTICS.md)。本輪先完成問題定位，保留現有模型與門檻。
 
+### 等待期與路線承諾特徵實驗
+
+已完成 24 次訓練：train／validation 都保留 **30 或 60 天等待期**，比較 Random Forest／Logistic Regression 的原 21 欄與新增路線承諾特徵（共 30 欄）。**60 天在執行前指定為主要方案，30 天是敏感度比較**；同一等待期內只依 validation 至少 30% recall、提醒量最少來選模型與門檻。
+
+60 天讓有效已送達 cohort 的 validation 延遲樣本保留率達 **98.31%／98.40%／95.05%**；30 天為 84.07%／82.75%／66.09%。等待讓更多慢件取得答案，但 train／validation 也更舊，不能把方法差異全歸因於等待天數。未送達、取消及無效時間訂單另列原始分母，不當作準時。
+
+下表沿用已檢視的 2017-12、2018-02、2018-04 開發月份，同一批 18,833 單／1,642 張延遲。**這是開發回測；原 2018-05-26 起保留資料本輪不評估。**
+
+| 等待／RF 特徵 | 誤報 FP | 抓到 TP | 漏掉 FN | Recall |
+| --- | ---: | ---: | ---: | ---: |
+| 舊 RF／平衡（背景對照） | 7,712 | 1,099 | 543 | 66.93% |
+| 30 天／原特徵 | 2,954 | 565 | 1,077 | 34.41% |
+| 30 天／路線承諾 | 2,887 | 710 | 932 | 43.24% |
+| 60 天／原特徵 | 4,854 | 713 | 929 | 43.42% |
+| 60 天／路線承諾 | 3,434 | 659 | 983 | 40.13% |
+
+相同 30 天 RF 下，路線特徵**少 67 張誤報、多抓 145 張延遲**，但最低月份 recall 仍只有 16.14%。相同 60 天 RF 則少 1,420 張誤報，同時少抓 54 張延遲。60 天三個 fold 都依 validation 選中 RF／路線承諾，2017-12 recall 卻僅 **4.04%**；驗證標籤更完整，沒有保證後續月份表現穩定。
+
+新特徵包含有向州別路線、近 90 天配送中位數／第 90 百分位、承諾相對分位的差值／比例及歷史 CDF。送達 timestamp 必須嚴格早於當前核准時間，配送天數採日曆尺度；當月前幾天已完成的配送可更新後續訂單歷史，不用未來答案。
+
+分群仍有代價：60 天 RF 的顧客 SP 誤報由 2,409 降至 1,065，但漏報由 172 增至 256；SP → RJ 誤報反而由 463 增至 532，同時抓到延遲由 176 增至 227。因此不自動取代預設模型，六份研究 artifact 獨立存於 `models/research/`，需以 `--model` 明確載入。完整十策略、逐月取捨及操作見 [等待期實驗](docs/STAGE4_WAITING_EXPERIMENT.md)。
+
+![Waiting-period experiment](reports/images/stage4_waiting_tradeoff.png)
+
+圖中 30／60 天採逐 fold validation 選出的候選；30 天第一個 fold 選 Logistic，因此與上表固定 RF 的數字不同。
+
 在專案根目錄執行：
 
 ```powershell
@@ -598,6 +628,7 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 .\.venv\Scripts\python.exe scripts\compare_delay_models.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\improve_delay_alerts.py --min-recall 0.30 --n-jobs 4
 .\.venv\Scripts\python.exe scripts\diagnose_delay_errors.py
+.\.venv\Scripts\python.exe scripts\compare_waiting_strategies.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -613,12 +644,14 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 - [誤報改善完整結果](reports/stage4/alert_optimization.json)
 - [月份落差與誤報診斷說明](docs/STAGE4_MONTHLY_DIAGNOSTICS.md)
 - [逐月、分群與標籤偏差完整結果](reports/stage4/monthly_error_diagnostics.json)
+- [等待期與路線承諾實驗方法](docs/STAGE4_WAITING_EXPERIMENT.md)
+- [等待期完整回測結果](reports/stage4/waiting_strategy_comparison.json)
 
-前次多模型比較完成 21 次訓練，誤報改善完成 16 次候選訓練。本次月份診斷新增 8 項手算與邊界測試，合計 51 項自動測試通過；19,380 筆診斷與原平衡報告混淆矩陣一致。Notebook 新增可選的唯讀診斷摘要，13 個程式區塊完整執行通過。
+前次多模型比較完成 21 次訓練、誤報改善 16 次，本次等待期與路線承諾比較完成 24 次。合計 81 項自動測試通過，六份研究 artifact 重載的 validation／evaluation 分類吻合，150,664 筆候選預測的 evaluation 訂單集合與舊回測一致；原模型與既有報告雜湊不變。Notebook 已加入可選的唯讀實驗摘要，14 個程式區塊完整執行通過。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。Stage 4 已定位跨州路線誤報、承諾窗口變化與成熟標籤取樣偏差；若繼續改善，先在 train／validation 邊界前設定固定等待期，呈現尚未解決訂單比例，再驗證路線相對承諾特徵與提醒策略。現有月份已用於診斷，不能拿來選規則後宣稱未知資料效果；需保留新期間驗證。也可進入 Stage 5，先定義評論預測時點與低評分 label。
+Stage 5 原定進行評論好壞預測。Stage 4 已完成等待期與路線承諾實驗：慢件標籤保留改善，但最差月份召回仍低。若繼續改善，應在當時已知資料內加入多個 validation 月份的穩定性檢查與誤報／漏報成本，再保留新期間驗證。現有月份已用於開發，不能拿來選規則後宣稱未知資料效果。也可進入 Stage 5，先定義評論預測時點與低評分 label。
 
 ---
 
@@ -628,7 +661,7 @@ Stage 5 原定進行評論好壞預測。Stage 4 已定位跨州路線誤報、�
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 多模型、平衡模式與月份診斷完成
+Stage 4：訂單是否延遲預測               ✅ 多模型、月份診斷與等待期實驗完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始

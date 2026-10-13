@@ -21,6 +21,9 @@ if str(ROOT) not in sys.path:
 def build_inference_features(artifact: dict, tables: dict) -> pd.DataFrame:
     """Use the exact static/history contract saved with the chosen artifact."""
     feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set == 'route_promise_90d':
+        from scripts.delay_route_features import build_route_order_features
+        return build_route_order_features(tables)
     if feature_set == 'delivery_history_90d':
         from scripts.delay_history_features import build_history_order_features
         return build_history_order_features(tables)
