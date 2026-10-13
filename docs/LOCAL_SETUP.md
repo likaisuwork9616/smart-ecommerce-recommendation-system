@@ -119,6 +119,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_dbeaver.ps1
 
 Stage 4 的模型訓練、評估與推論已可執行，直接讀 CSV，不依賴 MySQL；詳見 [Stage 4 說明](STAGE4_DELAY_PREDICTION.md)。目前尚未使用 Retailrocket、FastAPI、Streamlit 或前端。
 
+固定每日 10% 預算的延遲排名研究使用現有 `.venv/` 套件，不需額外安裝。依序執行 `scripts/diagnose_budget_misses.py`、`scripts/improve_budget_ranking.py --n-jobs 4`、`scripts/improve_pending_ranking.py --n-jobs 4`、`scripts/improve_outcome_clock.py --n-jobs 4`；後三支會在本機訓練研究模型，詳見[第一輪方法](STAGE4_BUDGET_RANKING.md)、[第二輪方法](STAGE4_PENDING_RANKING.md)與[訓練答案時間比較](STAGE4_OUTCOME_CLOCK.md)。原始資料、逐筆分數、模型與執行日誌保持 Git 忽略，只提交聚合報告。現階段先改善模型，Dashboard 暫緩。
+
 ## 官方下載來源
 
 - [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)

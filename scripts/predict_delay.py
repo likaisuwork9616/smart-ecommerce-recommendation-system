@@ -21,6 +21,12 @@ if str(ROOT) not in sys.path:
 def build_inference_features(artifact: dict, tables: dict) -> pd.DataFrame:
     """Use the exact static/history contract saved with the chosen artifact."""
     feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set == 'pending_seller_route_budget_90d':
+        from scripts.delay_pending_features import build_pending_order_features
+        return build_pending_order_features(tables)
+    if feature_set == 'seller_route_budget_90d':
+        from scripts.delay_budget_features import build_budget_order_features
+        return build_budget_order_features(tables)
     if feature_set == 'route_promise_90d':
         from scripts.delay_route_features import build_route_order_features
         return build_route_order_features(tables)
@@ -96,7 +102,8 @@ def main():
     if artifact.get('daily_alert_cap') is not None and (args.order_id or not args.complete_daily_batches):
         parser.error('Capped models require --features-csv and --complete-daily-batches; single-order prediction cannot enforce daily capacity.')
     if args.features_csv:
-        features = pd.read_csv(args.features_csv, float_precision='round_trip')
+        features = pd.read_csv(args.features_csv, float_precision='round_trip',
+                               dtype={name: object for name in artifact['categorical_features']})
     else:
         tables = load_olist_tables(args.data_dir)
         # History consults previously completed orders only, excluding the current outcome.

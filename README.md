@@ -13,12 +13,14 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、分數校準與每日提醒上限
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、分數校準與每日提醒上限；固定 10% 預算的排名改善進行中
 
 接續可進行：
 
-- Stage 4：固定提醒預算下改善排序、檢查跨版本漂移與新期間驗證
+- Stage 4：先改善固定 10% 預算的辨識能力，再確認新期間表現；Dashboard 暫緩
 - Stage 5：Olist 評論好壞預測
+
+後續進度回報均附表格，並區分已完成的方法、實際效果及未達標項目。現階段繼續處理 Stage 4，先訓練與驗證，再做 Dashboard。
 
 ---
 
@@ -114,7 +116,11 @@ smart-ecommerce-recommendation-system/
 │   ├── STAGE4_MONTHLY_DIAGNOSTICS.md
 │   ├── STAGE4_WAITING_EXPERIMENT.md
 │   ├── STAGE4_MULTIMONTH_VALIDATION.md
-│   └── STAGE4_MONTHLY_RETRAINING.md
+│   ├── STAGE4_MONTHLY_RETRAINING.md
+│   ├── STAGE4_CALIBRATION_BUDGET.md
+│   ├── STAGE4_BUDGET_RANKING.md
+│   ├── STAGE4_PENDING_RANKING.md
+│   └── STAGE4_OUTCOME_CLOCK.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -691,6 +697,44 @@ E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選
 
 ![校準品質與每日提醒上限的取捨](reports/images/stage4_calibration_budget.png)
 
+### 固定 10% 預算：漏報診斷與排名改善
+
+依使用者要求，先繼續訓練與驗證，暫緩 Dashboard 及新圖表。改以每日完整批次排名取 `floor(10% × 當日筆數)`，門檻 0，未知結果仍競爭名額。三個歷史 OOT 月各用當月模型分數，以最差月 recall、合計 TP、AP 及固定候選順序選模；30% 是逐歷史月的適用門檻，固定決策後才看開發月。以下沿用相同 18,833 單／1,642 張延遲，都是反覆檢視的開發回測。
+
+| 工作／方案 | 新增訓練 | 抓到 TP | 誤報 FP | 漏報 FN | 開發 Recall | 最差歷史月 Recall | 狀態 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 原校準／10% 主方案 | 0 | 352 | 1,493 | 1,290 | 21.44% | 17.50%¹ | 未達標 |
+| 第一輪：加入賣家／路線／ZIP3，10 候選選模 | 48 | 352 | 1,493 | 1,290 | 21.44% | 17.50% | 仍選回原模型 |
+| 第二輪：待件負載與每日排序，15 候選選模 | 40 | 352 | 1,493 | 1,290 | 21.44% | 17.50% | 仍選回原模型 |
+| 第三輪：訓練答案時鐘與等待期，24 候選選模 | 72 | 358 | 1,487 | 1,284 | 21.80% | 18.33% | 小幅改善，仍未達標 |
+
+¹ 17.50% 是本輪三歷史月 selector 對同組舊候選的結果；原校準實驗只用第三個政策月選模，不能混稱原實驗驗證制度。三輪主方案都提醒 1,845 張（9.80%，每日取整後低於 10%），沒有通過任一 fold 的歷史下限，研究模型未自動替換原本預設。合計新增 **160 次訓練**。
+
+| 原 10% 方案的漏報群組 | 延遲總數 | 抓到 TP | 漏報 FN | Recall |
+| --- | ---: | ---: | ---: | ---: |
+| 主賣家 SP → 顧客 SP | 239 | 3 | 236 | 1.26% |
+| SP → RJ | 409 | 211 | 198 | 51.59% |
+| SP → MG | 84 | 0 | 84 | 0.00% |
+| 承諾 22–30 天 | 915 | 216 | 699 | 23.61% |
+| 承諾 15–21 天 | 381 | 102 | 279 | 26.77% |
+| 承諾 31 天以上 | 300 | 32 | 268 | 10.67% |
+
+路線與承諾區間是兩種分組，不能相加；絕對漏報量也受群組訂單量影響。699 張承諾 22–30 天漏報占全部漏報 54.19%。每日第 10–20% 名次另有 293 張漏報，20–50% 有 553 張，後半段有 444 張；每日名額已用滿，降門檻不能增加名額。
+
+第一輪新增 45 欄風險特徵及 LightGBM／XGBoost 等六組候選，沿用 32 個舊版本。第二輪保留 45 欄，再加入全域／賣家／路線各五個待件負載特徵，共 60 欄；有效原始核准母體 99,281 筆，包含沒有配送結果的訂單，不以最終狀態過濾。送達嚴格早於查詢才移除，過承諾日次日午夜算逾期；資料缺取消時間，已核准取消單可能仍留在窗口。
+
+第二輪新增 Logistic／LightGBM／XGBoost 及 45／60 欄 LambdaRank 五組候選。LambdaRank 以成熟訓練列的核准日分組，NDCG 的截斷 20 並非精確的每日 10% recall 目標；`sigmoid(margin)` 是單調分數介面，沒有重新校準機率。僅比較第二輪新增分類器的歷史選模，開發 TP 為 349；僅比較日排序器為 326，均未達歷史門檻。不能按開發成績事後挑一個看起來較好的模型，宣稱已改善。
+
+方法、完整候選表與限制見[第一輪排名改善](docs/STAGE4_BUDGET_RANKING.md)、[第二輪待件與每日排序](docs/STAGE4_PENDING_RANKING.md)，實際聚合報告為 [漏報診斷](reports/stage4/budget_miss_diagnostics.json)、[第一輪](reports/stage4/budget_ranking.json)、[第二輪](reports/stage4/pending_ranking.json)。三個原開發月及實驗設計已受既有診斷影響，沒有新的獨立測試，原 holdout 本輪不評分。
+
+第三輪只調整訓練答案的取得時間與核准等待期，保留實際配送時間、60 欄特徵、歷史驗證成熟篩選及每日分母。新增 `training_outcome_known_time = min(實際送達, 承諾日期次日午夜)`：準時答案在配送時已知，延遲答案在逾期時即可確認。比較 Logistic／原特徵、RF／路線、LightGBM／待件，交叉「實際送達＋等待 0 天」「新時鐘＋等待 0 天」「新時鐘＋等待 30 天」，九組固定候選、八個月份共 72 fit。仍有最終已送達群體的事後選擇偏差，且缺少事件入庫時間與承諾修改紀錄，不能將所有未送達訂單直接當作相同標籤。
+
+依歷史驗證選模後，2017-12 改選 Logistic／原特徵／新時鐘／等待 0 天，抓到 69／446 張（原為 63 張）；2018-02、2018-04 仍選原 60 天 RF／路線。合計多抓 6 張、少 6 張誤報，recall **21.44% → 21.80%**，precision **19.08% → 19.40%**；最差歷史月僅 **18.33%**，最差開發月 **15.47%**，仍不能稱為適合上線。
+
+分組沒有全面改善：SP→SP 漏報 **236 → 235**，但誤報 **58 → 67**；SP→RJ 漏報 **198 → 192**，但誤報 **525 → 544**；承諾 22–30 天漏報 **699 → 696**，誤報 **906 → 920**。合計誤報下降來自各群組名額重分配，不能說重點群組的誤報也下降。同模型、等待 0 天下，RF／路線改用新時鐘，開發 TP **297 → 349**；Logistic **365 → 363**、LightGBM **287 → 275**，不是所有模型都受益。
+
+本輪適用門檻仍未通過，繼續暫緩視覺化。完整 29 列摘要、逐月結果、訓練樣本及同模型對照見[訓練答案時間實驗](docs/STAGE4_OUTCOME_CLOCK.md)與[第三輪實際報告](reports/stage4/outcome_clock.json)。
+
 在專案根目錄執行：
 
 ```powershell
@@ -702,6 +746,10 @@ E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選
 .\.venv\Scripts\python.exe scripts\compare_multimonth_validation.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\compare_monthly_retraining.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\compare_calibration_budget.py
+.\.venv\Scripts\python.exe scripts\diagnose_budget_misses.py
+.\.venv\Scripts\python.exe scripts\improve_budget_ranking.py --n-jobs 4
+.\.venv\Scripts\python.exe scripts\improve_pending_ranking.py --n-jobs 4
+.\.venv\Scripts\python.exe scripts\improve_outcome_clock.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -726,30 +774,29 @@ E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選
 - [分數校準與每日提醒上限方法](docs/STAGE4_CALIBRATION_BUDGET.md)
 - [校準與提醒上限完整結果](reports/stage4/calibration_budget.json)
 
-先前多模型比較完成 21 次訓練、誤報改善 16 次、等待期與路線承諾比較 24 次、多月份驗證 12 次、每月重訓 32 次；本輪沿用基礎模型，另 fit 24 個校準器。合計 **154 項自動測試通過**，Notebook 的 **17 個程式區塊完整執行通過**。核對全部 256,124 列舊分數後，獨立檢查本輪 768,600 列分數、24 個校準器重擬、144 組政策、288 組完整每日容量、108 組機率指標及 6 組常數基準、60 列摘要和三份研究模型重載；65 份既有模型、報告及圖表 SHA-256 不變。資料、模型和驗證執行狀態都保留在 Git 忽略路徑。
+先前多模型比較完成 21 次訓練、誤報改善 16 次、等待期與路線承諾比較 24 次、多月份驗證 12 次、每月重訓 32 次，校準比較另 fit 24 個校準器；當時 154 項測試與 17 個 Notebook 程式區塊通過，完整核對證據保留於各實驗文件。
+
+固定 10% 排名研究加入實際時間邊界、訓練隔離、每日排序與 CSV ZIP3 前導零等檢查，目前 **206 項自動測試通過**，Notebook **20 個程式區塊完整執行通過**，提交版本不保留執行輸出。第一輪獨立核對 80 個版本與 640,560 列匯出分數，第二輪核對 120 個版本與 960,840 列分數；待件特徵另抽樣 250 筆查詢、逐欄重算 3,750 次。真實 6,624 單的 LightGBM 待件模型批次 CLI 分數／提醒集合與研究報告一致，提醒 650 單（逐日取整），缺少完整批次聲明會拒絕；此處是推論重現檢查，不能當新測試成績。70 份既有模型、報告及圖檔 SHA-256 不變，沒有新增 Dashboard 或圖表。原始資料、模型、逐筆分數與驗證執行狀態都保留在 Git 忽略路徑。
+
+第三輪獨立重載 **192 個版本**（72 新訓練、120 重用），從原始資料核對 96,394 個訓練答案時間，重算 1,023,096 筆月份／模型分數、6,472 個訓練補值中位數、1,537,344 列匯出資料、288 組指標與每日容量、15 組歷史選模、29 列摘要、三份最終研究模型及 2,571 個漏報分組。分數列數含不同候選與 fold 的重複訂單，不能當成獨立樣本數；這些檢查確認實驗可重現，沒有新增未知資料成績。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。Stage 4 已完成分數校準與每日上限：10% 能控制提醒量，但現有排序在歷史驗證都無法抓到 30% 延遲。若繼續改善，建議固定 10% 預算，針對排名前段比較特徵及模型，以 recall@每日預算與 precision 為主要指標，另留新期間檢查跨版本漂移；單調校準本身不會改善排序。現有月份已用於開發，不能拿來選規則後宣稱未知資料效果。也可進入 Stage 5，先定義評論預測時點與低評分 label。
+目前仍以 Stage 4 固定每日 10% 預算的辨識能力為主，依歷史驗證判斷適用程度，再安排 Dashboard。已測過的開發月份不能拿來挑規則後宣稱未知資料效果；後續仍需新期間驗證，並檢查現有核准時點特徵是否足以識別早期風險。Stage 5 評論預測、推薦系統與 API 尚未開始，等延遲模型研究告一段落再討論。
 
 ---
 
 ## 目前專案狀態
 
-```text
-Stage 1：Olist 資料認識與環境建立       ✅ 已完成
-Stage 2：Olist SQL 基礎查詢             ✅ 已完成
-Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 每月重訓、校準與每日提醒上限完成
-Stage 5：評論好壞預測                   ⬜ 尚未開始
-Stage 6：RFM 顧客分群                   ⬜ 尚未開始
-Stage 7：Streamlit Dashboard            ⬜ 尚未開始
-Stage 8：Retailrocket EDA                ⬜ 尚未開始
-Stage 9：熱門商品推薦                   ⬜ 尚未開始
-Stage 10：其他人也看了                  ⬜ 尚未開始
-Stage 11：其他人也加入購物車             ⬜ 尚未開始
-Stage 12：其他人也買了                  ⬜ 尚未開始
-Stage 13：個人化推薦                    ⬜ 尚未開始
-Stage 14：FastAPI 推薦 API              ⬜ 尚未開始
-Stage 15：AJAX 前端串接                 ⬜ 尚未開始
-```
+| 階段 | 狀態 | 目前成果／待辦 |
+| --- | --- | --- |
+| Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
+| Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
+| Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
+| Stage 4：延遲預測 | 研究中 | 每月重訓、校準、10% 上限已完成；適用程度待改善 |
+| Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
+| Stage 6：RFM | 尚未開始 | 顧客分群 |
+| Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
+| Stage 8：Retailrocket EDA | 尚未開始 | 使用者行為分析 |
+| Stage 9–13：推薦系統 | 尚未開始 | 熱門、共現、個人化推薦 |
+| Stage 14–15：API 與前端 | 尚未開始 | FastAPI、AJAX 串接 |
