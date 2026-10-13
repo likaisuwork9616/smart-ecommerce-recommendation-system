@@ -21,6 +21,11 @@ if str(ROOT) not in sys.path:
 def build_inference_features(artifact: dict, tables: dict, geolocation=None) -> pd.DataFrame:
     """Use the exact static/history contract saved with the chosen artifact."""
     feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set.startswith('ablation_'):
+        from scripts.delay_ablation_features import FEATURE_SET_VARIANTS, build_ablation_order_features
+        if feature_set not in FEATURE_SET_VARIANTS:
+            raise ValueError(f'Unsupported feature set: {feature_set}')
+        return build_ablation_order_features(tables, FEATURE_SET_VARIANTS[feature_set], geolocation)
     if feature_set in ('geo_engineered_approval', 'dispatch_geo_engineered_approval'):
         from scripts.delay_engineering_features import build_engineering_order_features
         if geolocation is None:
@@ -114,7 +119,8 @@ def main():
         tables = load_olist_tables(args.data_dir)
         # History consults previously completed orders only, excluding the current outcome.
         geolocation = None
-        if artifact.get('feature_set') in ('geo_engineered_approval', 'dispatch_geo_engineered_approval'):
+        from scripts.delay_ablation_features import GEOGRAPHIC_FEATURE_SETS
+        if artifact.get('feature_set') in ({'geo_engineered_approval', 'dispatch_geo_engineered_approval'} | GEOGRAPHIC_FEATURE_SETS):
             from scripts.delay_engineering_features import GEO_FILENAME
             geolocation = pd.read_csv(args.data_dir / GEO_FILENAME)
         features = build_inference_features(artifact, tables, geolocation)
