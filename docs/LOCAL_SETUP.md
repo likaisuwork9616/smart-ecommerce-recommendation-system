@@ -27,7 +27,7 @@ Python 套件（包含 XGBoost、LightGBM）都安裝在 `.venv/`。MySQL 是獨
 
 2026-10-12 已實測通過：套件相依性檢查、9 張資料表筆數檢查、三本 Notebook 完整執行，並重新產出 8 張 EDA 圖表。MySQL 停止／重啟與 JupyterLab HTTP API、kernel、Notebook 根目錄也已通過檢查。驗證摘要保存在 `.runtime/verification/summary.json` 與 `jupyter-server.json`。
 
-Stage 4 更新亦已驗證：前次多模型回測 21 次、誤報改善 16 次、等待期與路線承諾比較 24 次、多月份驗證 12 次；本次每月重訓完成 32 次。共 122 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 16 個程式區塊完整執行。32 個月份模型重載後重算 170,516 筆全月分數，全部 256,124 列回測分數、36 組門檻與 15 組彙總獨立核對一致；三份最終研究模型重載也吻合，36 份既有模型、報告及圖表雜湊不變。RF 推論固定單執行緒，避免門檻邊界受平行加總影響。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
+Stage 4 更新亦已驗證：先前多模型回測 21 次、誤報改善 16 次、等待期與路線承諾比較 24 次、多月份驗證 12 次、每月重訓 32 次；本輪沿用基礎模型，另 fit 24 個校準器。共 154 項自動測試通過，`04_olist_delay_prediction.ipynb` 的 17 個程式區塊完整執行。32 份月份版本重算完整分數並核對全部 256,124 列舊分數；本輪 768,600 列分數、144 組政策、288 組每日容量、108 組機率指標與 6 組常數基準、60 列摘要及三份研究模型重載均完成獨立核對。65 份既有模型、報告與圖表 SHA-256 不變。RF 推論固定單執行緒，避免門檻邊界受平行加總影響。Notebook 執行副本與摘要保存在 `.runtime/verification/`，GitHub 保留未執行的教學原檔。
 
 月份診斷可執行 `.\.venv\Scripts\python.exe scripts\diagnose_delay_errors.py`，只讀取既有模型與原始 CSV，不需要資料庫；方法與逐月限制見 [月份誤報診斷](STAGE4_MONTHLY_DIAGNOSTICS.md)。
 
@@ -36,6 +36,8 @@ Stage 4 更新亦已驗證：前次多模型回測 21 次、誤報改善 16 次�
 多月份驗證可執行 `.\.venv\Scripts\python.exe scripts\compare_multimonth_validation.py --n-jobs 4`，也不需新增套件。這會產生新報告、圖表、逐筆分數及三份獨立研究模型，不覆寫原版／平衡／等待期模型。方法與實際未改善的結果見 [多月份驗證](STAGE4_MULTIMONTH_VALIDATION.md)。
 
 每月重訓可執行 `.\.venv\Scripts\python.exe scripts\compare_monthly_retraining.py --n-jobs 4`。這會重建八個必要月份、四個候選的模型版本與三份最終研究模型，另存新報告及逐筆分數；不用 MySQL 或新增套件。32 份 `models/research/rolling_versions/` 內部版本不含提醒門檻，不能直接用 `predict_delay.py` 載入；請使用 `models/research/olist_delay_rolling_{month}.joblib`。方法、實際取捨及推論指令見 [每月重訓](STAGE4_MONTHLY_RETRAINING.md)。
+
+分數校準與每日提醒上限可執行 `.\.venv\Scripts\python.exe scripts\compare_calibration_budget.py`，需先具備前項滾動報告、分數 CSV 與 32 份月份模型。程式核對原始資料／模型雜湊及舊分數，再重建完整月份分數；不重訓基礎模型，另 fit 24 個校準器，不用安裝新套件或啟動 MySQL。主方案為 Sigmoid／每日最多 10%，另比較原分數、Isotonic、5%、20% 與無上限。三份研究 artifact 為 `models/research/olist_delay_calibrated_budget_{month}.joblib`；`predict_delay.py --model` 需搭配完整每日特徵批次 CSV 與 `--complete-daily-batches`，單張訂單模式會拒絕執行。完整操作、容量分母及實際未達 30% 召回的取捨見 [校準與提醒上限](STAGE4_CALIBRATION_BUDGET.md)。
 
 ## 開始分析
 

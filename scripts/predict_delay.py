@@ -32,10 +32,13 @@ def build_inference_features(artifact: dict, tables: dict) -> pd.DataFrame:
     raise ValueError(f'Unsupported feature set: {feature_set}')
 
 
-def predict_features(artifact: dict, features: pd.DataFrame) -> pd.DataFrame:
+def predict_features(artifact: dict, features: pd.DataFrame, *, complete_daily_batches=False) -> pd.DataFrame:
     """Ignore extra columns (including labels); validate the saved feature contract."""
     if artifact.get('format_version') != 1:
         raise ValueError('Unsupported model artifact version; retrain the Stage 4 model.')
+    cap = artifact.get('daily_alert_cap')
+    if cap is not None and not complete_daily_batches:
+        raise ValueError('Capped models require complete_daily_batches=True and complete closed calendar-day batches.')
     names = artifact['feature_names']
     missing = sorted(set(names) - set(features.columns))
     if missing:
@@ -48,15 +51,29 @@ def predict_features(artifact: dict, features: pd.DataFrame) -> pd.DataFrame:
         values[column] = values[column].astype(object).where(values[column].notna(), np.nan)
     pipeline = artifact['pipeline']
     positive_index = list(pipeline.classes_).index(1)
-    scores = pipeline.predict_proba(values)[:, positive_index]
+    raw_scores = pipeline.predict_proba(values)[:, positive_index]
+    scores = raw_scores
+    if artifact.get('calibrator') is not None:
+        from scripts.delay_calibration_policy import transform_scores
+        scores = transform_scores(artifact['calibrator'], raw_scores)
     threshold = float(artifact['threshold'])
+    selected = scores >= threshold
+    if cap is not None:
+        from scripts.delay_calibration_policy import apply_alert_policy
+        selected = apply_alert_policy(features, scores, threshold, cap, raw_scores=raw_scores)
     result = pd.DataFrame({
         'delay_score': scores,
         'threshold': threshold,
-        'predicted_delayed': (scores >= threshold).astype(int),
+        'predicted_delayed': selected.astype(int),
     }, index=features.index)
     if 'order_id' in features:
         result.insert(0, 'order_id', features['order_id'])
+    if artifact.get('calibrator') is not None:
+        result['raw_delay_score'] = raw_scores
+    if cap is not None:
+        result['prediction_time'] = pd.to_datetime(features['prediction_time'])
+        result['threshold_eligible'] = (scores >= threshold).astype(int)
+        result['budget_suppressed'] = ((scores >= threshold) & ~selected).astype(int)
     return result
 
 
@@ -70,12 +87,16 @@ def main():
     source.add_argument('--features-csv', type=Path, help='CSV containing every feature required by the selected model.')
     parser.add_argument('--data-dir', type=Path, default=ROOT / 'data/raw/olist')
     parser.add_argument('--output', type=Path, help='Optional output CSV path.')
+    parser.add_argument('--complete-daily-batches', action='store_true',
+                        help='Acknowledge that CSV contains every scored order of each closed calendar day; required for capped models.')
     args = parser.parse_args()
     model_path = args.model or ROOT / 'models' / (
         'olist_delay_balanced.joblib' if args.profile == 'balanced' else 'olist_delay_model.joblib')
     artifact = joblib.load(model_path)
+    if artifact.get('daily_alert_cap') is not None and (args.order_id or not args.complete_daily_batches):
+        parser.error('Capped models require --features-csv and --complete-daily-batches; single-order prediction cannot enforce daily capacity.')
     if args.features_csv:
-        features = pd.read_csv(args.features_csv)
+        features = pd.read_csv(args.features_csv, float_precision='round_trip')
     else:
         tables = load_olist_tables(args.data_dir)
         # History consults previously completed orders only, excluding the current outcome.
@@ -90,7 +111,7 @@ def main():
             raise ValueError('The order needs valid purchase, approval and estimated delivery dates.')
     if features.empty:
         raise ValueError('No feature rows to predict.')
-    predictions = predict_features(artifact, features)
+    predictions = predict_features(artifact, features, complete_daily_batches=args.complete_daily_batches)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         predictions.to_csv(args.output, index=False)
@@ -98,8 +119,11 @@ def main():
         'profile': 'custom' if args.model else args.profile,
         'selected_model': artifact['selected_model'],
         'rows': len(predictions),
-        'preview': predictions.head(10).to_dict(orient='records'),
-        'note': 'delay_score is a model score; it is not a calibrated delivery probability.',
+        'preview': json.loads(predictions.head(10).to_json(orient='records', date_format='iso')),
+        'daily_alert_cap': artifact.get('daily_alert_cap'),
+        'note': ('delay_score uses historical calibration; calibration on new model versions is not guaranteed.'
+                 if artifact.get('calibrator') is not None else
+                 'delay_score is a model score; it is not a calibrated delivery probability.'),
     }, ensure_ascii=False, indent=2))
 
 
