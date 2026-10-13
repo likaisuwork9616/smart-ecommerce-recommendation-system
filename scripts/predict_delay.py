@@ -18,9 +18,15 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 
-def build_inference_features(artifact: dict, tables: dict) -> pd.DataFrame:
+def build_inference_features(artifact: dict, tables: dict, geolocation=None) -> pd.DataFrame:
     """Use the exact static/history contract saved with the chosen artifact."""
     feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set in ('geo_engineered_approval', 'dispatch_geo_engineered_approval'):
+        from scripts.delay_engineering_features import build_engineering_order_features
+        if geolocation is None:
+            raise ValueError('Engineering inference requires the static geolocation reference table')
+        return build_engineering_order_features(tables, geolocation,
+            include_dispatch=feature_set == 'dispatch_geo_engineered_approval')
     if feature_set == 'pending_seller_route_budget_90d':
         from scripts.delay_pending_features import build_pending_order_features
         return build_pending_order_features(tables)
@@ -107,7 +113,11 @@ def main():
     else:
         tables = load_olist_tables(args.data_dir)
         # History consults previously completed orders only, excluding the current outcome.
-        features = build_inference_features(artifact, tables)
+        geolocation = None
+        if artifact.get('feature_set') in ('geo_engineered_approval', 'dispatch_geo_engineered_approval'):
+            from scripts.delay_engineering_features import GEO_FILENAME
+            geolocation = pd.read_csv(args.data_dir / GEO_FILENAME)
+        features = build_inference_features(artifact, tables, geolocation)
         features = features.loc[features['order_id'].eq(args.order_id)].copy()
         if features.empty:
             raise ValueError(f'Order not found: {args.order_id}')
