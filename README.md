@@ -13,11 +13,11 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、月份診斷、等待期／路線特徵及多月份驗證
+- Stage 4：Olist 訂單延遲預測、多模型回測、月份診斷、多月份驗證及每月重訓
 
 接續可進行：
 
-- Stage 4：改善訓練資料新近程度、誤報／漏報成本與新期間驗證
+- Stage 4：跨版本分數校準、提醒量／誤報成本與新期間驗證
 - Stage 5：Olist 評論好壞預測
 
 ---
@@ -113,7 +113,8 @@ smart-ecommerce-recommendation-system/
 │   ├── STAGE4_ALERT_OPTIMIZATION.md
 │   ├── STAGE4_MONTHLY_DIAGNOSTICS.md
 │   ├── STAGE4_WAITING_EXPERIMENT.md
-│   └── STAGE4_MULTIMONTH_VALIDATION.md
+│   ├── STAGE4_MULTIMONTH_VALIDATION.md
+│   └── STAGE4_MONTHLY_RETRAINING.md
 │
 ├── notebooks/
 │   ├── 01_olist_data_overview.ipynb
@@ -134,11 +135,13 @@ smart-ecommerce-recommendation-system/
 │   ├── delay_route_features.py
 │   ├── delay_waiting_split.py
 │   ├── delay_multimonth_validation.py
+│   ├── delay_rolling_validation.py
 │   ├── delay_alert_policy.py
 │   ├── train_delay_model.py
 │   ├── compare_delay_models.py
 │   ├── compare_waiting_strategies.py
 │   ├── compare_multimonth_validation.py
+│   ├── compare_monthly_retraining.py
 │   ├── improve_delay_alerts.py
 │   ├── diagnose_delay_errors.py
 │   ├── predict_delay.py
@@ -644,6 +647,29 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 
 ![多月份驗證的誤報與召回取捨](reports/images/stage4_multimonth_validation.png)
 
+### 每月重訓的滾動驗證
+
+已完成 **32 次訓練**：重播 2017-07～12、2018-02、2018-04 八個必要月份，各訓練 RF／Logistic × 原特徵／路線特徵四個候選。每月 M 第一日只使用核准 `<M−60天`、結果 `<M` 的訂單，為 M 月留下真正 out-of-time 分數。Evaluation 仍是原三個開發月，並非連續所有月份的部署測試。
+
+E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選，再由 E 當天新訓練的模型預測。最終模型雖已訓練到歷史 validation 訂單，**沒有拿最終模型重算它們的驗證分數**；同一歷史月在不同 E 仍重新篩 `label_available_time < E`，避免快取過早刪掉慢件。
+
+最終 train 增加到 **26,431／38,522／50,358 張**（前次固定模型為 7,517／14,284／18,089 張）。以下在同一批 18,833 張訂單、1,642 張延遲比較；全部是**已檢視月份的開發回測**，本輪沒有評估原 holdout。
+
+| 方案 | 誤報 FP | 抓到 TP | 漏掉 FN | Precision | Recall | 最差回測月 Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 前次固定模型／每月達標（背景） | 5,728 | 609 | 1,033 | 9.61% | 37.09% | 8.07% |
+| 滾動／最新月 | 6,923 | 1,008 | 634 | 12.71% | 61.39% | 8.74% |
+| 滾動／三月合計 | 6,449 | 986 | 656 | 13.26% | 60.05% | 6.05% |
+| **滾動／每月達標（預先指定主策略）** | **7,957** | **1,050** | **592** | **11.66%** | **63.95%** | **13.45%** |
+
+主策略比前次固定模型**多抓 441 張延遲，也多 2,229 張誤報**；相對本次滾動／三月合計則多抓 64 張、多 1,508 張誤報，沒有達成減少誤報的目標。主策略三月 recall 為 **13.45%／78.43%／95.42%**，2018-04 單月誤報 **4,868 張**，仍未達成月份穩定性。前後比較同時改變最終 train 新近程度及 validation 模型版本，不能解釋為單一因素的因果效果。
+
+跨版本的原始分數尚未校準。以 2017-12 選中的 Logistic／原特徵為例，三個歷史月各自達 30% 的門檻為 0.74806／0.48004／0.54743，共同門檻 0.48004；後續十二月仍只抓到 60／446 張。報告記錄各月及 evaluation 的分數分位，作為轉移診斷，不能直接將差異歸因於未校準或單一特徵。主策略每個歷史驗證月都達 30%，仍不保證新模型月份達標。
+
+三份可推論研究模型另存 `models/research/olist_delay_rolling_{month}.joblib`，只以 `--model` 明確載入；32 份內部月份版本另存 `rolling_versions/` 供重現，不含提醒門檻。未自動替換預設模型。完整方法、15 種候選／策略與操作見 [每月重訓實驗](docs/STAGE4_MONTHLY_RETRAINING.md)。
+
+![每月重訓的資料量、誤報與召回](reports/images/stage4_monthly_retraining.png)
+
 在專案根目錄執行：
 
 ```powershell
@@ -653,6 +679,7 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 .\.venv\Scripts\python.exe scripts\diagnose_delay_errors.py
 .\.venv\Scripts\python.exe scripts\compare_waiting_strategies.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\compare_multimonth_validation.py --n-jobs 4
+.\.venv\Scripts\python.exe scripts\compare_monthly_retraining.py --n-jobs 4
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -672,12 +699,14 @@ Validation permutation importance 顯示模型較依賴顧客州別、運費、�
 - [等待期完整回測結果](reports/stage4/waiting_strategy_comparison.json)
 - [多月份驗證方法與限制](docs/STAGE4_MULTIMONTH_VALIDATION.md)
 - [多月份完整回測結果](reports/stage4/multimonth_validation.json)
+- [每月重訓的滾動驗證方法](docs/STAGE4_MONTHLY_RETRAINING.md)
+- [每月重訓完整結果](reports/stage4/monthly_retraining.json)
 
-前次多模型比較完成 21 次訓練、誤報改善 16 次、等待期與路線承諾比較 24 次；本次多月份驗證完成 12 次。合計 **100 項自動測試通過**，本次三份研究 artifact 重載的 validation／evaluation 分類吻合，256,124 筆分數與三種門檻產生的 768,372 次決策獨立核對通過；31 份既有模型、報告及圖表雜湊不變。Notebook 已加入可選的唯讀摘要，15 個程式區塊完整執行通過。
+前次多模型比較完成 21 次訓練、誤報改善 16 次、等待期與路線承諾比較 24 次、多月份驗證 12 次；本次每月重訓完成 32 次。合計 **122 項自動測試通過**，32 份月份模型重載後重算 170,516 筆全月分數，全部 256,124 列 validation／evaluation 分數、36 組門檻、15 組彙總及 360 組群組結果獨立核對通過；三份最終研究模型重載吻合，36 份既有模型、報告及圖表雜湊不變。Notebook 的可選唯讀摘要已更新，16 個程式區塊完整執行通過。
 
 ## 下一步規劃
 
-Stage 5 原定進行評論好壞預測。Stage 4 已完成多月份驗證：逐月驗證達標，但後續月份仍不穩定且增加誤報。若繼續改善，應先評估更近期訓練的滾動驗證設計與跨模型分數可比性，再依明確誤報／漏報成本選策略，另留新期間驗證。現有月份已用於開發，不能拿來選規則後宣稱未知資料效果。也可進入 Stage 5，先定義評論預測時點與低評分 label。
+Stage 5 原定進行評論好壞預測。Stage 4 已完成每月重訓：抓到更多延遲，但誤報也增加，跨版本共用分數門檻仍不穩定。若繼續改善，應先在歷史 train／validation 內評估分數校準及提醒量／誤報成本限制，再另留新期間驗證。現有月份已用於開發，不能拿來選規則後宣稱未知資料效果。也可進入 Stage 5，先定義評論預測時點與低評分 label。
 
 ---
 
@@ -687,7 +716,7 @@ Stage 5 原定進行評論好壞預測。Stage 4 已完成多月份驗證：逐�
 Stage 1：Olist 資料認識與環境建立       ✅ 已完成
 Stage 2：Olist SQL 基礎查詢             ✅ 已完成
 Stage 3：Olist 商業分析 EDA             ✅ 初版完成
-Stage 4：訂單是否延遲預測               ✅ 多模型、等待期與多月份驗證完成
+Stage 4：訂單是否延遲預測               ✅ 多模型、多月份驗證及每月重訓完成
 Stage 5：評論好壞預測                   ⬜ 尚未開始
 Stage 6：RFM 顧客分群                   ⬜ 尚未開始
 Stage 7：Streamlit Dashboard            ⬜ 尚未開始
