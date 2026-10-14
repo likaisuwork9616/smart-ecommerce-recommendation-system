@@ -46,6 +46,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 17. 七、九月名額交換 | 重播同一批模型，追蹤加入堆積特徵後哪些路線失去提醒、哪些準時件取得名額 | 七月 SP→SP、九月 SP→BA 退步；兩月新增漏報 22 張，其中 20 張落到每日 10–20% 排名。這步不重訓、不改選模。見[路線名額診斷](STAGE4_BACKLOG_ROUTE_EXCHANGES.md) |
 | 18. 同特徵分類與每日排序 | 固定本輪 83／101 欄與訓練時鐘，比較 XGBoost 分類和每日排序目標，新增 16 次訓練 | 兩排序模型各補抓原 22 張漏報中的 9 張，但七月改善、九月退步；83 欄三個開發月合計多抓 8 張，101 欄少抓 3 張。完整主方案未選新排序，仍 25.46%。見[分類／排序比較](STAGE4_BACKLOG_OBJECTIVES.md) |
 | 19. 排序 L2 正則化 | 固定 83／101 欄、排序目標與其他樹參數，只比較 L2＝1／10／100，完成 32 次新訓練；核對九月誤報與其他路線漏報 | L2＝100 相對原排序，83 欄開發多抓 44 張、101 欄多抓 18 張；九月 101 欄整體多抓 14 張，但 SP→SP 本身少抓 1 張，七月整體少 10 張。全 71 候選主方案未選新候選，維持 25.46%。見[排序正則化比較](STAGE4_RANK_REGULARIZATION.md) |
+| 20. 排序訓練配對焦點 | 固定 L2＝100 與其他設定，只比較原生固定前 k＝10／20／40 的配對焦點，完成 32 次新訓練；20 重播既有模型，提醒預算仍每日 10% | 101 欄 k＝10 的七、九月各多抓 3 張，k＝40 各多 4、2 張，但都未恢復舊 L2＝10 的七月 TP 28。全 75 候選按歷史規則改選十二月，歷史下限 19.17% → 19.63%，開發少抓 5 張、召回 25.46% → 25.15%。見[配對焦點比較](STAGE4_RANK_PAIR_FOCUS.md) |
 
 ## 固定 10% 預算這段，實際進步多少
 
@@ -63,17 +64,20 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 7／14 天逾期堆積；七九月診斷後 | 418 | 1,427 | 1,224 | 25.46% |
 | 同特徵分類／每日排序比較後 | 418 | 1,427 | 1,224 | 25.46% |
 | 排序 L2 正則化比較後 | 418 | 1,427 | 1,224 | 25.46% |
+| 固定 L2＝100，排序配對焦點比較後 | 413 | 1,432 | 1,229 | 25.15% |
 
-來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)、[backlog_objectives.json](../reports/stage4/backlog_objectives.json)與[rank_regularization.json](../reports/stage4/rank_regularization.json)的主方案摘要。
+來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)、[backlog_objectives.json](../reports/stage4/backlog_objectives.json)、[rank_regularization.json](../reports/stage4/rank_regularization.json)與[rank_pair_focus.json](../reports/stage4/rank_pair_focus.json)的主方案摘要。
 
-從固定預算起點到本輪比較完成，**相同提醒量多抓 66 張延遲、少 66 張誤報，召回提高 4.02 個百分點**。進步並非每輪向上，也還漏掉 1,224／1,642 張延遲。最新主方案最差歷史驗證召回為 **19.17%**，三個 fold 仍未全部通過「各歷史月至少召回 30%」的適用要求。
+從固定預算起點到本輪比較完成，**相同提醒量多抓 61 張延遲、少 61 張誤報，召回提高 3.71 個百分點**。進步並非每輪向上，也還漏掉 1,229／1,642 張延遲。最新主方案最差歷史驗證召回為 **19.63%**，三個 fold 仍未全部通過「各歷史月至少召回 30%」的適用要求。
 
 ## 這些結果代表什麼
 
-上述三個開發月已被多次用來檢視和設計下一輪實驗，不能當成未知新資料成績。原版 2018-05-26 起保留測試的召回 23.07% 使用另一個期間、模型與提醒規則，**不能拿它與本表的 25.46% 直接比較**；後續固定預算研究沒有重新評分該保留期間。
+上述三個開發月已被多次用來檢視和設計下一輪實驗，不能當成未知新資料成績。原版 2018-05-26 起保留測試的召回 23.07% 使用另一個期間、模型與提醒規則，**不能拿它與本表的 25.15% 直接比較**；後續固定預算研究沒有重新評分該保留期間。
 
 目前預設推論仍用原版 Random Forest。研究流程可以在不同月份依歷史資料選到 XGBoost 或 Logistic，研究成績改善不會自動替換預設模型。當前標籤母體仍是時間合理且最終已送達的訂單；待件情境雖納入其他有效核准訂單，不能據此宣稱已驗證所有核准、取消與未送達訂單。
 
-本輪進一步固定排序其他設定，只比較 L2 正則化。強正則化改善固定排序候選的開發合計與九月，但 SP→SP 本身仍少抓延遲，七月也會退步，未帶來完整主方案改善。363 項測試與 29 個 Notebook 程式區塊通過；來源模型、報告與圖檔保持不變。
+本輪固定 L2＝100，只比較原生固定前 10／20／40 名的訓練配對焦點，不是每天動態 10% 配對。101 欄的兩個新設定都能改善七、九月，但未恢復舊 L2＝10 七月表現；83 欄也沒有相同改善。十二月按歷史下限改選新模型後，開發少抓 5 張，不能看過開發結果就改回較好看的舊方案。
 
-下一步可把 L2＝100 留作研究對照，事先固定規格後，檢查原前 20 名訓練配對焦點與每日 10% 提醒切點的差異，同時核對七月、九月及其他月份的完整路線代價。這不代表自動上線；仍需另行安排未參與調整的新期間驗證，之後才討論 Dashboard 與下一階段。
+391 項測試、30 個 Notebook 程式區塊通過；64 份模型版本、512,448 列分數與歷史選模均完成獨立核對，703 份既有模型、報告與圖檔雜湊不變。四個新四月模型及主方案 CLI 都維持完整 6,624 單、650 個提醒，保留 ZIP 前導零。
+
+下一步可固定本輪模型，按每日訂單量與實際 10% 提醒名次分組，診斷固定 k 為何在七月改善、十二月退步，並追蹤九月承諾 15–21 天的三張新漏報；先分析，不自動追加訓練。新模型仍只供研究，需要另行安排未參與調整的新期間驗證，之後才討論 Dashboard 與下一階段。
