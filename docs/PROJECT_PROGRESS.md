@@ -45,6 +45,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 16. 逾期未送達堆積變化 | 分開測試 7 天、14 天與兩者合併的逾期待件歷史量、增減與成長 | XGBoost 固定候選在開發月份改善，但七、九月退步；歷史選定主方案只多抓 1 張，到 25.46%。見[堆積變化](STAGE4_BACKLOG_CHANGES.md) |
 | 17. 七、九月名額交換 | 重播同一批模型，追蹤加入堆積特徵後哪些路線失去提醒、哪些準時件取得名額 | 七月 SP→SP、九月 SP→BA 退步；兩月新增漏報 22 張，其中 20 張落到每日 10–20% 排名。這步不重訓、不改選模。見[路線名額診斷](STAGE4_BACKLOG_ROUTE_EXCHANGES.md) |
 | 18. 同特徵分類與每日排序 | 固定本輪 83／101 欄與訓練時鐘，比較 XGBoost 分類和每日排序目標，新增 16 次訓練 | 兩排序模型各補抓原 22 張漏報中的 9 張，但七月改善、九月退步；83 欄三個開發月合計多抓 8 張，101 欄少抓 3 張。完整主方案未選新排序，仍 25.46%。見[分類／排序比較](STAGE4_BACKLOG_OBJECTIVES.md) |
+| 19. 排序 L2 正則化 | 固定 83／101 欄、排序目標與其他樹參數，只比較 L2＝1／10／100，完成 32 次新訓練；核對九月誤報與其他路線漏報 | L2＝100 相對原排序，83 欄開發多抓 44 張、101 欄多抓 18 張；九月 101 欄整體多抓 14 張，但 SP→SP 本身少抓 1 張，七月整體少 10 張。全 71 候選主方案未選新候選，維持 25.46%。見[排序正則化比較](STAGE4_RANK_REGULARIZATION.md) |
 
 ## 固定 10% 預算這段，實際進步多少
 
@@ -61,8 +62,9 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 路線／承諾／近期負載 | 417 | 1,428 | 1,225 | 25.40% |
 | 7／14 天逾期堆積；七九月診斷後 | 418 | 1,427 | 1,224 | 25.46% |
 | 同特徵分類／每日排序比較後 | 418 | 1,427 | 1,224 | 25.46% |
+| 排序 L2 正則化比較後 | 418 | 1,427 | 1,224 | 25.46% |
 
-來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)與[backlog_objectives.json](../reports/stage4/backlog_objectives.json)的主方案摘要。
+來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)、[backlog_objectives.json](../reports/stage4/backlog_objectives.json)與[rank_regularization.json](../reports/stage4/rank_regularization.json)的主方案摘要。
 
 從固定預算起點到本輪比較完成，**相同提醒量多抓 66 張延遲、少 66 張誤報，召回提高 4.02 個百分點**。進步並非每輪向上，也還漏掉 1,224／1,642 張延遲。最新主方案最差歷史驗證召回為 **19.17%**，三個 fold 仍未全部通過「各歷史月至少召回 30%」的適用要求。
 
@@ -72,4 +74,6 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 
 目前預設推論仍用原版 Random Forest。研究流程可以在不同月份依歷史資料選到 XGBoost 或 Logistic，研究成績改善不會自動替換預設模型。當前標籤母體仍是時間合理且最終已送達的訂單；待件情境雖納入其他有效核准訂單，不能據此宣稱已驗證所有核准、取消與未送達訂單。
 
-本輪同特徵分類／每日排序的成對比較沒有帶來主方案改善，七月補抓也伴隨九月損失。接下來應根據完整路線診斷決定是否值得調整訓練目標，並另行安排未參與調整的新期間驗證，之後才討論 Dashboard 與下一階段。
+本輪進一步固定排序其他設定，只比較 L2 正則化。強正則化改善固定排序候選的開發合計與九月，但 SP→SP 本身仍少抓延遲，七月也會退步，未帶來完整主方案改善。363 項測試與 29 個 Notebook 程式區塊通過；來源模型、報告與圖檔保持不變。
+
+下一步可把 L2＝100 留作研究對照，事先固定規格後，檢查原前 20 名訓練配對焦點與每日 10% 提醒切點的差異，同時核對七月、九月及其他月份的完整路線代價。這不代表自動上線；仍需另行安排未參與調整的新期間驗證，之後才討論 Dashboard 與下一階段。
