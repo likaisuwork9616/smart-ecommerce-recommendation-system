@@ -4,6 +4,8 @@ Smart E-Commerce Recommendation System
 
 本機安裝、啟動與驗證方式請見 [環境建置指南](docs/LOCAL_SETUP.md)。
 
+從資料建置到目前的完整工作、每輪目的與成敗，見[專案歷程與進度](docs/PROJECT_PROGRESS.md)。
+
 每次推送 GitHub 都會同步更新本 README，記錄功能、進度與實驗結果；協作規則見 [AGENTS.md](AGENTS.md)。Python 套件安裝於 `.venv/`；MySQL 是獨立服務，放在專案 `.runtime/`，不在 Python 虛擬環境裡。
 
 本專案以電商資料分析與推薦系統為主軸，使用 **Olist Brazilian E-Commerce Dataset** 與 **Retailrocket Recommender System Dataset**，逐步完成從資料匯入、SQL 分析、商業 EDA、機器學習預測、推薦系統，到後續 API 與前端展示的完整資料產品流程。
@@ -13,7 +15,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；七、九月退步路線及提醒名額診斷完成，主開發召回25.46%，歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；相同83／101欄的分類與每日排序比較完成，主開發召回仍25.46%，歷史下限19.17%，未達各歷史月30%要求
 
 接續可進行：
 
@@ -712,6 +714,7 @@ E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選
 | 第六輪：Logistic 負載組 L2 強度，50 候選主選模 | 56 | 420 | 1,425 | 1,222 | 25.58% | 19.17% | 多抓 61 張，仍未達標 |
 | 第七輪：路線／承諾／近期負載消融，56 候選主選模 | 48 | 417 | 1,428 | 1,225 | 25.40% | 19.17% | 少抓 3 張，未改善、仍未達標 |
 | 第八輪：逾期未送達7／14天堆積消融，65候選主選模 | 72 | 418 | 1,427 | 1,224 | 25.46% | 19.17% | TP差+1；仍未達三個 fold 各歷史月 30% 下限 |
+| 第九輪：相同83／101欄分類與每日排序，67候選主選模 | 16 | 418 | 1,427 | 1,224 | 25.46% | 19.17% | 七月改善、九月退步；主方案未採新排序模型 |
 
 ¹ 17.50% 是本輪三歷史月 selector 對同組舊候選的結果；原校準實驗只用第三個政策月選模，不能混稱原實驗驗證制度。八輪主方案都提醒 1,845 張（9.80%，每日取整後低於 10%），歷史適用結果見各輪說明，研究模型未自動替換原本預設。合計新增 **520 次訓練**。
 
@@ -915,6 +918,30 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 | 獨立統計核對 | 136,834欄一致，包含路線、日期、承諾與每日名額 |
 | 原產物保護 | 642份既有模型、報告與圖檔SHA-256不變 |
 
+### 第九輪：相同特徵下的分類與每日排序目標
+
+固定83欄地理、101欄合併堆積特徵與deadline_wait0訓練時鐘，重播16個既有XGBoost分類版本，新訓練16個XGBoost每日排序版本。核心樹參數與訓練訂單相同；排序改用rank:ndcg及每日成熟列分組、固定topk20配對焦點。這不等於每天10%的切點，評估仍按完整每日批次floor(10%×N)取提醒；沒有開發eval_set、早停或依成績改參數。排序sigmoid margin是有界分數，不是校準機率。
+
+| 固定特徵組 | 分類TP／開發召回 | 排序TP／開發召回 | 排序相對分類 |
+| --- | --- | --- | --- |
+| 地理83欄 | 263／16.02% | 271／16.50% | 多抓8筆 |
+| 堆積101欄 | 308／18.76% | 305／18.57% | 少抓3筆 |
+
+上表同為三個已反覆檢視的開發月、18,833單、1,642筆延遲、1,845個提醒。在2017-12 fold的歷史驗證，101欄排序七月TP18→28，九月47→35：七月補抓16、失去6；九月補抓8、失去20。原本因加入堆積特徵而新增的22筆漏報，兩種排序模型各找回9筆，但不能忽略另外失去的延遲。
+
+路線也有取捨：101欄排序讓七月SP→SP的TP8→13、SP→RJ的TP0→2；九月SP→BA的TP2→4，但SP→SP提醒116→188、TP11→8、誤報105→180。不能只展示修復的群組；所有路線、承諾與排名得失均保留。
+
+67候選主方案沿用65個舊候選的雜湊綁定原指標，再加2個排序候選，按歷史最低召回、TP、AP及固定順序選模。其他63候選的504個舊版本沒有重播；只有16分類版本重播與16新fit。三個fold都沒有改選主方案，開發TP仍418、召回25.46%、歷史下限19.17%，未達適用要求。這組固定排序設定未穩定改善，不能推論所有排序方法都無效。
+
+方法、逐月成敗及操作見[分類與排序實驗](docs/STAGE4_BACKLOG_OBJECTIVES.md)、[事前規格](reports/stage4/backlog_objectives_specification.json)、[正式報告](reports/stage4/backlog_objectives.json)與[成對診斷](reports/stage4/backlog_objective_diagnostics.json)。完整專案回顧見[專案進度](docs/PROJECT_PROGRESS.md)。本輪維持原預設RF與原保留期間，Notebook只新增表格。
+
+| 本輪驗證 | 實際結果 |
+| --- | --- |
+| 測試／Notebook | 342項通過／28個程式區塊完整執行，提交無輸出 |
+| 模型與帳本 | 32版本／170,516月版預測／256,224分數列一致 |
+| 獨立統計核對 | 67候選選模、74摘要、660,018個路線診斷欄位通過 |
+| 推論與舊產物 | 四月6,624單／650提醒；643份既有產物SHA不變 |
+
 在專案根目錄執行：
 
 ```powershell
@@ -941,6 +968,9 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 .\.venv\Scripts\python.exe scripts\train_backlog_changes.py --n-jobs 2
 .\.venv\Scripts\python.exe scripts\diagnose_backlog_changes.py
 .\.venv\Scripts\python.exe scripts\diagnose_backlog_route_exchanges.py
+.\.venv\Scripts\python.exe scripts\compare_backlog_objectives.py --specification-only --n-jobs 2
+.\.venv\Scripts\python.exe scripts\compare_backlog_objectives.py --n-jobs 2
+.\.venv\Scripts\python.exe scripts\diagnose_objective_misses.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -983,7 +1013,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 
 ## 下一步規劃
 
-目前仍以 Stage 4 固定每日10%預算改善辨識能力。七、九月診斷已完成：主要淨損集中於SP→SP短承諾與SP→BA長承諾，新增漏報多在每日10–20%排名。下一步建議先固定本輪83／101欄與訓練時鐘，比較分類及每日排序目標，沿用相同預算，檢查這些群組及其他路線的得失；事後診斷仍屬開發研究，後續需確認新期間表現。主開發召回25.46%、歷史下限19.17%，尚未通過適用要求；Dashboard、Stage5、推薦系統與API仍待後續討論。
+目前仍以 Stage 4 固定每日10%預算改善辨識能力。相同83／101欄的分類與每日排序比較已完成，七月改善、九月退步，主方案仍25.46%、歷史下限19.17%。下一步可先固定其他設定，比較排序模型的正則化強度，尤其檢查九月SP→SP增加提醒卻少抓延遲的取捨；需要先固定規格，不能按已看過的月份加人工路線名額後宣稱未知資料改善。後續仍需另行確認新期間表現，Dashboard、Stage5、推薦系統與API待討論。
 
 ---
 
@@ -994,7 +1024,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 | Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
 | Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
 | Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
-| Stage 4：延遲預測 | 研究中 | 七、九月名額交換診斷完成；主開發召回25.46%、歷史下限19.17%，仍未達各歷史月30%要求 |
+| Stage 4：延遲預測 | 研究中 | 同特徵分類／每日排序完成；主開發召回仍25.46%、歷史下限19.17%，未達各歷史月30%要求 |
 | Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
