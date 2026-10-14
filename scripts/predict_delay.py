@@ -21,6 +21,12 @@ if str(ROOT) not in sys.path:
 def build_inference_features(artifact: dict, tables: dict, geolocation=None) -> pd.DataFrame:
     """Use the exact static/history contract saved with the chosen artifact."""
     feature_set = artifact.get('feature_set', 'approval_static')
+    if feature_set.startswith('backlog_'):
+        from scripts.delay_backlog_features import FEATURE_SET_DESIGNS, build_backlog_order_features
+        if feature_set not in FEATURE_SET_DESIGNS:
+            raise ValueError(f'Unsupported feature set: {feature_set}')
+        backbone, variant = FEATURE_SET_DESIGNS[feature_set]
+        return build_backlog_order_features(tables, backbone, variant, geolocation)
     if feature_set.startswith('route_load_'):
         from scripts.delay_route_load_training import FEATURE_SET_DESIGNS
         from scripts.delay_route_load_features import build_route_load_order_features
@@ -128,7 +134,8 @@ def main():
         geolocation = None
         from scripts.delay_ablation_features import GEOGRAPHIC_FEATURE_SETS
         from scripts.delay_route_load_training import GEOGRAPHIC_FEATURE_SETS as ROUTE_LOAD_GEO_SETS
-        if artifact.get('feature_set') in ({'geo_engineered_approval', 'dispatch_geo_engineered_approval'} | GEOGRAPHIC_FEATURE_SETS | ROUTE_LOAD_GEO_SETS):
+        from scripts.delay_backlog_features import GEOGRAPHIC_FEATURE_SETS as BACKLOG_GEO_SETS
+        if artifact.get('feature_set') in ({'geo_engineered_approval', 'dispatch_geo_engineered_approval'} | GEOGRAPHIC_FEATURE_SETS | ROUTE_LOAD_GEO_SETS | BACKLOG_GEO_SETS):
             from scripts.delay_engineering_features import GEO_FILENAME
             geolocation = pd.read_csv(args.data_dir / GEO_FILENAME)
         features = build_inference_features(artifact, tables, geolocation)

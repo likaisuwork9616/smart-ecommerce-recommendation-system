@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；本輪路線／承諾／近期負載消融完成，主開發召回 25.40%，歷史下限 19.17%，未改善且未達標
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；逾期堆積7／14天消融完成，主開發召回25.46%，歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限
 
 接續可進行：
 
@@ -711,8 +711,9 @@ E 時以三個成熟歷史月份各自舊版模型的分數決定門檻與候選
 | 第五輪：地理與負載交互消融，43 候選主選模 | 96 | 359 | 1,486 | 1,283 | 21.86% | 19.17% | 主方案不變，仍未達標 |
 | 第六輪：Logistic 負載組 L2 強度，50 候選主選模 | 56 | 420 | 1,425 | 1,222 | 25.58% | 19.17% | 多抓 61 張，仍未達標 |
 | 第七輪：路線／承諾／近期負載消融，56 候選主選模 | 48 | 417 | 1,428 | 1,225 | 25.40% | 19.17% | 少抓 3 張，未改善、仍未達標 |
+| 第八輪：逾期未送達7／14天堆積消融，65候選主選模 | 72 | 418 | 1,427 | 1,224 | 25.46% | 19.17% | TP差+1；仍未達三個 fold 各歷史月 30% 下限 |
 
-¹ 17.50% 是本輪三歷史月 selector 對同組舊候選的結果；原校準實驗只用第三個政策月選模，不能混稱原實驗驗證制度。七輪主方案都提醒 1,845 張（9.80%，每日取整後低於 10%），沒有通過任一 fold 的歷史下限，研究模型未自動替換原本預設。合計新增 **448 次訓練**。
+¹ 17.50% 是本輪三歷史月 selector 對同組舊候選的結果；原校準實驗只用第三個政策月選模，不能混稱原實驗驗證制度。八輪主方案都提醒 1,845 張（9.80%，每日取整後低於 10%），歷史適用結果見各輪說明，研究模型未自動替換原本預設。合計新增 **520 次訓練**。
 
 | 原 10% 方案的漏報群組 | 延遲總數 | 抓到 TP | 漏報 FN | Recall |
 | --- | ---: | ---: | ---: | ---: |
@@ -868,6 +869,30 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 
 完整逐月成敗、特徵公式、切分與完整日批次操作見[第七輪說明](docs/STAGE4_ROUTE_LOAD_INTERACTIONS.md)、[執行前規格](reports/stage4/route_load_interactions_specification.json)及[成對錯誤報告](reports/stage4/route_load_diagnostics.json)。三個 E 都是已檢視的開發回測，30% 適用門檻不變。
 
+
+### 第八輪：逾期未送達訂單的7／14天堆積變化
+
+固定原Logistic負載C=1／0.01與XGBoost地理三個基底，分別加7天、14天、兩者合併的逾期待件歷史量、件數差與log1p成長。單一lag加9數值，合併加18；新候選不再疊加前輪核准量／類別交互，完整65候選仍保留前輪56作歷史選模比較。
+
+過去快照各自依當時已知事件計算，不使用後來已送達狀態回填；當時90天核准視窗移動與缺取消時間都可能影響堆積變化，下降不等同物流改善。
+
+| 基底 | 原基底 | 7 天 | 14 天 | 7＋14 天 |
+| --- | --- | --- | --- | --- |
+| Logistic C=1 | 22.05% | 21.50% | 21.50% | 21.74% |
+| Logistic C=0.01 | 26.86% | 26.98% | 26.55% | 26.43% |
+| XGBoost | 16.02% | 16.99% | 17.30% | 18.76% |
+
+以上為三個開發月合併召回，所有候選維持每日完整批次10%。主方案TP **417 → 418**、FP **1428 → 1427**、FN **1225 → 1224**，召回 **25.40% → 25.46%**。主方案按三歷史月選模，不能按開發成績事後改選；仍未達三個 fold 各歷史月 30% 下限。
+
+| 本輪工作 | 狀態／實際結果 |
+| --- | --- |
+| 新特徵與訓練 | 72新fit；7天、14天、合併分開測試 |
+| 時點／原值核對 | 1,735,092新值雙算法一致；11,181,704原值保留 |
+| 測試與重播 | 313項測試、26個Notebook區塊、520模型／4,163,640分數核對通過 |
+| 預設模型與保留測試 | 原RF維持，2018-05-26起未重新評分，Dashboard暫緩 |
+
+完整逐月成敗、八月／十二月路線與承諾／排名交換、72組配對、操作與限制見[堆積變化實驗](docs/STAGE4_BACKLOG_CHANGES.md)、[實際報告](reports/stage4/backlog_changes.json)、[事前規格](reports/stage4/backlog_changes_specification.json)及[成對診斷](reports/stage4/backlog_diagnostics.json)。本輪仍是開發研究。
+
 在專案根目錄執行：
 
 ```powershell
@@ -890,6 +915,9 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 .\.venv\Scripts\python.exe scripts\train_route_load_interactions.py --specification-only --n-jobs 2
 .\.venv\Scripts\python.exe scripts\train_route_load_interactions.py --n-jobs 2
 .\.venv\Scripts\python.exe scripts\diagnose_route_load_interactions.py
+.\.venv\Scripts\python.exe scripts\train_backlog_changes.py --specification-only --n-jobs 2
+.\.venv\Scripts\python.exe scripts\train_backlog_changes.py --n-jobs 2
+.\.venv\Scripts\python.exe scripts\diagnose_backlog_changes.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -932,7 +960,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 
 ## 下一步規劃
 
-目前仍以 Stage 4 固定每日 10% 預算的辨識能力為主。本輪路線／承諾／近期核准量消融沒有改善主方案，八月部分增益也未穩定轉移，接著需依完整成對診斷判斷現有核准時點訊號及候選的限制，再討論下一個訓練軸；不按已看過的 E 結果追加規則。後續仍需新期間驗證，確認適用程度後才安排 Dashboard。Stage 5 評論預測、推薦系統與 API 尚未開始，等延遲模型研究告一段落再討論。
+目前仍以 Stage 4 固定每日10%預算改善辨識能力。本輪堆積變化主方案TP差+1，歷史下限19.17%；XGBoost合併組的開發增益仍未通過歷史適用要求。下一步先檢查七、九月退步的路線與提醒交換，再討論新特徵；不按已看過的E追加規則後宣稱未知資料效果。確認適用程度後才安排Dashboard，Stage5、推薦系統與API仍待後續討論。
 
 ---
 
@@ -943,7 +971,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 | Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
 | Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
 | Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
-| Stage 4：延遲預測 | 研究中 | 路線／承諾／近期核准量消融主方案召回 25.40%，少抓 3 張；歷史下限 19.17% 未達標 |
+| Stage 4：延遲預測 | 研究中 | 堆積變化主開發召回25.46%；歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限 |
 | Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
