@@ -13,14 +13,14 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；逾期堆積7／14天消融完成，主開發召回25.46%，歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；七、九月退步路線及提醒名額診斷完成，主開發召回25.46%，歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限
 
 接續可進行：
 
 - Stage 4：先改善固定 10% 預算的辨識能力，再確認新期間表現；Dashboard 暫緩
 - Stage 5：Olist 評論好壞預測
 
-後續進度回報均附表格，並區分已完成的方法、實際效果及未達標項目。現階段繼續處理 Stage 4，先訓練與驗證，再做 Dashboard。
+後續每一步完成並推送GitHub後，都會用白話總結做了什麼、實際發現、未解決問題與下一步建議，附進度表及commit連結。現階段繼續處理 Stage 4，先訓練與驗證，再做 Dashboard。
 
 ---
 
@@ -893,6 +893,28 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 
 完整逐月成敗、八月／十二月路線與承諾／排名交換、72組配對、操作與限制見[堆積變化實驗](docs/STAGE4_BACKLOG_CHANGES.md)、[實際報告](reports/stage4/backlog_changes.json)、[事前規格](reports/stage4/backlog_changes_specification.json)及[成對診斷](reports/stage4/backlog_diagnostics.json)。本輪仍是開發研究。
 
+### 七、九月退步路線與提醒名額診斷
+
+本步只重播原XGBoost地理83欄與堆積7天、14天、合併101欄版本，**0次新fit、不改選模**。七、九月是2017-12-01選模時的歷史驗證；九月3筆未知結果仍競爭每日名額，但不計入TP／FP。原始保留測試未重新評分。
+
+| 歷史驗證月 | 原版→合併召回 | 補抓／新增漏報 | 主要退步路線 | 路線TP原→新 |
+| --- | --- | --- | --- | --- |
+| 2017-07 | 19.63%→16.82% | 7／10 | SP→SP，失去5筆全屬承諾8–14天 | 12→8 |
+| 2017-09 | 28.33%→26.11% | 8／12 | SP→BA，失去6筆全屬承諾22–30天 | 7→2 |
+
+七月SP→RJ提醒24→53，TP仍0；九月SP→BA提醒20→7。七月121次替換拆為同日同路線37與跨路線每日淨名額84；九月100次拆為25與75，每日容量仍為floor(10%×完整訂單數)。這是邊際名額帳務，不能解讀為特定訂單或路線間的一對一因果轉移。
+
+兩月22筆新增漏報中20筆落到每日排名10–20%，另外2筆20–50%。下一步適合以本輪相同83／101欄與相同訓練時鐘，成對比較分類及每日排序目標，並一起核對其他路線的補抓與誤報；先前已有待件基底排序實驗，本輪堆積配對尚未比較。不能直接按這兩個已檢視月份加路線固定配額後宣稱新資料改善。
+
+完整路線、承諾與每日分組、7／14天參照、重現方式見[本步說明](docs/STAGE4_BACKLOG_ROUTE_EXCHANGES.md)及[實際報告](reports/stage4/backlog_route_exchanges.json)。新增純分析模組與12項測試，Notebook新增一節表格，沒有新圖。主方案開發召回仍25.46%、歷史下限19.17%，適用門檻仍未達成。
+
+| 本步驗證 | 實際結果 |
+| --- | --- |
+| 全套測試／Notebook | 325項通過／27個程式區塊完整執行；提交無輸出 |
+| 模型與分數重播 | 8個既有版本、31,956筆分數及提醒集合一致 |
+| 獨立統計核對 | 136,834欄一致，包含路線、日期、承諾與每日名額 |
+| 原產物保護 | 642份既有模型、報告與圖檔SHA-256不變 |
+
 在專案根目錄執行：
 
 ```powershell
@@ -918,6 +940,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 .\.venv\Scripts\python.exe scripts\train_backlog_changes.py --specification-only --n-jobs 2
 .\.venv\Scripts\python.exe scripts\train_backlog_changes.py --n-jobs 2
 .\.venv\Scripts\python.exe scripts\diagnose_backlog_changes.py
+.\.venv\Scripts\python.exe scripts\diagnose_backlog_route_exchanges.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -960,7 +983,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 
 ## 下一步規劃
 
-目前仍以 Stage 4 固定每日10%預算改善辨識能力。本輪堆積變化主方案TP差+1，歷史下限19.17%；XGBoost合併組的開發增益仍未通過歷史適用要求。下一步先檢查七、九月退步的路線與提醒交換，再討論新特徵；不按已看過的E追加規則後宣稱未知資料效果。確認適用程度後才安排Dashboard，Stage5、推薦系統與API仍待後續討論。
+目前仍以 Stage 4 固定每日10%預算改善辨識能力。七、九月診斷已完成：主要淨損集中於SP→SP短承諾與SP→BA長承諾，新增漏報多在每日10–20%排名。下一步建議先固定本輪83／101欄與訓練時鐘，比較分類及每日排序目標，沿用相同預算，檢查這些群組及其他路線的得失；事後診斷仍屬開發研究，後續需確認新期間表現。主開發召回25.46%、歷史下限19.17%，尚未通過適用要求；Dashboard、Stage5、推薦系統與API仍待後續討論。
 
 ---
 
@@ -971,7 +994,7 @@ XGBoost 八月有 1 個未知結果提醒，因此可計 TP+FP 為 406、完整�
 | Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
 | Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
 | Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
-| Stage 4：延遲預測 | 研究中 | 堆積變化主開發召回25.46%；歷史下限19.17%，仍未達三個 fold 各歷史月 30% 下限 |
+| Stage 4：延遲預測 | 研究中 | 七、九月名額交換診斷完成；主開發召回25.46%、歷史下限19.17%，仍未達各歷史月30%要求 |
 | Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
