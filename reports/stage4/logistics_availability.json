@@ -1,0 +1,2349 @@
+{
+  "format_version": 1,
+  "analysis": "olist_logistics_signal_and_prediction_time_inventory",
+  "work_type": "Data availability inventory only; no fit, prediction, selection or performance re-evaluation.",
+  "new_training_fits": 0,
+  "new_model_predictions": 0,
+  "raw_sources": [
+    {
+      "file": "olist_customers_dataset.csv",
+      "rows": 99441,
+      "columns": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "bytes": 9033957,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "file": "olist_geolocation_dataset.csv",
+      "rows": 1000163,
+      "columns": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "bytes": 61273883,
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "file": "olist_order_items_dataset.csv",
+      "rows": 112650,
+      "columns": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "bytes": 15438671,
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "file": "olist_order_payments_dataset.csv",
+      "rows": 103886,
+      "columns": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "bytes": 5777138,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "file": "olist_order_reviews_dataset.csv",
+      "rows": 99224,
+      "columns": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "bytes": 14451670,
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "file": "olist_orders_dataset.csv",
+      "rows": 99441,
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "bytes": 17654914,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "file": "olist_products_dataset.csv",
+      "rows": 32951,
+      "columns": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "bytes": 2379446,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "file": "olist_sellers_dataset.csv",
+      "rows": 3095,
+      "columns": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "bytes": 174703,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "file": "product_category_name_translation.csv",
+      "rows": 71,
+      "columns": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "bytes": 2613,
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    }
+  ],
+  "audit_scope": {
+    "approved_before_cutoff": 73254,
+    "invalid_purchase_approval_clock_before_cutoff": 0,
+    "valid_approved_before_cutoff": 73254,
+    "approval_cutoff_exclusive": "2018-05-01T00:00:00",
+    "physical_event_observation_cutoff_exclusive": "2018-05-01T00:00:00",
+    "final_status_filter": false,
+    "eventual_delivery_filter": false,
+    "target_or_performance_metrics_computed": false,
+    "original_holdout_scored": false,
+    "whole_file_metadata_exception": "Only headers, row counts, bytes and SHA256 cover complete raw files."
+  },
+  "event_clock_contract": {
+    "known_event_rule": "physical event timestamp strictly < prediction_time",
+    "equal_timestamp_rule": "Event exactly at t is unknown as an input; customer delivery <= t conservatively suppresses checkpoint alerts. Carrier-trigger decision occurs at carrier + 1ns.",
+    "timezone": "Timezone-naive Olist export; geographic timezone/ingestion clocks are not provided.",
+    "inventory_boundary": "2018-05-01T00:00:00 exclusive for all operational observations and queries.",
+    "promise_end": "Midnight after original estimated delivery calendar date; a future contractual promise can be known before its date, subject to revision availability assumptions.",
+    "advance_reminder_eligibility": "Require no delivery <= t, no observed invalid carrier chronology, known promise and t < promise-end midnight. Already-overdue pending is monitoring rather than prospective delay prediction.",
+    "ingestion_limitation": "Recorded event time is not proof that production systems had ingested that event by the same instant."
+  },
+  "existing_101_features": {
+    "numeric_count": 93,
+    "categorical_count": 8,
+    "numeric": [
+      "item_count",
+      "seller_count",
+      "product_count",
+      "total_price",
+      "total_freight_value",
+      "freight_ratio",
+      "payment_total",
+      "payment_count",
+      "payment_installments_max",
+      "product_weight_g_mean",
+      "product_volume_cm3_mean",
+      "estimated_delivery_days",
+      "approval_wait_hours",
+      "purchase_month",
+      "purchase_dayofweek",
+      "purchase_hour",
+      "interstate_item_ratio",
+      "global_completed_90d",
+      "route_completed_90d",
+      "global_delivery_p90_calendar_days_90d",
+      "route_delivery_p50_calendar_days_90d",
+      "route_delivery_p90_calendar_days_90d",
+      "route_promise_margin_p90_days",
+      "route_promise_ratio_p90",
+      "route_promise_cdf_90d",
+      "global_delay_rate_90d",
+      "global_delivery_days_90d",
+      "seller_completed_90d",
+      "seller_delay_rate_90d",
+      "seller_delivery_days_90d",
+      "route_delay_rate_90d",
+      "route_delivery_days_90d",
+      "route_promise_margin_days",
+      "seller_promise_margin_days",
+      "seller_promise_ratio",
+      "seller_delay_rate_excess_global",
+      "route_delay_rate_excess_global",
+      "global_pending_30d",
+      "global_pending_90d",
+      "global_pending_mean_age_30d",
+      "global_pending_overdue_30d",
+      "global_pending_overdue_90d",
+      "seller_pending_30d",
+      "seller_pending_90d",
+      "seller_pending_mean_age_30d",
+      "seller_pending_overdue_30d",
+      "seller_pending_overdue_90d",
+      "route_pending_30d",
+      "route_pending_90d",
+      "route_pending_mean_age_30d",
+      "route_pending_overdue_30d",
+      "route_pending_overdue_90d",
+      "geo_primary_distance_km",
+      "geo_item_distance_mean_km",
+      "geo_item_distance_max_km",
+      "geo_known_distance_item_ratio",
+      "geo_same_zip5_item_ratio",
+      "geo_customer_latitude",
+      "geo_customer_longitude",
+      "geo_primary_seller_latitude",
+      "geo_primary_seller_longitude",
+      "geo_distance_per_promise_day",
+      "geo_promise_days_per_100km",
+      "seller_pending_vs_completed_30d",
+      "route_pending_vs_completed_30d",
+      "seller_overdue_pending_share_30d",
+      "route_overdue_pending_share_30d",
+      "global_overdue_pending_share_30d",
+      "product_density_g_cm3",
+      "freight_per_item",
+      "price_per_item",
+      "approval_weekday",
+      "approval_hour",
+      "promise_weekday",
+      "geo_freight_per_km",
+      "global_overdue_pending_lag_7d",
+      "global_overdue_pending_change_7d",
+      "global_overdue_pending_log_growth_7d",
+      "seller_overdue_pending_lag_7d",
+      "seller_overdue_pending_change_7d",
+      "seller_overdue_pending_log_growth_7d",
+      "route_overdue_pending_lag_7d",
+      "route_overdue_pending_change_7d",
+      "route_overdue_pending_log_growth_7d",
+      "global_overdue_pending_lag_14d",
+      "global_overdue_pending_change_14d",
+      "global_overdue_pending_log_growth_14d",
+      "seller_overdue_pending_lag_14d",
+      "seller_overdue_pending_change_14d",
+      "seller_overdue_pending_log_growth_14d",
+      "route_overdue_pending_lag_14d",
+      "route_overdue_pending_change_14d",
+      "route_overdue_pending_log_growth_14d"
+    ],
+    "categorical": [
+      "customer_state",
+      "primary_seller_state",
+      "primary_category",
+      "payment_type",
+      "state_route",
+      "primary_seller_id",
+      "customer_zip_prefix3",
+      "primary_seller_zip_prefix3"
+    ],
+    "own_carrier_or_customer_delivery_inputs": false,
+    "dispatch_schedule_features_included": false
+  },
+  "operational_profiles": {
+    "all_pre_cutoff": {
+      "orders": 73254,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 71438,
+        "customer_delivery": 68310,
+        "original_promise_present": 73254
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 516,
+        "customer_delivery_before_approval": 27,
+        "customer_delivery_before_known_carrier": 23,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 1,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 70922,
+      "approval_to_valid_carrier_hours": {
+        "observations": 70922,
+        "minimum": 0.06555555555555556,
+        "p25": 24.191666666666666,
+        "median": 48.10458333333334,
+        "p75": 92.17354166666667,
+        "p90": 147.5600277777778,
+        "maximum": 3018.3016666666667
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 83009,
+        "orders_with_items": 72676,
+        "orders_without_items": 578,
+        "orders_with_multiple_items": 7244,
+        "orders_with_multiple_sellers": 848,
+        "items_with_valid_shipping_limit": 83009,
+        "items_with_shipping_limit_before_approval": 28,
+        "orders_with_at_least_one_valid_shipping_limit": 72676,
+        "orders_with_different_item_shipping_limits": 61,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 26,
+        "known_order_carrier_at_or_after_latest_item_limit": 6849,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 72676,
+          "minimum": -445.02805555555557,
+          "p25": 120.0,
+          "median": 144.0,
+          "p75": 167.2423611111111,
+          "p90": 216.0,
+          "maximum": 25345.0
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 73254,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 27,
+          "no_customer_delivery_observed_before_query": 73227,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 73227,
+          "eligible_for_reminder_proxy": 72738,
+          "already_overdue_pending_among_generic_eligible": 4,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 72734,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 72738,
+          "undelivered_with_carrier_before_approval_anomaly": 489,
+          "undelivered_with_original_promise_already_expired": 4,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 73227,
+            "minimum": -3471.293888888889,
+            "p25": 487.57888888888886,
+            "median": 584.5955555555555,
+            "p75": 703.0993055555556,
+            "p90": 834.0027777777788,
+            "maximum": 3709.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 73157,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 97,
+          "customer_delivery_observed_before_query": 101,
+          "no_customer_delivery_observed_before_query": 73056,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 73056,
+          "eligible_for_reminder_proxy": 72624,
+          "already_overdue_pending_among_generic_eligible": 4,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 72620,
+          "undelivered_with_valid_carrier_event_before_query": 17481,
+          "undelivered_without_carrier_event_before_query": 55143,
+          "undelivered_with_carrier_before_approval_anomaly": 432,
+          "undelivered_with_original_promise_already_expired": 4,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 73056,
+            "minimum": -3495.293888888889,
+            "p25": 463.92027777777776,
+            "median": 560.8275,
+            "p75": 679.2416666666667,
+            "p90": 810.4704166666667,
+            "maximum": 3685.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 72837,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 417,
+          "customer_delivery_observed_before_query": 3455,
+          "no_customer_delivery_observed_before_query": 69382,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 69382,
+          "eligible_for_reminder_proxy": 69052,
+          "already_overdue_pending_among_generic_eligible": 5,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 69047,
+          "undelivered_with_valid_carrier_event_before_query": 42761,
+          "undelivered_without_carrier_event_before_query": 26291,
+          "undelivered_with_carrier_before_approval_anomaly": 330,
+          "undelivered_with_original_promise_already_expired": 5,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 69382,
+            "minimum": -3543.293888888889,
+            "p25": 428.82222222222225,
+            "median": 520.0861111111111,
+            "p75": 636.4118055555556,
+            "p90": 767.12625,
+            "maximum": 3637.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 71035,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 2219,
+          "customer_delivery_observed_before_query": 16539,
+          "no_customer_delivery_observed_before_query": 54496,
+          "customer_delivery_equal_query_conservative_suppression": 8,
+          "no_customer_delivery_at_or_before_query": 54488,
+          "eligible_for_reminder_proxy": 54423,
+          "already_overdue_pending_among_generic_eligible": 8,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 54415,
+          "undelivered_with_valid_carrier_event_before_query": 47913,
+          "undelivered_without_carrier_event_before_query": 6510,
+          "undelivered_with_carrier_before_approval_anomaly": 65,
+          "undelivered_with_original_promise_already_expired": 8,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 54488,
+            "minimum": -3639.293888888889,
+            "p25": 362.49333333333334,
+            "median": 453.4015277777778,
+            "p75": 567.7454861111112,
+            "p90": 687.0660833333334,
+            "maximum": 3541.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 70922,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 2332,
+        "customer_delivery_observed_before_query": 32,
+        "no_customer_delivery_observed_before_query": 70890,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 70890,
+        "eligible_for_reminder_proxy": 70890,
+        "already_overdue_pending_among_generic_eligible": 197,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 70693,
+        "undelivered_with_valid_carrier_event_before_query": 70890,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 197,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 70890,
+          "minimum": -2367.744444444445,
+          "p25": 412.0517361111108,
+          "median": 516.4515277777775,
+          "p75": 649.0827777777774,
+          "p90": 765.8540833333329,
+          "maximum": 3578.4391666666666
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 70535,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 2719,
+        "customer_delivery_observed_before_query": 10262,
+        "no_customer_delivery_observed_before_query": 60273,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 60273,
+        "eligible_for_reminder_proxy": 60273,
+        "already_overdue_pending_among_generic_eligible": 238,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 60035,
+        "undelivered_with_valid_carrier_event_before_query": 60273,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 238,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 60273,
+          "minimum": -1000.2047222222225,
+          "p25": 387.63861111111083,
+          "median": 463.9949999999997,
+          "p75": 587.5749999999997,
+          "p90": 704.5564999999997,
+          "maximum": 3459.2966666666666
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    },
+    "2017-07": {
+      "orders": 3974,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 3882,
+        "customer_delivery": 3828,
+        "original_promise_present": 3974
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 3,
+        "customer_delivery_before_approval": 1,
+        "customer_delivery_before_known_carrier": 11,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 0,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 3879,
+      "approval_to_valid_carrier_hours": {
+        "observations": 3879,
+        "minimum": 0.08833333333333333,
+        "p25": 23.95861111111111,
+        "median": 47.34305555555556,
+        "p75": 86.94944444444445,
+        "p90": 142.17000000000002,
+        "maximum": 810.6908333333333
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 4464,
+        "orders_with_items": 3922,
+        "orders_without_items": 52,
+        "orders_with_multiple_items": 396,
+        "orders_with_multiple_sellers": 62,
+        "items_with_valid_shipping_limit": 4464,
+        "items_with_shipping_limit_before_approval": 2,
+        "orders_with_at_least_one_valid_shipping_limit": 3922,
+        "orders_with_different_item_shipping_limits": 1,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 0,
+        "known_order_carrier_at_or_after_latest_item_limit": 302,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 3922,
+          "minimum": -123.61666666666666,
+          "p25": 120.0,
+          "median": 144.0,
+          "p75": 144.0,
+          "p90": 239.99166666666667,
+          "maximum": 984.0
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 3974,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 1,
+          "no_customer_delivery_observed_before_query": 3973,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 3973,
+          "eligible_for_reminder_proxy": 3971,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 3971,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 3971,
+          "undelivered_with_carrier_before_approval_anomaly": 2,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 3973,
+            "minimum": 205.82916666666668,
+            "p25": 486.94083333333333,
+            "median": 561.0813888888889,
+            "p75": 673.4933333333333,
+            "p90": 792.3450555555556,
+            "maximum": 2647.94
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 3974,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 2,
+          "no_customer_delivery_observed_before_query": 3972,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 3972,
+          "eligible_for_reminder_proxy": 3970,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 3970,
+          "undelivered_with_valid_carrier_event_before_query": 972,
+          "undelivered_without_carrier_event_before_query": 2998,
+          "undelivered_with_carrier_before_approval_anomaly": 2,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 3972,
+            "minimum": 181.82916666666668,
+            "p25": 462.9422916666667,
+            "median": 537.1629166666667,
+            "p75": 649.515,
+            "p90": 768.3782222222222,
+            "maximum": 2623.94
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 3974,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 229,
+          "no_customer_delivery_observed_before_query": 3745,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 3745,
+          "eligible_for_reminder_proxy": 3743,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 3743,
+          "undelivered_with_valid_carrier_event_before_query": 2401,
+          "undelivered_without_carrier_event_before_query": 1342,
+          "undelivered_with_carrier_before_approval_anomaly": 2,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 3745,
+            "minimum": 133.82916666666668,
+            "p25": 427.0755555555556,
+            "median": 501.24833333333333,
+            "p75": 608.0805555555555,
+            "p90": 726.3016111111111,
+            "maximum": 2575.94
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 3974,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 1069,
+          "no_customer_delivery_observed_before_query": 2905,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 2905,
+          "eligible_for_reminder_proxy": 2904,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 2904,
+          "undelivered_with_valid_carrier_event_before_query": 2594,
+          "undelivered_without_carrier_event_before_query": 310,
+          "undelivered_with_carrier_before_approval_anomaly": 1,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 2905,
+            "minimum": 37.829166666666666,
+            "p25": 363.5808333333333,
+            "median": 422.16277777777776,
+            "p75": 547.7416666666667,
+            "p90": 649.4262777777777,
+            "maximum": 2479.94
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 3879,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 95,
+        "customer_delivery_observed_before_query": 14,
+        "no_customer_delivery_observed_before_query": 3865,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 3865,
+        "eligible_for_reminder_proxy": 3865,
+        "already_overdue_pending_among_generic_eligible": 3,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 3862,
+        "undelivered_with_valid_carrier_event_before_query": 3865,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 3,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 3865,
+          "minimum": -232.50250000000028,
+          "p25": 416.26222222222196,
+          "median": 509.057222222222,
+          "p75": 604.7180555555553,
+          "p90": 725.6372222222219,
+          "maximum": 2168.6191666666664
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 3879,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 95,
+        "customer_delivery_observed_before_query": 615,
+        "no_customer_delivery_observed_before_query": 3264,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 3264,
+        "eligible_for_reminder_proxy": 3264,
+        "already_overdue_pending_among_generic_eligible": 3,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 3261,
+        "undelivered_with_valid_carrier_event_before_query": 3264,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 3,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 3264,
+          "minimum": -92.88500000000028,
+          "p25": 389.81930555555533,
+          "median": 442.08166666666637,
+          "p75": 558.3510416666664,
+          "p90": 666.9766388888903,
+          "maximum": 2096.6191666666664
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    },
+    "2017-09": {
+      "orders": 4301,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 4209,
+        "customer_delivery": 4170,
+        "original_promise_present": 4301
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 13,
+        "customer_delivery_before_approval": 8,
+        "customer_delivery_before_known_carrier": 0,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 1,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 4196,
+      "approval_to_valid_carrier_hours": {
+        "observations": 4196,
+        "minimum": 4.885555555555555,
+        "p25": 24.564097222222223,
+        "median": 48.6225,
+        "p75": 87.45229166666667,
+        "p90": 138.63083333333333,
+        "maximum": 1467.6122222222223
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 4852,
+        "orders_with_items": 4264,
+        "orders_without_items": 37,
+        "orders_with_multiple_items": 410,
+        "orders_with_multiple_sellers": 44,
+        "items_with_valid_shipping_limit": 4852,
+        "items_with_shipping_limit_before_approval": 15,
+        "orders_with_at_least_one_valid_shipping_limit": 4264,
+        "orders_with_different_item_shipping_limits": 0,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 0,
+        "known_order_carrier_at_or_after_latest_item_limit": 298,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 4264,
+          "minimum": -143.75916666666666,
+          "p25": 143.8526388888889,
+          "median": 144.0,
+          "p75": 168.0,
+          "p90": 216.0,
+          "maximum": 1105.0
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 4301,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 8,
+          "no_customer_delivery_observed_before_query": 4293,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 4293,
+          "eligible_for_reminder_proxy": 4288,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 4288,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 4288,
+          "undelivered_with_carrier_before_approval_anomaly": 5,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 4293,
+            "minimum": 206.24138888888888,
+            "p25": 440.5519444444444,
+            "median": 539.8788888888889,
+            "p75": 648.925,
+            "p90": 751.1602777777778,
+            "maximum": 2012.5852777777777
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 4301,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 9,
+          "no_customer_delivery_observed_before_query": 4292,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 4292,
+          "eligible_for_reminder_proxy": 4288,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 4288,
+          "undelivered_with_valid_carrier_event_before_query": 1019,
+          "undelivered_without_carrier_event_before_query": 3269,
+          "undelivered_with_carrier_before_approval_anomaly": 4,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 4292,
+            "minimum": 182.24138888888888,
+            "p25": 416.5804861111111,
+            "median": 515.8916666666667,
+            "p75": 624.9576388888888,
+            "p90": 727.1604166666667,
+            "maximum": 1988.5852777777777
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 4301,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 196,
+          "no_customer_delivery_observed_before_query": 4105,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 4105,
+          "eligible_for_reminder_proxy": 4102,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 4102,
+          "undelivered_with_valid_carrier_event_before_query": 2597,
+          "undelivered_without_carrier_event_before_query": 1505,
+          "undelivered_with_carrier_before_approval_anomaly": 3,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 4105,
+            "minimum": 140.1588888888889,
+            "p25": 383.6611111111111,
+            "median": 476.91027777777776,
+            "p75": 580.8805555555556,
+            "p90": 682.1626111111111,
+            "maximum": 1940.5852777777777
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 4301,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 1107,
+          "no_customer_delivery_observed_before_query": 3194,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 3194,
+          "eligible_for_reminder_proxy": 3192,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 3192,
+          "undelivered_with_valid_carrier_event_before_query": 2863,
+          "undelivered_without_carrier_event_before_query": 329,
+          "undelivered_with_carrier_before_approval_anomaly": 2,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 3194,
+            "minimum": 44.92138888888889,
+            "p25": 321.0993055555556,
+            "median": 410.03819444444446,
+            "p75": 503.414375,
+            "p90": 609.2441666666666,
+            "maximum": 1844.5852777777777
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 4196,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 105,
+        "customer_delivery_observed_before_query": 0,
+        "no_customer_delivery_observed_before_query": 4196,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 4196,
+        "eligible_for_reminder_proxy": 4196,
+        "already_overdue_pending_among_generic_eligible": 7,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 4189,
+        "undelivered_with_valid_carrier_event_before_query": 4196,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 7,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 4196,
+          "minimum": -284.5558333333336,
+          "p25": 368.4070833333331,
+          "median": 486.0174999999997,
+          "p75": 579.4462499999997,
+          "p90": 677.9643055555553,
+          "maximum": 1976.8363888888887
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 4196,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 105,
+        "customer_delivery_observed_before_query": 602,
+        "no_customer_delivery_observed_before_query": 3594,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 3594,
+        "eligible_for_reminder_proxy": 3594,
+        "already_overdue_pending_among_generic_eligible": 10,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 3584,
+        "undelivered_with_valid_carrier_event_before_query": 3594,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 10,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 3594,
+          "minimum": -356.55583333333357,
+          "p25": 338.79833333333306,
+          "median": 436.145972222222,
+          "p75": 531.7498611111109,
+          "p90": 626.2109444444442,
+          "maximum": 1904.8363888888887
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    },
+    "2017-12": {
+      "orders": 5832,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 5734,
+        "customer_delivery": 5674,
+        "original_promise_present": 5832
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 6,
+        "customer_delivery_before_approval": 0,
+        "customer_delivery_before_known_carrier": 0,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 0,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 5728,
+      "approval_to_valid_carrier_hours": {
+        "observations": 5728,
+        "minimum": 0.2872222222222222,
+        "p25": 26.521041666666665,
+        "median": 52.89583333333333,
+        "p75": 99.33444444444444,
+        "p90": 156.14400000000006,
+        "maximum": 1190.2577777777778
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 6504,
+        "orders_with_items": 5789,
+        "orders_without_items": 43,
+        "orders_with_multiple_items": 513,
+        "orders_with_multiple_sellers": 59,
+        "items_with_valid_shipping_limit": 6504,
+        "items_with_shipping_limit_before_approval": 0,
+        "orders_with_at_least_one_valid_shipping_limit": 5789,
+        "orders_with_different_item_shipping_limits": 0,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 0,
+        "known_order_carrier_at_or_after_latest_item_limit": 629,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 5789,
+          "minimum": 41.20805555555555,
+          "p25": 120.0,
+          "median": 144.0,
+          "p75": 168.0,
+          "p90": 216.0,
+          "maximum": 1200.0
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 5832,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 0,
+          "no_customer_delivery_observed_before_query": 5832,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 5832,
+          "eligible_for_reminder_proxy": 5826,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 5826,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 5826,
+          "undelivered_with_carrier_before_approval_anomaly": 6,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 5832,
+            "minimum": 182.16472222222222,
+            "p25": 573.1610416666666,
+            "median": 667.9527777777778,
+            "p75": 774.4952083333334,
+            "p90": 862.2954444444445,
+            "maximum": 2448.0930555555556
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 5832,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 0,
+          "no_customer_delivery_observed_before_query": 5832,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 5832,
+          "eligible_for_reminder_proxy": 5826,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 5826,
+          "undelivered_with_valid_carrier_event_before_query": 1198,
+          "undelivered_without_carrier_event_before_query": 4628,
+          "undelivered_with_carrier_before_approval_anomaly": 6,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 5832,
+            "minimum": 158.16472222222222,
+            "p25": 549.1610416666666,
+            "median": 643.9527777777778,
+            "p75": 750.4952083333334,
+            "p90": 838.2954444444445,
+            "maximum": 2424.0930555555556
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 5832,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 252,
+          "no_customer_delivery_observed_before_query": 5580,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 5580,
+          "eligible_for_reminder_proxy": 5574,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 5574,
+          "undelivered_with_valid_carrier_event_before_query": 3225,
+          "undelivered_without_carrier_event_before_query": 2349,
+          "undelivered_with_carrier_before_approval_anomaly": 6,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 5580,
+            "minimum": 110.16472222222222,
+            "p25": 514.13875,
+            "median": 602.4363888888888,
+            "p75": 705.8172222222222,
+            "p90": 796.0289166666666,
+            "maximum": 2376.0930555555556
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 5832,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 1174,
+          "no_customer_delivery_observed_before_query": 4658,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 4658,
+          "eligible_for_reminder_proxy": 4653,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 4653,
+          "undelivered_with_valid_carrier_event_before_query": 4074,
+          "undelivered_without_carrier_event_before_query": 579,
+          "undelivered_with_carrier_before_approval_anomaly": 5,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 4658,
+            "minimum": 57.95,
+            "p25": 453.41625,
+            "median": 531.59875,
+            "p75": 628.1398611111111,
+            "p90": 709.6226944444445,
+            "maximum": 2280.0930555555556
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 5728,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 104,
+        "customer_delivery_observed_before_query": 0,
+        "no_customer_delivery_observed_before_query": 5728,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 5728,
+        "eligible_for_reminder_proxy": 5728,
+        "already_overdue_pending_among_generic_eligible": 14,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 5714,
+        "undelivered_with_valid_carrier_event_before_query": 5728,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 14,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 5728,
+          "minimum": -433.46277777777806,
+          "p25": 485.62152777777754,
+          "median": 601.5331944444442,
+          "p75": 698.7675694444441,
+          "p90": 796.4757499999997,
+          "maximum": 2232.7041666666664
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 5728,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 104,
+        "customer_delivery_observed_before_query": 845,
+        "no_customer_delivery_observed_before_query": 4883,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 4883,
+        "eligible_for_reminder_proxy": 4883,
+        "already_overdue_pending_among_generic_eligible": 11,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 4872,
+        "undelivered_with_valid_carrier_event_before_query": 4883,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 11,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 4883,
+          "minimum": -382.6422222222225,
+          "p25": 459.1005555555553,
+          "median": 556.3511111111109,
+          "p75": 633.7344444444442,
+          "p90": 743.5481666666664,
+          "maximum": 2160.7041666666664
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    },
+    "2018-02": {
+      "orders": 6706,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 6634,
+        "customer_delivery": 6505,
+        "original_promise_present": 6706
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 36,
+        "customer_delivery_before_approval": 2,
+        "customer_delivery_before_known_carrier": 0,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 0,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 6598,
+      "approval_to_valid_carrier_hours": {
+        "observations": 6598,
+        "minimum": 2.933611111111111,
+        "p25": 27.630902777777777,
+        "median": 52.20916666666666,
+        "p75": 99.00520833333334,
+        "p90": 152.52780555555557,
+        "maximum": 1342.4577777777777
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 7658,
+        "orders_with_items": 6675,
+        "orders_without_items": 31,
+        "orders_with_multiple_items": 670,
+        "orders_with_multiple_sellers": 51,
+        "items_with_valid_shipping_limit": 7658,
+        "items_with_shipping_limit_before_approval": 0,
+        "orders_with_at_least_one_valid_shipping_limit": 6675,
+        "orders_with_different_item_shipping_limits": 2,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 4,
+        "known_order_carrier_at_or_after_latest_item_limit": 813,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 6675,
+          "minimum": 27.06361111111111,
+          "p25": 120.0,
+          "median": 143.94555555555556,
+          "p75": 144.0,
+          "p90": 215.0,
+          "maximum": 2183.0858333333335
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 6706,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 2,
+          "no_customer_delivery_observed_before_query": 6704,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 6704,
+          "eligible_for_reminder_proxy": 6670,
+          "already_overdue_pending_among_generic_eligible": 1,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 6669,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 6670,
+          "undelivered_with_carrier_before_approval_anomaly": 34,
+          "undelivered_with_original_promise_already_expired": 1,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 6704,
+            "minimum": -132.09833333333333,
+            "p25": 494.29631944444446,
+            "median": 597.0693055555555,
+            "p75": 699.1510416666666,
+            "p90": 805.1600555555556,
+            "maximum": 3709.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 6706,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 3,
+          "no_customer_delivery_observed_before_query": 6703,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 6703,
+          "eligible_for_reminder_proxy": 6669,
+          "already_overdue_pending_among_generic_eligible": 1,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 6668,
+          "undelivered_with_valid_carrier_event_before_query": 1188,
+          "undelivered_without_carrier_event_before_query": 5481,
+          "undelivered_with_carrier_before_approval_anomaly": 34,
+          "undelivered_with_original_promise_already_expired": 1,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 6703,
+            "minimum": -156.09833333333333,
+            "p25": 470.3640277777778,
+            "median": 573.0702777777777,
+            "p75": 675.1523611111111,
+            "p90": 781.1602222222223,
+            "maximum": 3685.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 6706,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 249,
+          "no_customer_delivery_observed_before_query": 6457,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 6457,
+          "eligible_for_reminder_proxy": 6430,
+          "already_overdue_pending_among_generic_eligible": 2,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 6428,
+          "undelivered_with_valid_carrier_event_before_query": 3795,
+          "undelivered_without_carrier_event_before_query": 2635,
+          "undelivered_with_carrier_before_approval_anomaly": 27,
+          "undelivered_with_original_promise_already_expired": 2,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 6457,
+            "minimum": -204.09833333333333,
+            "p25": 436.4061111111111,
+            "median": 531.8247222222222,
+            "p75": 630.4894444444444,
+            "p90": 735.7759444444445,
+            "maximum": 3637.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 6706,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 1111,
+          "no_customer_delivery_observed_before_query": 5595,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 5595,
+          "eligible_for_reminder_proxy": 5574,
+          "already_overdue_pending_among_generic_eligible": 3,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 5571,
+          "undelivered_with_valid_carrier_event_before_query": 4984,
+          "undelivered_without_carrier_event_before_query": 590,
+          "undelivered_with_carrier_before_approval_anomaly": 21,
+          "undelivered_with_original_promise_already_expired": 3,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 5595,
+            "minimum": -300.09833333333336,
+            "p25": 367.7398611111111,
+            "median": 455.73583333333335,
+            "p75": 549.9620833333333,
+            "p90": 654.2482222222222,
+            "maximum": 3541.824722222222
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 6598,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 108,
+        "customer_delivery_observed_before_query": 0,
+        "no_customer_delivery_observed_before_query": 6598,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 6598,
+        "eligible_for_reminder_proxy": 6598,
+        "already_overdue_pending_among_generic_eligible": 12,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 6586,
+        "undelivered_with_valid_carrier_event_before_query": 6598,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 12,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 6598,
+          "minimum": -733.9138888888891,
+          "p25": 413.86548611111084,
+          "median": 526.4580555555553,
+          "p75": 645.1835416666663,
+          "p90": 730.5095277777775,
+          "maximum": 3531.2966666666666
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 6598,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 108,
+        "customer_delivery_observed_before_query": 825,
+        "no_customer_delivery_observed_before_query": 5773,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 5773,
+        "eligible_for_reminder_proxy": 5773,
+        "already_overdue_pending_among_generic_eligible": 17,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 5756,
+        "undelivered_with_valid_carrier_event_before_query": 5773,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 17,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 5773,
+          "minimum": -693.6238888888892,
+          "p25": 388.2066666666664,
+          "median": 464.0758333333331,
+          "p75": 580.1141666666664,
+          "p90": 675.4380555555553,
+          "maximum": 3459.2966666666666
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    },
+    "2018-04": {
+      "orders": 6778,
+      "events_observed_strictly_before_inventory_cutoff": {
+        "carrier": 6329,
+        "customer_delivery": 4294,
+        "original_promise_present": 6778
+      },
+      "milestone_sequence_anomalies": {
+        "carrier_before_approval": 393,
+        "customer_delivery_before_approval": 15,
+        "customer_delivery_before_known_carrier": 0,
+        "known_customer_delivery_without_carrier_observed_by_cutoff": 0,
+        "carrier_equal_approval": 0
+      },
+      "valid_observed_handover_events": 5936,
+      "approval_to_valid_carrier_hours": {
+        "observations": 5936,
+        "minimum": 0.06694444444444445,
+        "p25": 19.207708333333336,
+        "median": 32.50069444444445,
+        "p75": 65.68208333333332,
+        "p90": 105.66694444444444,
+        "maximum": 563.8158333333333
+      },
+      "shipping_schedule_and_item_granularity": {
+        "item_rows": 7785,
+        "orders_with_items": 6772,
+        "orders_without_items": 6,
+        "orders_with_multiple_items": 681,
+        "orders_with_multiple_sellers": 127,
+        "items_with_valid_shipping_limit": 7785,
+        "items_with_shipping_limit_before_approval": 0,
+        "orders_with_at_least_one_valid_shipping_limit": 6772,
+        "orders_with_different_item_shipping_limits": 37,
+        "orders_with_latest_shipping_limit_at_or_after_promise_end": 0,
+        "known_order_carrier_at_or_after_latest_item_limit": 308,
+        "latest_shipping_limit_hours_from_approval": {
+          "observations": 6772,
+          "minimum": 26.02638888888889,
+          "p25": 120.0,
+          "median": 144.0,
+          "p75": 144.0,
+          "p90": 168.0,
+          "maximum": 863.9969444444445
+        },
+        "assumption": "Exported item dispatch schedule is assumed available at approval only in the existing sensitivity branch; creation/revision/ingestion timestamps are absent.",
+        "proxy_limit": "One order-level carrier timestamp cannot establish actual dispatch of every item or seller; carrier-vs-limit is descriptive, not a dispatch-lateness target."
+      },
+      "approval_checkpoints": {
+        "0": {
+          "clock": "approval_plus_0d",
+          "observable_queries_before_cutoff": 6778,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 0,
+          "customer_delivery_observed_before_query": 15,
+          "no_customer_delivery_observed_before_query": 6763,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 6763,
+          "eligible_for_reminder_proxy": 6385,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 6385,
+          "undelivered_with_valid_carrier_event_before_query": 0,
+          "undelivered_without_carrier_event_before_query": 6385,
+          "undelivered_with_carrier_before_approval_anomaly": 378,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 6763,
+            "minimum": 184.47,
+            "p25": 444.51486111111114,
+            "median": 567.1444444444444,
+            "p75": 682.2884722222223,
+            "p90": 814.3440555555557,
+            "maximum": 1520.473611111111
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "1": {
+          "clock": "approval_plus_1d",
+          "observable_queries_before_cutoff": 6681,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 97,
+          "customer_delivery_observed_before_query": 69,
+          "no_customer_delivery_observed_before_query": 6612,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 6612,
+          "eligible_for_reminder_proxy": 6282,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 6282,
+          "undelivered_with_valid_carrier_event_before_query": 2019,
+          "undelivered_without_carrier_event_before_query": 4263,
+          "undelivered_with_carrier_before_approval_anomaly": 330,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 6612,
+            "minimum": 160.47,
+            "p25": 428.8279166666667,
+            "median": 548.9418055555556,
+            "p75": 659.494375,
+            "p90": 792.457277777778,
+            "maximum": 1496.473611111111
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "3": {
+          "clock": "approval_plus_3d",
+          "observable_queries_before_cutoff": 6361,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 417,
+          "customer_delivery_observed_before_query": 667,
+          "no_customer_delivery_observed_before_query": 5694,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 5694,
+          "eligible_for_reminder_proxy": 5451,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 5451,
+          "undelivered_with_valid_carrier_event_before_query": 3956,
+          "undelivered_without_carrier_event_before_query": 1495,
+          "undelivered_with_carrier_before_approval_anomaly": 243,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 5694,
+            "minimum": 112.47,
+            "p25": 414.5964583333333,
+            "median": 515.1133333333333,
+            "p75": 624.8348611111111,
+            "p90": 750.8154166666667,
+            "maximum": 1448.473611111111
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        },
+        "7": {
+          "clock": "approval_plus_7d",
+          "observable_queries_before_cutoff": 4559,
+          "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 2219,
+          "customer_delivery_observed_before_query": 1560,
+          "no_customer_delivery_observed_before_query": 2999,
+          "customer_delivery_equal_query_conservative_suppression": 0,
+          "no_customer_delivery_at_or_before_query": 2999,
+          "eligible_for_reminder_proxy": 2999,
+          "already_overdue_pending_among_generic_eligible": 0,
+          "missing_promise_among_generic_eligible": 0,
+          "eligible_for_advance_reminder_proxy": 2999,
+          "undelivered_with_valid_carrier_event_before_query": 2772,
+          "undelivered_without_carrier_event_before_query": 227,
+          "undelivered_with_carrier_before_approval_anomaly": 0,
+          "undelivered_with_original_promise_already_expired": 0,
+          "undelivered_hours_remaining_until_original_promise_end": {
+            "observations": 2999,
+            "minimum": 33.405277777777776,
+            "p25": 367.1198611111111,
+            "median": 464.81388888888887,
+            "p75": 564.4772222222223,
+            "p90": 685.4872222222224,
+            "maximum": 1352.473611111111
+          },
+          "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+        }
+      },
+      "handover_checkpoint": {
+        "clock": "valid_carrier_plus_0d_plus_1ns",
+        "observable_queries_before_cutoff": 5936,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 842,
+        "customer_delivery_observed_before_query": 0,
+        "no_customer_delivery_observed_before_query": 5936,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 5936,
+        "eligible_for_reminder_proxy": 5936,
+        "already_overdue_pending_among_generic_eligible": 4,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 5932,
+        "undelivered_with_valid_carrier_event_before_query": 5936,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 4,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 5936,
+          "minimum": -207.16666666666697,
+          "p25": 388.80812499999973,
+          "median": 529.2976388888886,
+          "p75": 648.6311111111108,
+          "p90": 766.7702777777776,
+          "maximum": 1397.037222222222
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      },
+      "transit_checkpoint_carrier_plus_3d": {
+        "clock": "valid_carrier_plus_3d_plus_1ns",
+        "observable_queries_before_cutoff": 5550,
+        "excluded_no_valid_carrier_trigger_or_query_not_before_cutoff": 1228,
+        "customer_delivery_observed_before_query": 1126,
+        "no_customer_delivery_observed_before_query": 4424,
+        "customer_delivery_equal_query_conservative_suppression": 0,
+        "no_customer_delivery_at_or_before_query": 4424,
+        "eligible_for_reminder_proxy": 4424,
+        "already_overdue_pending_among_generic_eligible": 3,
+        "missing_promise_among_generic_eligible": 0,
+        "eligible_for_advance_reminder_proxy": 4421,
+        "undelivered_with_valid_carrier_event_before_query": 4424,
+        "undelivered_without_carrier_event_before_query": 0,
+        "undelivered_with_carrier_before_approval_anomaly": 0,
+        "undelivered_with_original_promise_already_expired": 3,
+        "undelivered_hours_remaining_until_original_promise_end": {
+          "observations": 4424,
+          "minimum": -279.16666666666697,
+          "p25": 409.2871527777775,
+          "median": 485.35347222222197,
+          "p75": 600.3602777777776,
+          "p90": 721.8415277777777,
+          "maximum": 1325.037222222222
+        },
+        "eligibility_note": "Features observe event < t; delivery <= t and observed invalid carrier chronology suppress generic reminders. The two normal-state partitions sum to generic eligible; invalid-carrier rows are a separate exclusion. Advance reminders additionally require known promise and t < midnight after promised date; already-overdue orders are monitoring, not future-delay classification. Unknown cancellation times remain; this is not the current labeled delivered-only scoring cohort."
+      }
+    }
+  },
+  "handover_history_feasibility": {
+    "cutoff_exclusive": "2018-05-01T00:00:00",
+    "window_days": 90,
+    "event_rows": 70922,
+    "query_rows": 73254,
+    "event_definition": "Valid approval<=carrier<cutoff, independent of final status; each query uses carrier in [query-90days,query).",
+    "source_assumptions": "Export event time stands for timely availability; order-level primary seller chosen by highest item price then lowest item ID; route uses static master states.",
+    "not_measured": "Support only; no fitted model, recall estimate, latency feature selection by target, or post-cutoff order outcomes.",
+    "overall": {
+      "query_rows": 73254,
+      "groups": {
+        "global": {
+          "no_past_event_rows": 211,
+          "at_least_one_event_rows": 73043,
+          "at_least_five_event_rows": 73026,
+          "at_least_twenty_event_rows": 72981,
+          "at_least_five_event_fraction": 0.99688754197723,
+          "support_median": 13235.0,
+          "support_max": 21544
+        },
+        "primary_seller": {
+          "no_past_event_rows": 4147,
+          "at_least_one_event_rows": 69107,
+          "at_least_five_event_rows": 60595,
+          "at_least_twenty_event_rows": 43277,
+          "at_least_five_event_fraction": 0.8271903240778661,
+          "support_median": 29.0,
+          "support_max": 521
+        },
+        "state_route": {
+          "no_past_event_rows": 1372,
+          "at_least_one_event_rows": 71882,
+          "at_least_five_event_rows": 70188,
+          "at_least_twenty_event_rows": 66523,
+          "at_least_five_event_fraction": 0.9581456302727496,
+          "support_median": 522.0,
+          "support_max": 6805
+        }
+      }
+    },
+    "by_approval_month": {
+      "2016-09": {
+        "query_rows": 1,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 1,
+            "at_least_one_event_rows": 0,
+            "at_least_five_event_rows": 0,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.0,
+            "support_median": 0.0,
+            "support_max": 0
+          },
+          "primary_seller": {
+            "no_past_event_rows": 1,
+            "at_least_one_event_rows": 0,
+            "at_least_five_event_rows": 0,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.0,
+            "support_median": 0.0,
+            "support_max": 0
+          },
+          "state_route": {
+            "no_past_event_rows": 1,
+            "at_least_one_event_rows": 0,
+            "at_least_five_event_rows": 0,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.0,
+            "support_median": 0.0,
+            "support_max": 0
+          }
+        }
+      },
+      "2016-10": {
+        "query_rows": 320,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 210,
+            "at_least_one_event_rows": 110,
+            "at_least_five_event_rows": 93,
+            "at_least_twenty_event_rows": 48,
+            "at_least_five_event_fraction": 0.290625,
+            "support_median": 0.0,
+            "support_max": 147
+          },
+          "primary_seller": {
+            "no_past_event_rows": 309,
+            "at_least_one_event_rows": 11,
+            "at_least_five_event_rows": 1,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.003125,
+            "support_median": 0.0,
+            "support_max": 8
+          },
+          "state_route": {
+            "no_past_event_rows": 272,
+            "at_least_one_event_rows": 48,
+            "at_least_five_event_rows": 11,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.034375,
+            "support_median": 0.0,
+            "support_max": 13
+          }
+        }
+      },
+      "2016-12": {
+        "query_rows": 1,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 1,
+            "at_least_five_event_rows": 1,
+            "at_least_twenty_event_rows": 1,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 280.0,
+            "support_max": 280
+          },
+          "primary_seller": {
+            "no_past_event_rows": 1,
+            "at_least_one_event_rows": 0,
+            "at_least_five_event_rows": 0,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 0.0,
+            "support_median": 0.0,
+            "support_max": 0
+          },
+          "state_route": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 1,
+            "at_least_five_event_rows": 1,
+            "at_least_twenty_event_rows": 0,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 6.0,
+            "support_max": 6
+          }
+        }
+      },
+      "2017-01": {
+        "query_rows": 760,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 760,
+            "at_least_five_event_rows": 760,
+            "at_least_twenty_event_rows": 760,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 344.0,
+            "support_max": 640
+          },
+          "primary_seller": {
+            "no_past_event_rows": 277,
+            "at_least_one_event_rows": 483,
+            "at_least_five_event_rows": 178,
+            "at_least_twenty_event_rows": 23,
+            "at_least_five_event_fraction": 0.23421052631578948,
+            "support_median": 1.0,
+            "support_max": 41
+          },
+          "state_route": {
+            "no_past_event_rows": 80,
+            "at_least_one_event_rows": 680,
+            "at_least_five_event_rows": 496,
+            "at_least_twenty_event_rows": 291,
+            "at_least_five_event_fraction": 0.6526315789473685,
+            "support_median": 9.0,
+            "support_max": 149
+          }
+        }
+      },
+      "2017-02": {
+        "query_rows": 1765,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 1765,
+            "at_least_five_event_rows": 1765,
+            "at_least_twenty_event_rows": 1765,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 1328.0,
+            "support_max": 2117
+          },
+          "primary_seller": {
+            "no_past_event_rows": 360,
+            "at_least_one_event_rows": 1405,
+            "at_least_five_event_rows": 853,
+            "at_least_twenty_event_rows": 222,
+            "at_least_five_event_fraction": 0.48328611898017,
+            "support_median": 4.0,
+            "support_max": 91
+          },
+          "state_route": {
+            "no_past_event_rows": 131,
+            "at_least_one_event_rows": 1634,
+            "at_least_five_event_rows": 1491,
+            "at_least_twenty_event_rows": 1127,
+            "at_least_five_event_fraction": 0.8447592067988668,
+            "support_median": 46.0,
+            "support_max": 522
+          }
+        }
+      },
+      "2017-03": {
+        "query_rows": 2689,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 2689,
+            "at_least_five_event_rows": 2689,
+            "at_least_twenty_event_rows": 2689,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 3414.0,
+            "support_max": 4831
+          },
+          "primary_seller": {
+            "no_past_event_rows": 257,
+            "at_least_one_event_rows": 2432,
+            "at_least_five_event_rows": 1828,
+            "at_least_twenty_event_rows": 952,
+            "at_least_five_event_fraction": 0.6798066195611752,
+            "support_median": 12.0,
+            "support_max": 156
+          },
+          "state_route": {
+            "no_past_event_rows": 83,
+            "at_least_one_event_rows": 2606,
+            "at_least_five_event_rows": 2451,
+            "at_least_twenty_event_rows": 2134,
+            "at_least_five_event_fraction": 0.9114912606917069,
+            "support_median": 125.0,
+            "support_max": 1243
+          }
+        }
+      },
+      "2017-04": {
+        "query_rows": 2374,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 2374,
+            "at_least_five_event_rows": 2374,
+            "at_least_twenty_event_rows": 2374,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 5854.0,
+            "support_max": 6503
+          },
+          "primary_seller": {
+            "no_past_event_rows": 144,
+            "at_least_one_event_rows": 2230,
+            "at_least_five_event_rows": 1869,
+            "at_least_twenty_event_rows": 1232,
+            "at_least_five_event_fraction": 0.7872788542544229,
+            "support_median": 21.0,
+            "support_max": 174
+          },
+          "state_route": {
+            "no_past_event_rows": 29,
+            "at_least_one_event_rows": 2345,
+            "at_least_five_event_rows": 2258,
+            "at_least_twenty_event_rows": 2050,
+            "at_least_five_event_fraction": 0.9511373209772536,
+            "support_median": 197.0,
+            "support_max": 1698
+          }
+        }
+      },
+      "2017-05": {
+        "query_rows": 3693,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 3693,
+            "at_least_five_event_rows": 3693,
+            "at_least_twenty_event_rows": 3693,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 7162.0,
+            "support_max": 8304
+          },
+          "primary_seller": {
+            "no_past_event_rows": 190,
+            "at_least_one_event_rows": 3503,
+            "at_least_five_event_rows": 2986,
+            "at_least_twenty_event_rows": 1981,
+            "at_least_five_event_fraction": 0.8085567289466559,
+            "support_median": 23.0,
+            "support_max": 247
+          },
+          "state_route": {
+            "no_past_event_rows": 60,
+            "at_least_one_event_rows": 3633,
+            "at_least_five_event_rows": 3549,
+            "at_least_twenty_event_rows": 3330,
+            "at_least_five_event_fraction": 0.9610073111291633,
+            "support_median": 267.0,
+            "support_max": 2257
+          }
+        }
+      },
+      "2017-06": {
+        "query_rows": 3252,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 3252,
+            "at_least_five_event_rows": 3252,
+            "at_least_twenty_event_rows": 3252,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 8699.5,
+            "support_max": 9067
+          },
+          "primary_seller": {
+            "no_past_event_rows": 119,
+            "at_least_one_event_rows": 3133,
+            "at_least_five_event_rows": 2805,
+            "at_least_twenty_event_rows": 2010,
+            "at_least_five_event_fraction": 0.8625461254612546,
+            "support_median": 31.0,
+            "support_max": 287
+          },
+          "state_route": {
+            "no_past_event_rows": 44,
+            "at_least_one_event_rows": 3208,
+            "at_least_five_event_rows": 3156,
+            "at_least_twenty_event_rows": 3009,
+            "at_least_five_event_fraction": 0.9704797047970479,
+            "support_median": 335.0,
+            "support_max": 2593
+          }
+        }
+      },
+      "2017-07": {
+        "query_rows": 3974,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 3974,
+            "at_least_five_event_rows": 3974,
+            "at_least_twenty_event_rows": 3974,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 9636.0,
+            "support_max": 10473
+          },
+          "primary_seller": {
+            "no_past_event_rows": 209,
+            "at_least_one_event_rows": 3765,
+            "at_least_five_event_rows": 3333,
+            "at_least_twenty_event_rows": 2490,
+            "at_least_five_event_fraction": 0.8387015601409159,
+            "support_median": 32.0,
+            "support_max": 337
+          },
+          "state_route": {
+            "no_past_event_rows": 82,
+            "at_least_one_event_rows": 3892,
+            "at_least_five_event_rows": 3829,
+            "at_least_twenty_event_rows": 3689,
+            "at_least_five_event_fraction": 0.9635128334172118,
+            "support_median": 395.5,
+            "support_max": 3118
+          }
+        }
+      },
+      "2017-08": {
+        "query_rows": 4348,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 4348,
+            "at_least_five_event_rows": 4348,
+            "at_least_twenty_event_rows": 4348,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 10723.0,
+            "support_max": 11008
+          },
+          "primary_seller": {
+            "no_past_event_rows": 226,
+            "at_least_one_event_rows": 4122,
+            "at_least_five_event_rows": 3642,
+            "at_least_twenty_event_rows": 2504,
+            "at_least_five_event_fraction": 0.8376264949402024,
+            "support_median": 28.0,
+            "support_max": 364
+          },
+          "state_route": {
+            "no_past_event_rows": 54,
+            "at_least_one_event_rows": 4294,
+            "at_least_five_event_rows": 4189,
+            "at_least_twenty_event_rows": 4006,
+            "at_least_five_event_fraction": 0.9634314627414904,
+            "support_median": 472.0,
+            "support_max": 3390
+          }
+        }
+      },
+      "2017-09": {
+        "query_rows": 4301,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 4301,
+            "at_least_five_event_rows": 4301,
+            "at_least_twenty_event_rows": 4301,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 11372.0,
+            "support_max": 12131
+          },
+          "primary_seller": {
+            "no_past_event_rows": 217,
+            "at_least_one_event_rows": 4084,
+            "at_least_five_event_rows": 3625,
+            "at_least_twenty_event_rows": 2572,
+            "at_least_five_event_fraction": 0.8428272494768658,
+            "support_median": 29.0,
+            "support_max": 411
+          },
+          "state_route": {
+            "no_past_event_rows": 60,
+            "at_least_one_event_rows": 4241,
+            "at_least_five_event_rows": 4137,
+            "at_least_twenty_event_rows": 3914,
+            "at_least_five_event_fraction": 0.9618693327133225,
+            "support_median": 372.0,
+            "support_max": 3606
+          }
+        }
+      },
+      "2017-10": {
+        "query_rows": 4590,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 4590,
+            "at_least_five_event_rows": 4590,
+            "at_least_twenty_event_rows": 4590,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 12283.0,
+            "support_max": 12715
+          },
+          "primary_seller": {
+            "no_past_event_rows": 259,
+            "at_least_one_event_rows": 4331,
+            "at_least_five_event_rows": 3827,
+            "at_least_twenty_event_rows": 2720,
+            "at_least_five_event_fraction": 0.8337690631808279,
+            "support_median": 28.0,
+            "support_max": 416
+          },
+          "state_route": {
+            "no_past_event_rows": 88,
+            "at_least_one_event_rows": 4502,
+            "at_least_five_event_rows": 4395,
+            "at_least_twenty_event_rows": 4171,
+            "at_least_five_event_fraction": 0.9575163398692811,
+            "support_median": 537.0,
+            "support_max": 3685
+          }
+        }
+      },
+      "2017-11": {
+        "query_rows": 7395,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 7395,
+            "at_least_five_event_rows": 7395,
+            "at_least_twenty_event_rows": 7395,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 12947.0,
+            "support_max": 14941
+          },
+          "primary_seller": {
+            "no_past_event_rows": 371,
+            "at_least_one_event_rows": 7024,
+            "at_least_five_event_rows": 6212,
+            "at_least_twenty_event_rows": 4483,
+            "at_least_five_event_fraction": 0.840027045300879,
+            "support_median": 29.0,
+            "support_max": 428
+          },
+          "state_route": {
+            "no_past_event_rows": 114,
+            "at_least_one_event_rows": 7281,
+            "at_least_five_event_rows": 7168,
+            "at_least_twenty_event_rows": 6853,
+            "at_least_five_event_fraction": 0.9693035835023665,
+            "support_median": 525.0,
+            "support_max": 4338
+          }
+        }
+      },
+      "2017-12": {
+        "query_rows": 5832,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 5832,
+            "at_least_five_event_rows": 5832,
+            "at_least_twenty_event_rows": 5832,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 16662.5,
+            "support_max": 17433
+          },
+          "primary_seller": {
+            "no_past_event_rows": 195,
+            "at_least_one_event_rows": 5637,
+            "at_least_five_event_rows": 5099,
+            "at_least_twenty_event_rows": 3769,
+            "at_least_five_event_fraction": 0.8743141289437586,
+            "support_median": 35.0,
+            "support_max": 521
+          },
+          "state_route": {
+            "no_past_event_rows": 61,
+            "at_least_one_event_rows": 5771,
+            "at_least_five_event_rows": 5684,
+            "at_least_twenty_event_rows": 5493,
+            "at_least_five_event_fraction": 0.9746227709190672,
+            "support_median": 642.0,
+            "support_max": 5247
+          }
+        }
+      },
+      "2018-01": {
+        "query_rows": 7187,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 7187,
+            "at_least_five_event_rows": 7187,
+            "at_least_twenty_event_rows": 7187,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 18016.0,
+            "support_max": 19560
+          },
+          "primary_seller": {
+            "no_past_event_rows": 289,
+            "at_least_one_event_rows": 6898,
+            "at_least_five_event_rows": 6174,
+            "at_least_twenty_event_rows": 4703,
+            "at_least_five_event_fraction": 0.8590510644218728,
+            "support_median": 36.0,
+            "support_max": 515
+          },
+          "state_route": {
+            "no_past_event_rows": 76,
+            "at_least_one_event_rows": 7111,
+            "at_least_five_event_rows": 7006,
+            "at_least_twenty_event_rows": 6778,
+            "at_least_five_event_fraction": 0.9748156393488243,
+            "support_median": 651.0,
+            "support_max": 6117
+          }
+        }
+      },
+      "2018-02": {
+        "query_rows": 6706,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 6706,
+            "at_least_five_event_rows": 6706,
+            "at_least_twenty_event_rows": 6706,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 20241.0,
+            "support_max": 20976
+          },
+          "primary_seller": {
+            "no_past_event_rows": 218,
+            "at_least_one_event_rows": 6488,
+            "at_least_five_event_rows": 5948,
+            "at_least_twenty_event_rows": 4531,
+            "at_least_five_event_fraction": 0.886966895317626,
+            "support_median": 38.0,
+            "support_max": 506
+          },
+          "state_route": {
+            "no_past_event_rows": 63,
+            "at_least_one_event_rows": 6643,
+            "at_least_five_event_rows": 6566,
+            "at_least_twenty_event_rows": 6329,
+            "at_least_five_event_fraction": 0.9791231732776617,
+            "support_median": 704.0,
+            "support_max": 6502
+          }
+        }
+      },
+      "2018-03": {
+        "query_rows": 7288,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 7288,
+            "at_least_five_event_rows": 7288,
+            "at_least_twenty_event_rows": 7288,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 19637.0,
+            "support_max": 20802
+          },
+          "primary_seller": {
+            "no_past_event_rows": 215,
+            "at_least_one_event_rows": 7073,
+            "at_least_five_event_rows": 6434,
+            "at_least_twenty_event_rows": 4891,
+            "at_least_five_event_fraction": 0.882821075740944,
+            "support_median": 39.0,
+            "support_max": 476
+          },
+          "state_route": {
+            "no_past_event_rows": 45,
+            "at_least_one_event_rows": 7243,
+            "at_least_five_event_rows": 7135,
+            "at_least_twenty_event_rows": 6896,
+            "at_least_five_event_fraction": 0.979006586169045,
+            "support_median": 793.0,
+            "support_max": 6478
+          }
+        }
+      },
+      "2018-04": {
+        "query_rows": 6778,
+        "groups": {
+          "global": {
+            "no_past_event_rows": 0,
+            "at_least_one_event_rows": 6778,
+            "at_least_five_event_rows": 6778,
+            "at_least_twenty_event_rows": 6778,
+            "at_least_five_event_fraction": 1.0,
+            "support_median": 20954.0,
+            "support_max": 21544
+          },
+          "primary_seller": {
+            "no_past_event_rows": 290,
+            "at_least_one_event_rows": 6488,
+            "at_least_five_event_rows": 5781,
+            "at_least_twenty_event_rows": 4194,
+            "at_least_five_event_fraction": 0.8529064620832104,
+            "support_median": 32.0,
+            "support_max": 490
+          },
+          "state_route": {
+            "no_past_event_rows": 29,
+            "at_least_one_event_rows": 6749,
+            "at_least_five_event_rows": 6666,
+            "at_least_twenty_event_rows": 6453,
+            "at_least_five_event_fraction": 0.983475951608144,
+            "support_median": 1614.0,
+            "support_max": 6805
+          }
+        }
+      }
+    }
+  },
+  "profile_period_interpretation": {
+    "all_pre_cutoff": "Coverage of valid approved orders before May1, including unfinished/missing-item orders; no outcome label filter.",
+    "2017-07_and_2017-09": "Previously inspected historical-validation approval months; this inventory computes operational counts only.",
+    "2017-12_2018-02_and_2018-04": "Previously inspected development approval months; this inventory computes operational counts only.",
+    "right_censoring": "Physical events and checkpoint queries are censored at May1; especially April completed-event duration summaries omit handovers not yet observed and do not prove faster service.",
+    "comparability": "These all-approved operational populations differ from the existing eventually-delivered eligible prediction cohort; their denominators are not alert-performance denominators."
+  },
+  "prediction_time_inventory": [
+    {
+      "time": "approval",
+      "current_task_comparable": true,
+      "known": "Purchase/approval clocks, original promise and transaction attributes under static-export availability assumptions; strictly earlier historical carrier/delivery events.",
+      "unknown": "This order's future carrier event, actual transit/delivery duration, final status and future reviews.",
+      "new_signal_opportunity": "Historical carrier handover speed and approved-but-not-yet-handed-over backlog; preserve the existing approval-time cohort and daily cap."
+    },
+    {
+      "time": "carrier_event_plus_1ns",
+      "current_task_comparable": false,
+      "known": "Recorded order-level carrier event; elapsed approval-to-carrier time and original promise remaining at this later decision.",
+      "unknown": "Future customer delivery, actual parcel/item scans, carrier identity, final outcome.",
+      "new_signal_opportunity": "Separate later-intervention task; excludes unhanded-over orders and needs a new cohort/budget definition."
+    },
+    {
+      "time": "approval_plus_1_3_7_days",
+      "current_task_comparable": false,
+      "known": "Elapsed approval time; only carrier/customer events strictly earlier than checkpoint; original promise remaining.",
+      "unknown": "Any later event; why a timestamp is missing; cancellation time; event ingestion delay.",
+      "new_signal_opportunity": "Event-observed pending/handed-over state; one decision per order or repeat-alert policy must be defined first."
+    },
+    {
+      "time": "carrier_plus_3_days_plus_1ns",
+      "current_task_comparable": false,
+      "known": "A valid earlier carrier event, elapsed transit proxy and whether customer delivery was observed before checkpoint.",
+      "unknown": "Carrier/parcel scan positions and final delivery outcome.",
+      "new_signal_opportunity": "Transit monitoring among handed-over yet unreceived orders; daily eligible-order cap cannot be compared directly with approval-batch 10%."
+    }
+  ],
+  "candidate_signal_inventory": [
+    {
+      "family": "historical_carrier_handover_speed",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": "conditional_on_event_observation_assumption",
+      "safe_clock": "Other orders' valid carrier >= their approval, carrier strictly < current approval; rolling event-time window; no final-status/delivery filter; exclude current order.",
+      "examples": [
+        "seller/global/route handover count and approval-to-carrier hours over trailing 90 days"
+      ],
+      "risk": "Completed-handover history omits still-unhanded-over orders; seller sparsity and anomalous clocks require missingness/count controls."
+    },
+    {
+      "family": "not_yet_handed_over_workload",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": "conditional_on_event_observation_assumption",
+      "safe_clock": "Other approvals < current approval; carrier missing or >= query; do not read final order_status; invalid carrier chronology must be flagged separately.",
+      "examples": [
+        "seller/global approved-but-no-carrier-observed count and age"
+      ],
+      "risk": "Missing events and absent cancellation clocks can inflate queue; proxy does not establish physical possession."
+    },
+    {
+      "family": "item_dispatch_schedule",
+      "in_current_101": false,
+      "existing_code_branch": "scripts/delay_dispatch_features.py (8 existing sensitivity features)",
+      "approval_time_feasible": "unverified_schedule_availability_assumption",
+      "safe_clock": "Use schedule values only if their creation/version is confirmed available at prediction time; never treat shipping_limit_date as actual dispatch.",
+      "examples": [
+        "dispatch_limit_min_hours_from_approval",
+        "dispatch_limit_max_hours_from_approval",
+        "dispatch_limit_mean_hours_from_approval",
+        "dispatch_limit_spread_hours",
+        "promise_after_latest_dispatch_days",
+        "past_deadline_item_ratio",
+        "missing_limit_item_ratio",
+        "primary_item_dispatch_limit_hours"
+      ],
+      "risk": "No schedule revision/creation timestamp; already evaluated as a sensitivity branch, not a new uncontaminated signal."
+    },
+    {
+      "family": "this_order_handover_duration",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": false,
+      "safe_clock": "Carrier event must already be observed strictly before a later decision; valid carrier >= approval.",
+      "examples": [
+        "approval-to-carrier elapsed hours",
+        "promise hours remaining at carrier observation"
+      ],
+      "risk": "Leaks future at approval; changing to handover time changes population and available intervention lead time."
+    },
+    {
+      "family": "checkpoint_milestone_state",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": false,
+      "safe_clock": "At predeclared checkpoint t, only event timestamps < t are observed; events exactly t remain unknown.",
+      "examples": [
+        "no carrier event observed by approval+3d",
+        "carrier observed but no customer delivery observed by approval+7d"
+      ],
+      "risk": "Requires repeated decision policy and event ingestion audit; final snapshot status is not historical as-of status."
+    },
+    {
+      "family": "geography_workload_completed_delivery_history",
+      "in_current_101": true,
+      "existing_code_branch": "scripts/delay_backlog_features.py geo/7_14d",
+      "approval_time_feasible": "existing_static_and_event_clock_assumptions",
+      "safe_clock": "Existing physical-delivery history < approval; no future label history; backlog uses approval/promise and observed delivery clocks.",
+      "examples": [
+        "geographic distance",
+        "route/seller recent completed delivery",
+        "pending/overdue workload",
+        "7/14-day overdue changes"
+      ],
+      "risk": "Already present; renaming/recombining does not create a new external logistics observation."
+    },
+    {
+      "family": "carrier_scans_location_service_weather_calendar",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": "not_available_in_nine_raw_tables",
+      "safe_clock": "Requires new timestamped external data and joining/availability rules.",
+      "examples": [
+        "carrier identifier and service level",
+        "parcel scan path",
+        "tracking location",
+        "weather",
+        "public-holiday calendar"
+      ],
+      "risk": "Cannot invent these from city/ZIP or a final delivery timestamp; day-of-week already exists."
+    },
+    {
+      "family": "final_status_and_reviews",
+      "in_current_101": false,
+      "existing_code_branch": null,
+      "approval_time_feasible": false,
+      "safe_clock": "No historical status transition timestamps exist; reviews are downstream outcomes, not approval-time predictors.",
+      "examples": [
+        "final order_status",
+        "review score/text",
+        "actual customer delivery date as own-order input"
+      ],
+      "risk": "Future information or target leakage; not proposed for the next training change."
+    }
+  ],
+  "limitations": [
+    "One order-level carrier/customer timestamp does not identify each parcel, carrier, item or seller's movement.",
+    "No cancellation/status-transition/scan/ingestion or master-data revision history; missing observations cannot be equated with a verified physical state.",
+    "Transaction/product/location/schedule fields come from a final static export; availability and versions at approval are assumptions, not proven ingestion logs.",
+    "Event profile counts and checkpoint populations are operational coverage; they are neither late-order recall nor causal evidence of improvement.",
+    "Pre-May approved orders and all operational event clocks/queries are bounded before May1; the original final holdout has not been scored or tuned against.",
+    "Repeatedly inspected historical/development months cannot become a new untouched test merely by changing the prediction time."
+  ]
+}
