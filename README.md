@@ -15,7 +15,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；固定模型的每日訂單量診斷完成，區分單改k與主方案切換的退步；研究主方案開發召回25.15%、歷史下限19.63%，仍未達適用要求
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；固定101欄、L2＝100的topk／mean配對比較完成，mean未改善整體漏報；研究主方案開發召回25.15%、歷史下限19.63%，仍未達適用要求
 
 接續可進行：
 
@@ -1042,6 +1042,37 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 
 完整六個排序候選、所有分箱路線得失、排名與操作見[每日訂單量診斷](docs/STAGE4_RANK_BATCH_SIZE.md)及[聚合報告](reports/stage4/rank_batch_size_diagnostics.json)。原保留期間未重新評分，逐筆資料與模型仍由Git忽略。
 
+### 第十三輪：固定101欄與L2＝100，只比較topk與mean配對
+
+本輪停止擴大固定k搜尋，沿用101欄、成熟訓練ID／每日query、前處理、400棵樹與其他設定，只改`lambdarank_pair_method=topk→mean`，數值參數`lambdarank_num_pair_per_sample=10`不變。topk的10是前段位置；mean的10是每列取樣配對數，不是動態每日10%。normalization設定相同，但內部正規化行為隨method改變，不能稱為同計算量或單純切點效果。
+
+八個月份新訓練8個mean版本、重播8個既有topk10版本，沒有新增特徵、eval_set或早停。提醒仍按完整每日批次`floor(0.10×N)`，未知答案先競爭名額，再遮罩計算歷史指標。
+
+| 期間／用途 | topk抓到延遲／召回 | mean抓到延遲／召回 | 淨差 |
+| --- | --- | --- | --- |
+| 七月歷史驗證，2017-12 fold | 21／19.63% | 22／20.56% | ＋1 |
+| 九月歷史驗證，2017-12 fold | 52／28.89% | 45／25.00% | −7 |
+| 十二月開發回測 | 65／14.57% | 52／11.66% | −13 |
+| 二月開發回測 | 171／19.21% | 95／10.67% | −76 |
+| 四月開發回測 | 103／33.66% | 79／25.82% | −24 |
+| 三個開發月合計 | 339／20.65% | 226／13.76% | −113 |
+
+歷史答案仍要求實際送達嚴格早於各fold截止；上表七、九月截止為2017-12-01。三個開發月仍是已反覆檢視的2017-12／2018-02／2018-04，共18,833單、1,642筆延遲與1,845個提醒，並非新未知測試。兩個固定候選分開比較：mean在開發補抓51筆、同時失去164筆，FP1506→1619、FN1303→1416，沒有達到減少漏報的目的。
+
+每日量與路線也沒有一致改善。九月100–199筆批次TP38→31；十二月100–199組25→20、200–399組34→28，400+組則3→3。七月雖整體多抓1筆，SP→SP仍13→10；九月SP→BA 11→5、SP→SP多40個提醒僅多抓1筆。十二月承諾31+天TP21→9，15–21天多用60個提醒、TP仍14；二月SP→RJ TP101→38，SP→SP雖17→27，也多166筆誤報。路線、承諾與日量是重疊視角，不能相加或當作因果證據；小群組仍保留旗標。
+
+主方案沿用75個舊候選的凍結指標，加1個mean候選，共76個，按原歷史最低召回、TP、AP與固定順序選模。**三個fold均未選mean**，成對選組也都保留topk；完整研究主方案仍TP413、FP1432、FN1229、開發召回25.15%、歷史下限19.63%，不是上表固定topk候選的20.65%。各歷史月30%適用要求仍未達成，預設原RF與原保留期間不變。
+
+完整規格、其他月份成敗、日量／路線／承諾與排名交換見[topk與mean實驗](docs/STAGE4_RANK_PAIR_METHOD.md)、[訓練前規格](reports/stage4/rank_pair_method_specification.json)、[正式報告](reports/stage4/rank_pair_method.json)及[成對診斷](reports/stage4/rank_pair_method_diagnostics.json)。其餘592個舊月份版本未重新評分；逐筆分數與模型繼續忽略。本輪只支持停止這個mean分支，不能推論所有mean設定都無效，也不自動追加搜尋。
+
+| 本輪驗證 | 實際結果 |
+| --- | --- |
+| 測試／Notebook | 431項通過／32個程式區塊完整執行；提交65個cell無輸出，沒有新圖 |
+| 獨立模型與帳本 | 16版本、85,258月版分數、128,112帳本列、24組指標一致 |
+| 歷史選模與路線 | 9次組別選模、79摘要、12階段／361日批次、447,324群組欄位核對通過 |
+| 推論與來源保護 | 四月新mean與主方案各6,624單／650提醒；742份既有產物SHA不變 |
+| 上傳前檢查 | 訓練前規格不變；42份嚴格JSON、136個文件連結通過 |
+
 在專案根目錄執行：
 
 ```powershell
@@ -1078,6 +1109,9 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 .\.venv\Scripts\python.exe scripts\compare_rank_pair_focus.py --n-jobs 2
 .\.venv\Scripts\python.exe scripts\diagnose_rank_focus.py
 .\.venv\Scripts\python.exe scripts\diagnose_rank_batch_size.py
+.\.venv\Scripts\python.exe scripts\compare_rank_pair_method.py --specification-only --n-jobs 2
+.\.venv\Scripts\python.exe scripts\compare_rank_pair_method.py --n-jobs 2
+.\.venv\Scripts\python.exe scripts\diagnose_rank_pair_method.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -1120,7 +1154,7 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 
 ## 下一步規劃
 
-目前仍以 Stage 4 固定每日10%預算改善辨識能力。每日訂單量診斷完成：101欄單改k的十二月損失在低量與唯一400+日，主方案混合切換的損失卻集中200–399組，固定k數值接近容量也不保證改善。下一次建議保留101欄、L2＝100及數值參數10，只比較topk與mean配對方法，仍按原歷史規則選模並保留各月份、日量與路線得失；本步不追加訓練。研究主開發25.15%、歷史下限19.63%維持。新期間確認、Dashboard、Stage5、推薦系統與API待討論。
+目前仍以 Stage 4 固定每日10%預算改善辨識能力。topk→mean配對比較完成：mean固定候選的三個開發月全退步，歷史選模未選mean，研究主開發25.15%、歷史下限19.63%維持。建議停止此mean分支，保留topk研究對照，先討論目前預測時點、可用訊號與標籤母體的限制，再決定是否需要新的訊號或驗證期間；不能把反覆檢視月份視為未知成績。新期間確認、Dashboard、Stage5、推薦系統與API待討論。
 
 ---
 
@@ -1131,7 +1165,7 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 | Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
 | Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
 | Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
-| Stage 4：延遲預測 | 研究中 | 固定模型每日訂單量診斷完成，0次訓練；研究主開發25.15%、歷史下限19.63%，適用門檻未達 |
+| Stage 4：延遲預測 | 研究中 | topk／mean比較完成，mean未改善且未被選用；研究主開發25.15%、歷史下限19.63%，適用門檻未達 |
 | Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |

@@ -48,6 +48,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 19. 排序 L2 正則化 | 固定 83／101 欄、排序目標與其他樹參數，只比較 L2＝1／10／100，完成 32 次新訓練；核對九月誤報與其他路線漏報 | L2＝100 相對原排序，83 欄開發多抓 44 張、101 欄多抓 18 張；九月 101 欄整體多抓 14 張，但 SP→SP 本身少抓 1 張，七月整體少 10 張。全 71 候選主方案未選新候選，維持 25.46%。見[排序正則化比較](STAGE4_RANK_REGULARIZATION.md) |
 | 20. 排序訓練配對焦點 | 固定 L2＝100 與其他設定，只比較原生固定前 k＝10／20／40 的配對焦點，完成 32 次新訓練；20 重播既有模型，提醒預算仍每日 10% | 101 欄 k＝10 的七、九月各多抓 3 張，k＝40 各多 4、2 張，但都未恢復舊 L2＝10 的七月 TP 28。全 75 候選按歷史規則改選十二月，歷史下限 19.17% → 19.63%，開發少抓 5 張、召回 25.46% → 25.15%。見[配對焦點比較](STAGE4_RANK_PAIR_FOCUS.md) |
 | 21. 固定模型，按每日訂單量診斷 | 不重訓、不改選模，將七月歷史驗證與十二月開發分成完整日 N＝1–99／100–199／200–399／400+；另重建成熟訓練 query，檢查固定 k 與每日容量 | 101 欄 k＝20 → 10 的七月分組 TP 淨額為 +1／+1／+1／0，十二月為 −2／0／+1／−2。主方案混合改選的十二月 −5 卻主要來自 200–399 組，不能全歸因於 k；400+ 只有一天。研究主方案維持 TP 413、召回 25.15%，見[每日訂單量診斷](STAGE4_RANK_BATCH_SIZE.md) |
+| 22. 同設定 topk／mean 配對方式 | 固定 101 欄、L2＝100、配對參數整數 10 與其他設定，只改 `lambdarank_pair_method`；完成八次 mean 新訓練、八份 topk10 既有模型重播，檢查全部歷史與開發月份的路線及每日量分組 | mean 的七月 TP 21 → 22，但九月 52 → 45、十二月開發 65 → 52，未兼顧指定月份；固定候選開發合計 TP 339 → 226，召回 20.65% → 13.76%。歷史選模未選 mean，完整主方案仍 TP 413、召回 25.15%。見[配對方式比較](STAGE4_RANK_PAIR_METHOD.md) |
 
 ## 固定 10% 預算這段，實際進步多少
 
@@ -67,8 +68,9 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 排序 L2 正則化比較後 | 418 | 1,427 | 1,224 | 25.46% |
 | 固定 L2＝100，排序配對焦點比較後 | 413 | 1,432 | 1,229 | 25.15% |
 | 固定模型，每日訂單量診斷後，無新訓練 | 413 | 1,432 | 1,229 | 25.15% |
+| 固定 101 欄、L2＝100，topk／mean 比較後 | 413 | 1,432 | 1,229 | 25.15% |
 
-來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)、[backlog_objectives.json](../reports/stage4/backlog_objectives.json)、[rank_regularization.json](../reports/stage4/rank_regularization.json)與[rank_pair_focus.json](../reports/stage4/rank_pair_focus.json)的主方案摘要。
+來源依序為 [calibration_budget.json](../reports/stage4/calibration_budget.json)、[budget_ranking.json](../reports/stage4/budget_ranking.json)、[pending_ranking.json](../reports/stage4/pending_ranking.json)、[outcome_clock.json](../reports/stage4/outcome_clock.json)、[feature_engineering.json](../reports/stage4/feature_engineering.json)、[feature_ablation.json](../reports/stage4/feature_ablation.json)、[logistic_regularization.json](../reports/stage4/logistic_regularization.json)、[route_load_interactions.json](../reports/stage4/route_load_interactions.json)、[backlog_changes.json](../reports/stage4/backlog_changes.json)、[backlog_objectives.json](../reports/stage4/backlog_objectives.json)、[rank_regularization.json](../reports/stage4/rank_regularization.json)、[rank_pair_focus.json](../reports/stage4/rank_pair_focus.json)與[rank_pair_method.json](../reports/stage4/rank_pair_method.json)的主方案摘要。
 
 從固定預算起點到本輪比較完成，**相同提醒量多抓 61 張延遲、少 61 張誤報，召回提高 3.71 個百分點**。進步並非每輪向上，也還漏掉 1,229／1,642 張延遲。最新主方案最差歷史驗證召回為 **19.63%**，三個 fold 仍未全部通過「各歷史月至少召回 30%」的適用要求。
 
@@ -78,12 +80,14 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 
 目前預設推論仍用原版 Random Forest。研究流程可以在不同月份依歷史資料選到 XGBoost 或 Logistic，研究成績改善不會自動替換預設模型。當前標籤母體仍是時間合理且最終已送達的訂單；待件情境雖納入其他有效核准訂單，不能據此宣稱已驗證所有核准、取消與未送達訂單。
 
-本輪固定模型與既有分數，診斷固定 k 如何與每日訂單量交互。101 欄 k＝20 → 10，七月多抓 3 張，十二月少抓 3 張；十二月純 k 的損失落在低量與唯一 400+ 日，200–399 組反而多抓 1 張。主方案由 83 欄分類改為 101 欄排序的 −5，則在 200–399 組少抓 9 張，同時涉及特徵、目標與 L2，不能寫成同一個 k 效果。
+本輪依前次診斷提出的假設，停止擴大固定 k 搜尋，固定 101 欄、L2＝100、整數 10，只比較 `topk → mean`。mean 的 10 代表逐列取樣配對的數量參數，不是前 10 名或動態 10%；normalization 設定相同，內部行為仍會隨 method 變化，不能聲稱相同配對總數或計算量。
 
-固定 k＝10 只在七月 4／31 天、十二月 2／31 天等於實際 10% 容量。訓練 query 是當時依答案時鐘可用的成熟子集，並非完整日母體；同一 k＝10 的名義位置覆蓋在七月 13.66%、十二月 9.79%，更接近 10% 也沒有保證固定候選改善。這些是對帳與關聯描述，沒有證明切點差距造成退步；少日期、小路線的增減也不能視為穩定效果。
+七月雖多抓 1 張，SP→SP 仍少抓 3 張；九月 SP→BA 少抓 6 張，十二月承諾 31+ 天少抓 12 張。每日量分組也沒有一致改善：七月 100–199 組多 3 張、低量組少 2 張，九月 100–199 組少 7 張，十二月 1–99／100–199／200–399 組各少 2／5／6 張。路線和承諾天數是重疊維度，不能把兩邊損失相加，也沒有證明特定特徵造成退步。
 
-本輪診斷 CLI 完成 512,448 列來源帳本、12 個 phase 與 70 個來源／模型雜湊核對，分析兩個 phase、九組比較，0 次 fit、0 次模型重播、0 次選模。聚合報告見 [rank_batch_size_diagnostics.json](../reports/stage4/rank_batch_size_diagnostics.json)，逐筆分數與本機模型仍由 Git 忽略。
+mean 的三個開發月分別少抓 13／76／24 張，合計追回 51 張、又失去 164 張；二月最大損失來自 SP→RJ，TP 101 → 38。只列補抓會掩蓋更多新增漏報。按原歷史規則，mean 在兩候選組與完整 76 候選主方案都未勝出，因此主方案與適用狀態維持前輪；不根據已看的開發結果另行覆寫選模。
 
-406 項測試、31 個 Notebook 程式區塊通過；獨立核對 96 組來源指標、62 個完整日批次、九組比較與 142,884 個群組欄位。訓練 query 的 531 個過去有效日期也逐日核對，七月 189、十二月 342，其中各一天沒有成熟訓練列。
+八份 mean 模型均無 fit warnings；75 個舊候選指標原值保留，僅重播八份 topk10 版本，另 592 份舊月份版本未重新評分。診斷 CLI 核對 128,112 列分數、12 個 phase、16 份月份模型雜湊，涵蓋每日量、路線、承諾及完整日提醒，診斷本身 0 次 fit／0 次重播／0 次選模。聚合結果見 [rank_pair_method_diagnostics.json](../reports/stage4/rank_pair_method_diagnostics.json)，逐筆分數與本機模型仍由 Git 忽略。
 
-這次結果不支持只因容量不吻合就擴大固定 k 搜尋。下一次建議固定 101 欄、L2＝100、配對參數整數 10 與其他設定，只比較 `lambdarank_pair_method=topk → mean`，同時檢查七、九月和十二月。`mean` 的 10 代表每列取樣配對數，並非固定前 10 名或動態 10%，內部正規化也會隨 method 變化；這是研究假設，不能保證回收漏報。本輪沒有追加訓練；研究模型仍需另行安排未參與調整的新期間驗證，之後才討論 Dashboard 與下一階段。
+431 項自動測試、32 個 Notebook 程式區塊通過；提交 65 個 cell，保留原 63 個 cell，無執行輸出或新圖表。獨立核對 16 份模型、85,258 筆月份預測、1,488 個訓練補值、24 組指標、9 組選模與 79 列摘要。診斷另獨立核對 361 個 phase 內完整日批次、447,324 個公開群組欄位；跨 fold 的同一日期不能視為獨立日期。四月新 mean 與主方案 CLI 各驗證 6,624 單／650 個提醒，主方案輸入保留 1,710 筆 ZIP 前導零。742 份既有模型、報告與圖檔雜湊不變。
+
+目前結果不支持把本輪 topk 改為 mean。下一步建議停止這個 mean 分支，保留既有 topk 研究對照，討論現有訊號與標籤母體的適用限制，以及尚未反覆用於調整的新期間驗證；不自動追加其他參數搜尋。這只代表本輪固定設定沒有改善，不代表所有 mean 設定都無效。Dashboard 仍等模型適用程度確認後再進行。
