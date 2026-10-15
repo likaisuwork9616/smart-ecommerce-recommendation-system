@@ -1,0 +1,2329 @@
+{
+  "format_version": 1,
+  "analysis": "approval_time_unobserved_handover_signal_inventory",
+  "status": "ok",
+  "source_report": {
+    "path": "reports/stage4/handover_count.json",
+    "sha256": "57077703b7160c84eca8ab517f2f3325d105ea481bfa5c657f057fbbd0a3f9b3"
+  },
+  "source_diagnostic": {
+    "path": "reports/stage4/handover_count_diagnostics.json",
+    "sha256": "35f15584b6843318872e561531dc870e392c0cfec19cbf66f7c9e98c32b35121"
+  },
+  "source_features": {
+    "path": "data/processed/olist_delay_handover_features.csv",
+    "sha256": "fe558084eaa0989a5dbad0c4e9ad9a474f3af7466c91cfaf202dc71d505618d7",
+    "rows": 70844,
+    "columns": [
+      "order_id",
+      "order_purchase_timestamp",
+      "prediction_time",
+      "label_available_time",
+      "delayed",
+      "item_count",
+      "seller_count",
+      "product_count",
+      "total_price",
+      "total_freight_value",
+      "freight_ratio",
+      "payment_total",
+      "payment_count",
+      "payment_installments_max",
+      "product_weight_g_mean",
+      "product_volume_cm3_mean",
+      "estimated_delivery_days",
+      "approval_wait_hours",
+      "purchase_month",
+      "purchase_dayofweek",
+      "purchase_hour",
+      "interstate_item_ratio",
+      "global_completed_90d",
+      "route_completed_90d",
+      "global_delivery_p90_calendar_days_90d",
+      "route_delivery_p50_calendar_days_90d",
+      "route_delivery_p90_calendar_days_90d",
+      "route_promise_margin_p90_days",
+      "route_promise_ratio_p90",
+      "route_promise_cdf_90d",
+      "global_delay_rate_90d",
+      "global_delivery_days_90d",
+      "seller_completed_90d",
+      "seller_delay_rate_90d",
+      "seller_delivery_days_90d",
+      "route_delay_rate_90d",
+      "route_delivery_days_90d",
+      "route_promise_margin_days",
+      "seller_promise_margin_days",
+      "seller_promise_ratio",
+      "seller_delay_rate_excess_global",
+      "route_delay_rate_excess_global",
+      "global_pending_30d",
+      "global_pending_90d",
+      "global_pending_mean_age_30d",
+      "global_pending_overdue_30d",
+      "global_pending_overdue_90d",
+      "seller_pending_30d",
+      "seller_pending_90d",
+      "seller_pending_mean_age_30d",
+      "seller_pending_overdue_30d",
+      "seller_pending_overdue_90d",
+      "route_pending_30d",
+      "route_pending_90d",
+      "route_pending_mean_age_30d",
+      "route_pending_overdue_30d",
+      "route_pending_overdue_90d",
+      "geo_primary_distance_km",
+      "geo_item_distance_mean_km",
+      "geo_item_distance_max_km",
+      "geo_known_distance_item_ratio",
+      "geo_same_zip5_item_ratio",
+      "geo_customer_latitude",
+      "geo_customer_longitude",
+      "geo_primary_seller_latitude",
+      "geo_primary_seller_longitude",
+      "geo_distance_per_promise_day",
+      "geo_promise_days_per_100km",
+      "seller_pending_vs_completed_30d",
+      "route_pending_vs_completed_30d",
+      "seller_overdue_pending_share_30d",
+      "route_overdue_pending_share_30d",
+      "global_overdue_pending_share_30d",
+      "product_density_g_cm3",
+      "freight_per_item",
+      "price_per_item",
+      "approval_weekday",
+      "approval_hour",
+      "promise_weekday",
+      "geo_freight_per_km",
+      "dispatch_limit_min_hours_from_approval",
+      "dispatch_limit_max_hours_from_approval",
+      "dispatch_limit_mean_hours_from_approval",
+      "dispatch_limit_spread_hours",
+      "promise_after_latest_dispatch_days",
+      "past_deadline_item_ratio",
+      "missing_limit_item_ratio",
+      "primary_item_dispatch_limit_hours",
+      "customer_state",
+      "primary_seller_state",
+      "primary_category",
+      "payment_type",
+      "state_route",
+      "primary_seller_id",
+      "customer_zip_prefix3",
+      "primary_seller_zip_prefix3",
+      "training_outcome_known_time",
+      "route_approvals_7d",
+      "route_approvals_previous_7d",
+      "route_approvals_14d",
+      "route_approvals_previous_14d",
+      "route_approval_log_growth_7d",
+      "route_approval_log_growth_14d",
+      "route_approval_share_change_7d",
+      "route_promise_approvals_7d",
+      "route_promise_approvals_previous_7d",
+      "route_promise_approvals_14d",
+      "route_promise_approvals_previous_14d",
+      "route_promise_approval_log_growth_7d",
+      "route_promise_approval_log_growth_14d",
+      "promise_x_route_growth_7d",
+      "promise_x_lane_growth_7d",
+      "margin_x_route_growth_7d",
+      "promise_x_route_overdue_share_30d",
+      "state_route_promise_bin",
+      "state_route_promise_growth_bin",
+      "global_overdue_pending_lag_7d",
+      "global_overdue_pending_change_7d",
+      "global_overdue_pending_log_growth_7d",
+      "seller_overdue_pending_lag_7d",
+      "seller_overdue_pending_change_7d",
+      "seller_overdue_pending_log_growth_7d",
+      "route_overdue_pending_lag_7d",
+      "route_overdue_pending_change_7d",
+      "route_overdue_pending_log_growth_7d",
+      "global_overdue_pending_lag_14d",
+      "global_overdue_pending_change_14d",
+      "global_overdue_pending_log_growth_14d",
+      "seller_overdue_pending_lag_14d",
+      "seller_overdue_pending_change_14d",
+      "seller_overdue_pending_log_growth_14d",
+      "route_overdue_pending_lag_14d",
+      "route_overdue_pending_change_14d",
+      "route_overdue_pending_log_growth_14d",
+      "seller_handover_count_90d",
+      "seller_handover_p50_hours_90d",
+      "seller_handover_p90_hours_90d"
+    ],
+    "prediction_cutoff_exclusive": "2018-05-01T00:00:00",
+    "added_features": [
+      "seller_handover_count_90d",
+      "seller_handover_p50_hours_90d",
+      "seller_handover_p90_hours_90d"
+    ],
+    "frozen_columns_preserved": [
+      "order_id",
+      "order_purchase_timestamp",
+      "prediction_time",
+      "label_available_time",
+      "delayed",
+      "item_count",
+      "seller_count",
+      "product_count",
+      "total_price",
+      "total_freight_value",
+      "freight_ratio",
+      "payment_total",
+      "payment_count",
+      "payment_installments_max",
+      "product_weight_g_mean",
+      "product_volume_cm3_mean",
+      "estimated_delivery_days",
+      "approval_wait_hours",
+      "purchase_month",
+      "purchase_dayofweek",
+      "purchase_hour",
+      "interstate_item_ratio",
+      "global_completed_90d",
+      "route_completed_90d",
+      "global_delivery_p90_calendar_days_90d",
+      "route_delivery_p50_calendar_days_90d",
+      "route_delivery_p90_calendar_days_90d",
+      "route_promise_margin_p90_days",
+      "route_promise_ratio_p90",
+      "route_promise_cdf_90d",
+      "global_delay_rate_90d",
+      "global_delivery_days_90d",
+      "seller_completed_90d",
+      "seller_delay_rate_90d",
+      "seller_delivery_days_90d",
+      "route_delay_rate_90d",
+      "route_delivery_days_90d",
+      "route_promise_margin_days",
+      "seller_promise_margin_days",
+      "seller_promise_ratio",
+      "seller_delay_rate_excess_global",
+      "route_delay_rate_excess_global",
+      "global_pending_30d",
+      "global_pending_90d",
+      "global_pending_mean_age_30d",
+      "global_pending_overdue_30d",
+      "global_pending_overdue_90d",
+      "seller_pending_30d",
+      "seller_pending_90d",
+      "seller_pending_mean_age_30d",
+      "seller_pending_overdue_30d",
+      "seller_pending_overdue_90d",
+      "route_pending_30d",
+      "route_pending_90d",
+      "route_pending_mean_age_30d",
+      "route_pending_overdue_30d",
+      "route_pending_overdue_90d",
+      "geo_primary_distance_km",
+      "geo_item_distance_mean_km",
+      "geo_item_distance_max_km",
+      "geo_known_distance_item_ratio",
+      "geo_same_zip5_item_ratio",
+      "geo_customer_latitude",
+      "geo_customer_longitude",
+      "geo_primary_seller_latitude",
+      "geo_primary_seller_longitude",
+      "geo_distance_per_promise_day",
+      "geo_promise_days_per_100km",
+      "seller_pending_vs_completed_30d",
+      "route_pending_vs_completed_30d",
+      "seller_overdue_pending_share_30d",
+      "route_overdue_pending_share_30d",
+      "global_overdue_pending_share_30d",
+      "product_density_g_cm3",
+      "freight_per_item",
+      "price_per_item",
+      "approval_weekday",
+      "approval_hour",
+      "promise_weekday",
+      "geo_freight_per_km",
+      "dispatch_limit_min_hours_from_approval",
+      "dispatch_limit_max_hours_from_approval",
+      "dispatch_limit_mean_hours_from_approval",
+      "dispatch_limit_spread_hours",
+      "promise_after_latest_dispatch_days",
+      "past_deadline_item_ratio",
+      "missing_limit_item_ratio",
+      "primary_item_dispatch_limit_hours",
+      "customer_state",
+      "primary_seller_state",
+      "primary_category",
+      "payment_type",
+      "state_route",
+      "primary_seller_id",
+      "customer_zip_prefix3",
+      "primary_seller_zip_prefix3",
+      "training_outcome_known_time",
+      "route_approvals_7d",
+      "route_approvals_previous_7d",
+      "route_approvals_14d",
+      "route_approvals_previous_14d",
+      "route_approval_log_growth_7d",
+      "route_approval_log_growth_14d",
+      "route_approval_share_change_7d",
+      "route_promise_approvals_7d",
+      "route_promise_approvals_previous_7d",
+      "route_promise_approvals_14d",
+      "route_promise_approvals_previous_14d",
+      "route_promise_approval_log_growth_7d",
+      "route_promise_approval_log_growth_14d",
+      "promise_x_route_growth_7d",
+      "promise_x_lane_growth_7d",
+      "margin_x_route_growth_7d",
+      "promise_x_route_overdue_share_30d",
+      "state_route_promise_bin",
+      "state_route_promise_growth_bin",
+      "global_overdue_pending_lag_7d",
+      "global_overdue_pending_change_7d",
+      "global_overdue_pending_log_growth_7d",
+      "seller_overdue_pending_lag_7d",
+      "seller_overdue_pending_change_7d",
+      "seller_overdue_pending_log_growth_7d",
+      "route_overdue_pending_lag_7d",
+      "route_overdue_pending_change_7d",
+      "route_overdue_pending_log_growth_7d",
+      "global_overdue_pending_lag_14d",
+      "global_overdue_pending_change_14d",
+      "global_overdue_pending_log_growth_14d",
+      "seller_overdue_pending_lag_14d",
+      "seller_overdue_pending_change_14d",
+      "seller_overdue_pending_log_growth_14d",
+      "route_overdue_pending_lag_14d",
+      "route_overdue_pending_change_14d",
+      "route_overdue_pending_log_growth_14d"
+    ],
+    "frozen_values_verified": 9493096,
+    "original_holdout_features_generated": false
+  },
+  "source_scores": {
+    "path": "data/processed/olist_delay_handover_count_scores.csv",
+    "rows": 192168,
+    "sha256": "9f5ebb15232ef006ac8a978ac2fcde0b27a157f4e3e290bccdceff917efa7a14",
+    "coverage": "Matched frozen101, frozen104 and new count102 only; other75 previous candidates keep frozen source metrics without new scores."
+  },
+  "source_hashes": [
+    {
+      "path": "reports/stage4/handover_count.json",
+      "sha256": "57077703b7160c84eca8ab517f2f3325d105ea481bfa5c657f057fbbd0a3f9b3"
+    },
+    {
+      "path": "reports/stage4/handover_count_diagnostics.json",
+      "sha256": "35f15584b6843318872e561531dc870e392c0cfec19cbf66f7c9e98c32b35121"
+    },
+    {
+      "path": "data/processed/olist_delay_handover_features.csv",
+      "sha256": "fe558084eaa0989a5dbad0c4e9ad9a474f3af7466c91cfaf202dc71d505618d7"
+    },
+    {
+      "path": "data/processed/olist_delay_handover_count_scores.csv",
+      "sha256": "9f5ebb15232ef006ac8a978ac2fcde0b27a157f4e3e290bccdceff917efa7a14"
+    },
+    {
+      "path": "reports/stage4/logistics_availability.json",
+      "sha256": "909186941f2a4a43e0eef9d052e7943d4d35334a66a72e9e279da896277478e8"
+    },
+    {
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    }
+  ],
+  "contract_provenance": {
+    "path": ".runtime/verification/approval-signal-prespecified.json",
+    "sha256": "064891915530d167e24791fafdf39576eaa3605aa294c55f7757ab526e2da1d9",
+    "captured_before_full_population_profile": true,
+    "exact_contract_reconstructed_and_verified": true,
+    "no_search": true
+  },
+  "contract": {
+    "prediction_time": "approval",
+    "query_cutoff_exclusive": "2018-05-01T00:00:00",
+    "signals": [
+      "seller_unobserved_handover_pending_count_90d",
+      "seller_unobserved_handover_pending_age_p90_hours_90d"
+    ],
+    "window_days": 90,
+    "primary_seller": "Highest item price, then lowest item sequence; unchanged static-export lookup.",
+    "history": "Valid purchase <= approval, other order identity, approval in [t-90d,t).",
+    "observed_event": "Carrier/customer event strictly < t. Event equal to t is unknown.",
+    "pending": "No carrier event observed before t AND no customer-delivery event observed before t.",
+    "observed_anomalies": "Observed carrier before approval, delivery before approval, delivery before observed carrier, and delivery observed without observed carrier are quarantined from pending. Future carrier/delivery timestamps never exclude a row.",
+    "zero_and_missing": "Known seller with no pending orders: count=0, age p90 missing. Unknown seller: both missing; unknown sellers are never pooled.",
+    "age_quantile": "Linear p90 of (t - historical approval) hours among pending; minimum 1 pending order, fixed diagnostic rule, not the 104-column handover min-5 rule.",
+    "count_bins": {
+      "missing_seller": "seller missing",
+      "zero": "count == 0",
+      "one_to_four": "1 <= count <= 4",
+      "five_to_nineteen": "5 <= count <= 19",
+      "twenty_plus": "count >= 20"
+    },
+    "age_bins": {
+      "missing_seller": "seller missing",
+      "empty": "count == 0",
+      "up_to_24h": "0 <= age <= 24",
+      "over24_to72h": "24 < age <= 72",
+      "over72_to168h": "72 < age <= 168",
+      "over168h": "age > 168"
+    },
+    "cohorts": {
+      "common_missed_delayed": "Known delayed and no alert from any of the three fixed models.",
+      "other_known_delayed": "Known delayed and alerted by at least one fixed model.",
+      "known_ontime": "Known on-time.",
+      "unknown_outcome": "Outcome unavailable at the original historical cutoff."
+    },
+    "ranking": "Original full closed daily batch floor(0.1*N), unknown outcomes compete before cohort masks; no cohort reranking.",
+    "no_threshold_search": true,
+    "no_model_input_change": true,
+    "interpretation": "Prespecified descriptive bins test coverage, not model gain or causal mechanism. Repeated validation months have different cutoffs and cannot be summed as independent months."
+  },
+  "availability_matrix": [
+    {
+      "signal": "Transaction, geography, completed delivery, undelivered and overdue workload, route/promise 7/14-day changes",
+      "available_at_approval": "conditional",
+      "available_later": true,
+      "unavailable": false,
+      "coverage": "Already included in all three 101/102/104 models; not new.",
+      "assumption": "Static export attributes and historical event < t ingestion assumptions."
+    },
+    {
+      "signal": "Primary seller 90-day completed handover event count and elapsed p50/p90",
+      "available_at_approval": "conditional",
+      "available_later": true,
+      "unavailable": false,
+      "coverage": "Count already in102/104; p50/p90 already in104. Old logistics inventory predates those branches.",
+      "assumption": "Other orders carrier < t; order-level handover proxy; min5 events for104 quantiles."
+    },
+    {
+      "signal": [
+        "seller_unobserved_handover_pending_count_90d",
+        "seller_unobserved_handover_pending_age_p90_hours_90d"
+      ],
+      "available_at_approval": "conditional",
+      "available_later": true,
+      "unavailable": false,
+      "coverage": "Not in101/102/104; calculated here only as diagnostic descriptors.",
+      "assumption": "Absence of an observed carrier is not verified physical non-dispatch; static primary seller, timely ingestion and missing cancellation clocks remain limitations."
+    },
+    {
+      "signal": "Item shipping_limit_date schedule and promise-after-dispatch schedule",
+      "available_at_approval": "unverified",
+      "available_later": "unverified",
+      "unavailable": false,
+      "coverage": "Existing8-feature dispatch sensitivity branch; not a new untested signal.",
+      "assumption": "No creation/revision history proves approval-time schedule version; not an actual handover event."
+    },
+    {
+      "signal": "Own future carrier/customer-delivery timestamp, elapsed actual handover/transit duration",
+      "available_at_approval": false,
+      "available_later": "after event observation only",
+      "unavailable": false,
+      "coverage": "Excluded as own-order approval predictors; later checkpoints change population/budget.",
+      "assumption": "Never import future event or duration into approval model."
+    },
+    {
+      "signal": "Final status, reviews, cancellation/status-transition times",
+      "available_at_approval": false,
+      "available_later": "final status/reviews only; transition timestamps absent",
+      "unavailable": "historical transitions",
+      "coverage": "Snapshot final status and downstream reviews cannot reconstruct as-of state.",
+      "assumption": "Approved cancelled orders may remain in unobserved-event queue."
+    },
+    {
+      "signal": "Carrier ID/service, parcel scans/position, ingestion timestamps, weather and holiday source",
+      "available_at_approval": false,
+      "available_later": false,
+      "unavailable": true,
+      "coverage": "Not supplied by nine raw tables; weekday already exists.",
+      "assumption": "Needs actual external/versioned sources; cannot invent from ZIP or final timestamps."
+    }
+  ],
+  "raw_schema": {
+    "orders": {
+      "file": "olist_orders_dataset.csv",
+      "used_columns": [
+        "order_id",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date"
+      ]
+    },
+    "items": {
+      "file": "olist_order_items_dataset.csv",
+      "used_columns": [
+        "order_id",
+        "order_item_id",
+        "price",
+        "seller_id"
+      ]
+    },
+    "unused_fields": [
+      "order_status",
+      "shipping_limit_date",
+      "reviews",
+      "targets"
+    ]
+  },
+  "query_quality": {
+    "query_history_occurrences": 5521613,
+    "carrier_before_approval_observed": 11758,
+    "delivery_before_approval_observed": 1637,
+    "delivery_before_carrier_both_observed": 576,
+    "delivery_without_carrier_observed": 29,
+    "queries": 70844,
+    "missing_seller_queries": 0,
+    "scope": "Overlapping historical order occurrences across queries, not unique raw orders. Anomaly categories overlap.",
+    "valid_approved_raw_orders_before_cutoff": 73254
+  },
+  "full_feature_population": {
+    "orders": 70844,
+    "count_observed": 70844,
+    "age_observed": 45089,
+    "count_bins": {
+      "missing_seller": 0,
+      "zero": 25755,
+      "one_to_four": 28299,
+      "five_to_nineteen": 14137,
+      "twenty_plus": 2653
+    },
+    "age_bins": {
+      "missing_seller": 0,
+      "empty": 25755,
+      "up_to_24h": 9998,
+      "over24_to72h": 13067,
+      "over72_to168h": 11517,
+      "over168h": 10507
+    },
+    "seller_unobserved_handover_pending_count_90d": {
+      "median": 1.0,
+      "p90": 10.0
+    },
+    "seller_unobserved_handover_pending_age_p90_hours_90d": {
+      "median": 69.97894444444444,
+      "p90": 782.1176888888898
+    }
+  },
+  "phases": {
+    "2017-12/2017-07/validation": {
+      "fold": "2017-12",
+      "month": "2017-07",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2017-12-01T00:00:00",
+      "full_batch": {
+        "orders": 3827,
+        "count_observed": 3827,
+        "age_observed": 2442,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1385,
+          "one_to_four": 1583,
+          "five_to_nineteen": 738,
+          "twenty_plus": 121
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1385,
+          "up_to_24h": 481,
+          "over24_to72h": 700,
+          "over72_to168h": 555,
+          "over168h": 706
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 9.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 77.14740277777778,
+          "p90": 1164.8508472222225
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 81,
+          "count_observed": 81,
+          "age_observed": 49,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 32,
+            "one_to_four": 30,
+            "five_to_nineteen": 16,
+            "twenty_plus": 3
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 32,
+            "up_to_24h": 13,
+            "over24_to72h": 10,
+            "over72_to168h": 13,
+            "over168h": 13
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 10.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 78.18833333333333,
+            "p90": 850.7253611111114
+          }
+        },
+        "other_known_delayed": {
+          "orders": 26,
+          "count_observed": 26,
+          "age_observed": 12,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 14,
+            "one_to_four": 9,
+            "five_to_nineteen": 3,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 14,
+            "up_to_24h": 2,
+            "over24_to72h": 4,
+            "over72_to168h": 1,
+            "over168h": 5
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 0.0,
+            "p90": 4.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 76.51631944444443,
+            "p90": 1816.1332444444447
+          }
+        },
+        "known_ontime": {
+          "orders": 3720,
+          "count_observed": 3720,
+          "age_observed": 2381,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1339,
+            "one_to_four": 1544,
+            "five_to_nineteen": 719,
+            "twenty_plus": 118
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1339,
+            "up_to_24h": 466,
+            "over24_to72h": 686,
+            "over72_to168h": 541,
+            "over168h": 688
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 77.1457777777778,
+            "p90": 1167.086888888889
+          }
+        },
+        "unknown_outcome": {
+          "orders": 0,
+          "count_observed": 0,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": null,
+            "p90": null
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    },
+    "2017-12/2017-08/validation": {
+      "fold": "2017-12",
+      "month": "2017-08",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2017-12-01T00:00:00",
+      "full_batch": {
+        "orders": 4217,
+        "count_observed": 4217,
+        "age_observed": 2586,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1631,
+          "one_to_four": 1764,
+          "five_to_nineteen": 771,
+          "twenty_plus": 51
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1631,
+          "up_to_24h": 557,
+          "over24_to72h": 739,
+          "over72_to168h": 611,
+          "over168h": 679
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 8.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 71.73902777777778,
+          "p90": 906.0406111111112
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 94,
+          "count_observed": 94,
+          "age_observed": 67,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 27,
+            "one_to_four": 36,
+            "five_to_nineteen": 29,
+            "twenty_plus": 2
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 27,
+            "up_to_24h": 4,
+            "over24_to72h": 20,
+            "over72_to168h": 24,
+            "over168h": 19
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.5,
+            "p90": 11.700000000000003
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 99.29919444444444,
+            "p90": 885.0942333333332
+          }
+        },
+        "other_known_delayed": {
+          "orders": 26,
+          "count_observed": 26,
+          "age_observed": 15,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 11,
+            "one_to_four": 12,
+            "five_to_nineteen": 3,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 11,
+            "up_to_24h": 2,
+            "over24_to72h": 2,
+            "over72_to168h": 6,
+            "over168h": 5
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 5.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 120.52263888888889,
+            "p90": 1927.4352777777779
+          }
+        },
+        "known_ontime": {
+          "orders": 4096,
+          "count_observed": 4096,
+          "age_observed": 2504,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1592,
+            "one_to_four": 1716,
+            "five_to_nineteen": 739,
+            "twenty_plus": 49
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1592,
+            "up_to_24h": 551,
+            "over24_to72h": 717,
+            "over72_to168h": 581,
+            "over168h": 655
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 70.773,
+            "p90": 882.1109222222224
+          }
+        },
+        "unknown_outcome": {
+          "orders": 1,
+          "count_observed": 1,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 0.0,
+            "p90": 0.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    },
+    "2017-12/2017-09/validation": {
+      "fold": "2017-12",
+      "month": "2017-09",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2017-12-01T00:00:00",
+      "full_batch": {
+        "orders": 4162,
+        "count_observed": 4162,
+        "age_observed": 2583,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1579,
+          "one_to_four": 1691,
+          "five_to_nineteen": 820,
+          "twenty_plus": 72
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1579,
+          "up_to_24h": 521,
+          "over24_to72h": 730,
+          "over72_to168h": 558,
+          "over168h": 774
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 8.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 75.0111111111111,
+          "p90": 1074.876944444446
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 116,
+          "count_observed": 116,
+          "age_observed": 82,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 34,
+            "one_to_four": 49,
+            "five_to_nineteen": 32,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 34,
+            "up_to_24h": 17,
+            "over24_to72h": 21,
+            "over72_to168h": 25,
+            "over168h": 19
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 79.0755,
+            "p90": 558.959558333334
+          }
+        },
+        "other_known_delayed": {
+          "orders": 64,
+          "count_observed": 64,
+          "age_observed": 37,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 27,
+            "one_to_four": 26,
+            "five_to_nineteen": 11,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 27,
+            "up_to_24h": 10,
+            "over24_to72h": 8,
+            "over72_to168h": 9,
+            "over168h": 10
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 72.49947222222222,
+            "p90": 683.757255555555
+          }
+        },
+        "known_ontime": {
+          "orders": 3979,
+          "count_observed": 3979,
+          "age_observed": 2462,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1517,
+            "one_to_four": 1616,
+            "five_to_nineteen": 776,
+            "twenty_plus": 70
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1517,
+            "up_to_24h": 494,
+            "over24_to72h": 701,
+            "over72_to168h": 523,
+            "over168h": 744
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 74.98783333333334,
+            "p90": 1087.7538194444444
+          }
+        },
+        "unknown_outcome": {
+          "orders": 3,
+          "count_observed": 3,
+          "age_observed": 2,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1,
+            "one_to_four": 0,
+            "five_to_nineteen": 1,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 1,
+            "over168h": 1
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 8.0,
+            "p90": 20.8
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 302.4824722222221,
+            "p90": 422.7204499999998
+          }
+        }
+      }
+    },
+    "2017-12/2017-12/evaluation": {
+      "fold": "2017-12",
+      "month": "2017-12",
+      "role": "development_retest",
+      "historical_outcome_cutoff": null,
+      "full_batch": {
+        "orders": 5675,
+        "count_observed": 5675,
+        "age_observed": 3853,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1822,
+          "one_to_four": 2138,
+          "five_to_nineteen": 1293,
+          "twenty_plus": 422
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1822,
+          "up_to_24h": 792,
+          "over24_to72h": 1041,
+          "over72_to168h": 1171,
+          "over168h": 849
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 2.0,
+          "p90": 16.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 77.09527777777778,
+          "p90": 706.6417722222221
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 355,
+          "count_observed": 355,
+          "age_observed": 272,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 83,
+            "one_to_four": 117,
+            "five_to_nineteen": 106,
+            "twenty_plus": 49
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 83,
+            "up_to_24h": 33,
+            "over24_to72h": 70,
+            "over72_to168h": 110,
+            "over168h": 59
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 3.0,
+            "p90": 24.600000000000023
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 92.64447222222222,
+            "p90": 490.08481666666677
+          }
+        },
+        "other_known_delayed": {
+          "orders": 91,
+          "count_observed": 91,
+          "age_observed": 71,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 20,
+            "one_to_four": 36,
+            "five_to_nineteen": 24,
+            "twenty_plus": 11
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 20,
+            "up_to_24h": 11,
+            "over24_to72h": 19,
+            "over72_to168h": 30,
+            "over168h": 11
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 3.0,
+            "p90": 23.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 81.7873888888889,
+            "p90": 215.98694444444445
+          }
+        },
+        "known_ontime": {
+          "orders": 5229,
+          "count_observed": 5229,
+          "age_observed": 3510,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1719,
+            "one_to_four": 1985,
+            "five_to_nineteen": 1163,
+            "twenty_plus": 362
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1719,
+            "up_to_24h": 748,
+            "over24_to72h": 952,
+            "over72_to168h": 1031,
+            "over168h": 779
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 15.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 75.1045,
+            "p90": 726.8610416666663
+          }
+        },
+        "unknown_outcome": {
+          "orders": 0,
+          "count_observed": 0,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": null,
+            "p90": null
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    },
+    "2018-02/2017-09/validation": {
+      "fold": "2018-02",
+      "month": "2017-09",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-02-01T00:00:00",
+      "full_batch": {
+        "orders": 4162,
+        "count_observed": 4162,
+        "age_observed": 2583,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1579,
+          "one_to_four": 1691,
+          "five_to_nineteen": 820,
+          "twenty_plus": 72
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1579,
+          "up_to_24h": 521,
+          "over24_to72h": 730,
+          "over72_to168h": 558,
+          "over168h": 774
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 8.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 75.0111111111111,
+          "p90": 1074.876944444446
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 118,
+          "count_observed": 118,
+          "age_observed": 83,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 35,
+            "one_to_four": 49,
+            "five_to_nineteen": 32,
+            "twenty_plus": 2
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 35,
+            "up_to_24h": 17,
+            "over24_to72h": 21,
+            "over72_to168h": 26,
+            "over168h": 19
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 82.15072222222224,
+            "p90": 548.7046444444443
+          }
+        },
+        "other_known_delayed": {
+          "orders": 64,
+          "count_observed": 64,
+          "age_observed": 37,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 27,
+            "one_to_four": 26,
+            "five_to_nineteen": 11,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 27,
+            "up_to_24h": 10,
+            "over24_to72h": 8,
+            "over72_to168h": 9,
+            "over168h": 10
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 72.49947222222222,
+            "p90": 683.757255555555
+          }
+        },
+        "known_ontime": {
+          "orders": 3979,
+          "count_observed": 3979,
+          "age_observed": 2462,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1517,
+            "one_to_four": 1616,
+            "five_to_nineteen": 776,
+            "twenty_plus": 70
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1517,
+            "up_to_24h": 494,
+            "over24_to72h": 701,
+            "over72_to168h": 523,
+            "over168h": 744
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 74.98783333333334,
+            "p90": 1087.7538194444444
+          }
+        },
+        "unknown_outcome": {
+          "orders": 1,
+          "count_observed": 1,
+          "age_observed": 1,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 1,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 1
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 8.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 452.7799444444442,
+            "p90": 452.7799444444442
+          }
+        }
+      }
+    },
+    "2018-02/2017-10/validation": {
+      "fold": "2018-02",
+      "month": "2017-10",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-02-01T00:00:00",
+      "full_batch": {
+        "orders": 4441,
+        "count_observed": 4441,
+        "age_observed": 2792,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1649,
+          "one_to_four": 1832,
+          "five_to_nineteen": 889,
+          "twenty_plus": 71
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1649,
+          "up_to_24h": 481,
+          "over24_to72h": 718,
+          "over72_to168h": 665,
+          "over168h": 928
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 9.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 89.15551388888889,
+          "p90": 1153.8227833333335
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 137,
+          "count_observed": 137,
+          "age_observed": 99,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 38,
+            "one_to_four": 58,
+            "five_to_nineteen": 35,
+            "twenty_plus": 6
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 38,
+            "up_to_24h": 15,
+            "over24_to72h": 24,
+            "over72_to168h": 35,
+            "over168h": 25
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 10.800000000000011
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 82.47147222222222,
+            "p90": 1055.4353777777783
+          }
+        },
+        "other_known_delayed": {
+          "orders": 46,
+          "count_observed": 46,
+          "age_observed": 27,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 19,
+            "one_to_four": 17,
+            "five_to_nineteen": 9,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 19,
+            "up_to_24h": 3,
+            "over24_to72h": 4,
+            "over72_to168h": 10,
+            "over168h": 10
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 130.86155555555555,
+            "p90": 1017.8020444444454
+          }
+        },
+        "known_ontime": {
+          "orders": 4257,
+          "count_observed": 4257,
+          "age_observed": 2665,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1592,
+            "one_to_four": 1757,
+            "five_to_nineteen": 844,
+            "twenty_plus": 64
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1592,
+            "up_to_24h": 463,
+            "over24_to72h": 690,
+            "over72_to168h": 619,
+            "over168h": 893
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 88.99638888888889,
+            "p90": 1158.2847499999993
+          }
+        },
+        "unknown_outcome": {
+          "orders": 1,
+          "count_observed": 1,
+          "age_observed": 1,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 1,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 1,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 14.0,
+            "p90": 14.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 110.9476666666667,
+            "p90": 110.9476666666667
+          }
+        }
+      }
+    },
+    "2018-02/2017-11/validation": {
+      "fold": "2018-02",
+      "month": "2017-11",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-02-01T00:00:00",
+      "full_batch": {
+        "orders": 7149,
+        "count_observed": 7149,
+        "age_observed": 5068,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 2081,
+          "one_to_four": 2621,
+          "five_to_nineteen": 1760,
+          "twenty_plus": 687
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 2081,
+          "up_to_24h": 1136,
+          "over24_to72h": 1459,
+          "over72_to168h": 1344,
+          "over168h": 1129
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 2.0,
+          "p90": 19.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 69.92125,
+          "p90": 675.7063305555565
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 680,
+          "count_observed": 680,
+          "age_observed": 540,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 140,
+            "one_to_four": 201,
+            "five_to_nineteen": 220,
+            "twenty_plus": 119
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 140,
+            "up_to_24h": 96,
+            "over24_to72h": 160,
+            "over72_to168h": 166,
+            "over168h": 118
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 4.0,
+            "p90": 31.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 76.88041666666668,
+            "p90": 517.5669250000004
+          }
+        },
+        "other_known_delayed": {
+          "orders": 182,
+          "count_observed": 182,
+          "age_observed": 139,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 43,
+            "one_to_four": 53,
+            "five_to_nineteen": 56,
+            "twenty_plus": 30
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 43,
+            "up_to_24h": 18,
+            "over24_to72h": 40,
+            "over72_to168h": 41,
+            "over168h": 40
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 4.0,
+            "p90": 38.80000000000001
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 84.31450000000001,
+            "p90": 398.4936444444443
+          }
+        },
+        "known_ontime": {
+          "orders": 6275,
+          "count_observed": 6275,
+          "age_observed": 4380,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1895,
+            "one_to_four": 2362,
+            "five_to_nineteen": 1481,
+            "twenty_plus": 537
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1895,
+            "up_to_24h": 1021,
+            "over24_to72h": 1255,
+            "over72_to168h": 1135,
+            "over168h": 969
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 17.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 68.43754166666668,
+            "p90": 692.968261111111
+          }
+        },
+        "unknown_outcome": {
+          "orders": 12,
+          "count_observed": 12,
+          "age_observed": 9,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 3,
+            "one_to_four": 5,
+            "five_to_nineteen": 3,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 3,
+            "up_to_24h": 1,
+            "over24_to72h": 4,
+            "over72_to168h": 2,
+            "over168h": 2
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.5,
+            "p90": 9.700000000000001
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 60.796499999999995,
+            "p90": 530.2030722222224
+          }
+        }
+      }
+    },
+    "2018-02/2018-02/evaluation": {
+      "fold": "2018-02",
+      "month": "2018-02",
+      "role": "development_retest",
+      "historical_outcome_cutoff": null,
+      "full_batch": {
+        "orders": 6534,
+        "count_observed": 6534,
+        "age_observed": 4500,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 2034,
+          "one_to_four": 2595,
+          "five_to_nineteen": 1628,
+          "twenty_plus": 277
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 2034,
+          "up_to_24h": 959,
+          "over24_to72h": 1450,
+          "over72_to168h": 1422,
+          "over168h": 669
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 2.0,
+          "p90": 12.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 66.71095833333334,
+          "p90": 326.770522222222
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 667,
+          "count_observed": 667,
+          "age_observed": 480,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 187,
+            "one_to_four": 268,
+            "five_to_nineteen": 175,
+            "twenty_plus": 37
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 187,
+            "up_to_24h": 86,
+            "over24_to72h": 160,
+            "over72_to168h": 164,
+            "over168h": 70
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 12.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 70.37188888888889,
+            "p90": 249.52233333333356
+          }
+        },
+        "other_known_delayed": {
+          "orders": 223,
+          "count_observed": 223,
+          "age_observed": 168,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 55,
+            "one_to_four": 84,
+            "five_to_nineteen": 68,
+            "twenty_plus": 16
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 55,
+            "up_to_24h": 28,
+            "over24_to72h": 45,
+            "over72_to168h": 72,
+            "over168h": 23
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 15.800000000000011
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 83.05080555555556,
+            "p90": 232.81091666666677
+          }
+        },
+        "known_ontime": {
+          "orders": 5644,
+          "count_observed": 5644,
+          "age_observed": 3852,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1792,
+            "one_to_four": 2243,
+            "five_to_nineteen": 1385,
+            "twenty_plus": 224
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1792,
+            "up_to_24h": 845,
+            "over24_to72h": 1245,
+            "over72_to168h": 1186,
+            "over168h": 576
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 11.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 65.38019444444444,
+            "p90": 348.2854166666667
+          }
+        },
+        "unknown_outcome": {
+          "orders": 0,
+          "count_observed": 0,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": null,
+            "p90": null
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    },
+    "2018-04/2017-10/validation": {
+      "fold": "2018-04",
+      "month": "2017-10",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-04-01T00:00:00",
+      "full_batch": {
+        "orders": 4441,
+        "count_observed": 4441,
+        "age_observed": 2792,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1649,
+          "one_to_four": 1832,
+          "five_to_nineteen": 889,
+          "twenty_plus": 71
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1649,
+          "up_to_24h": 481,
+          "over24_to72h": 718,
+          "over72_to168h": 665,
+          "over168h": 928
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 9.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 89.15551388888889,
+          "p90": 1153.8227833333335
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 138,
+          "count_observed": 138,
+          "age_observed": 100,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 38,
+            "one_to_four": 58,
+            "five_to_nineteen": 36,
+            "twenty_plus": 6
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 38,
+            "up_to_24h": 15,
+            "over24_to72h": 24,
+            "over72_to168h": 36,
+            "over168h": 25
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 12.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 85.34666666666666,
+            "p90": 1045.9609111111122
+          }
+        },
+        "other_known_delayed": {
+          "orders": 46,
+          "count_observed": 46,
+          "age_observed": 27,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 19,
+            "one_to_four": 17,
+            "five_to_nineteen": 9,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 19,
+            "up_to_24h": 3,
+            "over24_to72h": 4,
+            "over72_to168h": 10,
+            "over168h": 10
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 130.86155555555555,
+            "p90": 1017.8020444444454
+          }
+        },
+        "known_ontime": {
+          "orders": 4257,
+          "count_observed": 4257,
+          "age_observed": 2665,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1592,
+            "one_to_four": 1757,
+            "five_to_nineteen": 844,
+            "twenty_plus": 64
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1592,
+            "up_to_24h": 463,
+            "over24_to72h": 690,
+            "over72_to168h": 619,
+            "over168h": 893
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 88.99638888888889,
+            "p90": 1158.2847499999993
+          }
+        },
+        "unknown_outcome": {
+          "orders": 0,
+          "count_observed": 0,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": null,
+            "p90": null
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    },
+    "2018-04/2017-11/validation": {
+      "fold": "2018-04",
+      "month": "2017-11",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-04-01T00:00:00",
+      "full_batch": {
+        "orders": 7149,
+        "count_observed": 7149,
+        "age_observed": 5068,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 2081,
+          "one_to_four": 2621,
+          "five_to_nineteen": 1760,
+          "twenty_plus": 687
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 2081,
+          "up_to_24h": 1136,
+          "over24_to72h": 1459,
+          "over72_to168h": 1344,
+          "over168h": 1129
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 2.0,
+          "p90": 19.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 69.92125,
+          "p90": 675.7063305555565
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 687,
+          "count_observed": 687,
+          "age_observed": 546,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 141,
+            "one_to_four": 206,
+            "five_to_nineteen": 221,
+            "twenty_plus": 119
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 141,
+            "up_to_24h": 96,
+            "over24_to72h": 163,
+            "over72_to168h": 168,
+            "over168h": 119
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 4.0,
+            "p90": 31.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 76.88041666666668,
+            "p90": 515.7318194444443
+          }
+        },
+        "other_known_delayed": {
+          "orders": 184,
+          "count_observed": 184,
+          "age_observed": 140,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 44,
+            "one_to_four": 53,
+            "five_to_nineteen": 57,
+            "twenty_plus": 30
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 44,
+            "up_to_24h": 18,
+            "over24_to72h": 40,
+            "over72_to168h": 41,
+            "over168h": 41
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 4.0,
+            "p90": 38.400000000000034
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 84.31497222222222,
+            "p90": 486.5548277777791
+          }
+        },
+        "known_ontime": {
+          "orders": 6275,
+          "count_observed": 6275,
+          "age_observed": 4380,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1895,
+            "one_to_four": 2362,
+            "five_to_nineteen": 1481,
+            "twenty_plus": 537
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1895,
+            "up_to_24h": 1021,
+            "over24_to72h": 1255,
+            "over72_to168h": 1135,
+            "over168h": 969
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 17.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 68.43754166666668,
+            "p90": 692.968261111111
+          }
+        },
+        "unknown_outcome": {
+          "orders": 3,
+          "count_observed": 3,
+          "age_observed": 2,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1,
+            "one_to_four": 0,
+            "five_to_nineteen": 1,
+            "twenty_plus": 1
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1,
+            "up_to_24h": 1,
+            "over24_to72h": 1,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 7.0,
+            "p90": 65.4
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 27.76715277777778,
+            "p90": 32.29891944444445
+          }
+        }
+      }
+    },
+    "2018-04/2017-12/validation": {
+      "fold": "2018-04",
+      "month": "2017-12",
+      "role": "historical_validation",
+      "historical_outcome_cutoff": "2018-04-01T00:00:00",
+      "full_batch": {
+        "orders": 5675,
+        "count_observed": 5675,
+        "age_observed": 3853,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 1822,
+          "one_to_four": 2138,
+          "five_to_nineteen": 1293,
+          "twenty_plus": 422
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 1822,
+          "up_to_24h": 792,
+          "over24_to72h": 1041,
+          "over72_to168h": 1171,
+          "over168h": 849
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 2.0,
+          "p90": 16.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 77.09527777777778,
+          "p90": 706.6417722222221
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 352,
+          "count_observed": 352,
+          "age_observed": 269,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 83,
+            "one_to_four": 115,
+            "five_to_nineteen": 105,
+            "twenty_plus": 49
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 83,
+            "up_to_24h": 31,
+            "over24_to72h": 70,
+            "over72_to168h": 109,
+            "over168h": 59
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 3.0,
+            "p90": 24.900000000000034
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 92.76283333333333,
+            "p90": 492.8947000000002
+          }
+        },
+        "other_known_delayed": {
+          "orders": 90,
+          "count_observed": 90,
+          "age_observed": 70,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 20,
+            "one_to_four": 36,
+            "five_to_nineteen": 23,
+            "twenty_plus": 11
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 20,
+            "up_to_24h": 11,
+            "over24_to72h": 19,
+            "over72_to168h": 30,
+            "over168h": 10
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.5,
+            "p90": 23.60000000000005
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 81.1167638888889,
+            "p90": 214.75654444444444
+          }
+        },
+        "known_ontime": {
+          "orders": 5229,
+          "count_observed": 5229,
+          "age_observed": 3510,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 1719,
+            "one_to_four": 1985,
+            "five_to_nineteen": 1163,
+            "twenty_plus": 362
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 1719,
+            "up_to_24h": 748,
+            "over24_to72h": 952,
+            "over72_to168h": 1031,
+            "over168h": 779
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 2.0,
+            "p90": 15.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 75.1045,
+            "p90": 726.8610416666663
+          }
+        },
+        "unknown_outcome": {
+          "orders": 4,
+          "count_observed": 4,
+          "age_observed": 4,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 2,
+            "five_to_nineteen": 2,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 2,
+            "over24_to72h": 0,
+            "over72_to168h": 1,
+            "over168h": 1
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 3.5,
+            "p90": 7.1000000000000005
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 66.86025,
+            "p90": 556.5542666666668
+          }
+        }
+      }
+    },
+    "2018-04/2018-04/evaluation": {
+      "fold": "2018-04",
+      "month": "2018-04",
+      "role": "development_retest",
+      "historical_outcome_cutoff": null,
+      "full_batch": {
+        "orders": 6624,
+        "count_observed": 6624,
+        "age_observed": 3861,
+        "count_bins": {
+          "missing_seller": 0,
+          "zero": 2763,
+          "one_to_four": 2618,
+          "five_to_nineteen": 1118,
+          "twenty_plus": 125
+        },
+        "age_bins": {
+          "missing_seller": 0,
+          "empty": 2763,
+          "up_to_24h": 1161,
+          "over24_to72h": 1102,
+          "over72_to168h": 756,
+          "over168h": 842
+        },
+        "seller_unobserved_handover_pending_count_90d": {
+          "median": 1.0,
+          "p90": 8.0
+        },
+        "seller_unobserved_handover_pending_age_p90_hours_90d": {
+          "median": 54.54405555555555,
+          "p90": 991.881888888889
+        }
+      },
+      "cohorts": {
+        "common_missed_delayed": {
+          "orders": 188,
+          "count_observed": 188,
+          "age_observed": 110,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 78,
+            "one_to_four": 69,
+            "five_to_nineteen": 36,
+            "twenty_plus": 5
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 78,
+            "up_to_24h": 25,
+            "over24_to72h": 32,
+            "over72_to168h": 30,
+            "over168h": 23
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 11.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 69.30172222222222,
+            "p90": 618.5876666666669
+          }
+        },
+        "other_known_delayed": {
+          "orders": 118,
+          "count_observed": 118,
+          "age_observed": 66,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 52,
+            "one_to_four": 44,
+            "five_to_nineteen": 22,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 52,
+            "up_to_24h": 16,
+            "over24_to72h": 24,
+            "over72_to168h": 15,
+            "over168h": 11
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 9.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 51.00340277777779,
+            "p90": 244.43961111111133
+          }
+        },
+        "known_ontime": {
+          "orders": 6318,
+          "count_observed": 6318,
+          "age_observed": 3685,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 2633,
+            "one_to_four": 2505,
+            "five_to_nineteen": 1060,
+            "twenty_plus": 120
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 2633,
+            "up_to_24h": 1120,
+            "over24_to72h": 1046,
+            "over72_to168h": 711,
+            "over168h": 808
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": 1.0,
+            "p90": 8.0
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": 54.008277777777785,
+            "p90": 1007.2073555555555
+          }
+        },
+        "unknown_outcome": {
+          "orders": 0,
+          "count_observed": 0,
+          "age_observed": 0,
+          "count_bins": {
+            "missing_seller": 0,
+            "zero": 0,
+            "one_to_four": 0,
+            "five_to_nineteen": 0,
+            "twenty_plus": 0
+          },
+          "age_bins": {
+            "missing_seller": 0,
+            "empty": 0,
+            "up_to_24h": 0,
+            "over24_to72h": 0,
+            "over72_to168h": 0,
+            "over168h": 0
+          },
+          "seller_unobserved_handover_pending_count_90d": {
+            "median": null,
+            "p90": null
+          },
+          "seller_unobserved_handover_pending_age_p90_hours_90d": {
+            "median": null,
+            "p90": null
+          }
+        }
+      }
+    }
+  },
+  "verification": {
+    "phases": 12,
+    "ledger_rows": 192168,
+    "new_fits": 0,
+    "new_model_predictions": 0,
+    "models_loaded": 0,
+    "new_selection": false,
+    "original_holdout_not_read_as_query_or_rescored": true,
+    "frozen_sources_checked_before_and_after": true,
+    "diagnostic_proxies_added_to_model_inputs": false
+  },
+  "limitations": [
+    "These are unobserved-event proxies, not verified physical queues or parcel-level seller handovers.",
+    "No cancellation, event ingestion or static attribute revision timestamps are available.",
+    "Two diagnostic columns are outside all three fixed model input whitelists; no recall gain is measured.",
+    "Outcome-conditioned descriptive distributions do not establish predictive gain or feature causality.",
+    "All phases are reused historical validation/development; repeated months with different cutoffs overlap.",
+    "All operational queries and observed event clocks are strictly before2018-05-01; original holdout is unchanged."
+  ]
+}
