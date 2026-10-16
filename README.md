@@ -15,7 +15,7 @@ Smart E-Commerce Recommendation System
 - Stage 1：Olist 資料認識與環境建立
 - Stage 2：Olist SQL 基礎查詢
 - Stage 3：Olist 商業分析 EDA 初版
-- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；只新增「未觀測交運待件件數」的102欄消融完成：固定候選抓338張、召回20.58%，原101欄339張／20.65%；補回前輪共同漏報15張，卻有其他損失，未改選；研究主方案仍25.15%、歷史下限19.63%，未達適用要求
+- Stage 4：Olist 訂單延遲預測、多模型回測、每月重訓、校準與每日提醒上限；等待時齡p90單欄消融完成：固定候選抓326張、召回19.85%，低於原101欄339張／20.65%；十二月及四月小增，二月少16張，未改選；研究主方案仍25.15%、歷史下限19.63%，未達適用要求
 
 接續可進行：
 
@@ -1282,7 +1282,43 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 | 測試／Notebook | 618項測試、38個程式區塊通過；77個cell保留原75個，無提交輸出、無新圖 |
 | 既有產物 | 788份模型／報告、30份處理資料雜湊不變；主方案與預設原RF維持，Dashboard暫緩 |
 
-本輪不採用件數候選取代主方案。下一次若仍維持核准時點，建議以原101欄單獨試「待件核准時齡p90」，不與件數一起加；它也是尚未證明有效的候選，本輪未追加訓練。完整九個歷史phase、路線得失、限制及重現方式見[未觀測交運待件件數消融](docs/STAGE4_UNOBSERVED_HANDOVER_COUNT.md)、[訓練前規格](reports/stage4/unobserved_handover_count_specification.json)、[正式結果](reports/stage4/unobserved_handover_count.json)與[診斷報告](reports/stage4/unobserved_handover_count_diagnostics.json)。本輪仍是已反覆使用的歷史驗證與開發回測，不是未知測試。
+件數輪未採用新候選取代主方案，當時建議以原101欄單獨試「待件核准時齡p90」，不與件數一起加；此消融已在下一節完成。完整九個歷史phase、路線得失、限制及重現方式見[未觀測交運待件件數消融](docs/STAGE4_UNOBSERVED_HANDOVER_COUNT.md)、[訓練前規格](reports/stage4/unobserved_handover_count_specification.json)、[正式結果](reports/stage4/unobserved_handover_count.json)與[診斷報告](reports/stage4/unobserved_handover_count_diagnostics.json)。這些仍是已反覆使用的歷史驗證與開發回測，不是未知測試。
+
+### 第二十輪：只新增未觀測交運待件等待時齡p90
+
+以原101欄為對照，只加`seller_unobserved_handover_pending_age_p90_hours_90d`，不一起加入待件件數。維持核准時點、L2＝100、topk10、seed42、原樹參數／前處理與完整日`floor(10%×N)`；完成八次新fit、八次101重播。前79候選指標凍結，加一個共80候選，仍只按歷史驗證規則選模。
+
+歷史訂單須較早核准且在`[t−90天,t)`，交運或送達嚴格`<t`才算已知；對仍未觀測事件的待件取`(t−歷史核准)`小時的linear p90，至少1筆即可。無待件／未知賣家為NaN，不填0，不用未來狀態篩選，也不套用已完成交運耗時的五筆門檻。原137欄只加age成138欄快取，模型輸入101→102；原補值器的`add_indicator=True`保持，八個月轉換後實際均多age與自動缺失指示兩欄，沒有手工加件數或指示。
+
+| 開發月 | 原101 TP／召回 | 時齡102 TP／召回 | 補抓／新增漏報 | TP淨差 |
+| --- | ---: | ---: | ---: | ---: |
+| 2017-12 | 65／14.57% | 67／15.02% | 10／8 | +2 |
+| 2018-02 | 171／19.21% | 155／17.42% | 23／39 | −16 |
+| 2018-04 | 103／33.66% | 104／33.99% | 7／6 | +1 |
+| **三個月合計** | **339／20.65%** | **326／19.85%** | **40／53** | **−13** |
+
+兩者都提醒1,845張；時齡模型誤報1,519、漏報1,316，比101各多13張。290個提醒對象改變，十二月與四月小增未抵銷二月損失。第一fold七月TP21、九月52均持平，八月24→23；十月歷史多4張、十一月少2張、十二月歷史多2張。固定時齡候選最差歷史召回14.93%，略高於固定101的14.48%，仍未達各歷史月30%。
+
+三個開發月SP→RJ淨少抓11張，SP→SP淨多4張；二月SP→RJ從101降到84張、提醒246→191，SP→SP雖多抓5張，誤報卻多36張。二月承諾22–30天也淨少15張，與路線切片重疊，不能相加。三個開發月超過72小時組多114個提醒、多抓10張、誤報多104張；不超過72小時的有值組少抓21張，缺失組另少2張，名額移動沒有帶來整體改善。
+
+前輪原101／已完成交運102／104三模型的1,210張共同漏報，本輪補回23張（十二月6、二月13、四月4），仍漏1,187張。SP→RJ補9／240、SP→SP補3／195，SP→MG的78張與SP→RS的69張皆未補回。23張包含在40張補抓內；比件數輪補回更多共同漏報，也不代表整體較好，必須一起計入53張新增漏報。
+
+| 成績範圍 | 開發TP／召回 | 解讀 |
+| --- | ---: | --- |
+| 固定時齡102 | 326／19.85% | 本輪直接候選，低於原101的339張 |
+| 101／時齡102歷史選模 | 340／20.71% | 依序選101／101／時齡102，非開發事後挑月，仍未達歷史要求 |
+| 完整80候選研究主方案 | 413／25.15% | 三fold未選時齡模型，誤報1,432、漏報1,229、歷史下限19.63%維持 |
+
+| 本輪進度與驗證 | 實際結果 |
+| --- | --- |
+| 單欄與時點 | 70,844個age值（含NaN）由原始事件獨立核對；45,089有值、25,755空歷史缺值，原137欄9,705,628個值與ZIP前導零保留 |
+| 模型、分數與選模 | 16月份版本及3份選模產物、85,258筆月分數、128,112列帳本、24組指標、9組選模、83列摘要、1,496個補值中位數獨立一致 |
+| 路線與提醒得失 | 12個phase、361個日批次、1,000,201個公開分組／欄位獨立一致；未知答案先全日排名，原共同漏報定義不換成件數模型 |
+| 實際推論 | 時齡模型及四月主方案各對6,624單提醒650單、分數／集合一致；缺完整批次聲明與單筆呼叫均拒絕 |
+| 測試／Notebook | 660項測試、39個程式區塊通過；79個cell保留原77個，提交無輸出、無新圖 |
+| 來源與適用程度 | 802份模型／報告、32份處理資料雜湊不變；原保留測試未重評，主方案與預設原RF維持，Dashboard暫緩 |
+
+本輪不採用時齡候選取代主方案。下一步建議先固定模型，確認二月SP→RJ、承諾22–30天、等待24–72小時三種退步是否重疊，並對帳長等待組及SP→SP新增名額的代價，再決定訓練；不直接混加件數與時齡。完整月份、路線、限制及重現方式見[等待時齡p90單欄消融](docs/STAGE4_UNOBSERVED_HANDOVER_AGE.md)、[訓練前規格](reports/stage4/unobserved_handover_age_specification.json)、[正式結果](reports/stage4/unobserved_handover_age.json)與[診斷報告](reports/stage4/unobserved_handover_age_diagnostics.json)。這些仍是已反覆檢視的歷史驗證與開發回測，不是未知測試。
 
 在專案根目錄執行：
 
@@ -1337,6 +1373,10 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 .\.venv\Scripts\python.exe scripts\train_unobserved_handover_count.py --specification-only --n-jobs 2
 .\.venv\Scripts\python.exe scripts\train_unobserved_handover_count.py --n-jobs 2
 .\.venv\Scripts\python.exe scripts\diagnose_unobserved_handover_count.py
+.\.venv\Scripts\python.exe scripts\delay_unobserved_handover_age_features.py
+.\.venv\Scripts\python.exe scripts\train_unobserved_handover_age.py --specification-only --n-jobs 2
+.\.venv\Scripts\python.exe scripts\train_unobserved_handover_age.py --n-jobs 2
+.\.venv\Scripts\python.exe scripts\diagnose_unobserved_handover_age.py
 .\.venv\Scripts\python.exe scripts\predict_delay.py --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe scripts\predict_delay.py --profile balanced --order-id e481f51cbdc54678b7cc49136f2d6af7
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
@@ -1379,7 +1419,7 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 
 ## 下一步規劃
 
-目前仍以 Stage 4 固定每日10%預算改善辨識能力。未觀測交運待件件數單欄消融完成，固定候選338張／20.58%低於原101欄339張／20.65%；局部補抓未抵銷其他損失，完整79候選主方案未改選。建議保留既有主方案，下一輪若仍用核准時點，只以原101欄單獨試時齡p90，件數不一起加，其餘設定維持；這仍是待驗假設。研究主方案25.15%、歷史下限19.63%，新期間確認、Dashboard、Stage5、推薦系統與API待討論。
+目前仍以 Stage 4 固定每日10%預算改善辨識能力。等待時齡p90單欄消融完成，固定候選326張／19.85%低於原101欄339張／20.65%，二月退步未被其他月抵銷；完整80候選主方案未改選。下一步建議固定模型，確認二月SP→RJ、承諾22–30天與等待24–72小時退步的交集、提醒流入流出，再決定訓練，暫不混加件數與時齡。研究主方案25.15%、歷史下限19.63%，新期間確認、Dashboard、Stage5、推薦系統與API待討論。
 
 ---
 
@@ -1390,7 +1430,7 @@ L2＝100讓SP→SP少83個提醒、少82筆誤報，也少抓1筆延遲；其原
 | Stage 1：資料與環境 | 完成 | Python、MySQL、資料匯入 |
 | Stage 2：SQL | 完成 | 基礎查詢與商業分析 |
 | Stage 3：EDA | 初版完成 | 訂單、營收、品類、配送分析 |
-| Stage 4：延遲預測 | 研究中 | 未觀測交運件數單欄消融完成，338TP低於101欄339TP；主方案25.15%、歷史下限19.63%，適用門檻未達 |
+| Stage 4：延遲預測 | 研究中 | 等待時齡p90單欄消融完成，326TP低於101欄339TP；主方案25.15%、歷史下限19.63%，適用門檻未達 |
 | Stage 5：評論預測 | 尚未開始 | 預測時點與低評分標記待定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
