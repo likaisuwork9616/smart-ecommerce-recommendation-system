@@ -1,3 +1,10 @@
 # Preserve the exact source bytes recorded by the single-feature experiment.
 scripts/delay_unobserved_handover_features.py text eol=lf
 scripts/delay_unobserved_handover_age_features.py text eol=lf
+# Preserve the training-code hashes recorded by the paired-seed specification.
+scripts/delay_age_seed_training.py text eol=lf
+scripts/compare_age_seed_stability.py text eol=lf
+# Cross-report hashes refer to these exact report bytes.
+reports/stage4/age_seed_stability_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/age_seed_stability.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/age_seed_stability_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
