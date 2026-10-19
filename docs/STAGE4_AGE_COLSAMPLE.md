@@ -288,7 +288,7 @@ SP→SC的1.0內時齡−101為0／0／−4／−1／−1，平均−1.2［−4�
 完整數字見[事前規格](../reports/stage4/age_colsample_specification.json)、[正式訓練與全部種子](../reports/stage4/age_colsample.json)及[四對照完整路線診斷](../reports/stage4/age_colsample_diagnostics.json)。1,281,120列包含同一訂單的候選、種子與phase重複，不是1,281,120個獨立訂單；重複歷史月份按各fold截止保留，未合併成新測試。
 
 
-上述後續診斷已完成，見[四模型共同漏報與每日邊界](STAGE4_FOUR_MODEL_BOUNDARY.md)。原四組模型與五種子全數固定，0新fit；二月全20模型共同漏報611張，等待組154／205主要遠離邊界。下一輪先稽核可用訊號，再決定單因子訓練改動。
+上述後續診斷已完成，見[四模型共同漏報與每日邊界](STAGE4_FOUR_MODEL_BOUNDARY.md)。原四組模型與五種子全數固定，0新fit；二月全20模型共同漏報611張，等待組154／205主要遠離邊界。後續[成熟歷史訊號稽核](STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)也已完成；三候選尚未形成訓練依據，先檢查相近條件的剖面與成熟樣本組成。
 
 ## 重現方式與限制
 
