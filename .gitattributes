@@ -14,3 +14,17 @@ scripts/compare_age_colsample.py text eol=lf
 reports/stage4/age_colsample_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/age_colsample.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/age_colsample_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the exact analysis-code bytes bound by the four-model boundary specification.
+scripts/diagnose_four_model_boundary.py text eol=lf
+scripts/delay_four_model_boundary.py text eol=lf
+scripts/diagnose_age_colsample.py text eol=lf
+scripts/diagnose_age_seed_stability.py text eol=lf
+scripts/diagnose_age_intersections.py text eol=lf
+scripts/diagnose_unobserved_handover_age.py text eol=crlf
+scripts/diagnose_rank_batch_size.py text eol=lf
+scripts/delay_route_exchanges.py text eol=lf
+scripts/delay_calibration_policy.py text eol=lf
+scripts/diagnose_budget_misses.py text eol=lf
+scripts/diagnose_objective_misses.py text eol=lf
+reports/stage4/four_model_boundary_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/four_model_boundary_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
