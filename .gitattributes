@@ -28,3 +28,14 @@ scripts/diagnose_budget_misses.py text eol=lf
 scripts/diagnose_objective_misses.py text eol=lf
 reports/stage4/four_model_boundary_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/four_model_boundary_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the mature-history audit's source and cross-report SHA bytes.
+scripts/audit_mature_history_signals.py text eol=lf
+scripts/delay_mature_history_audit.py text eol=lf
+scripts/delay_mature_signal_profiles.py text eol=lf
+scripts/delay_features.py text eol=lf
+scripts/delay_history_features.py text eol=lf
+scripts/delay_route_features.py text eol=lf
+scripts/delay_budget_features.py text eol=lf
+scripts/delay_unobserved_handover_age_training.py text eol=crlf
+reports/stage4/mature_history_signal_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/mature_history_signal_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
