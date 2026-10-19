@@ -1,18 +1,21 @@
-# raw data
+# Local datasets and processed query/score caches
 data/raw/
 data/processed/
 
+# Local credentials and environment settings
 scripts/db_config.py
+.env
+.env.*
+!.env.example
 
-__pycache__/
-
-# local Python and development tools
+# Local Python, services, model artifacts and execution state
 .venv/
 .runtime/
+models/
+__pycache__/
 .ipynb_checkpoints/
 
-
-# large data files
+# Data exports, downloads and serialized models
 *.csv
 *.zip
 *.parquet
