@@ -1,0 +1,54 @@
+# 程式與操作入口
+
+所有命令都從專案根目錄執行，使用 `.venv` 的 Python。環境安裝與資料庫設定見[本機建置](../docs/LOCAL_SETUP.md)，目前結論見[專案首頁](../README.md)，報告對應見[報告索引](../reports/README.md)。
+
+## 先選擇要做的工作
+
+| 工作 | 入口 | 執行前提與產物 |
+| --- | --- | --- |
+| 檢查套件、MySQL及資料表 | [verify_environment.py](verify_environment.py) | 使用本機資料庫設定；摘要存 `.runtime/verification/summary.json` |
+| 開啟教學分析 | [start_jupyter.ps1](start_jupyter.ps1) | 先啟動本專案 MySQL，再開啟 `notebooks/`；見[Notebook說明](../notebooks/README.md) |
+| 啟停資料庫／開啟GUI | [start_mysql.ps1](start_mysql.ps1)、[stop_mysql.ps1](stop_mysql.ps1)、[start_dbeaver.ps1](start_dbeaver.ps1) | 工具、資料庫、設定與帳密都在本機忽略路徑 |
+| 建立新電腦環境／匯入CSV | [setup_local_mysql.py](setup_local_mysql.py)、[load_olist_to_mysql.py](load_olist_to_mysql.py) | 初始化只供新環境；CSV匯入使用 `if_exists="replace"`，會重建同名資料表，操作見建置指南 |
+| 載入模型做離線推論 | [predict_delay.py](predict_delay.py) | 需要本機 artifact；支援原版、平衡模式及指定研究模型，操作見[原版說明](../docs/STAGE4_DELAY_PREDICTION.md) |
+| 閱讀最新研究 | [固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md) | 先讀文件與既有JSON；這一步不需要啟動MySQL或重新訓練 |
+| 重現最新診斷 | [diagnose_conditional_mature_signals.py](diagnose_conditional_mature_signals.py) | 需要完整凍結快取、分數帳本及來源檔；只計算比較，不載入模型或新增fit |
+| 驗證程式 | [tests/](../tests/README.md) | 測試命令與執行限制另列，執行測試不等於重做研究 |
+
+可先查閱參數；以下三個命令只顯示說明：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\verify_environment.py --help
+.\.venv\Scripts\python.exe scripts\predict_delay.py --help
+.\.venv\Scripts\python.exe scripts\diagnose_conditional_mature_signals.py --help
+```
+
+`verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
+
+## Stage 4研究入口
+
+以下按研究脈絡索引，不是要依序重跑的安裝步驟。`train_*`、`compare_*`、`improve_*`、`ablate_*`、`tune_*` 可能訓練模型或fit校準器；`audit_*`／`diagnose_*` 各輪也有不同資料、模型重播及輸出需求，應先讀對應文件。
+
+| 研究主題 | CLI入口 | 方法與結果 |
+| --- | --- | --- |
+| 原版、模型比較與誤報改善 | [train_delay_model.py](train_delay_model.py)、[compare_delay_models.py](compare_delay_models.py)、[improve_delay_alerts.py](improve_delay_alerts.py) | [原版](../docs/STAGE4_DELAY_PREDICTION.md)、[提醒策略](../docs/STAGE4_ALERT_OPTIMIZATION.md) |
+| 月份誤差、等待期、多月份與滾動重訓 | [diagnose_delay_errors.py](diagnose_delay_errors.py)、[compare_waiting_strategies.py](compare_waiting_strategies.py)、[compare_multimonth_validation.py](compare_multimonth_validation.py)、[compare_monthly_retraining.py](compare_monthly_retraining.py) | [月份診斷](../docs/STAGE4_MONTHLY_DIAGNOSTICS.md)、[等待期](../docs/STAGE4_WAITING_EXPERIMENT.md)、[多月份](../docs/STAGE4_MULTIMONTH_VALIDATION.md)、[每月重訓](../docs/STAGE4_MONTHLY_RETRAINING.md) |
+| 校準與每日預算 | [compare_calibration_budget.py](compare_calibration_budget.py)、[diagnose_budget_misses.py](diagnose_budget_misses.py)、[improve_budget_ranking.py](improve_budget_ranking.py) | [校準](../docs/STAGE4_CALIBRATION_BUDGET.md)、[預算排名](../docs/STAGE4_BUDGET_RANKING.md) |
+| 待件負載與答案時鐘 | [improve_pending_ranking.py](improve_pending_ranking.py)、[improve_outcome_clock.py](improve_outcome_clock.py) | [待件排名](../docs/STAGE4_PENDING_RANKING.md)、[答案時鐘](../docs/STAGE4_OUTCOME_CLOCK.md) |
+| 特徵、消融與Logistic正則化 | [improve_feature_engineering.py](improve_feature_engineering.py)、[ablate_delay_features.py](ablate_delay_features.py)、[tune_logistic_regularization.py](tune_logistic_regularization.py) | [特徵](../docs/STAGE4_FEATURE_ENGINEERING.md)、[消融](../docs/STAGE4_FEATURE_ABLATION.md)、[正則化](../docs/STAGE4_LOGISTIC_REGULARIZATION.md) |
+| 路線、負載變化與名額交換 | [diagnose_december_misses.py](diagnose_december_misses.py)、[train_route_load_interactions.py](train_route_load_interactions.py)、[diagnose_route_load_interactions.py](diagnose_route_load_interactions.py)、[train_backlog_changes.py](train_backlog_changes.py)、[diagnose_backlog_changes.py](diagnose_backlog_changes.py)、[diagnose_backlog_route_exchanges.py](diagnose_backlog_route_exchanges.py) | [十二月](../docs/STAGE4_DECEMBER_MISS_DIAGNOSTICS.md)、[路線負載](../docs/STAGE4_ROUTE_LOAD_INTERACTIONS.md)、[堆積變化](../docs/STAGE4_BACKLOG_CHANGES.md)、[名額交換](../docs/STAGE4_BACKLOG_ROUTE_EXCHANGES.md) |
+| 分類與排序目標 | [compare_backlog_objectives.py](compare_backlog_objectives.py)、[diagnose_objective_misses.py](diagnose_objective_misses.py) | [相同特徵下的目標比較](../docs/STAGE4_BACKLOG_OBJECTIVES.md) |
+| 排序正則化、配對焦點、日量與配對方式 | [compare_rank_regularization.py](compare_rank_regularization.py)、[diagnose_rank_regularization.py](diagnose_rank_regularization.py)、[compare_rank_pair_focus.py](compare_rank_pair_focus.py)、[diagnose_rank_focus.py](diagnose_rank_focus.py)、[diagnose_rank_batch_size.py](diagnose_rank_batch_size.py)、[compare_rank_pair_method.py](compare_rank_pair_method.py)、[diagnose_rank_pair_method.py](diagnose_rank_pair_method.py) | [正則化](../docs/STAGE4_RANK_REGULARIZATION.md)、[焦點](../docs/STAGE4_RANK_PAIR_FOCUS.md)、[日量](../docs/STAGE4_RANK_BATCH_SIZE.md)、[配對方式](../docs/STAGE4_RANK_PAIR_METHOD.md) |
+| 物流時點與交運歷史 | [audit_logistics_availability.py](audit_logistics_availability.py)、[train_handover_history.py](train_handover_history.py)、[diagnose_handover_history.py](diagnose_handover_history.py)、[diagnose_handover_sparse.py](diagnose_handover_sparse.py) | [物流可得性](../docs/STAGE4_LOGISTICS_AVAILABILITY.md)、[交運歷史](../docs/STAGE4_HANDOVER_HISTORY.md)、[稀疏交集](../docs/STAGE4_HANDOVER_SPARSE_DIAGNOSTICS.md) |
+| 交運件數、共同漏報與核准訊號 | [train_handover_count.py](train_handover_count.py)、[diagnose_handover_count.py](diagnose_handover_count.py)、[diagnose_handover_common_misses.py](diagnose_handover_common_misses.py)、[audit_approval_signals.py](audit_approval_signals.py) | [件數消融](../docs/STAGE4_HANDOVER_COUNT_ABLATION.md)、[共同漏報與訊號](../docs/STAGE4_COMMON_MISSES_AND_SIGNALS.md) |
+| 未觀測交運待件件數／時齡 | [train_unobserved_handover_count.py](train_unobserved_handover_count.py)、[diagnose_unobserved_handover_count.py](diagnose_unobserved_handover_count.py)、[train_unobserved_handover_age.py](train_unobserved_handover_age.py)、[diagnose_unobserved_handover_age.py](diagnose_unobserved_handover_age.py)、[diagnose_age_intersections.py](diagnose_age_intersections.py) | [件數](../docs/STAGE4_UNOBSERVED_HANDOVER_COUNT.md)、[時齡](../docs/STAGE4_UNOBSERVED_HANDOVER_AGE.md)、[交集](../docs/STAGE4_AGE_INTERSECTIONS.md) |
+| 五種子與欄位取樣 | [compare_age_seed_stability.py](compare_age_seed_stability.py)、[diagnose_age_seed_stability.py](diagnose_age_seed_stability.py)、[compare_age_colsample.py](compare_age_colsample.py)、[diagnose_age_colsample.py](diagnose_age_colsample.py) | [種子穩定性](../docs/STAGE4_AGE_SEED_STABILITY.md)、[colsample](../docs/STAGE4_AGE_COLSAMPLE.md) |
+| 固定四組模型的邊界、成熟訊號及條件比較 | [diagnose_four_model_boundary.py](diagnose_four_model_boundary.py)、[audit_mature_history_signals.py](audit_mature_history_signals.py)、[diagnose_conditional_mature_signals.py](diagnose_conditional_mature_signals.py) | [每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟訊號](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md) |
+
+## 共用模組與凍結來源
+
+`delay_*.py` 主要供CLI與測試匯入：特徵模組建立核准時可得欄位，`*_training.py` 封裝各輪候選與訓練，`delay_alert_policy.py`／`delay_calibration_policy.py` 管理提醒規則，`delay_*diagnostics.py`、`delay_four_model_boundary.py`、`delay_mature_signal_profiles.py` 與 `delay_conditional_mature_signals.py` 計算診斷。`logistics_event_availability.py` 記錄物流事件可得性；`db_config_example.py` 只提供設定格式，實際 `db_config.py` 不提交。
+
+最新研究固定每日10%、五種子11／29／42／73／101及原12個階段。事前規格、正式報告與所綁定的舊程式／模型／快取SHA形成來源鏈，不能為清整目錄而改名或搬移。較早入口可能覆寫預設產物，較新入口會拒絕不同內容；重現前依各輪文件選擇新的輸出路徑並保留原來源。
+
+只複製Git儲存庫不足以重現全部實驗：原始CSV在 `data/raw/olist/`，特徵快取及逐筆分數在 `data/processed/`，模型在 `models/`，執行證明在 `.runtime/`，皆保留本機並由Git忽略。公開提交以程式、規格、聚合JSON及文件為主，不提交原始資料、逐筆分數、憑證或本機模型。
