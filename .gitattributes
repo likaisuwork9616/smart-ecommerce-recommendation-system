@@ -39,3 +39,8 @@ scripts/delay_budget_features.py text eol=lf
 scripts/delay_unobserved_handover_age_training.py text eol=crlf
 reports/stage4/mature_history_signal_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/mature_history_signal_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the fixed-stratum diagnosis's frozen provenance bytes.
+scripts/diagnose_conditional_mature_signals.py text eol=lf
+scripts/delay_conditional_mature_signals.py text eol=lf
+reports/stage4/conditional_mature_signal_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/conditional_mature_signal_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
