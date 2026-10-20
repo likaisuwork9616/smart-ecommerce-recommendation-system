@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 驗證四欄builder與train-only pipeline | [verify_review_pipeline.py](verify_review_pipeline.py)、[review_baseline_pipeline.py](review_baseline_pipeline.py) | 僅合成fixture，無需原CSV／私有bundle；會fit測試用scaler／Logistic並檢查洩漏，不執行真實訓練 |
 | 核對Stage 5最小基線規格 | [audit_review_baseline_contract.py](audit_review_baseline_contract.py) | 先--specification-only；只核來源、事件時鐘、未知／fit角色與固定基線政策，不建X或fit |
 | 凍結Stage 5訂單級首答資料集 | [freeze_review_dataset.py](freeze_review_dataset.py) | 先--specification-only，再執行稽核；H60、多評論、未知與內外層時鐘，私有標籤／切分留.runtime，不建X或訓練 |
 | 重現Stage 5評論預測可行性盤點 | [audit_review_prediction_feasibility.py](audit_review_prediction_feasibility.py) | 需原九CSV與既有來源報告；只查標籤／鍵／時鐘／候選欄位，不建特徵或訓練模型 |
@@ -34,13 +35,25 @@
 .\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py --help
 .\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --help
 .\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --help
+.\.venv\Scripts\python.exe scripts\verify_review_pipeline.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5最小基線契約
+## Stage 5四欄pipeline與合成驗證
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
+.\.venv\Scripts\python.exe scripts\verify_review_pipeline.py
+```
+
+[實作文件](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)說明builder、不可變預期名冊與受控fit／query介面。[verify_review_pipeline.py](verify_review_pipeline.py)只執行指定合成測試，綁10份公開程式／契約，輸出[驗證報告](../reports/stage5/review_pipeline_verification.json)。真實原CSV、私有標籤及模型都不讀；runtime log與耗時留.runtime/stage5_review_pipeline_verification/，報告排除時間以便同版bytes重現。
+
+受控pipeline只fit合格訓練列，query保留未知且不讀未來標籤；它不是正式資料loader或內層選參／評估CLI。未來使用真實資料前仍須接既有SHA／私有guard與完整名冊，原入庫／版本限制保留。
+
+## 前輪Stage 5最小基線契約
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --specification-only

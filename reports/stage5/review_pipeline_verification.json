@@ -1,0 +1,144 @@
+{
+  "decision": "implementation_synthetic_checks_passed_real_data_training_not_run",
+  "format_version": 1,
+  "limitations": [
+    "Synthetic tests do not measure model performance or prove real ingestion/version availability.",
+    "The frozen H60 dataset and baseline policy are public ancestors, not re-executed data audits.",
+    "No real-data builder, fit, prediction, model selection, or Dashboard run is performed here.",
+    "Previously inspected development months remain development data, not an unseen final test."
+  ],
+  "protected_stage4": {
+    "daily_alert_fraction": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "scope": {
+    "actual_C_selection": 0,
+    "dashboard": 0,
+    "embedded_raw_or_private_source_bindings_revalidated": false,
+    "fixtures": "synthetic_only_designated_unittest_module",
+    "model_performance_metrics": 0,
+    "parent_audits_executed": 0,
+    "real_data_rows_processed": 0,
+    "real_feature_values_built": 0,
+    "real_model_fits": 0,
+    "real_predictions": 0,
+    "synthetic_execution": "feature_build_scaler_and_logistic_fits_probability_calls_exercised_by_contract_tests"
+  },
+  "software_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "sources": [
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 14611,
+      "path": "reports/stage5/review_baseline_specification.json",
+      "sha256": "202de6045b7dcee7b00c068670fff44b5cac813a838d3d5ad15d620e18e721aa"
+    },
+    {
+      "bytes": 32719,
+      "path": "reports/stage5/review_baseline_contract_audit.json",
+      "sha256": "204c8d2b09327848fe9367e75efae5b37093a39164ccdb4b69f34ef396e4c16a"
+    },
+    {
+      "bytes": 20694,
+      "path": "scripts/review_baseline_pipeline.py",
+      "sha256": "0394ff544c0659ddc05701e4a0fcfeb6612b921eb1dab8567fc47d484c2da145"
+    },
+    {
+      "bytes": 22058,
+      "path": "tests/test_review_baseline_pipeline.py",
+      "sha256": "3252e5836ca6b307e4ec69ce7b227af70cd8e33ddd7045adfb7d383d902aef3a"
+    },
+    {
+      "bytes": 10754,
+      "path": "scripts/verify_review_pipeline.py",
+      "sha256": "c629995f2bffe22ef197bcfd1ca903bd434954d0004c672fef85cac5901d02cb"
+    }
+  ],
+  "status": "passed_synthetic_pipeline_contract_verification",
+  "tests": {
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "module": "tests.test_review_baseline_pipeline",
+    "skips": 0,
+    "test_ids": [
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_H_deadline_equal_fit_not_mature",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_answer_equal_H_endpoint_is_allowed_when_window_mature",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_answer_equal_fit_or_before_approval_or_after_H_stops_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_both_classes_required_without_fallback",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_builder_exact_four_order_raw_hours_and_source_id_order",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_complete_pinned_software_versions_enforced_before_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_convergence_warning_discards_local_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_direct_X_extra_and_permuted_schema_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_direct_X_nonfinite_category_wait_dtype_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_extra_future_source_fields_cannot_enter_X",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_fresh_outer_refit_uses_later_eligible_history_and_own_scaler",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_frozen_constructor_parameters_and_no_deprecated_arguments",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_future_raw_target_and_status_mutation_cannot_change_fitted_model",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_independent_context_copies_input_and_returned_frame",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_membership_missing_extra_duplicate_or_clock_drift_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_nonfinite_coefficients_stop_without_retries",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_nonfinite_or_out_of_range_probability_stops_context",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_probability_rows_must_sum_one_with_fixed_tolerance",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_future_target_metadata_never_read_even_inconsistent",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_own_time_after_fit_and_unseen_legal_categories_retained",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_role_cannot_fit_wrong_context_cannot_score",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_readonly_C_and_diagnostic_copies_no_estimator_handle",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_refit_failure_discards_model_and_fresh_instance_isolated",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_requested_missing_duplicate_invalid_clock_never_silently_dropped",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_scaler_only_eligible_rows_ddof0_and_fixed44",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_subset_query_drop_from_both_inputs_rejected_by_independent_context",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_train_ID_in_query_roster_is_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_invalid_raw_clock_stops_before_fitting_or_dropping",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_outlier_never_changes_scaler_or_estimator",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_reason_metadata_must_match_observable_training_clocks",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_y_imputation_and_inconsistent_masks_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_zero_variance_scale_one"
+    ],
+    "tests_run": 32,
+    "unexpected_successes": 0
+  },
+  "verification": {
+    "all_discovered_tests_executed": true,
+    "elapsed_time_and_unittest_log_public": false,
+    "frozen_parent_public_contracts_verified": true,
+    "public_bound_sources_before_after": 10,
+    "strict_json_exact_readback": true
+  }
+}

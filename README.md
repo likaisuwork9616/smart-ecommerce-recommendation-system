@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5沿用60天首答資料集，已固定四欄最小基線的前處理、內層選參與評估規格，尚未訓練。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5沿H60契約實作四欄builder與train-only pipeline，以合成資料驗洩漏，尚未進行真實資料訓練。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 最小基線規格已固定；未訓練 | H60資料集沿用；四個事件欄／44維、train-only前處理、歷史內層AP選C及未知處理 |
+| Stage 5：評論低評分預測 | builder／受控pipeline已實作；僅合成測試 | 四欄／44維、未知訓練隔離、查詢不讀未來標籤、獨立完整名冊與失敗停止；未實際選C或真實訓練 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -46,6 +46,7 @@ py -3.12 -m venv .venv
 | 看評論低評分預測能否開始 | [Stage 5可行性盤點](docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) |
 | 重現首答資料集與逐fit標籤資格 | [Stage 5凍結規格及核對](docs/STAGE5_REVIEW_DATASET_SPEC.md) |
 | 看最小基線、選參與評估約定 | [Stage 5最小基線規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md) |
+| 驗證四欄builder與train-only pipeline | [Stage 5實作與洩漏測試](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -93,7 +94,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：最小基線規格已固定
+## Stage 5：四欄pipeline與洩漏測試
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -115,7 +116,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [凍結資料集文件](docs/STAGE5_REVIEW_DATASET_SPEC.md)附[機器規格](reports/stage5/review_dataset_specification.json)、[實際核對](reports/stage5/review_dataset_audit.json)及重現指令。私有標籤／切分中繼資料只留`.runtime/stage5_review_dataset_v1/`；沒有建21欄特徵值、模型訓練、預測、效能或Dashboard。前輪不限H的72,613張與本輪H60口徑不同，不能解讀成模型得失。
 
-本輪進一步固定[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)：
+沿用[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)：
 
 | 規格 | 固定做法，尚未訓練 |
 | --- | --- |
@@ -124,9 +125,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 | 最小模型 | 合格訓練低評比例常數作參考；L2 Logistic的C=0.1／1／10，只依既定內層AP選參，平手取較小C |
 | 評估與未知 | 固定0.5門檻，未知保留全名冊但不參與fit、選參或指標；逐月AP與機率／混淆表，三月皆有效才計macro AP |
 
-本輪[契約稽核](reports/stage5/review_baseline_contract_audit.json)只核時間、來源、未知與類別支援，沒有X、前處理fit、模型、分數、實際選參或效能。原H60資料集程式／報告與私有bundle均保留；真實入庫與評分版本仍未驗證，不能宣稱核准當下實際可得或全核准效能。
+前輪[契約稽核](reports/stage5/review_baseline_contract_audit.json)保留來源、時間、未知與類別支援。本輪完成[四欄builder與受控pipeline](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)：只讓合格訓練y進scaler／Logistic；查詢保留全部訂單，未來評分／狀態／首答等欄位不影響transform或機率。獨立context保存預期ID與核准時鐘，避免兩份輸入一起少單卻互相通過；fit失敗即停止，不保留半成品。
 
-下一步可依[凍結規格](reports/stage5/review_baseline_specification.json)先實作四欄builder與train-only pipeline，再另決定執行基線。Stage 5固定42僅作未來重現設定，尚未執行種子實驗；Stage 4待資料、每日10%與11／29／42／73／101五種子不變。
+[合成驗證報告](reports/stage5/review_pipeline_verification.json)只記測試與程式來源。這輪合成fixture確有scaler／模型fit及機率一致性檢查，真實Olist的X、模型訓練、預測、選C、效能與Dashboard均未執行。原H60／基線程式及報告保留，原入庫／評分版本限制仍未解，不能稱營運as-of或全核准效能通過。
+
+下一步可按[凍結規格](reports/stage5/review_baseline_specification.json)決定是否執行離線最小基線，先接入既有來源／私有guard與完整角色名冊，再依內層選參及外層開發評估執行。Stage 5固定42僅作重現設定，沒有五種子成績；Stage 4待資料、每日10%與11／29／42／73／101五種子不變。
 
 ## 專案結構
 
@@ -155,7 +158,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪最小基線20項契約測試全過（0.285秒），18份公開來源／程式與4份原私有輸入前後一致；860項獨立對帳吻合。正式metadata稽核9.009秒、重跑8.767秒，新規格／報告／guard三件bytes相同，原H60五件產物未變。鎖定套件版本不變，Git保留鎖檔原bytes以吻合規格SHA。56份Markdown／685個本機連結及84份JSON解析／索引檢查通過。沒有建X、前處理或模型fit、分數、實際選參、效能或Dashboard。前輪H60的23項／559項對帳、可行性12項及更早Stage 4測試均保留各輪紀錄，不當成本輪全套成績；Stage 4程式、報告與待資料狀態保留。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增32項合成洩漏／失敗測試全過；連同Stage 5既有三組，87項全過、5.821秒。獨立合成300項檢查與CLI六種失敗拒收均通過。正式驗證綁10份公開來源，同版重跑報告bytes相同；57份Markdown／708個本機連結及85份JSON解析／索引通過。合成測試確有scaler／Logistic fit與機率檢查，真實資料X／訓練／預測／選C／效能及Dashboard未執行。前輪來源盤點、H60／基線對帳與更早完整867項測試保留各輪紀錄，不當成本輪全專案成績；原Stage 4、H60與基線程式／報告保留。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 
