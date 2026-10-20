@@ -11,8 +11,9 @@
 | 啟停資料庫／開啟GUI | [start_mysql.ps1](start_mysql.ps1)、[stop_mysql.ps1](stop_mysql.ps1)、[start_dbeaver.ps1](start_dbeaver.ps1) | 工具、資料庫、設定與帳密都在本機忽略路徑 |
 | 建立新電腦環境／匯入CSV | [setup_local_mysql.py](setup_local_mysql.py)、[load_olist_to_mysql.py](load_olist_to_mysql.py) | 初始化只供新環境；CSV匯入使用 `if_exists="replace"`，會重建同名資料表，操作見建置指南 |
 | 載入模型做離線推論 | [predict_delay.py](predict_delay.py) | 需要本機 artifact；支援原版、平衡模式及指定研究模型，操作見[原版說明](../docs/STAGE4_DELAY_PREDICTION.md) |
-| 閱讀最新來源查核 | [事件／承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 本輪新增驗收來源0，先讀查核範圍與資料契約；不需要啟動MySQL或訓練 |
-| 重現最新來源快照 | [audit_event_source_availability.py](audit_event_source_availability.py) | 需要原始九表及本輪忽略路徑內的盤點、DB／官方取得證據；重算聚合，不自行啟服務或連私有API |
+| 閱讀適用範圍與交付前提 | [模型卡與交付清單](../docs/STAGE4_MODEL_APPLICABILITY.md) | 區分主方案wrapper與160份五種子月版；離線研究可交付，沒有生產日結／通知服務 |
+| 閱讀待資料方向 | [事件／承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 新增驗收來源0，先讀查核範圍與資料契約；不需要啟動MySQL或訓練 |
+| 重現來源快照 | [audit_event_source_availability.py](audit_event_source_availability.py) | 需要原始九表及當輪忽略路徑內的盤點、DB／官方取得證據；重算聚合，不自行啟服務或連私有API |
 | 重現前輪代表性診斷 | [audit_completed_history_representativeness.py](audit_completed_history_representativeness.py) | 需要凍結快取、分數帳本、原始表與受保護來源（含僅驗SHA的模型檔）；不載入模型或新增fit |
 | 驗證程式 | [tests/](../tests/README.md) | 測試命令與執行限制另列，執行測試不等於重做研究 |
 
@@ -27,6 +28,8 @@
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
+
+`--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
 ## Stage 4研究入口
 

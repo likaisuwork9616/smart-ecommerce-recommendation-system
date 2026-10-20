@@ -39,3 +39,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 04後半段主要讀取已存在的報告，缺少報告時會提示對應CLI。現有摘要止於[五種子colsample比較](../docs/STAGE4_AGE_COLSAMPLE.md)；其後的[四模型每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟歷史訊號稽核](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)、[完成歷史代表性](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)及[事件與承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)，請從各輪文件及報告閱讀。
 
 原始CSV、特徵快取、逐筆分數、模型與執行證明都保留在本機忽略路徑。新的Git checkout不會自帶這些資料；不要為了讓Notebook全部通過，就改寫凍結報告或重新評估原保留測試。研究操作與來源保護見[程式索引](../scripts/README.md)。
+
+現有成果的適用範圍、五種子與主方案區別、可交付項目及下一步見[模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md)。模型卡整理沒有新增Notebook cell、訓練或評分；四本Notebook並非每日10%生產通知系統。
