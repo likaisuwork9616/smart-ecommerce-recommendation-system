@@ -6,7 +6,7 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)完整執行867項測試通過，165.394秒，含本輪新增37項；這是實際紀錄，不代表之後每次文件編輯都重跑相同實驗。
+最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒，含當輪新增37項。本輪[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)執行新增15項來源契約測試，全過、0.098秒，未重跑全套或模型實驗。
 
 ## 依修改範圍選擇檢查
 
@@ -19,7 +19,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-例如只檢查最近的歷史母體、固定條件比例與重現契約：
+例如檢查最新來源盤點的時鐘與證據契約：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_audit_event_source_availability -q
+```
+
+本組15項涵蓋截止日、無效／逆序時間、承諾日精度、最終status不能證明取得時間、未知捕獲率保留缺失、schema／時區變更需重驗、ID唯一、來源SHA改變、不可覆寫報告、DB逐表對帳及私有證據路徑不公開。
+
+前輪的歷史母體、固定條件比例與重現契約：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_delay_history_representativeness tests.test_delay_representation_profiles tests.test_audit_completed_history_representativeness -q

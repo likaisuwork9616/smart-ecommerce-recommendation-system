@@ -36,6 +36,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 04預設 `RUN_TRAINING = False`，但如果 `models/olist_delay_model.joblib` 或 `reports/stage4/metrics.json` 缺少，仍會呼叫 `train_delay_model.py` 建立原版模型及報告。因此整本執行可能觸發訓練與覆寫原版產物；只有希望建立該輪成果時才執行相關區塊。閱讀既有研究時，可直接開啟文件與JSON。
 
-04後半段主要讀取已存在的報告，缺少報告時會提示對應CLI。現有摘要止於[五種子colsample比較](../docs/STAGE4_AGE_COLSAMPLE.md)；其後的[四模型每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟歷史訊號稽核](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)與[完成歷史代表性](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)，請從各輪文件及報告閱讀。
+04後半段主要讀取已存在的報告，缺少報告時會提示對應CLI。現有摘要止於[五種子colsample比較](../docs/STAGE4_AGE_COLSAMPLE.md)；其後的[四模型每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟歷史訊號稽核](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)、[完成歷史代表性](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)及[事件與承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)，請從各輪文件及報告閱讀。
 
 原始CSV、特徵快取、逐筆分數、模型與執行證明都保留在本機忽略路徑。新的Git checkout不會自帶這些資料；不要為了讓Notebook全部通過，就改寫凍結報告或重新評估原保留測試。研究操作與來源保護見[程式索引](../scripts/README.md)。

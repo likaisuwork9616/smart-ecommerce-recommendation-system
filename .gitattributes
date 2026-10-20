@@ -51,3 +51,7 @@ scripts/delay_representation_profiles.py text eol=lf
 reports/stage4/completed_history_representativeness_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/completed_history_representativeness_initial_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage4/completed_history_representativeness_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the source-availability snapshot and its audit-code bytes.
+scripts/audit_event_source_availability.py text eol=lf
+reports/stage4/event_source_availability_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage4/event_source_availability.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

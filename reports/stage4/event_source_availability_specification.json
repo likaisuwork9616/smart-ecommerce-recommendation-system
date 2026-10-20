@@ -1,0 +1,125 @@
+{
+  "analysis": "bounded_cancellation_closure_promise_version_source_availability",
+  "analysis_code": [
+    {
+      "bytes": 22040,
+      "path": "scripts/audit_event_source_availability.py",
+      "sha256": "8922bec335d71b77434a831c19f860632a7a92b84fe64de50c3717f1428ba095"
+    }
+  ],
+  "contract": {
+    "boundaries": "Verify timezone, daylight-saving conversions, clock precision and same-t ties. Events equal to t are not known; promise effective_at=t may apply only when observed_at<t.",
+    "coverage": "Separate raw valid approval denominator, joined orders, known true-event register, timestamp-valid events, and as-of covered query/history windows. Missing true-event or revision denominator means actual capture rate unknown, not 0%.",
+    "decision_rule": "No accepted additional as-of event/version source means pending_data_no_training. Absence within inspected sources is not global non-existence.",
+    "event_rule": "Require stable order identity, event type/semantics, occurred_at<t AND observed_at<t. Closure here means cancellation or another non-delivery transition that exits the risk set; existing delivery completion timestamps remain a different known event. Source received time and project persisted/ingested time must be distinguished and independently explained.",
+    "joins": "Verify same anonymized order_id or an authorized mapping, key uniqueness, one-to-many version cardinality, orphan events, conflicting versions and overlapping validity intervals. Seller-only linkage is insufficient.",
+    "ordering": "Report missing/invalid timestamps, duplicates/conflicts, event order, observed-before-occurred anomalies, late-arrival/backfill delays and immutable revision policy. A promise may be observed before its future effective time.",
+    "prohibited_substitutes": [
+      "Final exported status or final single promise value",
+      "CSV mtime or later local database import/binlog time as original observed_at",
+      "Review dates or shipping deadlines as cancellation/promise revisions",
+      "A seller marketing closed-deal as an order closure",
+      "API indexed examples as acquired authorized historical same-ID data"
+    ],
+    "promise_rule": "Require promised value, version identity, effective/valid time, observed/system time, supersession/correction/retraction history. Select only observed_at<t versions effective_at<=t and valid under what was known at t.",
+    "protected_experiment": {
+      "daily_alert_fraction": 0.1,
+      "four_frozen_models_unchanged": true,
+      "new_fit": 0,
+      "new_replay": 0,
+      "new_selection": 0,
+      "original_holdout_scored": false,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ]
+    },
+    "query_clock": "t is the current query approval time, not each historical order own approval. Cancellation may follow historical approval and still precede t.",
+    "scope": "Verify each query month and required historical lookback, including route/promise/approval-week/support coverage. Do not import future events or rescore original holdout.",
+    "snapshot_alternative": "Immutable complete snapshots require captured_at, available_at<t, cadence and completeness proof. They can establish known status as of a snapshot under a separately accepted contract, not exact cancellation occurrence time."
+  },
+  "cutoff_exclusive": "2018-05-01T00:00:00",
+  "excluded_live_inputs": "Live database/binlog files are not bound or reopened. Already executed read-only probe and old-binlog aggregates are bound as private evidence JSON.",
+  "format_version": 1,
+  "protected_sources": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 81337843,
+      "path": "reports/stage4/completed_history_representativeness_audit.json",
+      "sha256": "20e8db4524993bc50fbac6f375b1c7a2f0809937ce4ccb53daf8883d4bdf2309"
+    },
+    {
+      "bytes": 10151,
+      "path": ".runtime/event_source_independent_review.json",
+      "sha256": "a6bc9361571a170f2d080d4a9ccbd160b614b63af358c5bce581ce80f6d1b234"
+    },
+    {
+      "bytes": 202117,
+      "path": ".runtime/event_sources_independent_inventory.json",
+      "sha256": "8616e6c1fe56ebc8188fa9e2ecc6ec29be0c96b9008deefec6c82a72de904e69"
+    },
+    {
+      "bytes": 69854,
+      "path": ".runtime/event_sources_independent_json_metadata.json",
+      "sha256": "7af29fe5c1fef7461ca1aadfcc4c4733bb9ea369e849ea16595c7ac9ae32afa0"
+    },
+    {
+      "bytes": 9055,
+      "path": ".runtime/event_source_database_probe.json",
+      "sha256": "b732b3a2e0eef31b1b7e71f839b5d8b60bb7c8d21f5eed0b8111e537dcc11b84"
+    },
+    {
+      "bytes": 11373,
+      "path": ".runtime/event_source_public/public_source_findings.json",
+      "sha256": "4efdd7b982c609e915c74a15289ece235ec24f7c800fb6fdf6fec51ff5b5b1ab"
+    }
+  ],
+  "specification_role": "This round source snapshot and future acceptance contract; source inspection already performed. Not a model preregistration."
+}
