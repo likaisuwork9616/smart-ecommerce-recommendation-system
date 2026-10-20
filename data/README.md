@@ -26,6 +26,12 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 目前沒有新資料來源。後續同ID核准清冊、雙時間版本及日結／入庫對帳，使用[資料交接清單](../docs/templates/daily_data_handoff/README.md)與[驗收紀錄範本](../docs/templates/daily_data_handoff/acceptance_record.template.md)。已填紀錄、原始匯出、匿名映射與逐ID證據放Git忽略的`.runtime/data_handoffs/<handoff_id>/`，先作獨立交接，不直接替換原凍結Olist／特徵／帳本。空範本不是新資料或驗收結果。
 
+## Stage 5評論預測資料
+
+[Stage 5可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)只讀原始CSV的評論鍵、評分與建立／回答時鐘，以及六表基本輸入支援。評論一單可多筆，review_id非全域唯一；標籤先按order_id取最早記錄回答，再查是否晚於核准，不以最低／平均分或無評論填負例。首輪候選為核准時點21個基本聚合欄，但缺原取得／版本時鐘，不能稱為已驗證線上可用。
+
+本輪未建評論特徵快取、逐筆標籤交付或模型；公開只提交來源SHA及聚合盤點。沒有評論或尚未可得的答案仍未知，Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用作Stage 5資料集。
+
 ## 處理資料與模型
 
 | 位置 | 用途 |
