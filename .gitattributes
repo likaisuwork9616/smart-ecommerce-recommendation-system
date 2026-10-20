@@ -76,5 +76,10 @@ scripts/audit_review_baseline_contract.py text eol=lf
 tests/test_review_baseline_contract.py text eol=lf
 reports/stage5/review_baseline_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_baseline_contract_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the synthetic-only pipeline implementation and test provenance exact.
+scripts/review_baseline_pipeline.py text eol=lf
+tests/test_review_baseline_pipeline.py text eol=lf
+scripts/verify_review_pipeline.py text eol=lf
+reports/stage5/review_pipeline_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve the pinned-environment bytes bound by the Stage 5 baseline contract.
 requirements-lock.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

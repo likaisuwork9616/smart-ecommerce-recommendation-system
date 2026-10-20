@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5沿H60資料集固定四欄最小基線及評估規格，尚未訓練。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5已依H60／基線規格實作四欄builder與受控pipeline，只用合成資料驗洩漏，未進行真實訓練。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5基線規格 | [最小基線與評估](STAGE5_REVIEW_BASELINE_SPEC.md) | 四欄／44維、train-only前處理、內層AP選C、評估及未知／失敗處理；未訓練 |
+| 最新Stage 5實作 | [builder與pipeline洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) | 四欄／44維、合格訓練隔離、查詢不讀未來標籤、獨立名冊與失敗停止；僅合成fixture fit |
+| 前輪Stage 5基線規格 | [最小基線與評估](STAGE5_REVIEW_BASELINE_SPEC.md) | 四欄、前處理、內層AP選C、評估及未知／失敗處理的凍結政策 |
 | 前輪Stage 5資料集 | [首答資料集凍結與核對](STAGE5_REVIEW_DATASET_SPEC.md) | 60天窗口、多評論與未知、內外層切分及每個fit的標籤資格 |
 | 前輪Stage 5可行性 | [評論低評分預測盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) | 核准時首答目標、21欄條件候選及不限H的來源支援 |
 | 最新交接與驗收格式 | [交接清單](templates/daily_data_handoff/README.md)、[驗收範本](templates/daily_data_handoff/acceptance_record.template.md) | 15項check_id與三個獨立判定，空白狀態均待資料，實際資料另存私有路徑 |
@@ -95,7 +96,7 @@ Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)保留不限H的來源檢查；[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)固定標籤及內外層角色，最新[最小基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)只用四個事件派生欄、固定前處理與歷史內層AP選參，逐角色核對來源／未知／支援。原資料集保留，沒有建X、訓練、分數、模型效能或Dashboard；兩事件時鐘仍缺原入庫／版本證據。Stage 4待資料及每日10%／五種子不變。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)與[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)保留各輪口徑。最新[實作與洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)以合成frames驗四欄／44維pipeline、時間／未知及完整名冊隔離；確有合成scaler／Logistic fit與機率一致性檢查，真實資料X／訓練／選C／效能與Dashboard未執行。兩事件時鐘仍缺原入庫／版本證據；Stage 4待資料及每日10%／五種子不變。
 
 ## 如何追到實際產物
 

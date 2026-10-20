@@ -1,11 +1,12 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測來源盤點、資料集與最小基線契約；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約與合成pipeline驗證；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| 最新Stage 5程式實作與洩漏測試 | [受控builder／pipeline](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) → [合成驗證](stage5/review_pipeline_verification.json)；有合成fit，沒有真實資料訓練或模型效能 |
 | 最新Stage 5最小基線契約 | [四欄／前處理／選參／評估](../docs/STAGE5_REVIEW_BASELINE_SPEC.md) → [事前規格](stage5/review_baseline_specification.json) → [實際契約稽核](stage5/review_baseline_contract_audit.json)；未訓練、未計效能 |
 | 最新Stage 5資料集／逐fit標籤 | [H60與內外層契約](../docs/STAGE5_REVIEW_DATASET_SPEC.md) → [凍結規格](stage5/review_dataset_specification.json) → [實際支援與核對](stage5/review_dataset_audit.json)；沒有模型效能 |
 | 最新Stage 5評論預測可行性 | [問題／特徵／時間驗證](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) → [實際來源與標籤盤點](stage5/review_prediction_feasibility.json)；不是模型成績 |
@@ -75,8 +76,9 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 逐fit標籤可得性核對 | 實際角色分母、成熟／未知、標籤支援、洩漏與私有輸出反讀 | [review_dataset_audit](stage5/review_dataset_audit.json) |
 | 四欄最小基線與評估 | 未來44維前處理、L2 Logistic候選、內層AP選參／固定門檻與未知政策；已檢視開發窗，不是全盲未知測試 | [review_baseline_specification](stage5/review_baseline_specification.json) |
 | 最小基線契約稽核 | 原資料集、來源、私有輸入守門、逐fit事件代理／標籤及類別支援；無X／fit／選參／效能 | [review_baseline_contract_audit](stage5/review_baseline_contract_audit.json) |
+| 四欄builder／train-only pipeline | 真實sklearn物件在合成fixture驗洩漏與失敗拒收；報告只含測試名稱、狀態及10份公開來源，不含個體值、機率或模型效能 | [review_pipeline_verification](stage5/review_pipeline_verification.json) |
 
-Stage 5可行性報告保留不限H的來源盤點；最新資料集固定H60、C2018-07-01 exclusive及逐角色截止，C名冊73,254張、可用72,173張、未知1,081張。沒有訓練、模型效能、Dashboard或未知測試成績；支援量變化不是模型提升。標籤／切分CSV與manifest只放Git忽略的.runtime/stage5_review_dataset_v1/，公開不含ID、個體標籤或私有digest。
+Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。最新pipeline報告是合成洩漏測試：確有合成fit，不含真實模型訓練、效能或未知測試成績。標籤／切分CSV與manifest只放Git忽略的.runtime/stage5_review_dataset_v1/，公開不含ID、個體值、機率或私有digest。
 
 ## 圖表與來源保護
 

@@ -8,7 +8,7 @@
 
 最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核15項、單日離線交付42項（3.017秒）、[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)8項（0.062秒）均已通過。這些是各前輪紀錄，不能合稱本輪完整測試。
 
-前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本列出的未來案例尚未執行，不能當成真實資料已驗收。Stage 5可行性12項全過、0.248秒，H60資料集23項全過、3.748秒，均保留各前輪紀錄；最新最小基線另核契約，不重跑模型全套或訓練。
+前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本案例不能當成真實資料已驗收。Stage 5可行性、H60資料集與基線契約保留各輪紀錄；最新builder／pipeline測試只在合成fixture fit scaler／Logistic，沒有真實資料訓練或效能，也未重跑模型全套。
 
 ## 依修改範圍選擇檢查
 
@@ -21,13 +21,28 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-最新Stage 5最小基線契約：
+最新Stage 5builder／pipeline洩漏測試：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
+.\.venv\Scripts\python.exe scripts\verify_review_pipeline.py
+```
+
+本組以手算四欄／44維、未知訓練outlier、query未來標籤改動與極端值、時間嚴格邊界、獨立名冊共同刪單、各fit隔離及失敗後狀態核對實際資料流。固定類別、ddof=0、零變異、schema／值域、參數、收斂警告及機率異常都有拒收或一致性檢查。合成係數／機率只用來驗正確性，不算AP等模型表現；詳見[實作與驗證](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)。
+
+本輪32項全過（正式CLI測試1.855秒）；合併下列Stage 5既有三組，87項全過、5.821秒。另有300項獨立合成檢查及六種CLI拒收案例；這些不加總成單元測試或真實資料成績。沒有重跑全專案867項模型測試。
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_prediction_feasibility tests.test_review_dataset_contract tests.test_review_baseline_contract tests.test_review_baseline_pipeline -q
+```
+
+前輪Stage 5最小基線契約：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_contract -q
 ```
 
-本輪20項全過、0.285秒，涵蓋固定四欄／44維政策、角色合格訓練與未知遮罩、事件／fit截止、完整query與類別支援、來源／私有輸入變更拒收、全部輸出預檢及路徑限制，也以AST核對本機API。選參只核對凍結政策，沒有執行候選選擇；不建立特徵、前處理或模型，也不計算AP等模型指標。嚴格JSON沿用舊資料集I/O helper，舊組測試紀錄另保留；原始metadata的獨立對帳見[基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)。
+前輪20項全過、0.285秒，涵蓋固定政策、角色／事件截止、未知、來源／私有guard、輸出預檢及API AST。該輪不建立X、前處理或模型，不執行選參或指標；嚴格JSON沿用舊資料集I/O helper。原始metadata獨立對帳見[基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)，不與本輪合成fit混為真實訓練成績。
 
 前輪Stage 5凍結資料集與逐fit資格：
 
