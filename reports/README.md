@@ -6,6 +6,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| 最新全量日資料契約與缺口 | [名冊／時鐘／版本／日結要求](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) → [實際來源查核](stage4/daily_data_contract.json)；待資料，不是生產完整性或效能通過 |
 | 最新單日離線交付驗收 | [範圍與操作](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) → [來源／交付契約](stage4/daily_delivery_acceptance_specification.json) → [聚合驗收](stage4/daily_delivery_acceptance.json)；不含個體排名／分數或新增效能 |
 | 現有模型適用範圍與可交付成果 | [模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md) → [歷史選模主方案](stage4/rank_pair_focus.json) → [四設定五種子](stage4/age_colsample.json)；模型卡只整理既有證據，沒有新增效能報告 |
 | 最新事件／承諾版本來源與待資料 | [查核範圍與結論](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) → [來源快照與驗收契約](stage4/event_source_availability_specification.json) → [實際查核](stage4/event_source_availability.json) |
@@ -58,6 +59,7 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 完成歷史對未完成慢件代表性 | [正式規格](stage4/completed_history_representativeness_specification.json)、[格式修正前初版](stage4/completed_history_representativeness_initial_specification.json) | [completed_history_representativeness_audit](stage4/completed_history_representativeness_audit.json) |
 | 取消／結案事件與承諾版本來源 | [來源快照／驗收契約](stage4/event_source_availability_specification.json) | [event_source_availability](stage4/event_source_availability.json) |
 | 單日凍結分數離線交付驗收 | [daily_delivery_acceptance](stage4/daily_delivery_acceptance_specification.json) | [daily_delivery_acceptance](stage4/daily_delivery_acceptance.json) |
+| 全量日名冊／入庫版本／日結資料契約 | —（來源查核，不是訓練事前規格） | [daily_data_contract](stage4/daily_data_contract.json) |
 
 代表性稽核的初版規格保留發布前JSON格式修正紀錄，未產生正式報告；計算規則未變，重現應使用正式規格，說明見[當輪文件](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)。
 
