@@ -1,13 +1,14 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約與合成pipeline驗證；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約、合成驗證及離線開發回測；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 5程式實作與洩漏測試 | [受控builder／pipeline](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) → [合成驗證](stage5/review_pipeline_verification.json)；有合成fit，沒有真實資料訓練或模型效能 |
-| 最新Stage 5最小基線契約 | [四欄／前處理／選參／評估](../docs/STAGE5_REVIEW_BASELINE_SPEC.md) → [事前規格](stage5/review_baseline_specification.json) → [實際契約稽核](stage5/review_baseline_contract_audit.json)；未訓練、未計效能 |
+| 最新Stage 5離線最小基線 | [方法與限制](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) → [執行規格](stage5/review_baseline_training_specification.json) → [實際開發回測](stage5/review_baseline_training.json)；三月為已檢視開發資料，不是新未知測試 |
+| 前輪Stage 5程式實作與洩漏測試 | [受控builder／pipeline](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) → [合成驗證](stage5/review_pipeline_verification.json)；有合成fit，該輪沒有真實資料訓練或模型效能 |
+| 前輪Stage 5最小基線契約 | [四欄／前處理／選參／評估](../docs/STAGE5_REVIEW_BASELINE_SPEC.md) → [事前規格](stage5/review_baseline_specification.json) → [實際契約稽核](stage5/review_baseline_contract_audit.json)；該輪未訓練、未計效能 |
 | 最新Stage 5資料集／逐fit標籤 | [H60與內外層契約](../docs/STAGE5_REVIEW_DATASET_SPEC.md) → [凍結規格](stage5/review_dataset_specification.json) → [實際支援與核對](stage5/review_dataset_audit.json)；沒有模型效能 |
 | 最新Stage 5評論預測可行性 | [問題／特徵／時間驗證](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) → [實際來源與標籤盤點](stage5/review_prediction_feasibility.json)；不是模型成績 |
 | 最新全量日資料契約與缺口 | [名冊／時鐘／版本／日結要求](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) → [實際來源查核](stage4/daily_data_contract.json)；待資料，不是生產完整性或效能通過 |
@@ -77,8 +78,10 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 四欄最小基線與評估 | 未來44維前處理、L2 Logistic候選、內層AP選參／固定門檻與未知政策；已檢視開發窗，不是全盲未知測試 | [review_baseline_specification](stage5/review_baseline_specification.json) |
 | 最小基線契約稽核 | 原資料集、來源、私有輸入守門、逐fit事件代理／標籤及類別支援；無X／fit／選參／效能 | [review_baseline_contract_audit](stage5/review_baseline_contract_audit.json) |
 | 四欄builder／train-only pipeline | 真實sklearn物件在合成fixture驗洩漏與失敗拒收；報告只含測試名稱、狀態及10份公開來源，不含個體值、機率或模型效能 | [review_pipeline_verification](stage5/review_pipeline_verification.json) |
+| 四欄離線基線執行規格 | 沿用既有基線政策，凍結本輪程式／來源守門、12次fit與公私交付；執行前產生 | [review_baseline_training_specification](stage5/review_baseline_training_specification.json) |
+| 四欄離線基線實際結果 | 歷史內層選C、外層重新fit及逐月AP／機率指標；已檢視開發回測，非新未知測試 | [review_baseline_training](stage5/review_baseline_training.json) |
 
-Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。最新pipeline報告是合成洩漏測試：確有合成fit，不含真實模型訓練、效能或未知測試成績。標籤／切分CSV與manifest只放Git忽略的.runtime/stage5_review_dataset_v1/，公開不含ID、個體值、機率或私有digest。
+Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。pipeline verification只含合成測試；真實基線結果另存training報告，不能把它回寫成前輪已完成訓練。原標籤／切分仍在.runtime/stage5_review_dataset_v1/，新逐筆機率／fit診斷／manifest在.runtime/stage5_review_baseline_training_v1/；公開不含ID、個體值、機率或私有digest。
 
 ## 圖表與來源保護
 

@@ -1,5 +1,7 @@
 # Stage 5：四欄builder與train-only pipeline
 
+後續已接入既有來源守門與完整角色名冊，依凍結規格執行[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)。以下保留本輪合成實作與驗證紀錄，真實資料執行另存新規格、報告與私有帳本。
+
 本輪依[已凍結基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)實作四欄builder、受控pipeline及合成洩漏測試。**本輪只在人工合成fixture上fit scaler／Logistic並檢查transform及機率一致性；沒有用真實Olist資料建X、訓練、預測、選C或計算模型效能，也沒有Dashboard。** H60資料集、基線規格與Stage 4待資料／每日10%／五種子契約保留。
 
 程式見[review_baseline_pipeline.py](../scripts/review_baseline_pipeline.py)，[測試](../tests/test_review_baseline_pipeline.py)檢查實際資料流，[驗證CLI](../scripts/verify_review_pipeline.py)只執行這組合成測試並產生[聚合驗證報告](../reports/stage5/review_pipeline_verification.json)。本輪通過代表這個受控介面的隔離行為，不是模型可達效能或營運as-of驗收。
