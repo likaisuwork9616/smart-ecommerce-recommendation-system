@@ -1,0 +1,805 @@
+{
+  "candidate_feature_contract": "prior_21_conditional_definitions_unchanged_no_feature_cache",
+  "candidate_feature_values_built": 0,
+  "decision": "dataset_contract_frozen_no_training_stage4_pending_data",
+  "final_observation_labels": {
+    "cutoff_exclusive": "2018-07-01 00:00:00",
+    "early_answered_but_immature_excluded": 0,
+    "exclusive_label_states": {
+      "ambiguous_first_answer_tie": 0,
+      "first_answer_not_after_approval": 13,
+      "immature_observation_window": 0,
+      "invalid_visible_review_quality": 0,
+      "known_low_1_2": 11406,
+      "known_other_3_5": 60767,
+      "late_answer_unknown": 388,
+      "no_visible_answer_at_cutoff": 680,
+      "unpositionable_answer_source_quality": 0
+    },
+    "immature_windows": 0,
+    "leakage_violations": {
+      "unusable_nonnull_y": 0,
+      "usable_answer_after_deadline": 0,
+      "usable_answer_not_after_approval": 0,
+      "usable_answer_not_before_cutoff": 0,
+      "usable_deadline_not_before_cutoff": 0,
+      "usable_null_y": 0,
+      "visible_metadata_at_or_after_cutoff": 0
+    },
+    "low_1_2": 11406,
+    "mature_windows": 73254,
+    "orders": 73254,
+    "other_3_5": 60767,
+    "source_quality_quarantine_is_historical_availability_proof": false,
+    "unknown_or_ineligible_labels": 1081,
+    "usable_labels": 72173
+  },
+  "format_version": 1,
+  "global_review_source_quality_not_historical_fit_availability": {
+    "creation_after_answer_rows": 0,
+    "duplicate_pair_rows": 0,
+    "invalid_score_rows": 0,
+    "missing_or_invalid_creation_rows": 0,
+    "missing_order_key_rows": 0,
+    "missing_review_key_rows": 0,
+    "multi_review_orders": 547,
+    "review_id_reused_across_orders_groups": 789,
+    "source_review_rows": 99224,
+    "source_review_rows_orphan_to_all_orders": 0,
+    "unpositionable_answer_orders": 0,
+    "unpositionable_answer_rows": 0
+  },
+  "limitations": [
+    "No real ingestion, revision history, time zone or source day-close completeness proof.",
+    "Unknown and nonresponse labels are not negative; labeled subsets may be selective.",
+    "H60 and C2018-07-01 are fixed research observation rules, not business-optimal or freshness claims.",
+    "Existing inspected months are development windows, not new unseen held-out tests.",
+    "Rolling folds share historical orders and customers; not independent replications.",
+    "Static unpositionable-answer quarantine is a source-quality assumption, not an as-of proof."
+  ],
+  "nested_calendar_development_support": [
+    {
+      "calendar": {
+        "inner_fit_at": "2017-09-01 00:00:00",
+        "inner_month_end_plus_horizon": "2017-11-30 00:00:00",
+        "inner_query_end_exclusive": "2017-10-01 00:00:00",
+        "inner_query_start": "2017-09-01 00:00:00",
+        "outer_fit_at": "2017-12-01 00:00:00",
+        "outer_fold": "2017-12",
+        "outer_query_end_exclusive": "2018-01-01 00:00:00",
+        "outer_query_start": "2017-12-01 00:00:00"
+      },
+      "customer_unique_id_overlap_groups": {
+        "inner_train_pool_vs_inner_validation": 80,
+        "outer_train_pool_vs_outer_evaluation": 122
+      },
+      "roles": {
+        "inner_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2017-09-01 00:00:00",
+          "early_answered_but_immature_excluded": 6199,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 3,
+            "immature_observation_window": 8144,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 2079,
+            "known_other_3_5": 12661,
+            "late_answer_unknown": 107,
+            "no_visible_answer_at_cutoff": 183,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-09-01 00:00:00",
+          "immature_windows": 8144,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 2079,
+          "mature_windows": 15033,
+          "orders": 23177,
+          "other_3_5": 12661,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_train_pool",
+          "role_cutoff_exclusive": "2017-09-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 8437,
+          "usable_labels": 14740
+        },
+        "inner_validation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2017-12-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 6,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 522,
+            "known_other_3_5": 3718,
+            "late_answer_unknown": 7,
+            "no_visible_answer_at_cutoff": 48,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-09-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 522,
+          "mature_windows": 4301,
+          "orders": 4301,
+          "other_3_5": 3718,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_validation",
+          "role_cutoff_exclusive": "2017-12-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 61,
+          "usable_labels": 4240
+        },
+        "outer_evaluation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-07-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 0,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 935,
+            "known_other_3_5": 4805,
+            "late_answer_unknown": 27,
+            "no_visible_answer_at_cutoff": 65,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-12-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 935,
+          "mature_windows": 5832,
+          "orders": 5832,
+          "other_3_5": 4805,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_evaluation",
+          "role_cutoff_exclusive": "2018-07-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 92,
+          "usable_labels": 5740
+        },
+        "outer_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2017-12-01 00:00:00",
+          "early_answered_but_immature_excluded": 6990,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 9,
+            "immature_observation_window": 11891,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 3557,
+            "known_other_3_5": 23551,
+            "late_answer_unknown": 156,
+            "no_visible_answer_at_cutoff": 299,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-12-01 00:00:00",
+          "immature_windows": 11891,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 3557,
+          "mature_windows": 27572,
+          "orders": 39463,
+          "other_3_5": 23551,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_train_pool",
+          "role_cutoff_exclusive": "2017-12-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 12355,
+          "usable_labels": 27108
+        }
+      },
+      "train_query_order_overlap": {
+        "inner_train_pool_vs_inner_validation": 0,
+        "inner_train_pool_vs_outer_evaluation": 0,
+        "inner_validation_vs_outer_evaluation": 0,
+        "outer_train_pool_vs_outer_evaluation": 0
+      }
+    },
+    {
+      "calendar": {
+        "inner_fit_at": "2017-11-01 00:00:00",
+        "inner_month_end_plus_horizon": "2018-01-30 00:00:00",
+        "inner_query_end_exclusive": "2017-12-01 00:00:00",
+        "inner_query_start": "2017-11-01 00:00:00",
+        "outer_fit_at": "2018-02-01 00:00:00",
+        "outer_fold": "2018-02",
+        "outer_query_end_exclusive": "2018-03-01 00:00:00",
+        "outer_query_start": "2018-02-01 00:00:00"
+      },
+      "customer_unique_id_overlap_groups": {
+        "inner_train_pool_vs_inner_validation": 121,
+        "outer_train_pool_vs_outer_evaluation": 118
+      },
+      "roles": {
+        "inner_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2017-11-01 00:00:00",
+          "early_answered_but_immature_excluded": 6609,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 9,
+            "immature_observation_window": 8739,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 3041,
+            "known_other_3_5": 19878,
+            "late_answer_unknown": 129,
+            "no_visible_answer_at_cutoff": 272,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-11-01 00:00:00",
+          "immature_windows": 8745,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 3041,
+          "mature_windows": 23323,
+          "orders": 32068,
+          "other_3_5": 19878,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_train_pool",
+          "role_cutoff_exclusive": "2017-11-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 9149,
+          "usable_labels": 22919
+        },
+        "inner_validation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-02-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 0,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 1366,
+            "known_other_3_5": 5935,
+            "late_answer_unknown": 15,
+            "no_visible_answer_at_cutoff": 79,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-11-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 1366,
+          "mature_windows": 7395,
+          "orders": 7395,
+          "other_3_5": 5935,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_validation",
+          "role_cutoff_exclusive": "2018-02-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 94,
+          "usable_labels": 7301
+        },
+        "outer_evaluation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-07-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 0,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 1361,
+            "known_other_3_5": 5250,
+            "late_answer_unknown": 27,
+            "no_visible_answer_at_cutoff": 68,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2018-02-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 1361,
+          "mature_windows": 6706,
+          "orders": 6706,
+          "other_3_5": 5250,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_evaluation",
+          "role_cutoff_exclusive": "2018-07-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 95,
+          "usable_labels": 6611
+        },
+        "outer_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-02-01 00:00:00",
+          "early_answered_but_immature_excluded": 8550,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 9,
+            "immature_observation_window": 12405,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 5608,
+            "known_other_3_5": 33840,
+            "late_answer_unknown": 228,
+            "no_visible_answer_at_cutoff": 392,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2018-02-01 00:00:00",
+          "immature_windows": 12405,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 5608,
+          "mature_windows": 40077,
+          "orders": 52482,
+          "other_3_5": 33840,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_train_pool",
+          "role_cutoff_exclusive": "2018-02-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 13034,
+          "usable_labels": 39448
+        }
+      },
+      "train_query_order_overlap": {
+        "inner_train_pool_vs_inner_validation": 0,
+        "inner_train_pool_vs_outer_evaluation": 0,
+        "inner_validation_vs_outer_evaluation": 0,
+        "outer_train_pool_vs_outer_evaluation": 0
+      }
+    },
+    {
+      "calendar": {
+        "inner_fit_at": "2017-12-01 00:00:00",
+        "inner_month_end_plus_horizon": "2018-03-02 00:00:00",
+        "inner_query_end_exclusive": "2018-01-01 00:00:00",
+        "inner_query_start": "2017-12-01 00:00:00",
+        "outer_fit_at": "2018-04-01 00:00:00",
+        "outer_fold": "2018-04",
+        "outer_query_end_exclusive": "2018-05-01 00:00:00",
+        "outer_query_start": "2018-04-01 00:00:00"
+      },
+      "customer_unique_id_overlap_groups": {
+        "inner_train_pool_vs_inner_validation": 122,
+        "outer_train_pool_vs_outer_evaluation": 167
+      },
+      "roles": {
+        "inner_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2017-12-01 00:00:00",
+          "early_answered_but_immature_excluded": 6990,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 9,
+            "immature_observation_window": 11891,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 3557,
+            "known_other_3_5": 23551,
+            "late_answer_unknown": 156,
+            "no_visible_answer_at_cutoff": 299,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-12-01 00:00:00",
+          "immature_windows": 11891,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 3557,
+          "mature_windows": 27572,
+          "orders": 39463,
+          "other_3_5": 23551,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_train_pool",
+          "role_cutoff_exclusive": "2017-12-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 12355,
+          "usable_labels": 27108
+        },
+        "inner_validation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-04-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 0,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 935,
+            "known_other_3_5": 4805,
+            "late_answer_unknown": 20,
+            "no_visible_answer_at_cutoff": 72,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2017-12-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 935,
+          "mature_windows": 5832,
+          "orders": 5832,
+          "other_3_5": 4805,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "inner_validation",
+          "role_cutoff_exclusive": "2018-04-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 92,
+          "usable_labels": 5740
+        },
+        "outer_evaluation": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-07-01 00:00:00",
+          "early_answered_but_immature_excluded": 0,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 4,
+            "immature_observation_window": 0,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 870,
+            "known_other_3_5": 5834,
+            "late_answer_unknown": 5,
+            "no_visible_answer_at_cutoff": 65,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2018-04-01 00:00:00",
+          "immature_windows": 0,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 870,
+          "mature_windows": 6778,
+          "orders": 6778,
+          "other_3_5": 5834,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_evaluation",
+          "role_cutoff_exclusive": "2018-07-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 74,
+          "usable_labels": 6704
+        },
+        "outer_train_pool": {
+          "actual_fits": 0,
+          "cutoff_exclusive": "2018-04-01 00:00:00",
+          "early_answered_but_immature_excluded": 10106,
+          "exclusive_label_states": {
+            "ambiguous_first_answer_tie": 0,
+            "first_answer_not_after_approval": 9,
+            "immature_observation_window": 14219,
+            "invalid_visible_review_quality": 0,
+            "known_low_1_2": 7500,
+            "known_other_3_5": 43933,
+            "late_answer_unknown": 288,
+            "no_visible_answer_at_cutoff": 527,
+            "unpositionable_answer_source_quality": 0
+          },
+          "fit_at": "2018-04-01 00:00:00",
+          "immature_windows": 14219,
+          "leakage_violations": {
+            "unusable_nonnull_y": 0,
+            "usable_answer_after_deadline": 0,
+            "usable_answer_not_after_approval": 0,
+            "usable_answer_not_before_cutoff": 0,
+            "usable_deadline_not_before_cutoff": 0,
+            "usable_null_y": 0,
+            "visible_metadata_at_or_after_cutoff": 0
+          },
+          "low_1_2": 7500,
+          "mature_windows": 52257,
+          "orders": 66476,
+          "other_3_5": 43933,
+          "pool_includes_unknown_or_ineligible": true,
+          "role": "outer_train_pool",
+          "role_cutoff_exclusive": "2018-04-01 00:00:00",
+          "source_quality_quarantine_is_historical_availability_proof": false,
+          "unknown_or_ineligible_labels": 15043,
+          "usable_labels": 51433
+        }
+      },
+      "train_query_order_overlap": {
+        "inner_train_pool_vs_inner_validation": 0,
+        "inner_train_pool_vs_outer_evaluation": 0,
+        "inner_validation_vs_outer_evaluation": 0,
+        "outer_train_pool_vs_outer_evaluation": 0
+      }
+    }
+  ],
+  "order_quality": {
+    "approval_before_purchase": 0,
+    "cohort_orders": 73254,
+    "final_status_filter_applied": false,
+    "missing_feature_filter_applied": false,
+    "missing_or_invalid_approval": 160,
+    "missing_or_invalid_purchase": 0,
+    "source_orders": 99441,
+    "valid_purchase_approval": 99281
+  },
+  "private_outputs": {
+    "manifest": {
+      "digest_public": false,
+      "path": ".runtime/stage5_review_dataset_v1/manifest.json",
+      "verified": true
+    },
+    "order_labels.csv": {
+      "columns": [
+        "order_id",
+        "prediction_time",
+        "window_deadline",
+        "observation_cutoff",
+        "horizon_complete",
+        "label_state",
+        "role_label_usable",
+        "y",
+        "first_visible_answer_at"
+      ],
+      "path": ".runtime/stage5_review_dataset_v1/order_labels.csv",
+      "rows": 73254
+    },
+    "split_membership.csv": {
+      "columns": [
+        "outer_fold",
+        "role",
+        "fit_at",
+        "order_id",
+        "prediction_time",
+        "window_deadline",
+        "observation_cutoff",
+        "horizon_complete",
+        "label_state",
+        "role_label_usable",
+        "y",
+        "first_visible_answer_at"
+      ],
+      "path": ".runtime/stage5_review_dataset_v1/split_membership.csv",
+      "rows": 289973
+    }
+  },
+  "protocol": {
+    "answer_visibility": "recorded_answer_strictly_before_each_role_cutoff",
+    "candidate_features": "prior_21_conditional_definitions_only_no_values_built",
+    "cohort": {
+      "approval_cutoff_exclusive": "2018-05-01",
+      "approval_not_before_purchase": true,
+      "final_status_filter": false,
+      "missing_features_filter": false,
+      "purchase_and_approval_parseable": true
+    },
+    "fit_policy": "strict_maturity_and_valid_answer_before_fit_no_training_executed",
+    "horizon_elapsed_days": 60,
+    "inner_query_calendar_rule": "latest_full_month_whose_end_plus_60_days_is_at_or_before_outer_fit",
+    "inner_train_label_cutoff": "inner_month_start",
+    "inner_validation_label_cutoff": "outer_month_start",
+    "observation_claim": "event_proxy_only_not_source_completeness_or_live_availability",
+    "observation_cutoff_exclusive": "2018-07-01",
+    "outer_evaluation_label_cutoff": "2018-07-01",
+    "outer_query_months": [
+      "2017-12",
+      "2018-02",
+      "2018-04"
+    ],
+    "outer_train_label_cutoff": "outer_month_start",
+    "pool_policy": "keep_all_time_eligible_orders_and_mask_unusable_y",
+    "prediction_time": "order_approved_at",
+    "prohibited_this_run": [
+      "training",
+      "feature_build",
+      "model_load",
+      "prediction",
+      "performance_metrics",
+      "model_selection",
+      "dashboard"
+    ],
+    "review_policy": {
+      "change_from_feasibility": "no_future_parseable_row_can_quarantine_earlier_role",
+      "creation": "parseable_and_not_after_answer",
+      "duplicate_key": "(review_id,order_id)_within_visible_in_window_rows",
+      "early_answer": "quarantine_never_repick_later_answer",
+      "first_answer": "earliest_visible_answer_including_answers_not_after_approval",
+      "invalid_visible_in_window_row": "quarantine_order_without_repick",
+      "late_answer_after_window": "unknown_not_negative",
+      "missing_or_unparseable_answer": "static_source_quality_quarantine_order",
+      "quality_relevant_rows": "visible_answer_at_or_before_order_window_deadline",
+      "review_id_reused_across_orders": "allowed",
+      "score": "integer_1_through_5",
+      "ties": "quarantine_even_equal_scores",
+      "visible_rows_before_quality_checks": true
+    },
+    "selection_claim": "fixed_development_calendar_not_unseen_holdout",
+    "stage4": {
+      "daily_budget": 0.1,
+      "modified": false,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "target": "first_recorded_answer_in_(approval,approval+60_elapsed_days]_is_1_or_2",
+    "time_zone": "original_naive_snapshot_clock_no_verified_business_zone_or_ingestion",
+    "unit": "one_order",
+    "unknown_target": "nullable_y_never_imputed_to_negative",
+    "window_maturity": "approval+60_days_strictly_before_each_role_cutoff"
+  },
+  "source_snapshot_role": "existing_export_event_proxy_not_historical_ingestion_proof",
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    }
+  ],
+  "specification": {
+    "bytes": 9865,
+    "path": "reports/stage5/review_dataset_specification.json",
+    "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+  },
+  "status": "passed_bounded_offline_dataset_contract",
+  "verification": {
+    "bound_sources_before_after": 14,
+    "dashboard": 0,
+    "model_fits": 0,
+    "model_loads": 0,
+    "model_selection": 0,
+    "new_predictions": 0,
+    "order_labels_unique_rows": 73254,
+    "original_retained_test_scored": false,
+    "performance_metrics": 0,
+    "private_csv_exact_readback": {
+      "order_labels.csv": {
+        "columns": 9,
+        "exact_cells_compared": 659286,
+        "nullable_y_mask_verified": true,
+        "rows": 73254
+      },
+      "split_membership.csv": {
+        "columns": 12,
+        "exact_cells_compared": 3479676,
+        "nullable_y_mask_verified": true,
+        "rows": 289973
+      }
+    },
+    "raw_schema_headers_verified": 9,
+    "role_blocks": 12,
+    "specification_file_bytes_bound_before_after": true,
+    "split_membership_rows": 289973
+  }
+}

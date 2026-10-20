@@ -44,4 +44,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 最新[單日離線交付驗收](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)以獨立CLI只讀凍結分數，沒有執行Notebook、模型訓練或新預測。請勿為重現交付驗收而整本執行04。
 
-Stage 4目前維持待資料。Stage 5已做[評論低評分預測可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)，使用獨立只讀CLI，不新增或執行Notebook；先確認核准時首答目標、21個條件候選與時間觀察契約，不要為了補Stage 5就執行04的延遲訓練。
+Stage 4目前維持待資料。Stage 5在[可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)後已完成[H60首答資料集凍結](../docs/STAGE5_REVIEW_DATASET_SPEC.md)，以獨立CLI建立私有標籤／切分中繼資料及聚合核對；21欄仍僅條件候選，不新增或執行Notebook，不訓練或做Dashboard。不要為了補Stage 5就執行04的延遲訓練。

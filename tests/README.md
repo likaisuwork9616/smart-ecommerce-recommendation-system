@@ -8,7 +8,7 @@
 
 最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核15項、單日離線交付42項（3.017秒）、[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)8項（0.062秒）均已通過。這些是各前輪紀錄，不能合稱本輪完整測試。
 
-前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本列出的未來案例尚未執行，不能當成真實資料已驗收。最新Stage 5可行性盤點12項來源／標籤／時間邊界測試全過、0.248秒，未重跑模型全套或訓練。
+前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本列出的未來案例尚未執行，不能當成真實資料已驗收。Stage 5可行性盤點12項全過、0.248秒是前輪紀錄；最新資料集凍結另跑23項契約測試全過、3.748秒，未重跑模型全套或訓練。
 
 ## 依修改範圍選擇檢查
 
@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-最新Stage 5首答與時間邊界檢查：
+最新Stage 5凍結資料集與逐fit資格：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_dataset_contract -q
+```
+
+本組23項涵蓋H端點／成熟嚴格邊界、早答不改挑、同分平手、未知不補0、未來／超H壞評論不得污染、不可定位回答的靜態品質隔離、每個I／F重建、內層最近完整成熟月、完整候選及重疊、nullable CSV逐值反讀、來源SHA／嚴格JSON／不可覆寫、Git忽略路徑與公私輸出全部預檢、實際規格bytes綁定。測試均無模型擬合；原始資料的獨立逐值對帳另見[資料集文件](../docs/STAGE5_REVIEW_DATASET_SPEC.md)。
+
+前輪Stage 5可行性盤點邊界檢查：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_prediction_feasibility -q
