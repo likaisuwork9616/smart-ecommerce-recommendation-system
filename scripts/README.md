@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 核對Stage 5最小基線規格 | [audit_review_baseline_contract.py](audit_review_baseline_contract.py) | 先--specification-only；只核來源、事件時鐘、未知／fit角色與固定基線政策，不建X或fit |
 | 凍結Stage 5訂單級首答資料集 | [freeze_review_dataset.py](freeze_review_dataset.py) | 先--specification-only，再執行稽核；H60、多評論、未知與內外層時鐘，私有標籤／切分留.runtime，不建X或訓練 |
 | 重現Stage 5評論預測可行性盤點 | [audit_review_prediction_feasibility.py](audit_review_prediction_feasibility.py) | 需原九CSV與既有來源報告；只查標籤／鍵／時鐘／候選欄位，不建特徵或訓練模型 |
 | 檢查套件、MySQL及資料表 | [verify_environment.py](verify_environment.py) | 使用本機資料庫設定；摘要存 `.runtime/verification/summary.json` |
@@ -32,13 +33,25 @@
 .\.venv\Scripts\python.exe scripts\accept_frozen_daily_delivery.py --help
 .\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py --help
 .\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --help
+.\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5資料集凍結
+## Stage 5最小基線契約
+
+```powershell
+.\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --specification-only
+.\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py
+```
+
+[基線文件](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)固定四個事件時間欄、44維前處理、C=0.1／1／10的歷史內層AP選參及未知／評估政策。[規格](../reports/stage5/review_baseline_specification.json)與[稽核](../reports/stage5/review_baseline_contract_audit.json)只做契約與資料支援檢查，沒有建立四欄X、載入模型、fit、預測或算指標；不是訓練入口。
+
+需原資料來源、已凍結H60私有bundle及原正式執行收據（均不隨Git clone交付）；缺任一資產就停止，不能補造收據或把C全域標籤join回歷史fit。新input_guard只留Git忽略的.runtime/stage5_review_baseline_v1/，原標籤／角色CSV及其manifest不改寫，私有digest不公開。兩事件時鐘仍無原入庫／版本證明，核對通過只支持條件離線研究。
+
+## 前輪Stage 5資料集凍結
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --specification-only
