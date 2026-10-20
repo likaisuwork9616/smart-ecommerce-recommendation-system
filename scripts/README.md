@@ -12,6 +12,7 @@
 | 建立新電腦環境／匯入CSV | [setup_local_mysql.py](setup_local_mysql.py)、[load_olist_to_mysql.py](load_olist_to_mysql.py) | 初始化只供新環境；CSV匯入使用 `if_exists="replace"`，會重建同名資料表，操作見建置指南 |
 | 載入模型做離線推論 | [predict_delay.py](predict_delay.py) | 需要本機 artifact；支援原版、平衡模式及指定研究模型，操作見[原版說明](../docs/STAGE4_DELAY_PREDICTION.md) |
 | 重現單日離線交付驗收 | [accept_frozen_daily_delivery.py](accept_frozen_daily_delivery.py) | 需原始orders、凍結cache／帳本、報告及20份月模型bytes；只核SHA與已有分數，不載模型／預測／訓練 |
+| 查全量日資料契約與缺口 | [audit_daily_data_contract.py](audit_daily_data_contract.py) | 只讀九CSV、匯入程式、既有報告；帳本只解析名冊／設定欄，不啟動DB／API |
 | 閱讀適用範圍與交付前提 | [模型卡與交付清單](../docs/STAGE4_MODEL_APPLICABILITY.md) | 區分主方案wrapper與160份五種子月版；離線研究可交付，沒有生產日結／通知服務 |
 | 閱讀待資料方向 | [事件／承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 新增驗收來源0，先讀查核範圍與資料契約；不需要啟動MySQL或訓練 |
 | 重現來源快照 | [audit_event_source_availability.py](audit_event_source_availability.py) | 需要原始九表及當輪忽略路徑內的盤點、DB／官方取得證據；重算聚合，不自行啟服務或連私有API |
@@ -55,6 +56,7 @@
 | 完成歷史與未完成慢件代表性 | [audit_completed_history_representativeness.py](audit_completed_history_representativeness.py) | [同核准窗口、逾期待件與條件敏感度](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) |
 | 取消／結案與承諾版本來源 | [audit_event_source_availability.py](audit_event_source_availability.py) | [來源取得、時鐘涵蓋及未來驗收](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) |
 | 單日凍結分數交付驗收 | [accept_frozen_daily_delivery.py](accept_frozen_daily_delivery.py) | [名冊／版本、20組排名、10%名額與私有CSV反讀](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
+| 全量日資料契約查核 | [audit_daily_data_contract.py](audit_daily_data_contract.py) | [全量名冊、雙時間版本、日結訊號與待資料缺口](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 
 ## 共用模組與凍結來源
 

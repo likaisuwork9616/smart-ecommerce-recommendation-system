@@ -1,0 +1,473 @@
+{
+  "analysis": "bounded_full_day_roster_ingestion_version_day_close_contract",
+  "choices_unconfirmed": [
+    "business_timezone",
+    "ingestion_and_close_SLA",
+    "late_arrival_policy",
+    "reapproval_policy",
+    "day_reopen_policy"
+  ],
+  "clock": {
+    "business_timezone_verified": false,
+    "day": "2018-02-01",
+    "file_hash_is_operational_version_or_asof_proof": false,
+    "historical_ingested_at_verified": false,
+    "interval": "[2018-02-01 00:00:00,2018-02-02 00:00:00)",
+    "timestamp_representation": "naive exported wall-clock; no timezone conversion"
+  },
+  "contract_dimensions": {
+    "day_close_completion": {
+      "production_gate_passed": false,
+      "reason": "No upstream scope/cursor, source watermark, close manifest or reconciliation proof.",
+      "status": "pending_data"
+    },
+    "full_daily_roster": {
+      "production_gate_passed": false,
+      "reason": "Exported approvals lack upstream population scope and reconciliation; 242 research rows omit 3 of 245 exported day approvals.",
+      "status": "pending_data"
+    },
+    "historical_source_and_promise_versions": {
+      "production_gate_passed": false,
+      "reason": "Static exported values and artifact hashes lack effective-time and recorded-time version history.",
+      "status": "pending_data"
+    },
+    "ingestion_asof_clock": {
+      "production_gate_passed": false,
+      "reason": "No original available/ingested clock or verified business timezone in the inspected raw schemas.",
+      "status": "pending_data"
+    }
+  },
+  "contract_role": "Proposed future minimum requirements in docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract; not confirmed business policy or an implemented live batch validator.",
+  "decision": "pending_data_no_training_no_production_acceptance",
+  "existing_evidence": {
+    "actual_event_capture_rates": "not_identifiable_from_inspected_sources",
+    "binlog_limit": "Prior 2026 local import headers are not 2018 source observation times.",
+    "database_probe_reused": true,
+    "database_tables": 9,
+    "event_signal_status": "pending_data",
+    "loader": "Reads exported CSV and replaces tables; no operational ingestion/version/day-close contract.",
+    "orders_snapshot_comparison": {
+      "all_values_equal": true,
+      "columns": 8,
+      "raw_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "rows": 99441,
+      "values_compared": 795528
+    },
+    "prior_binlog_snapshots": 4
+  },
+  "fixed_research_policy": {
+    "daily_fraction": 0.1,
+    "floor_245_div_10_equals_24_is_not_full_day_acceptance": true,
+    "new_capacity_or_rank_or_alerts_computed": false,
+    "previous_research_daily_capacity": 24,
+    "raw_245_capacity_not_accepted": true,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "versions": [
+      "base08",
+      "age08",
+      "base10",
+      "age10"
+    ]
+  },
+  "format_version": 1,
+  "limitations": [
+    "Full raw export does not establish all original approvals known at the decision time.",
+    "Final canceled status is retrospective and cannot justify an as-of exclusion.",
+    "CSV/file hashes prove artifact bytes, not original ingestion or effective version times.",
+    "No verified source watermark, terminal batch manifest, closure revision or late-arrival reconciliation."
+  ],
+  "raw_order_quality": {
+    "approval_before_purchase": 0,
+    "order_approved_at": {
+      "invalid_nonmissing": 0,
+      "missing": 160
+    },
+    "order_purchase_timestamp": {
+      "invalid_nonmissing": 0,
+      "missing": 0
+    },
+    "parseable_approval_before_2018_05_01": 73254
+  },
+  "raw_schemas": [
+    {
+      "columns": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "rows": 99441
+    },
+    {
+      "columns": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "rows": 1000163
+    },
+    {
+      "columns": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "rows": 112650
+    },
+    {
+      "columns": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "rows": 103886
+    },
+    {
+      "columns": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "rows": 99224
+    },
+    {
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "rows": 99441
+    },
+    {
+      "columns": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "rows": 32951
+    },
+    {
+      "columns": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "rows": 3095
+    },
+    {
+      "columns": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "matches_prior_source_audit": true,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "rows": 71
+    }
+  ],
+  "roster": {
+    "accepted_research_day_rows": 242,
+    "coverage_scope": "Export snapshot only; no original source-day reconciliation or closure proof.",
+    "excluded_final_canceled_rows_retrospective_only": 3,
+    "missing_approval_rows_assigned_to_any_day": false,
+    "purchase_date_used_to_impute_approval_day": false,
+    "raw_export_day_rows": 245,
+    "raw_export_day_rows_without_frozen_scores_per_run": 3,
+    "raw_export_rows": 99441,
+    "runs": [
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 11,
+        "version": "base08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 29,
+        "version": "base08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 42,
+        "version": "base08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 73,
+        "version": "base08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 101,
+        "version": "base08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 11,
+        "version": "age08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 29,
+        "version": "age08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 42,
+        "version": "age08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 73,
+        "version": "age08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 101,
+        "version": "age08"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 11,
+        "version": "base10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 29,
+        "version": "base10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 42,
+        "version": "base10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 73,
+        "version": "base10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 101,
+        "version": "base10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 11,
+        "version": "age10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 29,
+        "version": "age10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 42,
+        "version": "age10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 73,
+        "version": "age10"
+      },
+      {
+        "raw_export_day_rows": 245,
+        "raw_export_rows_without_frozen_score": 3,
+        "research_rows": 242,
+        "seed": 101,
+        "version": "age10"
+      }
+    ]
+  },
+  "scope": "Current bounded raw schema and frozen ledger metadata review; prior DB/binlog/public evidence reused, not refreshed.",
+  "source_manifest": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 217783108,
+      "path": "data/processed/olist_delay_age_colsample_scores.csv",
+      "sha256": "ead64e64dda96f918b48600ee185fcef3aa984b4d9f778d9696c585a387a3905"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 6524,
+      "path": "reports/stage4/event_source_availability_specification.json",
+      "sha256": "0dc2d1d4db3b2cad7e52ff23c0737f28b5503960e3842629d6e2f0d5876253c3"
+    },
+    {
+      "bytes": 42580,
+      "path": "reports/stage4/daily_delivery_acceptance.json",
+      "sha256": "1a3fb55baf6688086d20f4e3ad9ccfd4f2b30a60ac253da23a447ccfb809afca"
+    },
+    {
+      "bytes": 23120,
+      "path": "reports/stage4/daily_delivery_acceptance_specification.json",
+      "sha256": "2b350d5d67a7a1362f07d7a0aafa3f5a723c47a019c8df58a05c900cd116e98f"
+    },
+    {
+      "bytes": 3388,
+      "path": "scripts/load_olist_to_mysql.py",
+      "sha256": "e350ecb65791d90dd18a5c46f9c79224e8e43c9240b1cedddc62ed6e6be297c3"
+    },
+    {
+      "bytes": 16461,
+      "path": "scripts/audit_daily_data_contract.py",
+      "sha256": "192443ab4cfdacea9fceab366bbb81a8df34772e25527cf1ff88879eafe8823a"
+    }
+  ],
+  "status": "ok",
+  "verification": {
+    "bound_files_checked_before_and_after": 16,
+    "frozen_research_roster_rows_verified": 4840,
+    "frozen_research_runs_verified": 20,
+    "ledger_columns_parsed": [
+      "order_id",
+      "prediction_time",
+      "fold",
+      "model_version",
+      "role",
+      "candidate",
+      "seed",
+      "colsample_bytree"
+    ],
+    "ledger_rows_counted": 1281120,
+    "ledger_score_outcome_alert_columns_parsed": 0,
+    "live_database_api_or_binlog_opened": false,
+    "model_load_fit_predict_count": 0,
+    "new_model_selection": 0,
+    "new_performance_metrics": 0,
+    "original_holdout_scored": false,
+    "raw_schemas_and_counts_verified": 9
+  }
+}

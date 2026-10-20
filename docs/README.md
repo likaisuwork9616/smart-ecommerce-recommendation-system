@@ -6,7 +6,8 @@
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新離線交付驗收 | [單日凍結分數驗收](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) | 固定2018-02-01，四設定×全部五種子，核對研究日名冊、版本、排名、10%名額與CSV |
+| 最新資料契約查核 | [全量日資料契約與缺口](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) | 全量名冊、入庫／版本與日結證據仍待資料，保留研究名冊交付驗收 |
+| 前輪離線交付驗收 | [單日凍結分數驗收](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) | 固定2018-02-01，四設定×全部五種子，核對研究日名冊、版本、排名、10%名額與CSV |
 | 適用範圍與交付定位 | [模型卡與交付清單](STAGE4_MODEL_APPLICABILITY.md) | 區分原RF、歷史選模主方案與四設定五種子；研究可交付，正式適用未達 |
 | 待資料方向 | [取消／結案與承諾版本](STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 已查本機與官方來源、時間戳與涵蓋；新增驗收來源0，先不訓練 |
 | 前一步代表性稽核 | [完成歷史代表性稽核](STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) | 同核准窗口區分完成與待件，固定條件及星期敏感度，核對既有訊號 |
@@ -86,7 +87,7 @@
 | [完成歷史代表性稽核](STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) | 區分送達窗口與同核准窗口，稽核完成／待完成組成、既有訊號與精確天數加星期的敏感度 |
 | [取消／結案與承諾版本來源](STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 核對原始、DB、binlog與官方來源，明列時鐘／涵蓋缺口及未來驗收契約 |
 | [模型適用範圍與交付清單](STAGE4_MODEL_APPLICABILITY.md) | 整理已驗證範圍、五種子成績、資料／操作限制及可交付研究包；不是新增實驗 |
-| **[單日離線交付驗收（最新）](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)** | 固定研究cohort完整日，重排已有分數、核對20組版本與原提醒、反讀私有輸出；不訓練或新增效能 |
+| **[離線交付與全量日資料契約（最新）](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)** | 研究名冊交付已通過；後續核對全量名冊、雙時間版本、日結與重開契約，缺口待資料，不新增效能 |
 
 ## 如何追到實際產物
 
