@@ -1,12 +1,13 @@
 # 文件導覽
 
-專案目前進行到 Stage 4 延遲預測研究。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5已凍結首答低評的訂單級資料集契約，尚未訓練。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5可行性 | [評論低評分預測盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) | 核准時首答目標、條件可用特徵、標籤成熟與月滾動驗證；未訓練 |
+| 最新Stage 5資料集 | [首答資料集凍結與核對](STAGE5_REVIEW_DATASET_SPEC.md) | 60天窗口、多評論與未知、內外層切分及每個fit的標籤資格；未訓練 |
+| 前輪Stage 5可行性 | [評論低評分預測盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) | 核准時首答目標、21欄條件候選及不限H的來源支援 |
 | 最新交接與驗收格式 | [交接清單](templates/daily_data_handoff/README.md)、[驗收範本](templates/daily_data_handoff/acceptance_record.template.md) | 15項check_id與三個獨立判定，空白狀態均待資料，實際資料另存私有路徑 |
 | 前輪資料契約查核 | [全量日資料契約與缺口](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) | 全量名冊、入庫／版本與日結證據仍待資料，保留研究名冊交付驗收 |
 | 前輪離線交付驗收 | [單日凍結分數驗收](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) | 固定2018-02-01，四設定×全部五種子，核對研究日名冊、版本、排名、10%名額與CSV |
@@ -19,7 +20,7 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-最新研究維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄位取樣0.8／1.0、五種子的固定對照。colsample之後只做診斷、來源查核與交付驗收，沒有新訓練或改選；單日驗收只證明凍結研究cohort的既有行為，沒有新效能結論。事件訊號方向待資料，正式適用要求未達，Dashboard仍暫緩。
+Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄位取樣0.8／1.0、五種子的固定對照。colsample之後只做診斷、來源查核與交付驗收，沒有新訓練或改選；單日驗收只證明凍結研究cohort的既有行為，沒有新效能結論。事件訊號方向待資料，正式適用要求未達，Dashboard仍暫緩。
 
 ## Stage 4 研究文件
 
@@ -93,10 +94,10 @@
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)以訂單級、核准後最早回答的1–2分對3–5分為研究建議；只查來源、標籤與時間支援，不含模型訓練或Dashboard。Stage 4維持原待資料狀態，兩項任務的母體、目標與驗收契約分開。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)保留前輪不限H的來源檢查；最新[資料集凍結](STAGE5_REVIEW_DATASET_SPEC.md)固定核准後首答60天窗、nullable y與三個開發fold的內外層時鐘。73,254張全名冊中72,173張在C截止有合格標籤；歷史fit各自重建，不能使用C完整答案。只建私有標籤／切分中繼資料，沒有特徵值、訓練、模型效能或Dashboard。Stage 4待資料及每日10%／五種子不變。
 
 ## 如何追到實際產物
 
-每份研究文件內附對應報告、適用的規格與執行方式；聚合JSON位於 [`reports/stage4/`](../reports/stage4/)及[Stage 5盤點](../reports/stage5/review_prediction_feasibility.json)，程式位於 [`scripts/`](../scripts/)。可行性盤點不是模型事前訓練規格。資料目錄與保留方式見[資料說明](../data/README.md)，資料庫建立與查詢見 [SQL 導覽](../sql/README.md)，驗證方式見[測試說明](../tests/README.md)。逐筆分數、原始資料、本機模型及執行紀錄由 Git 忽略，重現時須依[本機環境指南](LOCAL_SETUP.md)準備。
+每份研究文件內附對應報告、適用的規格與執行方式；聚合JSON位於 [`reports/stage4/`](../reports/stage4/)及[`reports/stage5/`](../reports/stage5/)，程式位於 [`scripts/`](../scripts/)。可行性盤點及新資料集契約都不是模型事前訓練規格。資料目錄與保留方式見[資料說明](../data/README.md)，資料庫建立與查詢見 [SQL 導覽](../sql/README.md)，驗證方式見[測試說明](../tests/README.md)。逐筆分數、原始資料、本機模型及執行紀錄由 Git 忽略，重現時須依[本機環境指南](LOCAL_SETUP.md)準備。
 
 文件中的原始輸入欄數、快取欄數與模型編碼後維度各有不同用途；不同輪次都可能稱為 102 欄，應以當輪白名單與規格確認內容。等待 24–72 小時組指歷史待件時齡代理，不是本張訂單核准後再等 24–72 小時才預測。

@@ -1,0 +1,293 @@
+{
+  "calendar_split_plan": [
+    {
+      "inner_fit_at": "2017-09-01 00:00:00",
+      "inner_month_end_plus_horizon": "2017-11-30 00:00:00",
+      "inner_query_end_exclusive": "2017-10-01 00:00:00",
+      "inner_query_start": "2017-09-01 00:00:00",
+      "outer_fit_at": "2017-12-01 00:00:00",
+      "outer_fold": "2017-12",
+      "outer_query_end_exclusive": "2018-01-01 00:00:00",
+      "outer_query_start": "2017-12-01 00:00:00"
+    },
+    {
+      "inner_fit_at": "2017-11-01 00:00:00",
+      "inner_month_end_plus_horizon": "2018-01-30 00:00:00",
+      "inner_query_end_exclusive": "2017-12-01 00:00:00",
+      "inner_query_start": "2017-11-01 00:00:00",
+      "outer_fit_at": "2018-02-01 00:00:00",
+      "outer_fold": "2018-02",
+      "outer_query_end_exclusive": "2018-03-01 00:00:00",
+      "outer_query_start": "2018-02-01 00:00:00"
+    },
+    {
+      "inner_fit_at": "2017-12-01 00:00:00",
+      "inner_month_end_plus_horizon": "2018-03-02 00:00:00",
+      "inner_query_end_exclusive": "2018-01-01 00:00:00",
+      "inner_query_start": "2017-12-01 00:00:00",
+      "outer_fit_at": "2018-04-01 00:00:00",
+      "outer_fold": "2018-04",
+      "outer_query_end_exclusive": "2018-05-01 00:00:00",
+      "outer_query_start": "2018-04-01 00:00:00"
+    }
+  ],
+  "expected_existing_cohort_orders": 73254,
+  "format_version": 1,
+  "privacy": {
+    "private_source_join_keys_only_not_model_inputs": true,
+    "public_individual_ids_labels_scores": false,
+    "public_roster_hash_or_private_output_digest": false
+  },
+  "private_output_root": ".runtime/stage5_review_dataset_v1",
+  "protocol": {
+    "answer_visibility": "recorded_answer_strictly_before_each_role_cutoff",
+    "candidate_features": "prior_21_conditional_definitions_only_no_values_built",
+    "cohort": {
+      "approval_cutoff_exclusive": "2018-05-01",
+      "approval_not_before_purchase": true,
+      "final_status_filter": false,
+      "missing_features_filter": false,
+      "purchase_and_approval_parseable": true
+    },
+    "fit_policy": "strict_maturity_and_valid_answer_before_fit_no_training_executed",
+    "horizon_elapsed_days": 60,
+    "inner_query_calendar_rule": "latest_full_month_whose_end_plus_60_days_is_at_or_before_outer_fit",
+    "inner_train_label_cutoff": "inner_month_start",
+    "inner_validation_label_cutoff": "outer_month_start",
+    "observation_claim": "event_proxy_only_not_source_completeness_or_live_availability",
+    "observation_cutoff_exclusive": "2018-07-01",
+    "outer_evaluation_label_cutoff": "2018-07-01",
+    "outer_query_months": [
+      "2017-12",
+      "2018-02",
+      "2018-04"
+    ],
+    "outer_train_label_cutoff": "outer_month_start",
+    "pool_policy": "keep_all_time_eligible_orders_and_mask_unusable_y",
+    "prediction_time": "order_approved_at",
+    "prohibited_this_run": [
+      "training",
+      "feature_build",
+      "model_load",
+      "prediction",
+      "performance_metrics",
+      "model_selection",
+      "dashboard"
+    ],
+    "review_policy": {
+      "change_from_feasibility": "no_future_parseable_row_can_quarantine_earlier_role",
+      "creation": "parseable_and_not_after_answer",
+      "duplicate_key": "(review_id,order_id)_within_visible_in_window_rows",
+      "early_answer": "quarantine_never_repick_later_answer",
+      "first_answer": "earliest_visible_answer_including_answers_not_after_approval",
+      "invalid_visible_in_window_row": "quarantine_order_without_repick",
+      "late_answer_after_window": "unknown_not_negative",
+      "missing_or_unparseable_answer": "static_source_quality_quarantine_order",
+      "quality_relevant_rows": "visible_answer_at_or_before_order_window_deadline",
+      "review_id_reused_across_orders": "allowed",
+      "score": "integer_1_through_5",
+      "ties": "quarantine_even_equal_scores",
+      "visible_rows_before_quality_checks": true
+    },
+    "selection_claim": "fixed_development_calendar_not_unseen_holdout",
+    "stage4": {
+      "daily_budget": 0.1,
+      "modified": false,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "target": "first_recorded_answer_in_(approval,approval+60_elapsed_days]_is_1_or_2",
+    "time_zone": "original_naive_snapshot_clock_no_verified_business_zone_or_ingestion",
+    "unit": "one_order",
+    "unknown_target": "nullable_y_never_imputed_to_negative",
+    "window_maturity": "approval+60_days_strictly_before_each_role_cutoff"
+  },
+  "public_output": "reports/stage5/review_dataset_audit.json",
+  "raw_schemas": [
+    {
+      "columns": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "previous_snapshot_rows": 99441
+    },
+    {
+      "columns": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "previous_snapshot_rows": 1000163
+    },
+    {
+      "columns": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "previous_snapshot_rows": 112650
+    },
+    {
+      "columns": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "previous_snapshot_rows": 103886
+    },
+    {
+      "columns": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "previous_snapshot_rows": 99224
+    },
+    {
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "previous_snapshot_rows": 99441
+    },
+    {
+      "columns": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "previous_snapshot_rows": 32951
+    },
+    {
+      "columns": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "previous_snapshot_rows": 3095
+    },
+    {
+      "columns": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "previous_snapshot_rows": 71
+    }
+  ],
+  "role": "frozen_dataset_contract_not_training_preregistration",
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    }
+  ]
+}

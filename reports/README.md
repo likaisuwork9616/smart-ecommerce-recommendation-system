@@ -1,11 +1,12 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測可行性盤點；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測來源盤點與凍結資料集契約；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| 最新Stage 5資料集／逐fit標籤 | [H60與內外層契約](../docs/STAGE5_REVIEW_DATASET_SPEC.md) → [凍結規格](stage5/review_dataset_specification.json) → [實際支援與核對](stage5/review_dataset_audit.json)；沒有模型效能 |
 | 最新Stage 5評論預測可行性 | [問題／特徵／時間驗證](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) → [實際來源與標籤盤點](stage5/review_prediction_feasibility.json)；不是模型成績 |
 | 最新全量日資料契約與缺口 | [名冊／時鐘／版本／日結要求](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) → [實際來源查核](stage4/daily_data_contract.json)；待資料，不是生產完整性或效能通過 |
 | 最新單日離線交付驗收 | [範圍與操作](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) → [來源／交付契約](stage4/daily_delivery_acceptance_specification.json) → [聚合驗收](stage4/daily_delivery_acceptance.json)；不含個體排名／分數或新增效能 |
@@ -64,13 +65,15 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 
 代表性稽核的初版規格保留發布前JSON格式修正紀錄，未產生正式報告；計算規則未變，重現應使用正式規格，說明見[當輪文件](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)。
 
-## Stage 5聚合盤點
+## Stage 5資料集與聚合盤點
 
 | 主題 | 報告角色 | 實際輸出 |
 | --- | --- | --- |
 | 評論低評分預測可行性 | 來源檢視後的研究建議，非模型訓練事前規格 | [review_prediction_feasibility](stage5/review_prediction_feasibility.json) |
+| H60訂單級首答資料集 | 凍結單位、窗口、未知、多評論、來源及內外層日曆；非模型訓練規格 | [review_dataset_specification](stage5/review_dataset_specification.json) |
+| 逐fit標籤可得性核對 | 實際角色分母、成熟／未知、標籤支援、洩漏與私有輸出反讀 | [review_dataset_audit](stage5/review_dataset_audit.json) |
 
-Stage 5本輪只有資料品質、代理標籤、候選欄位與擬議時間窗口的支援量；沒有訓練、模型效能、Dashboard或未知測試成績。不能把資料中1–2分比例當成模型表現，也不能直接使用Stage 4的送達cohort／延遲label作評論資料集。
+Stage 5可行性報告保留不限H的來源盤點；最新資料集固定H60、C2018-07-01 exclusive及逐角色截止，C名冊73,254張、可用72,173張、未知1,081張。沒有訓練、模型效能、Dashboard或未知測試成績；支援量變化不是模型提升。標籤／切分CSV與manifest只放Git忽略的.runtime/stage5_review_dataset_v1/，公開不含ID、個體標籤或私有digest。
 
 ## 圖表與來源保護
 

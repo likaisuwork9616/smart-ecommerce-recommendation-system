@@ -30,7 +30,9 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 [Stage 5可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)只讀原始CSV的評論鍵、評分與建立／回答時鐘，以及六表基本輸入支援。評論一單可多筆，review_id非全域唯一；標籤先按order_id取最早記錄回答，再查是否晚於核准，不以最低／平均分或無評論填負例。首輪候選為核准時點21個基本聚合欄，但缺原取得／版本時鐘，不能稱為已驗證線上可用。
 
-本輪未建評論特徵快取、逐筆標籤交付或模型；公開只提交來源SHA及聚合盤點。沒有評論或尚未可得的答案仍未知，Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用作Stage 5資料集。
+最新[凍結資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)固定核准後60天首答、未知與內外層時間契約。私有order_labels.csv、split_membership.csv及manifest.json放Git忽略的.runtime/stage5_review_dataset_v1/；前者是C=2018-07-01的標籤審計，歷史fit必須用角色截止遮罩後的y，不能join前者取得未來答案。兩CSV只有9／12個身分、標籤與審計欄，不能當X。
+
+沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合核對，不公布個體ID／標籤或私有digest。未建21欄評論特徵值或模型，Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
 
 ## 處理資料與模型
 

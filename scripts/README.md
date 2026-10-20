@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 凍結Stage 5訂單級首答資料集 | [freeze_review_dataset.py](freeze_review_dataset.py) | 先--specification-only，再執行稽核；H60、多評論、未知與內外層時鐘，私有標籤／切分留.runtime，不建X或訓練 |
 | 重現Stage 5評論預測可行性盤點 | [audit_review_prediction_feasibility.py](audit_review_prediction_feasibility.py) | 需原九CSV與既有來源報告；只查標籤／鍵／時鐘／候選欄位，不建特徵或訓練模型 |
 | 檢查套件、MySQL及資料表 | [verify_environment.py](verify_environment.py) | 使用本機資料庫設定；摘要存 `.runtime/verification/summary.json` |
 | 開啟教學分析 | [start_jupyter.ps1](start_jupyter.ps1) | 先啟動本專案 MySQL，再開啟 `notebooks/`；見[Notebook說明](../notebooks/README.md) |
@@ -30,13 +31,25 @@
 .\.venv\Scripts\python.exe scripts\audit_event_source_availability.py --help
 .\.venv\Scripts\python.exe scripts\accept_frozen_daily_delivery.py --help
 .\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py --help
+.\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5可行性盤點
+## Stage 5資料集凍結
+
+```powershell
+.\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --specification-only
+.\.venv\Scripts\python.exe scripts\freeze_review_dataset.py
+```
+
+詳見[凍結資料集與逐fit核對](../docs/STAGE5_REVIEW_DATASET_SPEC.md)。固定H60、C截止及三個開發fold的內外層日曆，先凍結[規格](../reports/stage5/review_dataset_specification.json)，再輸出[聚合核對](../reports/stage5/review_dataset_audit.json)。原九CSV與前輪報告須吻合SHA；各角色以自己的答案截止重建，未知y留空，C標籤不能回填歷史fit。
+
+兩CSV及manifest只寫Git忽略的.runtime/stage5_review_dataset_v1/，共9／12個標籤與審計欄，不是21欄特徵快取。公私輸出預檢、來源前後綁定、不可覆寫與逐值反讀皆需通過。沒有MySQL、評論文字輸入、模型載入、訓練、預測、效能或Dashboard；來源變更或改H不能直接覆寫本版。
+
+## 前輪Stage 5可行性盤點
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py
