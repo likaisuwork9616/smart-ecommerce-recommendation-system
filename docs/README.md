@@ -6,13 +6,14 @@
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新研究結果 | [固定條件的成熟訊號比較](STAGE4_CONDITIONAL_MATURE_SIGNALS.md) | 固定路線、承諾、核准週與歷史支援量，比較共同漏報和對照；目前證據不足以指定單因子訓練 |
+| 最新研究結果 | [完成歷史代表性稽核](STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) | 同核准窗口內區分完成、待完成與已逾承諾，固定條件及星期敏感度，核對既有待件訊號 |
+| 前一步成熟訊號比較 | [固定條件的成熟訊號比較](STAGE4_CONDITIONAL_MATURE_SIGNALS.md) | 固定路線、承諾、核准週與歷史支援量；當輪證據不足以指定單因子訓練 |
 | 全專案狀態與歷程 | [專案進度](PROJECT_PROGRESS.md) | 各階段完成狀態、研究演進、目前限制與待辦 |
 | 安裝、服務與操作 | [本機環境指南](LOCAL_SETUP.md) | `.venv`、MySQL、Jupyter、資料匯入及驗證方式 |
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-最新研究維持每日完整批次 10% 提醒預算，以及原 101／時齡 102 × 欄位取樣 0.8／1.0、五種子的固定對照。最近三輪只做診斷，沒有新訓練或改選研究主方案；Dashboard 仍暫緩。
+最新研究維持每日完整批次 10% 提醒預算，以及原 101／時齡 102 × 欄位取樣 0.8／1.0、五種子的固定對照。最近四輪只做診斷，沒有新訓練或改選研究主方案；Dashboard 仍暫緩。
 
 ## Stage 4 研究文件
 
@@ -78,7 +79,8 @@
 | [欄位取樣 0.8／1.0](STAGE4_AGE_COLSAMPLE.md) | 維持兩組特徵與五種子，只改每棵樹的欄位取樣 |
 | [四模型共同漏報與每日邊界](STAGE4_FOUR_MODEL_BOUNDARY.md) | 固定四組設定與五種子，追查 SP→RJ、等待組、SP→SC 的排名與名額交換 |
 | [核准當下成熟歷史訊號稽核](STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md) | 重建既有成熟歷史，稽核賣家 CDF、賣家×路線延遲率及近期率差 |
-| **[固定條件的成熟訊號比較（最新）](STAGE4_CONDITIONAL_MATURE_SIGNALS.md)** | 固定路線、承諾、核准週與支援量，保留 SP→SC 對照及精確承諾敏感度比較 |
+| [固定條件的成熟訊號比較](STAGE4_CONDITIONAL_MATURE_SIGNALS.md) | 固定路線、承諾、核准週與支援量，保留 SP→SC 對照及精確承諾敏感度比較 |
+| **[完成歷史代表性稽核（最新）](STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)** | 區分送達窗口與同核准窗口，稽核完成／待完成組成、既有訊號與精確天數加星期的敏感度 |
 
 ## 如何追到實際產物
 

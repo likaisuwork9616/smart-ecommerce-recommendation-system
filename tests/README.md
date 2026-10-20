@@ -6,7 +6,7 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近模型診斷輪完整執行830項測試通過，148.728秒；這是[固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)的實際紀錄，不代表之後每次文件編輯都重跑相同實驗。
+最近[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)完整執行867項測試通過，165.394秒，含本輪新增37項；這是實際紀錄，不代表之後每次文件編輯都重跑相同實驗。
 
 ## 依修改範圍選擇檢查
 
@@ -19,13 +19,21 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-例如只檢查最近的分層比較與事前篩查：
+例如只檢查最近的歷史母體、固定條件比例與重現契約：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_delay_history_representativeness tests.test_delay_representation_profiles tests.test_audit_completed_history_representativeness -q
+```
+
+本組共37項，涵蓋核准／送達／交運邊界、未知key與零歷史、承諾無效、原窗口橋接、原欄還原、組成權重、五種子、稀疏與三精度篩查，以及完整phase／screen的JSON roundtrip重現。
+
+前一輪的成熟訊號分層比較亦可獨立執行：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_delay_conditional_mature_signals tests.test_diagnose_conditional_mature_signals -q
 ```
 
-本組包含31項合成測試，涵蓋組成反轉、漏報筆數與配對數權重、承諾精度、稀疏覆蓋、五種子身分、ties及跨月篩查。測試中的小型模型擬合是合成資料檢查，不是重新訓練研究模型或取得新回測成績。
+此組包含31項合成測試，涵蓋組成反轉、漏報筆數與配對數權重、承諾精度、稀疏覆蓋、五種子身分、ties及跨月篩查。測試中的小型模型擬合是合成資料檢查，不是重新訓練研究模型或取得新回測成績。
 
 ## 其他檢查
 
