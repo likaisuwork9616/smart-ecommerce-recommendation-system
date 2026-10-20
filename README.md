@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已凍結核准時首答低評的60天資料集與內外層時間契約，尚未訓練。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5沿用60天首答資料集，已固定四欄最小基線的前處理、內層選參與評估規格，尚未訓練。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 資料集契約與逐fit標籤核對完成；未訓練 | 訂單級首答、60天窗口、未知遮罩與三組內外層開發切分；21欄仍僅條件候選 |
+| Stage 5：評論低評分預測 | 最小基線規格已固定；未訓練 | H60資料集沿用；四個事件欄／44維、train-only前處理、歷史內層AP選C及未知處理 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -45,6 +45,7 @@ py -3.12 -m venv .venv
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
 | 看評論低評分預測能否開始 | [Stage 5可行性盤點](docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) |
 | 重現首答資料集與逐fit標籤資格 | [Stage 5凍結規格及核對](docs/STAGE5_REVIEW_DATASET_SPEC.md) |
+| 看最小基線、選參與評估約定 | [Stage 5最小基線規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -92,7 +93,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：首答資料集契約已凍結
+## Stage 5：最小基線規格已固定
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -114,7 +115,18 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [凍結資料集文件](docs/STAGE5_REVIEW_DATASET_SPEC.md)附[機器規格](reports/stage5/review_dataset_specification.json)、[實際核對](reports/stage5/review_dataset_audit.json)及重現指令。私有標籤／切分中繼資料只留`.runtime/stage5_review_dataset_v1/`；沒有建21欄特徵值、模型訓練、預測、效能或Dashboard。前輪不限H的72,613張與本輪H60口徑不同，不能解讀成模型得失。
 
-目前仍缺真實入庫、評分修訂與特徵版本時鐘，通過的是事件代理的離線契約。下一步先凍結最小基線的特徵假設、前處理、內層選參與評估規格，再另決定訓練。Stage 4待資料、每日10%與11／29／42／73／101五種子不變；Stage 5未指定模型、預算或種子，也未把五種子當五個fold。
+本輪進一步固定[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)：
+
+| 規格 | 固定做法，尚未訓練 |
+| --- | --- |
+| 特徵假設 | 購買月／星期／時及核准等待小時；其餘17個快照候選先排除，兩個原事件時鐘仍只有離線代理假設 |
+| 前處理 | 日曆固定one-hot43維＋等待train-only標準化1維；無補值，非法值停止且不刪查詢單 |
+| 最小模型 | 合格訓練低評比例常數作參考；L2 Logistic的C=0.1／1／10，只依既定內層AP選參，平手取較小C |
+| 評估與未知 | 固定0.5門檻，未知保留全名冊但不參與fit、選參或指標；逐月AP與機率／混淆表，三月皆有效才計macro AP |
+
+本輪[契約稽核](reports/stage5/review_baseline_contract_audit.json)只核時間、來源、未知與類別支援，沒有X、前處理fit、模型、分數、實際選參或效能。原H60資料集程式／報告與私有bundle均保留；真實入庫與評分版本仍未驗證，不能宣稱核准當下實際可得或全核准效能。
+
+下一步可依[凍結規格](reports/stage5/review_baseline_specification.json)先實作四欄builder與train-only pipeline，再另決定執行基線。Stage 5固定42僅作未來重現設定，尚未執行種子實驗；Stage 4待資料、每日10%與11／29／42／73／101五種子不變。
 
 ## 專案結構
 
@@ -143,7 +155,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪Stage 5資料集23項契約測試全過（3.748秒），14份來源／程式SHA前後一致；獨立程式559項對帳及兩CSV共4,138,962格逐值吻合。正式稽核21.431秒、同版重跑21.242秒，兩份公開JSON與三件私有產物bytes相同。55份Markdown／659個本機連結與82份JSON索引檢查通過。沒有建特徵、載入模型、訓練、預測、效能計算或Dashboard。前輪可行性12項、來源／名冊8項、交付42項及更早完整867項測試保留各輪紀錄，不當成本輪全套成績。Stage 4程式、報告與待資料狀態保留。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪最小基線20項契約測試全過（0.285秒），18份公開來源／程式與4份原私有輸入前後一致；860項獨立對帳吻合。正式metadata稽核9.009秒、重跑8.767秒，新規格／報告／guard三件bytes相同，原H60五件產物未變。鎖定套件版本不變，Git保留鎖檔原bytes以吻合規格SHA。56份Markdown／685個本機連結及84份JSON解析／索引檢查通過。沒有建X、前處理或模型fit、分數、實際選參、效能或Dashboard。前輪H60的23項／559項對帳、可行性12項及更早Stage 4測試均保留各輪紀錄，不當成本輪全套成績；Stage 4程式、報告與待資料狀態保留。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

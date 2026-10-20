@@ -1,0 +1,476 @@
+{
+  "clock_definition_contract": {
+    "deferred_features": [
+      "item_count",
+      "seller_count",
+      "product_count",
+      "total_price",
+      "total_freight_value",
+      "freight_ratio",
+      "payment_total",
+      "payment_count",
+      "payment_installments_max",
+      "product_weight_g_mean",
+      "product_volume_cm3_mean",
+      "estimated_delivery_days",
+      "interstate_item_ratio",
+      "customer_state",
+      "primary_seller_state",
+      "primary_category",
+      "payment_type"
+    ],
+    "feature_values_computed": 0,
+    "primary_expressions_AST_only": {
+      "approval_wait_hours": "(result['prediction_time'] - result['order_purchase_timestamp']).dt.total_seconds() / 3600",
+      "purchase_dayofweek": "result['order_purchase_timestamp'].dt.dayofweek",
+      "purchase_hour": "result['order_purchase_timestamp'].dt.hour",
+      "purchase_month": "result['order_purchase_timestamp'].dt.month"
+    },
+    "primary_feature_count": 4,
+    "prior_feature_count": 21,
+    "source_function_executed": false
+  },
+  "dataset_calendar_unchanged": [
+    {
+      "inner_fit_at": "2017-09-01 00:00:00",
+      "inner_month_end_plus_horizon": "2017-11-30 00:00:00",
+      "inner_query_end_exclusive": "2017-10-01 00:00:00",
+      "inner_query_start": "2017-09-01 00:00:00",
+      "outer_fit_at": "2017-12-01 00:00:00",
+      "outer_fold": "2017-12",
+      "outer_query_end_exclusive": "2018-01-01 00:00:00",
+      "outer_query_start": "2017-12-01 00:00:00"
+    },
+    {
+      "inner_fit_at": "2017-11-01 00:00:00",
+      "inner_month_end_plus_horizon": "2018-01-30 00:00:00",
+      "inner_query_end_exclusive": "2017-12-01 00:00:00",
+      "inner_query_start": "2017-11-01 00:00:00",
+      "outer_fit_at": "2018-02-01 00:00:00",
+      "outer_fold": "2018-02",
+      "outer_query_end_exclusive": "2018-03-01 00:00:00",
+      "outer_query_start": "2018-02-01 00:00:00"
+    },
+    {
+      "inner_fit_at": "2017-12-01 00:00:00",
+      "inner_month_end_plus_horizon": "2018-03-02 00:00:00",
+      "inner_query_end_exclusive": "2018-01-01 00:00:00",
+      "inner_query_start": "2017-12-01 00:00:00",
+      "outer_fit_at": "2018-04-01 00:00:00",
+      "outer_fold": "2018-04",
+      "outer_query_end_exclusive": "2018-05-01 00:00:00",
+      "outer_query_start": "2018-04-01 00:00:00"
+    }
+  ],
+  "format_version": 1,
+  "local_API_contract": {
+    "classes": {
+      "LogisticRegression": {
+        "accepted_parameters": [
+          "penalty",
+          "C",
+          "l1_ratio",
+          "dual",
+          "tol",
+          "fit_intercept",
+          "intercept_scaling",
+          "class_weight",
+          "random_state",
+          "solver",
+          "max_iter",
+          "verbose",
+          "warm_start",
+          "n_jobs"
+        ],
+        "default_expressions": {
+          "C": "1.0",
+          "class_weight": "None",
+          "dual": "False",
+          "fit_intercept": "True",
+          "intercept_scaling": "1",
+          "l1_ratio": "0.0",
+          "max_iter": "100",
+          "n_jobs": "None",
+          "penalty": "'deprecated'",
+          "random_state": "None",
+          "solver": "'lbfgs'",
+          "tol": "0.0001",
+          "verbose": "0",
+          "warm_start": "False"
+        },
+        "package_relative_path": "sklearn/linear_model/_logistic.py"
+      },
+      "OneHotEncoder": {
+        "accepted_parameters": [
+          "categories",
+          "drop",
+          "sparse_output",
+          "dtype",
+          "handle_unknown",
+          "min_frequency",
+          "max_categories",
+          "feature_name_combiner"
+        ],
+        "default_expressions": {
+          "categories": "'auto'",
+          "drop": "None",
+          "dtype": "np.float64",
+          "feature_name_combiner": "'concat'",
+          "handle_unknown": "'error'",
+          "max_categories": "None",
+          "min_frequency": "None",
+          "sparse_output": "True"
+        },
+        "package_relative_path": "sklearn/preprocessing/_encoders.py"
+      },
+      "StandardScaler": {
+        "accepted_parameters": [
+          "copy",
+          "with_mean",
+          "with_std"
+        ],
+        "default_expressions": {
+          "copy": "True",
+          "with_mean": "True",
+          "with_std": "True"
+        },
+        "package_relative_path": "sklearn/preprocessing/_data.py"
+      }
+    },
+    "method": "AST_only_distribution_locate_file_no_package_import",
+    "package": "scikit-learn",
+    "verification": {
+      "classes_checked": 3,
+      "frozen_argument_support": true,
+      "logistic_l1_ratio_default_zero": true,
+      "logistic_penalty_deprecated": true,
+      "objects_instantiated": 0,
+      "package_imports": 0
+    },
+    "version": "1.9.1"
+  },
+  "private_inputs": {
+    "default_guard_path": ".runtime/stage5_review_baseline_v1/input_guard.json",
+    "digests_published": false,
+    "historical_ingestion_verified": false,
+    "paths": [
+      ".runtime/stage5_review_dataset_v1/order_labels.csv",
+      ".runtime/stage5_review_dataset_v1/split_membership.csv",
+      ".runtime/stage5_review_dataset_v1/manifest.json",
+      ".runtime/stage5_dataset_formal_execution_proof.json"
+    ]
+  },
+  "protocol": {
+    "dataset_protocol_unchanged": true,
+    "disabled_future_changes": [
+      "weights",
+      "resampling",
+      "early_stopping",
+      "calibration",
+      "threshold_tuning",
+      "budget_tuning",
+      "automatic_retry"
+    ],
+    "features": {
+      "availability": "each_order_own_approval_t_event_proxy_only",
+      "categorical": {
+        "purchase_dayofweek": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "purchase_hour": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "purchase_month": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "ids_and_all_label_metadata_status_logistics_reviews": "banned_from_X",
+      "intercept_separate": true,
+      "numeric": {
+        "approval_wait_hours": "(approval-purchase).total_seconds()/3600",
+        "log_clip_winsor": false
+      },
+      "one_hot": {
+        "columns": 43,
+        "drop": null,
+        "dtype": "float64",
+        "handle_unknown": "error",
+        "sparse_output": false
+      },
+      "other_prior_17_features": "deferred_excluded",
+      "output_columns": 44,
+      "output_order": [
+        "month_1_through_12",
+        "dayofweek_0_through_6",
+        "hour_0_through_23",
+        "scaled_approval_wait_hours"
+      ],
+      "primary_dtype": "float64",
+      "primary_order": [
+        "purchase_month",
+        "purchase_dayofweek",
+        "purchase_hour",
+        "approval_wait_hours"
+      ],
+      "query_clocks_before_model_fit_required": false
+    },
+    "future_evaluation": {
+      "binary_log_loss": "mean(-y*log(p)-(1-y)*log(1-p));clip_only_for_log",
+      "brier": "mean((probability-y)**2)",
+      "brier_and_log_loss_support": "defined_with_at_least_one_known_label_including_one_class",
+      "confusion": "TP_FP_TN_FN_at_probability_greater_than_or_equal_0.5",
+      "data_role": "already_inspected_development_not_fresh_holdout",
+      "independent_fold_confidence_interval": false,
+      "log_loss_labels": [
+        0,
+        1
+      ],
+      "log_probability_clip": [
+        1e-15,
+        0.999999999999999
+      ],
+      "macro_primary": "equal_weight_mean_AP_only_if_all_three_months_valid_else_null_and_valid_fold_count",
+      "metric_rows": "role_label_usable_only",
+      "no_known_rows": "all_metrics_null",
+      "pooled_AP": false,
+      "precision_recall": "null_if_respective_denominator_is_zero",
+      "primary": "average_precision_score_noninterpolated_not_trapezoid",
+      "primary_AP_undefined": "null_if_either_class_absent",
+      "probability_column": "column_matching_label_1_in_estimator.classes_",
+      "probability_target": "P(y=1)",
+      "required_coverage": "full_N_known_unknown_exclusive_reasons_known_low_other",
+      "score_queries": "all_orders_including_unknown",
+      "secondary_roc_auc": "null_if_either_class_absent"
+    },
+    "main_model": {
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs_argument": "omitted",
+      "package": "scikit-learn",
+      "penalty_argument": "omitted_deprecated",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 1e-08,
+      "type": "LogisticRegression",
+      "verbose": 0,
+      "version": "1.9.1",
+      "warm_start": false
+    },
+    "preprocessing": {
+      "categorical_categories_fit_from_data": false,
+      "eligible_fit_rows": "role_label_usable_train_only",
+      "imputer": null,
+      "missing_nonfinite_or_invalid_X": "stop_fold_keep_full_query_no_drop_no_zero_inference",
+      "numeric_scaler": {
+        "variance_ddof": 0,
+        "with_mean": true,
+        "with_std": true,
+        "zero_std_scale": 1
+      },
+      "refit_per_C_and_outer_fit": true,
+      "unknown_in_fit": false
+    },
+    "protected_stage4": {
+      "daily_budget": 0.1,
+      "modified": false,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "reference": {
+      "compute_this_run": false,
+      "selection_candidate": false,
+      "type": "unsmoothed_eligible_train_low_count_divided_by_train_count"
+    },
+    "role": "future_baseline_contract_metadata_audit_no_training",
+    "seed_42": "reproducibility_only_not_five_seed_experiment",
+    "selection": {
+      "C_candidates": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "actual_selected_C": null,
+      "after_selection": "refit_preprocessing_and_estimator_from_scratch_on_F_eligible_history",
+      "constant_reference_competes": false,
+      "inner_train_cutoff": "I",
+      "inner_validation_label_cutoff": "F",
+      "objective": "finite_average_precision_score_noninterpolated",
+      "outer_evaluation_used": false,
+      "tie_absolute_tolerance": 1e-12,
+      "tie_break": "smallest_C_within_tolerance_of_max"
+    },
+    "stop_rules": {
+      "any_candidate_failure_or_nonfinite_AP": "stop_fold_no_candidate_removal",
+      "both_classes_required": [
+        "inner_train_pool",
+        "inner_validation",
+        "outer_train_pool"
+      ],
+      "convergence_warning": "stop_fold",
+      "insufficient_support": "stop_fold_no_fallback_or_automatic_C",
+      "nonfinite_coefficient_or_probability": "stop_fold",
+      "probability_outside_0_1": "stop_fold"
+    },
+    "this_run": {
+      "dashboard": 0,
+      "feature_build": 0,
+      "fit": 0,
+      "metrics": 0,
+      "model_import": 0,
+      "model_instantiation": 0,
+      "predictions": 0,
+      "selection": 0,
+      "transform": 0
+    }
+  },
+  "public_output": "reports/stage5/review_baseline_contract_audit.json",
+  "role": "future_baseline_contract_not_training_execution",
+  "selected_C": null,
+  "software_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    }
+  ]
+}
