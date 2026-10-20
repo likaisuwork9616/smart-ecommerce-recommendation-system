@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5沿H60契約實作四欄builder與train-only pipeline，以合成資料驗洩漏，尚未進行真實資料訓練。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄離線最小基線的來源守門、歷史選參及開發回測，辨識改善有限且跨月不一致。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | builder／受控pipeline已實作；僅合成測試 | 四欄／44維、未知訓練隔離、查詢不讀未來標籤、獨立完整名冊與失敗停止；未實際選C或真實訓練 |
+| Stage 5：評論低評分預測 | 四欄離線最小基線完成；開發研究 | 12次fit、三月皆歷史內層選C=0.1；macro AP 0.170928對常數0.166178，2月較差；未達營運適用證明 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -47,6 +47,7 @@ py -3.12 -m venv .venv
 | 重現首答資料集與逐fit標籤資格 | [Stage 5凍結規格及核對](docs/STAGE5_REVIEW_DATASET_SPEC.md) |
 | 看最小基線、選參與評估約定 | [Stage 5最小基線規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md) |
 | 驗證四欄builder與train-only pipeline | [Stage 5實作與洩漏測試](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) |
+| 看來源守門、實際選參及評論基線結果 | [Stage 5離線最小基線](docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -94,7 +95,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：四欄pipeline與洩漏測試
+## Stage 5：四欄離線最小基線
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -114,22 +115,35 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 內層取在外層fit前已走完60天的最近完整月；內層訓練標籤截至內層月初，驗證截至外層fit，外層查詢答案截至2018-07-01。三個開發月已檢視，不是新未知保留測試。全局C標籤不能join回較早fit；歷史角色檔只提供當時合格的nullable y。
 
-[凍結資料集文件](docs/STAGE5_REVIEW_DATASET_SPEC.md)附[機器規格](reports/stage5/review_dataset_specification.json)、[實際核對](reports/stage5/review_dataset_audit.json)及重現指令。私有標籤／切分中繼資料只留`.runtime/stage5_review_dataset_v1/`；沒有建21欄特徵值、模型訓練、預測、效能或Dashboard。前輪不限H的72,613張與本輪H60口徑不同，不能解讀成模型得失。
+[凍結資料集文件](docs/STAGE5_REVIEW_DATASET_SPEC.md)附[機器規格](reports/stage5/review_dataset_specification.json)、[實際核對](reports/stage5/review_dataset_audit.json)及重現指令。私有標籤／切分中繼資料只留`.runtime/stage5_review_dataset_v1/`。前輪資料集建立時尚未訓練；最新只用四欄執行基線，沒有建立原候選21欄。不限H的72,613張與H60口徑不同，不能解讀成模型得失。
 
 沿用[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)：
 
-| 規格 | 固定做法，尚未訓練 |
+| 規格 | 本輪依循的固定做法 |
 | --- | --- |
 | 特徵假設 | 購買月／星期／時及核准等待小時；其餘17個快照候選先排除，兩個原事件時鐘仍只有離線代理假設 |
 | 前處理 | 日曆固定one-hot43維＋等待train-only標準化1維；無補值，非法值停止且不刪查詢單 |
 | 最小模型 | 合格訓練低評比例常數作參考；L2 Logistic的C=0.1／1／10，只依既定內層AP選參，平手取較小C |
 | 評估與未知 | 固定0.5門檻，未知保留全名冊但不參與fit、選參或指標；逐月AP與機率／混淆表，三月皆有效才計macro AP |
 
-前輪[契約稽核](reports/stage5/review_baseline_contract_audit.json)保留來源、時間、未知與類別支援。本輪完成[四欄builder與受控pipeline](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)：只讓合格訓練y進scaler／Logistic；查詢保留全部訂單，未來評分／狀態／首答等欄位不影響transform或機率。獨立context保存預期ID與核准時鐘，避免兩份輸入一起少單卻互相通過；fit失敗即停止，不保留半成品。
+本輪將[已驗證pipeline](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)串接原來源SHA、manifest、正式收據與私有guard，核對73,254張研究名冊及12個角色。每次fit只用當時合格y；query七個未來標籤欄清空後完整出分，再以各角色truth計分。29份原凍結來源／證據bytes不變，沒有改寫H60標籤。
 
-[合成驗證報告](reports/stage5/review_pipeline_verification.json)只記測試與程式來源。這輪合成fixture確有scaler／模型fit及機率一致性檢查，真實Olist的X、模型訓練、預測、選C、效能與Dashboard均未執行。原H60／基線程式及報告保留，原入庫／評分版本限制仍未解，不能稱營運as-of或全核准效能通過。
+| 已檢視外層開發月 | 完整查詢／合格／未知 | 選定C | Logistic AP | 常數AP | 固定0.5的TP／FN |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2017-12 | 5,832／5,740／92 | 0.1 | 0.177118 | 0.162892 | 2／933 |
+| 2018-02 | 6,706／6,611／95 | 0.1 | 0.202077 | 0.205869 | 1／1,360 |
+| 2018-04 | 6,778／6,704／74 | 0.1 | 0.133589 | 0.129773 | 0／870 |
 
-下一步可按[凍結規格](reports/stage5/review_baseline_specification.json)決定是否執行離線最小基線，先接入既有來源／私有guard與完整角色名冊，再依內層選參及外層開發評估執行。Stage 5固定42僅作重現設定，沒有五種子成績；Stage 4待資料、每日10%與11／29／42／73／101五種子不變。
+三月等權macro AP為**0.170928對0.166178**，差+0.004750；2月AP反而較低，ROC-AUC都接近0.5，固定0.5召回極低。Brier／logloss前兩月略好、4月略差，沒有跨月一致改善或正式適用證明。完整內層九個候選、外層機率指標與混淆表見[實驗文件](docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)及[正式報告](reports/stage5/review_baseline_training.json)。
+
+正式一次完成12次fit、18個出分區塊；108,744列是跨候選／角色出分次數，不是獨立訂單。逐筆分數、fit診斷及manifest在`.runtime/stage5_review_baseline_training_v1/`，不隨Git提供。操作入口如下；**正式命令會訓練，已有結果或失敗收據會在fit前拒收**。需原私有資料與收據，不能靠Git clone自行補出證據。
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_review_baseline.py --specification-only
+.\.venv\Scripts\python.exe scripts\run_review_baseline.py
+```
+
+下一步建議先只讀凍結分數，核對各月低評率、分數分布與四欄訓練／查詢支援，釐清2月排序及4月機率損失的差異，再決定一個事先固定的改動；先不追改門檻或追加fit。原入庫／事件及評分版本仍未驗證，不能把已知首答子集外推全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
 
 ## 專案結構
 
@@ -158,7 +172,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增32項合成洩漏／失敗測試全過；連同Stage 5既有三組，87項全過、5.821秒。獨立合成300項檢查與CLI六種失敗拒收均通過。正式驗證綁10份公開來源，同版重跑報告bytes相同；57份Markdown／708個本機連結及85份JSON解析／索引通過。合成測試確有scaler／Logistic fit與機率檢查，真實資料X／訓練／預測／選C／效能及Dashboard未執行。前輪來源盤點、H60／基線對帳與更早完整867項測試保留各輪紀錄，不當成本輪全專案成績；原Stage 4、H60與基線程式／報告保留。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增33項，連同Stage 5既有四組共120項全過、19.581秒。獨立來源65項、手算指標300項及正式分數／fit診斷1,096項核對通過；正式對帳沒有額外fit或重預測。執行規格13.096秒，唯一正式訓練／評估62.937秒；29公開來源、5舊私有來源及新規格／guard共36個綁定在各fit前後檢查，原29份凍結資產bytes不變。前輪合成測試及更早完整867項測試保留各輪紀錄，不當成本輪全專案成績。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

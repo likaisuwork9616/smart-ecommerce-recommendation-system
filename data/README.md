@@ -32,11 +32,13 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 最新[凍結資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)固定核准後60天首答、未知與內外層時間契約。私有order_labels.csv、split_membership.csv及manifest.json放Git忽略的.runtime/stage5_review_dataset_v1/；前者是C=2018-07-01的標籤審計，歷史fit必須用角色截止遮罩後的y，不能join前者取得未來答案。兩CSV只有9／12個身分、標籤與審計欄，不能當X。
 
-沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合核對，不公布個體ID／標籤或私有digest。未建21欄評論特徵值或模型，Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
+沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合，不公布個體ID／標籤或私有digest。Stage 5目前採四個事件時間特徵，沒有建立原候選21欄；Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
 
 前輪[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)只用購買月／星期／時及核准等待小時，其餘快照候選先排除；兩事件時鐘仍只有快照代理假設。該輪不建X或fit，私有input_guard放.runtime/stage5_review_baseline_v1/，原H60 bundle不改。
 
-最新[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)只在手造合成fixture建X、fit scaler／Logistic及核對transform／機率。真實CSV、私有label bundle與模型不讀，沒有新增真實特徵快取或模型檔。未知訓練列不能進任何fit；完整query的未來標籤欄不參與輸出。獨立context只留ID／核准時鐘及來源版本，呼叫方仍需先證明來源名冊完整；未來真實訓練須先接既有SHA／私有guard。
+前輪[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)只用手造fixture驗洩漏。最新[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)串接原來源SHA、私有guard、manifest及收據，再核對完整角色名冊，才用真實四欄資料fit。未知訓練列不參與fit，query未來標籤先清空但整份名冊保留；計分另用自己的角色truth。
+
+本輪inner_scores.csv、outer_scores.csv、fit_audit.json、manifest.json與新input_guard.json留`.runtime/stage5_review_baseline_training_v1/`。其中fit診斷含本機係數／統計，不是公開可用服務模型；無模型序列化或營運通知入口。研究來源版本通過仍不能補足原入庫／修訂／全量母體證據。
 
 ## 處理資料與模型
 

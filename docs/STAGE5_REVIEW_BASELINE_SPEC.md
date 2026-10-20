@@ -1,6 +1,6 @@
 # Stage 5：最小基線與評估凍結規格
 
-後續已依本版完成[四欄builder／train-only pipeline及合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)。以下保留規格凍結當輪「不建X／不fit」的範圍與數字；新一輪僅在合成fixture驗證，沒有真實資料訓練、選參或效能。
+後續已依本版完成[四欄builder／train-only pipeline及合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)，再串接來源與名冊執行[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)。以下保留規格凍結當輪「不建X／不fit」的範圍與數字；後續執行結果另見對應文件，不改寫本版政策或歷史紀錄。
 
 承接[H60訂單級資料集](STAGE5_REVIEW_DATASET_SPEC.md)，本輪先固定特徵假設、前處理、歷史內層選參與評估口徑，核對逐fit標籤／事件代理支援。**本輪不建X、不擬合前處理或模型、不計算預測、選參成績或模型效能，不做Dashboard。** Stage 4待資料、每日10%與11／29／42／73／101五種子不變。
 

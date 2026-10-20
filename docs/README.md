@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5已依H60／基線規格實作四欄builder與受控pipeline，只用合成資料驗洩漏，未進行真實訓練。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5已將H60四欄pipeline接入來源守門與完整角色名冊，依凍結規格執行離線最小基線。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5實作 | [builder與pipeline洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) | 四欄／44維、合格訓練隔離、查詢不讀未來標籤、獨立名冊與失敗停止；僅合成fixture fit |
+| 最新Stage 5開發回測 | [四欄離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md) | 來源與角色守門、歷史內層選C、外層從頭fit、全query出分及逐月開發評估 |
+| 前輪Stage 5實作 | [builder與pipeline洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) | 四欄／44維、合格訓練隔離、查詢不讀未來標籤、獨立名冊與失敗停止；僅合成fixture fit |
 | 前輪Stage 5基線規格 | [最小基線與評估](STAGE5_REVIEW_BASELINE_SPEC.md) | 四欄、前處理、內層AP選C、評估及未知／失敗處理的凍結政策 |
 | 前輪Stage 5資料集 | [首答資料集凍結與核對](STAGE5_REVIEW_DATASET_SPEC.md) | 60天窗口、多評論與未知、內外層切分及每個fit的標籤資格 |
 | 前輪Stage 5可行性 | [評論低評分預測盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) | 核准時首答目標、21欄條件候選及不限H的來源支援 |
@@ -96,10 +97,10 @@ Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)與[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)保留各輪口徑。最新[實作與洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)以合成frames驗四欄／44維pipeline、時間／未知及完整名冊隔離；確有合成scaler／Logistic fit與機率一致性檢查，真實資料X／訓練／選C／效能與Dashboard未執行。兩事件時鐘仍缺原入庫／版本證據；Stage 4待資料及每日10%／五種子不變。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。最新[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)已串接完整來源與角色守門，完成12次fit及開發回測；三月macro AP小幅高於常數，2月反而較差，固定0.5召回極低。兩事件時鐘仍缺原入庫／版本證據；Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
 
 ## 如何追到實際產物
 
-每份研究文件內附對應報告、適用的規格與執行方式；聚合JSON位於 [`reports/stage4/`](../reports/stage4/)及[`reports/stage5/`](../reports/stage5/)，程式位於 [`scripts/`](../scripts/)。可行性／資料集契約與本輪未來基線訓練規格各有用途，均不能補成全盲未知測試。資料目錄與保留方式見[資料說明](../data/README.md)，資料庫建立與查詢見 [SQL 導覽](../sql/README.md)，驗證方式見[測試說明](../tests/README.md)。逐筆分數、原始資料、本機模型及執行紀錄由 Git 忽略，重現時須依[本機環境指南](LOCAL_SETUP.md)準備。
+每份研究文件內附對應報告、適用的規格與執行方式；聚合JSON位於 [`reports/stage4/`](../reports/stage4/)及[`reports/stage5/`](../reports/stage5/)，程式位於 [`scripts/`](../scripts/)。可行性、資料集／基線契約、合成驗證與正式開發回測各有用途，均不能補成全盲未知測試。資料目錄與保留方式見[資料說明](../data/README.md)，資料庫建立與查詢見 [SQL 導覽](../sql/README.md)，驗證方式見[測試說明](../tests/README.md)。逐筆分數、原始資料、本機模型及執行紀錄由 Git 忽略，重現時須依[本機環境指南](LOCAL_SETUP.md)準備。
 
 文件中的原始輸入欄數、快取欄數與模型編碼後維度各有不同用途；不同輪次都可能稱為 102 欄，應以當輪白名單與規格確認內容。等待 24–72 小時組指歷史待件時齡代理，不是本張訂單核准後再等 24–72 小時才預測。

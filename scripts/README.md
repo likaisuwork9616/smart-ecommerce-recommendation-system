@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 執行Stage 5四欄離線最小基線 | [run_review_baseline.py](run_review_baseline.py) | 需原資料／H60私有bundle／原收據／guard；先凍結新執行規格，正式入口會12次fit並做開發回測，已有結果則fit前拒收 |
 | 驗證四欄builder與train-only pipeline | [verify_review_pipeline.py](verify_review_pipeline.py)、[review_baseline_pipeline.py](review_baseline_pipeline.py) | 僅合成fixture，無需原CSV／私有bundle；會fit測試用scaler／Logistic並檢查洩漏，不執行真實訓練 |
 | 核對Stage 5最小基線規格 | [audit_review_baseline_contract.py](audit_review_baseline_contract.py) | 先--specification-only；只核來源、事件時鐘、未知／fit角色與固定基線政策，不建X或fit |
 | 凍結Stage 5訂單級首答資料集 | [freeze_review_dataset.py](freeze_review_dataset.py) | 先--specification-only，再執行稽核；H60、多評論、未知與內外層時鐘，私有標籤／切分留.runtime，不建X或訓練 |
@@ -36,13 +37,25 @@
 .\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --help
 .\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --help
 .\.venv\Scripts\python.exe scripts\verify_review_pipeline.py --help
+.\.venv\Scripts\python.exe scripts\run_review_baseline.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5四欄pipeline與合成驗證
+## Stage 5離線最小基線
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_review_baseline.py --specification-only
+.\.venv\Scripts\python.exe scripts\run_review_baseline.py
+```
+
+第一個命令驗來源並凍結[新執行規格](../reports/stage5/review_baseline_training_specification.json)及私有input_guard；第二個在完整來源／角色守門通過後，按既定三個C及時間切分執行12次真實模型fit，產生[開發回測](../reports/stage5/review_baseline_training.json)。[來源模組](review_baseline_sources.py)接原私有收據與manifest，查詢未來標籤清空；[評估模組](review_baseline_evaluation.py)只在角色合格y上計分，未知仍完整出分。
+
+逐筆inner／outer機率、fit診斷與manifest在`.runtime/stage5_review_baseline_training_v1/`，不隨Git交付。缺原CSV、H60 bundle、原收據或原基線guard即停止；不由CLI重建缺失證據。已有結果會在fit前拒收，不能直接重跑覆寫。三月已檢視，數字是開發回測；原入庫／版本限制仍在。詳細方法、實際結果及驗證見[離線基線文件](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)。
+
+## 前輪Stage 5四欄pipeline與合成驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
@@ -51,7 +64,7 @@
 
 [實作文件](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)說明builder、不可變預期名冊與受控fit／query介面。[verify_review_pipeline.py](verify_review_pipeline.py)只執行指定合成測試，綁10份公開程式／契約，輸出[驗證報告](../reports/stage5/review_pipeline_verification.json)。真實原CSV、私有標籤及模型都不讀；runtime log與耗時留.runtime/stage5_review_pipeline_verification/，報告排除時間以便同版bytes重現。
 
-受控pipeline只fit合格訓練列，query保留未知且不讀未來標籤；它不是正式資料loader或內層選參／評估CLI。未來使用真實資料前仍須接既有SHA／私有guard與完整名冊，原入庫／版本限制保留。
+受控pipeline只fit合格訓練列，query保留未知且不讀未來標籤；低階介面與真實來源loader、內層選參／評估CLI分開。後續已由上述離線入口串接，原入庫／版本限制保留。
 
 ## 前輪Stage 5最小基線契約
 

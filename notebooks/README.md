@@ -44,4 +44,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 最新[單日離線交付驗收](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)以獨立CLI只讀凍結分數，沒有執行Notebook、模型訓練或新預測。請勿為重現交付驗收而整本執行04。
 
-Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)與[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)後，最新[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)以獨立CLI執行合成洩漏測試；有合成scaler／Logistic fit，沒有真實資料訓練或Dashboard，不新增或執行Notebook。不要為了補Stage 5就執行04的延遲訓練。
+Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)、[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)後，以獨立CLI執行[四欄離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)。該入口會在來源守門通過後用真實資料訓練與做開發回測；沒有新增或執行Notebook，也沒有Dashboard。不要為了補Stage 5就執行04的延遲訓練。

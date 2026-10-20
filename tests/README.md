@@ -8,7 +8,7 @@
 
 最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核15項、單日離線交付42項（3.017秒）、[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)8項（0.062秒）均已通過。這些是各前輪紀錄，不能合稱本輪完整測試。
 
-前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本案例不能當成真實資料已驗收。Stage 5可行性、H60資料集與基線契約保留各輪紀錄；最新builder／pipeline測試只在合成fixture fit scaler／Logistic，沒有真實資料訓練或效能，也未重跑模型全套。
+前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本案例不能當成真實資料已驗收。Stage 5可行性、H60資料集、基線契約與合成pipeline驗證保留各輪紀錄。最新[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)分開記合成測試、只讀來源稽核、正式真實資料訓練及凍結分數獨立對帳，不把測試數當作效能。
 
 ## 依修改範圍選擇檢查
 
@@ -21,7 +21,21 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-最新Stage 5builder／pipeline洩漏測試：
+## 最新Stage 5離線基線入口
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_sources tests.test_review_baseline_training -q
+```
+
+來源測試只用合成metadata與暫存來源，核對祖先SHA／私有guard、完整同ID角色、未知與七個未來欄遮罩及防禦性副本。訓練入口測試核對手算AP／ROC／Brier／logloss／0.5邊界、未知不計分、單類及無known的null、三C平手、每次fresh fit與錯誤停止、全query出分、float64帳本反讀、輸出碰撞及重跑拒收。測試不讀真實Olist來fit；實際真實基線由獨立CLI執行，結果見實驗文件。
+
+本輪新增來源12項＋訓練／評估21項全過；連同既有四組，下面六組共120項全過、19.581秒，無失敗、錯誤或跳過。另有來源65項、手算指標300項及正式分數／fit診斷1,096項獨立比較；後者沒有重fit或重預測，不加總成單元測試數。
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_prediction_feasibility tests.test_review_dataset_contract tests.test_review_baseline_contract tests.test_review_baseline_pipeline tests.test_review_baseline_sources tests.test_review_baseline_training -q
+```
+
+## 前輪Stage 5builder／pipeline洩漏測試
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
@@ -30,7 +44,7 @@
 
 本組以手算四欄／44維、未知訓練outlier、query未來標籤改動與極端值、時間嚴格邊界、獨立名冊共同刪單、各fit隔離及失敗後狀態核對實際資料流。固定類別、ddof=0、零變異、schema／值域、參數、收斂警告及機率異常都有拒收或一致性檢查。合成係數／機率只用來驗正確性，不算AP等模型表現；詳見[實作與驗證](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)。
 
-本輪32項全過（正式CLI測試1.855秒）；合併下列Stage 5既有三組，87項全過、5.821秒。另有300項獨立合成檢查及六種CLI拒收案例；這些不加總成單元測試或真實資料成績。沒有重跑全專案867項模型測試。
+該輪32項全過（正式CLI測試1.855秒）；合併下列Stage 5既有三組，87項全過、5.821秒。另有300項獨立合成檢查及六種CLI拒收案例；這些不加總成單元測試或真實資料成績。沒有重跑全專案867項模型測試。
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_prediction_feasibility tests.test_review_dataset_contract tests.test_review_baseline_contract tests.test_review_baseline_pipeline -q
