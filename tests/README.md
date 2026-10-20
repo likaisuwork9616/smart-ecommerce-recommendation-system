@@ -6,7 +6,7 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒，含當輪新增37項。本輪[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)執行新增15項來源契約測試，全過、0.098秒，未重跑全套或模型實驗。
+最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒，含當輪新增37項。其後[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)的15項來源契約測試全過、0.098秒。本次[模型卡整理](../docs/STAGE4_MODEL_APPLICABILITY.md)只核既有數字、檔案SHA、CLI說明與文件，沒有改程式、新增單元測試或重跑模型。
 
 ## 依修改範圍選擇檢查
 
