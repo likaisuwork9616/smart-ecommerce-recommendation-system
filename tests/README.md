@@ -6,7 +6,7 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒，含當輪新增37項。其後[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)的15項來源契約測試全過、0.098秒。本次[模型卡整理](../docs/STAGE4_MODEL_APPLICABILITY.md)只核既有數字、檔案SHA、CLI說明與文件，沒有改程式、新增單元測試或重跑模型。
+最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後來源查核的15項及本次[單日離線交付驗收](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)的42項範圍測試均通過；本次42項用時3.017秒，沒有重跑全套、模型訓練或新預測。各輪執行紀錄不可合稱本輪完整測試。
 
 ## 依修改範圍選擇檢查
 
@@ -19,7 +19,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-例如檢查最新來源盤點的時鐘與證據契約：
+例如檢查最新單日離線交付契約：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_delay_daily_delivery_acceptance tests.test_accept_frozen_daily_delivery -q
+```
+
+本組42項（核心25＋CLI／來源／輸出17）涵蓋完整20組、同N錯ID、漏單／重複、時間與版本、finite分數、同分ID升序、9／10／19張的向下取整、未知答案不預濾、原旗標／舊邊界、來源SHA、Git忽略路徑、整批拒覆寫與CSV逐值反讀。合成資料沒有擬合模型，不是新增實驗效能。
+
+來源盤點的時鐘與證據契約：
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_audit_event_source_availability -q

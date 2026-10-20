@@ -11,6 +11,7 @@
 | 啟停資料庫／開啟GUI | [start_mysql.ps1](start_mysql.ps1)、[stop_mysql.ps1](stop_mysql.ps1)、[start_dbeaver.ps1](start_dbeaver.ps1) | 工具、資料庫、設定與帳密都在本機忽略路徑 |
 | 建立新電腦環境／匯入CSV | [setup_local_mysql.py](setup_local_mysql.py)、[load_olist_to_mysql.py](load_olist_to_mysql.py) | 初始化只供新環境；CSV匯入使用 `if_exists="replace"`，會重建同名資料表，操作見建置指南 |
 | 載入模型做離線推論 | [predict_delay.py](predict_delay.py) | 需要本機 artifact；支援原版、平衡模式及指定研究模型，操作見[原版說明](../docs/STAGE4_DELAY_PREDICTION.md) |
+| 重現單日離線交付驗收 | [accept_frozen_daily_delivery.py](accept_frozen_daily_delivery.py) | 需原始orders、凍結cache／帳本、報告及20份月模型bytes；只核SHA與已有分數，不載模型／預測／訓練 |
 | 閱讀適用範圍與交付前提 | [模型卡與交付清單](../docs/STAGE4_MODEL_APPLICABILITY.md) | 區分主方案wrapper與160份五種子月版；離線研究可交付，沒有生產日結／通知服務 |
 | 閱讀待資料方向 | [事件／承諾版本來源](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) | 新增驗收來源0，先讀查核範圍與資料契約；不需要啟動MySQL或訓練 |
 | 重現來源快照 | [audit_event_source_availability.py](audit_event_source_availability.py) | 需要原始九表及當輪忽略路徑內的盤點、DB／官方取得證據；重算聚合，不自行啟服務或連私有API |
@@ -25,6 +26,7 @@
 .\.venv\Scripts\python.exe scripts\diagnose_conditional_mature_signals.py --help
 .\.venv\Scripts\python.exe scripts\audit_completed_history_representativeness.py --help
 .\.venv\Scripts\python.exe scripts\audit_event_source_availability.py --help
+.\.venv\Scripts\python.exe scripts\accept_frozen_daily_delivery.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
@@ -52,6 +54,7 @@
 | 固定四組模型的邊界、成熟訊號及條件比較 | [diagnose_four_model_boundary.py](diagnose_four_model_boundary.py)、[audit_mature_history_signals.py](audit_mature_history_signals.py)、[diagnose_conditional_mature_signals.py](diagnose_conditional_mature_signals.py) | [每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟訊號](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md) |
 | 完成歷史與未完成慢件代表性 | [audit_completed_history_representativeness.py](audit_completed_history_representativeness.py) | [同核准窗口、逾期待件與條件敏感度](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) |
 | 取消／結案與承諾版本來源 | [audit_event_source_availability.py](audit_event_source_availability.py) | [來源取得、時鐘涵蓋及未來驗收](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) |
+| 單日凍結分數交付驗收 | [accept_frozen_daily_delivery.py](accept_frozen_daily_delivery.py) | [名冊／版本、20組排名、10%名額與私有CSV反讀](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 
 ## 共用模組與凍結來源
 
@@ -62,5 +65,7 @@
 代表性稽核由`delay_history_representativeness.py`建立status-free核准窗口計數，`delay_representation_profiles.py`作固定條件比較。新欄只作稽核，不加入模型白名單；初版規格僅保留JSON格式修正紀錄，實際執行使用正式規格。
 
 最新來源查核不需要模型或分數帳本。它綁定已取得的本機／官方證據快照，不能把重讀今天的網站或重新啟動服務當成2016–2018的新業務資料；未取得的新來源列為待資料。
+
+單日驗收由`delay_daily_delivery_acceptance.py`核對同一名冊的20組分數與旗標，CLI另綁原始名冊及版本、驗私有CSV。完整性只對原凍結研究cohort成立，不驗證真實全核准日或原入庫完成；本機輸出只接受相同內容重現，不覆寫不同產物。
 
 只複製Git儲存庫不足以重現全部實驗：原始CSV在 `data/raw/olist/`，特徵快取及逐筆分數在 `data/processed/`，模型在 `models/`，執行證明在 `.runtime/`，皆保留本機並由Git忽略。公開提交以程式、規格、聚合JSON及文件為主，不提交原始資料、逐筆分數、憑證或本機模型。

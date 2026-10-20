@@ -1,0 +1,501 @@
+{
+  "analysis": "frozen_complete_day_offline_delivery_acceptance",
+  "analysis_code": [
+    {
+      "bytes": 30523,
+      "path": "scripts/accept_frozen_daily_delivery.py",
+      "sha256": "36e4b8cdce93053ea9e9a053f88f58e607d87881aee93807db65424e4cb78bbe"
+    },
+    {
+      "bytes": 15577,
+      "path": "scripts/delay_daily_delivery_acceptance.py",
+      "sha256": "5dff08a860a24a8ff73753997117ae01eb1536cb0c6c079df2a4fa13c3796cd0"
+    }
+  ],
+  "contract": {
+    "completeness": "Source-cohort completeness is retrospective final-delivered eligibility; no production day-close or raw all-approval scoring is established.",
+    "daily_fraction": 0.1,
+    "event_signal_status": "pending_data_no_training",
+    "model_clock": "Reported logical historical replay clocks only; this does not prove the artifact physically existed in 2018 or production as-of availability.",
+    "phase": "2018-02/2018-02/evaluation",
+    "privacy": "Individual identities/times/scores/ranks and private output hashes stay in ignored local files; public output has aggregates and source artifact hashes only.",
+    "prohibitions": [
+      "No model loading, fitting, prediction, replay, calibration, selection or changed default.",
+      "No TP/FP/FN, recall, precision, performance comparison or new generalization conclusion.",
+      "No original retained-test scoring, external notification, Dashboard or service deployment."
+    ],
+    "purpose": "Offline delivery contract and source snapshot for already-inspected frozen scores; not a new model preregistration.",
+    "ranking": "Full research-cohort day; score DESC, order_id ASC; floor(N/10), no outcome/group filtering or quota.",
+    "score_reading": "Only identity/time/version/availability/score/alert columns are read; outcome_for_metrics is explicitly excluded.",
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "selection": "First nonempty February approval day chosen from the bound roster before reading scores.",
+    "source_rank": "The frozen source contains alert flags but no saved daily rank; reconstructed ranks are checked by private output readback.",
+    "versions": [
+      "base08",
+      "age08",
+      "base10",
+      "age10"
+    ]
+  },
+  "format_version": 1,
+  "monthly_models": [
+    {
+      "bytes": 236387,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_11.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 11,
+      "sha256": "35fbfe89ff12c67ab3891eb2f35cc64aa7acb88511412d508fcfd8118938c8a9",
+      "training_design": "deadline_wait0",
+      "version": "base08"
+    },
+    {
+      "bytes": 236114,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_29.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 29,
+      "sha256": "480cd7d6e94824727101e1fbf2aa238655ebb775b13e51188b93b9d339b5052c",
+      "training_design": "deadline_wait0",
+      "version": "base08"
+    },
+    {
+      "bytes": 238976,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_42.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 42,
+      "sha256": "4b8bcfeaf8787caaf115c856066895b1375be03dcf1adcf564ef7847ea354c0b",
+      "training_design": "deadline_wait0",
+      "version": "base08"
+    },
+    {
+      "bytes": 236607,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_73.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 73,
+      "sha256": "11bf3d2ea78b2194d353511d07d31df6066e5fba9e6ff21bbcd731466f26c352",
+      "training_design": "deadline_wait0",
+      "version": "base08"
+    },
+    {
+      "bytes": 236500,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_101.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 101,
+      "sha256": "3afeeec58bf87b01d3f3008241f0ca320fd00f31d8935945b95b17d2051e3826",
+      "training_design": "deadline_wait0",
+      "version": "base08"
+    },
+    {
+      "bytes": 238476,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_11.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 11,
+      "sha256": "4c9598e10d325f89815e0b8c4fc037201f2a7f5e5823f097255efd718e18c0f9",
+      "training_design": "deadline_wait0",
+      "version": "age08"
+    },
+    {
+      "bytes": 238578,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_29.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 29,
+      "sha256": "5406e92daa1babc85dc79c30c349fb04c4259e73be12dbaa60bde7698c1ed4a3",
+      "training_design": "deadline_wait0",
+      "version": "age08"
+    },
+    {
+      "bytes": 237364,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_42.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 42,
+      "sha256": "11d92b091131a20c0a1709c0cd6729aa359f218a1387de1338d860bcc54ef4fc",
+      "training_design": "deadline_wait0",
+      "version": "age08"
+    },
+    {
+      "bytes": 237117,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_73.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 73,
+      "sha256": "15f873920f6ecfa5dece93dc59276d4f7022c58d2a06b0e90d125b7bf129f66e",
+      "training_design": "deadline_wait0",
+      "version": "age08"
+    },
+    {
+      "bytes": 236411,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 0.8,
+      "path": "models/research/age_seed_stability_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_101.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 101,
+      "sha256": "2fec89f5a2fdd4d1aa3b65443625c301e261c4d45c0fc52a30491667c075b836",
+      "training_design": "deadline_wait0",
+      "version": "age08"
+    },
+    {
+      "bytes": 236443,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_11_colsample_10.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 11,
+      "sha256": "9eb7c298812a036f4985f1d6efe5b27eec7f66610b10a687842bfbea6ea1bedd",
+      "training_design": "deadline_wait0",
+      "version": "base10"
+    },
+    {
+      "bytes": 237041,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_29_colsample_10.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 29,
+      "sha256": "991d1a94f973929ecdbba5883848c5531a50c5aca255513bb256a76d62cf14f2",
+      "training_design": "deadline_wait0",
+      "version": "base10"
+    },
+    {
+      "bytes": 237097,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_42_colsample_10.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 42,
+      "sha256": "a80969aafa24f8d533fdfb15b51d8ed504c9c62906615fa8c8148fbcd568335d",
+      "training_design": "deadline_wait0",
+      "version": "base10"
+    },
+    {
+      "bytes": 235332,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_73_colsample_10.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 73,
+      "sha256": "96248f4dfa354da28bf1515c509851feb9df0acdebd6b442c745460ab00fb6dd",
+      "training_design": "deadline_wait0",
+      "version": "base10"
+    },
+    {
+      "bytes": 235843,
+      "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_backlog_7_14d_l2_100_topk_10_seed_101_colsample_10.joblib",
+      "reported_feature_count": 101,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 101,
+      "sha256": "76f33d5f1035159433d2e5c15b6b23872173557f2b5fd1466ffd827061fd2bb7",
+      "training_design": "deadline_wait0",
+      "version": "base10"
+    },
+    {
+      "bytes": 237958,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_11_colsample_10.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 11,
+      "sha256": "c672b4f29d9eea6a397f34c37eea93da5682163b6733dee8154182ee5b66f9c7",
+      "training_design": "deadline_wait0",
+      "version": "age10"
+    },
+    {
+      "bytes": 237111,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_29_colsample_10.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 29,
+      "sha256": "0b742ef14ff4734a42ed9745490d3adfd0860db3b782398144ff172cda3b0092",
+      "training_design": "deadline_wait0",
+      "version": "age10"
+    },
+    {
+      "bytes": 237475,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_42_colsample_10.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 42,
+      "sha256": "5fdc1dc37cb8db7730087d4c85e7ef341156219458fa92a9948ec126f4a1d49d",
+      "training_design": "deadline_wait0",
+      "version": "age10"
+    },
+    {
+      "bytes": 238093,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_73_colsample_10.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 73,
+      "sha256": "a34e7b95202d5a7b74a370247897e063cb47958a1bcf43190cc26264c1670ed3",
+      "training_design": "deadline_wait0",
+      "version": "age10"
+    },
+    {
+      "bytes": 238004,
+      "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+      "colsample_bytree": 1.0,
+      "path": "models/research/age_colsample_versions/olist_delay_2018-02_xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10_seed_101_colsample_10.joblib",
+      "reported_feature_count": 102,
+      "reported_logical_model_fit_time": "2018-02-01T00:00:00",
+      "reported_logical_scoring_end": "2018-03-01T00:00:00",
+      "reported_logical_scoring_start": "2018-02-01T00:00:00",
+      "score_semantics": "sigmoid(raw margin), strictly monotone uncalibrated ranking score",
+      "seed": 101,
+      "sha256": "386b37f713f1dac7d97796a31432d0d0ba3c000a834da7f7e64f67c4d6adf24f",
+      "training_design": "deadline_wait0",
+      "version": "age10"
+    }
+  ],
+  "private_directory": ".runtime/offline_daily_delivery_2018-02-01",
+  "schema": {
+    "availability_flag": "Evaluation known_at_selection must be boolean False; it is not an outcome-known denominator.",
+    "completeness_limit": "The caller must independently bind the roster to its frozen complete-day source.",
+    "format_version": 1,
+    "outcomes": "Outcome values are neither required nor read; no row is removed by outcome availability.",
+    "privacy": "Public result contains aggregates only; private output contains identities, times, scores and ranks.",
+    "private_columns": [
+      "version",
+      "seed",
+      "order_id",
+      "prediction_time",
+      "score",
+      "rank",
+      "full_day_rows",
+      "daily_capacity",
+      "alert"
+    ],
+    "ranking": "score DESC, order_id ASC; exactly floor(full_day_rows / 10) alerts per run",
+    "required_ledger_columns": [
+      "order_id",
+      "prediction_time",
+      "fold",
+      "role",
+      "candidate",
+      "model_version",
+      "known_at_selection",
+      "delay_score",
+      "predicted_delayed",
+      "seed",
+      "colsample_bytree"
+    ],
+    "required_roster_columns": [
+      "order_id",
+      "prediction_time"
+    ],
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "version_source": {
+      "age08": {
+        "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+        "colsample_bytree": 0.8
+      },
+      "age10": {
+        "candidate": "xgboost_rank_unobserved_handover_age_p90_102_l2_100_topk_10",
+        "colsample_bytree": 1.0
+      },
+      "base08": {
+        "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+        "colsample_bytree": 0.8
+      },
+      "base10": {
+        "candidate": "xgboost_rank_backlog_7_14d_l2_100_topk_10",
+        "colsample_bytree": 1.0
+      }
+    },
+    "versions": [
+      "base08",
+      "age08",
+      "base10",
+      "age10"
+    ]
+  },
+  "selected_day": {
+    "daily_capacity": 24,
+    "day": "2018-02-01",
+    "feature_cohort_rows_verified": 70844,
+    "full_day_rows": 242,
+    "month": "2018-02",
+    "mutually_exclusive_excluded_day_rows": {
+      "approval_before_purchase": 0,
+      "delivery_before_approval": 0,
+      "missing_timeline": 0,
+      "not_final_delivered": 3,
+      "promise_before_approval_day": 0
+    },
+    "prediction_time_max": "2018-02-01T23:51:37",
+    "prediction_time_min": "2018-02-01T01:29:49",
+    "raw_day_approval_rows": 245,
+    "raw_pre_may_approval_rows": 73254,
+    "scope": "Complete day only within the retrospectively valid final-delivered research cohort, not all real approvals.",
+    "selection_rule": "First nonempty approval day in the frozen February evaluation cohort, without a score or delay-label performance criterion; eligibility itself is the fixed retrospective delivered cohort.",
+    "target_phase": "2018-02/2018-02/evaluation"
+  },
+  "source_clock_limit": "No raw ingested-at clock, event capture denominator, historical promise versions or production day-close proof.",
+  "sources": [
+    {
+      "bytes": 4485738,
+      "path": "reports/stage4/age_colsample.json",
+      "sha256": "feb46ee19e5c33596980dec2947b08e8e1d94b106f6af1f985f19e5989609b2c"
+    },
+    {
+      "bytes": 2727515,
+      "path": "reports/stage4/age_seed_stability.json",
+      "sha256": "7b0a1e369307a718c3161d3a10045b8a9ecde385b9ab94bfe7c9c859262f11b8"
+    },
+    {
+      "bytes": 301650,
+      "path": "reports/stage4/age_colsample_specification.json",
+      "sha256": "6a3fdd1fe053b477dd3d4d0e9e9d9d1ae98a5d1879401876f866f63ed2c895a3"
+    },
+    {
+      "bytes": 187611,
+      "path": "reports/stage4/age_seed_stability_specification.json",
+      "sha256": "d6317e3958fd0ccbca2692bbf2b185e98508149dc5e39f73cc2f36ac2b2f21cc"
+    },
+    {
+      "bytes": 93589579,
+      "path": "reports/stage4/four_model_boundary_diagnostics.json",
+      "sha256": "3992f6ea97caeb7ee5a0b3c2022fada0813b0a8f29b1d1e8894398d4abb84102"
+    },
+    {
+      "bytes": 48546,
+      "path": "reports/stage4/four_model_boundary_specification.json",
+      "sha256": "3e22e3a4f23156e825051258d14d6233c700c01a79f91a0d1cdea06566387b4d"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 17306,
+      "path": "scripts/delay_calibration_policy.py",
+      "sha256": "22bc706573a0bf6f2d8b20057247328e67a5776fa71d377bea80949db84a3e7d"
+    },
+    {
+      "bytes": 107336660,
+      "path": "data/processed/olist_delay_unobserved_handover_age_features.csv",
+      "sha256": "e7367ca8793d2e1c6055aac2b3353bd1231bb16934f15e571549ee27b81e826c"
+    },
+    {
+      "bytes": 217783108,
+      "path": "data/processed/olist_delay_age_colsample_scores.csv",
+      "sha256": "ead64e64dda96f918b48600ee185fcef3aa984b4d9f778d9696c585a387a3905"
+    }
+  ]
+}
