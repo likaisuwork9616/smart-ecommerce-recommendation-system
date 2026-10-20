@@ -1,0 +1,851 @@
+{
+  "analysis": "bounded_cancellation_closure_promise_version_source_availability",
+  "contract": {
+    "boundaries": "Verify timezone, daylight-saving conversions, clock precision and same-t ties. Events equal to t are not known; promise effective_at=t may apply only when observed_at<t.",
+    "coverage": "Separate raw valid approval denominator, joined orders, known true-event register, timestamp-valid events, and as-of covered query/history windows. Missing true-event or revision denominator means actual capture rate unknown, not 0%.",
+    "decision_rule": "No accepted additional as-of event/version source means pending_data_no_training. Absence within inspected sources is not global non-existence.",
+    "event_rule": "Require stable order identity, event type/semantics, occurred_at<t AND observed_at<t. Closure here means cancellation or another non-delivery transition that exits the risk set; existing delivery completion timestamps remain a different known event. Source received time and project persisted/ingested time must be distinguished and independently explained.",
+    "joins": "Verify same anonymized order_id or an authorized mapping, key uniqueness, one-to-many version cardinality, orphan events, conflicting versions and overlapping validity intervals. Seller-only linkage is insufficient.",
+    "ordering": "Report missing/invalid timestamps, duplicates/conflicts, event order, observed-before-occurred anomalies, late-arrival/backfill delays and immutable revision policy. A promise may be observed before its future effective time.",
+    "prohibited_substitutes": [
+      "Final exported status or final single promise value",
+      "CSV mtime or later local database import/binlog time as original observed_at",
+      "Review dates or shipping deadlines as cancellation/promise revisions",
+      "A seller marketing closed-deal as an order closure",
+      "API indexed examples as acquired authorized historical same-ID data"
+    ],
+    "promise_rule": "Require promised value, version identity, effective/valid time, observed/system time, supersession/correction/retraction history. Select only observed_at<t versions effective_at<=t and valid under what was known at t.",
+    "protected_experiment": {
+      "daily_alert_fraction": 0.1,
+      "four_frozen_models_unchanged": true,
+      "new_fit": 0,
+      "new_replay": 0,
+      "new_selection": 0,
+      "original_holdout_scored": false,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ]
+    },
+    "query_clock": "t is the current query approval time, not each historical order own approval. Cancellation may follow historical approval and still precede t.",
+    "scope": "Verify each query month and required historical lookback, including route/promise/approval-week/support coverage. Do not import future events or rescore original holdout.",
+    "snapshot_alternative": "Immutable complete snapshots require captured_at, available_at<t, cadence and completeness proof. They can establish known status as of a snapshot under a separately accepted contract, not exact cancellation occurrence time."
+  },
+  "cutoff_exclusive": "2018-05-01T00:00:00",
+  "database": {
+    "interpretation": "Configured project database visible metadata only; orders is the identical final eight-column CSV snapshot. Zero visible metadata objects does not prove inaccessible schemas/accounts have no data. Local creation/import timestamps are not original source observation times.",
+    "metadata_visible_counts": {
+      "routines": 0,
+      "scheduled_events": 0,
+      "triggers": 0,
+      "views": 0
+    },
+    "orders_snapshot_comparison": {
+      "all_values_equal": true,
+      "columns": 8,
+      "raw_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "rows": 99441,
+      "values_compared": 795528
+    },
+    "probe_status": "ok",
+    "service_or_network_restarted_by_this_script": false,
+    "table_count": 9,
+    "tables": [
+      {
+        "columns": [
+          "customer_id",
+          "customer_unique_id",
+          "customer_zip_code_prefix",
+          "customer_city",
+          "customer_state"
+        ],
+        "kind": "BASE TABLE",
+        "name": "customers",
+        "rows": 99441
+      },
+      {
+        "columns": [
+          "geolocation_zip_code_prefix",
+          "geolocation_lat",
+          "geolocation_lng",
+          "geolocation_city",
+          "geolocation_state"
+        ],
+        "kind": "BASE TABLE",
+        "name": "geolocation",
+        "rows": 1000163
+      },
+      {
+        "columns": [
+          "order_id",
+          "order_item_id",
+          "product_id",
+          "seller_id",
+          "shipping_limit_date",
+          "price",
+          "freight_value"
+        ],
+        "kind": "BASE TABLE",
+        "name": "order_items",
+        "rows": 112650
+      },
+      {
+        "columns": [
+          "order_id",
+          "payment_sequential",
+          "payment_type",
+          "payment_installments",
+          "payment_value"
+        ],
+        "kind": "BASE TABLE",
+        "name": "order_payments",
+        "rows": 103886
+      },
+      {
+        "columns": [
+          "review_id",
+          "order_id",
+          "review_score",
+          "review_comment_title",
+          "review_comment_message",
+          "review_creation_date",
+          "review_answer_timestamp"
+        ],
+        "kind": "BASE TABLE",
+        "name": "order_reviews",
+        "rows": 99224
+      },
+      {
+        "columns": [
+          "order_id",
+          "customer_id",
+          "order_status",
+          "order_purchase_timestamp",
+          "order_approved_at",
+          "order_delivered_carrier_date",
+          "order_delivered_customer_date",
+          "order_estimated_delivery_date"
+        ],
+        "kind": "BASE TABLE",
+        "name": "orders",
+        "rows": 99441
+      },
+      {
+        "columns": [
+          "product_category_name",
+          "product_category_name_english"
+        ],
+        "kind": "BASE TABLE",
+        "name": "product_category_name_translation",
+        "rows": 71
+      },
+      {
+        "columns": [
+          "product_id",
+          "product_category_name",
+          "product_name_lenght",
+          "product_description_lenght",
+          "product_photos_qty",
+          "product_weight_g",
+          "product_length_cm",
+          "product_height_cm",
+          "product_width_cm"
+        ],
+        "kind": "BASE TABLE",
+        "name": "products",
+        "rows": 32951
+      },
+      {
+        "columns": [
+          "seller_id",
+          "seller_zip_code_prefix",
+          "seller_city",
+          "seller_state"
+        ],
+        "kind": "BASE TABLE",
+        "name": "sellers",
+        "rows": 3095
+      }
+    ]
+  },
+  "decision": "pending_data_no_training",
+  "format_version": 1,
+  "limitations": [
+    "Bounded inspected local/public sources only; no global non-existence claim.",
+    "No actual original ingestion, cancellation/closure or promise revision source was accepted; actual capture rates remain unknown.",
+    "Private evidence JSON represents this executed inventory snapshot; live services/files are not queried or refreshed on rerun.",
+    "No training or new prediction experiment; existing historical validation/development recall and untouched holdout status are unchanged."
+  ],
+  "local_inventory": {
+    "binlog_interpretation": "Only prior file/header evidence is bound, not live files. These 2026 local import events are not 2016-2018 original order observed_at; table row-event counts are not source-event or order counts. No SQL or row payload is published.",
+    "csv_files": 143,
+    "explicitly_skipped_root_count": 6,
+    "files_inspected_at_inventory_snapshot": 827,
+    "json_metadata_inventory": {
+      "existing_json_bytes": 224222327,
+      "existing_json_count": 229,
+      "meaning": "Top-level key screening is a bounded metadata check, not proof that every value has been exhaustively excluded as event evidence.",
+      "potential_event_source_key_matches": 0,
+      "safe_connection_count": 1
+    },
+    "olist_zip_members_exactly_match_raw": [
+      {
+        "bytes": 9033957,
+        "name": "olist_customers_dataset.csv",
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+      },
+      {
+        "bytes": 61273883,
+        "name": "olist_geolocation_dataset.csv",
+        "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+      },
+      {
+        "bytes": 15438671,
+        "name": "olist_order_items_dataset.csv",
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+      },
+      {
+        "bytes": 5777138,
+        "name": "olist_order_payments_dataset.csv",
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+      },
+      {
+        "bytes": 14451670,
+        "name": "olist_order_reviews_dataset.csv",
+        "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+      },
+      {
+        "bytes": 17654914,
+        "name": "olist_orders_dataset.csv",
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+      },
+      {
+        "bytes": 2379446,
+        "name": "olist_products_dataset.csv",
+        "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+      },
+      {
+        "bytes": 174703,
+        "name": "olist_sellers_dataset.csv",
+        "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+      },
+      {
+        "bytes": 2613,
+        "name": "product_category_name_translation.csv",
+        "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+      }
+    ],
+    "olist_zip_sha256": "967e41e04fc306fe604e2a693f488995a8b41e5047418f8a5c8e4abd6deca784",
+    "permission_denied_directory_count": 34,
+    "permission_scope": "Denied and explicitly skipped directories were not read; do not count them as source coverage. No inaccessible path names are published.",
+    "prior_binlog_header_snapshots": [
+      {
+        "bytes": 112346754,
+        "event_count": 14265,
+        "event_timestamp_max_utc": "2026-10-12T07:05:19+00:00",
+        "event_timestamp_min_utc": "2026-10-12T07:02:52+00:00",
+        "event_type_counts": {
+          "15": 1,
+          "16": 9,
+          "19": 314,
+          "2": 22,
+          "3": 1,
+          "30": 13895,
+          "34": 22,
+          "35": 1
+        },
+        "row_event_counts": {
+          "30:olist_ecommerce.customers": 1153,
+          "30:olist_ecommerce.geolocation": 5190,
+          "30:olist_ecommerce.order_items": 2051,
+          "30:olist_ecommerce.order_payments": 914,
+          "30:olist_ecommerce.order_reviews": 1854,
+          "30:olist_ecommerce.orders": 2267,
+          "30:olist_ecommerce.product_category_name_translation": 1,
+          "30:olist_ecommerce.products": 442,
+          "30:olist_ecommerce.sellers": 23
+        },
+        "sha256": "9429df2553add3fc4982bce6a3c23234be370cb3535a25091182d9eb3275d3b0",
+        "snapshot_number": 1,
+        "table_map_event_counts": {
+          "olist_ecommerce.customers": 20,
+          "olist_ecommerce.geolocation": 201,
+          "olist_ecommerce.order_items": 23,
+          "olist_ecommerce.order_payments": 21,
+          "olist_ecommerce.order_reviews": 20,
+          "olist_ecommerce.orders": 20,
+          "olist_ecommerce.product_category_name_translation": 1,
+          "olist_ecommerce.products": 7,
+          "olist_ecommerce.sellers": 1
+        },
+        "zero_timestamp_event_count": 0
+      },
+      {
+        "bytes": 181,
+        "event_count": 3,
+        "event_timestamp_max_utc": "2026-10-12T07:05:55+00:00",
+        "event_timestamp_min_utc": "2026-10-12T07:05:53+00:00",
+        "event_type_counts": {
+          "15": 1,
+          "3": 1,
+          "35": 1
+        },
+        "row_event_counts": {},
+        "sha256": "772a00b3e158ae821e594d4bbb02b9d369d3b75618950a3b3b027d6f1a76d4b3",
+        "snapshot_number": 2,
+        "table_map_event_counts": {},
+        "zero_timestamp_event_count": 0
+      },
+      {
+        "bytes": 181,
+        "event_count": 3,
+        "event_timestamp_max_utc": "2026-10-12T07:09:53+00:00",
+        "event_timestamp_min_utc": "2026-10-12T07:06:00+00:00",
+        "event_type_counts": {
+          "15": 1,
+          "3": 1,
+          "35": 1
+        },
+        "row_event_counts": {},
+        "sha256": "7634e939c04e477de047ab8983c7720f2d8070f1d1a6f630b7d7136883d68398",
+        "snapshot_number": 3,
+        "table_map_event_counts": {},
+        "zero_timestamp_event_count": 0
+      },
+      {
+        "bytes": 158,
+        "event_count": 2,
+        "event_timestamp_max_utc": "2026-10-12T07:10:00+00:00",
+        "event_timestamp_min_utc": "2026-10-12T07:10:00+00:00",
+        "event_type_counts": {
+          "15": 1,
+          "35": 1
+        },
+        "row_event_counts": {},
+        "sha256": "1799dc74e3a623fbac8562790c815d9d3eb17a07b533f3d07e7595fa786bf669",
+        "snapshot_number": 4,
+        "table_map_event_counts": {},
+        "zero_timestamp_event_count": 0
+      }
+    ],
+    "processed_csv": 38,
+    "raw_retailrocket_file_count": 0,
+    "runtime_csv": 96,
+    "sample_file_count": 0,
+    "zip_files": 3
+  },
+  "official_public_sources": {
+    "acceptance_requirements": [
+      "Stable order identity linked to this cohort.",
+      "Event type and valid event time, including cancellation/closure semantics.",
+      "Source-observed/received time and project ingested time with timezone and ordering semantics.",
+      "Original promised value and revisions with version id, effective/valid time and observed/system time.",
+      "Actual coverage by approval week, route, promise and support volume; delay distributions and late-arrival/backfill policy."
+    ],
+    "audit_kind": "official_public_source_contract_inventory_only",
+    "catalog_search_limits": [
+      "Targeted searches found the two known Olist-owned datasets; user-filtered Kaggle list endpoints returned an empty array and an organization datasets URL returned 404. These outcomes were not treated as a complete owner catalog or proof that no other official source exists.",
+      "Third-party copies, educational pipelines and synthetic SCD/ingestion timestamps were not accepted as original Olist historical observation evidence."
+    ],
+    "checked_at_utc": "2026-10-20T01:29:39.337271+00:00",
+    "decision": "pending_data_no_training",
+    "new_accepted_event_sources": 0,
+    "no_auth_or_private_order_api_called": true,
+    "no_raw_csv_or_archive_downloaded": true,
+    "public_sources": [
+      {
+        "access": "Live unauthenticated HTTPS GET of card HTML including JSON-LD, metadata and file-manifest JSON succeeded with HTTP 200.",
+        "clock_conclusion": "Dataset lastUpdated and file creationDate are publication/storage metadata. They are not order-level cancellation, closure, source ingestion or historical promise revision clocks.",
+        "file_count": 9,
+        "file_manifest_url": "https://www.kaggle.com/api/v1/datasets/list/olistbr/brazilian-ecommerce",
+        "files": [
+          {
+            "file_creation_metadata": "2021-10-01T19:08:30.909Z",
+            "name": "olist_customers_dataset.csv",
+            "total_bytes": 9033957
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:32.253Z",
+            "name": "olist_geolocation_dataset.csv",
+            "total_bytes": 61273883
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.594Z",
+            "name": "olist_order_items_dataset.csv",
+            "total_bytes": 15438671
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.287Z",
+            "name": "olist_order_payments_dataset.csv",
+            "total_bytes": 5777138
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.47Z",
+            "name": "olist_order_reviews_dataset.csv",
+            "total_bytes": 14451670
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.717Z",
+            "name": "olist_orders_dataset.csv",
+            "total_bytes": 17654914
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.335Z",
+            "name": "olist_products_dataset.csv",
+            "total_bytes": 2379446
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.267Z",
+            "name": "olist_sellers_dataset.csv",
+            "total_bytes": 174703
+          },
+          {
+            "file_creation_metadata": "2021-10-01T19:08:31.203Z",
+            "name": "product_category_name_translation.csv",
+            "total_bytes": 2613
+          }
+        ],
+        "id": "olist_ecommerce_card",
+        "live_current_version_field": 2,
+        "live_last_updated": "2021-10-01T19:08:27.97Z",
+        "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/brazilian-ecommerce",
+        "period_claim": "About 100,000 commercial orders from 2016 through 2018, anonymized.",
+        "primary_owner": "Olist",
+        "same_id_claim": "These are the same known dataset family and file names as the local source; live metadata alone does not establish byte identity or which historical release local files came from.",
+        "schema_caution": "All API file columns arrays are empty; absence of a field is established by local CSV header and row checks, not these empty arrays.",
+        "short_quote": "100k orders from 2016 to 2018",
+        "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+        "version_caution": "versions includes 2018 version numbers 1 through 7 and a separate versionNumber=2 dated 2021-10-01; currentVersionNumber alone is not a unique monotonic historical provenance key."
+      },
+      {
+        "access": "Live unauthenticated HTTPS GET of card HTML including JSON-LD, metadata and file-manifest JSON succeeded with HTTP 200.",
+        "coverage_caution": "No funnel rows were downloaded, so seller/order coverage was not estimated. Its documented business entity is already insufficient for the requested order-event contract.",
+        "file_count": 2,
+        "file_manifest_url": "https://www.kaggle.com/api/v1/datasets/list/olistbr/marketing-funnel-olist",
+        "files": [
+          {
+            "file_creation_metadata": "2019-10-12T07:24:33.676Z",
+            "name": "olist_closed_deals_dataset.csv",
+            "total_bytes": 171352
+          },
+          {
+            "file_creation_metadata": "2019-10-12T07:24:33.712Z",
+            "name": "olist_marketing_qualified_leads_dataset.csv",
+            "total_bytes": 703836
+          }
+        ],
+        "id": "olist_marketing_funnel_card",
+        "join_key_from_card": "seller_id",
+        "live_current_version_field": 2,
+        "live_last_updated": "2018-11-16T14:00:20.677Z",
+        "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/marketing-funnel-olist",
+        "period_claim": "8,000 sampled marketing-qualified seller leads requesting contact between 2017-06-01 and 2018-06-01.",
+        "primary_owner": "Olist",
+        "rejection_reason": "Closed deals refers to a merchant signing up through marketing and sales. This is not an order cancellation/closure event table; the official linkage is seller-level, with no order-level bitemporal event or promise-version contract in the inspected card/manifest.",
+        "url": "https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist"
+      },
+      {
+        "acceptance_gaps": [
+          "No authorized project export/account obtained.",
+          "No mapping from operational order code/UUID to anonymized Kaggle order_id obtained.",
+          "No verified 2016-2018 retention or extraction coverage.",
+          "History created_at semantics and immutability are not independently established as actual event time or project observation time.",
+          "No explicit original/revised estimated-delivery value, version identifier and valid/system-time history contract in the indexed example."
+        ],
+        "access": "Official-domain indexed content was returned by web search (crawler label: 4 months ago); direct web open and direct unauthenticated HTTPS GET both failed with HTTP 502. Current live documentation and API operation are unverified.",
+        "decision": "Contract lead only; no usable source accepted.",
+        "field_claims": [
+          "GET /v1/seller-orders/{code}/ requires Authorization JWT {id_token}.",
+          "Example contains seller_order_history records with created_at, status, suspension_reason, cancelation_reason and cancelation_status.",
+          "Example contains a current estimated_delivery_date plus object created_at and updated_at."
+        ],
+        "id": "olist_api_retrieving_order",
+        "short_quote": "When an order is canceled the fields suspension_reason, cancelation_reason and cancelation_status will be filled.",
+        "url": "https://dev.olist.com/en/guides-and-tutorials/orders/retrieving-an-order/"
+      },
+      {
+        "access": "Official-domain indexed content was returned by web search (crawler label: 4 months ago); direct open timed out and direct HTTPS GET returned HTTP 502. No webhook was configured or called.",
+        "clock_caution": "Both fields are upstream service clocks, not proof of receipt or ingestion by this project. Delivery retries, actual downstream reception, persistence, timezone semantics and historical replay must be verified on actual retained logs.",
+        "decision": "Useful event-contract terminology; no historical log or same-ID source obtained.",
+        "field_claims": [
+          "received_at means when the Olist service detected the change.",
+          "sent_at means when Olist sent the notification.",
+          "Notifications cover status updates on products, orders and packages."
+        ],
+        "id": "olist_api_notification_mechanism",
+        "short_quote": "received_at: When Olist service detected the change.",
+        "url": "https://dev.olist.com/en/guides-and-tutorials/overview/notification-mechanism/"
+      },
+      {
+        "access": "Official-domain indexed content was returned by web search (crawler label: 4 months ago); direct open and direct HTTPS GET returned HTTP 502.",
+        "caution": "These are indexed notice contents, not a live endpoint/service-status check. They do not establish that historical authorized data or anonymous-ID mapping can currently be acquired.",
+        "decision": "Do not assume an available production or sandbox historical export.",
+        "id": "olist_api_get_started",
+        "notice_claims": [
+          "Indexed official notice says sandbox is disabled.",
+          "Indexed notice lists 2026-03-26 end of sales operations and 2026-06-30 final shipping/financial-transfer completion date."
+        ],
+        "short_quote": "O ambiente de testes (Sandbox) já está desabilitado.",
+        "url": "https://dev.olist.com/en/guides-and-tutorials/overview/get-started/"
+      }
+    ],
+    "reporting_boundary": "No new source has met the project acceptance contract within the inspected sources. This is a bounded not-yet-obtained finding, not a global non-existence claim. Keep daily 10%, five seeds and frozen models; perform zero new fits until real source data and as-of provenance are accepted.",
+    "scope": "Known Olist-owned Kaggle e-commerce dataset, its linked Olist marketing funnel dataset, and official Olist developer documentation discoverable through targeted primary-source web searches. This is not an exhaustive proof about all possible sources."
+  },
+  "orders": {
+    "approval_population": {
+      "approval_before_cutoff": 73254,
+      "carrier_event_before_cutoff": 71438,
+      "delivery_before_approval": 27,
+      "delivery_event_before_cutoff": 68310,
+      "earliest_approval": "2016-09-15T12:16:38",
+      "eligible_orders": 73254,
+      "final_canceled_or_unavailable": 935,
+      "final_status_counts": {
+        "approved": 2,
+        "canceled": 371,
+        "delivered": 70873,
+        "invoiced": 251,
+        "processing": 292,
+        "shipped": 901,
+        "unavailable": 564
+      },
+      "latest_approval": "2018-04-30T21:29:47",
+      "missing_purchase_before_cutoff": 0,
+      "negative_promise_days": 4,
+      "promise_missing": 0,
+      "promise_present": 73254,
+      "promise_without_non_midnight_time": 73254,
+      "reversed_purchase_approval_before_cutoff": 0
+    },
+    "availability": {
+      "actual_cancellation_event_capture_rate": null,
+      "actual_non_delivery_closure_event_capture_rate": null,
+      "actual_promise_revision_capture_rate": null,
+      "existing_delivery_completion_column": "order_delivered_customer_date",
+      "existing_delivery_completion_ingestion_clock_available": false,
+      "meaning": "Zero verifiable new cancellation/non-delivery-exit clocks or promise versions, not zero actual events. Existing delivery completion timestamps are present but lack ingestion times. A non-null single exported promise is not proof of its approval-time version.",
+      "orders_with_provable_cancellation_known_before_query_t": 0,
+      "orders_with_provable_non_delivery_closure_known_before_query_t": 0,
+      "orders_with_verifiable_promise_version_as_of_query_t": 0,
+      "schema_verifiable_cancellation_or_non_delivery_closure_clock_columns": [],
+      "schema_verifiable_observed_clock_columns": [],
+      "schema_verifiable_promise_version_columns": []
+    },
+    "by_approval_month": {
+      "2016-09": {
+        "eligible_orders": 1,
+        "final_canceled": 0,
+        "final_unavailable": 0,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 1
+      },
+      "2016-10": {
+        "eligible_orders": 320,
+        "final_canceled": 20,
+        "final_unavailable": 6,
+        "negative_promise_days": 1,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 320
+      },
+      "2016-12": {
+        "eligible_orders": 1,
+        "final_canceled": 0,
+        "final_unavailable": 0,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 1
+      },
+      "2017-01": {
+        "eligible_orders": 760,
+        "final_canceled": 2,
+        "final_unavailable": 8,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 760
+      },
+      "2017-02": {
+        "eligible_orders": 1765,
+        "final_canceled": 15,
+        "final_unavailable": 47,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 1765
+      },
+      "2017-03": {
+        "eligible_orders": 2689,
+        "final_canceled": 31,
+        "final_unavailable": 32,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 2689
+      },
+      "2017-04": {
+        "eligible_orders": 2374,
+        "final_canceled": 13,
+        "final_unavailable": 9,
+        "negative_promise_days": 2,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 2374
+      },
+      "2017-05": {
+        "eligible_orders": 3693,
+        "final_canceled": 19,
+        "final_unavailable": 32,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 3693
+      },
+      "2017-06": {
+        "eligible_orders": 3252,
+        "final_canceled": 14,
+        "final_unavailable": 24,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 3252
+      },
+      "2017-07": {
+        "eligible_orders": 3974,
+        "final_canceled": 23,
+        "final_unavailable": 52,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 3974
+      },
+      "2017-08": {
+        "eligible_orders": 4348,
+        "final_canceled": 21,
+        "final_unavailable": 31,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 4348
+      },
+      "2017-09": {
+        "eligible_orders": 4301,
+        "final_canceled": 16,
+        "final_unavailable": 37,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 4301
+      },
+      "2017-10": {
+        "eligible_orders": 4590,
+        "final_canceled": 21,
+        "final_unavailable": 57,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 4590
+      },
+      "2017-11": {
+        "eligible_orders": 7395,
+        "final_canceled": 29,
+        "final_unavailable": 86,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 7395
+      },
+      "2017-12": {
+        "eligible_orders": 5832,
+        "final_canceled": 7,
+        "final_unavailable": 43,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 5832
+      },
+      "2018-01": {
+        "eligible_orders": 7187,
+        "final_canceled": 32,
+        "final_unavailable": 47,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 7187
+      },
+      "2018-02": {
+        "eligible_orders": 6706,
+        "final_canceled": 71,
+        "final_unavailable": 31,
+        "negative_promise_days": 1,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 6706
+      },
+      "2018-03": {
+        "eligible_orders": 7288,
+        "final_canceled": 23,
+        "final_unavailable": 16,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 7288
+      },
+      "2018-04": {
+        "eligible_orders": 6778,
+        "final_canceled": 14,
+        "final_unavailable": 6,
+        "negative_promise_days": 0,
+        "promise_missing_or_invalid": 0,
+        "promise_present": 6778
+      }
+    },
+    "eligible_timestamp_parse_failures": {
+      "order_approved_at": 0,
+      "order_delivered_carrier_date": 0,
+      "order_delivered_customer_date": 0,
+      "order_estimated_delivery_date": 0,
+      "order_purchase_timestamp": 0
+    },
+    "scope": "Final statuses are retrospective descriptors only, never an as-of event or feature. No final status filter. Invalid approval timestamps cannot enter a pre-cutoff cohort; no outcome/performance aggregates after cutoff.",
+    "whole_orders_join_metadata": {
+      "duplicated_order_ids": 0,
+      "missing_order_ids": 0,
+      "rows": 99441,
+      "unique_order_ids": 99441
+    }
+  },
+  "raw_sources": [
+    {
+      "bytes": 9033957,
+      "columns": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "rows": 99441,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "columns": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "rows": 1000163,
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "columns": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "rows": 112650,
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "columns": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "rows": 103886,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "columns": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "rows": 99224,
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "rows": 99441,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "columns": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "rows": 32951,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "columns": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "rows": 3095,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "columns": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "rows": 71,
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    }
+  ],
+  "source_snapshot_role": "This round source snapshot and future acceptance contract; source inspection already performed. Not a model preregistration.",
+  "specification": {
+    "bytes": 6524,
+    "path": "reports/stage4/event_source_availability_specification.json",
+    "sha256": "0dc2d1d4db3b2cad7e52ff23c0737f28b5503960e3842629d6e2f0d5876253c3"
+  },
+  "status": "ok",
+  "verification": {
+    "independent_raw_review_matched": true,
+    "new_alerts": 0,
+    "new_fit": 0,
+    "new_model_deserialization": 0,
+    "new_model_selection": 0,
+    "new_score_replay": 0,
+    "original_holdout_scored": false,
+    "protected_source_and_code_hashes_checked_before_and_after": 16,
+    "raw_tables_read": 9
+  }
+}
