@@ -1,0 +1,558 @@
+{
+  "analysis": "approval_time_low_review_prediction_feasibility",
+  "cutoff_exclusive": "2018-05-01T00:00:00",
+  "decision": "allow_documented_retrospective_stage5_design_only_no_training_no_performance_claims",
+  "features": {
+    "availability_proven_by_final_snapshot": false,
+    "cohort_join_coverage": {
+      "cohort_item_rows": 83009,
+      "cohort_items_with_product": 83009,
+      "cohort_items_with_seller": 83009,
+      "cohort_orders": 73254,
+      "cohort_payment_rows": 76763,
+      "orders_with_customer": 73254,
+      "orders_with_items": 72676,
+      "orders_with_payments": 73253
+    },
+    "excluded_features": [
+      "current_review_id_score_dates_text",
+      "actual_shipping_or_delivery",
+      "final_order_status",
+      "raw_identity_fields",
+      "future_seller_customer_reviews"
+    ],
+    "existing_21_feature_candidates": [
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "item_count",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "seller_count",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "product_count",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "total_price",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "total_freight_value",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "freight_ratio",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "payment_total",
+        "primary_source": "order_payments"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "payment_count",
+        "primary_source": "order_payments"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "payment_installments_max",
+        "primary_source": "order_payments"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "product_weight_g_mean",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "product_volume_cm3_mean",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "estimated_delivery_days",
+        "primary_source": "orders"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "approval_wait_hours",
+        "primary_source": "orders"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "purchase_month",
+        "primary_source": "orders"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "purchase_dayofweek",
+        "primary_source": "orders"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "purchase_hour",
+        "primary_source": "orders"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "interstate_item_ratio",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "customer_state",
+        "primary_source": "customers"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "primary_seller_state",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "primary_category",
+        "primary_source": "order_items"
+      },
+      {
+        "availability": "conditional_on_approval_time_source_observation_and_version_evidence",
+        "computed_or_imputed": false,
+        "feature": "payment_type",
+        "primary_source": "order_payments"
+      }
+    ],
+    "feature_values_built": 0,
+    "history_aggregates": "deferred until dual-time availability and version rules are accepted",
+    "join_dependencies": {
+      "interstate_ratio": [
+        "order_items",
+        "sellers",
+        "customers"
+      ],
+      "product_attributes_and_category": [
+        "order_items",
+        "products"
+      ],
+      "seller_state": [
+        "order_items",
+        "sellers"
+      ]
+    },
+    "source_profiles": {
+      "customers": {
+        "duplicate_primary_key_rows": 0,
+        "missing_by_field": {
+          "customer_city": 0,
+          "customer_id": 0,
+          "customer_state": 0,
+          "customer_unique_id": 0,
+          "customer_zip_code_prefix": 0
+        },
+        "rows_read": 99441
+      },
+      "order_items": {
+        "duplicate_order_item_key_rows": 0,
+        "missing_by_field": {
+          "freight_value": 0,
+          "order_id": 0,
+          "order_item_id": 0,
+          "price": 0,
+          "product_id": 0,
+          "seller_id": 0,
+          "shipping_limit_date": 0
+        },
+        "rows_read": 112650
+      },
+      "order_payments": {
+        "duplicate_order_sequence_key_rows": 0,
+        "missing_by_field": {
+          "order_id": 0,
+          "payment_installments": 0,
+          "payment_sequential": 0,
+          "payment_type": 0,
+          "payment_value": 0
+        },
+        "rows_read": 103886
+      },
+      "orders": {
+        "missing_by_field": {
+          "customer_id": 0,
+          "order_approved_at": 160,
+          "order_delivered_carrier_date": 1783,
+          "order_delivered_customer_date": 2965,
+          "order_estimated_delivery_date": 0,
+          "order_id": 0,
+          "order_purchase_timestamp": 0,
+          "order_status": 0
+        },
+        "rows_read": 99441
+      },
+      "products": {
+        "duplicate_primary_key_rows": 0,
+        "missing_by_field": {
+          "product_category_name": 610,
+          "product_description_lenght": 610,
+          "product_height_cm": 2,
+          "product_id": 0,
+          "product_length_cm": 2,
+          "product_name_lenght": 610,
+          "product_photos_qty": 610,
+          "product_weight_g": 2,
+          "product_width_cm": 2
+        },
+        "rows_read": 32951
+      },
+      "sellers": {
+        "duplicate_primary_key_rows": 0,
+        "missing_by_field": {
+          "seller_city": 0,
+          "seller_id": 0,
+          "seller_state": 0,
+          "seller_zip_code_prefix": 0
+        },
+        "rows_read": 3095
+      }
+    }
+  },
+  "format_version": 1,
+  "label_feasibility": {
+    "all_earliest_timestamp_ties_quarantined": true,
+    "cohort_orders": 73254,
+    "creation_before_approval_but_first_answer_after": 4,
+    "descriptive_future_first_answer_labels": 72613,
+    "descriptive_low_1_2": 11514,
+    "descriptive_other_3_5": 61099,
+    "exclusive_label_states": {
+      "first_answer_not_after_approval": 13,
+      "future_first_answer": 72613,
+      "no_review": 628
+    },
+    "first_answer_chosen_before_approval_filter": true,
+    "label_availability_clock": "answer event time proxy, not verified source observation or ingestion time",
+    "no_review_is_negative": false,
+    "review_rows_orphan_to_all_orders": 0,
+    "unlabeled_or_quarantined": 641
+  },
+  "order_quality": {
+    "approval_before_purchase": 0,
+    "final_status_filter_applied": false,
+    "order_approved_at": {
+      "invalid_nonmissing": 0,
+      "missing": 160
+    },
+    "order_delivered_carrier_date": {
+      "invalid_nonmissing": 0,
+      "missing": 1783
+    },
+    "order_delivered_customer_date": {
+      "invalid_nonmissing": 0,
+      "missing": 2965
+    },
+    "order_estimated_delivery_date": {
+      "invalid_nonmissing": 0,
+      "missing": 0
+    },
+    "order_purchase_timestamp": {
+      "invalid_nonmissing": 0,
+      "missing": 0
+    },
+    "pre_may_valid_approval_rows": 73254,
+    "valid_purchase_approval_rows": 99281
+  },
+  "prediction_question": {
+    "absence": "unknown, never a negative",
+    "creation_date_semantics_verified": false,
+    "population": "valid purchase/approval; approval >= purchase; approval < 2018-05-01; no final-status filter",
+    "target": "earliest recorded answer score 1-2 versus 3-5; first establish earliest, then require answer > approval",
+    "time": "order_approved_at",
+    "unit": "one order"
+  },
+  "proposed_temporal_support_only": [
+    {
+      "evaluation_label_event_before_may_cutoff": 5762,
+      "evaluation_unknown_at_may_cutoff": 70,
+      "evaluation_valid_approvals": 5832,
+      "historical_future_label_not_yet_before_fit": 4871,
+      "historical_label_event_before_fit": 34254,
+      "historical_unlabeled_or_quarantined": 338,
+      "historical_valid_approvals": 39463,
+      "proposed_evaluation_end_exclusive": "2018-01-01T00:00:00",
+      "proposed_evaluation_start": "2017-12-01T00:00:00",
+      "proposed_fit_event_cutoff_exclusive": "2017-12-01T00:00:00"
+    },
+    {
+      "evaluation_label_event_before_may_cutoff": 6623,
+      "evaluation_unknown_at_may_cutoff": 83,
+      "evaluation_valid_approvals": 6706,
+      "historical_future_label_not_yet_before_fit": 3790,
+      "historical_label_event_before_fit": 48226,
+      "historical_unlabeled_or_quarantined": 466,
+      "historical_valid_approvals": 52482,
+      "proposed_evaluation_end_exclusive": "2018-03-01T00:00:00",
+      "proposed_evaluation_start": "2018-02-01T00:00:00",
+      "proposed_fit_event_cutoff_exclusive": "2018-02-01T00:00:00"
+    },
+    {
+      "evaluation_label_event_before_may_cutoff": 3716,
+      "evaluation_unknown_at_may_cutoff": 3062,
+      "evaluation_valid_approvals": 6778,
+      "historical_future_label_not_yet_before_fit": 4064,
+      "historical_label_event_before_fit": 61827,
+      "historical_unlabeled_or_quarantined": 585,
+      "historical_valid_approvals": 66476,
+      "proposed_evaluation_end_exclusive": "2018-05-01T00:00:00",
+      "proposed_evaluation_start": "2018-04-01T00:00:00",
+      "proposed_fit_event_cutoff_exclusive": "2018-04-01T00:00:00"
+    }
+  ],
+  "protected_stage4": {
+    "daily_alert_fraction": 0.1,
+    "event_signals": "pending_data",
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "stage5_sampling_or_fold_rule_inferred": false,
+    "status": "pending_data"
+  },
+  "review_quality": {
+    "distinct_order_ids": 98673,
+    "distinct_review_ids": 98410,
+    "duplicate_pair_rows": 0,
+    "duplicate_review_id_excess_rows": 814,
+    "duplicate_review_id_rows": 1603,
+    "extra_review_rows_beyond_one_per_order": 551,
+    "invalid_or_missing_score_rows": 0,
+    "missing_order_id": 0,
+    "missing_review_id": 0,
+    "multi_review_orders": 547,
+    "orders_with_different_recorded_scores": 202,
+    "reused_review_id_groups": 789,
+    "review_answer_timestamp": {
+      "invalid_nonmissing": 0,
+      "missing": 0
+    },
+    "review_creation_date": {
+      "invalid_nonmissing": 0,
+      "missing": 0
+    },
+    "rows": 99224
+  },
+  "same_cohort_clock_comparisons": {
+    "order_approved_at": {
+      "first_answer_after_anchor": 72613,
+      "first_answer_before_anchor": 0,
+      "first_answer_equal_anchor": 0,
+      "missing_anchor": 0,
+      "same_labeled_pre_may_cohort": 72613
+    },
+    "order_delivered_carrier_date": {
+      "first_answer_after_anchor": 71070,
+      "first_answer_before_anchor": 166,
+      "first_answer_equal_anchor": 0,
+      "missing_anchor": 1377,
+      "same_labeled_pre_may_cohort": 72613
+    },
+    "order_delivered_customer_date": {
+      "first_answer_after_anchor": 66212,
+      "first_answer_before_anchor": 4122,
+      "first_answer_equal_anchor": 0,
+      "missing_anchor": 2279,
+      "same_labeled_pre_may_cohort": 72613
+    }
+  },
+  "source_snapshot_role": "source_audited_proposal_not_model_preregistration_or_live_validator",
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 9033957,
+      "columns": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "rows": 99441,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "columns": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "rows": 1000163,
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "columns": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "rows": 112650,
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "columns": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "rows": 103886,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "columns": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "rows": 99224,
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "columns": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "rows": 99441,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "columns": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "rows": 32951,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "columns": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "rows": 3095,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "columns": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "rows": 71,
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    }
+  ],
+  "status": "retrospective_proposal_only_operational_clocks_pending_data",
+  "temporal_contract": {
+    "calendar": "previously inspected development calendar; no new untouched final test claimed",
+    "label_maturity": "horizon H and censoring C remain undecided; maximum observed answer is not completeness evidence",
+    "preprocessing": "future imputation, encoding, history construction, tuning and threshold selection train-only in inner chronological validation",
+    "strict_history": "approval < F AND first valid future answer event < F; event at F excluded, where F is the proposed model-fit event cutoff",
+    "timestamps": "naive event times only; source timezone, ingestion and historical revisions unverified",
+    "window": "complete approval month [start,end), never random row split"
+  },
+  "verification": {
+    "bound_sources_before_and_after": 12,
+    "new_dashboard": 0,
+    "new_fit": 0,
+    "new_model_loads": 0,
+    "new_model_selection": 0,
+    "new_performance_metrics": 0,
+    "new_predictions": 0,
+    "original_holdout_scored": false,
+    "raw_tables_schema_and_rows_checked": 9,
+    "review_text_columns_loaded": 0
+  }
+}

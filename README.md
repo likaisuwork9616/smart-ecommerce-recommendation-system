@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析及延遲預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL 與 EDA 初版，正在研究固定每日 10% 提醒預算的延遲辨識；推薦系統與 API 尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已開始評論低評分預測的可行性盤點，尚未訓練。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,8 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5–6：評論預測、RFM | 尚未開始 | 預測低評分、顧客分群 |
+| Stage 5：評論低評分預測 | 可行性盤點完成；未訓練 | 核准時首答目標、21欄條件候選、標籤品質與月滾動驗證建議 |
+| Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
@@ -42,6 +43,7 @@ py -3.12 -m venv .venv
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
+| 看評論低評分預測能否開始 | [Stage 5可行性盤點](docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -89,6 +91,22 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
+## Stage 5：評論低評分預測盤點
+
+建議先做「核准時預測本單未來首份回覆是否為1–2分」，以訂單一列、最早記錄的回答為代理標籤；3–5分為另一類，未評論或當下尚未回答不當負例。本輪只盤點資料與時序，沒有訓練、模型成績或Dashboard。
+
+| 主分析範圍：核准早於2018-05-01 | 實際資料支援，非模型效能 |
+| --- | ---: |
+| 有效購買／核准訂單，不限最終送達 | 73,254 |
+| 可辨識核准後首答 | 72,613＝1–2分11,514＋3–5分61,099 |
+| 其餘狀態 | 無評論628、首答不晚於核准13；保留未知／隔離 |
+
+評論表有547張多評論訂單，review_id也非全域唯一，不能直接把每列評論當一張訂單。六表基本21欄可列為離線候選，但明細、付款、承諾與主檔都缺原可得／版本時鐘；本單評論、實際交運／送達及最終status禁止作核准特徵。
+
+時間驗證建議月滾動：每次fit僅用當時已回答的歷史標籤，前處理與選參也限歷史時間窗。以2018-05-01作回答截止示例，四月6,778張僅3,716張已有可用首答；這是觀察窗口缺口，不能當模型表現，也不能直接拿已回答子集跨月公平比較。完整定義與[實際盤點報告](reports/stage5/review_prediction_feasibility.json)見[Stage 5文件](docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)。
+
+下一步先凍結訂單級標籤、唯一鍵／聚合規則、等長觀察或截止政策及內外層時間驗證，再另定最小基線。Stage 4繼續待資料、每日10%與五種子維持；Stage 5本輪沒有指定訓練模型、提醒預算或種子，也沒有把五種子當五個fold。
+
 ## 專案結構
 
 ```text
@@ -116,7 +134,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪僅文件與空白範本，53份Markdown／615個本機連結無失效，15項check_id對應一致；9類未來案例及3個判定均維持pending_data、N與K未填，79份既有JSON及專案程式保留。未新增或重跑單元測試、來源盤點、排序或模型。前輪8項來源／名冊測試、42項交付測試及更早完整867項測試保留各輪紀錄，不當成本輪新成績。沒有載入模型、重新預測、訓練或新增效能指標。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪Stage 5的12項標籤／時間／來源契約測試全過，12份來源／程式SHA前後一致，159項獨立資料對帳吻合，報告重跑bytes相同；沒有建特徵、載入模型、訓練、預測、效能計算或Dashboard。54份Markdown／634個本機連結與80份JSON索引檢查通過。前輪8項來源／名冊、42項交付與更早完整867項測試保留各輪紀錄，不當成本輪全套成績。Stage 4程式、報告與待資料狀態保留。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

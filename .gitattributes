@@ -63,3 +63,6 @@ reports/stage4/daily_delivery_acceptance.json -text whitespace=blank-at-eol,blan
 # Preserve the bounded daily data-contract audit's source and report bytes.
 scripts/audit_daily_data_contract.py text eol=lf
 reports/stage4/daily_data_contract.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the bounded Stage 5 feasibility audit's code and aggregate bytes.
+scripts/audit_review_prediction_feasibility.py text eol=lf
+reports/stage5/review_prediction_feasibility.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

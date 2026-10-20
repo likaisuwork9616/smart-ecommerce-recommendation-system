@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 重現Stage 5評論預測可行性盤點 | [audit_review_prediction_feasibility.py](audit_review_prediction_feasibility.py) | 需原九CSV與既有來源報告；只查標籤／鍵／時鐘／候選欄位，不建特徵或訓練模型 |
 | 檢查套件、MySQL及資料表 | [verify_environment.py](verify_environment.py) | 使用本機資料庫設定；摘要存 `.runtime/verification/summary.json` |
 | 開啟教學分析 | [start_jupyter.ps1](start_jupyter.ps1) | 先啟動本專案 MySQL，再開啟 `notebooks/`；見[Notebook說明](../notebooks/README.md) |
 | 啟停資料庫／開啟GUI | [start_mysql.ps1](start_mysql.ps1)、[stop_mysql.ps1](stop_mysql.ps1)、[start_dbeaver.ps1](start_dbeaver.ps1) | 工具、資料庫、設定與帳密都在本機忽略路徑 |
@@ -28,11 +29,20 @@
 .\.venv\Scripts\python.exe scripts\audit_completed_history_representativeness.py --help
 .\.venv\Scripts\python.exe scripts\audit_event_source_availability.py --help
 .\.venv\Scripts\python.exe scripts\accept_frozen_daily_delivery.py --help
+.\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
+
+## Stage 5可行性盤點
+
+```powershell
+.\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py
+```
+
+輸出為[聚合盤點](../reports/stage5/review_prediction_feasibility.json)，使用九CSV的凍結SHA，並以AST只讀原21欄候選定義；不呼叫Stage 4特徵／延遲label builder，不啟動MySQL或載入模型。首答、未知標籤與fit時鐘規則見[方法文件](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)。既有報告只接受相同bytes重現，來源不同需另接受新版本，不覆寫原報告。
 
 ## Stage 4研究入口
 
