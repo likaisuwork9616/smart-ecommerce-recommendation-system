@@ -22,7 +22,9 @@ Stage 1–3使用MySQL進行查詢；建立與匯入流程見[本機環境指南
 
 Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時間範圍見[延遲模型方法](../docs/STAGE4_DELAY_PREDICTION.md)。地理特徵使用的地理表、各輪快取和來源SHA依當輪規格，不可用其他版本直接替換。
 
-最新[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)確認：本機九表與同內容ZIP沒有取消／非送達結案事件的取得時鐘或承諾版本；本機DB與2026匯入binlog也不能補成原業務日誌。官方API文件僅有線索，未取得同匿名ID的授權歷史匯出與涵蓋證明，目前列為待資料。新來源需先驗收事件／取得／生效時間及ID映射，不以檔案mtime或最終status回填。
+[事件與承諾版本來源查核](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)確認：本機九表與同內容ZIP沒有取消／非送達結案事件的取得時鐘或承諾版本；本機DB與2026匯入binlog也不能補成原業務日誌。官方API文件僅有線索，未取得同匿名ID的授權歷史匯出與涵蓋證明，目前列為待資料。新來源需先驗收事件／取得／生效時間及ID映射，不以檔案mtime或最終status回填。
+
+目前沒有新資料來源。後續同ID核准清冊、雙時間版本及日結／入庫對帳，使用[資料交接清單](../docs/templates/daily_data_handoff/README.md)與[驗收紀錄範本](../docs/templates/daily_data_handoff/acceptance_record.template.md)。已填紀錄、原始匯出、匿名映射與逐ID證據放Git忽略的`.runtime/data_handoffs/<handoff_id>/`，先作獨立交接，不直接替換原凍結Olist／特徵／帳本。空範本不是新資料或驗收結果。
 
 ## 處理資料與模型
 
