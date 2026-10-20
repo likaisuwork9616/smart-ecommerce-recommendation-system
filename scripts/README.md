@@ -11,16 +11,17 @@
 | 啟停資料庫／開啟GUI | [start_mysql.ps1](start_mysql.ps1)、[stop_mysql.ps1](stop_mysql.ps1)、[start_dbeaver.ps1](start_dbeaver.ps1) | 工具、資料庫、設定與帳密都在本機忽略路徑 |
 | 建立新電腦環境／匯入CSV | [setup_local_mysql.py](setup_local_mysql.py)、[load_olist_to_mysql.py](load_olist_to_mysql.py) | 初始化只供新環境；CSV匯入使用 `if_exists="replace"`，會重建同名資料表，操作見建置指南 |
 | 載入模型做離線推論 | [predict_delay.py](predict_delay.py) | 需要本機 artifact；支援原版、平衡模式及指定研究模型，操作見[原版說明](../docs/STAGE4_DELAY_PREDICTION.md) |
-| 閱讀最新研究 | [固定條件比較](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md) | 先讀文件與既有JSON；這一步不需要啟動MySQL或重新訓練 |
-| 重現最新診斷 | [diagnose_conditional_mature_signals.py](diagnose_conditional_mature_signals.py) | 需要完整凍結快取、分數帳本及來源檔；只計算比較，不載入模型或新增fit |
+| 閱讀最新研究 | [完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) | 先讀文件與既有JSON；這一步不需要啟動MySQL或重新訓練 |
+| 重現最新診斷 | [audit_completed_history_representativeness.py](audit_completed_history_representativeness.py) | 需要凍結快取、分數帳本、原始表與受保護來源（含僅驗SHA的模型檔）；不載入模型或新增fit |
 | 驗證程式 | [tests/](../tests/README.md) | 測試命令與執行限制另列，執行測試不等於重做研究 |
 
-可先查閱參數；以下三個命令只顯示說明：
+可先查閱參數；以下命令只顯示說明：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\verify_environment.py --help
 .\.venv\Scripts\python.exe scripts\predict_delay.py --help
 .\.venv\Scripts\python.exe scripts\diagnose_conditional_mature_signals.py --help
+.\.venv\Scripts\python.exe scripts\audit_completed_history_representativeness.py --help
 ```
 
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
@@ -44,11 +45,14 @@
 | 未觀測交運待件件數／時齡 | [train_unobserved_handover_count.py](train_unobserved_handover_count.py)、[diagnose_unobserved_handover_count.py](diagnose_unobserved_handover_count.py)、[train_unobserved_handover_age.py](train_unobserved_handover_age.py)、[diagnose_unobserved_handover_age.py](diagnose_unobserved_handover_age.py)、[diagnose_age_intersections.py](diagnose_age_intersections.py) | [件數](../docs/STAGE4_UNOBSERVED_HANDOVER_COUNT.md)、[時齡](../docs/STAGE4_UNOBSERVED_HANDOVER_AGE.md)、[交集](../docs/STAGE4_AGE_INTERSECTIONS.md) |
 | 五種子與欄位取樣 | [compare_age_seed_stability.py](compare_age_seed_stability.py)、[diagnose_age_seed_stability.py](diagnose_age_seed_stability.py)、[compare_age_colsample.py](compare_age_colsample.py)、[diagnose_age_colsample.py](diagnose_age_colsample.py) | [種子穩定性](../docs/STAGE4_AGE_SEED_STABILITY.md)、[colsample](../docs/STAGE4_AGE_COLSAMPLE.md) |
 | 固定四組模型的邊界、成熟訊號及條件比較 | [diagnose_four_model_boundary.py](diagnose_four_model_boundary.py)、[audit_mature_history_signals.py](audit_mature_history_signals.py)、[diagnose_conditional_mature_signals.py](diagnose_conditional_mature_signals.py) | [每日邊界](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md)、[成熟訊號](../docs/STAGE4_MATURE_HISTORY_SIGNAL_AUDIT.md)、[固定條件](../docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md) |
+| 完成歷史與未完成慢件代表性 | [audit_completed_history_representativeness.py](audit_completed_history_representativeness.py) | [同核准窗口、逾期待件與條件敏感度](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) |
 
 ## 共用模組與凍結來源
 
 `delay_*.py` 主要供CLI與測試匯入：特徵模組建立核准時可得欄位，`*_training.py` 封裝各輪候選與訓練，`delay_alert_policy.py`／`delay_calibration_policy.py` 管理提醒規則，`delay_*diagnostics.py`、`delay_four_model_boundary.py`、`delay_mature_signal_profiles.py` 與 `delay_conditional_mature_signals.py` 計算診斷。`logistics_event_availability.py` 記錄物流事件可得性；`db_config_example.py` 只提供設定格式，實際 `db_config.py` 不提交。
 
 最新研究固定每日10%、五種子11／29／42／73／101及原12個階段。事前規格、正式報告與所綁定的舊程式／模型／快取SHA形成來源鏈，不能為清整目錄而改名或搬移。較早入口可能覆寫預設產物，較新入口會拒絕不同內容；重現前依各輪文件選擇新的輸出路徑並保留原來源。
+
+代表性稽核由`delay_history_representativeness.py`建立status-free核准窗口計數，`delay_representation_profiles.py`作固定條件比較。新欄只作稽核，不加入模型白名單；初版規格僅保留JSON格式修正紀錄，實際執行使用正式規格。
 
 只複製Git儲存庫不足以重現全部實驗：原始CSV在 `data/raw/olist/`，特徵快取及逐筆分數在 `data/processed/`，模型在 `models/`，執行證明在 `.runtime/`，皆保留本機並由Git忽略。公開提交以程式、規格、聚合JSON及文件為主，不提交原始資料、逐筆分數、憑證或本機模型。

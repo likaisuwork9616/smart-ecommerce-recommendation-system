@@ -65,9 +65,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 來源為[排序配對焦點報告](reports/stage4/rank_pair_focus.json)及後續各輪的凍結主方案。這些月份已反覆用於設計實驗，不能當作未知測試成績；各歷史月至少 30% 召回的適用要求仍未達成。預設推論仍為原版 Random Forest，研究主方案沒有自動取代它；後續固定預算研究未重評原保留期間。
 
-最新完成[固定路線、承諾、核准週與支援量的比較](docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)，保留四模型、五種子與 SP→SC 對照。精確承諾下，二月等待組 154 張共同漏報，賣家 CDF／賣家×路線率／近期率差支援充分僅涵蓋 3／0／7 張；RJ 近期率差只有二月呈一致反向，三候選皆無跨兩月依據，因此暫不指定單因子訓練。涵蓋不足不代表候選無效。
+最新完成[完成歷史對未完成慢件的代表性稽核](docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)，保留四模型、五種子與 SP→SC 對照。完成窗口與待件的核准時齡、原cohort涵蓋確有差異，但 RJ 待件歷史出現量中，原cohort排除占比在漏報／準時組為16.50%／16.47%，缺口本身未證明能辨識漏報。固定路線、承諾、核准週與支援量，再加核准星期後，二月 RJ 支援充分為0、等待組路線比例僅4張且只在1週；六比例皆無完整跨月依據，因此維持0新增訓練。涵蓋不足不代表訊號無效。
 
 等待 24–72 小時組指核准當下，主賣家歷史未觀測交運待件時齡 p90 在 `(24,72]` 小時；不是本單核准後等待才預測。完整分母、分格結果及限制以實驗文件為準。
+
+下一步先確認是否有核准當下已取得的取消／結案事件及承諾版本資料，再決定一個新訊號。現有 Olist 缺少這些時鐘；若沒有新增來源，就列為待資料，暫停對同三個開發月繼續拆格或加比例。
 
 ## 專案結構
 
@@ -96,10 +98,8 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及 Windows 權限注意事項見[測試說明](tests/README.md)。最近模型診斷輪的完整測試為 830 項通過；詳細重現數字保留在[實驗文件](docs/STAGE4_CONDITIONAL_MATURE_SIGNALS.md)，不將歷史檢查數誤當每次更新都重新執行。
+測試範圍、分組及 Windows 權限注意事項見[測試說明](tests/README.md)。本輪完整執行867項測試全過，含新增37項；保留原175欄共12,397,700值，重建10個既有事件計數共708,440值，並核對1,281,120既有分數列。正式規格綁定235份來源與3份分析程式；完整方法、重現操作與驗證見[實驗文件](docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)。新增124個稽核欄只存本機，不進模型白名單。
 
-本次清整將首頁、研究歷程與操作文件分工，補齊各目錄導覽，清除前三本 Notebook 的 26 項舊輸出並統一 kernel 顯示名稱，補列 NumPy 直接需求。實驗程式、正式報告、圖表及 Notebook 程式內容保留，沒有重建研究結果或新增訓練。
-
-本輪核對47份Markdown的491個本機連結、四本Notebook結構與59個程式區塊；71份JSON、21張報告圖及233筆凍結來源／程式SHA一致，`pip check`通過。這次未重跑模型單元測試或歷史實驗。
+先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 
 GitHub 保存程式、未執行的 Notebook、文件、聚合報告與圖表。原始資料、特徵快取、本機模型、連線帳密與執行狀態由 Git 忽略；連線設定範本為 [`scripts/db_config_example.py`](scripts/db_config_example.py)。每次推送需同步更新 README，commit 使用繁體中文，其餘協作規則見 [AGENTS.md](AGENTS.md)。
