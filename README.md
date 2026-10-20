@@ -11,7 +11,7 @@ Smart E-Commerce Recommendation System
 | Stage 1：資料與環境 | 完成 | Olist 九份 CSV、MySQL、Jupyter 與本機啟動工具 |
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
-| Stage 4：延遲預測 | 研究名冊交付通過；全量日資料契約待資料 | 每日10%與五種子維持；缺入庫／版本時間及日結證據，正式提醒適用要求未達 |
+| Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
 | Stage 5–6：評論預測、RFM | 尚未開始 | 預測低評分、顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -41,6 +41,7 @@ py -3.12 -m venv .venv
 | 看延遲模型適用範圍、限制與交付前提 | [模型卡與交付清單](docs/STAGE4_MODEL_APPLICABILITY.md) |
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
+| 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -82,9 +83,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 前輪[單日離線交付驗收](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)固定2018-02-01，四設定與全部五種子並列，研究cohort242張、各組24名額；完整排名4,840列與480個跨模型提醒旗標只存本機，僅研究名冊交付通過。
 
-最新[全量日資料契約查核](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)核對原九CSV、既有來源證據、匯入程式與凍結分數名冊。同日原匯出245張中另3張沒有全部20組分數，不能直接升格全量交付；245也不是上游全量證明。現有來源缺原入庫／可得時間、歷史版本及日結訊號，四面向均列待資料。日結後T才收到資料不能回填成核准時點t已知；時區、日切、晚到與重開規則尚待來源／使用方確認。
+前輪[全量日資料契約查核](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)核對原九CSV、既有來源證據、匯入程式與凍結分數名冊。同日原匯出245張中另3張沒有全部20組分數，不能直接升格全量交付；245也不是上游全量證明。現有來源缺原入庫／可得時間、歷史版本及日結訊號，四面向均列待資料。日結後T才收到資料不能回填成核准時點t已知；時區、日切、晚到與重開規則尚待來源／使用方確認。
 
-[取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料，0新訓練或效能結論。下一步先取得可稽核的全量核准來源、雙時間版本與日結證據，再驗收模型適用範圍、處置與成本；正式通知與模型Dashboard暫緩。
+本輪在沒有新來源下，完成[資料交接清單與驗收範本](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#data-handoff-kit)：15個逐項check_id列出責任、必要資產、時鐘與版本、逐日／分區對帳、覆核及缺口處置。所有實測欄待填、狀態預設pending_data，分開記資料交接、分數交付與模型適用／正式通知；範本備妥不代表資料已收到或通過驗收。填寫副本及實際資料留Git忽略的.runtime/data_handoffs/，公開只放空範本。
+
+[取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
 ## 專案結構
 
@@ -113,7 +116,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪8項來源與名冊測試全過，16份來源／程式SHA前後一致，九表schema／列數、20組各242張及全量缺口核對完成，報告重跑bytes相同，見[資料契約查核](reports/stage4/daily_data_contract.json)。未解析凍結帳本的分數、outcome_for_metrics或提醒旗標，也未重排；原始最終status僅作事後名冊差額對帳。前輪42項與更早完整867項測試保留各輪紀錄，不當成本輪全套成績。沒有載入模型、重新預測、訓練或新增效能指標；重現需另備本機凍結來源。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪僅文件與空白範本，53份Markdown／615個本機連結無失效，15項check_id對應一致；9類未來案例及3個判定均維持pending_data、N與K未填，79份既有JSON及專案程式保留。未新增或重跑單元測試、來源盤點、排序或模型。前輪8項來源／名冊測試、42項交付測試及更早完整867項測試保留各輪紀錄，不當成本輪新成績。沒有載入模型、重新預測、訓練或新增效能指標。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

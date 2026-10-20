@@ -6,7 +6,9 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核的15項、單日離線交付的42項均已通過；42項為前輪紀錄、用時3.017秒。最新[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)最終8項來源盤點測試全過、0.062秒，沒有重跑全套、模型訓練或新預測。各輪執行紀錄不可合稱本輪完整測試。
+最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核15項、單日離線交付42項（3.017秒）、[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)8項（0.062秒）均已通過。這些是各前輪紀錄，不能合稱本輪完整測試。
+
+本輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只新增文件與空白格式，檢查連結、15項check_id及預設待資料狀態；未新增或重跑單元測試、來源稽核、模型或預測。範本列出的未來案例尚未執行，不能當成真實資料已驗收。
 
 ## 依修改範圍選擇檢查
 
