@@ -6,6 +6,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| 最新單日離線交付驗收 | [範圍與操作](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) → [來源／交付契約](stage4/daily_delivery_acceptance_specification.json) → [聚合驗收](stage4/daily_delivery_acceptance.json)；不含個體排名／分數或新增效能 |
 | 現有模型適用範圍與可交付成果 | [模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md) → [歷史選模主方案](stage4/rank_pair_focus.json) → [四設定五種子](stage4/age_colsample.json)；模型卡只整理既有證據，沒有新增效能報告 |
 | 最新事件／承諾版本來源與待資料 | [查核範圍與結論](../docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md) → [來源快照與驗收契約](stage4/event_source_availability_specification.json) → [實際查核](stage4/event_source_availability.json) |
 | 前一步完成歷史代表性 | [方法與結論](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md) → [正式規格](stage4/completed_history_representativeness_specification.json) → [實際稽核](stage4/completed_history_representativeness_audit.json) |
@@ -14,7 +15,7 @@
 | 四組模型是否漏掉相同訂單、名額如何交換 | [方法與限制](../docs/STAGE4_FOUR_MODEL_BOUNDARY.md) → [規格](stage4/four_model_boundary_specification.json) → [完整診斷](stage4/four_model_boundary_diagnostics.json) |
 | 原版固定測試的定義與成績 | [原版文件](../docs/STAGE4_DELAY_PREDICTION.md) → [metrics.json](stage4/metrics.json) |
 
-colsample後的診斷、來源查核與交付整理沿用原101／時齡102欄 × colsample0.8／1.0、五種子及每日10%規則，沒有新fit、方案改選或重評原保留測試。模型診斷屬反覆檢視的歷史驗證／開發回測；來源查核是schema與時鐘證據，本次模型卡整理不新增JSON或預測成績。原版`metrics.json`的test、各輪validation及development不能合併成未知資料成績；主方案413TP也不是五種子平均。
+colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 × colsample0.8／1.0、五種子及每日10%規則，沒有新fit、方案改選或重評原保留測試。模型診斷屬反覆檢視的歷史驗證／開發回測；來源查核是schema與時鐘證據，單日驗收只核既有來源／排序／輸出契約，不新增預測成績。原版`metrics.json`的test、各輪validation及development不能合併成未知資料成績；主方案413TP也不是五種子平均。
 
 ## Stage 4全部JSON對照
 
@@ -56,6 +57,7 @@ colsample後的診斷、來源查核與交付整理沿用原101／時齡102欄 �
 | 固定路線、承諾、週與支援量 | [conditional_mature_signal](stage4/conditional_mature_signal_specification.json) | [conditional_mature_signal_diagnostics](stage4/conditional_mature_signal_diagnostics.json) |
 | 完成歷史對未完成慢件代表性 | [正式規格](stage4/completed_history_representativeness_specification.json)、[格式修正前初版](stage4/completed_history_representativeness_initial_specification.json) | [completed_history_representativeness_audit](stage4/completed_history_representativeness_audit.json) |
 | 取消／結案事件與承諾版本來源 | [來源快照／驗收契約](stage4/event_source_availability_specification.json) | [event_source_availability](stage4/event_source_availability.json) |
+| 單日凍結分數離線交付驗收 | [daily_delivery_acceptance](stage4/daily_delivery_acceptance_specification.json) | [daily_delivery_acceptance](stage4/daily_delivery_acceptance.json) |
 
 代表性稽核的初版規格保留發布前JSON格式修正紀錄，未產生正式報告；計算規則未變，重現應使用正式規格，說明見[當輪文件](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)。
 

@@ -41,3 +41,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 原始CSV、特徵快取、逐筆分數、模型與執行證明都保留在本機忽略路徑。新的Git checkout不會自帶這些資料；不要為了讓Notebook全部通過，就改寫凍結報告或重新評估原保留測試。研究操作與來源保護見[程式索引](../scripts/README.md)。
 
 現有成果的適用範圍、五種子與主方案區別、可交付項目及下一步見[模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md)。模型卡整理沒有新增Notebook cell、訓練或評分；四本Notebook並非每日10%生產通知系統。
+
+最新[單日離線交付驗收](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)以獨立CLI只讀凍結分數，沒有執行Notebook、模型訓練或新預測。請勿為重現交付驗收而整本執行04。
