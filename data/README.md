@@ -69,3 +69,5 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 最新[後續時間窗盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)只讀評論身分與時鐘，未讀review_score值或建立新y。2018-05至09共26,027張原匯出有效核准均待資料，尚非完整上游名冊或已驗收H60標籤；原C=2018-07-01及既有bundle不改。新歷史紀錄／guard在`.runtime/stage5_review_validation_windows_v1/`，原30份私有證據不變；補齊新觀察／版本及標籤角色契約前，不能拿較晚答案選模或校準。
 
 本輪[2018年5–9月交接清單與範本](../docs/templates/review_window_handoff/README.md)備妥，但沒有新來源、標籤或交接實例。日後真實副本及原始清冊、版本鏈、H60完成與逐ID對帳留Git忽略的`.runtime/review_window_handoffs/<handoff_id>/`，與原dataset／兩臂training_v1分開；不得覆寫舊guard或把前輪匯出數抄成已接受全量N。
+
+本輪[四欄／三欄適用範圍與交付清單](../docs/STAGE5_MODEL_APPLICABILITY.md)彙整現有私有H60、角色、分數與manifest用途；沒有新增資料、重包私有檔案或讀逐筆分數。Git只提供公開研究來源，原guard、資料集、兩臂產物及新窗交接範本均保留；Stage 5維持待資料。

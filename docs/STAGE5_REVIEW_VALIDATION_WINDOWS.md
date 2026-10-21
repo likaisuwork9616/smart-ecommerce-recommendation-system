@@ -1,5 +1,7 @@
 # Stage 5：後續時間窗盤點與驗證用途凍結
 
+目前沒有新來源，Stage 5維持待資料。最新[四欄／三欄適用範圍與交付清單](STAGE5_MODEL_APPLICABILITY.md)整理原開發成果與操作界線；本輪未修改用途凍結、交接範本、原盤點報告或啟用新驗證窗。下方交接及盤點查核均保留各前輪紀錄。
+
 最新已備妥2018年5–9月[交接清單](templates/review_window_handoff/README.md)、[驗收紀錄](templates/review_window_handoff/acceptance_record.template.md)與[JSON範本](templates/review_window_handoff/handoff_manifest.template.json)。五個月仍待資料；以下來源數字與模型用途保留前輪盤點結果，本輪只整理文件，沒有重跑CLI或接觸新答案。
 
 **本輪沒有取得可直接啟用的新保留測試。** 原H60範圍以外的2018-05至2018-09共26,027張有效核准單，沒有找到Stage 5直接內／外層query選參或評估紀錄；但既有全來源評論聚合、跨任務使用與不完整使用帳本，不能證明完全未接觸。五個窗口均列待資料，僅保留未來帶曝光限制的時間驗證用途；沒有訓練、讀評分值、建新y、計效能或Dashboard。

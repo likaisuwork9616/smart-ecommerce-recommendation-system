@@ -21,7 +21,11 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 5新時間窗交接文件
+## 本輪Stage 5模型適用範圍文件
+
+[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)只核對原聚合報告的逐月／macro AP、C、分母與固定門檻混淆數，並查文件連結／JSON格式與既有凍結資產保存。未讀逐筆分數重算指標，未新增或重跑單元／模型測試、訓練、資料集或新資料驗收；這次文件查核不算新效能或未知測試。
+
+## 前輪Stage 5新時間窗交接文件
 
 [交接清單與範本](../docs/templates/review_window_handoff/README.md)只做文件／格式查核：嚴格JSON解析、五個月完整區間及H60日曆界線、15個check_id與三關卡對應、所有實測null及pending_data、Markdown本機連結，另核既有程式／報告及私有證據未改。沒有新增或重跑單元測試、模型、原始資料稽核或真實交接驗收；範本所列案例是未來待執行義務，不能計為通過測試或新資料成績。
 

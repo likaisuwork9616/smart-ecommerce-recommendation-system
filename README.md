@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4維持待資料。Stage 5已備妥2018年5–9月的資料交接清單與驗收範本：五個月均待資料，新增可啟用驗證窗仍0，保留既有四欄及開發成果。本輪不讀新評分、不訓練、不做Dashboard；推薦系統與API尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4維持待資料。Stage 5已整理四欄基線與三欄消融的適用範圍及交付清單，目前可交付離線開發研究證據；2018年5–9月仍待資料，可啟用新驗證窗0。本輪不讀新評分、不訓練、不做Dashboard；推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 新時間窗交接清單／驗收範本完成；五個月待資料 | 2018-05至09分月15項驗收、三關卡分開簽收；新驗證窗0，無訓練／新效能 |
+| Stage 5：評論低評分預測 | 適用範圍／交付模型卡完成；維持待資料 | 四欄保留開發對照、三欄保留消融證據；新驗證窗0，無追加訓練／新效能 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -43,6 +43,7 @@ py -3.12 -m venv .venv
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
+| 看Stage 5模型適用範圍、限制與交付 | [四欄／三欄模型卡](docs/STAGE5_MODEL_APPLICABILITY.md) |
 | 看評論低評分預測能否開始 | [Stage 5可行性盤點](docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md) |
 | 重現首答資料集與逐fit標籤資格 | [Stage 5凍結規格及核對](docs/STAGE5_REVIEW_DATASET_SPEC.md) |
 | 看最小基線、選參與評估約定 | [Stage 5最小基線規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md) |
@@ -104,6 +105,22 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 先前在沒有新來源下，完成[資料交接清單與驗收範本](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#data-handoff-kit)：15個逐項check_id列出責任、必要資產、時鐘與版本、逐日／分區對帳、覆核及缺口處置。所有實測欄待填、狀態預設pending_data，分開記資料交接、分數交付與模型適用／正式通知；範本備妥不代表資料已收到或通過驗收。填寫副本及實際資料留Git忽略的.runtime/data_handoffs/，公開只放空範本。
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
+
+## Stage 5本輪適用範圍與交付定位
+
+已整理[四欄基線／三欄消融模型卡](docs/STAGE5_MODEL_APPLICABILITY.md)，集中說明研究母體、H60與逐fit時鐘、既有開發結果、限制、公開／私有交付及禁止重跑規則。本輪只引用凍結報告，不讀逐筆分數、不重算效能或訓練。
+
+| 項目 | 目前可支持的結論／交付 |
+| --- | --- |
+| 四欄基線 | 原開發比較基準；三月macro AP 0.170928，對常數的改善不一致，尚未通過營運適用驗收 |
+| 三欄消融 | 保留消融證據；macro AP 0.170494，三欄−四欄為-0.000434，三個月均略降，未支持替換四欄 |
+| 解讀範圍 | 僅2017-12／2018-02／2018-04已檢視開發回測；19,316張query中19,055張合格y計分，261張未知不當負例 |
+| 可交付成果 | 方法／規格、聚合報告、程式與原測試來源、凍結分數／角色的私有來源鏈、新資料交接清單；沒有可部署模型或評論提醒政策 |
+| 未解缺口 | 原入庫／評分版本、上游全量、H60完成及新標籤角色；2018年5–9月全部待資料，可啟用新驗證窗0 |
+
+上述數字均為[既有四欄](reports/stage5/review_baseline_training.json)及[既有三欄](reports/stage5/review_month_ablation_training.json)結果，沒有新成績。Stage 5固定42只供原執行重現，Stage 4每日10%與五種子維持各自任務；不延伸成評論提醒規則。
+
+下一步優先依[交接清單](docs/templates/review_window_handoff/README.md)取得新證據，沒有新來源就固定兩臂研究交付、不再拆同三個開發月選改動。若要用既有資料推進專案，建議另輪先做Stage 6 RFM的顧客鍵、訂單資格、金額與as-of截止可行性盤點；本輪未開始RFM，未分群、訓練或做Dashboard。
 
 ## Stage 5：四欄基線與三欄消融結果
 
@@ -293,7 +310,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 85公開＋25私有來源及14份歷史commit核對；28項合成測試、618項獨立盤點及95項用途核對分列通過，原30份私有證據不變。該輪新增可啟用驗證窗0、訓練／效能／參數更新0。當時建議的資料交接清單與驗收範本已於本輪備妥；仍須取得完整新核准名冊、足夠H60觀察截止與完成證據、入庫／評分版本及另版標籤／角色guard。缺件均待資料，Stage 4每日10%與五種子不變，Dashboard暫緩。
 
-## Stage 5本輪新時間窗交接清單與驗收範本
+## Stage 5前輪新時間窗交接清單與驗收範本
+
+以下保留前輪文件交付紀錄，本輪未修改範本或執行真實資料驗收。
 
 已整理2018年5–9月的[資料交接清單](docs/templates/review_window_handoff/README.md)、[待填驗收紀錄](docs/templates/review_window_handoff/acceptance_record.template.md)及[JSON交接範本](docs/templates/review_window_handoff/handoff_manifest.template.json)。每月15項驗收，分開G1資料來源、G2新標籤／完整角色、G3後續評估協議與工作授權；範本備妥不表示資料已通過。
 
@@ -337,7 +356,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只查交接文件／空白範本：本機連結、JSON語法、五窗規劃日期、15項ID／關卡對應、實測null與待資料狀態，以及既有公開／私有證據未異動；沒有跑模型或真實資料驗收。前輪28項合成測試、618項盤點及95項用途核對見[前輪驗證](reports/stage5/review_validation_window_verification.json)，未重跑或合併成新測試成績。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只核對模型卡引用數字與原聚合報告、文件連結／JSON格式，以及既有程式、凍結報告、交接範本與私有證據未異動；沒有讀逐筆分數、重算指標、執行單元／模型測試或真實資料驗收。前輪交接格式與更早28項合成測試、618項盤點及95項用途核對保留各輪紀錄，不合併成本輪測試成績。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 
