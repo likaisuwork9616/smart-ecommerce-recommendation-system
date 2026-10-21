@@ -130,3 +130,11 @@ reports/stage5/review_month_ablation_dispatcher_verification.json -text whitespa
 # Preserve the one-time real ablation result and independent acceptance bytes.
 reports/stage5/review_month_ablation_training.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_month_ablation_training_acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the read-only paired diagnostics code and aggregate bindings.
+scripts/diagnose_review_ablation.py text eol=lf
+scripts/review_ablation_diagnostics.py text eol=lf
+tests/test_diagnose_review_ablation.py text eol=lf
+tests/test_review_ablation_diagnostics.py text eol=lf
+reports/stage5/review_ablation_diagnostic_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_ablation_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_ablation_diagnostic_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

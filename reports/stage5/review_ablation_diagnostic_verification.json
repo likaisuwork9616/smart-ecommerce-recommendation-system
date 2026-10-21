@@ -1,0 +1,81 @@
+{
+  "dashboard": false,
+  "format_version": 1,
+  "independent_real_audit": {
+    "candidate_selections": 0,
+    "checks": 10389,
+    "elapsed_seconds": 4.917249,
+    "model_fits": 0,
+    "new_predictions": 0,
+    "original_private_files_unchanged": 24,
+    "paired_blocks": 18,
+    "ranked_pairs": 12,
+    "rows_per_arm": 108744,
+    "status": "passed_independent_paired_diagnostic_audit"
+  },
+  "interpretation": {
+    "action": "retain_original_four_feature_control_no_next_training_factor_selected",
+    "new_AP_ROC_performance_claim": false,
+    "new_holdout_evaluation": false,
+    "new_predictions": false,
+    "new_training": false,
+    "reason": "Broad probability-level changes with well-supported weekday/hour marginals; waiting-tail slices do not provide consistent evidence for a specific transform."
+  },
+  "private_digests_public": false,
+  "public_sources": [
+    {
+      "bytes": 16614,
+      "path": "reports/stage5/review_ablation_diagnostic_specification.json",
+      "sha256": "dc36819ae685ff631b93635c0cf83da9ada5d7dc77ff3e29bb018c6167344ea2"
+    },
+    {
+      "bytes": 809313,
+      "path": "reports/stage5/review_ablation_diagnostics.json",
+      "sha256": "7731b175ca0fa48695bc43435a30e975e023c29da2abac5190ff4f4764f007f5"
+    }
+  ],
+  "real_read_only_execution": {
+    "all_unknown_scores_retained": true,
+    "candidate_selections": 0,
+    "elapsed_seconds": 29.183421,
+    "fit_audit_hash_only_no_parameter_read": true,
+    "forbidden_model_calls": 0,
+    "known_only_metrics_match_original_atol": 1e-12,
+    "metadata_cells_both_arms": 2609856,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "paired_score_blocks": 18,
+    "private_bindings": 21,
+    "public_bindings": 66,
+    "ranking_pairs": 12,
+    "score_rows_per_arm": 108744,
+    "source_bytes_checked_before_after": true,
+    "transforms": 0
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "passed_read_only_paired_diagnostic_verification",
+  "synthetic_tests": {
+    "elapsed_seconds": 0.74,
+    "errors": 0,
+    "failures": 0,
+    "initial_sandbox_attempt": "28 tests; 19 setup/cleanup errors from Windows temporary-directory ACL, no real data read; unchanged tests passed with allowed filesystem access",
+    "modules": [
+      "tests.test_review_ablation_diagnostics",
+      "tests.test_diagnose_review_ablation"
+    ],
+    "real_model_fits": 0,
+    "run": 28,
+    "skipped": 0
+  }
+}

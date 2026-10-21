@@ -1,0 +1,493 @@
+{
+  "dashboard": false,
+  "format_version": 1,
+  "new_training": false,
+  "output": "reports/stage5/review_ablation_diagnostics.json",
+  "private_source_guard": {
+    "input_paths": [
+      ".runtime/stage5_dataset_formal_execution_proof.json",
+      ".runtime/stage5_offline_formal_execution_proof.json",
+      ".runtime/stage5_real_ablation_execution_proof.json",
+      ".runtime/stage5_review_baseline_training_v1/fit_audit.json",
+      ".runtime/stage5_review_baseline_training_v1/inner_scores.csv",
+      ".runtime/stage5_review_baseline_training_v1/input_guard.json",
+      ".runtime/stage5_review_baseline_training_v1/manifest.json",
+      ".runtime/stage5_review_baseline_training_v1/outer_scores.csv",
+      ".runtime/stage5_review_baseline_v1/input_guard.json",
+      ".runtime/stage5_review_dataset_v1/manifest.json",
+      ".runtime/stage5_review_dataset_v1/order_labels.csv",
+      ".runtime/stage5_review_dataset_v1/split_membership.csv",
+      ".runtime/stage5_review_month_ablation_dispatcher_v1/input_guard.json",
+      ".runtime/stage5_review_month_ablation_execution_v1/input_guard.json",
+      ".runtime/stage5_review_month_ablation_training_v1/fit_audit.json",
+      ".runtime/stage5_review_month_ablation_training_v1/inner_scores.csv",
+      ".runtime/stage5_review_month_ablation_training_v1/manifest.json",
+      ".runtime/stage5_review_month_ablation_training_v1/outer_scores.csv",
+      ".runtime/stage5_review_month_ablation_training_v1/paired_acceptance.json",
+      ".runtime/stage5_review_month_ablation_v1/input_guard.json",
+      ".runtime/stage5_review_score_diagnostics_v1/input_guard.json"
+    ],
+    "path": ".runtime/stage5_review_ablation_diagnostics_v1/input_guard.json",
+    "private_digests_public": false
+  },
+  "protocol": {
+    "arms": [
+      "treatment_three_features",
+      "control_four_features"
+    ],
+    "bin_closure": "left_closed_right_open",
+    "calibration": false,
+    "candidate_selections": 0,
+    "categorical_vocabulary": {
+      "purchase_dayofweek": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "purchase_hour": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    "dashboard": false,
+    "difference": "treatment_minus_control",
+    "empty_mean_rate_correlation": null,
+    "empty_stratum_contribution": "zero_if_whole_role_known_denominator_positive_else_null",
+    "feature_strata_roles": "outer_evaluation_selected_models_only",
+    "features": [
+      "purchase_dayofweek",
+      "purchase_hour",
+      "approval_wait_hours"
+    ],
+    "inner_comparison": "same_C_each_0.1_1_10_no_reselection",
+    "loss_epsilon": 1e-15,
+    "model_fit_transform_predict_calls": 0,
+    "new_unseen_holdout_or_performance_claim": false,
+    "outer_comparison": "each_arm_existing_selected_C_may_differ",
+    "probability_subsets": [
+      "full",
+      "known",
+      "low",
+      "other",
+      "unknown"
+    ],
+    "quantile_method": "linear",
+    "quantiles": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      0.95,
+      0.99,
+      1.0
+    ],
+    "rank": {
+      "alert_budget_or_top_k_selection": false,
+      "order": "descending_probability",
+      "position_shift": "control_position_minus_treatment_position_positive_moves_up",
+      "position_ties": "original_canonical_role_order_stable_sort",
+      "spearman": "Pearson_of_average_ranks_null_if_constant_or_under_two",
+      "subsets": [
+        "full",
+        "known",
+        "unknown"
+      ],
+      "subsets_reranked_separately": true,
+      "tie_excess_rows": "orders_minus_distinct_probability_values"
+    },
+    "score_blocks": "all_18_per_arm_exact_same_ID_order_truth",
+    "strata": "one_feature_at_a_time_only_no_search_or_cross_feature_slices",
+    "stratum_loss": "Brier_and_clipped_logloss_delta_sum_divided_by_whole_role_known_count",
+    "support_boundary": 30,
+    "support_boundary_for_description_only": true,
+    "threshold_optimization": false,
+    "training_reference": "own_fit_eligible_labels_only_same_for_both_arms",
+    "wait_bin_edges": [
+      0,
+      1,
+      6,
+      24,
+      72,
+      168,
+      "positive_infinity"
+    ]
+  },
+  "public_sources": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 32719,
+      "path": "reports/stage5/review_baseline_contract_audit.json",
+      "sha256": "204c8d2b09327848fe9367e75efae5b37093a39164ccdb4b69f34ef396e4c16a"
+    },
+    {
+      "bytes": 14611,
+      "path": "reports/stage5/review_baseline_specification.json",
+      "sha256": "202de6045b7dcee7b00c068670fff44b5cac813a838d3d5ad15d620e18e721aa"
+    },
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 7319,
+      "path": "reports/stage5/review_baseline_training_specification.json",
+      "sha256": "f9ddfd7c729b293b16cdb9202170765103df2a216a191438103b7349c92c285d"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 33860,
+      "path": "reports/stage5/review_month_ablation_contract_audit.json",
+      "sha256": "995ab67ebd04d1e677c49c53d663f207782086db51d6d6abe28b38c92c97e094"
+    },
+    {
+      "bytes": 39426,
+      "path": "reports/stage5/review_month_ablation_dispatcher_specification.json",
+      "sha256": "c56d3f3b6426d4c8ffc4a4181b43c27f4758738068f96d1779166ac88240fee7"
+    },
+    {
+      "bytes": 18075,
+      "path": "reports/stage5/review_month_ablation_execution_preflight.json",
+      "sha256": "5e81ae9406b1500baf75ae85a1c79f8cc4917a037ce0986097654ad804cf736c"
+    },
+    {
+      "bytes": 22854,
+      "path": "reports/stage5/review_month_ablation_execution_specification.json",
+      "sha256": "ae15389d470a28c29064f2fdee25310e5cc0d3ff5469502c038eee761d10c6e0"
+    },
+    {
+      "bytes": 19134,
+      "path": "reports/stage5/review_month_ablation_pipeline_verification.json",
+      "sha256": "a3adfc0f39777fa8c73df9c9bca2db400f751d7255797cdff7f52cfcd6bf012d"
+    },
+    {
+      "bytes": 21702,
+      "path": "reports/stage5/review_month_ablation_specification.json",
+      "sha256": "5ac404e3d66463a571d726f57f9af9d3774d30d7f3d90b4d4e86308f4c2ec9f1"
+    },
+    {
+      "bytes": 59143,
+      "path": "reports/stage5/review_month_ablation_training.json",
+      "sha256": "11ab4764226e40e56c1a9b0785ebb517fc661172cac146c50c0d43e38486c040"
+    },
+    {
+      "bytes": 9047,
+      "path": "reports/stage5/review_month_ablation_training_acceptance.json",
+      "sha256": "2e80912cdbd4057ebee7a0355fa922b6ed52a40a9315d711411b4c4d06e154c6"
+    },
+    {
+      "bytes": 7766,
+      "path": "reports/stage5/review_pipeline_verification.json",
+      "sha256": "75e62c8c2862b5e0c9af505a165209610375ecba5bcaee7ca71e07481161e050"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 10615,
+      "path": "reports/stage5/review_score_diagnostic_specification.json",
+      "sha256": "5bdc471bd29f702bd2b6d06c185bfa1ba9d15d7261e0d56c7eeb67e9164e2428"
+    },
+    {
+      "bytes": 419297,
+      "path": "reports/stage5/review_score_diagnostics.json",
+      "sha256": "a78ea05026d873dd6a70526ccd4be20ca0dd51a7896518b8df91fe62248e5bb2"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 17417,
+      "path": "scripts/diagnose_review_ablation.py",
+      "sha256": "255e2b2ddbe0f43cb395d7aa5992178d98b757e4237bf6ab8f648028e85f9c22"
+    },
+    {
+      "bytes": 17225,
+      "path": "scripts/diagnose_review_scores.py",
+      "sha256": "499a80ae80bfa403f735a4da0c73137130ba12a563f9df8de8675fe247dd0e52"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 17427,
+      "path": "scripts/freeze_review_month_ablation.py",
+      "sha256": "81b1ede8dec1cafbd3605211ba497859d7ab2e461904885458f701bba10f035e"
+    },
+    {
+      "bytes": 16962,
+      "path": "scripts/prepare_review_month_ablation.py",
+      "sha256": "9a52a3b4e1725f89c2a5242424316747653fc880e0d262fecf3f90b4310bf274"
+    },
+    {
+      "bytes": 7775,
+      "path": "scripts/review_ablation_diagnostics.py",
+      "sha256": "b3a8e55b244a38f012c85836e685e977b6b924a68f53c9f89748c23672fbb76b"
+    },
+    {
+      "bytes": 6741,
+      "path": "scripts/review_baseline_evaluation.py",
+      "sha256": "161c8cb3d81c8252b7b5d99308cacd68bd3cd31e16152deb3dfc1bd7adf3ffe3"
+    },
+    {
+      "bytes": 20694,
+      "path": "scripts/review_baseline_pipeline.py",
+      "sha256": "0394ff544c0659ddc05701e4a0fcfeb6612b921eb1dab8567fc47d484c2da145"
+    },
+    {
+      "bytes": 9685,
+      "path": "scripts/review_baseline_sources.py",
+      "sha256": "ad293bbbb57761a83588101b448f592dc485d2025091ba7b8e273202f4c7fbcc"
+    },
+    {
+      "bytes": 32054,
+      "path": "scripts/review_month_ablation_artifacts.py",
+      "sha256": "2089088047d158f553e9e0aa4a25c0e4e0cfc1cf5fc7afef2eaa80fa1da0f765"
+    },
+    {
+      "bytes": 12582,
+      "path": "scripts/review_month_ablation_pairing.py",
+      "sha256": "5cf064546777f367119339559c33a55baa290b8d95cc04063518862dc4940e1a"
+    },
+    {
+      "bytes": 10756,
+      "path": "scripts/review_month_ablation_pipeline.py",
+      "sha256": "65db983722914cce3690d4776831c90e5d083b42b597e51e146af3227cfe4722"
+    },
+    {
+      "bytes": 10454,
+      "path": "scripts/review_month_ablation_sources.py",
+      "sha256": "7e789c47da442c530831339a8f0828d8855e6a7196956ebf97f1a1a2af6823ed"
+    },
+    {
+      "bytes": 25038,
+      "path": "scripts/review_month_ablation_training.py",
+      "sha256": "e2319591f7f115202e1b04718c8904d3c05d88baa0b4de4de13ce7695f654ae6"
+    },
+    {
+      "bytes": 20775,
+      "path": "scripts/review_score_diagnostics.py",
+      "sha256": "00b147ec4aa7ae1b0e73b909c0ddaf3c12d489d2dcd9c64bb02b14db0371a527"
+    },
+    {
+      "bytes": 31505,
+      "path": "scripts/run_review_baseline.py",
+      "sha256": "2d8a56cfbf18580b569a8066ca617c220cf745b640e7372fe208950005edfec9"
+    },
+    {
+      "bytes": 18134,
+      "path": "scripts/run_review_month_ablation.py",
+      "sha256": "abf2d65a7231991b8c5c2349cdcb5936eda2fad9723d4b692089958c7298190b"
+    },
+    {
+      "bytes": 11880,
+      "path": "scripts/verify_review_month_ablation_pipeline.py",
+      "sha256": "4e9e115f32f693b06f04cb78c7ca1b7761b79ce4038da11bf5bfe65b5790dacc"
+    },
+    {
+      "bytes": 10754,
+      "path": "scripts/verify_review_pipeline.py",
+      "sha256": "c629995f2bffe22ef197bcfd1ca903bd434954d0004c672fef85cac5901d02cb"
+    },
+    {
+      "bytes": 8178,
+      "path": "tests/test_diagnose_review_ablation.py",
+      "sha256": "9d02233be7993de1da49404a6a84995856f4f0730a58a5d50d03313c7ee52484"
+    },
+    {
+      "bytes": 11672,
+      "path": "tests/test_prepare_review_month_ablation.py",
+      "sha256": "9efca27ef80fd1044c9ec5cde1bfc1232b672f801c8ac0d038120d889de4a417"
+    },
+    {
+      "bytes": 6467,
+      "path": "tests/test_review_ablation_diagnostics.py",
+      "sha256": "89161525528851b6ec0b27c6379270ec2f61892d40f0e598bc11b6600e233905"
+    },
+    {
+      "bytes": 22058,
+      "path": "tests/test_review_baseline_pipeline.py",
+      "sha256": "3252e5836ca6b307e4ec69ce7b227af70cd8e33ddd7045adfb7d383d902aef3a"
+    },
+    {
+      "bytes": 11458,
+      "path": "tests/test_review_baseline_sources.py",
+      "sha256": "5e3fcccdae526d5a428473562d04438e297cf6a04a6452954a2faf0ffeecc2a3"
+    },
+    {
+      "bytes": 18723,
+      "path": "tests/test_review_baseline_training.py",
+      "sha256": "ff70be33a05de1ff378eb386b58770fa38de6992786bc00ac5ea9144efa073ff"
+    },
+    {
+      "bytes": 19654,
+      "path": "tests/test_review_month_ablation_artifacts.py",
+      "sha256": "2ad00b4296b2c4eb1aa91ec27a0e86127903fcfe065c2679e6b4c48949e693df"
+    },
+    {
+      "bytes": 11666,
+      "path": "tests/test_review_month_ablation_contract.py",
+      "sha256": "7a4f3a4596405124589393671086dcb49f5a3c157c76d0275c0e938e37eab760"
+    },
+    {
+      "bytes": 15454,
+      "path": "tests/test_review_month_ablation_pairing.py",
+      "sha256": "dc8f80de7945007bec3865ed40761832c1bdb1f57c2c6a4222099edaabcc58d6"
+    },
+    {
+      "bytes": 30793,
+      "path": "tests/test_review_month_ablation_pipeline.py",
+      "sha256": "225a4bc97af4d7ad1d294fd1b9a16ca211d32e65eed7636a7506b7a4783205e5"
+    },
+    {
+      "bytes": 16020,
+      "path": "tests/test_review_month_ablation_sources.py",
+      "sha256": "4df6d110a662601d81747c41efcba6a199ba86bed56a0794640d350e1af7e36d"
+    },
+    {
+      "bytes": 25792,
+      "path": "tests/test_review_month_ablation_training.py",
+      "sha256": "b1259565533112ba5f2aca4d1f8678b3fcb4cf327eb25e2895ce17a204cdb797"
+    },
+    {
+      "bytes": 10438,
+      "path": "tests/test_review_score_diagnostic_runner.py",
+      "sha256": "fbdb3251927f0e2d5377a2e6d9ca894eda6681657554f51ac252cff6c4f71c56"
+    },
+    {
+      "bytes": 20965,
+      "path": "tests/test_review_score_diagnostics.py",
+      "sha256": "0aaf7035628e54bb2dfaff4c5c121a63f30ba7bf1d5d7fd29b28ed3f67ec32aa"
+    },
+    {
+      "bytes": 19285,
+      "path": "tests/test_run_review_month_ablation.py",
+      "sha256": "e226ee7f2caa30fba8c468b3af7cb5dd42886e4345d474f8330c371bb37d245e"
+    }
+  ],
+  "role": "read_only_paired_frozen_score_diagnostics",
+  "software_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  }
+}

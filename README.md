@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料。Stage 5已依凍結入口完成一次三欄真實離線消融，四欄沿用凍結分數，9＋3次fit、獨立選C及完整配對完成驗收；結果只列開發回測。推薦系統、API與Dashboard尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料。Stage 5已完成三欄消融，並只讀兩臂凍結分數診斷機率、排序與支援：三欄多數機率往下移，尚無證據指定下一個訓練單因子。本輪沒有追加訓練；結果僅限已檢視開發月。推薦系統、API與Dashboard尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 三欄真實離線消融及交付驗收完成 | 9＋3次fit、獨立選C、18組完整配對；四欄沿用原分數，僅開發回測 |
+| Stage 5：評論低評分預測 | 雙臂凍結分數只讀診斷完成 | 18組配對、12組排序與三欄支援核對；0追加訓練，保留四欄對照，下一個單因子暫不指定 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -54,6 +54,7 @@ py -3.12 -m venv .venv
 | 看三欄執行政策、來源與配對驗收 | [Stage 5消融執行準備](docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) |
 | 看正式入口、私有交付與合成驗收 | [Stage 5消融入口驗證](docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) |
 | 看三欄真實消融、同ID差值與交付驗收 | [Stage 5三欄消融結果](docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) |
+| 看雙臂機率、排名差異與星期／小時／等待支援 | [Stage 5配對只讀診斷](docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -217,7 +218,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 前輪已完成[正式入口、私有產物與合成驗收](docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)，74項合成測試及同版來源綁定為本輪執行前提。這些是前輪證據；本輪沒有重跑合成測試或更改凍結程式。
 
-## Stage 5本輪三欄真實離線消融
+## Stage 5前輪三欄真實離線消融
 
 只移除`purchase_month`，其餘H60、三欄定義、train-only前處理、角色、內層選參及評估保持原規格。
 
@@ -233,7 +234,23 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 正式報告見[三欄開發回測](reports/stage5/review_month_ablation_training.json)，獨立對帳見[交付驗收](reports/stage5/review_month_ablation_training_acceptance.json)，完整逐月結果與操作見[實驗文件](docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。獨立驗收僅從既有雙臂分數重算指標核算，不重新fit或出分。
 
-下一步先只讀兩臂凍結分數，核對逐月分數／排序改變與既有星期、小時、等待支援，再決定是否有足夠證據提出下一個單因子；不追加訓練。入庫、評分版本與全量母體限制仍在，Stage 4維持待資料、每日10%與11／29／42／73／101五種子，Dashboard暫緩。
+上述只讀比較已在本輪完成，結果如下。入庫、評分版本與全量母體限制仍在，Stage 4維持待資料、每日10%與11／29／42／73／101五種子，Dashboard暫緩。
+
+## Stage 5本輪雙臂凍結分數診斷
+
+以新[事前規格](reports/stage5/review_ablation_diagnostic_specification.json)只讀原分數，不呼叫builder／pipeline或重新選C。完整結果見[診斷文件](docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)、[聚合報告](reports/stage5/review_ablation_diagnostics.json)與[驗證](reports/stage5/review_ablation_diagnostic_verification.json)。
+
+| 已檢視外層月 | 已知平均機率 四欄→三欄 | bias百分點 四欄→三欄 | 全query排序Spearman | 平均絕對移動名次 |
+| --- | ---: | ---: | ---: | ---: |
+| 2017-12 | 13.93% → 13.25% | −2.36 → −3.04 | 0.996215 | 99.2 |
+| 2018-02 | 15.65% → 14.18% | −4.94 → −6.40 | 0.977377 | 307.6 |
+| 2018-04 | 15.37% → 14.68% | +2.39 → +1.70 | 0.991473 | 168.3 |
+
+三欄多數分數往下移，12月／2月低估加深、4月高估縮小。排名高度相關仍有名次變動，不代表提醒名單相同；本輪沒有建立評論top-k或10%提醒政策。星期、小時在外層均無<30筆支援類別；等待分布右移，但損失差也出現在大量短等待單，不能直接歸因右尾或支持log／clip。
+
+66公開＋21私有來源及每臂18區塊108,744列通過守門；28項新增合成測試、10,389項獨立對帳通過，兩者分列。原24份私有證據不變，本輪0fit／transform／predict／重新選C，未新增AP或未知測試成績。
+
+**決策是保留四欄對照，暫不指定下一個訓練單因子。** 下一步建議先固定各fit當時可得的成熟低評先驗與時間漂移稽核，分開未知／未成熟覆蓋，再決定修正規格；不能用外層低評率回填當時參數。Dashboard暫緩。
 
 ## 專案結構
 
@@ -262,7 +279,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪執行一次真實三欄消融，並從實際產物獨立核對12次fit、完整名冊／同ID配對、指標算術與私有bytes；詳見[本輪驗收](reports/stage5/review_month_ablation_training_acceptance.json)。未執行全專案discover；前輪74項入口合成測試、75項pipeline與57項契約回歸保留各輪紀錄，不混稱本輪測試結果。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只跑新增28項合成測試及獨立真實分數對帳，均不fit；詳見[本輪驗證](reports/stage5/review_ablation_diagnostic_verification.json)。前輪真實12次fit及交付驗收、74項入口合成測試、75項pipeline與57項契約回歸各自保留，未重跑全專案discover。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

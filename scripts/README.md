@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 只讀Stage 5雙臂機率／排序／支援 | [diagnose_review_ablation.py](diagnose_review_ablation.py)、[統計核心](review_ablation_diagnostics.py) | 先--specification-only，再讀兩臂成功產物與完整角色；18組配對及12組排序；模型呼叫及重新選C拒收 |
 | Stage 5三欄正式入口與私有交付 | [run_review_month_ablation.py](run_review_month_ablation.py)、[訓練控制](review_month_ablation_training.py)、[私有writer](review_month_ablation_artifacts.py) | 無參數只顯示說明；一次--train已完成，training_v1已占用，勿重播；[結果與只讀驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)，四欄沿用原分數 |
 | 前輪Stage 5三欄消融來源與配對準備 | [prepare_review_month_ablation.py](prepare_review_month_ablation.py)、[review_month_ablation_sources.py](review_month_ablation_sources.py)、[review_month_ablation_pairing.py](review_month_ablation_pairing.py) | 需原私有證據；當時凍結政策／輸出版本，再核12角色與四欄18區塊，沒有訓練參數；現有產物已完成，勿重跑準備流程 |
 | 驗證Stage 5三欄消融與四欄對照 | [verify_review_month_ablation_pipeline.py](verify_review_month_ablation_pipeline.py)、[review_month_ablation_pipeline.py](review_month_ablation_pipeline.py) | 只以合成fixture驗三欄32維／舊四欄44維；75項測試及35公開來源綁定，不讀真實CSV或私有分數 |
@@ -48,6 +49,15 @@
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
+
+## Stage 5雙臂只讀診斷
+
+```powershell
+.\.venv\Scripts\python.exe scripts\diagnose_review_ablation.py --specification-only
+.\.venv\Scripts\python.exe scripts\diagnose_review_ablation.py
+```
+
+需原完整H60、兩臂凍結分數、manifest及收據，讀已完成版本，不呼叫訓練準備preflight。先凍結新診斷規格／私有guard，再計機率與排序差、星期／小時／等待支援及外層邊際損失。0fit／transform／predict／重新選C；缺檔或異動停止，不能補訓練。既有training_v1不重跑。結果及決策見[只讀診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)，本輪沒有新提醒排名政策或Dashboard。
 
 ## Stage 5三欄正式入口
 
