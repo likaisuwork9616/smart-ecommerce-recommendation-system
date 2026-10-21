@@ -21,7 +21,18 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 最新Stage 5月份消融契約
+## 最新Stage 5三欄實作與洩漏驗證
+
+```powershell
+.\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py
+.\.venv\Scripts\python.exe -m unittest tests.test_review_dataset_contract tests.test_review_baseline_contract tests.test_review_month_ablation_contract -q
+```
+
+第一行跑新三欄43項＋原四欄32項共75項，全部通過；正式測試4.065秒、CLI共5.815秒。涵蓋32維、保留欄位／前處理與44維對照一致、月份不變性、train-only scaler、未知排除、H60／fit邊界、完整名冊、query未來標籤隔離、候選／外層獨立、失敗清除及機率檢查。會實際fit合成模型，不讀Olist資料、不計效能。
+
+第二行23＋20＋14共57項契約回歸全過，4.555秒。首次受限環境有6項暫存目錄ACL錯誤；允許相同本機資源後原樣重跑通過，沒有跳過或改舊斷言。兩組合計132項，沒有執行全專案discover。另194項跨3個fold內／外層獨立合成檢查及31項CLI對抗案例通過，與單元測試分列。詳見[實作文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)及[正式報告](../reports/stage5/review_month_ablation_pipeline_verification.json)。
+
+## 前輪Stage 5月份消融契約
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_month_ablation_contract -q
