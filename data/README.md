@@ -61,4 +61,5 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 規劃用於瀏覽、加購、購買與推薦研究，目前尚未啟動。`data/raw/retailrocket/`只作預留位置，不代表已完成資料匯入、特徵或推薦模型。
 
-前輪[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)的guard及合成日誌留在`.runtime/stage5_review_month_ablation_dispatcher_v1/`。本輪[真實三欄消融](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)完成一次9＋3次fit；`training_v1/`已寫入inner／outer分數、fit_audit、paired_acceptance及manifest五份私有檔。每臂108,744列含跨候選／角色重複出分，不能當獨立訂單數。原16份私有證據不變，未增加入庫、評分版本或全量母體證據；已有產物不得刪除後重跑。
+前輪[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)的guard及合成日誌留在`.runtime/stage5_review_month_ablation_dispatcher_v1/`。前輪[真實三欄消融](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)完成一次9＋3次fit；`training_v1/`已寫入inner／outer分數、fit_audit、paired_acceptance及manifest五份私有檔。每臂108,744列含跨候選／角色重複出分，不能當獨立訂單數。原16份私有證據不變，未增加入庫、評分版本或全量母體證據；已有產物不得刪除後重跑。
+最新[雙臂只讀診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)僅解析原分數、角色與事件時鐘，沒有新個體分數、X或模型。新私有guard在`.runtime/stage5_review_ablation_diagnostics_v1/input_guard.json`，原24份私有證據bytes不變；來源21份私有綁定與66份公開綁定分開，未補足入庫／版本或全量母體缺口。

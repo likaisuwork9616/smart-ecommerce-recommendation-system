@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5三欄真實消融與完整交付驗收已完成，四欄沿用凍結分數，結果僅限已檢視開發月。先看[專案首頁](../README.md)，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5最新完成兩臂凍結分數的機率、排序與三欄支援只讀診斷，沒有追加訓練，暫不指定下一個單因子。先看[專案首頁](../README.md)，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5真實消融 | [三欄結果與交付驗收](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) | 9＋3次真實fit、獨立選C、18組完整同ID配對；四欄0fit，只列開發回測 |
+| 最新Stage 5雙臂只讀診斷 | [機率、排序與三欄支援](STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) | 18組配對、12組排序；多數機率下移，星期／小時支援完整，0追加訓練，暫不指定新單因子 |
+| 前輪Stage 5真實消融 | [三欄結果與交付驗收](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) | 9＋3次真實fit、獨立選C、18組完整同ID配對；四欄0fit，只列開發回測 |
 | 前輪Stage 5正式入口 | [入口、私有產物與合成驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) | 合成9＋3次fit、獨立選C、18區塊配對、失敗停止；真實訓練0 |
 | 前輪Stage 5執行準備 | [來源、執行政策與配對驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) | 51公開＋13私有來源、12角色與四欄18分數區塊；0訓練，三欄實際配對待產物 |
 | 前輪Stage 5三欄實作 | [月份消融實作與洩漏驗證](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) | 三欄32維、保留四欄對照；75項pipeline＋57項契約回歸通過，真實訓練待決定 |

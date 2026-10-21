@@ -21,7 +21,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 5真實消融交付驗收
+## 本輪Stage 5雙臂只讀診斷
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_ablation_diagnostics tests.test_diagnose_review_ablation -q
+```
+
+核心16＋來源／守門12共28項全過、0.740秒，沒有fit。手算核對反向排序、平均rank平手、canonical名次、全未知null、全月損失分母及等待邊界；來源測試核payload／parent／guard異動、缺檔、失敗收據、未知檔與發布後來源異動撤回。首次沙箱有19個暫存ACL setup／cleanup錯誤，相同測試於允許的檔案環境全過，未放寬斷言或跳過。
+
+正式資料另10,389項獨立比較、4.917秒，核18組機率、12組排名、六組支援及固定切片；不合併為單元測試數。診斷0fit／transform／predict／選C，原24份私有證據不變。見[診斷文件](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)及[驗證報告](../reports/stage5/review_ablation_diagnostic_verification.json)。未重跑舊模型測試或全專案discover。
+
+## 前輪Stage 5真實消融交付驗收
 
 本輪沒有修改凍結程式或重跑合成測試。一次真實執行實際完成9次內層＋3次外層fit，另以只讀程式核對完整角色、每臂18區塊108,744列的ID／truth、選C、指標與私有manifest。這是實際產物驗收，與下列前輪74項合成測試分列；詳見[實驗文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)及[聚合驗收](../reports/stage5/review_month_ablation_training_acceptance.json)。
 
