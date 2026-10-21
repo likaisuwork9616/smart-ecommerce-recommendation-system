@@ -1,0 +1,336 @@
+{
+  "decision": "three_feature_implementation_verified_real_training_deferred",
+  "format_version": 1,
+  "implementation": {
+    "control_output_columns": 44,
+    "frozen_control_code_unchanged": true,
+    "historical_specification_status_fields_unchanged": true,
+    "one_hot_columns": 31,
+    "output_columns": 32,
+    "primary_order": [
+      "purchase_dayofweek",
+      "purchase_hour",
+      "approval_wait_hours"
+    ],
+    "shared_guard_module": "scripts/review_baseline_pipeline.py"
+  },
+  "limitations": [
+    "Synthetic fits verify implementation, not model performance or ingestion/version availability.",
+    "Existing H60 and role files were not rebuilt or revalidated against private data in this run.",
+    "Future treatment must select C independently by the original inner AP policy.",
+    "Future control uses its frozen scores without refitting or reselecting.",
+    "Previously inspected development months remain development data, not an unseen final test."
+  ],
+  "next_step": "bind_new_execution_sources_and_private_output_version_before_deciding_real_training",
+  "protected_stage4": {
+    "daily_alert_fraction": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "scope": {
+    "actual_C_selection": 0,
+    "dashboard": 0,
+    "embedded_raw_or_private_source_bindings_revalidated": false,
+    "fixtures": "synthetic_only_designated_unittest_modules",
+    "frozen_score_rows_parsed": 0,
+    "model_performance_metrics": 0,
+    "parent_audits_executed": 0,
+    "real_data_rows_processed": 0,
+    "real_feature_values_built": 0,
+    "real_model_fits": 0,
+    "real_predictions": 0,
+    "synthetic_execution": "both_arms_feature_build_preprocessor_fit_logistic_fit_transform_predict"
+  },
+  "software_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "sources": [
+    {
+      "bytes": 21702,
+      "path": "reports/stage5/review_month_ablation_specification.json",
+      "sha256": "5ac404e3d66463a571d726f57f9af9d3774d30d7f3d90b4d4e86308f4c2ec9f1"
+    },
+    {
+      "bytes": 33860,
+      "path": "reports/stage5/review_month_ablation_contract_audit.json",
+      "sha256": "995ab67ebd04d1e677c49c53d663f207782086db51d6d6abe28b38c92c97e094"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 32719,
+      "path": "reports/stage5/review_baseline_contract_audit.json",
+      "sha256": "204c8d2b09327848fe9367e75efae5b37093a39164ccdb4b69f34ef396e4c16a"
+    },
+    {
+      "bytes": 14611,
+      "path": "reports/stage5/review_baseline_specification.json",
+      "sha256": "202de6045b7dcee7b00c068670fff44b5cac813a838d3d5ad15d620e18e721aa"
+    },
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 7319,
+      "path": "reports/stage5/review_baseline_training_specification.json",
+      "sha256": "f9ddfd7c729b293b16cdb9202170765103df2a216a191438103b7349c92c285d"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 7766,
+      "path": "reports/stage5/review_pipeline_verification.json",
+      "sha256": "75e62c8c2862b5e0c9af505a165209610375ecba5bcaee7ca71e07481161e050"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 10615,
+      "path": "reports/stage5/review_score_diagnostic_specification.json",
+      "sha256": "5bdc471bd29f702bd2b6d06c185bfa1ba9d15d7261e0d56c7eeb67e9164e2428"
+    },
+    {
+      "bytes": 419297,
+      "path": "reports/stage5/review_score_diagnostics.json",
+      "sha256": "a78ea05026d873dd6a70526ccd4be20ca0dd51a7896518b8df91fe62248e5bb2"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 17225,
+      "path": "scripts/diagnose_review_scores.py",
+      "sha256": "499a80ae80bfa403f735a4da0c73137130ba12a563f9df8de8675fe247dd0e52"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 17427,
+      "path": "scripts/freeze_review_month_ablation.py",
+      "sha256": "81b1ede8dec1cafbd3605211ba497859d7ab2e461904885458f701bba10f035e"
+    },
+    {
+      "bytes": 6741,
+      "path": "scripts/review_baseline_evaluation.py",
+      "sha256": "161c8cb3d81c8252b7b5d99308cacd68bd3cd31e16152deb3dfc1bd7adf3ffe3"
+    },
+    {
+      "bytes": 20694,
+      "path": "scripts/review_baseline_pipeline.py",
+      "sha256": "0394ff544c0659ddc05701e4a0fcfeb6612b921eb1dab8567fc47d484c2da145"
+    },
+    {
+      "bytes": 9685,
+      "path": "scripts/review_baseline_sources.py",
+      "sha256": "ad293bbbb57761a83588101b448f592dc485d2025091ba7b8e273202f4c7fbcc"
+    },
+    {
+      "bytes": 20775,
+      "path": "scripts/review_score_diagnostics.py",
+      "sha256": "00b147ec4aa7ae1b0e73b909c0ddaf3c12d489d2dcd9c64bb02b14db0371a527"
+    },
+    {
+      "bytes": 31505,
+      "path": "scripts/run_review_baseline.py",
+      "sha256": "2d8a56cfbf18580b569a8066ca617c220cf745b640e7372fe208950005edfec9"
+    },
+    {
+      "bytes": 10754,
+      "path": "scripts/verify_review_pipeline.py",
+      "sha256": "c629995f2bffe22ef197bcfd1ca903bd434954d0004c672fef85cac5901d02cb"
+    },
+    {
+      "bytes": 22058,
+      "path": "tests/test_review_baseline_pipeline.py",
+      "sha256": "3252e5836ca6b307e4ec69ce7b227af70cd8e33ddd7045adfb7d383d902aef3a"
+    },
+    {
+      "bytes": 11458,
+      "path": "tests/test_review_baseline_sources.py",
+      "sha256": "5e3fcccdae526d5a428473562d04438e297cf6a04a6452954a2faf0ffeecc2a3"
+    },
+    {
+      "bytes": 18723,
+      "path": "tests/test_review_baseline_training.py",
+      "sha256": "ff70be33a05de1ff378eb386b58770fa38de6992786bc00ac5ea9144efa073ff"
+    },
+    {
+      "bytes": 11666,
+      "path": "tests/test_review_month_ablation_contract.py",
+      "sha256": "7a4f3a4596405124589393671086dcb49f5a3c157c76d0275c0e938e37eab760"
+    },
+    {
+      "bytes": 10438,
+      "path": "tests/test_review_score_diagnostic_runner.py",
+      "sha256": "fbdb3251927f0e2d5377a2e6d9ca894eda6681657554f51ac252cff6c4f71c56"
+    },
+    {
+      "bytes": 20965,
+      "path": "tests/test_review_score_diagnostics.py",
+      "sha256": "0aaf7035628e54bb2dfaff4c5c121a63f30ba7bf1d5d7fd29b28ed3f67ec32aa"
+    },
+    {
+      "bytes": 10756,
+      "path": "scripts/review_month_ablation_pipeline.py",
+      "sha256": "65db983722914cce3690d4776831c90e5d083b42b597e51e146af3227cfe4722"
+    },
+    {
+      "bytes": 30793,
+      "path": "tests/test_review_month_ablation_pipeline.py",
+      "sha256": "225a4bc97af4d7ad1d294fd1b9a16ca211d32e65eed7636a7506b7a4783205e5"
+    },
+    {
+      "bytes": 11880,
+      "path": "scripts/verify_review_month_ablation_pipeline.py",
+      "sha256": "4e9e115f32f693b06f04cb78c7ca1b7761b79ce4038da11bf5bfe65b5790dacc"
+    }
+  ],
+  "status": "passed_synthetic_month_ablation_pipeline_verification",
+  "tests": {
+    "counts_by_module": {
+      "tests.test_review_baseline_pipeline": 32,
+      "tests.test_review_month_ablation_pipeline": 43
+    },
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "modules": [
+      "tests.test_review_baseline_pipeline",
+      "tests.test_review_month_ablation_pipeline"
+    ],
+    "skips": 0,
+    "test_ids": [
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_H_deadline_equal_fit_not_mature",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_answer_equal_H_endpoint_is_allowed_when_window_mature",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_answer_equal_fit_or_before_approval_or_after_H_stops_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_both_classes_required_without_fallback",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_builder_exact_four_order_raw_hours_and_source_id_order",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_complete_pinned_software_versions_enforced_before_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_convergence_warning_discards_local_fit",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_direct_X_extra_and_permuted_schema_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_direct_X_nonfinite_category_wait_dtype_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_extra_future_source_fields_cannot_enter_X",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_fresh_outer_refit_uses_later_eligible_history_and_own_scaler",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_frozen_constructor_parameters_and_no_deprecated_arguments",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_future_raw_target_and_status_mutation_cannot_change_fitted_model",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_independent_context_copies_input_and_returned_frame",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_membership_missing_extra_duplicate_or_clock_drift_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_nonfinite_coefficients_stop_without_retries",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_nonfinite_or_out_of_range_probability_stops_context",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_probability_rows_must_sum_one_with_fixed_tolerance",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_future_target_metadata_never_read_even_inconsistent",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_own_time_after_fit_and_unseen_legal_categories_retained",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_query_role_cannot_fit_wrong_context_cannot_score",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_readonly_C_and_diagnostic_copies_no_estimator_handle",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_refit_failure_discards_model_and_fresh_instance_isolated",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_requested_missing_duplicate_invalid_clock_never_silently_dropped",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_scaler_only_eligible_rows_ddof0_and_fixed44",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_subset_query_drop_from_both_inputs_rejected_by_independent_context",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_train_ID_in_query_roster_is_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_invalid_raw_clock_stops_before_fitting_or_dropping",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_outlier_never_changes_scaler_or_estimator",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_reason_metadata_must_match_observable_training_clocks",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_unknown_y_imputation_and_inconsistent_masks_rejected",
+      "tests.test_review_baseline_pipeline.ReviewBaselinePipelineTest.test_zero_variance_scale_one",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_H_deadline_equal_fit_not_mature",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_answer_equal_H_endpoint_is_allowed_when_window_mature",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_answer_equal_fit_or_before_approval_or_after_H_stops_fit",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_both_classes_required_without_fallback",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_builder_exact_three_order_raw_hours_and_source_id_order",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_complete_pinned_software_versions_enforced_before_fit",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_convergence_warning_discards_local_fit",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_direct_X_extra_and_permuted_schema_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_direct_X_nonfinite_category_wait_dtype_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_dropped_unknown_from_both_training_inputs_fails_full_roster_guard",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_early_answered_immature_order_remains_unknown_excluded_from_fit",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_extra_future_source_fields_cannot_enter_X",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_four_feature_or_encoded_month_input_is_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_fresh_outer_refit_uses_later_eligible_history_and_own_scaler",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_frozen_constructor_parameters_and_no_deprecated_arguments",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_future_raw_target_and_status_mutation_cannot_change_fitted_model",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_independent_context_copies_input_and_returned_frame",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_membership_missing_extra_duplicate_or_clock_drift_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_month_only_change_leaves_three_feature_values_unchanged",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_month_only_training_change_leaves_fitted_three_feature_model_unchanged",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_nonfinite_coefficients_stop_without_retries",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_nonfinite_or_out_of_range_probability_stops_context",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_positive_probability_uses_class_label_not_fixed_column",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_probability_rows_must_sum_one_with_fixed_tolerance",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_probability_shape_failure_discards_fitted_state",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_query_feature_changes_cannot_refit_training_state",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_query_future_target_metadata_never_read_even_inconsistent",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_query_order_and_clock_drift_fail_without_partial_output",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_query_own_time_after_fit_and_unseen_legal_categories_retained",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_query_role_cannot_fit_wrong_context_cannot_score",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_readonly_C_and_diagnostic_copies_no_estimator_handle",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_refit_failure_discards_model_and_fresh_instance_isolated",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_requested_missing_duplicate_invalid_clock_never_silently_dropped",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_retained_builder_values_match_frozen_four_feature_control",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_scaler_only_eligible_rows_ddof0_and_fixed32",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_subset_query_drop_from_both_inputs_rejected_by_independent_context",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_train_ID_in_query_roster_is_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_transformed_retained_columns_equal_control_with_identical_fit_rows",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_unknown_invalid_raw_clock_stops_before_fitting_or_dropping",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_unknown_outlier_never_changes_scaler_or_estimator",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_unknown_reason_metadata_must_match_observable_training_clocks",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_unknown_y_imputation_and_inconsistent_masks_rejected",
+      "tests.test_review_month_ablation_pipeline.ReviewMonthAblationPipelineTest.test_zero_variance_scale_one"
+    ],
+    "tests_run": 75,
+    "unexpected_successes": 0
+  },
+  "verification": {
+    "all_discovered_tests_executed": true,
+    "elapsed_time_and_unittest_log_public": false,
+    "frozen_parent_public_contracts_verified": true,
+    "only_five_frozen_protocol_changes": true,
+    "public_bound_sources_before_after": 35,
+    "strict_json_exact_readback": true
+  }
+}

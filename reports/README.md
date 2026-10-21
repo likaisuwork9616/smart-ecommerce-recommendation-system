@@ -6,6 +6,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| 最新Stage 5三欄消融實作 | [實作與洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) → [合成驗證報告](stage5/review_month_ablation_pipeline_verification.json)；75項新舊pipeline測試通過，真實訓練／效能均0 |
 | 最新Stage 5離線最小基線 | [方法與限制](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) → [執行規格](stage5/review_baseline_training_specification.json) → [實際開發回測](stage5/review_baseline_training.json)；三月為已檢視開發資料，不是新未知測試 |
 | 前輪Stage 5程式實作與洩漏測試 | [受控builder／pipeline](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) → [合成驗證](stage5/review_pipeline_verification.json)；有合成fit，該輪沒有真實資料訓練或模型效能 |
 | 前輪Stage 5最小基線契約 | [四欄／前處理／選參／評估](../docs/STAGE5_REVIEW_BASELINE_SPEC.md) → [事前規格](stage5/review_baseline_specification.json) → [實際契約稽核](stage5/review_baseline_contract_audit.json)；該輪未訓練、未計效能 |
@@ -84,6 +85,7 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 凍結分數診斷結果 | 12角色、6組四欄支援、18組既有分數分布及3組原損失對帳；0 fit／transform／predict，非新效能 | [review_score_diagnostics](stage5/review_score_diagnostics.json) |
 | 月份單因子消融規格 | 只刪purchase_month與12個月one-hot欄，預定三欄32維；其餘政策逐值不變，獨立內層選C與凍結四欄配對，未訓練 | [review_month_ablation_specification](stage5/review_month_ablation_specification.json) |
 | 月份消融契約稽核 | 39公開＋12私有來源、完整cohort／12角色／H60與未知遮罩；0 X／fit／分數解析／效能 | [review_month_ablation_contract_audit](stage5/review_month_ablation_contract_audit.json) |
+| 三欄消融builder／pipeline驗證 | 75項新舊合成測試、35份公開來源綁定；保留四欄對照，只有合成fit／transform／predict，0真實訓練／效能 | [review_month_ablation_pipeline_verification](stage5/review_month_ablation_pipeline_verification.json) |
 
 Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。pipeline verification只含合成測試；真實基線結果另存training報告，不能把它回寫成前輪已完成訓練。原標籤／切分仍在.runtime/stage5_review_dataset_v1/，新逐筆機率／fit診斷／manifest在.runtime/stage5_review_baseline_training_v1/；公開不含ID、個體值、機率或私有digest。
 

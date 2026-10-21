@@ -1,5 +1,7 @@
 # Stage 5：移除購買月份的單因子消融規格
 
+後續狀態：三欄實作與合成洩漏驗證已完成，見[實作與測試](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。以下保留凍結規格當輪紀錄；機器規格及稽核bytes不變，三欄真實訓練仍未執行。
+
 本輪凍結「只移除 `purchase_month`」的消融契約，核對原H60資料與12個完整角色。**沒有實作三欄builder／pipeline，也沒有建X、匯入模型套件、fit、transform、predict、選C或計算效能；Dashboard未開始。** Stage 4維持待資料、每日10%與11／29／42／73／101五種子。
 
 新[機器規格](../reports/stage5/review_month_ablation_specification.json)及[契約稽核](../reports/stage5/review_month_ablation_contract_audit.json)另存，不改舊四欄程式、規格、標籤或分數。這是依[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)形成的開發消融假說；月份與成績已看過，不能稱全盲預註冊或新的未知測試。

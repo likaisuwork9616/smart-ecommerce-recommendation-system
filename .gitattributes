@@ -103,3 +103,8 @@ scripts/freeze_review_month_ablation.py text eol=lf
 tests/test_review_month_ablation_contract.py text eol=lf
 reports/stage5/review_month_ablation_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_month_ablation_contract_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the three-feature synthetic verification and frozen control bindings.
+scripts/review_month_ablation_pipeline.py text eol=lf
+scripts/verify_review_month_ablation_pipeline.py text eol=lf
+tests/test_review_month_ablation_pipeline.py text eol=lf
+reports/stage5/review_month_ablation_pipeline_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
