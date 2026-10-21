@@ -21,7 +21,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 最新Stage 5離線基線入口
+## 最新Stage 5只讀診斷
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_score_diagnostics tests.test_review_score_diagnostic_runner -q
+```
+
+[凍結分數診斷](../docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)新增核心32項及runner 11項，共43項全過、5.011秒。只用合成資料驗分母／未知、固定bins、linear分位數、ddof=0、四欄支援、完整metadata、來源／規格拒收與只讀發布；模型呼叫負例在執行前被拒絕，沒有實際fit／transform／predict。本輪沒有重跑下列會fit合成模型的舊測試，亦不宣稱全專案回歸。
+
+獨立合成10情境15,400葉節點、來源對抗36項與正式聚合8,218比較另記私有證明，不加總為單元測試數。正式對帳直接讀原凍結分數、membership及事件時鐘，不重播模型。原42份凍結資產bytes不變。
+
+## 前輪Stage 5離線基線入口
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_sources tests.test_review_baseline_training -q

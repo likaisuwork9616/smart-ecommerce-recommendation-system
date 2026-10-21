@@ -97,7 +97,7 @@ Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。最新[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)已串接完整來源與角色守門，完成12次fit及開發回測；三月macro AP小幅高於常數，2月反而較差，固定0.5召回極低。兩事件時鐘仍缺原入庫／版本證據；Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。前輪[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)完成12次fit及開發回測，改善跨月不一致。最新[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)只讀原分數，核對各月低評率、機率分布及四欄支援，發現部分月份類別零或極少成熟歷史支援；建議下一輪只預先規劃移除購買月份的消融，本輪0 fit。原入庫／版本證據仍缺，Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
 
 ## 如何追到實際產物
 
