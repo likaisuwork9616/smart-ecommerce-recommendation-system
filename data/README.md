@@ -42,7 +42,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 前輪[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪除purchase_month，原H60、完整角色名冊與未知政策不改；該輪私有guard在`.runtime/stage5_review_month_ablation_v1/`。[三欄實作驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)僅用合成fixture，日誌在`.runtime/stage5_review_month_ablation_pipeline/`。
 
-最新[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；預定`.runtime/stage5_review_month_ablation_training_v1/`仍無三欄分數／模型產物。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
+前輪[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；預定`.runtime/stage5_review_month_ablation_training_v1/`仍無三欄分數／模型產物。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
 
 ## 處理資料與模型
 
@@ -60,3 +60,5 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Retailrocket
 
 規劃用於瀏覽、加購、購買與推薦研究，目前尚未啟動。`data/raw/retailrocket/`只作預留位置，不代表已完成資料匯入、特徵或推薦模型。
+
+最新[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)已綁定具體JSON格式、12次fit控制與完整配對。新guard及合成日誌在`.runtime/stage5_review_month_ablation_dispatcher_v1/`；只對合成fixture訓練，真實training_v1仍無產物。原14份私有來源（含前輪準備guard）保持原bytes，沒有新增入庫或版本證據。

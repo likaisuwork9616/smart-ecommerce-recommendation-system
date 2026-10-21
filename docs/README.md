@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5三欄消融已完成來源／完整角色串接，凍結執行政策、私有輸出版本與同ID配對規則，尚未訓練或完成三欄實際配對。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5三欄消融的正式入口與私有writer已實作、綁定並以合成資料驗收；真實三欄訓練與實際配對仍待決定。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5執行準備 | [來源、執行政策與配對驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) | 51公開＋13私有來源、12角色與四欄18分數區塊；0訓練，三欄實際配對待產物 |
+| 最新Stage 5正式入口 | [入口、私有產物與合成驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) | 合成9＋3次fit、獨立選C、18區塊配對、失敗停止；真實訓練0 |
+| 前輪Stage 5執行準備 | [來源、執行政策與配對驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) | 51公開＋13私有來源、12角色與四欄18分數區塊；0訓練，三欄實際配對待產物 |
 | 前輪Stage 5三欄實作 | [月份消融實作與洩漏驗證](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) | 三欄32維、保留四欄對照；75項pipeline＋57項契約回歸通過，真實訓練待決定 |
 | 前輪Stage 5單因子規格 | [移除購買月份](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md) | 三欄／32維、其餘契約不變；該輪只核原來源與12角色，未實作／訓練 |
 | 前輪Stage 5只讀診斷 | [凍結分數與四欄支援](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) | 月低評率、機率分布、單欄支援與既有損失分解；不追加fit |
@@ -101,7 +102,7 @@ Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)未呈現跨月一致改善；後續[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)發現部分月份類別零或極少成熟歷史支援。[月份消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)與[三欄實作](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)只刪月份；最新[執行準備](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)已接完整來源／角色與四欄凍結分數，三欄仍未訓練。原入庫／版本證據仍缺，Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)未呈現跨月一致改善；後續[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)發現部分月份類別零或極少成熟歷史支援。[月份消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)與[三欄實作](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)只刪月份；[執行準備](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)已接完整來源／角色與四欄凍結分數；最新[正式入口驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)完成12次fit控制與私有writer的合成驗證，三欄真實訓練仍未執行。原入庫／版本證據仍缺，Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
 
 ## 如何追到實際產物
 

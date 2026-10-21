@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| Stage 5三欄正式入口與私有交付 | [run_review_month_ablation.py](run_review_month_ablation.py)、[訓練控制](review_month_ablation_training.py)、[私有writer](review_month_ablation_artifacts.py) | 無參數只顯示說明；先綁定與合成驗證，明確--train另待決定；四欄沿用凍結分數 |
 | 準備Stage 5三欄消融來源與配對 | [prepare_review_month_ablation.py](prepare_review_month_ablation.py)、[review_month_ablation_sources.py](review_month_ablation_sources.py)、[review_month_ablation_pairing.py](review_month_ablation_pairing.py) | 需原私有證據；先凍結執行政策／輸出版本，再核12角色與四欄18區塊；沒有訓練參數，三欄實際配對待產物 |
 | 驗證Stage 5三欄消融與四欄對照 | [verify_review_month_ablation_pipeline.py](verify_review_month_ablation_pipeline.py)、[review_month_ablation_pipeline.py](review_month_ablation_pipeline.py) | 只以合成fixture驗三欄32維／舊四欄44維；75項測試及35公開來源綁定，不讀真實CSV或私有分數 |
 | 凍結Stage 5月份消融規格 | [freeze_review_month_ablation.py](freeze_review_month_ablation.py) | 先--specification-only，再只核metadata；保留原來源、只刪purchase_month契約；不實作三欄模型、不fit或解析分數 |
@@ -48,7 +49,17 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5三欄消融執行準備
+## Stage 5三欄正式入口
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_review_month_ablation.py --specification-only
+.\.venv\Scripts\python.exe scripts\run_review_month_ablation.py --verify-synthetic
+.\.venv\Scripts\python.exe scripts\run_review_month_ablation.py --check
+```
+
+依序綁定入口／測試／JSON格式、跑合成驗證及只讀準備檢查。會核原本機來源與完整角色，但只在合成fixture上fit。真實訓練需明確`--train`且先通過同版成功驗證；本輪沒有執行該動作。輸出占用、來源改版、配對不符或發布失敗均停止，詳見[正式入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。
+
+## 前輪Stage 5三欄消融執行準備
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py --specification-only
@@ -57,7 +68,7 @@
 
 兩行均不訓練、不建立X或計效能；先固定[執行政策](../reports/stage5/review_month_ablation_execution_specification.json)與私有input_guard，再輸出[準備驗收](../reports/stage5/review_month_ablation_execution_preflight.json)。會讀原H60完整角色及四欄凍結分數以核對metadata、ID與合法機率，不能用缺失來源重訓補分數。原13私有來源及新guard留本機，預定`.runtime/stage5_review_month_ablation_training_v1/`仍無訓練產物。
 
-完整同ID配對validator已用合成資料驗證；真實三欄分數尚不存在。CLI沒有`--train`；未來dispatcher須另實作與綁定，詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。
+完整同ID配對validator已用合成資料驗證；真實三欄分數尚不存在。該準備CLI沒有`--train`；當時dispatcher待另實作與綁定，詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。
 
 ## 前輪Stage 5三欄消融與合成驗證
 
