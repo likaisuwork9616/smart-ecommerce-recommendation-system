@@ -21,7 +21,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 最新Stage 5三欄實作與洩漏驗證
+## 最新Stage 5三欄執行準備與配對守門
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_month_ablation_sources tests.test_review_month_ablation_pairing tests.test_prepare_review_month_ablation -q
+```
+
+來源18＋配對25＋準備CLI16共59項新測試全過，43.555秒，無失敗、錯誤或跳過。涵蓋來源／私有guard／實作證明改版拒收、完整角色與七欄遮罩、防禦性副本、18區塊完整同ID與truth、未知／機率、外層不同C、禁止模型／效能呼叫、輸出占用／碰撞／越界、全部預檢、晚期變動回滾及同版重跑。全部只用合成metadata／分數或暫存檔，沒有fit、predict或效能計算。
+
+正式來源／分數獨立核對另有1,304,928個metadata欄值一致，以及21項私有I/O對抗案例；不加總成單元測試或效能結果。詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。本輪沒有重跑下列合成fit組或全專案discover，前輪紀錄保持分列。
+
+## 前輪Stage 5三欄實作與洩漏驗證
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py

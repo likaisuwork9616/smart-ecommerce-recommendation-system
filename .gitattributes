@@ -108,3 +108,12 @@ scripts/review_month_ablation_pipeline.py text eol=lf
 scripts/verify_review_month_ablation_pipeline.py text eol=lf
 tests/test_review_month_ablation_pipeline.py text eol=lf
 reports/stage5/review_month_ablation_pipeline_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the no-training execution preparation and paired acceptance provenance.
+scripts/prepare_review_month_ablation.py text eol=lf
+scripts/review_month_ablation_sources.py text eol=lf
+scripts/review_month_ablation_pairing.py text eol=lf
+tests/test_prepare_review_month_ablation.py text eol=lf
+tests/test_review_month_ablation_sources.py text eol=lf
+tests/test_review_month_ablation_pairing.py text eol=lf
+reports/stage5/review_month_ablation_execution_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_month_ablation_execution_preflight.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

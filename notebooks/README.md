@@ -46,4 +46,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)、[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)後，以獨立CLI執行[四欄離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)。該入口會在來源守門通過後用真實資料訓練與做開發回測；沒有新增或執行Notebook，也沒有Dashboard。不要為了補Stage 5就執行04的延遲訓練。
 
-最新已依[只移除購買月份的消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)完成[三欄builder／pipeline及洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。只在獨立CLI執行合成fit，沒有真實訓練或Notebook改動；三欄真實執行仍待來源守門與新版本，不能用現有四欄訓練入口代替。
+已依[只移除購買月份的消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)完成[三欄builder／pipeline及洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)，最新[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)再串接來源／完整角色及四欄凍結分數。這輪只核metadata與配對契約，0fit；沒有Notebook或Dashboard改動。正式三欄訓練入口仍待另實作與綁定，不能用現有四欄入口代替。
