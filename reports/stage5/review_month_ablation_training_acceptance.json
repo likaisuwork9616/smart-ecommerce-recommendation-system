@@ -1,0 +1,291 @@
+{
+  "actual_execution": {
+    "actual_estimator_fit_attempts": 12,
+    "actual_estimator_fits_completed": 12,
+    "all_estimator_inputs_32_columns": true,
+    "automatic_retries": 0,
+    "control_candidate_selections": 0,
+    "control_execution_attempts": 0,
+    "control_fits": 0,
+    "control_scores_recomputed": false,
+    "elapsed_seconds": 841.440832,
+    "entry": "scripts/run_review_month_ablation.py --train",
+    "failure_receipt_present": false,
+    "inner_fits": 9,
+    "invocations": 1,
+    "observed_logistic_fit_seconds": 4.287863,
+    "outer_fits": 3,
+    "timing_note": "Total includes source, roster, pairing and artifact publication checks; estimator fit time is separately observed, not total pipeline time.",
+    "training_parameters_changed_by_observer": false
+  },
+  "evaluation": {
+    "dashboard": false,
+    "macro_average_precision": {
+      "control": 0.17092796947701136,
+      "control_valid_folds": 3,
+      "required_valid_folds_per_arm": 3,
+      "treatment": 0.17049412300217992,
+      "treatment_minus_control": -0.0004338464748314397,
+      "treatment_valid_folds": 3,
+      "weighting": "equal_month_weight"
+    },
+    "new_success_threshold": null,
+    "result": "All three development-month AP deltas are negative; no improvement from removing purchase_month is supported.",
+    "unseen_holdout_evaluated": false
+  },
+  "format_version": 1,
+  "independent_metric_validation": {
+    "both_arms_existing_scores_recomputed_for_arithmetic_validation_only": true,
+    "formal_training_control_metrics_recomputed": 0,
+    "macro_treatment_minus_control_agrees_within_tolerance": true,
+    "method": "AP from distinct score thresholds, ROC from average ranks, Brier/logloss/confusion from existing frozen scores, without production evaluation imports",
+    "new_fits": 0,
+    "new_predictions_generated": false
+  },
+  "independent_read_only_acceptance": {
+    "all_fit_eligibility_and_scaler_checks_pass": true,
+    "all_full_ID_order_truth_match": true,
+    "all_private_hashes_match": true,
+    "assertions": 5080,
+    "cohort_rows": 73254,
+    "control_refits": 0,
+    "elapsed_seconds": 8.877788,
+    "fit_records_verified": [
+      {
+        "C": 0.1,
+        "eligible_orders": 14740,
+        "outer_fold": "2017-12",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 14740,
+        "unknown_excluded": 8437
+      },
+      {
+        "C": 1.0,
+        "eligible_orders": 14740,
+        "outer_fold": "2017-12",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 14740,
+        "unknown_excluded": 8437
+      },
+      {
+        "C": 10.0,
+        "eligible_orders": 14740,
+        "outer_fold": "2017-12",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 14740,
+        "unknown_excluded": 8437
+      },
+      {
+        "C": 10.0,
+        "eligible_orders": 27108,
+        "outer_fold": "2017-12",
+        "output_columns": 32,
+        "role": "outer_train_pool",
+        "scaler_samples": 27108,
+        "unknown_excluded": 12355
+      },
+      {
+        "C": 0.1,
+        "eligible_orders": 22919,
+        "outer_fold": "2018-02",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 22919,
+        "unknown_excluded": 9149
+      },
+      {
+        "C": 1.0,
+        "eligible_orders": 22919,
+        "outer_fold": "2018-02",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 22919,
+        "unknown_excluded": 9149
+      },
+      {
+        "C": 10.0,
+        "eligible_orders": 22919,
+        "outer_fold": "2018-02",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 22919,
+        "unknown_excluded": 9149
+      },
+      {
+        "C": 0.1,
+        "eligible_orders": 39448,
+        "outer_fold": "2018-02",
+        "output_columns": 32,
+        "role": "outer_train_pool",
+        "scaler_samples": 39448,
+        "unknown_excluded": 13034
+      },
+      {
+        "C": 0.1,
+        "eligible_orders": 27108,
+        "outer_fold": "2018-04",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 27108,
+        "unknown_excluded": 12355
+      },
+      {
+        "C": 1.0,
+        "eligible_orders": 27108,
+        "outer_fold": "2018-04",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 27108,
+        "unknown_excluded": 12355
+      },
+      {
+        "C": 10.0,
+        "eligible_orders": 27108,
+        "outer_fold": "2018-04",
+        "output_columns": 32,
+        "role": "inner_train_pool",
+        "scaler_samples": 27108,
+        "unknown_excluded": 12355
+      },
+      {
+        "C": 0.1,
+        "eligible_orders": 51433,
+        "outer_fold": "2018-04",
+        "output_columns": 32,
+        "role": "outer_train_pool",
+        "scaler_samples": 51433,
+        "unknown_excluded": 15043
+      }
+    ],
+    "membership_rows": 289973,
+    "metadata_cells_both_arms": 2609856,
+    "metadata_cells_per_arm": 1304928,
+    "metric_comparison_tolerance": {
+      "atol": 1e-14,
+      "rtol": 1e-12
+    },
+    "paired_blocks": 18,
+    "raw_rows": 99441,
+    "real_model_fits_by_auditor": 0,
+    "recorded_completed_fits": 12,
+    "recorded_inner_fits": 9,
+    "recorded_outer_fits": 3,
+    "role_blocks": 12,
+    "rows_per_arm": 108744,
+    "scope": "read_only_existing_scores_audit_no_training_no_prediction",
+    "selection": [
+      {
+        "candidate_AP": {
+          "0.1": 0.14000248810180685,
+          "1.0": 0.14128709994126293,
+          "10.0": 0.1414535392259729
+        },
+        "control_C": 0.1,
+        "outer_fold": "2017-12",
+        "selected_C": 10.0
+      },
+      {
+        "candidate_AP": {
+          "0.1": 0.20127170514996293,
+          "1.0": 0.20053652290022514,
+          "10.0": 0.20047970339723112
+        },
+        "control_C": 0.1,
+        "outer_fold": "2018-02",
+        "selected_C": 0.1
+      },
+      {
+        "candidate_AP": {
+          "0.1": 0.17737363839406875,
+          "1.0": 0.17670633654153753,
+          "10.0": 0.1765651091780865
+        },
+        "control_C": 0.1,
+        "outer_fold": "2018-04",
+        "selected_C": 0.1
+      }
+    ],
+    "unknown_score_rows_per_arm": 1510
+  },
+  "limitations": [
+    "Already inspected development months are not an unseen holdout.",
+    "Known-label metrics exclude unknown labels; every query still has a score.",
+    "Original ingestion, version timestamps and upstream completeness remain unverified."
+  ],
+  "private_delivery": {
+    "individual_IDs_scores_labels_coefficients_and_private_digests_public": false,
+    "manifest_and_all_payload_bytes_match": true,
+    "model_objects_persisted": false,
+    "namespace": ".runtime/stage5_review_month_ablation_training_v1/",
+    "success_file_count": 5,
+    "success_files": [
+      "fit_audit.json",
+      "inner_scores.csv",
+      "manifest.json",
+      "outer_scores.csv",
+      "paired_acceptance.json"
+    ]
+  },
+  "private_evidence": [
+    ".runtime/stage5_real_ablation_execution_proof.json",
+    ".runtime/stage5_ablation_real_independent_acceptance.json",
+    ".runtime/stage5_real_ablation_public_results_validation.json"
+  ],
+  "public_result_arithmetic": {
+    "checks": 803,
+    "control_model_fits": 0,
+    "elapsed_seconds": 0.003619,
+    "null_differences_preserved": 14,
+    "paired_groups": 18,
+    "performance_recomputed_from_scores": false,
+    "real_model_fits": 0,
+    "scope": "public_aggregate_arithmetic_only_not_unseen_holdout",
+    "status": "passed_read_only_public_result_arithmetic"
+  },
+  "public_sources": [
+    {
+      "bytes": 59143,
+      "path": "reports/stage5/review_month_ablation_training.json",
+      "sha256": "11ab4764226e40e56c1a9b0785ebb517fc661172cac146c50c0d43e38486c040"
+    },
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 39426,
+      "path": "reports/stage5/review_month_ablation_dispatcher_specification.json",
+      "sha256": "c56d3f3b6426d4c8ffc4a4181b43c27f4758738068f96d1779166ac88240fee7"
+    },
+    {
+      "bytes": 41348,
+      "path": "reports/stage5/review_month_ablation_dispatcher_verification.json",
+      "sha256": "4b52db51993925130e9c71a42073969f31b45cc5f77244ba6520dc880a634784"
+    }
+  ],
+  "scope": "already_inspected_development_backtest_not_unseen_holdout",
+  "source_preservation": {
+    "dispatcher_private_bindings_unchanged": 14,
+    "dispatcher_public_bindings_unchanged": 59,
+    "frozen_code_and_test_bytes_unchanged": true,
+    "original_control_report_and_private_scores_unchanged": true,
+    "preexisting_private_evidence_files_unchanged": 16
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "passed_real_offline_month_ablation_delivery_acceptance"
+}

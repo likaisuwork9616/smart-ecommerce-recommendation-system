@@ -1,5 +1,7 @@
 # Stage 5：三欄正式入口、私有產物與合成驗收
 
+本頁保留正式入口實作時的合成驗收紀錄，以下「本輪／未訓練」均指當時狀態。後續已另完成一次真實消融與交付驗收，見[三欄真實結果](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)；同版產物已占用，勿重跑準備或訓練入口。
+
 本輪完成只移除 `purchase_month` 的正式訓練入口及私有寫入流程，另綁定程式、測試和具體JSON格式。**只對合成資料fit；沒有執行三欄真實訓練、實際選C、產生真實分數或新增效能結論。** 四欄程式、凍結分數、既有規格與報告保留，Dashboard未開工。
 
 前輪[執行政策與來源驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)記錄的是當時入口尚未實作的狀態。這輪以新的[入口綁定規格](../reports/stage5/review_month_ablation_dispatcher_specification.json)及[合成驗證報告](../reports/stage5/review_month_ablation_dispatcher_verification.json)接續，沒有回寫歷史狀態。

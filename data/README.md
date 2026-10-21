@@ -32,7 +32,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 最新[凍結資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)固定核准後60天首答、未知與內外層時間契約。私有order_labels.csv、split_membership.csv及manifest.json放Git忽略的.runtime/stage5_review_dataset_v1/；前者是C=2018-07-01的標籤審計，歷史fit必須用角色截止遮罩後的y，不能join前者取得未來答案。兩CSV只有9／12個身分、標籤與審計欄，不能當X。
 
-沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合，不公布個體ID／標籤或私有digest。Stage 5目前採四個事件時間特徵，沒有建立原候選21欄；Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
+沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合，不公布個體ID／標籤或私有digest。Stage 5四欄基線採四個事件時間特徵，沒有建立原候選21欄；Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
 
 前輪[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)只用購買月／星期／時及核准等待小時，其餘快照候選先排除；兩事件時鐘仍只有快照代理假設。該輪不建X或fit，私有input_guard放.runtime/stage5_review_baseline_v1/，原H60 bundle不改。
 
@@ -42,7 +42,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 前輪[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪除purchase_month，原H60、完整角色名冊與未知政策不改；該輪私有guard在`.runtime/stage5_review_month_ablation_v1/`。[三欄實作驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)僅用合成fixture，日誌在`.runtime/stage5_review_month_ablation_pipeline/`。
 
-前輪[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；預定`.runtime/stage5_review_month_ablation_training_v1/`仍無三欄分數／模型產物。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
+前輪[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；當時預定的`.runtime/stage5_review_month_ablation_training_v1/`尚無產物；後續真實交付見下段。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
 
 ## 處理資料與模型
 
@@ -61,4 +61,4 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 規劃用於瀏覽、加購、購買與推薦研究，目前尚未啟動。`data/raw/retailrocket/`只作預留位置，不代表已完成資料匯入、特徵或推薦模型。
 
-最新[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)已綁定具體JSON格式、12次fit控制與完整配對。新guard及合成日誌在`.runtime/stage5_review_month_ablation_dispatcher_v1/`；只對合成fixture訓練，真實training_v1仍無產物。原14份私有來源（含前輪準備guard）保持原bytes，沒有新增入庫或版本證據。
+前輪[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)的guard及合成日誌留在`.runtime/stage5_review_month_ablation_dispatcher_v1/`。本輪[真實三欄消融](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)完成一次9＋3次fit；`training_v1/`已寫入inner／outer分數、fit_audit、paired_acceptance及manifest五份私有檔。每臂108,744列含跨候選／角色重複出分，不能當獨立訂單數。原16份私有證據不變，未增加入庫、評分版本或全量母體證據；已有產物不得刪除後重跑。

@@ -21,7 +21,11 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 最新Stage 5三欄正式入口與私有writer
+## 本輪Stage 5真實消融交付驗收
+
+本輪沒有修改凍結程式或重跑合成測試。一次真實執行實際完成9次內層＋3次外層fit，另以只讀程式核對完整角色、每臂18區塊108,744列的ID／truth、選C、指標與私有manifest。這是實際產物驗收，與下列前輪74項合成測試分列；詳見[實驗文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)及[聚合驗收](../reports/stage5/review_month_ablation_training_acceptance.json)。
+
+## 前輪Stage 5三欄正式入口與私有writer
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_run_review_month_ablation tests.test_review_month_ablation_training tests.test_review_month_ablation_artifacts -q
@@ -29,7 +33,7 @@
 
 入口20＋訓練控制32＋writer22共74項全過，沒有失敗、錯誤、跳過或預期失敗。正式合成驗證階段165.964秒（不含此前來源載入，含測試及發布）。實際sklearn fit共37次且均32維：三個完整試跑各9＋3次，另1次測預測失敗收據；其他分支使用替身。涵蓋獨立選C、七欄query遮罩、未知列、fit時鐘與支援、完整18區塊配對、來源變動、產物／公開結果接受後被改動、精確反讀、失敗回撤及禁止重播。真實fit與新效能均0。
 
-正式版本與測試名單見[合成報告](../reports/stage5/review_month_ablation_dispatcher_verification.json)，整合CLI另需原本機來源先`--specification-only`再`--verify-synthetic`；操作及界線見[入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。本輪沒有重跑全專案discover，下列歷史紀錄不混入本輪測試數。
+正式版本與測試名單見[合成報告](../reports/stage5/review_month_ablation_dispatcher_verification.json)，整合CLI另需原本機來源先`--specification-only`再`--verify-synthetic`；操作及界線見[入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。該輪沒有重跑全專案discover，下列歷史紀錄各自保留。現有training_v1已占用，整合CLI不可當成發布後驗收重播。
 
 ## 前輪Stage 5三欄執行準備與配對守門
 
