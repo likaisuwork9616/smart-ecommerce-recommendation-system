@@ -1,17 +1,18 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5三欄消融的正式入口與私有writer已實作、綁定並以合成資料驗收；真實三欄訓練與實際配對仍待決定。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5三欄真實消融與完整交付驗收已完成，四欄沿用凍結分數，結果僅限已檢視開發月。先看[專案首頁](../README.md)，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5正式入口 | [入口、私有產物與合成驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) | 合成9＋3次fit、獨立選C、18區塊配對、失敗停止；真實訓練0 |
+| 最新Stage 5真實消融 | [三欄結果與交付驗收](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) | 9＋3次真實fit、獨立選C、18組完整同ID配對；四欄0fit，只列開發回測 |
+| 前輪Stage 5正式入口 | [入口、私有產物與合成驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) | 合成9＋3次fit、獨立選C、18區塊配對、失敗停止；真實訓練0 |
 | 前輪Stage 5執行準備 | [來源、執行政策與配對驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) | 51公開＋13私有來源、12角色與四欄18分數區塊；0訓練，三欄實際配對待產物 |
 | 前輪Stage 5三欄實作 | [月份消融實作與洩漏驗證](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) | 三欄32維、保留四欄對照；75項pipeline＋57項契約回歸通過，真實訓練待決定 |
 | 前輪Stage 5單因子規格 | [移除購買月份](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md) | 三欄／32維、其餘契約不變；該輪只核原來源與12角色，未實作／訓練 |
 | 前輪Stage 5只讀診斷 | [凍結分數與四欄支援](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) | 月低評率、機率分布、單欄支援與既有損失分解；不追加fit |
-| 最新Stage 5開發回測 | [四欄離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md) | 來源與角色守門、歷史內層選C、外層從頭fit、全query出分及逐月開發評估 |
+| 前輪Stage 5四欄開發回測 | [四欄離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md) | 來源與角色守門、歷史內層選C、外層從頭fit、全query出分及逐月開發評估 |
 | 前輪Stage 5實作 | [builder與pipeline洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) | 四欄／44維、合格訓練隔離、查詢不讀未來標籤、獨立名冊與失敗停止；僅合成fixture fit |
 | 前輪Stage 5基線規格 | [最小基線與評估](STAGE5_REVIEW_BASELINE_SPEC.md) | 四欄、前處理、內層AP選C、評估及未知／失敗處理的凍結政策 |
 | 前輪Stage 5資料集 | [首答資料集凍結與核對](STAGE5_REVIEW_DATASET_SPEC.md) | 60天窗口、多評論與未知、內外層切分及每個fit的標籤資格 |

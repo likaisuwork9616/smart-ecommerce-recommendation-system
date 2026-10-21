@@ -6,10 +6,11 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 5三欄正式入口 | [入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) → [入口／writer／測試綁定](stage5/review_month_ablation_dispatcher_specification.json) → [合成報告](stage5/review_month_ablation_dispatcher_verification.json)；真實fit與新效能0 |
+| 最新Stage 5三欄真實消融 | [結果與限制](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) → [正式開發回測](stage5/review_month_ablation_training.json) → [獨立交付驗收](stage5/review_month_ablation_training_acceptance.json)；一次12fit、18組完整配對，四欄沿用凍結分數 |
+| 前輪Stage 5三欄正式入口 | [入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) → [入口／writer／測試綁定](stage5/review_month_ablation_dispatcher_specification.json) → [合成報告](stage5/review_month_ablation_dispatcher_verification.json)；真實fit與新效能0 |
 | 前輪Stage 5三欄執行準備 | [方法與界線](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) → [執行政策／輸出規格](stage5/review_month_ablation_execution_specification.json) → [來源／角色／四欄對照驗收](stage5/review_month_ablation_execution_preflight.json)；0訓練，三欄實際配對待產物 |
-| 最新Stage 5三欄消融實作 | [實作與洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) → [合成驗證報告](stage5/review_month_ablation_pipeline_verification.json)；75項新舊pipeline測試通過，真實訓練／效能均0 |
-| 最新Stage 5離線最小基線 | [方法與限制](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) → [執行規格](stage5/review_baseline_training_specification.json) → [實際開發回測](stage5/review_baseline_training.json)；三月為已檢視開發資料，不是新未知測試 |
+| 前輪Stage 5三欄消融實作 | [實作與洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) → [合成驗證報告](stage5/review_month_ablation_pipeline_verification.json)；75項新舊pipeline測試通過，真實訓練／效能均0 |
+| 前輪Stage 5四欄離線最小基線 | [方法與限制](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) → [執行規格](stage5/review_baseline_training_specification.json) → [實際開發回測](stage5/review_baseline_training.json)；三月為已檢視開發資料，不是新未知測試 |
 | 前輪Stage 5程式實作與洩漏測試 | [受控builder／pipeline](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) → [合成驗證](stage5/review_pipeline_verification.json)；有合成fit，該輪沒有真實資料訓練或模型效能 |
 | 前輪Stage 5最小基線契約 | [四欄／前處理／選參／評估](../docs/STAGE5_REVIEW_BASELINE_SPEC.md) → [事前規格](stage5/review_baseline_specification.json) → [實際契約稽核](stage5/review_baseline_contract_audit.json)；該輪未訓練、未計效能 |
 | 最新Stage 5資料集／逐fit標籤 | [H60與內外層契約](../docs/STAGE5_REVIEW_DATASET_SPEC.md) → [凍結規格](stage5/review_dataset_specification.json) → [實際支援與核對](stage5/review_dataset_audit.json)；沒有模型效能 |
@@ -92,6 +93,8 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 三欄消融準備驗收 | 51公開＋13私有來源、12完整角色、18四欄凍結分數區塊；不重評指標，三欄配對pending，0fit | [review_month_ablation_execution_preflight](stage5/review_month_ablation_execution_preflight.json) |
 | 三欄正式入口綁定 | 沿用原政策，新增訓練控制、具體JSON／writer格式與測試綁定；真實訓練待決定 | [review_month_ablation_dispatcher_specification](stage5/review_month_ablation_dispatcher_specification.json) |
 | 三欄入口合成驗收 | 9＋3次fit、獨立選C、同ID配對、私有反讀／回撤及失敗收據；沒有真實三欄效果 | [review_month_ablation_dispatcher_verification](stage5/review_month_ablation_dispatcher_verification.json) |
+| 三欄真實離線消融 | 實際12次fit、內層選C、已檢視外層開發評估與18組同ID差值；四欄0重訓 | [review_month_ablation_training](stage5/review_month_ablation_training.json) |
+| 真實消融獨立交付驗收 | 完整角色／同ID、私有bytes、12次實際fit觀測、獨立指標核算及來源保留；無額外fit或新分數 | [review_month_ablation_training_acceptance](stage5/review_month_ablation_training_acceptance.json) |
 
 Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。pipeline verification只含合成測試；真實基線結果另存training報告，不能把它回寫成前輪已完成訓練。原標籤／切分仍在.runtime/stage5_review_dataset_v1/，新逐筆機率／fit診斷／manifest在.runtime/stage5_review_baseline_training_v1/；公開不含ID、個體值、機率或私有digest。
 
