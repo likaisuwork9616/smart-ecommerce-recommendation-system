@@ -21,7 +21,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 最新Stage 5只讀診斷
+## 最新Stage 5月份消融契約
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_month_ablation_contract -q
+```
+
+[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)新增14項契約測試全過、0.500秒。驗精確五處月份結構差異、32維、其他改動拒收、三欄獨立選C與null配對、來源／私有guard、完整輸出預檢、同版重跑及晚期來源失配撤回；不匯入sklearn，不建X或fit。發布前修正與已載入套件的測試隔離，另以模組替身重驗3個受影響測試，全過、0.200秒，沒有實際匯入sklearn。另有508項獨立來源／逐ID角色比較通過，未解析分數CSV或計效能。
+
+本輪只跑此新測試組；上方discover包含舊合成fit，本輪未執行，不宣稱全專案回歸。
+
+## 前輪Stage 5只讀診斷
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_score_diagnostics tests.test_review_score_diagnostic_runner -q
