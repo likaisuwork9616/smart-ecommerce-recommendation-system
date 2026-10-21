@@ -40,7 +40,9 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 該輪inner_scores.csv、outer_scores.csv、fit_audit.json、manifest.json與input_guard.json留`.runtime/stage5_review_baseline_training_v1/`。其中fit診斷含本機係數／統計，不是公開可用服務模型；無模型序列化或營運通知入口。研究來源版本通過仍不能補足原入庫／修訂／全量母體證據。
 
-前輪[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪除purchase_month，原H60、完整角色名冊與未知政策不改；該輪私有guard在`.runtime/stage5_review_month_ablation_v1/`。本輪[三欄實作與洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)只以合成資料fit，不建立真實X、標籤、模型或逐筆分數；原分數／fit診斷只hash確認未改。新合成驗證日誌在`.runtime/stage5_review_month_ablation_pipeline/`，不需要原CSV或私有分數即可重跑。
+前輪[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪除purchase_month，原H60、完整角色名冊與未知政策不改；該輪私有guard在`.runtime/stage5_review_month_ablation_v1/`。[三欄實作驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)僅用合成fixture，日誌在`.runtime/stage5_review_month_ablation_pipeline/`。
+
+最新[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；預定`.runtime/stage5_review_month_ablation_training_v1/`仍無三欄分數／模型產物。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
 
 ## 處理資料與模型
 

@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄基線、凍結分數診斷及「只移除購買月份」的三欄實作與洩漏測試。本輪只以合成資料驗證，尚未執行三欄真實訓練；下一步串接來源守門與完整角色後，再決定訓練。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料。Stage 5的三欄月份消融已串接來源守門與完整角色，凍結執行政策、私有輸出版本及同ID配對規則；四欄沿用原分數，本輪0訓練、0新效能。正式三欄訓練入口仍待實作與綁定，再決定訓練。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 三欄實作與洩漏測試完成 | 只刪purchase_month，44→32維；75項新舊pipeline測試＋57項契約回歸通過；三欄真實訓練尚未執行 |
+| Stage 5：評論低評分預測 | 三欄來源／角色與執行政策準備驗收完成 | 12角色、四欄18分數區塊一致；59項新測試通過。三欄未訓練，實際雙臂配對待產物 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -51,6 +51,7 @@ py -3.12 -m venv .venv
 | 只讀原分數診斷月份、機率與四欄支援 | [Stage 5凍結分數診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) |
 | 看只移除購買月份的單因子契約 | [Stage 5月份消融規格](docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md) |
 | 驗證三欄消融及保留的四欄對照 | [Stage 5三欄實作與洩漏測試](docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md) |
+| 看三欄執行政策、來源與配對驗收 | [Stage 5消融執行準備](docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -98,7 +99,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：四欄基線與三欄消融實作
+## Stage 5：四欄基線與三欄消融準備
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -179,9 +180,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 .\.venv\Scripts\python.exe scripts\freeze_review_month_ablation.py
 ```
 
-本輪已完成[獨立三欄builder／train-only pipeline](docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)，公開[合成驗證報告](reports/stage5/review_month_ablation_pipeline_verification.json)。直接建立星期、小時與原始等待；固定31個one-hot加1個等待欄。名冊、H60及標籤資格沿用原守門，未知不fit、query不讀未來答案，每候選／角色各自從頭擬合。四欄程式、凍結分數與舊報告保留。
+前輪已完成[獨立三欄builder／train-only pipeline](docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)，公開[合成驗證報告](reports/stage5/review_month_ablation_pipeline_verification.json)。直接建立星期、小時與原始等待；固定31個one-hot加1個等待欄。名冊、H60及標籤資格沿用原守門，未知不fit、query不讀未來答案，每候選／角色各自從頭擬合。四欄程式、凍結分數與舊報告保留。
 
-| 本輪實作驗收 | 實際結果 |
+| 前輪實作驗收 | 當輪實際結果 |
 | --- | --- |
 | 特徵及隔離 | 三欄值與32維前處理等於四欄刪除月份；未知離群值／query答案不影響訓練，缺單或時鐘不符即停止 |
 | 單元測試 | 三欄43＋四欄32＝75項全過；H60／基線／消融契約另57項全過，共132項，非全專案測試 |
@@ -195,7 +196,24 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 .\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py
 ```
 
-下一步建議串接既有來源守門與完整角色，另凍結三欄執行程式、私有輸出版本及同ID配對驗收，再決定真實消融訓練。合成測試通過不代表移除月份已改善預測；既有月份仍是已看開發窗。原入庫／評分版本仍未驗證，不能外推未知標籤或全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
+最新已完成[三欄消融執行準備](docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)，另存[執行規格](reports/stage5/review_month_ablation_execution_specification.json)及[準備驗收](reports/stage5/review_month_ablation_execution_preflight.json)。本輪只讀既有來源、角色與凍結分數metadata，不建立X或計效能。
+
+| 本輪準備驗收 | 實際結果 |
+| --- | --- |
+| 來源與名冊 | 51公開＋13私有綁定；73,254研究單、12角色289,973列完整一致 |
+| 四欄對照 | 18區塊108,744分數列完整匹配角色truth；未知仍保留，沒有重算分數、指標或選C |
+| 私有輸出與配對 | 預留獨立training_v1命名空間與15欄分數格式；完整同ID／順序／truth配對，外層各臂C可不同 |
+| 驗證 | 59項新合成測試全過；獨立1,304,928個metadata欄值一致，另21項I/O對抗案例通過 |
+| 待辦 | 實際訓練入口尚待實作與綁定；三欄分數不存在，實際配對與效果未驗收 |
+
+以下兩行只凍結政策／私有guard及核對準備狀態，均不訓練；需要原本機資料與證據：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py --specification-only
+.\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py
+```
+
+下一步若決定推進真實消融，先完成並綁定訓練入口與測試，再依固定9次內層＋3次外層執行；四欄0次fit、三欄自行選C。準備通過不代表移除月份已改善預測，既有月份仍是已看開發窗。原入庫／評分版本仍未驗證，不能外推未知標籤或全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
 
 ## 專案結構
 
@@ -224,7 +242,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪75項pipeline測試全過，正式測試4.065秒、CLI共5.815秒；另57項契約回歸4.555秒全過。後者首次有6項Windows暫存目錄ACL錯誤，在允許相同本機資源後原樣重跑通過，未跳過或改斷言。獨立194項合成比較及31項CLI對抗檢查另列；本輪未跑上方全專案discover，也未重做真實訓練。前輪契約14項及508項metadata核對、120項Stage 5與更早867項完整測試均保留各輪紀錄。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪來源18＋配對25＋準備CLI16，共59項新測試全過、43.555秒，沒有模型fit或效能計算；獨立1,304,928個metadata欄值核對與21項I/O案例分列。正式政策凍結23.129秒、準備驗收23.951秒。未跑上方全專案discover；前輪75項pipeline＋57項契約回歸、120項Stage 5及更早867項完整測試均保留各輪紀錄，不混稱本輪結果。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

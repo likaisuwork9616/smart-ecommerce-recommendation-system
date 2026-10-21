@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 準備Stage 5三欄消融來源與配對 | [prepare_review_month_ablation.py](prepare_review_month_ablation.py)、[review_month_ablation_sources.py](review_month_ablation_sources.py)、[review_month_ablation_pairing.py](review_month_ablation_pairing.py) | 需原私有證據；先凍結執行政策／輸出版本，再核12角色與四欄18區塊；沒有訓練參數，三欄實際配對待產物 |
 | 驗證Stage 5三欄消融與四欄對照 | [verify_review_month_ablation_pipeline.py](verify_review_month_ablation_pipeline.py)、[review_month_ablation_pipeline.py](review_month_ablation_pipeline.py) | 只以合成fixture驗三欄32維／舊四欄44維；75項測試及35公開來源綁定，不讀真實CSV或私有分數 |
 | 凍結Stage 5月份消融規格 | [freeze_review_month_ablation.py](freeze_review_month_ablation.py) | 先--specification-only，再只核metadata；保留原來源、只刪purchase_month契約；不實作三欄模型、不fit或解析分數 |
 | 只讀Stage 5凍結分數做支援診斷 | [diagnose_review_scores.py](diagnose_review_scores.py)、[review_score_diagnostics.py](review_score_diagnostics.py) | 需原私有分數／角色／收據；先--specification-only固定診斷範圍，再核來源、統計分布；禁止模型fit／transform／predict，不補訓練 |
@@ -47,7 +48,18 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5三欄消融與合成驗證
+## Stage 5三欄消融執行準備
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py --specification-only
+.\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py
+```
+
+兩行均不訓練、不建立X或計效能；先固定[執行政策](../reports/stage5/review_month_ablation_execution_specification.json)與私有input_guard，再輸出[準備驗收](../reports/stage5/review_month_ablation_execution_preflight.json)。會讀原H60完整角色及四欄凍結分數以核對metadata、ID與合法機率，不能用缺失來源重訓補分數。原13私有來源及新guard留本機，預定`.runtime/stage5_review_month_ablation_training_v1/`仍無訓練產物。
+
+完整同ID配對validator已用合成資料驗證；真實三欄分數尚不存在。CLI沒有`--train`；未來dispatcher須另實作與綁定，詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。
+
+## 前輪Stage 5三欄消融與合成驗證
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py
@@ -55,7 +67,7 @@
 
 [新模組](review_month_ablation_pipeline.py)直接建立星期、小時與核准等待，固定32維；共用原四欄的完整名冊／H60／標籤資格守門，保持獨立模型狀態。上述CLI實際fit合成scaler／Logistic並驗洩漏，核35份公開來源但不沿父規格讀原CSV、私有guard或分數；輸出[合成驗證報告](../reports/stage5/review_month_ablation_pipeline_verification.json)，詳細日誌留`.runtime/stage5_review_month_ablation_pipeline/`。
 
-這不是三欄真實訓練入口；尚待串接既有來源守門與完整12角色，另凍結執行程式與私有輸出版本，再決定訓練。原四欄程式與分數保留，舊`run_review_baseline.py`不能當三欄消融入口。詳見[實作與驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。
+這不是三欄真實訓練入口；後續來源、完整12角色與輸出版本準備見上節，正式訓練仍待決定。原四欄程式與分數保留，舊`run_review_baseline.py`不能當三欄消融入口。詳見[實作與驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。
 
 ## 前輪Stage 5離線最小基線
 
