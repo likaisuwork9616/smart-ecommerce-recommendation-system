@@ -1,5 +1,7 @@
 # Stage 5：四欄離線最小基線
 
+目前適用範圍、限制與可交付成果已集中於[四欄／三欄模型卡](STAGE5_MODEL_APPLICABILITY.md)：Stage 5維持待資料，只可交付離線開發研究證據；本輪未重訓、重算指標或改寫以下原結果。
+
 本輪將[已驗證的四欄pipeline](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)接到既有來源守門、H60標籤及完整角色名冊，依[凍結基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)執行常數參照與L2 Logistic。這是2017-12、2018-02、2018-04三個已檢視月份的開發回測；結果不代表新未知保留測試或正式營運驗收。Stage 4維持待資料、每日10%及11／29／42／73／101五種子，Dashboard暫緩。
 
 ## 來源與角色守門

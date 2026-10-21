@@ -6,7 +6,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 5新時間窗交接 | [資料清單](../docs/templates/review_window_handoff/README.md) → [待填驗收紀錄](../docs/templates/review_window_handoff/acceptance_record.template.md) → [JSON交接範本](../docs/templates/review_window_handoff/handoff_manifest.template.json)；是空白契約格式，本輪無新資料／標籤／效能報告，既有報告bytes保留 |
+| 最新Stage 5模型適用與交付 | [模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md) → [原四欄報告](stage5/review_baseline_training.json) → [原三欄報告](stage5/review_month_ablation_training.json) → [原配對驗收](stage5/review_month_ablation_training_acceptance.json)；僅整理已有開發結果，沒有新效能報告，Stage 5待資料 |
+| 前輪Stage 5新時間窗交接 | [資料清單](../docs/templates/review_window_handoff/README.md) → [待填驗收紀錄](../docs/templates/review_window_handoff/acceptance_record.template.md) → [JSON交接範本](../docs/templates/review_window_handoff/handoff_manifest.template.json)；是空白契約格式，本輪無新資料／標籤／效能報告，既有報告bytes保留 |
 | 前輪Stage 5後續時間窗 | [解讀與缺口](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md) → [盤點規格](stage5/review_validation_window_specification.json) → [實際盤點](stage5/review_validation_window_inventory.json) → [用途凍結](stage5/review_validation_window_usage_freeze.json) → [驗證](stage5/review_validation_window_verification.json)；五個新窗待資料，0訓練／效能 |
 | 前輪Stage 5成熟先驗與時間漂移 | [解讀與決策](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) → [事前規格](stage5/review_mature_prior_specification.json) → [完整稽核](stage5/review_mature_prior_audit.json) → [驗證](stage5/review_mature_prior_verification.json)；H60與12角色不變，無query回填／訓練／參數更新 |
 | 前輪Stage 5雙臂只讀診斷 | [解讀與決策](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) → [事前規格](stage5/review_ablation_diagnostic_specification.json) → [機率／排序／支援](stage5/review_ablation_diagnostics.json) → [驗證](stage5/review_ablation_diagnostic_verification.json)；0追加訓練，暫不指定新單因子 |
