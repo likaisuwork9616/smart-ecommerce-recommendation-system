@@ -67,3 +67,5 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 前輪[成熟先驗與時間漂移稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)只解析原角色的可得標籤與時鐘，不讀分數值或係數，沒有新逐筆y、分數、X或模型。新guard留`.runtime/stage5_review_mature_prior_v1/input_guard.json`；原27份私有證據不變。H60、12完整角色、未知與未成熟保持原樣，後來成熟的標籤不回填早fit；入庫／版本／全量母體缺口未補足。
 
 最新[後續時間窗盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)只讀評論身分與時鐘，未讀review_score值或建立新y。2018-05至09共26,027張原匯出有效核准均待資料，尚非完整上游名冊或已驗收H60標籤；原C=2018-07-01及既有bundle不改。新歷史紀錄／guard在`.runtime/stage5_review_validation_windows_v1/`，原30份私有證據不變；補齊新觀察／版本及標籤角色契約前，不能拿較晚答案選模或校準。
+
+本輪[2018年5–9月交接清單與範本](../docs/templates/review_window_handoff/README.md)備妥，但沒有新來源、標籤或交接實例。日後真實副本及原始清冊、版本鏈、H60完成與逐ID對帳留Git忽略的`.runtime/review_window_handoffs/<handoff_id>/`，與原dataset／兩臂training_v1分開；不得覆寫舊guard或把前輪匯出數抄成已接受全量N。
