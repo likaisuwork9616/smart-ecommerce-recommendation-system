@@ -1,0 +1,530 @@
+{
+  "template_version": "1",
+  "template_only": true,
+  "status": "pending_data",
+  "notice": "待填交接格式，並非JSON Schema或驗證器。固定政策與日期不是實測證據；null不是0。收到新資料後才在私有副本填寫，不會自動授權標籤檢視、fit、出分或效能。",
+  "policy_reference": "reports/stage5/review_validation_window_usage_freeze.json",
+  "acceptance_statuses": [
+    "pending_data",
+    "not_run",
+    "pass",
+    "fail"
+  ],
+  "fixed_policy": {
+    "horizon_elapsed_days": 60,
+    "approval_interval": "[start,end)",
+    "answer_interval": "(t,t+H]",
+    "maturity_rule": "t+H < A",
+    "answer_visibility": "answer < A AND original_available_at < A, using the accepted as-of revision contract",
+    "low_score_values": [
+      1,
+      2
+    ],
+    "other_score_values": [
+      3,
+      4,
+      5
+    ],
+    "unknown_y": null,
+    "unknown_policy": "未成熟、無可見回答、超H與品質隔離均為nullable y，不當負例；保留全名冊，主狀態互斥對帳。",
+    "first_answer_quality_policy_reference": "docs/STAGE5_REVIEW_DATASET_SPEC.md",
+    "original_cohort_end_exclusive": "2018-05-01",
+    "original_observation_cutoff_exclusive": "2018-07-01",
+    "new_window_answer_parameter_use_allowed": false,
+    "pristine_unseen_claim_allowed": false,
+    "new_label_inspection_authorized": false,
+    "new_training_authorized": false,
+    "new_scoring_authorized": false,
+    "new_performance_computation_authorized": false,
+    "dashboard_authorized": false,
+    "stage4": {
+      "status": "pending_data",
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "modified": false
+    }
+  },
+  "handoff": {
+    "handoff_id": null,
+    "revision": null,
+    "supersedes": null,
+    "provider": null,
+    "receiver": null,
+    "scope_and_authority": null,
+    "source_system": null,
+    "source_retention": null,
+    "source_snapshot_revision": null,
+    "schema_version": null,
+    "export_query_version": null,
+    "timezone_dst_precision_dictionary": null,
+    "received_at": null,
+    "asset_records": null,
+    "field_mapping_records": null,
+    "partition_records": null
+  },
+  "asset_record_template": {
+    "asset_id": null,
+    "role": null,
+    "private_path_or_source_key": null,
+    "source_scope": null,
+    "snapshot_cursor_revision": null,
+    "schema_version": null,
+    "supersedes": null,
+    "event_cutoff": null,
+    "original_availability_cutoff": null,
+    "rows": null,
+    "bytes": null,
+    "private_sha256": null,
+    "evidence_refs": null,
+    "status": "pending_data"
+  },
+  "field_mapping_record_template": {
+    "asset_id": null,
+    "original_field": null,
+    "contract_semantics": null,
+    "type_and_unit": null,
+    "entity_join_key_and_cardinality": null,
+    "version_key": null,
+    "timezone_precision": null,
+    "null_and_endpoint_semantics": null,
+    "original_occurred_effective_available_clock_evidence": null,
+    "status": "pending_data"
+  },
+  "partition_record_template": {
+    "month": null,
+    "data_stream": null,
+    "day_partition_id": null,
+    "revision": null,
+    "expected_scope_and_cursor": null,
+    "explicit_zero_evidence": null,
+    "source_close_and_completion_evidence": null,
+    "original_available_evidence": null,
+    "local_received_persisted_queryable_evidence": null,
+    "upstream_event_rows": null,
+    "upstream_unique_ids": null,
+    "local_event_rows": null,
+    "local_unique_ids": null,
+    "missing_ids": null,
+    "extra_ids": null,
+    "late_arrival_reopen_reconciliation": null,
+    "status": "pending_data"
+  },
+  "new_label_role_contract": {
+    "specification_version": null,
+    "source_revision_policy": null,
+    "new_private_namespace": null,
+    "bundle_manifest_and_guard": null,
+    "first_answer_quality_unknown_policy": null,
+    "role_schema_and_ordering": null,
+    "fold_calendar_and_cutoffs": null,
+    "within_fold_overlap_and_history_reuse_policy": null,
+    "nullable_masking_and_no_global_y_backjoin": null,
+    "primary_state_partition_and_secondary_flags": null,
+    "readback_and_no_overwrite_evidence": null,
+    "role_records": null
+  },
+  "role_record_template": {
+    "fold": null,
+    "role": null,
+    "specification_version": null,
+    "fit_at": null,
+    "candidate_or_query_start_inclusive": null,
+    "candidate_or_query_end_exclusive": null,
+    "answer_cutoff_A_exclusive": null,
+    "as_of_revision_evidence": null,
+    "full_id_set_evidence": null,
+    "candidate_orders": null,
+    "mature_orders": null,
+    "immature_orders": null,
+    "known_low_orders": null,
+    "known_other_orders": null,
+    "unknown_state_counts": null,
+    "visible_early_but_immature_orders": null,
+    "class_support_evidence": null,
+    "masking_overlap_and_readback_evidence": null,
+    "status": "pending_data"
+  },
+  "future_protocol": {
+    "protocol_version": null,
+    "model_feature_and_preprocessing_freeze": null,
+    "historical_C_selection_rule": null,
+    "threshold_and_calibration_rule": null,
+    "metrics_and_class_support_failure_rule": null,
+    "read_once_and_access_log_policy": null,
+    "prior_exposure_and_external_usage_ledger": null,
+    "separate_work_authorization": null,
+    "score_and_output_acceptance_plan": null
+  },
+  "check_catalog": [
+    {
+      "check_id": "S5-A1",
+      "gate_id": "G1",
+      "description": "來源範圍、字典與版本"
+    },
+    {
+      "check_id": "S5-A2",
+      "gate_id": "G1",
+      "description": "完整同ID核准名冊"
+    },
+    {
+      "check_id": "S5-A3",
+      "gate_id": "G1",
+      "description": "分區、零筆及上下游入庫對帳"
+    },
+    {
+      "check_id": "S5-B1",
+      "gate_id": "G1",
+      "description": "全月C與H60界線"
+    },
+    {
+      "check_id": "S5-B2",
+      "gate_id": "G1",
+      "description": "觀察完成、晚到與重開"
+    },
+    {
+      "check_id": "S5-B3",
+      "gate_id": "G1",
+      "description": "原可得與評分雙時間版本"
+    },
+    {
+      "check_id": "S5-B4",
+      "gate_id": "G1",
+      "description": "核准t必要輸入"
+    },
+    {
+      "check_id": "S5-C1",
+      "gate_id": "G2",
+      "description": "新首答、未知與品質契約"
+    },
+    {
+      "check_id": "S5-C2",
+      "gate_id": "G2",
+      "description": "完整角色、各fit截止及ID隔離"
+    },
+    {
+      "check_id": "S5-C3",
+      "gate_id": "G2",
+      "description": "成熟、未知與類別支援對帳"
+    },
+    {
+      "check_id": "S5-C4",
+      "gate_id": "G2",
+      "description": "新bundle、guard與反讀"
+    },
+    {
+      "check_id": "S5-D1",
+      "gate_id": "G3",
+      "description": "模型、歷史選參、評估及讀取規格"
+    },
+    {
+      "check_id": "S5-D2",
+      "gate_id": "G3",
+      "description": "曝光與使用帳本"
+    },
+    {
+      "check_id": "S5-D3",
+      "gate_id": "G3",
+      "description": "分關卡簽收與另行工作授權"
+    },
+    {
+      "check_id": "S5-D4",
+      "gate_id": "G3",
+      "description": "後續分數及輸出驗收計畫"
+    }
+  ],
+  "windows": [
+    {
+      "month": "2018-05",
+      "approval_start_inclusive": "2018-05-01",
+      "approval_end_exclusive": "2018-06-01",
+      "calendar_H60_sufficient_cutoff_exclusive_planning_only": "2018-07-31T00:00:00",
+      "status": "pending_data",
+      "actual": {
+        "accepted_observation_cutoff_exclusive": null,
+        "timezone_evidence": null,
+        "upstream_unique_approval_ids": null,
+        "local_unique_approval_ids": null,
+        "missing_ids": null,
+        "extra_ids": null,
+        "accepted_roster_orders": null,
+        "complete_roster_evidence": null,
+        "observation_completion_evidence": null,
+        "late_arrival_and_version_evidence": null,
+        "new_label_role_support_evidence": null
+      },
+      "checks": {
+        "S5-A1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null}
+      },
+      "gates": {
+        "G1": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G2": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G3": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        }
+      }
+    },
+    {
+      "month": "2018-06",
+      "approval_start_inclusive": "2018-06-01",
+      "approval_end_exclusive": "2018-07-01",
+      "calendar_H60_sufficient_cutoff_exclusive_planning_only": "2018-08-30T00:00:00",
+      "status": "pending_data",
+      "actual": {
+        "accepted_observation_cutoff_exclusive": null,
+        "timezone_evidence": null,
+        "upstream_unique_approval_ids": null,
+        "local_unique_approval_ids": null,
+        "missing_ids": null,
+        "extra_ids": null,
+        "accepted_roster_orders": null,
+        "complete_roster_evidence": null,
+        "observation_completion_evidence": null,
+        "late_arrival_and_version_evidence": null,
+        "new_label_role_support_evidence": null
+      },
+      "checks": {
+        "S5-A1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null}
+      },
+      "gates": {
+        "G1": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G2": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G3": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        }
+      }
+    },
+    {
+      "month": "2018-07",
+      "approval_start_inclusive": "2018-07-01",
+      "approval_end_exclusive": "2018-08-01",
+      "calendar_H60_sufficient_cutoff_exclusive_planning_only": "2018-09-30T00:00:00",
+      "status": "pending_data",
+      "actual": {
+        "accepted_observation_cutoff_exclusive": null,
+        "timezone_evidence": null,
+        "upstream_unique_approval_ids": null,
+        "local_unique_approval_ids": null,
+        "missing_ids": null,
+        "extra_ids": null,
+        "accepted_roster_orders": null,
+        "complete_roster_evidence": null,
+        "observation_completion_evidence": null,
+        "late_arrival_and_version_evidence": null,
+        "new_label_role_support_evidence": null
+      },
+      "checks": {
+        "S5-A1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null}
+      },
+      "gates": {
+        "G1": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G2": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G3": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        }
+      }
+    },
+    {
+      "month": "2018-08",
+      "approval_start_inclusive": "2018-08-01",
+      "approval_end_exclusive": "2018-09-01",
+      "calendar_H60_sufficient_cutoff_exclusive_planning_only": "2018-10-31T00:00:00",
+      "status": "pending_data",
+      "actual": {
+        "accepted_observation_cutoff_exclusive": null,
+        "timezone_evidence": null,
+        "upstream_unique_approval_ids": null,
+        "local_unique_approval_ids": null,
+        "missing_ids": null,
+        "extra_ids": null,
+        "accepted_roster_orders": null,
+        "complete_roster_evidence": null,
+        "observation_completion_evidence": null,
+        "late_arrival_and_version_evidence": null,
+        "new_label_role_support_evidence": null
+      },
+      "checks": {
+        "S5-A1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null}
+      },
+      "gates": {
+        "G1": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G2": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G3": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        }
+      }
+    },
+    {
+      "month": "2018-09",
+      "approval_start_inclusive": "2018-09-01",
+      "approval_end_exclusive": "2018-10-01",
+      "calendar_H60_sufficient_cutoff_exclusive_planning_only": "2018-11-30T00:00:00",
+      "status": "pending_data",
+      "actual": {
+        "accepted_observation_cutoff_exclusive": null,
+        "timezone_evidence": null,
+        "upstream_unique_approval_ids": null,
+        "local_unique_approval_ids": null,
+        "missing_ids": null,
+        "extra_ids": null,
+        "accepted_roster_orders": null,
+        "complete_roster_evidence": null,
+        "observation_completion_evidence": null,
+        "late_arrival_and_version_evidence": null,
+        "new_label_role_support_evidence": null
+      },
+      "checks": {
+        "S5-A1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-A3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-B4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-C4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D1": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D2": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D3": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null},
+        "S5-D4": {"status": "pending_data", "actual": null, "evidence_refs": null, "gap_owner_due": null, "reviewer_at": null}
+      },
+      "gates": {
+        "G1": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G2": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        },
+        "G3": {
+          "status": "pending_data",
+          "accepted_or_rejected_scope": null,
+          "evidence_and_limits": null,
+          "provider_receiver_signoff": null
+        }
+      }
+    }
+  ],
+  "revision_and_access_log": null,
+  "next_evidence_owner_and_due": null
+}

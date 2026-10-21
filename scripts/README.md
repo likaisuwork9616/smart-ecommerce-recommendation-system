@@ -52,6 +52,10 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
+## Stage 5新時間窗交接文件
+
+本輪交付[清單與空白驗收範本](../docs/templates/review_window_handoff/README.md)，沒有新增CLI、資料驗證器或訓練入口，不需為填範本重跑來源盤點／模型。日後收到新證據才在私有交接目錄逐月驗收；JSON只是待填格式，不能把解析成功當成來源／標籤通過。
+
 ## Stage 5後續時間窗盤點
 
 ```powershell
