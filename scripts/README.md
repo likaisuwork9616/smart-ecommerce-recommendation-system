@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 只讀Stage 5凍結分數做支援診斷 | [diagnose_review_scores.py](diagnose_review_scores.py)、[review_score_diagnostics.py](review_score_diagnostics.py) | 需原私有分數／角色／收據；先--specification-only固定診斷範圍，再核來源、統計分布；禁止模型fit／transform／predict，不補訓練 |
 | 執行Stage 5四欄離線最小基線 | [run_review_baseline.py](run_review_baseline.py) | 需原資料／H60私有bundle／原收據／guard；先凍結新執行規格，正式入口會12次fit並做開發回測，已有結果則fit前拒收 |
 | 驗證四欄builder與train-only pipeline | [verify_review_pipeline.py](verify_review_pipeline.py)、[review_baseline_pipeline.py](review_baseline_pipeline.py) | 僅合成fixture，無需原CSV／私有bundle；會fit測試用scaler／Logistic並檢查洩漏，不執行真實訓練 |
 | 核對Stage 5最小基線規格 | [audit_review_baseline_contract.py](audit_review_baseline_contract.py) | 先--specification-only；只核來源、事件時鐘、未知／fit角色與固定基線政策，不建X或fit |

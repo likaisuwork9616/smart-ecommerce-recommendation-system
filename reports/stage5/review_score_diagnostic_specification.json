@@ -1,0 +1,351 @@
+{
+  "dashboard": false,
+  "format_version": 1,
+  "no_fit_transform_predict_or_score_replay": true,
+  "output": "reports/stage5/review_score_diagnostics.json",
+  "private_source_guard": {
+    "input_paths": [
+      ".runtime/stage5_dataset_formal_execution_proof.json",
+      ".runtime/stage5_offline_formal_execution_proof.json",
+      ".runtime/stage5_review_baseline_training_v1/fit_audit.json",
+      ".runtime/stage5_review_baseline_training_v1/inner_scores.csv",
+      ".runtime/stage5_review_baseline_training_v1/input_guard.json",
+      ".runtime/stage5_review_baseline_training_v1/manifest.json",
+      ".runtime/stage5_review_baseline_training_v1/outer_scores.csv",
+      ".runtime/stage5_review_baseline_v1/input_guard.json",
+      ".runtime/stage5_review_dataset_v1/manifest.json",
+      ".runtime/stage5_review_dataset_v1/order_labels.csv",
+      ".runtime/stage5_review_dataset_v1/split_membership.csv"
+    ],
+    "path": ".runtime/stage5_review_score_diagnostics_v1/input_guard.json",
+    "private_digests_public": false
+  },
+  "protocol": {
+    "bin_closure": "left_closed_right_open_last_score_bin_includes_one",
+    "candidate_reselection": false,
+    "categorical_support": {
+      "below_30": "includes_zero_and_sparse_positive",
+      "boundary": 30,
+      "purpose": "description_only",
+      "sparse_positive": "one_through_29_train_rows",
+      "zero": "train_count_equals_zero"
+    },
+    "categorical_vocabulary": {
+      "purchase_dayofweek": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "purchase_hour": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "purchase_month": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "cross_feature_strata": false,
+    "empty_statistics": null,
+    "features": [
+      "purchase_month",
+      "purchase_dayofweek",
+      "purchase_hour",
+      "approval_wait_hours"
+    ],
+    "fit_calls": 0,
+    "infer_unknown_low_rate": false,
+    "low_rate_denominator": "known_labels",
+    "new_ranking": false,
+    "paired_loss": {
+      "bins_defined_by": "frozen_selected_logistic",
+      "comparison": "same_order_frozen_constant_reference",
+      "contribution_denominator": "all_known_labels_in_role",
+      "log_probability_clip_epsilon": 1e-15,
+      "query_role": "outer_evaluation"
+    },
+    "prediction_calls": 0,
+    "quantile_method": "linear",
+    "quantiles": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      0.95,
+      0.99,
+      1.0
+    ],
+    "query_feature_subsets": [
+      "full",
+      "known",
+      "unknown"
+    ],
+    "score_bias": "known_probability_mean_minus_known_low_rate",
+    "score_bin_edges": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.3,
+      0.5,
+      1.0
+    ],
+    "score_distribution_subsets": [
+      "full",
+      "known",
+      "low",
+      "other",
+      "unknown"
+    ],
+    "standard_deviation_ddof": 0,
+    "threshold_optimization": false,
+    "total_variation": "half_sum_absolute_proportion_difference_null_for_empty_population",
+    "training_reference": "own_fit_role_label_usable_only",
+    "unknown_rate_denominator": "full_orders",
+    "wait_hours_bin_edges": [
+      0,
+      1,
+      6,
+      24,
+      72,
+      168,
+      "positive_infinity"
+    ],
+    "wait_support": [
+      "strictly_below_train_min",
+      "strictly_above_train_max",
+      "outside_train_range",
+      "strictly_above_train_linear_p99"
+    ]
+  },
+  "public_sources": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 32719,
+      "path": "reports/stage5/review_baseline_contract_audit.json",
+      "sha256": "204c8d2b09327848fe9367e75efae5b37093a39164ccdb4b69f34ef396e4c16a"
+    },
+    {
+      "bytes": 14611,
+      "path": "reports/stage5/review_baseline_specification.json",
+      "sha256": "202de6045b7dcee7b00c068670fff44b5cac813a838d3d5ad15d620e18e721aa"
+    },
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 7319,
+      "path": "reports/stage5/review_baseline_training_specification.json",
+      "sha256": "f9ddfd7c729b293b16cdb9202170765103df2a216a191438103b7349c92c285d"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 7766,
+      "path": "reports/stage5/review_pipeline_verification.json",
+      "sha256": "75e62c8c2862b5e0c9af505a165209610375ecba5bcaee7ca71e07481161e050"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 17225,
+      "path": "scripts/diagnose_review_scores.py",
+      "sha256": "499a80ae80bfa403f735a4da0c73137130ba12a563f9df8de8675fe247dd0e52"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 6741,
+      "path": "scripts/review_baseline_evaluation.py",
+      "sha256": "161c8cb3d81c8252b7b5d99308cacd68bd3cd31e16152deb3dfc1bd7adf3ffe3"
+    },
+    {
+      "bytes": 20694,
+      "path": "scripts/review_baseline_pipeline.py",
+      "sha256": "0394ff544c0659ddc05701e4a0fcfeb6612b921eb1dab8567fc47d484c2da145"
+    },
+    {
+      "bytes": 9685,
+      "path": "scripts/review_baseline_sources.py",
+      "sha256": "ad293bbbb57761a83588101b448f592dc485d2025091ba7b8e273202f4c7fbcc"
+    },
+    {
+      "bytes": 20775,
+      "path": "scripts/review_score_diagnostics.py",
+      "sha256": "00b147ec4aa7ae1b0e73b909c0ddaf3c12d489d2dcd9c64bb02b14db0371a527"
+    },
+    {
+      "bytes": 31505,
+      "path": "scripts/run_review_baseline.py",
+      "sha256": "2d8a56cfbf18580b569a8066ca617c220cf745b640e7372fe208950005edfec9"
+    },
+    {
+      "bytes": 10754,
+      "path": "scripts/verify_review_pipeline.py",
+      "sha256": "c629995f2bffe22ef197bcfd1ca903bd434954d0004c672fef85cac5901d02cb"
+    },
+    {
+      "bytes": 22058,
+      "path": "tests/test_review_baseline_pipeline.py",
+      "sha256": "3252e5836ca6b307e4ec69ce7b227af70cd8e33ddd7045adfb7d383d902aef3a"
+    },
+    {
+      "bytes": 11458,
+      "path": "tests/test_review_baseline_sources.py",
+      "sha256": "5e3fcccdae526d5a428473562d04438e297cf6a04a6452954a2faf0ffeecc2a3"
+    },
+    {
+      "bytes": 18723,
+      "path": "tests/test_review_baseline_training.py",
+      "sha256": "ff70be33a05de1ff378eb386b58770fa38de6992786bc00ac5ea9144efa073ff"
+    },
+    {
+      "bytes": 10438,
+      "path": "tests/test_review_score_diagnostic_runner.py",
+      "sha256": "fbdb3251927f0e2d5377a2e6d9ca894eda6681657554f51ac252cff6c4f71c56"
+    },
+    {
+      "bytes": 20965,
+      "path": "tests/test_review_score_diagnostics.py",
+      "sha256": "0aaf7035628e54bb2dfaff4c5c121a63f30ba7bf1d5d7fd29b28ed3f67ec32aa"
+    }
+  ],
+  "role": "read_only_existing_development_score_diagnostics",
+  "scope": "existing_local_snapshot_not_original_operational_ingestion_proof",
+  "stage4": "pending_data_daily_10_percent_seeds_11_29_42_73_101_unchanged",
+  "training_references": [
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 7319,
+      "path": "reports/stage5/review_baseline_training_specification.json",
+      "sha256": "f9ddfd7c729b293b16cdb9202170765103df2a216a191438103b7349c92c285d"
+    }
+  ]
+}

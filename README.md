@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄離線最小基線的來源守門、歷史選參及開發回測，辨識改善有限且跨月不一致。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄基線及凍結分數診斷，發現部分月份類別缺乏成熟歷史支援。本輪沒有追加訓練，下一步先規劃移除購買月份的單因子消融。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 四欄離線最小基線完成；開發研究 | 12次fit、三月皆歷史內層選C=0.1；macro AP 0.170928對常數0.166178，2月較差；未達營運適用證明 |
+| Stage 5：評論低評分預測 | 凍結分數與四欄支援診斷完成 | 本輪0 fit；外層已知低評率16.29%／20.59%／12.98%，部分月份類別零或極少訓練支援；尚未證明消融有效 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -48,6 +48,7 @@ py -3.12 -m venv .venv
 | 看最小基線、選參與評估約定 | [Stage 5最小基線規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md) |
 | 驗證四欄builder與train-only pipeline | [Stage 5實作與洩漏測試](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) |
 | 看來源守門、實際選參及評論基線結果 | [Stage 5離線最小基線](docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) |
+| 只讀原分數診斷月份、機率與四欄支援 | [Stage 5凍結分數診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -95,7 +96,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：四欄離線最小基線
+## Stage 5：四欄基線與凍結分數診斷
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -126,7 +127,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 | 最小模型 | 合格訓練低評比例常數作參考；L2 Logistic的C=0.1／1／10，只依既定內層AP選參，平手取較小C |
 | 評估與未知 | 固定0.5門檻，未知保留全名冊但不參與fit、選參或指標；逐月AP與機率／混淆表，三月皆有效才計macro AP |
 
-本輪將[已驗證pipeline](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)串接原來源SHA、manifest、正式收據與私有guard，核對73,254張研究名冊及12個角色。每次fit只用當時合格y；query七個未來標籤欄清空後完整出分，再以各角色truth計分。29份原凍結來源／證據bytes不變，沒有改寫H60標籤。
+前輪將[已驗證pipeline](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)串接原來源SHA、manifest、正式收據與私有guard，核對73,254張研究名冊及12個角色。每次fit只用當時合格y；query七個未來標籤欄清空後完整出分，再以各角色truth計分。當輪29份原凍結來源／證據bytes不變，沒有改寫H60標籤。
 
 | 已檢視外層開發月 | 完整查詢／合格／未知 | 選定C | Logistic AP | 常數AP | 固定0.5的TP／FN |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -143,7 +144,24 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 .\.venv\Scripts\python.exe scripts\run_review_baseline.py
 ```
 
-下一步建議先只讀凍結分數，核對各月低評率、分數分布與四欄訓練／查詢支援，釐清2月排序及4月機率損失的差異，再決定一個事先固定的改動；先不追改門檻或追加fit。原入庫／事件及評分版本仍未驗證，不能把已知首答子集外推全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
+最新[只讀診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)核對原18個分數區塊與108,744列完整metadata，保留未知；35份公開與11份私有來源通過守門，42份舊資產bytes不變。統計規格在本輪真實計算前固定，沒有fit、transform、predict或重播分數；詳細分布見[聚合報告](reports/stage5/review_score_diagnostics.json)。
+
+| 外層開發月 | 已知低評率 | 已知平均分數 | 平均分數偏差 | 購買月份支援 |
+| --- | ---: | ---: | ---: | --- |
+| 2017-12 | 16.29% | 13.93% | −2.36百分點 | query的11月／12月類別在合格歷史只有0／1筆 |
+| 2018-02 | 20.59% | 15.65% | −4.94百分點 | query的1月／2月類別有782／1,731筆 |
+| 2018-04 | 12.98% | 15.37% | +2.39百分點 | query的3月／4月類別有2,633／2,359筆 |
+
+內層9月query全部落在零或1–29筆的月份支援，內層11月98.88%落在零支援；星期與小時整體有較完整支援。4月等待均值由歷史10.17增至query14.82小時，但沒有證據證明等待尾部造成誤差。其原機率損失差主要位於0.15–0.30分數箱，並非極高分少數單；這是既有損失分解，不是新效能結論。
+
+本輪43項新增合成測試、36項來源對抗檢查及8,218項正式獨立對帳通過。只讀操作如下，需原私有資產；缺檔或版本不符即停止，不能補訓練取代凍結分數。
+
+```powershell
+.\.venv\Scripts\python.exe scripts\diagnose_review_scores.py --specification-only
+.\.venv\Scripts\python.exe scripts\diagnose_review_scores.py
+```
+
+下一步建議先凍結「只移除purchase_month」的新消融規格，其他三欄、H60、角色名冊、前處理、內層選參及評估保持原約定，再另決定訓練。本輪尚未修改模型；缺支援只能支持待驗證假說，不能解釋全部2月／4月差異或保證改善。原入庫／評分版本仍未驗證，不能外推未知標籤或全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
 
 ## 專案結構
 

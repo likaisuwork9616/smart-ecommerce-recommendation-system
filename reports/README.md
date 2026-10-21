@@ -80,6 +80,8 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 四欄builder／train-only pipeline | 真實sklearn物件在合成fixture驗洩漏與失敗拒收；報告只含測試名稱、狀態及10份公開來源，不含個體值、機率或模型效能 | [review_pipeline_verification](stage5/review_pipeline_verification.json) |
 | 四欄離線基線執行規格 | 沿用既有基線政策，凍結本輪程式／來源守門、12次fit與公私交付；執行前產生 | [review_baseline_training_specification](stage5/review_baseline_training_specification.json) |
 | 四欄離線基線實際結果 | 歷史內層選C、外層重新fit及逐月AP／機率指標；已檢視開發回測，非新未知測試 | [review_baseline_training](stage5/review_baseline_training.json) |
+| 凍結分數診斷規格 | 固定角色分母、單欄支援、分數分箱與配對損失分解；35公開＋11私有來源守門，不訓練或選模 | [review_score_diagnostic_specification](stage5/review_score_diagnostic_specification.json) |
+| 凍結分數診斷結果 | 12角色、6組四欄支援、18組既有分數分布及3組原損失對帳；0 fit／transform／predict，非新效能 | [review_score_diagnostics](stage5/review_score_diagnostics.json) |
 
 Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。pipeline verification只含合成測試；真實基線結果另存training報告，不能把它回寫成前輪已完成訓練。原標籤／切分仍在.runtime/stage5_review_dataset_v1/，新逐筆機率／fit診斷／manifest在.runtime/stage5_review_baseline_training_v1/；公開不含ID、個體值、機率或私有digest。
 
