@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4維持待資料。Stage 5最新完成逐fit成熟低評先驗與時間漂移只讀稽核：近期窗口沒有跨月一致方向，保留四欄與全部合格歷史對照，本輪不訓練、不修正參數。推薦系統、API與Dashboard尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4維持待資料。Stage 5已完成後續時間窗盤點與用途凍結：五個較晚月份均待資料，新增可啟用驗證窗0，保留既有四欄及開發成果。本輪不讀新評分、不訓練、不做Dashboard；推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 逐fit成熟先驗與時間漂移稽核完成 | 6個fit情境、12完整角色；分開成熟未知／未成熟，無query回填、無追加訓練或先驗修正 |
+| Stage 5：評論低評分預測 | 後續時間窗盤點／用途凍結完成；新驗證待資料 | 2018-05至09五個月26,027張；新驗證窗0，舊範圍維持開發用途，0訓練／效能 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -56,6 +56,7 @@ py -3.12 -m venv .venv
 | 看三欄真實消融、同ID差值與交付驗收 | [Stage 5三欄消融結果](docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) |
 | 看雙臂機率、排名差異與星期／小時／等待支援 | [Stage 5配對只讀診斷](docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) |
 | 看逐fit成熟先驗、覆蓋及時間漂移 | [Stage 5成熟先驗稽核](docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) |
+| 看後續時間窗、使用紀錄與凍結用途 | [Stage 5時間窗盤點](docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -253,7 +254,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 前輪保留四欄對照、未指定單因子；當時建議的成熟先驗與時間漂移稽核已於本輪完成，結果如下。
 
-## Stage 5本輪成熟先驗與時間漂移稽核
+## Stage 5前輪成熟先驗與時間漂移稽核
 
 依[事前規格](reports/stage5/review_mature_prior_specification.json)，只用各fit自己的合格H60標籤計先驗，再獨立描述query事後低評率。固定近期W=90／180天採核准區間[fit−60天−W,fit−60天)，不借用最近60天未成熟答案。完整結果見[Stage 5文件](docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)、[聚合稽核](reports/stage5/review_mature_prior_audit.json)及[驗證](reports/stage5/review_mature_prior_verification.json)。
 
@@ -267,7 +268,27 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 73公開＋22私有來源、12角色289,973列及6個fit情境核對通過；29項合成測試、7,134項獨立比較分列，原27份私有證據不變。共享歷史另有8,035／8,618／11,730張後來才成熟，較早已知y異動0，沒有回填早fit。本輪0特徵／fit／transform／predict／效能／參數更新，個體分數只核hash。
 
-**決策：保留四欄、全部合格歷史對照，不改近期窗、不做先驗／截距修正、不縮短H60。** 下一步先盤點尚未用於選模的時間窗與H60觀察截止、標籤及版本支援，再凍結後續驗證用途；支援不足就列待資料，避免繼續對同三個開發月挑修正。原入庫與版本缺口仍在；Stage 4待資料、每日10%與五種子不變，Dashboard暫緩。
+前輪保留四欄／全部合格歷史對照，不改近期窗或先驗修正；當時建議的後續時間窗盤點已完成，結果如下。
+
+## Stage 5本輪後續時間窗與用途凍結
+
+先凍結[盤點規格](reports/stage5/review_validation_window_specification.json)，只讀ID、時間戳與既有使用紀錄，再保存[實際盤點](reports/stage5/review_validation_window_inventory.json)、[後續用途](reports/stage5/review_validation_window_usage_freeze.json)及[驗證](reports/stage5/review_validation_window_verification.json)。完整解讀見[Stage 5時間窗文件](docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)。本輪不讀新評分值、不建y、不訓練或計效能。
+
+| 核准月 | 原匯出有效核准單 | 原C下時鐘滿H60 | 全月規劃截止（尚未驗收） | 狀態 |
+| --- | ---: | ---: | --- | --- |
+| 2018-05 | 7,066 | 406 | 2018-07-31 | 待資料 |
+| 2018-06 | 6,164 | 0 | 2018-08-30 | 待資料 |
+| 2018-07 | 6,176 | 0 | 2018-09-30 | 待資料 |
+| 2018-08 | 6,620 | 0 | 2018-10-31 | 待資料 |
+| 2018-09 | 1 | 0 | 2018-11-30 | 待資料 |
+
+原核准<2018-05-01的H60標籤／歷史／診斷已有曝光，1月、3月也不能重新叫未知保留測試。較晚五個月共26,027張，沒有找到Stage 5直接query選C／開發評估紀錄；仍有Stage 3全來源評論聚合、Stage 4不同目標的驗證／測試期間重疊，且無完整外部使用帳本，不能宣稱全新未接觸。
+
+最大回答事件為2018-10-29，不能當完整觀察watermark或延長原2018-07-01截止。5–7月雖有更晚事件，仍缺完成證據；8–9月連整月規劃截止都超出最大回答時間。原H60標籤／角色只覆蓋舊核准範圍，新標籤、兩類支援、入庫／修訂版本均未驗收。
+
+**凍結決策：既有範圍只作開發；五個較晚時間窗均待資料，只預留驗收後的時間外推驗證，不作全新未知holdout。** 現在只做metadata盤點與資料交接準備，禁止拿較晚答案選特徵／模型／窗口、校準或調門檻，也未授權新出分或訓練。
+
+85公開＋25私有來源及14份歷史commit核對；28項合成測試、618項獨立盤點及95項用途核對分列通過，原30份私有證據不變。新增可啟用驗證窗0、訓練／效能／參數更新0。下一步準備資料交接與驗收清單，取得完整新核准名冊、足夠H60觀察截止與完成證據、入庫／評分版本及另版標籤／角色guard；沒有新證據就維持待資料，不反覆盤同一份匯出。Stage 4每日10%與五種子不變，Dashboard暫緩。
 
 ## 專案結構
 
@@ -296,7 +317,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增29項合成測試與7,134項獨立角色／時鐘對帳通過，模型與參數更新均0；見[本輪驗證](reports/stage5/review_mature_prior_verification.json)。前輪雙臂28項合成／10,389項對帳、原真實12次fit與其他歷史測試各自保留，未重跑全專案discover。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增28項合成測試、618項metadata獨立盤點與95項用途核對通過，均不訓練、不讀新評分或建立y；見[本輪驗證](reports/stage5/review_validation_window_verification.json)。前輪成熟先驗29項／7,134項、雙臂診斷28項／10,389項及原真實12次fit各自保留，未重跑全專案discover。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

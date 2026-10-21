@@ -21,7 +21,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 5成熟先驗與時間漂移稽核
+## 本輪Stage 5後續時間窗盤點
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_review_validation_windows tests.test_audit_review_validation_windows -q
+```
+
+核心16＋來源／守門12共28項全過、1.477秒，0fit。核原C嚴格邊界、全月H60規劃截止、空月份、重複角色ID去重、metadata不可夾帶review_score／y、缺核准不可補購買日、最大回答時間不能當watermark、Git用途紀錄及來源異動／發布停止。檔案fixture依既有Windows tempfile ACL限制在允許專案.runtime的環境完成，未放寬斷言或跳過。
+
+另618項正式獨立盤點、6.270秒及95項用途核對、0.026秒分列，核25個月、五個待資料時間窗、14個commit及用途限制。原30份私有證據不變；0新評分／y／訓練／效能，不重跑舊模型或全專案discover。見[時間窗文件](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)及[驗證](../reports/stage5/review_validation_window_verification.json)。
+
+## 前輪Stage 5成熟先驗與時間漂移稽核
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_mature_prior_audit tests.test_audit_review_mature_prior -q

@@ -146,3 +146,15 @@ tests/test_review_mature_prior_audit.py text eol=lf
 reports/stage5/review_mature_prior_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_mature_prior_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_mature_prior_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve metadata-only calendar inventory and conditional validation purposes.
+scripts/audit_review_validation_windows.py text eol=lf
+scripts/review_validation_windows.py text eol=lf
+tests/test_audit_review_validation_windows.py text eol=lf
+tests/test_review_validation_windows.py text eol=lf
+reports/stage5/review_validation_window_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_validation_window_inventory.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_validation_window_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_validation_window_usage_freeze.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# These historical evidence files are bound as their original CRLF working bytes.
+sql/03_business_analysis.sql text eol=crlf
+reports/stage4/monthly_error_diagnostics.json text eol=crlf

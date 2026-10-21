@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 盤點Stage 5後續時間窗與用途 | [audit_review_validation_windows.py](audit_review_validation_windows.py)、[metadata核心](review_validation_windows.py) | 先--specification-only凍結歷史與盤點，再核ID／時鐘；不讀新評分、不建y或訓練 |
 | 稽核Stage 5逐fit成熟先驗與漂移 | [audit_review_mature_prior.py](audit_review_mature_prior.py)、[純統計核心](review_mature_prior_audit.py) | 先--specification-only再稽核原H60完整角色；不讀分數值、不fit或修正參數 |
 | 只讀Stage 5雙臂機率／排序／支援 | [diagnose_review_ablation.py](diagnose_review_ablation.py)、[統計核心](review_ablation_diagnostics.py) | 先--specification-only，再讀兩臂成功產物與完整角色；18組配對及12組排序；模型呼叫及重新選C拒收 |
 | Stage 5三欄正式入口與私有交付 | [run_review_month_ablation.py](run_review_month_ablation.py)、[訓練控制](review_month_ablation_training.py)、[私有writer](review_month_ablation_artifacts.py) | 無參數只顯示說明；一次--train已完成，training_v1已占用，勿重播；[結果與只讀驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)，四欄沿用原分數 |
@@ -50,6 +51,15 @@
 `verify_environment.py --execute-notebooks` 只執行01–03的副本，沒有包含04。`predict_delay.py` 預設使用 `models/olist_delay_model.joblib`；有每日提醒上限的模型必須提供完整每日特徵CSV及 `--complete-daily-batches`，單張訂單不能重現每日10%名額。
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
+
+## Stage 5後續時間窗盤點
+
+```powershell
+.\.venv\Scripts\python.exe scripts\audit_review_validation_windows.py --specification-only
+.\.venv\Scripts\python.exe scripts\audit_review_validation_windows.py
+```
+
+需原H60／來源guard及Git歷史、既有收據、已存版本metadata。先凍結政策與usage_history／guard，再讀評論ID／時間戳，不讀review_score值或建新y；新窗口全待資料，不因最大回答時間延長C或啟用出分。用途凍結另外保留在[正式文件](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)與聚合JSON。缺證據即停止，不重建guard補缺，也不需重跑舊訓練或診斷。
 
 ## Stage 5逐fit成熟先驗與時間漂移
 

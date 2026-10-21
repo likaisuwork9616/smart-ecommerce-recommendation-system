@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4維持待資料；Stage 5最新完成逐fit成熟低評先驗與時間漂移只讀稽核，未知／未成熟分列，沒有query回填、訓練或參數修正。先看[專案首頁](../README.md)，再依下列目錄查方法、實驗或歷史。
+Stage 4維持待資料；Stage 5最新完成後續時間窗、使用紀錄與用途凍結，五個較晚月份均待資料，新可啟用驗證窗0。本輪不訓練、不讀新評分或做Dashboard。先看[專案首頁](../README.md)，再依目錄查來源與界線。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5成熟先驗與時間漂移 | [逐fit H60先驗與覆蓋](STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) | 6個fit情境、12完整角色；固定近期窗方向不一致，無訓練或參數更新 |
+| 最新Stage 5後續時間窗與用途 | [使用紀錄、H60與版本支援](STAGE5_REVIEW_VALIDATION_WINDOWS.md) | 五個較晚月份全待資料，只保留驗收後時間驗證用途；不是全新未知holdout，0新標籤／訓練／效能 |
+| 前輪Stage 5成熟先驗與時間漂移 | [逐fit H60先驗與覆蓋](STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) | 6個fit情境、12完整角色；固定近期窗方向不一致，無訓練或參數更新 |
 | 前輪Stage 5雙臂只讀診斷 | [機率、排序與三欄支援](STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) | 18組配對、12組排序；多數機率下移，星期／小時支援完整，0追加訓練，暫不指定新單因子 |
 | 前輪Stage 5真實消融 | [三欄結果與交付驗收](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) | 9＋3次真實fit、獨立選C、18組完整同ID配對；四欄0fit，只列開發回測 |
 | 前輪Stage 5正式入口 | [入口、私有產物與合成驗收](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) | 合成9＋3次fit、獨立選C、18區塊配對、失敗停止；真實訓練0 |
