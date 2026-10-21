@@ -1,0 +1,84 @@
+{
+  "dashboard": false,
+  "decision": {
+    "prior_or_intercept_correction_fitted": false,
+    "reason": "Fixed recent mature windows show inconsistent retrospective prior-gap direction across the inspected months; no parameter or model-performance conclusion is warranted.",
+    "recent_window_selected": false,
+    "retain_original_four_feature_expanding_control": true,
+    "training_factor_selected": null
+  },
+  "formal_execution_seconds": 17.650603,
+  "formal_freeze_seconds": 11.437653,
+  "format_version": 1,
+  "independent_real_audit": {
+    "checks": 7134,
+    "contexts": 6,
+    "elapsed_seconds": 4.849864,
+    "membership_rows": 289973,
+    "model_fits": 0,
+    "original_private_files_unchanged": 27,
+    "parameter_updates": 0,
+    "role_blocks": 12,
+    "score_values_read": false,
+    "status": "passed_independent_mature_prior_audit"
+  },
+  "private_digests_public": false,
+  "public_sources": [
+    {
+      "bytes": 17396,
+      "path": "reports/stage5/review_mature_prior_specification.json",
+      "sha256": "02b8841d2b6b631e103950e5b9efcd8320ccf1796f5021b020611271bb7ddbf4"
+    },
+    {
+      "bytes": 334231,
+      "path": "reports/stage5/review_mature_prior_audit.json",
+      "sha256": "ac30aef6cb036a13332119c45525c6d4290423fc71776c224cbe07b45dd9e674"
+    }
+  ],
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "passed_read_only_mature_prior_verification",
+  "synthetic_tests": {
+    "elapsed_seconds": 1.29,
+    "errors": 0,
+    "failures": 0,
+    "model_fits": 0,
+    "modules": [
+      "tests.test_review_mature_prior_audit",
+      "tests.test_audit_review_mature_prior"
+    ],
+    "note": "File fixtures executed with allowed access to project .runtime due known Windows tempfile sandbox ACL limitation.",
+    "run": 29,
+    "skipped": 0
+  },
+  "verification": {
+    "distinct_fit_times": 5,
+    "feature_builds": 0,
+    "fit_contexts": 6,
+    "forbidden_model_calls": 0,
+    "full_role_blocks": 12,
+    "global_labels_joined_into_fits": false,
+    "membership_rows": 289973,
+    "model_parameters_read": false,
+    "new_fits": 0,
+    "parameter_updates": 0,
+    "performance_metrics": 0,
+    "predictions": 0,
+    "private_bindings": 22,
+    "public_bindings": 73,
+    "query_labels_used_for_prior": 0,
+    "score_values_read": false,
+    "source_bytes_checked_before_after": true,
+    "transforms": 0
+  }
+}

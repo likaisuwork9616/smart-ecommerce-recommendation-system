@@ -48,4 +48,6 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 
 已依[只移除購買月份的消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)完成[三欄builder／pipeline及洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)，[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)再串接來源／完整角色及四欄凍結分數。該輪只核metadata與配對契約，0fit。後續[三欄正式入口與私有writer](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)完成合成驗證，前輪再依凍結入口完成一次[真實三欄消融及交付驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。結果只列開發回測；沒有新增或執行Notebook，也沒有Dashboard，四欄分數直接沿用。
 
-本輪[雙臂機率、排序與支援診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)以獨立CLI只讀現有分數，0fit／transform／predict／重新選C，沒有新增或執行Notebook，也沒有Dashboard。不要藉整本執行04或重跑training_v1補齊本機證據。
+前輪[雙臂機率、排序與支援診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)以獨立CLI只讀現有分數，0fit／transform／predict／重新選C，沒有新增或執行Notebook，也沒有Dashboard。不要藉整本執行04或重跑training_v1補齊本機證據。
+
+最新[逐fit成熟先驗稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)由獨立CLI只讀原H60角色，分開成熟未知／未成熟，不讀分數值、不訓練或回填參數。沒有新增或執行Notebook，也沒有Dashboard；不需整本執行04或重跑舊訓練。
