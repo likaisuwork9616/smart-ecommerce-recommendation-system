@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料。Stage 5已完成三欄消融，並只讀兩臂凍結分數診斷機率、排序與支援：三欄多數機率往下移，尚無證據指定下一個訓練單因子。本輪沒有追加訓練；結果僅限已檢視開發月。推薦系統、API與Dashboard尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4維持待資料。Stage 5最新完成逐fit成熟低評先驗與時間漂移只讀稽核：近期窗口沒有跨月一致方向，保留四欄與全部合格歷史對照，本輪不訓練、不修正參數。推薦系統、API與Dashboard尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 雙臂凍結分數只讀診斷完成 | 18組配對、12組排序與三欄支援核對；0追加訓練，保留四欄對照，下一個單因子暫不指定 |
+| Stage 5：評論低評分預測 | 逐fit成熟先驗與時間漂移稽核完成 | 6個fit情境、12完整角色；分開成熟未知／未成熟，無query回填、無追加訓練或先驗修正 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -55,6 +55,7 @@ py -3.12 -m venv .venv
 | 看正式入口、私有交付與合成驗收 | [Stage 5消融入口驗證](docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) |
 | 看三欄真實消融、同ID差值與交付驗收 | [Stage 5三欄消融結果](docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) |
 | 看雙臂機率、排名差異與星期／小時／等待支援 | [Stage 5配對只讀診斷](docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) |
+| 看逐fit成熟先驗、覆蓋及時間漂移 | [Stage 5成熟先驗稽核](docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -236,7 +237,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 上述只讀比較已在本輪完成，結果如下。入庫、評分版本與全量母體限制仍在，Stage 4維持待資料、每日10%與11／29／42／73／101五種子，Dashboard暫緩。
 
-## Stage 5本輪雙臂凍結分數診斷
+## Stage 5前輪雙臂凍結分數診斷
 
 以新[事前規格](reports/stage5/review_ablation_diagnostic_specification.json)只讀原分數，不呼叫builder／pipeline或重新選C。完整結果見[診斷文件](docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)、[聚合報告](reports/stage5/review_ablation_diagnostics.json)與[驗證](reports/stage5/review_ablation_diagnostic_verification.json)。
 
@@ -250,7 +251,23 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 66公開＋21私有來源及每臂18區塊108,744列通過守門；28項新增合成測試、10,389項獨立對帳通過，兩者分列。原24份私有證據不變，本輪0fit／transform／predict／重新選C，未新增AP或未知測試成績。
 
-**決策是保留四欄對照，暫不指定下一個訓練單因子。** 下一步建議先固定各fit當時可得的成熟低評先驗與時間漂移稽核，分開未知／未成熟覆蓋，再決定修正規格；不能用外層低評率回填當時參數。Dashboard暫緩。
+前輪保留四欄對照、未指定單因子；當時建議的成熟先驗與時間漂移稽核已於本輪完成，結果如下。
+
+## Stage 5本輪成熟先驗與時間漂移稽核
+
+依[事前規格](reports/stage5/review_mature_prior_specification.json)，只用各fit自己的合格H60標籤計先驗，再獨立描述query事後低評率。固定近期W=90／180天採核准區間[fit−60天−W,fit−60天)，不借用最近60天未成熟答案。完整結果見[Stage 5文件](docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)、[聚合稽核](reports/stage5/review_mature_prior_audit.json)及[驗證](reports/stage5/review_mature_prior_verification.json)。
+
+| 外層開發月 | 全部歷史先驗 | 近期90天 | 近期180天 | query事後已知率 | 歷史已知成熟／成熟未知／未成熟 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2017-12 | 13.12% | 11.98% | 12.63% | 16.29% | 27,108／464／11,891 |
+| 2018-02 | 14.22% | 15.64% | 14.12% | 20.59% | 39,448／629／12,405 |
+| 2018-04 | 14.58% | 16.95% | 15.09% | 12.98% | 51,433／824／14,219 |
+
+12月／2月的query已知率高於全部歷史，4月反向；近期90天只讓2月的率差縮小，12月與4月反而擴大。這是已檢視角色的比例描述，不是模型效能或窗口選擇。每次fit的query核准均在fit或之後，進先驗的query標籤為0，不能拿事後答案更新參數。
+
+73公開＋22私有來源、12角色289,973列及6個fit情境核對通過；29項合成測試、7,134項獨立比較分列，原27份私有證據不變。共享歷史另有8,035／8,618／11,730張後來才成熟，較早已知y異動0，沒有回填早fit。本輪0特徵／fit／transform／predict／效能／參數更新，個體分數只核hash。
+
+**決策：保留四欄、全部合格歷史對照，不改近期窗、不做先驗／截距修正、不縮短H60。** 下一步先盤點尚未用於選模的時間窗與H60觀察截止、標籤及版本支援，再凍結後續驗證用途；支援不足就列待資料，避免繼續對同三個開發月挑修正。原入庫與版本缺口仍在；Stage 4待資料、每日10%與五種子不變，Dashboard暫緩。
 
 ## 專案結構
 
@@ -279,7 +296,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只跑新增28項合成測試及獨立真實分數對帳，均不fit；詳見[本輪驗證](reports/stage5/review_ablation_diagnostic_verification.json)。前輪真實12次fit及交付驗收、74項入口合成測試、75項pipeline與57項契約回歸各自保留，未重跑全專案discover。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增29項合成測試與7,134項獨立角色／時鐘對帳通過，模型與參數更新均0；見[本輪驗證](reports/stage5/review_mature_prior_verification.json)。前輪雙臂28項合成／10,389項對帳、原真實12次fit與其他歷史測試各自保留，未重跑全專案discover。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

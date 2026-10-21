@@ -138,3 +138,11 @@ tests/test_review_ablation_diagnostics.py text eol=lf
 reports/stage5/review_ablation_diagnostic_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_ablation_diagnostics.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage5/review_ablation_diagnostic_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the read-only H60 mature-prior audit's policy and source bytes.
+scripts/audit_review_mature_prior.py text eol=lf
+scripts/review_mature_prior_audit.py text eol=lf
+tests/test_audit_review_mature_prior.py text eol=lf
+tests/test_review_mature_prior_audit.py text eol=lf
+reports/stage5/review_mature_prior_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_mature_prior_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage5/review_mature_prior_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
