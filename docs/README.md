@@ -1,11 +1,13 @@
 # 文件導覽
 
-Stage 4延遲研究維持待資料；Stage 5已將H60四欄pipeline接入來源守門與完整角色名冊，依凍結規格執行離線最小基線。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
+Stage 4延遲研究維持待資料；Stage 5已完成四欄基線、凍結分數診斷與只移除購買月份的消融規格，本輪尚未實作或訓練三欄模型。先看[專案首頁](../README.md)了解目前成果與操作入口，再依下列目錄查方法、實驗或歷史。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
+| 最新Stage 5單因子規格 | [移除購買月份](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md) | 三欄／32維、其餘契約不變；只核原來源與12角色，未實作／訓練 |
+| 前輪Stage 5只讀診斷 | [凍結分數與四欄支援](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) | 月低評率、機率分布、單欄支援與既有損失分解；不追加fit |
 | 最新Stage 5開發回測 | [四欄離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md) | 來源與角色守門、歷史內層選C、外層從頭fit、全query出分及逐月開發評估 |
 | 前輪Stage 5實作 | [builder與pipeline洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) | 四欄／44維、合格訓練隔離、查詢不讀未來標籤、獨立名冊與失敗停止；僅合成fixture fit |
 | 前輪Stage 5基線規格 | [最小基線與評估](STAGE5_REVIEW_BASELINE_SPEC.md) | 四欄、前處理、內層AP選C、評估及未知／失敗處理的凍結政策 |
@@ -97,7 +99,7 @@ Stage 4維持每日完整批次10%提醒預算，以及原101／時齡102 × 欄
 
 ## Stage 5：評論低評分預測
 
-[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。前輪[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)完成12次fit及開發回測，改善跨月不一致。最新[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)只讀原分數，核對各月低評率、機率分布及四欄支援，發現部分月份類別零或極少成熟歷史支援；建議下一輪只預先規劃移除購買月份的消融，本輪0 fit。原入庫／版本證據仍缺，Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
+[可行性盤點](STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)、[H60資料集](STAGE5_REVIEW_DATASET_SPEC.md)、[基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)保留各輪口徑。[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)改善跨月不一致；後續[凍結分數診斷](STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)發現部分月份類別零或極少成熟歷史支援。最新[月份消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪月份、保留其他三欄與所有資料／方法契約，已核12角色但尚未實作或訓練。原入庫／版本證據仍缺，Stage 4待資料及每日10%／五種子維持，Dashboard暫緩。
 
 ## 如何追到實際產物
 

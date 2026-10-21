@@ -36,9 +36,11 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 前輪[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)只用購買月／星期／時及核准等待小時，其餘快照候選先排除；兩事件時鐘仍只有快照代理假設。該輪不建X或fit，私有input_guard放.runtime/stage5_review_baseline_v1/，原H60 bundle不改。
 
-前輪[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)只用手造fixture驗洩漏。最新[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)串接原來源SHA、私有guard、manifest及收據，再核對完整角色名冊，才用真實四欄資料fit。未知訓練列不參與fit，query未來標籤先清空但整份名冊保留；計分另用自己的角色truth。
+前輪[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)只用手造fixture驗洩漏。[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)串接原來源SHA、私有guard、manifest及收據，再核對完整角色名冊，才用真實四欄資料fit。未知訓練列不參與fit，query未來標籤先清空但整份名冊保留；計分另用自己的角色truth。
 
-本輪inner_scores.csv、outer_scores.csv、fit_audit.json、manifest.json與新input_guard.json留`.runtime/stage5_review_baseline_training_v1/`。其中fit診斷含本機係數／統計，不是公開可用服務模型；無模型序列化或營運通知入口。研究來源版本通過仍不能補足原入庫／修訂／全量母體證據。
+該輪inner_scores.csv、outer_scores.csv、fit_audit.json、manifest.json與input_guard.json留`.runtime/stage5_review_baseline_training_v1/`。其中fit診斷含本機係數／統計，不是公開可用服務模型；無模型序列化或營運通知入口。研究來源版本通過仍不能補足原入庫／修訂／全量母體證據。
+
+最新[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只規劃刪除purchase_month，原H60、完整角色名冊與未知政策不改；原分數／fit診斷僅hash，不解析或重評。本輪新私有guard在`.runtime/stage5_review_month_ablation_v1/`，沒有新X、標籤、模型或逐筆分數。
 
 ## 處理資料與模型
 

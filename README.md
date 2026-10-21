@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄基線及凍結分數診斷，發現部分月份類別缺乏成熟歷史支援。本輪沒有追加訓練，下一步先規劃移除購買月份的單因子消融。推薦系統與API尚未開始。
+以 Olist 電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至 Retailrocket 推薦系統、API 與前端。目前已完成資料環境、SQL與EDA初版；Stage 4維持待資料，Stage 5已完成四欄基線、凍結分數診斷及「只移除購買月份」消融規格。本輪只核契約與完整角色，沒有訓練；下一步先實作三欄分支及洩漏測試。推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -12,7 +12,7 @@ Smart E-Commerce Recommendation System
 | Stage 2：SQL | 完成 | 訂單、品類營收、平均客單價與多表查詢 |
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
-| Stage 5：評論低評分預測 | 凍結分數與四欄支援診斷完成 | 本輪0 fit；外層已知低評率16.29%／20.59%／12.98%，部分月份類別零或極少訓練支援；尚未證明消融有效 |
+| Stage 5：評論低評分預測 | 移除purchase_month的消融規格已凍結 | 只刪月份、預定44→32維；H60與12角色不變，14測試及508獨立比較通過；三欄實作／訓練尚未執行 |
 | Stage 6：RFM | 尚未開始 | 顧客分群 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
@@ -49,6 +49,7 @@ py -3.12 -m venv .venv
 | 驗證四欄builder與train-only pipeline | [Stage 5實作與洩漏測試](docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md) |
 | 看來源守門、實際選參及評論基線結果 | [Stage 5離線最小基線](docs/STAGE5_REVIEW_OFFLINE_BASELINE.md) |
 | 只讀原分數診斷月份、機率與四欄支援 | [Stage 5凍結分數診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md) |
+| 看只移除購買月份的單因子契約 | [Stage 5月份消融規格](docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md) |
 | 訓練或使用第一版延遲模型 | [延遲模型方法與推論](docs/STAGE4_DELAY_PREDICTION.md) |
 | 找特定研究的執行方式 | [腳本導覽](scripts/README.md)、[文件導覽](docs/README.md) |
 | 查正式數字、規格與圖表 | [報告導覽](reports/README.md) |
@@ -96,7 +97,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 5：四欄基線與凍結分數診斷
+## Stage 5：四欄基線與月份消融規格
 
 固定在核准t預測「本單最早記錄回答若在`(t,t+60天]`內，是否為1–2分」，3–5分為另一類。一張訂單一列，不篩最終送達；未回覆、超窗、品質隔離或觀察窗未滿一律保持未知，不能補成0。這是固定窗回覆者的條件目標，不能外推所有未評論訂單。
 
@@ -118,9 +119,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [凍結資料集文件](docs/STAGE5_REVIEW_DATASET_SPEC.md)附[機器規格](reports/stage5/review_dataset_specification.json)、[實際核對](reports/stage5/review_dataset_audit.json)及重現指令。私有標籤／切分中繼資料只留`.runtime/stage5_review_dataset_v1/`。前輪資料集建立時尚未訓練；最新只用四欄執行基線，沒有建立原候選21欄。不限H的72,613張與H60口徑不同，不能解讀成模型得失。
 
-沿用[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)：
+原四欄基線依[最小基線訓練與評估規格](docs/STAGE5_REVIEW_BASELINE_SPEC.md)執行：
 
-| 規格 | 本輪依循的固定做法 |
+| 規格 | 原四欄基線採用的固定做法 |
 | --- | --- |
 | 特徵假設 | 購買月／星期／時及核准等待小時；其餘17個快照候選先排除，兩個原事件時鐘仍只有離線代理假設 |
 | 前處理 | 日曆固定one-hot43維＋等待train-only標準化1維；無補值，非法值停止且不刪查詢單 |
@@ -144,7 +145,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 .\.venv\Scripts\python.exe scripts\run_review_baseline.py
 ```
 
-最新[只讀診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)核對原18個分數區塊與108,744列完整metadata，保留未知；35份公開與11份私有來源通過守門，42份舊資產bytes不變。統計規格在本輪真實計算前固定，沒有fit、transform、predict或重播分數；詳細分布見[聚合報告](reports/stage5/review_score_diagnostics.json)。
+前輪[只讀診斷](docs/STAGE5_REVIEW_SCORE_DIAGNOSTICS.md)核對原18個分數區塊與108,744列完整metadata，保留未知；35份公開與11份私有來源通過守門，當輪42份舊資產bytes不變。統計規格在該輪真實計算前固定，沒有fit、transform、predict或重播分數；詳細分布見[聚合報告](reports/stage5/review_score_diagnostics.json)。
 
 | 外層開發月 | 已知低評率 | 已知平均分數 | 平均分數偏差 | 購買月份支援 |
 | --- | ---: | ---: | ---: | --- |
@@ -154,14 +155,30 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 內層9月query全部落在零或1–29筆的月份支援，內層11月98.88%落在零支援；星期與小時整體有較完整支援。4月等待均值由歷史10.17增至query14.82小時，但沒有證據證明等待尾部造成誤差。其原機率損失差主要位於0.15–0.30分數箱，並非極高分少數單；這是既有損失分解，不是新效能結論。
 
-本輪43項新增合成測試、36項來源對抗檢查及8,218項正式獨立對帳通過。只讀操作如下，需原私有資產；缺檔或版本不符即停止，不能補訓練取代凍結分數。
+該輪43項新增合成測試、36項來源對抗檢查及8,218項正式獨立對帳通過。只讀操作如下，需原私有資產；缺檔或版本不符即停止，不能補訓練取代凍結分數。
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\diagnose_review_scores.py --specification-only
 .\.venv\Scripts\python.exe scripts\diagnose_review_scores.py
 ```
 
-下一步建議先凍結「只移除purchase_month」的新消融規格，其他三欄、H60、角色名冊、前處理、內層選參及評估保持原約定，再另決定訓練。本輪尚未修改模型；缺支援只能支持待驗證假說，不能解釋全部2月／4月差異或保證改善。原入庫／評分版本仍未驗證，不能外推未知標籤或全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
+最新已凍結[只移除purchase_month的消融規格](docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)，另附[機器規格](reports/stage5/review_month_ablation_specification.json)與[metadata稽核](reports/stage5/review_month_ablation_contract_audit.json)。只刪月份及12個月one-hot欄，預定輸入三欄、輸出32維；H60、完整角色、其餘三欄定義／前處理、C候選與內層AP選參、評估均不變。三欄未來須自行按原規則選C，不能直接沿用四欄C=0.1；四欄對照保留凍結分數，不重訓。
+
+| 本輪契約驗收 | 實際結果 |
+| --- | --- |
+| 名冊／來源 | 73,254研究單、12角色289,973列一致；39公開＋12私有綁定，49份舊資產bytes不變 |
+| 單因子邊界 | protocol只差5處月份結構；輸入順序、one-hot種類與維度相應減少，其餘政策逐值相同 |
+| 驗證 | 14項契約測試全過，508項獨立對帳通過；舊分數只hash、不解析或重評 |
+| 未執行 | 三欄builder／pipeline、X、fit／transform／predict、選C、效能與Dashboard均未執行 |
+
+本輪操作只凍結契約與核metadata，不訓練：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\freeze_review_month_ablation.py --specification-only
+.\.venv\Scripts\python.exe scripts\freeze_review_month_ablation.py
+```
+
+下一步先實作獨立三欄builder／train-only pipeline及洩漏測試，再另決定消融訓練。缺支援只能支持待驗證假說，不能解釋全部2月／4月差異或保證改善；既有月份仍是已看開發窗。原入庫／評分版本仍未驗證，不能外推未知標籤或全核准母體。Stage 5固定42僅作重現；Stage 4待資料、每日10%與五種子維持，Dashboard暫緩。
 
 ## 專案結構
 
@@ -190,7 +207,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新增33項，連同Stage 5既有四組共120項全過、19.581秒。獨立來源65項、手算指標300項及正式分數／fit診斷1,096項核對通過；正式對帳沒有額外fit或重預測。執行規格13.096秒，唯一正式訓練／評估62.937秒；29公開來源、5舊私有來源及新規格／guard共36個綁定在各fit前後檢查，原29份凍結資產bytes不變。前輪合成測試及更早完整867項測試保留各輪紀錄，不當成本輪全專案成績。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只跑`tests.test_review_month_ablation_contract`：14項全過、0.500秒，另3項模組隔離檢查通過；獨立508項比較通過。最終版規格凍結5.241秒、metadata稽核9.113秒，均無模型匯入或fit。上方完整測試指令會包含舊合成模型fit，本輪未執行；前輪120項Stage 5測試與更早867項完整測試均保留歷史紀錄，不當成本輪成果。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 
