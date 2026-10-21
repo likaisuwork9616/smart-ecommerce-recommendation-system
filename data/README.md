@@ -64,4 +64,6 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 前輪[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)的guard及合成日誌留在`.runtime/stage5_review_month_ablation_dispatcher_v1/`。前輪[真實三欄消融](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)完成一次9＋3次fit；`training_v1/`已寫入inner／outer分數、fit_audit、paired_acceptance及manifest五份私有檔。每臂108,744列含跨候選／角色重複出分，不能當獨立訂單數。原16份私有證據不變，未增加入庫、評分版本或全量母體證據；已有產物不得刪除後重跑。
 前輪[雙臂只讀診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)僅解析原分數、角色與事件時鐘，沒有新個體分數、X或模型。新私有guard在`.runtime/stage5_review_ablation_diagnostics_v1/input_guard.json`，原24份私有證據bytes不變；來源21份私有綁定與66份公開綁定分開，未補足入庫／版本或全量母體缺口。
 
-本輪[成熟先驗與時間漂移稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)只解析原角色的可得標籤與時鐘，不讀分數值或係數，沒有新逐筆y、分數、X或模型。新guard留`.runtime/stage5_review_mature_prior_v1/input_guard.json`；原27份私有證據不變。H60、12完整角色、未知與未成熟保持原樣，後來成熟的標籤不回填早fit；入庫／版本／全量母體缺口未補足。
+前輪[成熟先驗與時間漂移稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)只解析原角色的可得標籤與時鐘，不讀分數值或係數，沒有新逐筆y、分數、X或模型。新guard留`.runtime/stage5_review_mature_prior_v1/input_guard.json`；原27份私有證據不變。H60、12完整角色、未知與未成熟保持原樣，後來成熟的標籤不回填早fit；入庫／版本／全量母體缺口未補足。
+
+最新[後續時間窗盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)只讀評論身分與時鐘，未讀review_score值或建立新y。2018-05至09共26,027張原匯出有效核准均待資料，尚非完整上游名冊或已驗收H60標籤；原C=2018-07-01及既有bundle不改。新歷史紀錄／guard在`.runtime/stage5_review_validation_windows_v1/`，原30份私有證據不變；補齊新觀察／版本及標籤角色契約前，不能拿較晚答案選模或校準。

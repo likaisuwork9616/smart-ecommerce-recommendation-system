@@ -1,0 +1,1511 @@
+{
+  "dashboard": false,
+  "format_version": 1,
+  "frozen_future_use": {
+    "later_cohort": "quarantined_future_retrospective_temporal_validation_pending_data",
+    "model_or_feature_selection_on_later_labels": false,
+    "old_cohort": "development_only",
+    "pristine_unseen_claim": false,
+    "required_gates": [
+      "complete_same_ID_approval_roster_for_new_window",
+      "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+      "original_ingestion_availability_and_review_revision_version_contract",
+      "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+      "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+      "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+    ],
+    "scoring_authorized_this_step": false
+  },
+  "historical_usage_ledger": {
+    "evidence": [
+      {
+        "last_change_commit": "a47e3ad961476b94b5b2d8b4447c7955f9a42122",
+        "path": "scripts/audit_review_prediction_feasibility.py"
+      },
+      {
+        "last_change_commit": "4ba8a379190215bed8c531ffbde20acfdb133e4b",
+        "path": "scripts/freeze_review_dataset.py"
+      },
+      {
+        "last_change_commit": "4ba8a379190215bed8c531ffbde20acfdb133e4b",
+        "path": "reports/stage5/review_dataset_specification.json"
+      },
+      {
+        "last_change_commit": "4ba8a379190215bed8c531ffbde20acfdb133e4b",
+        "path": "reports/stage5/review_dataset_audit.json"
+      },
+      {
+        "last_change_commit": "ae9ee022602c967a84a943ea1f3280af938df554",
+        "path": "reports/stage5/review_baseline_training.json"
+      },
+      {
+        "last_change_commit": "da74ff655ad9d0da4453a08a85831855afe7a037",
+        "path": "reports/stage5/review_month_ablation_training.json"
+      },
+      {
+        "last_change_commit": "f0e74eea1ddec4ae89f583b4e4c52cc68f8f93de",
+        "path": "reports/stage5/review_ablation_diagnostics.json"
+      },
+      {
+        "last_change_commit": "7153cda8e00d42984cf180d6164b3fd5e9a3db58",
+        "path": "reports/stage5/review_mature_prior_audit.json"
+      },
+      {
+        "last_change_commit": "77803949a0c1a8f95e99131bec1e803d25aa9063",
+        "path": "notebooks/03_olist_business_analysis.ipynb"
+      },
+      {
+        "last_change_commit": "3bf82685b65e6974a5e2e5480c45aabbe145bb5b",
+        "path": "sql/03_business_analysis.sql"
+      },
+      {
+        "last_change_commit": "77803949a0c1a8f95e99131bec1e803d25aa9063",
+        "path": "docs/STAGE3_BUSINESS_ANALYSIS.md"
+      },
+      {
+        "last_change_commit": "3bf82685b65e6974a5e2e5480c45aabbe145bb5b",
+        "path": "reports/images/olist_review_score_distribution.png"
+      },
+      {
+        "last_change_commit": "3c9090a73e8d1d2049d9c4201c1ab707b854a718",
+        "path": "reports/stage4/monthly_error_diagnostics.json"
+      },
+      {
+        "last_change_commit": "339ad515395878aa7ea47fa3a47356d2ae2d7b1d",
+        "path": "reports/stage4/event_source_availability.json"
+      }
+    ],
+    "historical_selection_records_complete_outside_this_repository": false,
+    "interpretation": "No direct Stage5 selection record for later months; source-wide review aggregates and other-task evaluation were already viewed. This does not prove pristine or unlogged nonuse.",
+    "stage3_exposure_is_month_specific_H60_performance": false,
+    "stage3_source_wide_review_aggregation": true,
+    "stage4_target_is_review_score": false,
+    "stage4_test_last_prediction": "2018-08-29T15:10:26",
+    "stage4_test_months": [
+      "2018-05",
+      "2018-06",
+      "2018-07",
+      "2018-08"
+    ],
+    "stage4_test_start": "2018-05-26T00:00:00",
+    "stage5_baseline_completed_fits": 12,
+    "stage5_global_labels_end_exclusive": "2018-05-01",
+    "stage5_inner_months": [
+      "2017-09",
+      "2017-11",
+      "2017-12"
+    ],
+    "stage5_original_label_cutoff_exclusive": "2018-07-01",
+    "stage5_outer_months": [
+      "2017-12",
+      "2018-02",
+      "2018-04"
+    ],
+    "stage5_treatment_completed_fits": 12
+  },
+  "inventory": {
+    "accepted_new_validation_windows": 0,
+    "fresh_unseen_holdout_windows": 0,
+    "later_windows": 5,
+    "model_fits": 0,
+    "months": [
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 1,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2016-09",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2016-11-30 00:00:00",
+        "end_exclusive": "2016-10-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 1,
+          "stage5_fit_roster_orders": 1,
+          "stage5_global_H60_label_bundle_orders": 1,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 1,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 1,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 1,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2016-09-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 320,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2016-10",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2016-12-31 00:00:00",
+        "end_exclusive": "2016-11-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 270,
+          "stage5_fit_roster_orders": 320,
+          "stage5_global_H60_label_bundle_orders": 320,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 315,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 315,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 320,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2016-10-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 0,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2016-11",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-01-30 00:00:00",
+        "end_exclusive": "2016-12-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 0,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 0,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 0,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2016-11-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 1,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2016-12",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-03-02 00:00:00",
+        "end_exclusive": "2017-01-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 1,
+          "stage5_fit_roster_orders": 1,
+          "stage5_global_H60_label_bundle_orders": 1,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 1,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 1,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 1,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2016-12-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 760,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-01",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-04-02 00:00:00",
+        "end_exclusive": "2017-02-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 748,
+          "stage5_fit_roster_orders": 760,
+          "stage5_global_H60_label_bundle_orders": 760,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 752,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 752,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 760,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-01-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 1765,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-02",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-04-30 00:00:00",
+        "end_exclusive": "2017-03-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 1729,
+          "stage5_fit_roster_orders": 1765,
+          "stage5_global_H60_label_bundle_orders": 1765,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 1752,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 1752,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 1765,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-02-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 2689,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-03",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-05-31 00:00:00",
+        "end_exclusive": "2017-04-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 2640,
+          "stage5_fit_roster_orders": 2689,
+          "stage5_global_H60_label_bundle_orders": 2689,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 2667,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 2667,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 2689,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-03-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 2374,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-04",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-06-30 00:00:00",
+        "end_exclusive": "2017-05-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 2332,
+          "stage5_fit_roster_orders": 2374,
+          "stage5_global_H60_label_bundle_orders": 2374,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 2357,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 2357,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 2374,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-04-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 3693,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-05",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-07-31 00:00:00",
+        "end_exclusive": "2017-06-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 3632,
+          "stage5_fit_roster_orders": 3693,
+          "stage5_global_H60_label_bundle_orders": 3693,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 3659,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 3659,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 3693,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-05-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 3252,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-06",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-08-30 00:00:00",
+        "end_exclusive": "2017-07-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 3212,
+          "stage5_fit_roster_orders": 3252,
+          "stage5_global_H60_label_bundle_orders": 3252,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 3225,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 3225,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 3252,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-06-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 3974,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-07",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-09-30 00:00:00",
+        "end_exclusive": "2017-08-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 3921,
+          "stage5_fit_roster_orders": 3974,
+          "stage5_global_H60_label_bundle_orders": 3974,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 3939,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 3939,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 3974,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-07-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 4348,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-08",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-10-31 00:00:00",
+        "end_exclusive": "2017-09-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 4289,
+          "stage5_fit_roster_orders": 4348,
+          "stage5_global_H60_label_bundle_orders": 4348,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 4315,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 4315,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 4348,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-08-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 4301,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-09",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-11-30 00:00:00",
+        "end_exclusive": "2017-10-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": true,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 4240,
+          "stage5_fit_roster_orders": 4301,
+          "stage5_global_H60_label_bundle_orders": 4301,
+          "stage5_inner_query_orders": 4301,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 4267,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 4267,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 4301,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-09-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 4590,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-10",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2017-12-31 00:00:00",
+        "end_exclusive": "2017-11-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 4522,
+          "stage5_fit_roster_orders": 4590,
+          "stage5_global_H60_label_bundle_orders": 4590,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 4553,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 4553,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 4590,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-10-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 7395,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-11",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-01-30 00:00:00",
+        "end_exclusive": "2017-12-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": true,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 7301,
+          "stage5_fit_roster_orders": 7395,
+          "stage5_global_H60_label_bundle_orders": 7395,
+          "stage5_inner_query_orders": 7395,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 7331,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 7331,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 7395,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-11-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 5832,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2017-12",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-03-02 00:00:00",
+        "end_exclusive": "2018-01-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": true,
+          "outer_development_query_month": true,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 5740,
+          "stage5_fit_roster_orders": 5832,
+          "stage5_global_H60_label_bundle_orders": 5832,
+          "stage5_inner_query_orders": 5832,
+          "stage5_outer_query_orders": 5832
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 5772,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 5772,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 5832,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2017-12-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 7187,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2018-01",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-04-02 00:00:00",
+        "end_exclusive": "2018-02-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 6855,
+          "stage5_fit_roster_orders": 7187,
+          "stage5_global_H60_label_bundle_orders": 7187,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 7119,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 7119,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 7187,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-01-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 6706,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2018-02",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-04-30 00:00:00",
+        "end_exclusive": "2018-03-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": true,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 6706,
+          "stage5_global_H60_label_bundle_orders": 6706,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 6706
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 6650,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 6650,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 6706,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-02-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 7288,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2018-03",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-05-31 00:00:00",
+        "end_exclusive": "2018-04-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 7288,
+          "stage5_global_H60_label_bundle_orders": 7288,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 7225,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 7225,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 7288,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-03-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 0,
+          "mature_clock_orders": 6778,
+          "original_C_suffices_for_whole_calendar": true
+        },
+        "approval_month": "2018-04",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-06-30 00:00:00",
+        "end_exclusive": "2018-05-01 00:00:00",
+        "gaps": [],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": true,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 6778,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 6778
+        },
+        "label_support": "existing_H60_bundle_only",
+        "linked_review_metadata_orders": 6726,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 6726,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 6778,
+        "reserved_use": "existing_development",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-04-01 00:00:00",
+        "status": "historical_development_only"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 6660,
+          "mature_clock_orders": 406,
+          "original_C_suffices_for_whole_calendar": false
+        },
+        "approval_month": "2018-05",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-07-31 00:00:00",
+        "end_exclusive": "2018-06-01 00:00:00",
+        "gaps": [
+          "outside_existing_approval_cohort",
+          "whole_month_not_mature_at_original_C",
+          "no_accepted_new_observation_cutoff_or_completion_watermark",
+          "no_new_H60_label_bundle_or_role_version",
+          "original_ingestion_and_review_revision_versions_unverified",
+          "unseen_exposure_cannot_be_proven"
+        ],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": true,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "keys_and_timestamps_only_no_accepted_targets",
+        "linked_review_metadata_orders": 7028,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 7028,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 7066,
+        "reserved_use": "future_retrospective_temporal_validation_pending_acceptance",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-05-01 00:00:00",
+        "status": "pending_data"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 6164,
+          "mature_clock_orders": 0,
+          "original_C_suffices_for_whole_calendar": false
+        },
+        "approval_month": "2018-06",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-08-30 00:00:00",
+        "end_exclusive": "2018-07-01 00:00:00",
+        "gaps": [
+          "outside_existing_approval_cohort",
+          "whole_month_not_mature_at_original_C",
+          "no_accepted_new_observation_cutoff_or_completion_watermark",
+          "no_new_H60_label_bundle_or_role_version",
+          "original_ingestion_and_review_revision_versions_unverified",
+          "unseen_exposure_cannot_be_proven"
+        ],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": true,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "keys_and_timestamps_only_no_accepted_targets",
+        "linked_review_metadata_orders": 6139,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 6139,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 6164,
+        "reserved_use": "future_retrospective_temporal_validation_pending_acceptance",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-06-01 00:00:00",
+        "status": "pending_data"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 6176,
+          "mature_clock_orders": 0,
+          "original_C_suffices_for_whole_calendar": false
+        },
+        "approval_month": "2018-07",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-09-30 00:00:00",
+        "end_exclusive": "2018-08-01 00:00:00",
+        "gaps": [
+          "outside_existing_approval_cohort",
+          "whole_month_not_mature_at_original_C",
+          "no_accepted_new_observation_cutoff_or_completion_watermark",
+          "no_new_H60_label_bundle_or_role_version",
+          "original_ingestion_and_review_revision_versions_unverified",
+          "unseen_exposure_cannot_be_proven"
+        ],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": true,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "keys_and_timestamps_only_no_accepted_targets",
+        "linked_review_metadata_orders": 6130,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 6130,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 6176,
+        "reserved_use": "future_retrospective_temporal_validation_pending_acceptance",
+        "review_timestamp_max_reaches_planning_bound": true,
+        "start_inclusive": "2018-07-01 00:00:00",
+        "status": "pending_data"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 6620,
+          "mature_clock_orders": 0,
+          "original_C_suffices_for_whole_calendar": false
+        },
+        "approval_month": "2018-08",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-10-31 00:00:00",
+        "end_exclusive": "2018-09-01 00:00:00",
+        "gaps": [
+          "outside_existing_approval_cohort",
+          "whole_month_not_mature_at_original_C",
+          "no_accepted_new_observation_cutoff_or_completion_watermark",
+          "no_new_H60_label_bundle_or_role_version",
+          "original_ingestion_and_review_revision_versions_unverified",
+          "unseen_exposure_cannot_be_proven"
+        ],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": true,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "keys_and_timestamps_only_no_accepted_targets",
+        "linked_review_metadata_orders": 6594,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 6594,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 6620,
+        "reserved_use": "future_retrospective_temporal_validation_pending_acceptance",
+        "review_timestamp_max_reaches_planning_bound": false,
+        "start_inclusive": "2018-08-01 00:00:00",
+        "status": "pending_data"
+      },
+      {
+        "H60_at_original_C": {
+          "immature_clock_orders": 1,
+          "mature_clock_orders": 0,
+          "original_C_suffices_for_whole_calendar": false
+        },
+        "approval_month": "2018-09",
+        "calendar_sufficient_observation_cutoff_planning_bound": "2018-11-30 00:00:00",
+        "end_exclusive": "2018-10-01 00:00:00",
+        "gaps": [
+          "outside_existing_approval_cohort",
+          "whole_month_not_mature_at_original_C",
+          "no_accepted_new_observation_cutoff_or_completion_watermark",
+          "no_new_H60_label_bundle_or_role_version",
+          "original_ingestion_and_review_revision_versions_unverified",
+          "unseen_exposure_cannot_be_proven"
+        ],
+        "historical_usage": {
+          "inner_C_selection_query_month": false,
+          "outer_development_query_month": false,
+          "stage3_source_wide_review_aggregation": true,
+          "stage4_distinct_target_test_month": false,
+          "stage5_fit_eligible_orders": 0,
+          "stage5_fit_roster_orders": 0,
+          "stage5_global_H60_label_bundle_orders": 0,
+          "stage5_inner_query_orders": 0,
+          "stage5_outer_query_orders": 0
+        },
+        "label_support": "keys_and_timestamps_only_no_accepted_targets",
+        "linked_review_metadata_orders": 1,
+        "new_class_support": null,
+        "new_validation_authorized_now": false,
+        "parseable_answer_metadata_orders": 1,
+        "pristine_unseen_claim": false,
+        "raw_valid_approval_orders": 1,
+        "reserved_use": "future_retrospective_temporal_validation_pending_acceptance",
+        "review_timestamp_max_reaches_planning_bound": false,
+        "start_inclusive": "2018-09-01 00:00:00",
+        "status": "pending_data"
+      }
+    ],
+    "new_targets_created": false,
+    "original_C_unchanged": "2018-07-01 00:00:00",
+    "raw_order_rows": 99441,
+    "raw_review_metadata_rows": 99224,
+    "review_answer_clock_maximum": "2018-10-29 12:27:35",
+    "review_answer_clock_minimum": "2016-10-07 18:32:28",
+    "review_creation_clock_maximum": "2018-08-31 00:00:00",
+    "score_values_read": false,
+    "unlocatable_or_invalid_order_rows": 160,
+    "unparseable_or_missing_answer_clock_rows": 0,
+    "valid_approval_maximum": "2018-09-03 17:40:06",
+    "valid_approval_minimum": "2016-09-15 12:16:38",
+    "valid_purchase_approval_rows": 99281
+  },
+  "limitations": [
+    "Current repository and selected local evidence cannot prove absence of external or unlogged usage.",
+    "Source-wide score aggregation is prior exposure, not month-specific Stage5 H60 selection.",
+    "Other-task test usage does not establish review-model performance or automatically equal review-label selection.",
+    "An event timestamp maximum, a linked review row, or a source byte hash proves no complete observation window.",
+    "Later score validity, first-answer target quality, class support and new roles have not been accepted.",
+    "Missing approval clocks cannot be assigned by purchase date; full-source completeness remains unverified."
+  ],
+  "protocol": {
+    "Stage4": "pending_data_daily_10_percent_seeds_11_29_42_73_101_unchanged",
+    "allowed_review_columns": [
+      "review_id",
+      "order_id",
+      "review_creation_date",
+      "review_answer_timestamp"
+    ],
+    "cohort_clock_policy": "parseable_purchase_approval_and_approval_not_before_purchase_no_status_filter",
+    "event_maximum": "timestamp_extent_only_never_an_ingestion_watermark_or_label_cutoff",
+    "existing_H60_observation_cutoff_exclusive": "2018-07-01",
+    "existing_cohort_end_exclusive": "2018-05-01",
+    "horizon_elapsed_days": 60,
+    "later_scope_use": "quarantined_future_retrospective_temporal_validation_after_separate_dataset_and_protocol_acceptance",
+    "later_window_status": "pending_data_even_if_event_timestamps_reach_the_planning_bound",
+    "maturity": "approval_plus_60_days_strictly_before_observation_cutoff",
+    "months": "every_month_between_valid_approval_min_and_max_including_empty_months",
+    "new_low_rate_or_class_support_computed": false,
+    "new_targets_materialized": false,
+    "no_later_labels_for": [
+      "model_selection",
+      "feature_selection",
+      "calibration",
+      "threshold_tuning",
+      "window_choice"
+    ],
+    "no_training_prediction_performance_or_dashboard": true,
+    "old_scope_use": "development_only_never_relabelled_as_new_holdout",
+    "pristine_unseen_holdout_claim": false,
+    "review_score_values_read": false,
+    "unit": "complete_calendar_approval_month_metadata_only",
+    "unused_claim": "absence_of_Stage5_query_usage_is_not_proof_of_unseen_labels_or_external_nonuse",
+    "usage_dimensions": [
+      "stage5_fit_roster",
+      "stage5_fit_eligible",
+      "stage5_inner_selection_query",
+      "stage5_outer_development_query",
+      "stage5_global_labels_and_diagnostics",
+      "stage3_source_wide_review_score_aggregation",
+      "stage4_cross_task_evaluation"
+    ],
+    "whole_calendar_sufficient_cutoff": "next_month_start_plus_60_days; planning_bound_not_observation_evidence"
+  },
+  "sources": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 2973,
+      "path": "docs/STAGE3_BUSINESS_ANALYSIS.md",
+      "sha256": "bf9859d08967cc7ec1ae235bab097a4e08c5968000df8308b8817cc3c62becc5"
+    },
+    {
+      "bytes": 16241,
+      "path": "notebooks/03_olist_business_analysis.ipynb",
+      "sha256": "3beef828621d7a0f0860680741dcb62e9c3df8469889b0752a0c8e961c60b18d"
+    },
+    {
+      "bytes": 59809,
+      "path": "reports/images/olist_review_score_distribution.png",
+      "sha256": "6ca0873a197d0d40d938b6339e0de5181c9b8c25b25190cebdc85c3c6043902a"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 1830508,
+      "path": "reports/stage4/monthly_error_diagnostics.json",
+      "sha256": "6ce0c5baa0993c0ec6dc633ee0d80430d3433026254f2fb187f9865c6a044bbc"
+    },
+    {
+      "bytes": 16614,
+      "path": "reports/stage5/review_ablation_diagnostic_specification.json",
+      "sha256": "dc36819ae685ff631b93635c0cf83da9ada5d7dc77ff3e29bb018c6167344ea2"
+    },
+    {
+      "bytes": 2514,
+      "path": "reports/stage5/review_ablation_diagnostic_verification.json",
+      "sha256": "d08a7fdf0b9d61a6a435330ecdb8f3478fb45c7464ea5c132da4d98def1abbd2"
+    },
+    {
+      "bytes": 809313,
+      "path": "reports/stage5/review_ablation_diagnostics.json",
+      "sha256": "7731b175ca0fa48695bc43435a30e975e023c29da2abac5190ff4f4764f007f5"
+    },
+    {
+      "bytes": 32719,
+      "path": "reports/stage5/review_baseline_contract_audit.json",
+      "sha256": "204c8d2b09327848fe9367e75efae5b37093a39164ccdb4b69f34ef396e4c16a"
+    },
+    {
+      "bytes": 14611,
+      "path": "reports/stage5/review_baseline_specification.json",
+      "sha256": "202de6045b7dcee7b00c068670fff44b5cac813a838d3d5ad15d620e18e721aa"
+    },
+    {
+      "bytes": 41690,
+      "path": "reports/stage5/review_baseline_training.json",
+      "sha256": "4bb7c8844872d81f58bfd85d32f087c0745e467997d394a46414e3e4fa7b0c0b"
+    },
+    {
+      "bytes": 7319,
+      "path": "reports/stage5/review_baseline_training_specification.json",
+      "sha256": "f9ddfd7c729b293b16cdb9202170765103df2a216a191438103b7349c92c285d"
+    },
+    {
+      "bytes": 31092,
+      "path": "reports/stage5/review_dataset_audit.json",
+      "sha256": "4542b66e96e24540ec07f0c9ad679fd39e8f0dcbfcc62caa1ab62d0b2b202d56"
+    },
+    {
+      "bytes": 9865,
+      "path": "reports/stage5/review_dataset_specification.json",
+      "sha256": "09d57ce3e30f1b6c9b7ff2ac657a7f6d2ea46c2e70b533548cb973557fa3e1f5"
+    },
+    {
+      "bytes": 334231,
+      "path": "reports/stage5/review_mature_prior_audit.json",
+      "sha256": "ac30aef6cb036a13332119c45525c6d4290423fc71776c224cbe07b45dd9e674"
+    },
+    {
+      "bytes": 17396,
+      "path": "reports/stage5/review_mature_prior_specification.json",
+      "sha256": "02b8841d2b6b631e103950e5b9efcd8320ccf1796f5021b020611271bb7ddbf4"
+    },
+    {
+      "bytes": 2471,
+      "path": "reports/stage5/review_mature_prior_verification.json",
+      "sha256": "7f0507ad829700e248875af650b18135ffc4b806bc7ee27cf458cd93d5d9dc13"
+    },
+    {
+      "bytes": 33860,
+      "path": "reports/stage5/review_month_ablation_contract_audit.json",
+      "sha256": "995ab67ebd04d1e677c49c53d663f207782086db51d6d6abe28b38c92c97e094"
+    },
+    {
+      "bytes": 39426,
+      "path": "reports/stage5/review_month_ablation_dispatcher_specification.json",
+      "sha256": "c56d3f3b6426d4c8ffc4a4181b43c27f4758738068f96d1779166ac88240fee7"
+    },
+    {
+      "bytes": 18075,
+      "path": "reports/stage5/review_month_ablation_execution_preflight.json",
+      "sha256": "5e81ae9406b1500baf75ae85a1c79f8cc4917a037ce0986097654ad804cf736c"
+    },
+    {
+      "bytes": 22854,
+      "path": "reports/stage5/review_month_ablation_execution_specification.json",
+      "sha256": "ae15389d470a28c29064f2fdee25310e5cc0d3ff5469502c038eee761d10c6e0"
+    },
+    {
+      "bytes": 19134,
+      "path": "reports/stage5/review_month_ablation_pipeline_verification.json",
+      "sha256": "a3adfc0f39777fa8c73df9c9bca2db400f751d7255797cdff7f52cfcd6bf012d"
+    },
+    {
+      "bytes": 21702,
+      "path": "reports/stage5/review_month_ablation_specification.json",
+      "sha256": "5ac404e3d66463a571d726f57f9af9d3774d30d7f3d90b4d4e86308f4c2ec9f1"
+    },
+    {
+      "bytes": 59143,
+      "path": "reports/stage5/review_month_ablation_training.json",
+      "sha256": "11ab4764226e40e56c1a9b0785ebb517fc661172cac146c50c0d43e38486c040"
+    },
+    {
+      "bytes": 9047,
+      "path": "reports/stage5/review_month_ablation_training_acceptance.json",
+      "sha256": "2e80912cdbd4057ebee7a0355fa922b6ed52a40a9315d711411b4c4d06e154c6"
+    },
+    {
+      "bytes": 7766,
+      "path": "reports/stage5/review_pipeline_verification.json",
+      "sha256": "75e62c8c2862b5e0c9af505a165209610375ecba5bcaee7ca71e07481161e050"
+    },
+    {
+      "bytes": 18711,
+      "path": "reports/stage5/review_prediction_feasibility.json",
+      "sha256": "aa47a3218bcefbe6d6f2f10f1200f8d7b3c7a342c7f094e6a5520cee7e600c3f"
+    },
+    {
+      "bytes": 10615,
+      "path": "reports/stage5/review_score_diagnostic_specification.json",
+      "sha256": "5bdc471bd29f702bd2b6d06c185bfa1ba9d15d7261e0d56c7eeb67e9164e2428"
+    },
+    {
+      "bytes": 419297,
+      "path": "reports/stage5/review_score_diagnostics.json",
+      "sha256": "a78ea05026d873dd6a70526ccd4be20ca0dd51a7896518b8df91fe62248e5bb2"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 30120,
+      "path": "scripts/audit_review_baseline_contract.py",
+      "sha256": "8fb9ce93d105c49083fa1d5398d549bed65521a7bb108994f3fb64f4f412e9fd"
+    },
+    {
+      "bytes": 9452,
+      "path": "scripts/audit_review_mature_prior.py",
+      "sha256": "c5e745716d254e877064ad5c978329fc6650737d4ef17336f5566dc884273a91"
+    },
+    {
+      "bytes": 20041,
+      "path": "scripts/audit_review_prediction_feasibility.py",
+      "sha256": "0cae1e5213881fadad86bde1e0a11ec9cb3c8d4ff76e657e6b9ea4a7b2c7e0f5"
+    },
+    {
+      "bytes": 15781,
+      "path": "scripts/audit_review_validation_windows.py",
+      "sha256": "335d77e5bc768e7e1cd8617ab8a1e693e7d79ac81c9697f6635006d2c2bbd489"
+    },
+    {
+      "bytes": 8480,
+      "path": "scripts/delay_features.py",
+      "sha256": "a21c70789b6e9831db8af196f29ac5084543f11495ab09edc150ac32e4b02cde"
+    },
+    {
+      "bytes": 17417,
+      "path": "scripts/diagnose_review_ablation.py",
+      "sha256": "255e2b2ddbe0f43cb395d7aa5992178d98b757e4237bf6ab8f648028e85f9c22"
+    },
+    {
+      "bytes": 17225,
+      "path": "scripts/diagnose_review_scores.py",
+      "sha256": "499a80ae80bfa403f735a4da0c73137130ba12a563f9df8de8675fe247dd0e52"
+    },
+    {
+      "bytes": 33466,
+      "path": "scripts/freeze_review_dataset.py",
+      "sha256": "55366719d6723a2985201a39ac918ed4617f81d3fc87199151bbd741a876d5cc"
+    },
+    {
+      "bytes": 17427,
+      "path": "scripts/freeze_review_month_ablation.py",
+      "sha256": "81b1ede8dec1cafbd3605211ba497859d7ab2e461904885458f701bba10f035e"
+    },
+    {
+      "bytes": 16962,
+      "path": "scripts/prepare_review_month_ablation.py",
+      "sha256": "9a52a3b4e1725f89c2a5242424316747653fc880e0d262fecf3f90b4310bf274"
+    },
+    {
+      "bytes": 7775,
+      "path": "scripts/review_ablation_diagnostics.py",
+      "sha256": "b3a8e55b244a38f012c85836e685e977b6b924a68f53c9f89748c23672fbb76b"
+    },
+    {
+      "bytes": 6741,
+      "path": "scripts/review_baseline_evaluation.py",
+      "sha256": "161c8cb3d81c8252b7b5d99308cacd68bd3cd31e16152deb3dfc1bd7adf3ffe3"
+    },
+    {
+      "bytes": 20694,
+      "path": "scripts/review_baseline_pipeline.py",
+      "sha256": "0394ff544c0659ddc05701e4a0fcfeb6612b921eb1dab8567fc47d484c2da145"
+    },
+    {
+      "bytes": 9685,
+      "path": "scripts/review_baseline_sources.py",
+      "sha256": "ad293bbbb57761a83588101b448f592dc485d2025091ba7b8e273202f4c7fbcc"
+    },
+    {
+      "bytes": 10417,
+      "path": "scripts/review_mature_prior_audit.py",
+      "sha256": "0340ceca31e6d65ff2ee77d338a6a4a5e4b263bae126f3a907aa9b4fb8271fdb"
+    },
+    {
+      "bytes": 32054,
+      "path": "scripts/review_month_ablation_artifacts.py",
+      "sha256": "2089088047d158f553e9e0aa4a25c0e4e0cfc1cf5fc7afef2eaa80fa1da0f765"
+    },
+    {
+      "bytes": 12582,
+      "path": "scripts/review_month_ablation_pairing.py",
+      "sha256": "5cf064546777f367119339559c33a55baa290b8d95cc04063518862dc4940e1a"
+    },
+    {
+      "bytes": 10756,
+      "path": "scripts/review_month_ablation_pipeline.py",
+      "sha256": "65db983722914cce3690d4776831c90e5d083b42b597e51e146af3227cfe4722"
+    },
+    {
+      "bytes": 10454,
+      "path": "scripts/review_month_ablation_sources.py",
+      "sha256": "7e789c47da442c530831339a8f0828d8855e6a7196956ebf97f1a1a2af6823ed"
+    },
+    {
+      "bytes": 25038,
+      "path": "scripts/review_month_ablation_training.py",
+      "sha256": "e2319591f7f115202e1b04718c8904d3c05d88baa0b4de4de13ce7695f654ae6"
+    },
+    {
+      "bytes": 20775,
+      "path": "scripts/review_score_diagnostics.py",
+      "sha256": "00b147ec4aa7ae1b0e73b909c0ddaf3c12d489d2dcd9c64bb02b14db0371a527"
+    },
+    {
+      "bytes": 8655,
+      "path": "scripts/review_validation_windows.py",
+      "sha256": "a000d34867a97c48a6f0325f9818f52fb55fbf578e8b6c4d03a60024ddc5c51a"
+    },
+    {
+      "bytes": 31505,
+      "path": "scripts/run_review_baseline.py",
+      "sha256": "2d8a56cfbf18580b569a8066ca617c220cf745b640e7372fe208950005edfec9"
+    },
+    {
+      "bytes": 18134,
+      "path": "scripts/run_review_month_ablation.py",
+      "sha256": "abf2d65a7231991b8c5c2349cdcb5936eda2fad9723d4b692089958c7298190b"
+    },
+    {
+      "bytes": 11880,
+      "path": "scripts/verify_review_month_ablation_pipeline.py",
+      "sha256": "4e9e115f32f693b06f04cb78c7ca1b7761b79ce4038da11bf5bfe65b5790dacc"
+    },
+    {
+      "bytes": 10754,
+      "path": "scripts/verify_review_pipeline.py",
+      "sha256": "c629995f2bffe22ef197bcfd1ca903bd434954d0004c672fef85cac5901d02cb"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 5837,
+      "path": "tests/test_audit_review_mature_prior.py",
+      "sha256": "600bbf114aa0b739e42fceef24b02fc638ebbb5e49533250f4caae50c577a9fb"
+    },
+    {
+      "bytes": 8187,
+      "path": "tests/test_audit_review_validation_windows.py",
+      "sha256": "63a320325a1521236dc369eb4021767585222f386825cdd030b79a0225573c7d"
+    },
+    {
+      "bytes": 8178,
+      "path": "tests/test_diagnose_review_ablation.py",
+      "sha256": "9d02233be7993de1da49404a6a84995856f4f0730a58a5d50d03313c7ee52484"
+    },
+    {
+      "bytes": 11672,
+      "path": "tests/test_prepare_review_month_ablation.py",
+      "sha256": "9efca27ef80fd1044c9ec5cde1bfc1232b672f801c8ac0d038120d889de4a417"
+    },
+    {
+      "bytes": 6467,
+      "path": "tests/test_review_ablation_diagnostics.py",
+      "sha256": "89161525528851b6ec0b27c6379270ec2f61892d40f0e598bc11b6600e233905"
+    },
+    {
+      "bytes": 22058,
+      "path": "tests/test_review_baseline_pipeline.py",
+      "sha256": "3252e5836ca6b307e4ec69ce7b227af70cd8e33ddd7045adfb7d383d902aef3a"
+    },
+    {
+      "bytes": 11458,
+      "path": "tests/test_review_baseline_sources.py",
+      "sha256": "5e3fcccdae526d5a428473562d04438e297cf6a04a6452954a2faf0ffeecc2a3"
+    },
+    {
+      "bytes": 18723,
+      "path": "tests/test_review_baseline_training.py",
+      "sha256": "ff70be33a05de1ff378eb386b58770fa38de6992786bc00ac5ea9144efa073ff"
+    },
+    {
+      "bytes": 7893,
+      "path": "tests/test_review_mature_prior_audit.py",
+      "sha256": "25e001ad414351b9fd723c6b8ceeaa2992bec1a8fd8bfa6b11b764eb3d5c89ea"
+    },
+    {
+      "bytes": 19654,
+      "path": "tests/test_review_month_ablation_artifacts.py",
+      "sha256": "2ad00b4296b2c4eb1aa91ec27a0e86127903fcfe065c2679e6b4c48949e693df"
+    },
+    {
+      "bytes": 11666,
+      "path": "tests/test_review_month_ablation_contract.py",
+      "sha256": "7a4f3a4596405124589393671086dcb49f5a3c157c76d0275c0e938e37eab760"
+    },
+    {
+      "bytes": 15454,
+      "path": "tests/test_review_month_ablation_pairing.py",
+      "sha256": "dc8f80de7945007bec3865ed40761832c1bdb1f57c2c6a4222099edaabcc58d6"
+    },
+    {
+      "bytes": 30793,
+      "path": "tests/test_review_month_ablation_pipeline.py",
+      "sha256": "225a4bc97af4d7ad1d294fd1b9a16ca211d32e65eed7636a7506b7a4783205e5"
+    },
+    {
+      "bytes": 16020,
+      "path": "tests/test_review_month_ablation_sources.py",
+      "sha256": "4df6d110a662601d81747c41efcba6a199ba86bed56a0794640d350e1af7e36d"
+    },
+    {
+      "bytes": 25792,
+      "path": "tests/test_review_month_ablation_training.py",
+      "sha256": "b1259565533112ba5f2aca4d1f8678b3fcb4cf327eb25e2895ce17a204cdb797"
+    },
+    {
+      "bytes": 10438,
+      "path": "tests/test_review_score_diagnostic_runner.py",
+      "sha256": "fbdb3251927f0e2d5377a2e6d9ca894eda6681657554f51ac252cff6c4f71c56"
+    },
+    {
+      "bytes": 20965,
+      "path": "tests/test_review_score_diagnostics.py",
+      "sha256": "0aaf7035628e54bb2dfaff4c5c121a63f30ba7bf1d5d7fd29b28ed3f67ec32aa"
+    },
+    {
+      "bytes": 6429,
+      "path": "tests/test_review_validation_windows.py",
+      "sha256": "fb312f8910657d6faf66c960bc0a1f01773e3779329b12d7021a9043cdde2006"
+    },
+    {
+      "bytes": 19285,
+      "path": "tests/test_run_review_month_ablation.py",
+      "sha256": "e226ee7f2caa30fba8c468b3af7cb5dd42886e4345d474f8330c371bb37d245e"
+    }
+  ],
+  "specification": {
+    "bytes": 23449,
+    "path": "reports/stage5/review_validation_window_specification.json",
+    "sha256": "1cad8e268bb1f0f23ecf6fc4c3b38bdfe91b7b04cea509f65ca6e886229c932a"
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "completed_metadata_window_inventory_pending_data",
+  "verification": {
+    "forbidden_execution_attempts": 0,
+    "historical_membership_rows": 289973,
+    "historical_role_blocks": 12,
+    "new_fits": 0,
+    "new_targets_created": false,
+    "parameter_updates": 0,
+    "performance_metrics": 0,
+    "predictions": 0,
+    "private_bindings": 25,
+    "public_bindings": 85,
+    "raw_review_score_values_read": false,
+    "score_values_read": false,
+    "source_bytes_checked_before_after": true
+  },
+  "version_support": {
+    "live_web_or_DB_rechecked": false,
+    "new_accepted_observation_cutoff": null,
+    "new_label_bundle_created": false,
+    "original_ingestion_and_revision_versions_verified": false,
+    "saved_official_metadata": {
+      "id": "olist_ecommerce_card",
+      "live_current_version_field": 2,
+      "live_last_updated": "2021-10-01T19:08:27.97Z",
+      "version_caution": "versions includes 2018 version numbers 1 through 7 and a separate versionNumber=2 dated 2021-10-01; currentVersionNumber alone is not a unique monotonic historical provenance key."
+    },
+    "status": "pending_data"
+  }
+}

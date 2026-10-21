@@ -6,7 +6,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 5成熟先驗與時間漂移 | [解讀與決策](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) → [事前規格](stage5/review_mature_prior_specification.json) → [完整稽核](stage5/review_mature_prior_audit.json) → [驗證](stage5/review_mature_prior_verification.json)；H60與12角色不變，無query回填／訓練／參數更新 |
+| 最新Stage 5後續時間窗 | [解讀與缺口](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md) → [盤點規格](stage5/review_validation_window_specification.json) → [實際盤點](stage5/review_validation_window_inventory.json) → [用途凍結](stage5/review_validation_window_usage_freeze.json) → [驗證](stage5/review_validation_window_verification.json)；五個新窗待資料，0訓練／效能 |
+| 前輪Stage 5成熟先驗與時間漂移 | [解讀與決策](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) → [事前規格](stage5/review_mature_prior_specification.json) → [完整稽核](stage5/review_mature_prior_audit.json) → [驗證](stage5/review_mature_prior_verification.json)；H60與12角色不變，無query回填／訓練／參數更新 |
 | 前輪Stage 5雙臂只讀診斷 | [解讀與決策](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md) → [事前規格](stage5/review_ablation_diagnostic_specification.json) → [機率／排序／支援](stage5/review_ablation_diagnostics.json) → [驗證](stage5/review_ablation_diagnostic_verification.json)；0追加訓練，暫不指定新單因子 |
 | 前輪Stage 5三欄真實消融 | [結果與限制](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md) → [正式開發回測](stage5/review_month_ablation_training.json) → [獨立交付驗收](stage5/review_month_ablation_training_acceptance.json)；一次12fit、18組完整配對，四欄沿用凍結分數 |
 | 前輪Stage 5三欄正式入口 | [入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md) → [入口／writer／測試綁定](stage5/review_month_ablation_dispatcher_specification.json) → [合成報告](stage5/review_month_ablation_dispatcher_verification.json)；真實fit與新效能0 |
@@ -103,6 +104,10 @@ colsample後的診斷、來源查核與交付驗收沿用原101／時齡102欄 �
 | 成熟先驗事前規格 | 固定6個fit、H60可得性、互斥覆蓋、90／180天成熟窗口、核准月及跨fit轉換；73公開＋22私有守門 | [review_mature_prior_specification](stage5/review_mature_prior_specification.json) |
 | 成熟先驗與漂移結果 | 12完整角色289,973列；query僅事後描述，固定近期窗口無一致方向；0模型／參數更新 | [review_mature_prior_audit](stage5/review_mature_prior_audit.json) |
 | 成熟先驗稽核驗證 | 29項合成測試、7,134項獨立對帳分列；原27份私有證據不變 | [review_mature_prior_verification](stage5/review_mature_prior_verification.json) |
+| 時間窗盤點規格 | 固定欄位盲化、過往用途與H60日曆規則；85公開＋25私有來源，禁止新評分／y | [review_validation_window_specification](stage5/review_validation_window_specification.json) |
+| 時間窗實際盤點 | 25個月99,281有效核准，5個較晚月26,027張全待資料；舊C不改，時間最大值不是watermark | [review_validation_window_inventory](stage5/review_validation_window_inventory.json) |
+| 後續驗證用途凍結 | 舊範圍開發，較晚範圍僅預留驗收後時間驗證；揭露來源／跨任務曝光，不供選模或校準 | [review_validation_window_usage_freeze](stage5/review_validation_window_usage_freeze.json) |
+| 時間窗盤點驗證 | 28項合成、618項獨立盤點及95項用途核對分列；原30份私有證據不變 | [review_validation_window_verification](stage5/review_validation_window_verification.json) |
 
 Stage 5可行性／資料集／基線契約報告保留各輪資料支援；H60、C2018-07-01及逐角色截止不變，C名冊73,254張、可用72,173張、未知1,081張。pipeline verification只含合成測試；真實基線結果另存training報告，不能把它回寫成前輪已完成訓練。原標籤／切分仍在.runtime/stage5_review_dataset_v1/，新逐筆機率／fit診斷／manifest在.runtime/stage5_review_baseline_training_v1/；公開不含ID、個體值、機率或私有digest。
 

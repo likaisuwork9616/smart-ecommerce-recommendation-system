@@ -50,4 +50,6 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 
 前輪[雙臂機率、排序與支援診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)以獨立CLI只讀現有分數，0fit／transform／predict／重新選C，沒有新增或執行Notebook，也沒有Dashboard。不要藉整本執行04或重跑training_v1補齊本機證據。
 
-最新[逐fit成熟先驗稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)由獨立CLI只讀原H60角色，分開成熟未知／未成熟，不讀分數值、不訓練或回填參數。沒有新增或執行Notebook，也沒有Dashboard；不需整本執行04或重跑舊訓練。
+前輪[逐fit成熟先驗稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)由獨立CLI只讀原H60角色，分開成熟未知／未成熟，不讀分數值、不訓練或回填參數。沒有新增或執行Notebook，也沒有Dashboard；不需整本執行04或重跑舊訓練。
+
+本輪[後續時間窗與用途盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)由獨立CLI只讀ID／時鐘，較晚月份均待資料，不建新y或訓練。Notebook3全來源評論聚合與Stage 4跨任務使用列為過往曝光；不以新Notebook重算答案或執行04補證據，Dashboard仍暫緩。

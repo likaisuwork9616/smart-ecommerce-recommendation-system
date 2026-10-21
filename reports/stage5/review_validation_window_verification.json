@@ -1,0 +1,91 @@
+{
+  "candidate_window_status": "all_five_pending_data",
+  "dashboard": false,
+  "format_version": 1,
+  "freeze_seconds": 13.00441,
+  "independent_final_purpose_freeze": {
+    "checks": 95,
+    "elapsed_seconds": 0.026444,
+    "new_fits": 0,
+    "new_score_or_label_values_read": false,
+    "new_validation_windows_accepted": 0,
+    "pending_windows": 5,
+    "stage4_test_overlap_windows": 4,
+    "stage4_validation_overlap_windows": 1,
+    "status": "passed_independent_post_inventory_purpose_freeze"
+  },
+  "independent_inventory": {
+    "calendar_months": 25,
+    "checks": 618,
+    "elapsed_seconds": 6.26974,
+    "historical_evidence_commits_verified": 14,
+    "historical_membership_rows": 289973,
+    "new_fits": 0,
+    "new_targets_created": false,
+    "new_validation_windows_accepted": 0,
+    "original_private_files_unchanged": 30,
+    "review_score_values_read": false,
+    "status": "passed_independent_label_blind_window_inventory",
+    "valid_approval_orders": 99281
+  },
+  "inventory_seconds": 15.194146,
+  "original_cutoff_extended": false,
+  "private_digests_public": false,
+  "sources": [
+    {
+      "bytes": 23449,
+      "path": "reports/stage5/review_validation_window_specification.json",
+      "sha256": "1cad8e268bb1f0f23ecf6fc4c3b38bdfe91b7b04cea509f65ca6e886229c932a"
+    },
+    {
+      "bytes": 60951,
+      "path": "reports/stage5/review_validation_window_inventory.json",
+      "sha256": "3b5cc32b85ab0f6fb993134b793a15ef61d73937df299a185964d252b10019f1"
+    },
+    {
+      "bytes": 10495,
+      "path": "reports/stage5/review_validation_window_usage_freeze.json",
+      "sha256": "db5dbfcabcfcfa18f0a1449aaec66a7139c5f9b279b581f2c9e8b44e320c7a59"
+    }
+  ],
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "passed_metadata_window_inventory_verification",
+  "synthetic_tests": {
+    "elapsed_seconds": 1.477,
+    "errors": 0,
+    "failures": 0,
+    "model_fits": 0,
+    "modules": [
+      "tests.test_review_validation_windows",
+      "tests.test_audit_review_validation_windows"
+    ],
+    "run": 28,
+    "skipped": 0
+  },
+  "verification": {
+    "forbidden_execution_attempts": 0,
+    "historical_membership_rows": 289973,
+    "historical_role_blocks": 12,
+    "new_fits": 0,
+    "new_targets_created": false,
+    "parameter_updates": 0,
+    "performance_metrics": 0,
+    "predictions": 0,
+    "private_bindings": 25,
+    "public_bindings": 85,
+    "raw_review_score_values_read": false,
+    "score_values_read": false,
+    "source_bytes_checked_before_after": true
+  }
+}

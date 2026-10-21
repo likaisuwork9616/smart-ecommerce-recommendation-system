@@ -1,0 +1,237 @@
+{
+  "cross_task_period_evidence": {
+    "note": "Period overlap is recorded; per-ID overlap and review-target selection are not inferred.",
+    "task": "Stage4_delivery_delay_not_Stage5_H60_review",
+    "test_last_prediction": "2018-08-29T15:10:26",
+    "test_start": "2018-05-26T00:00:00",
+    "validation_last_prediction": "2018-05-24T17:35:05",
+    "validation_start": "2018-03-03T00:00:00"
+  },
+  "dashboard": false,
+  "existing_scope_use": "development_only_no_fresh_holdout_rebranding",
+  "format_version": 1,
+  "frozen_after_metadata_inventory": true,
+  "later_month_purposes": [
+    {
+      "Stage5_direct_inner_or_outer_query_use_found": false,
+      "allowed_now": [
+        "metadata_inventory",
+        "source_and_version_handoff_preparation"
+      ],
+      "approval_month": "2018-05",
+      "at_least_two_raw_orders": true,
+      "calendar_sufficient_observation_cutoff_planning_bound": "2018-07-31 00:00:00",
+      "cutoff_accepted": false,
+      "forbidden_now": [
+        "review_score_or_y_inspection_for_window_choice",
+        "model_or_feature_selection",
+        "calibration",
+        "threshold_tuning",
+        "new_scoring_or_training"
+      ],
+      "new_H60_bundle_accepted": false,
+      "new_class_support": null,
+      "pristine_unseen_claim": false,
+      "raw_valid_approval_orders": 7066,
+      "required_gates": [
+        "complete_same_ID_approval_roster_for_new_window",
+        "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+        "original_ingestion_availability_and_review_revision_version_contract",
+        "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+        "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+        "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+      ],
+      "reserved_use": "future_retrospective_temporal_validation_only_after_data_and_separate_protocol_acceptance",
+      "source_wide_review_aggregate_exposure": true,
+      "stage4_other_target_test_period_overlap": true,
+      "stage4_other_target_validation_period_overlap": true,
+      "stage4_overlap_is_same_ID_H60_review_selection": false,
+      "status": "pending_data"
+    },
+    {
+      "Stage5_direct_inner_or_outer_query_use_found": false,
+      "allowed_now": [
+        "metadata_inventory",
+        "source_and_version_handoff_preparation"
+      ],
+      "approval_month": "2018-06",
+      "at_least_two_raw_orders": true,
+      "calendar_sufficient_observation_cutoff_planning_bound": "2018-08-30 00:00:00",
+      "cutoff_accepted": false,
+      "forbidden_now": [
+        "review_score_or_y_inspection_for_window_choice",
+        "model_or_feature_selection",
+        "calibration",
+        "threshold_tuning",
+        "new_scoring_or_training"
+      ],
+      "new_H60_bundle_accepted": false,
+      "new_class_support": null,
+      "pristine_unseen_claim": false,
+      "raw_valid_approval_orders": 6164,
+      "required_gates": [
+        "complete_same_ID_approval_roster_for_new_window",
+        "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+        "original_ingestion_availability_and_review_revision_version_contract",
+        "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+        "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+        "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+      ],
+      "reserved_use": "future_retrospective_temporal_validation_only_after_data_and_separate_protocol_acceptance",
+      "source_wide_review_aggregate_exposure": true,
+      "stage4_other_target_test_period_overlap": true,
+      "stage4_other_target_validation_period_overlap": false,
+      "stage4_overlap_is_same_ID_H60_review_selection": false,
+      "status": "pending_data"
+    },
+    {
+      "Stage5_direct_inner_or_outer_query_use_found": false,
+      "allowed_now": [
+        "metadata_inventory",
+        "source_and_version_handoff_preparation"
+      ],
+      "approval_month": "2018-07",
+      "at_least_two_raw_orders": true,
+      "calendar_sufficient_observation_cutoff_planning_bound": "2018-09-30 00:00:00",
+      "cutoff_accepted": false,
+      "forbidden_now": [
+        "review_score_or_y_inspection_for_window_choice",
+        "model_or_feature_selection",
+        "calibration",
+        "threshold_tuning",
+        "new_scoring_or_training"
+      ],
+      "new_H60_bundle_accepted": false,
+      "new_class_support": null,
+      "pristine_unseen_claim": false,
+      "raw_valid_approval_orders": 6176,
+      "required_gates": [
+        "complete_same_ID_approval_roster_for_new_window",
+        "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+        "original_ingestion_availability_and_review_revision_version_contract",
+        "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+        "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+        "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+      ],
+      "reserved_use": "future_retrospective_temporal_validation_only_after_data_and_separate_protocol_acceptance",
+      "source_wide_review_aggregate_exposure": true,
+      "stage4_other_target_test_period_overlap": true,
+      "stage4_other_target_validation_period_overlap": false,
+      "stage4_overlap_is_same_ID_H60_review_selection": false,
+      "status": "pending_data"
+    },
+    {
+      "Stage5_direct_inner_or_outer_query_use_found": false,
+      "allowed_now": [
+        "metadata_inventory",
+        "source_and_version_handoff_preparation"
+      ],
+      "approval_month": "2018-08",
+      "at_least_two_raw_orders": true,
+      "calendar_sufficient_observation_cutoff_planning_bound": "2018-10-31 00:00:00",
+      "cutoff_accepted": false,
+      "forbidden_now": [
+        "review_score_or_y_inspection_for_window_choice",
+        "model_or_feature_selection",
+        "calibration",
+        "threshold_tuning",
+        "new_scoring_or_training"
+      ],
+      "new_H60_bundle_accepted": false,
+      "new_class_support": null,
+      "pristine_unseen_claim": false,
+      "raw_valid_approval_orders": 6620,
+      "required_gates": [
+        "complete_same_ID_approval_roster_for_new_window",
+        "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+        "original_ingestion_availability_and_review_revision_version_contract",
+        "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+        "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+        "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+      ],
+      "reserved_use": "future_retrospective_temporal_validation_only_after_data_and_separate_protocol_acceptance",
+      "source_wide_review_aggregate_exposure": true,
+      "stage4_other_target_test_period_overlap": true,
+      "stage4_other_target_validation_period_overlap": false,
+      "stage4_overlap_is_same_ID_H60_review_selection": false,
+      "status": "pending_data"
+    },
+    {
+      "Stage5_direct_inner_or_outer_query_use_found": false,
+      "allowed_now": [
+        "metadata_inventory",
+        "source_and_version_handoff_preparation"
+      ],
+      "approval_month": "2018-09",
+      "at_least_two_raw_orders": false,
+      "calendar_sufficient_observation_cutoff_planning_bound": "2018-11-30 00:00:00",
+      "cutoff_accepted": false,
+      "forbidden_now": [
+        "review_score_or_y_inspection_for_window_choice",
+        "model_or_feature_selection",
+        "calibration",
+        "threshold_tuning",
+        "new_scoring_or_training"
+      ],
+      "new_H60_bundle_accepted": false,
+      "new_class_support": null,
+      "pristine_unseen_claim": false,
+      "raw_valid_approval_orders": 1,
+      "required_gates": [
+        "complete_same_ID_approval_roster_for_new_window",
+        "accepted_observation_cutoff_at_or_after_calendar_H60_bound_with_completion_and_late_arrival_evidence",
+        "original_ingestion_availability_and_review_revision_version_contract",
+        "new_versioned_H60_label_bundle_roles_unknown_policy_and_source_guard",
+        "freeze_model_features_C_selection_thresholds_metrics_and_read_once_policy_before_any_validation_scores",
+        "declare_prior_aggregate_and_cross_task_exposure_and_no_pristine_holdout_claim"
+      ],
+      "reserved_use": "future_retrospective_temporal_validation_only_after_data_and_separate_protocol_acceptance",
+      "source_wide_review_aggregate_exposure": true,
+      "stage4_other_target_test_period_overlap": false,
+      "stage4_other_target_validation_period_overlap": false,
+      "stage4_overlap_is_same_ID_H60_review_selection": false,
+      "status": "pending_data"
+    }
+  ],
+  "limitations": [
+    "Source-wide aggregate exposure is not month-specific H60 performance, but pristine unseen status is unproved.",
+    "No comprehensive external or unlogged usage ledger exists in this audit.",
+    "Class/target support is withheld, not assumed absent or negative.",
+    "Event maxima and version hashes cannot establish complete observations."
+  ],
+  "new_training_or_scoring_authorized": false,
+  "new_validation_windows_accepted": 0,
+  "operational_completeness_or_availability_approved": false,
+  "original_H60_cutoff_exclusive_unchanged": "2018-07-01",
+  "original_cohort_end_exclusive": "2018-05-01",
+  "sources": [
+    {
+      "bytes": 23449,
+      "path": "reports/stage5/review_validation_window_specification.json",
+      "sha256": "1cad8e268bb1f0f23ecf6fc4c3b38bdfe91b7b04cea509f65ca6e886229c932a"
+    },
+    {
+      "bytes": 60951,
+      "path": "reports/stage5/review_validation_window_inventory.json",
+      "sha256": "3b5cc32b85ab0f6fb993134b793a15ef61d73937df299a185964d252b10019f1"
+    },
+    {
+      "bytes": 1830508,
+      "path": "reports/stage4/monthly_error_diagnostics.json",
+      "sha256": "6ce0c5baa0993c0ec6dc633ee0d80430d3433026254f2fb187f9865c6a044bbc"
+    }
+  ],
+  "stage4": {
+    "daily_budget": 0.1,
+    "modified": false,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "status": "frozen_conditional_validation_purposes_pending_data"
+}
