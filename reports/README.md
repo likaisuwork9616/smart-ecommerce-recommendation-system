@@ -6,7 +6,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 6只讀描述執行準備 | [串接／輸出契約](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md) → [41份來源規格](stage6/rfm_description_execution_specification.json) → [準備查核](stage6/rfm_description_execution_preflight.json)；58測、完整名冊／四檔與public反讀接妥，真實描述與結果檔未建立 |
+| 最新Stage 6真實只讀描述結果 | [結果與限制](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) → [完整聚合](stage6/rfm_description.json) → [交付驗收](stage6/rfm_description_acceptance.json)；core1次、全ID／776,807格名冊及244聚合值一致，切點／分群未執行 |
+| 前輪Stage 6只讀描述執行準備 | [串接／輸出契約](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md) → [41份來源規格](stage6/rfm_description_execution_specification.json) → [準備查核](stage6/rfm_description_execution_preflight.json)；58測、完整名冊／四檔與public反讀接妥，真實描述與結果檔未建立 |
 | 前輪Stage 6只讀描述合成驗收 | [實作解讀](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) → [33份來源規格](stage6/rfm_description_implementation_specification.json) → [合成verification](stage6/rfm_description_pipeline_verification.json)；46測＋metadata沿用，沒有真實分布／切點／群組值 |
 | 前輪Stage 6 RFM評估規格 | [方法文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md) → [27份來源／機器規格](stage6/rfm_evaluation_specification.json) → [metadata查核](stage6/rfm_evaluation_contract_audit.json)；僅沿用版本，沒有新分布、切點、群組或效果數字 |
 | 前輪Stage 6 RFM建置與驗收 | [實作解讀](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) → [20份來源規格](stage6/rfm_dataset_build_specification.json) → [真實建置](stage6/rfm_dataset_build.json) → [分項驗收](stage6/rfm_dataset_build_acceptance.json)；只放聚合，不含個體RFM／私有digest或分群效果 |

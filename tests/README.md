@@ -21,7 +21,11 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6真實描述執行串接驗證
+## 本輪Stage 6真實描述交付驗收
+
+本輪不修改凍結程式／測試，不重跑合成suite或全專案discover；沿用前輪58項source-bound實測receipt。一次真實execute的core恰好1次，完成後以禁止core的verify_completed及獨立名冊稽核驗收。93,234顧客／99,421訂單、776,807格名冊與244個聚合scalar（含45個binary64）反讀一致；這些是實際資料交付核對，不加總為單元測試數、模型效能或未知資料成績。詳見[真實結果與驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
+
+## 前輪Stage 6真實描述執行串接驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description_sources tests.test_rfm_description_outputs tests.test_prepare_rfm_description -q

@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4、5維持待資料；Stage 6最新串接並凍結真實只讀描述的來源、完整名冊、私有／公開輸出與反讀契約。合成驗收及metadata準備通過，真實描述／名冊、切點、分群、訓練與Dashboard尚未執行。先看[專案首頁](../README.md)，再查本輪準備及前輪描述器／方法。
+Stage 4、5維持待資料；Stage 6最新完成一次真實只讀RFM描述與完整同ID／私有公開輸出反讀，F高度集中於1且IQR退化。切點、分群、訓練與Dashboard尚未執行。先看[專案首頁](../README.md)，再查真實結果及前輪準備／描述器／方法。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 6真實只讀描述執行準備 | [來源、完整同ID名冊、聚合與反讀](STAGE6_RFM_DESCRIPTION_EXECUTION.md) | 58合成測試與41來源／42項metadata通過；真實未執行，future output未建立 |
+| 最新Stage 6真實只讀描述結果 | [完整同ID、RFM摘要與交付驗收](STAGE6_RFM_DESCRIPTION_RESULTS.md) | 93,234顧客／99,421訂單、776,807格名冊／244聚合值反讀一致；F=1占97.52%，未估切點／分群 |
+| 前輪Stage 6真實只讀描述執行準備 | [來源、完整同ID名冊、聚合與反讀](STAGE6_RFM_DESCRIPTION_EXECUTION.md) | 58合成測試與41來源／42項metadata通過；真實未執行，future output未建立 |
 | 前輪Stage 6只讀RFM描述實作 | [資格守門、精確描述與合成驗收](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) | 46測、獨立手算／反例與33來源／42項metadata通過；未執行真實描述／切點／分群 |
 | 前輪Stage 6 RFM描述／分群評估 | [分流、偏態／離群、切點與穩定性](STAGE6_RFM_EVALUATION_SPEC.md) | 方法／27份來源凍結，沿用bundle；未計描述／切點或分群，跨時間穩定待資料 |
 | 前輪Stage 6 RFM實作與驗收 | [builder、反讀與完整同ID核對](STAGE6_RFM_DATASET_IMPLEMENTATION.md) | 93,234顧客／99,421逐單、130項測試與3,082,480格獨立核對通過；未分群 |

@@ -95,3 +95,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Stage 6本輪真實描述執行準備
 
 本輪[串接與凍結](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)建立`.runtime/stage6_rfm_description_execution_v1/input_guard.json`，只保存原source snapshot及實測receipt版本。名冊會在未來read_inputs從原orders／customers事件獨立衍生；本輪真實名冊／描述未產生。`.runtime/stage6_rfm_evaluation_v1/`四檔與公開rfm_description.json仍不存在，合成scratch與真實產物分開，原資料及Stage 4／5資產不改。
+
+## Stage 6本輪一次真實只讀描述
+
+沿用原dataset_v1及凍結41來源，已從原orders／customers獨立核完整93,234顧客及99,421筆T前訂單。新`.runtime/stage6_rfm_evaluation_v1/`含description、customer roster、order roster及manifest四檔，output_guard已建立且無failure；私有完整ID與digest不提交。公開只有[聚合描述](../reports/stage6/rfm_description.json)與[驗收](../reports/stage6/rfm_description_acceptance.json)，原RFM與Stage 4／5產物不改。前文各節的「未建立」均為各輪歷史；最新以[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)為準，不重建或重播。

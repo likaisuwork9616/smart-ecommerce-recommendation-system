@@ -1,0 +1,555 @@
+{
+  "description": {
+    "axes_and_units": {
+      "frequency_orders": "distinct_window_eligible_order_count",
+      "monetary_product_cents": "nominal_BRL_product_gross_integer_cents",
+      "recency_seconds": "elapsed_seconds_display_days_div86400"
+    },
+    "eligible_n": 72124,
+    "execution": {
+      "cutpoints_estimated": false,
+      "dashboard": false,
+      "model_fits": 0,
+      "resampling_executed": false,
+      "scores_assigned": false,
+      "segments_assigned": false,
+      "source_RFM_modified": false
+    },
+    "format_version": 1,
+    "gate_status": {
+      "G0": "passed",
+      "G1": "ready_for_aggregate_review",
+      "G2": "not_executed",
+      "G3": "not_executed",
+      "temporal": "pending_data"
+    },
+    "limitations": [
+      "Retrospective final snapshot; no original ingestion/revision or complete lifetime proof.",
+      "M is product gross snapshot, not refunds, settlement, net revenue or future customer value.",
+      "Only complete active customers enter numeric summaries; withheld R/F remain partial subsets.",
+      "Descriptive output is not approval for cutpoints, customer partitions, models or business use.",
+      "One snapshot cannot establish temporal stability."
+    ],
+    "outlier_flags_not_removed": {
+      "frequency_orders": {
+        "fence_denominator": null,
+        "flag_count": null,
+        "flags_only": true,
+        "lower_fence_numerator": null,
+        "lower_flag_count": null,
+        "n": 72124,
+        "null_reason": "IQR_zero_fences_degenerate",
+        "removed_n": 0,
+        "upper_fence_numerator": null,
+        "upper_flag_count": null
+      },
+      "monetary_product_cents": {
+        "fence_denominator": 2,
+        "flag_count": 6036,
+        "flags_only": true,
+        "lower_fence_numerator": -21650,
+        "lower_flag_count": 0,
+        "n": 72124,
+        "null_reason": null,
+        "removed_n": 0,
+        "upper_fence_numerator": 61630,
+        "upper_flag_count": 6036
+      },
+      "recency_seconds": {
+        "fence_denominator": 2,
+        "flag_count": 0,
+        "flags_only": true,
+        "lower_fence_numerator": -28936232,
+        "lower_flag_count": 0,
+        "n": 72124,
+        "null_reason": null,
+        "removed_n": 0,
+        "upper_fence_numerator": 89813176,
+        "upper_flag_count": 0
+      }
+    },
+    "population_and_money_conservation": {
+      "complete_active_product_cents": 1016786312,
+      "frequency_sum_all_customers": 74088,
+      "money": {
+        "eligible_window_product_cents_on_known_orders": 1016801111,
+        "eligible_window_product_known_orders": 74088,
+        "eligible_window_product_unknown_orders": 0,
+        "inactive_complete_zero_customers": 21109,
+        "known_product_cents_equal_published_plus_masked_known": true,
+        "known_product_cents_masked_customer_subsets": 14799,
+        "known_product_orders_in_masked_customer_subsets": 1,
+        "masked_customers": 1,
+        "published_customer_product_cents": 1016786312,
+        "unknown_product_amounts_are_zero_filled": false,
+        "unknown_product_orders_in_masked_customer_subsets": 0,
+        "unmasked_customers": 93233
+      },
+      "population_n": 93234,
+      "state_sum": 93234,
+      "window_event_eligible_orders": 74088
+    },
+    "routing_counts": {
+      "by_state": {
+        "active_complete": 72124,
+        "active_money_unknown": 0,
+        "active_with_quarantine": 1,
+        "inactive_complete": 21109,
+        "inactive_with_quarantine": 0
+      },
+      "clean_inactive_n": 21109,
+      "complete_active_n": 72124,
+      "independent_roster_checked": true,
+      "null_counts_by_state": {
+        "active_complete": {
+          "frequency_orders": 0,
+          "last_window_purchase_at": 0,
+          "monetary_product_cents": 0,
+          "recency_days": 0,
+          "recency_seconds": 0
+        },
+        "active_money_unknown": {
+          "frequency_orders": 0,
+          "last_window_purchase_at": 0,
+          "monetary_product_cents": 0,
+          "recency_days": 0,
+          "recency_seconds": 0
+        },
+        "active_with_quarantine": {
+          "frequency_orders": 0,
+          "last_window_purchase_at": 0,
+          "monetary_product_cents": 1,
+          "recency_days": 0,
+          "recency_seconds": 0
+        },
+        "inactive_complete": {
+          "frequency_orders": 0,
+          "last_window_purchase_at": 21109,
+          "monetary_product_cents": 0,
+          "recency_days": 21109,
+          "recency_seconds": 21109
+        },
+        "inactive_with_quarantine": {
+          "frequency_orders": 0,
+          "last_window_purchase_at": 0,
+          "monetary_product_cents": 0,
+          "recency_days": 0,
+          "recency_seconds": 0
+        }
+      },
+      "population_n": 93234,
+      "same_ID_exhaustive_disjoint": true,
+      "withheld_n": 1
+    },
+    "shape_and_tail_diagnostics": {
+      "F_equals_1": {
+        "denominator": 72124,
+        "null_reason": null,
+        "numerator": 70333,
+        "value": 0.9751677666241473
+      },
+      "M_equals_0": {
+        "denominator": 72124,
+        "null_reason": null,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "M_ge_Q99": {
+        "count": 723,
+        "fraction": {
+          "denominator": 72124,
+          "null_reason": null,
+          "numerator": 723,
+          "value": 0.01002440241805779
+        },
+        "includes_all_threshold_ties": true,
+        "share_of_total_M": {
+          "denominator": 1016786312,
+          "null_reason": null,
+          "numerator": 115021680,
+          "value": 0.11312276595635366
+        },
+        "tail_M_cents": 115021680,
+        "threshold_cents": 100499,
+        "total_M_cents": 1016786312
+      }
+    },
+    "source_version": {
+      "S_inclusive": "2017-09-01 00:00:00",
+      "T_exclusive": "2018-09-01 00:00:00",
+      "evaluation_format_version": 1,
+      "input_namespace": ".runtime/stage6_rfm_dataset_v1/"
+    },
+    "statistics_and_null_reasons": {
+      "log1p_views": {
+        "frequency_orders": {
+          "arithmetic_mean": 0.7038288097574348,
+          "empirical_quantiles": {
+            "0": 0.6931471805599453,
+            "1": 0.6931471805599453,
+            "100": 2.4849066497880004,
+            "25": 0.6931471805599453,
+            "5": 0.6931471805599453,
+            "50": 0.6931471805599453,
+            "75": 0.6931471805599453,
+            "95": 0.6931471805599453,
+            "99": 1.0986122886681098
+          },
+          "max": 2.4849066497880004,
+          "min": 0.6931471805599453,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": null
+        },
+        "monetary_product_cents": {
+          "arithmetic_mean": 4.487187661532294,
+          "empirical_quantiles": {
+            "0": 0.6151856390902334,
+            "1": 2.583997552432231,
+            "100": 9.506065016071148,
+            "25": 3.8897773964808264,
+            "5": 3.039749158970765,
+            "50": 4.508659285607248,
+            "75": 5.030437921392435,
+            "95": 6.0330862217988015,
+            "99": 6.9137274102524255
+          },
+          "max": 9.506065016071148,
+          "min": 0.6151856390902334,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": null
+        },
+        "recency_seconds": {
+          "arithmetic_mean": 4.911133504563464,
+          "empirical_quantiles": {
+            "0": 1.2162684301283606,
+            "1": 2.410915153519265,
+            "100": 5.902626060049678,
+            "25": 4.513577370622442,
+            "5": 3.138171787453238,
+            "50": 5.1619856943640485,
+            "75": 5.572342104196789,
+            "95": 5.824962682628366,
+            "99": 5.8868940035478365
+          },
+          "max": 5.902626060049678,
+          "min": 1.2162684301283606,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": null
+        }
+      },
+      "raw": {
+        "frequency_orders": {
+          "Bowley_denominator": null,
+          "Bowley_numerator": null,
+          "Bowley_skewness": null,
+          "IQR": 0,
+          "arithmetic_mean": 1.0272170151405913,
+          "distinct_count": 8,
+          "empirical_quantiles": {
+            "0": 1,
+            "1": 1,
+            "100": 11,
+            "25": 1,
+            "5": 1,
+            "50": 1,
+            "75": 1,
+            "95": 1,
+            "99": 2
+          },
+          "max": 11,
+          "mean_denominator": 72124,
+          "mean_numerator": 74087,
+          "min": 1,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": "IQR_zero_Bowley_undefined",
+          "sum": 74087
+        },
+        "monetary_product_cents": {
+          "Bowley_denominator": 10410,
+          "Bowley_numerator": 2030,
+          "Bowley_skewness": 0.19500480307396734,
+          "IQR": 10410,
+          "arithmetic_mean": 14097.75264821696,
+          "distinct_count": 6844,
+          "empirical_quantiles": {
+            "0": 85,
+            "1": 1225,
+            "100": 1344000,
+            "25": 4790,
+            "5": 1990,
+            "50": 8980,
+            "75": 15200,
+            "95": 41600,
+            "99": 100499
+          },
+          "max": 1344000,
+          "mean_denominator": 72124,
+          "mean_numerator": 1016786312,
+          "min": 85,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": null,
+          "sum": 1016786312
+        },
+        "recency_seconds": {
+          "Bowley_denominator": 14843676,
+          "Bowley_numerator": 455834,
+          "Bowley_skewness": 0.030708969934401694,
+          "IQR": 14843676,
+          "arithmetic_mean": 15090085.957947424,
+          "distinct_count": 71900,
+          "empirical_quantiles": {
+            "0": 205163,
+            "1": 876455,
+            "100": 31535770,
+            "25": 7797398,
+            "5": 1906128,
+            "50": 14991319,
+            "75": 22641074,
+            "95": 29172830,
+            "99": 31042181
+          },
+          "max": 31535770,
+          "mean_denominator": 72124,
+          "mean_numerator": 1088357359631,
+          "min": 205163,
+          "n": 72124,
+          "null_count": 0,
+          "null_reason": null,
+          "sum": 1088357359631
+        }
+      }
+    }
+  },
+  "format_version": 1,
+  "readback_acceptance": {
+    "aggregate_scalar_values_compared": 244,
+    "all_values_read_back": true,
+    "binary64_values_compared": 45,
+    "float64_bitwise": true,
+    "roster_cells_compared": 776807,
+    "rows": {
+      "customer_roster.csv": 93234,
+      "order_roster.csv": 99421
+    },
+    "same_ID_rosters": true,
+    "strict_types_and_nulls": true
+  },
+  "source_bindings": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 4472,
+      "path": "reports/stage6/rfm_feasibility_specification.json",
+      "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+    },
+    {
+      "bytes": 14558,
+      "path": "reports/stage6/rfm_feasibility.json",
+      "sha256": "44b0824b4a429530a23e6b61ebf9cf21313dafb295bd0e85e5a0fc424c697e14"
+    },
+    {
+      "bytes": 18396,
+      "path": "scripts/freeze_rfm_dataset_spec.py",
+      "sha256": "da50f96c62f2b25af9ce9a9b5412042b429c1ff9a7f908b33ccdd3c389169a07"
+    },
+    {
+      "bytes": 8214,
+      "path": "tests/test_rfm_dataset_spec.py",
+      "sha256": "24997b4b36eacb3fed134be707718eb20814af08bccca76ea5b4d2ded3574747"
+    },
+    {
+      "bytes": 11012,
+      "path": "reports/stage6/rfm_dataset_specification.json",
+      "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+    },
+    {
+      "bytes": 7869,
+      "path": "reports/stage6/rfm_dataset_contract_audit.json",
+      "sha256": "66138a23585f756ccefaf628c0dbc9ab83925829ddba6b7f05dbdd7d750399ea"
+    },
+    {
+      "bytes": 18823,
+      "path": "scripts/rfm_dataset_builder.py",
+      "sha256": "ae2e580d8c5a978f4886a8798e55885694575d4b3d399606f158c8c43f2b2332"
+    },
+    {
+      "bytes": 27463,
+      "path": "tests/test_rfm_dataset_builder.py",
+      "sha256": "8451fdb6838c0637f76f4d43f4ec20bb46505a20cfbb4745575884cc9d372498"
+    },
+    {
+      "bytes": 20172,
+      "path": "scripts/rfm_dataset_artifacts.py",
+      "sha256": "16a7028871ab03109dfcf47d9527fc52741566c2b97d376677b5b4e8c9b93af3"
+    },
+    {
+      "bytes": 12071,
+      "path": "tests/test_rfm_dataset_artifacts.py",
+      "sha256": "2a0302b284831a016fcf6a9ed5277377f4e9939899a9a65450a888494ab5866d"
+    },
+    {
+      "bytes": 10429,
+      "path": "scripts/build_rfm_dataset.py",
+      "sha256": "2237c89f1b1e2749f5d99db928ac330fdbe7d4def6fe040aabb214022f5f8fec"
+    },
+    {
+      "bytes": 17247,
+      "path": "tests/test_build_rfm_dataset.py",
+      "sha256": "7c52cc4ffee3bab6e5b075d2ac47d8068a215d43ff7ef7266d80ef538b7bbe79"
+    },
+    {
+      "bytes": 4990,
+      "path": "reports/stage6/rfm_dataset_build_specification.json",
+      "sha256": "a4145701c876b1666e69652e9e790989a930f28ceae0f44b9bb55b76636a8a19"
+    },
+    {
+      "bytes": 8767,
+      "path": "reports/stage6/rfm_dataset_build.json",
+      "sha256": "f8e2c75c75b43bb4fa795bdbb09250b40e4114ae89b8bbb51a45c03f3b914e36"
+    },
+    {
+      "bytes": 4009,
+      "path": "reports/stage6/rfm_dataset_build_acceptance.json",
+      "sha256": "0b8c7e750e6697684bb0769fb874d4966fe10d295a19f8cd9da7b4c072be4f7a"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 11479,
+      "path": "scripts/rfm_evaluation_contract.py",
+      "sha256": "27fa606d618037f09534fadb68d6f84d9d0b34aa1995f46ae8166bd5f0ade18c"
+    },
+    {
+      "bytes": 21735,
+      "path": "scripts/freeze_rfm_evaluation_spec.py",
+      "sha256": "e8bfc251eb1adc174c57c2efbdf321207dfd1d34cbc9d9637babb26d9c9c4da8"
+    },
+    {
+      "bytes": 26592,
+      "path": "tests/test_rfm_evaluation_spec.py",
+      "sha256": "280d4a12827c684fe5dc23b032b50b2dd48ebf1400d6e68dffae18a1e96a6601"
+    },
+    {
+      "bytes": 15752,
+      "path": "reports/stage6/rfm_evaluation_specification.json",
+      "sha256": "9ce0a91b0f2e7994f14f7348687e58796fd2204ee0bf909632731ff654f96af9"
+    },
+    {
+      "bytes": 3287,
+      "path": "reports/stage6/rfm_evaluation_contract_audit.json",
+      "sha256": "a22c3ba0b2f59b0bf40605b8d058e149d3a770894d490304a8f5cfa1d5231b7f"
+    },
+    {
+      "bytes": 13729,
+      "path": "scripts/rfm_description.py",
+      "sha256": "3ea100c22776c46c06db7c88ab0d9b9c8156a95faeb76fbb8b550bbeed65ba78"
+    },
+    {
+      "bytes": 16701,
+      "path": "tests/test_rfm_description.py",
+      "sha256": "427054df51f3dd22221e6042ee96e8bce916a3c0e7d07a407598c28bc0200ef8"
+    },
+    {
+      "bytes": 10067,
+      "path": "scripts/verify_rfm_description.py",
+      "sha256": "87f57159c8a2dc1e9c140b6c1b7c6f414df1f496fa0aca3b22fb1b06fbda6ab6"
+    },
+    {
+      "bytes": 12216,
+      "path": "tests/test_verify_rfm_description.py",
+      "sha256": "8d74c39dc42f226e9619b85d51ae6a5316689950b10d111d0dfd3d9dfbf05e22"
+    },
+    {
+      "bytes": 6887,
+      "path": "reports/stage6/rfm_description_implementation_specification.json",
+      "sha256": "835b3013255494e2023d10952bc5f79166d40e99d12b94c0a54ccaaebceb16aa"
+    },
+    {
+      "bytes": 4312,
+      "path": "reports/stage6/rfm_description_pipeline_verification.json",
+      "sha256": "a829080b3a27ee4a8a470d3039c00a6ef1ef75179563c30af37e341e6320a076"
+    },
+    {
+      "bytes": 8997,
+      "path": "scripts/rfm_description_sources.py",
+      "sha256": "aabf5d9b4de0cf2d7dbb203674f2328e5a7b87f2d7e2a77a88ba4f8c889b0884"
+    },
+    {
+      "bytes": 16222,
+      "path": "tests/test_rfm_description_sources.py",
+      "sha256": "5f264620622a2b113d0018ae9b2ed39a6437b2d96272b3f720d7c27bb47c8486"
+    },
+    {
+      "bytes": 25359,
+      "path": "scripts/rfm_description_outputs.py",
+      "sha256": "a6614f13c488c573b71720a4c0783ad8f9c886a96b57ef5c5620458b647113c3"
+    },
+    {
+      "bytes": 15334,
+      "path": "tests/test_rfm_description_outputs.py",
+      "sha256": "9acadf7700f10228d506d6373fbfabc01baaa2e0426881e81c7bf8d98579ed48"
+    },
+    {
+      "bytes": 14590,
+      "path": "scripts/prepare_rfm_description.py",
+      "sha256": "afdd28e61baef73c0c39b35fc332724845f6e608b4628bc56d5031cc5c7975f7"
+    },
+    {
+      "bytes": 13744,
+      "path": "tests/test_prepare_rfm_description.py",
+      "sha256": "03291cc5712b73e2e02cc81179513044f5fab48074357031b02a9efc83febef0"
+    }
+  ],
+  "specification": {
+    "bytes": 10656,
+    "path": "reports/stage6/rfm_description_execution_specification.json",
+    "sha256": "565c8a46c3b730b020c42f47faf5f9137865beda549ecd0f9576e353d72055f8"
+  },
+  "status": "readonly_RFM_description_readback_accepted_no_cutpoints_or_groups"
+}
