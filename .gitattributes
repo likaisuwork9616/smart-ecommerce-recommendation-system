@@ -192,3 +192,12 @@ tests/test_rfm_description.py text eol=lf
 tests/test_verify_rfm_description.py text eol=lf
 reports/stage6/rfm_description_implementation_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage6/rfm_description_pipeline_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the prepared real read-only description execution wiring.
+scripts/rfm_description_sources.py text eol=lf
+scripts/rfm_description_outputs.py text eol=lf
+scripts/prepare_rfm_description.py text eol=lf
+tests/test_rfm_description_sources.py text eol=lf
+tests/test_rfm_description_outputs.py text eol=lf
+tests/test_prepare_rfm_description.py text eol=lf
+reports/stage6/rfm_description_execution_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage6/rfm_description_execution_preflight.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

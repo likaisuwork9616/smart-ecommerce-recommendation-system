@@ -1,5 +1,7 @@
 # Stage 6：只讀RFM描述與資格守門實作
 
+最新已完成[真實描述來源、完整名冊、輸出及反讀的串接凍結](STAGE6_RFM_DESCRIPTION_EXECUTION.md)，只走合成驗收／metadata準備，尚未執行真實描述。下文保留前輪純core實作與46測紀錄；當時「尚未接線」的狀態未回寫，原code／JSON／guard bytes保留。
+
 已依[凍結規格](STAGE6_RFM_EVALUATION_SPEC.md)完成純描述器與資格守門，**本輪只用合成資料計算描述**。兩套46項測試、獨立手算及反例驗收通過；真實來源僅核metadata／binary hash，沒有解析真實CSV、計真實分布、估分群切點、打分／分群、重抽樣、訓練或Dashboard。Stage 4、5維持待資料，Stage 4每日10%與11／29／42／73／101五種子不變。
 
 [實作規格](../reports/stage6/rfm_description_implementation_specification.json)綁定33份來源；[合成驗收報告](../reports/stage6/rfm_description_pipeline_verification.json)分開記實際合成測試與既有資料集metadata沿用。原評估規格、方法程式、資料集、所有舊報告／guard維持bytes；原policy的current_run=false是前輪凍結時的執行紀錄，未改寫成這輪成果。
