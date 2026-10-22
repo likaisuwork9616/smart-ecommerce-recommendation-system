@@ -26,24 +26,6 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 目前沒有新資料來源。後續同ID核准清冊、雙時間版本及日結／入庫對帳，使用[資料交接清單](../docs/templates/daily_data_handoff/README.md)與[驗收紀錄範本](../docs/templates/daily_data_handoff/acceptance_record.template.md)。已填紀錄、原始匯出、匿名映射與逐ID證據放Git忽略的`.runtime/data_handoffs/<handoff_id>/`，先作獨立交接，不直接替換原凍結Olist／特徵／帳本。空範本不是新資料或驗收結果。
 
-## Stage 5評論預測資料
-
-[Stage 5可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)只讀原始CSV的評論鍵、評分與建立／回答時鐘，以及六表基本輸入支援。評論一單可多筆，review_id非全域唯一；標籤先按order_id取最早記錄回答，再查是否晚於核准，不以最低／平均分或無評論填負例。首輪候選為核准時點21個基本聚合欄，但缺原取得／版本時鐘，不能稱為已驗證線上可用。
-
-最新[凍結資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)固定核准後60天首答、未知與內外層時間契約。私有order_labels.csv、split_membership.csv及manifest.json放Git忽略的.runtime/stage5_review_dataset_v1/；前者是C=2018-07-01的標籤審計，歷史fit必須用角色截止遮罩後的y，不能join前者取得未來答案。兩CSV只有9／12個身分、標籤與審計欄，不能當X。
-
-沒有評論、超窗、未成熟或品質隔離仍是nullable y；73,254張完整名冊均保留。公開只提交來源SHA、規格與聚合，不公布個體ID／標籤或私有digest。Stage 5四欄基線採四個事件時間特徵，沒有建立原候選21欄；Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
-
-前輪[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)只用購買月／星期／時及核准等待小時，其餘快照候選先排除；兩事件時鐘仍只有快照代理假設。該輪不建X或fit，私有input_guard放.runtime/stage5_review_baseline_v1/，原H60 bundle不改。
-
-前輪[builder／pipeline實作](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)只用手造fixture驗洩漏。[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)串接原來源SHA、私有guard、manifest及收據，再核對完整角色名冊，才用真實四欄資料fit。未知訓練列不參與fit，query未來標籤先清空但整份名冊保留；計分另用自己的角色truth。
-
-該輪inner_scores.csv、outer_scores.csv、fit_audit.json、manifest.json與input_guard.json留`.runtime/stage5_review_baseline_training_v1/`。其中fit診斷含本機係數／統計，不是公開可用服務模型；無模型序列化或營運通知入口。研究來源版本通過仍不能補足原入庫／修訂／全量母體證據。
-
-前輪[月份消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)只刪除purchase_month，原H60、完整角色名冊與未知政策不改；該輪私有guard在`.runtime/stage5_review_month_ablation_v1/`。[三欄實作驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)僅用合成fixture，日誌在`.runtime/stage5_review_month_ablation_pipeline/`。
-
-前輪[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)讀原完整角色與四欄分數，只驗metadata／名冊／合法機率，不重訓或計效能。新guard在`.runtime/stage5_review_month_ablation_execution_v1/input_guard.json`，原13私有綁定不變；當時預定的`.runtime/stage5_review_month_ablation_training_v1/`尚無產物；後續真實交付見下段。缺來源或版本變動即停止，不能把本輪輸出規格當成已取得新入庫／版本證據。
-
 ## 處理資料與模型
 
 | 位置 | 用途 |
@@ -57,45 +39,40 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 
 `data/sample/`目前沒有追蹤的範例資料，不作為可執行流程的必要輸入。
 
+## Stage 5評論預測資料
+
+[可行性盤點](../docs/STAGE5_REVIEW_PREDICTION_FEASIBILITY.md)只讀原始CSV的評論鍵、評分與建立／回答時鐘。評論一單可多筆，review_id非全域唯一；標籤先按order_id取最早記錄回答，再查是否晚於核准，不以最低／平均分或無評論填負例。
+
+[H60資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)固定核准後60天首答、未知與內外層時間契約。沒有評論、超窗、未成熟或品質隔離都是nullable y，73,254張完整名冊均保留。私有order_labels.csv是C=2018-07-01的標籤審計，歷史fit必須用角色截止遮罩後的y，不能join它取得未來答案；它與split_membership.csv只有身分、標籤與審計欄，不能當X。
+
+四欄基線只用購買月／星期／時及核准等待小時，三欄消融再移除購買月份；沒有建立原候選21欄。兩事件時鐘只有快照代理假設，研究來源版本通過不能補足原入庫／修訂／全量母體證據。Stage 4的最終送達cohort、延遲label與凍結分數不直接沿用。
+
+## Stage 6 RFM資料
+
+[輸入盤點](../docs/STAGE6_RFM_FEASIBILITY.md)只讀原orders／customers／items／payments：客戶經customer_id連接、以customer_unique_id彙總；商品與付款先各按order聚合，不直接明細×付款join。[資料集契約](../docs/STAGE6_RFM_DATASET_SPEC.md)保留T前合格歷史顧客，窗口[S,T)同集合計R／F／M；缺商品不刪訂單／顧客，商品未知或窗口有隔離時M=null，乾淨零活動才R=null、F=0、M=0。
+
+M是快照商品毛額，缺退款、原可得與修訂證據，不升格淨額或營運as-of。個體ID、RFM值及私有digest不提交，Git clone不含這些檔案；現有私有資料集與G1描述只做唯讀驗收，不刪檔重播。
+
+## 私有研究產物位置
+
+下列目錄都在Git忽略的`.runtime/`。已有產物不得刪除後重跑；缺檔或版本不符時，對應CLI會停止，不能以重訓或重建補證據。
+
+| 階段／研究 | 本機位置 | 內容與注意 |
+| --- | --- | --- |
+| Stage 4資料交接（尚未建立） | `.runtime/data_handoffs/<handoff_id>/` | 未來填寫的交接紀錄、原始匯出與逐ID證據；空範本不是新資料 |
+| Stage 5 H60資料集 | `.runtime/stage5_review_dataset_v1/` | order_labels.csv、split_membership.csv、manifest.json |
+| Stage 5最小基線規格 | `.runtime/stage5_review_baseline_v1/` | input_guard.json；原H60 bundle不改 |
+| Stage 5四欄離線基線 | `.runtime/stage5_review_baseline_training_v1/` | inner／outer分數、fit_audit、manifest、input_guard；fit診斷含本機係數，不是公開服務模型 |
+| Stage 5月份消融規格與三欄實作 | `.runtime/stage5_review_month_ablation_v1/`、`.runtime/stage5_review_month_ablation_pipeline/` | 規格guard與合成驗證日誌 |
+| Stage 5三欄執行準備與正式入口 | `.runtime/stage5_review_month_ablation_execution_v1/`、`.runtime/stage5_review_month_ablation_dispatcher_v1/` | input_guard與合成試跑紀錄 |
+| Stage 5三欄真實消融 | `.runtime/stage5_review_month_ablation_training_v1/` | inner／outer分數、fit_audit、paired_acceptance、manifest；每臂108,744列含跨候選／角色重複出分，不是獨立訂單數 |
+| Stage 5只讀診斷與稽核 | `.runtime/stage5_review_ablation_diagnostics_v1/`、`.runtime/stage5_review_mature_prior_v1/`、`.runtime/stage5_review_validation_windows_v1/` | 各輪input_guard；時間窗另有使用紀錄 |
+| Stage 5新時間窗交接（尚未建立） | `.runtime/review_window_handoffs/<handoff_id>/` | 未來逐月交接副本，與原dataset／兩臂training_v1分開 |
+| Stage 6私有RFM資料集 | `.runtime/stage6_rfm_dataset_v1/`、`.runtime/stage6_rfm_dataset_build_v1/`、`.runtime/stage6_rfm_builder_independent/` | 93,234列customers、99,421列order_decisions與manifest；output_guard；獨立重算參考與比較 |
+| Stage 6評估規格與描述器 | `.runtime/stage6_rfm_evaluation_spec_v1/`、`.runtime/stage6_rfm_description_implementation_v1/`、`.runtime/stage6_rfm_description_independent/` | input_guard、合成驗收與獨立oracle收據 |
+| Stage 6真實描述（G1） | `.runtime/stage6_rfm_description_execution_v1/`、`.runtime/stage6_rfm_evaluation_v1/` | input／output guard；description、customer roster、order roster、manifest四檔 |
+| Stage 6 G2規則候選 | `.runtime/stage6_rfm_rule_candidate_implementation_v1/`、`.runtime/stage6_rfm_rule_candidate_execution_v1/` | 合成驗收guard與日誌、真實執行準備的input_guard；未來真實輸出`.runtime/stage6_rfm_rule_candidate_v1/`尚未建立 |
+
 ## Retailrocket
 
 規劃用於瀏覽、加購、購買與推薦研究，目前尚未啟動。`data/raw/retailrocket/`只作預留位置，不代表已完成資料匯入、特徵或推薦模型。
-
-前輪[正式入口與私有writer驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)的guard及合成日誌留在`.runtime/stage5_review_month_ablation_dispatcher_v1/`。前輪[真實三欄消融](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)完成一次9＋3次fit；`training_v1/`已寫入inner／outer分數、fit_audit、paired_acceptance及manifest五份私有檔。每臂108,744列含跨候選／角色重複出分，不能當獨立訂單數。原16份私有證據不變，未增加入庫、評分版本或全量母體證據；已有產物不得刪除後重跑。
-前輪[雙臂只讀診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)僅解析原分數、角色與事件時鐘，沒有新個體分數、X或模型。新私有guard在`.runtime/stage5_review_ablation_diagnostics_v1/input_guard.json`，原24份私有證據bytes不變；來源21份私有綁定與66份公開綁定分開，未補足入庫／版本或全量母體缺口。
-
-前輪[成熟先驗與時間漂移稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)只解析原角色的可得標籤與時鐘，不讀分數值或係數，沒有新逐筆y、分數、X或模型。新guard留`.runtime/stage5_review_mature_prior_v1/input_guard.json`；原27份私有證據不變。H60、12完整角色、未知與未成熟保持原樣，後來成熟的標籤不回填早fit；入庫／版本／全量母體缺口未補足。
-
-最新[後續時間窗盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)只讀評論身分與時鐘，未讀review_score值或建立新y。2018-05至09共26,027張原匯出有效核准均待資料，尚非完整上游名冊或已驗收H60標籤；原C=2018-07-01及既有bundle不改。新歷史紀錄／guard在`.runtime/stage5_review_validation_windows_v1/`，原30份私有證據不變；補齊新觀察／版本及標籤角色契約前，不能拿較晚答案選模或校準。
-
-本輪[2018年5–9月交接清單與範本](../docs/templates/review_window_handoff/README.md)備妥，但沒有新來源、標籤或交接實例。日後真實副本及原始清冊、版本鏈、H60完成與逐ID對帳留Git忽略的`.runtime/review_window_handoffs/<handoff_id>/`，與原dataset／兩臂training_v1分開；不得覆寫舊guard或把前輪匯出數抄成已接受全量N。
-
-本輪[四欄／三欄適用範圍與交付清單](../docs/STAGE5_MODEL_APPLICABILITY.md)彙整現有私有H60、角色、分數與manifest用途；沒有新增資料、重包私有檔案或讀逐筆分數。Git只提供公開研究來源，原guard、資料集、兩臂產物及新窗交接範本均保留；Stage 5維持待資料。
-
-## Stage 6 RFM候選輸入
-
-[本輪盤點](../docs/STAGE6_RFM_FEASIBILITY.md)只讀原orders／customers／items／payments，原檔bytes沿既有來源查核，未讀評論／模型分數。客戶經customer_id連接、以customer_unique_id彙總；商品與付款先各按order聚合，不直接明細×付款join。缺金額不補0，缺退款／原可得與修訂，金額只能作快照毛額研究；個體RFM、分數與分群尚未產生。公開只有聚合盤點，私有驗證留`.runtime/stage6_rfm_*`，原Stage 4／5資產不改。
-
-## Stage 6 RFM資料集契約
-
-[凍結規格](../docs/STAGE6_RFM_DATASET_SPEC.md)保留T前合格歷史顧客，窗口[S,T)同集合計R／F／M。缺商品不刪訂單／顧客；商品未知或窗口有隔離時M=null，乾淨零活動才R=null、F=0、M=0。只核聚合支援，`.runtime/stage6_rfm_dataset_v1/`及其顧客／逐單CSV與manifest本輪未建立；原四表、舊盤點及Stage 4／5凍結資產保留，私有查核收據留`.runtime/stage6_rfm_dataset_*`。
-
-## Stage 6 RFM實際私有資料集
-
-已依[凍結契約](../docs/STAGE6_RFM_DATASET_SPEC.md)完成[builder與資料集驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)：`.runtime/stage6_rfm_dataset_v1/`包含93,234列customers、99,421列order_decisions及manifest；控制guard留`.runtime/stage6_rfm_dataset_build_v1/`，獨立參考與比較留`.runtime/stage6_rfm_builder_independent/`。個體ID、RFM及私有digest不提交；Git clone不含這些檔案。現有bundle只作--verify，不刪檔重播；原四CSV、Stage 4／5私有產物與原契約均保留。快照毛額不升格淨額／營運as-of，未分群。
-
-## Stage 6本輪RFM評估規格的版本沿用
-
-本輪[凍結描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)，只核原bundle與驗收收據metadata／bytes，未解析CSV或產生新個體值。新input guard在`.runtime/stage6_rfm_evaluation_spec_v1/`；未來`.runtime/stage6_rfm_evaluation_v1/`僅預留名稱、未建立，原資料與Stage 4／5凍結資產保留。
-
-## Stage 6本輪描述器合成驗收
-
-本輪[只讀描述實作](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)只對合成記憶體資料驗證；真實dataset_v1與Stage 4／5凍結資產只核metadata／hash，不解析內容或新增個體值。新guard在`.runtime/stage6_rfm_description_implementation_v1/`，測試收據／log在`.runtime/stage6_rfm_description_unit.*`、獨立oracle在`.runtime/stage6_rfm_description_independent/`；未建立未來evaluation_v1或真實描述輸出。
-
-## Stage 6本輪真實描述執行準備
-
-本輪[串接與凍結](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)建立`.runtime/stage6_rfm_description_execution_v1/input_guard.json`，只保存原source snapshot及實測receipt版本。名冊會在未來read_inputs從原orders／customers事件獨立衍生；本輪真實名冊／描述未產生。`.runtime/stage6_rfm_evaluation_v1/`四檔與公開rfm_description.json仍不存在，合成scratch與真實產物分開，原資料及Stage 4／5資產不改。
-
-## Stage 6本輪一次真實只讀描述
-
-沿用原dataset_v1及凍結41來源，已從原orders／customers獨立核完整93,234顧客及99,421筆T前訂單。新`.runtime/stage6_rfm_evaluation_v1/`含description、customer roster、order roster及manifest四檔，output_guard已建立且無failure；私有完整ID與digest不提交。公開只有[聚合描述](../reports/stage6/rfm_description.json)與[驗收](../reports/stage6/rfm_description_acceptance.json)，原RFM與Stage 4／5產物不改。前文各節的「未建立」均為各輪歷史；最新以[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)為準，不重建或重播。

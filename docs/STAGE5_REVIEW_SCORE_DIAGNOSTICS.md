@@ -1,6 +1,6 @@
 # Stage 5：凍結分數與四欄支援診斷
 
-後續已凍結[只移除購買月份的消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)，並核對原完整角色；尚未實作三欄模型或追加訓練。以下保留本輪診斷的來源、數字與假說形成過程。
+後續已凍結[只移除購買月份的消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)，並核對原完整角色；三欄模型之後已實作並完成一次[真實消融](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。以下保留本輪診斷的來源、數字與假說形成過程。
 
 本輪只讀[離線最小基線](STAGE5_REVIEW_OFFLINE_BASELINE.md)留下的分數，對照原H60角色名冊與購買／核准時鐘。完成各角色低評率、分數分布、四欄訓練／查詢支援及既有外層機率損失分解；**沒有新增fit、transform、predict、選C、門檻或模型效能結論**。
 

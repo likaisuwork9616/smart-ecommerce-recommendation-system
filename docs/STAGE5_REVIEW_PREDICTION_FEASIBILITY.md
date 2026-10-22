@@ -1,6 +1,6 @@
 # Stage 5：評論低評分預測可行性盤點
 
-本文件保留前輪不限H的來源盤點與數字；後續完成[訂單級資料集凍結](STAGE5_REVIEW_DATASET_SPEC.md)，固定60天窗口、逐角色as-of品質規則及內外層時間切分，最新再固定[四欄最小基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)。下文72,613張不是H60的合格標籤數；前輪整單品質隔離也不能直接用作歷史fit規則。各輪均未訓練。
+本文件保留前輪不限H的來源盤點與數字；後續完成[訂單級資料集凍結](STAGE5_REVIEW_DATASET_SPEC.md)，固定60天窗口、逐角色as-of品質規則及內外層時間切分，再固定[四欄最小基線規格](STAGE5_REVIEW_BASELINE_SPEC.md)。下文72,613張不是H60的合格標籤數；前輪整單品質隔離也不能直接用作歷史fit規則。盤點、資料集與基線規格三輪均未訓練；之後的開發回測與限制見[模型卡](STAGE5_MODEL_APPLICABILITY.md)。
 
 本輪評估現有Olist資料能否開始評論低評分的離線研究，只盤點問題定義、可用特徵與時間驗證。**沒有訓練、重新預測、選模、模型成績或Dashboard。** Stage 4維持[待資料與交接契約](STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#data-handoff-kit)，原每日10%與五種子契約不變。
 

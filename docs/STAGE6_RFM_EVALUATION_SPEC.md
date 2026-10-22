@@ -1,6 +1,6 @@
 # Stage 6：RFM描述與分群評估凍結規格
 
-最新已依本規格完成[只讀描述與資格守門的合成驗收](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)，真實描述／切點／分群尚未執行。下文保留前輪規格凍結與metadata查核紀錄，原機器規格、policy.current_run與報告bytes不改；「尚未描述器」是當時狀態。
+後續已依本規格完成[只讀描述合成驗收](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)、一次[真實G1描述](STAGE6_RFM_DESCRIPTION_RESULTS.md)與[G2規則候選合成驗收](STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)；真實切點／分群尚未執行，目前進度見[專案進度](PROJECT_PROGRESS.md)。下文保留前輪規格凍結與metadata查核紀錄，原機器規格、policy.current_run與報告bytes不改；「尚未描述器」是當時狀態。
 
 本輪沿用已驗收的RFM v1，**只凍結方法與查核既有來源／版本**。不解析顧客CSV內容，不計分布、分位數或切點，不建立分數／群組，不執行重抽樣、分群模型、訓練或Dashboard。Stage 4、5維持待資料；Stage 4每日10%與11／29／42／73／101五種子不變。
 

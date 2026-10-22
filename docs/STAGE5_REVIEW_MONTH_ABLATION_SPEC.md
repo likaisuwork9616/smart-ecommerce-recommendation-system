@@ -1,6 +1,6 @@
 # Stage 5：移除購買月份的單因子消融規格
 
-後續狀態：三欄實作與合成洩漏驗證已完成，見[實作與測試](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。以下保留凍結規格當輪紀錄；機器規格及稽核bytes不變，三欄真實訓練仍未執行。
+後續狀態：三欄實作與合成洩漏驗證已完成，見[實作與測試](STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。之後已依本規格完成一次[三欄真實消融](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。以下保留凍結規格當輪紀錄；機器規格及稽核bytes不變。
 
 本輪凍結「只移除 `purchase_month`」的消融契約，核對原H60資料與12個完整角色。**沒有實作三欄builder／pipeline，也沒有建X、匯入模型套件、fit、transform、predict、選C或計算效能；Dashboard未開始。** Stage 4維持待資料、每日10%與11／29／42／73／101五種子。
 

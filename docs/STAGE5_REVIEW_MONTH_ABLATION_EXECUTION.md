@@ -1,6 +1,6 @@
 # Stage 5：三欄消融來源串接、執行規格與配對驗收
 
-本頁保留來源準備那一輪的狀態；後續正式入口與writer已另行實作、綁定並做合成驗收，見[最新入口驗證](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。真實三欄訓練仍未執行。
+本頁保留來源準備那一輪的狀態；後續正式入口與writer已另行實作、綁定並做合成驗收，見[入口驗證](STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)；之後已完成一次[三欄真實消融](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。
 
 本輪已串接既有來源守門與完整H60角色名冊，凍結三欄消融的執行政策、私有輸出版本與同ID配對驗收規則。四欄沿用原凍結分數；**沒有建立特徵、建構模型、fit、transform、predict、選C或計算效能**，也沒有Dashboard。
 
