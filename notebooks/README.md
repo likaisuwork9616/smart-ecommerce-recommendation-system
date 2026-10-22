@@ -71,3 +71,7 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 ## Stage 6本輪RFM評估方法凍結
 
 最新[描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)只用metadata／hash核沿用版本，沒有新增或執行Notebook、描述統計、切點、分群、訓練或Dashboard。後續先決定只讀描述器與合成驗證，不重跑03／04或原RFM builder補證據。
+
+## Stage 6本輪只讀描述與資格守門
+
+最新[實作與合成驗收](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)以獨立pure core及synthetic-only CLI完成，不新增或執行Notebook。沒有真實描述、切點、分群、訓練或Dashboard，不重跑03／04、原RFM builder或個體反讀補證據；Stage 4、5維持待資料。

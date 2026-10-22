@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已完成RFM資料集驗收，最新凍結描述／分群評估規格：明定顧客分流、偏態／離群、切點與穩定性驗收，尚未執行描述或分群。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已依凍結規格實作只讀RFM描述與資格守門，46項合成測試及獨立手算驗收通過；真實描述、分群切點與分群尚未執行。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
 | Stage 5：評論低評分預測 | 適用範圍／交付模型卡完成；維持待資料 | 四欄保留開發對照、三欄保留消融證據；新驗證窗0，無追加訓練／新效能 |
-| Stage 6：RFM | 資料集已驗收；描述／分群評估規格凍結 | 完整活躍、零活動與隔離分流、精確切點／ties及穩定性門檻明定；尚未計描述或分群，時間穩定／營運待資料 |
+| Stage 6：RFM | 只讀描述與資格守門實作；合成驗收完成 | 46項測試、獨立手算及33來源／42項metadata通過；未執行真實描述／切點／分群，營運與跨時間仍待資料 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
@@ -43,6 +43,7 @@ py -3.12 -m venv .venv
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
+| 驗證Stage 6只讀描述與資格守門 | [實作與合成驗收](docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) |
 | 看Stage 6描述／分群評估及下一步 | [凍結分流、偏態、切點與穩定性規格](docs/STAGE6_RFM_EVALUATION_SPEC.md) |
 | 驗收Stage 6 RFM builder與實際資料集 | [實作、反讀與同ID驗收](docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) |
 | 看Stage 6凍結母體、RFM定義與輸出 | [RFM資料集規格](docs/STAGE6_RFM_DATASET_SPEC.md) |
@@ -110,7 +111,23 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 6本輪RFM描述／分群評估規格
+## Stage 6本輪只讀RFM描述與資格守門實作
+
+[實作與驗收文件](docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)、[33份來源規格](reports/stage6/rfm_description_implementation_specification.json)及[合成驗收](reports/stage6/rfm_description_pipeline_verification.json)已完成。描述器與資格守門只用合成資料驗證；真實來源僅核metadata／bytes，沒有解析CSV、計真實描述、估分群切點、打分／分群、重抽樣、訓練或Dashboard。
+
+| 本輪工作 | 實際結果／範圍 |
+| --- | --- |
+| 同ID資格 | 嚴格16＋16欄、完整ledger／五狀態、外部名冊與RFM／摘要守恆；僅完整活躍進統計，零活動／隔離保留狀態及null計數 |
+| 精確描述 | 原整數rank與sum／mean分子分母、ties、IQR／Bowley退化、半整數fence、Q99含ties尾額、合法M=0／空集合與log副尺度；不改來源或刪離群 |
+| 合成測試 | core26＋入口20＝46項全過（15.635905秒）；另7組獨立手算及7項資格反例通過，不加總成單元測試數 |
+| 版本驗收 | 原42項metadata及新33來源完整通過；既有dataset／分數／guard不改，未重做真實個體反讀或描述 |
+| 操作邊界 | 純函式回聚合、不寫檔／不輸出ID；CLI只有--verify-synthetic，核已實測receipt，尚無真實描述入口 |
+
+下一步先凍結並串接一次真實只讀描述的來源、完整名冊、輸出與反讀驗收，再決定執行；分群切點／tuple／敏感度與模型仍另行決定。Stage 4、5維持待資料，Stage 4每日10%與五種子不變；時間穩定、原可得／版本、退款及營運用途未解封。
+
+## Stage 6前輪RFM描述／分群評估規格
+
+以下保留前輪方法凍結與32項metadata守門測試紀錄；本輪未重跑這些測試，也沒有執行真實描述或分群。
 
 [凍結文件](docs/STAGE6_RFM_EVALUATION_SPEC.md)、[機器規格](reports/stage6/rfm_evaluation_specification.json)及[metadata查核](reports/stage6/rfm_evaluation_contract_audit.json)固定後續方法，沿用已驗收v1；本輪只核來源／版本與bytes，沒有解析CSV內容、重算RFM、計描述／切點、產生分數／分群、重抽樣、訓練或Dashboard。
 
@@ -427,7 +444,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只執行RFM評估規格／來源守門的合成測試及真實metadata／bytes對帳，沒有解析CSV內容、計描述／切點／分群或模型fit；具體測試與檢查數見本輪Stage 6文件。前輪130項測試與3,082,480格個體反讀／獨立核對保留，未重跑，也不算本輪新成果。原Stage 4／5、RFM資料集及其來源鏈不改，全專案discover未執行。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只讀描述器與入口兩套46項合成測試全過（15.635905秒），另7組手算及7項資格反例驗收通過。真實來源僅33綁定／42項metadata對帳，未解析真實CSV、計真實描述、估切點、分群或模型fit；前輪130／32項與3,082,480格個體反讀保留，未重跑或加總。原Stage 4／5、RFM資料集及來源鏈不改，全專案discover未執行。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

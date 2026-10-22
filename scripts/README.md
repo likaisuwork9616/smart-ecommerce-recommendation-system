@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 驗證Stage 6只讀描述與資格守門 | [verify_rfm_description.py](verify_rfm_description.py)、[純描述器](rfm_description.py) | 只有--verify-synthetic，核兩套實測receipt／33來源／原metadata；不執行真實描述或估切點 |
 | 凍結Stage 6描述／分群評估方法 | [freeze_rfm_evaluation_spec.py](freeze_rfm_evaluation_spec.py)、[純方法規則](rfm_evaluation_contract.py) | --specification-only再--audit；只核metadata／hash，連CSV header也不解析，不計描述或分群 |
 | 驗收Stage 6實際RFM資料集 | [build_rfm_dataset.py](build_rfm_dataset.py)、[純builder](rfm_dataset_builder.py)、[私有writer](rfm_dataset_artifacts.py) | 一次建置已完成，現有bundle只用--verify；需原來源與guard，勿刪檔重播；不分群／訓練 |
 | 凍結Stage 6 RFM資料集契約 | [freeze_rfm_dataset_spec.py](freeze_rfm_dataset_spec.py) | 先--specification-only再核母體／隔離／狀態聚合；不建立個體RFM、builder或分群 |
@@ -56,7 +57,16 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6本輪RFM評估規格
+## Stage 6本輪只讀描述與合成驗收
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_description tests.test_verify_rfm_description -q
+.\.venv\Scripts\python.exe scripts\verify_rfm_description.py --verify-synthetic
+```
+
+純describe_dataset只收記憶體資料、先核資格／同ID／遮罩／守恆再回聚合，不做I/O或分群。上列CLI不跑描述器或suite，需既有原始／私有來源及本輪實測source-bound receipt；先驗27原來源＋原eval spec／audit＋4新程式／測試，共33來源，核既有metadata與receipt後封存合成verification。缺檔或不同bytes即停止，不補假成功。沒有真實描述CLI，詳見[實作／驗收／下一步](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)。
+
+## Stage 6前輪RFM評估規格
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\freeze_rfm_evaluation_spec.py --specification-only

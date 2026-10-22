@@ -1,6 +1,6 @@
 # 專案從起始到目前的進度
 
-資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6沿用已驗收RFM資料集，最新凍結描述／分群評估規格：顧客分流、偏態／離群、ties切點、支援與穩定性門檻已明定。只做metadata／bytes沿用查核，未計描述、切點、分群或訓練；跨時間、原可得／版本、退款及營運用途仍待資料。
+資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6最新完成只讀RFM描述與資格守門，46項合成測試、獨立手算／反例及版本驗收通過；真實來源只查metadata／bytes，沒有解析個體CSV或計真實描述。分群切點、分群、訓練及Dashboard未執行，跨時間與營運用途仍待資料。
 
 這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段，延遲模型仍在研究驗證。
 
@@ -13,14 +13,30 @@
 | Stage 3：商業 EDA | 分析每月訂單與營收、品類、付款、評論、配送時間、延遲比例與顧客地區，產出八張分析圖 | 初版完成 |
 | Stage 4：延遲預測 | 每日10%、五種子、模型卡、研究名冊交付及資料交接清單／驗收範本 | 範本已備；全量名冊／時鐘／版本／日結與事件訊號待資料 |
 | Stage 5：評論低評分預測 | 適用範圍、限制與交付模型卡備妥 | 僅離線開發研究；四欄保留對照、三欄未支持替換，新驗證待資料 |
-| Stage 6：RFM | 已驗收bundle；描述／分群評估方法凍結 | 顧客分流、精確rank／ties、離群與穩定性驗收明定；描述器／分群尚未實作，跨時間及營運仍待資料 |
+| Stage 6：RFM | 已驗收bundle與方法；只讀描述器／資格守門完成合成驗收 | 46測及33來源／42項metadata通過，未執行真實描述、切點或分群；跨時間及營運仍待資料 |
 | Stage 7：Dashboard | 展示分析與模型結果 | 暫緩，先確認延遲模型的適用程度 |
 | Stage 8–13：Retailrocket 與推薦 | 行為分析、熱門商品、共現與個人化推薦 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
 Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
 
-## Stage 6本輪RFM描述／分群評估規格
+## Stage 6本輪只讀RFM描述與資格守門實作
+
+[實作與驗收文件](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)、[33份來源規格](../reports/stage6/rfm_description_implementation_specification.json)及[合成驗收](../reports/stage6/rfm_description_pipeline_verification.json)已完成。描述器與資格守門只用合成資料驗證；真實來源僅核metadata／bytes，沒有解析CSV、計真實描述、估分群切點、打分／分群、重抽樣、訓練或Dashboard。
+
+| 本輪工作 | 實際結果／範圍 |
+| --- | --- |
+| 同ID資格 | 嚴格16＋16欄、完整ledger／五狀態、外部名冊與RFM／摘要守恆；僅完整活躍進統計，零活動／隔離保留狀態及null計數 |
+| 精確描述 | 原整數rank與sum／mean分子分母、ties、IQR／Bowley退化、半整數fence、Q99含ties尾額、合法M=0／空集合與log副尺度；不改來源或刪離群 |
+| 合成測試 | core26＋入口20＝46項全過（15.635905秒）；另7組獨立手算及7項資格反例通過，不加總成單元測試數 |
+| 版本驗收 | 原42項metadata及新33來源完整通過；既有dataset／分數／guard不改，未重做真實個體反讀或描述 |
+| 操作邊界 | 純函式回聚合、不寫檔／不輸出ID；CLI只有--verify-synthetic，核已實測receipt，尚無真實描述入口 |
+
+下一步先凍結並串接一次真實只讀描述的來源、完整名冊、輸出與反讀驗收，再決定執行；分群切點／tuple／敏感度與模型仍另行決定。Stage 4、5維持待資料，Stage 4每日10%與五種子不變；時間穩定、原可得／版本、退款及營運用途未解封。
+
+## Stage 6前輪RFM描述／分群評估規格
+
+以下保留前輪方法凍結與32項metadata守門測試紀錄；本輪未重跑這些測試，也沒有執行真實描述或分群。
 
 [凍結文件](STAGE6_RFM_EVALUATION_SPEC.md)、[機器規格](../reports/stage6/rfm_evaluation_specification.json)及[metadata查核](../reports/stage6/rfm_evaluation_contract_audit.json)固定後續方法，沿用已驗收v1；本輪只核來源／版本與bytes，沒有解析CSV內容、重算RFM、計描述／切點、產生分數／分群、重抽樣、訓練或Dashboard。
 

@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6 RFM評估契約驗證
+## 本輪Stage 6只讀描述與資格守門
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_description tests.test_verify_rfm_description -q
+```
+
+本輪core26＋入口20共46項全過（15.635905秒），核五狀態同ID、原欄型別／ledger／遮罩守恆、精確rank／ties、2^53以上金額、IQR退化／半整數與等號界、全零／空集合、log、不突變、33來源／receipt及失敗停止。另7組獨立手算與7項資格反例通過，不與單元測試加總；原130／32項、全專案discover與真實個體反讀未重跑。詳見[實作驗收](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)及[合成報告](../reports/stage6/rfm_description_pipeline_verification.json)，沒有真實描述或分群效果。
+
+## 前輪Stage 6 RFM評估契約驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_evaluation_spec -q

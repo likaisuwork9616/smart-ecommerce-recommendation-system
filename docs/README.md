@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4、5維持待資料；Stage 6沿用已驗收RFM，最新凍結描述／分群評估規格。只核來源版本，未計描述／切點／分群、訓練或Dashboard。先看[專案首頁](../README.md)，再查本輪方法與前輪實作／契約。
+Stage 4、5維持待資料；Stage 6最新完成只讀描述與資格守門的合成驗收。真實來源只核版本，尚未執行真實描述、分群切點、分群、訓練或Dashboard。先看[專案首頁](../README.md)，再查本輪描述器及前輪方法／資料集。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 6 RFM描述／分群評估 | [分流、偏態／離群、切點與穩定性](STAGE6_RFM_EVALUATION_SPEC.md) | 方法／27份來源凍結，沿用bundle；未計描述／切點或分群，跨時間穩定待資料 |
+| 最新Stage 6只讀RFM描述實作 | [資格守門、精確描述與合成驗收](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) | 46測、獨立手算／反例與33來源／42項metadata通過；未執行真實描述／切點／分群 |
+| 前輪Stage 6 RFM描述／分群評估 | [分流、偏態／離群、切點與穩定性](STAGE6_RFM_EVALUATION_SPEC.md) | 方法／27份來源凍結，沿用bundle；未計描述／切點或分群，跨時間穩定待資料 |
 | 前輪Stage 6 RFM實作與驗收 | [builder、反讀與完整同ID核對](STAGE6_RFM_DATASET_IMPLEMENTATION.md) | 93,234顧客／99,421逐單、130項測試與3,082,480格獨立核對通過；未分群 |
 | 前輪Stage 6 RFM資料集契約 | [母體、資格、RFM與輸出](STAGE6_RFM_DATASET_SPEC.md) | 93,234歷史顧客、74,088窗口單；59異常隔離、零活動／未知遮罩、S／T及16欄輸出凍結，未做builder |
 | 前輪Stage 6 RFM輸入盤點 | [顧客鍵、資格、金額與時間截止](STAGE6_RFM_FEASIBILITY.md) | 原四表來源守門、候選74,147單／72,183顧客鍵，20項合成測試與59項獨立對帳；未建RFM／分群 |

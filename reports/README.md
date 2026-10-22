@@ -6,7 +6,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 6 RFM評估規格 | [方法文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md) → [27份來源／機器規格](stage6/rfm_evaluation_specification.json) → [metadata查核](stage6/rfm_evaluation_contract_audit.json)；僅沿用版本，沒有新分布、切點、群組或效果數字 |
+| 最新Stage 6只讀描述合成驗收 | [實作解讀](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) → [33份來源規格](stage6/rfm_description_implementation_specification.json) → [合成verification](stage6/rfm_description_pipeline_verification.json)；46測＋metadata沿用，沒有真實分布／切點／群組值 |
+| 前輪Stage 6 RFM評估規格 | [方法文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md) → [27份來源／機器規格](stage6/rfm_evaluation_specification.json) → [metadata查核](stage6/rfm_evaluation_contract_audit.json)；僅沿用版本，沒有新分布、切點、群組或效果數字 |
 | 前輪Stage 6 RFM建置與驗收 | [實作解讀](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) → [20份來源規格](stage6/rfm_dataset_build_specification.json) → [真實建置](stage6/rfm_dataset_build.json) → [分項驗收](stage6/rfm_dataset_build_acceptance.json)；只放聚合，不含個體RFM／私有digest或分群效果 |
 | 前輪Stage 6 RFM資料集契約 | [解讀與輸出規格](../docs/STAGE6_RFM_DATASET_SPEC.md) → [凍結規格](stage6/rfm_dataset_specification.json) → [聚合支援查核](stage6/rfm_dataset_contract_audit.json)；母體、59異常、零活動與M遮罩已凍結，未建個體資料集或分群 |
 | 前輪Stage 6 RFM輸入支援 | [解讀與候選契約](../docs/STAGE6_RFM_FEASIBILITY.md) → [來源／政策規格](stage6/rfm_feasibility_specification.json) → [實際聚合盤點](stage6/rfm_feasibility.json)；只查鍵、資格、金額與時間，不含RFM個體值、分群或效能 |
