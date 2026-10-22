@@ -1,6 +1,6 @@
 # 專案從起始到目前的進度
 
-資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6最新完成只讀RFM描述與資格守門，46項合成測試、獨立手算／反例及版本驗收通過；真實來源只查metadata／bytes，沒有解析個體CSV或計真實描述。分群切點、分群、訓練及Dashboard未執行，跨時間與營運用途仍待資料。
+資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6最新完成真實只讀描述的來源、獨立完整名冊、私有／公開輸出與反讀串接／凍結，58項合成測試及41來源／42項metadata準備查核通過。真實CSV、名冊與描述尚未執行；分群切點、分群、訓練與Dashboard均未進行，跨時間及營運用途仍待資料。
 
 這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段，延遲模型仍在研究驗證。
 
@@ -13,14 +13,30 @@
 | Stage 3：商業 EDA | 分析每月訂單與營收、品類、付款、評論、配送時間、延遲比例與顧客地區，產出八張分析圖 | 初版完成 |
 | Stage 4：延遲預測 | 每日10%、五種子、模型卡、研究名冊交付及資料交接清單／驗收範本 | 範本已備；全量名冊／時鐘／版本／日結與事件訊號待資料 |
 | Stage 5：評論低評分預測 | 適用範圍、限制與交付模型卡備妥 | 僅離線開發研究；四欄保留對照、三欄未支持替換，新驗證待資料 |
-| Stage 6：RFM | 已驗收bundle與方法；只讀描述器／資格守門完成合成驗收 | 46測及33來源／42項metadata通過，未執行真實描述、切點或分群；跨時間及營運仍待資料 |
+| Stage 6：RFM | 真實只讀描述執行流程已串接凍結 | 58測、41來源／42項metadata通過；獨立名冊及輸出反讀就緒，真實描述／名冊、切點／分群均未執行 |
 | Stage 7：Dashboard | 展示分析與模型結果 | 暫緩，先確認延遲模型的適用程度 |
 | Stage 8–13：Retailrocket 與推薦 | 行為分析、熱門商品、共現與個人化推薦 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
 Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
 
-## Stage 6本輪只讀RFM描述與資格守門實作
+## Stage 6本輪真實只讀描述執行準備
+
+[執行準備文件](STAGE6_RFM_DESCRIPTION_EXECUTION.md)、[41份來源規格](../reports/stage6/rfm_description_execution_specification.json)與[合成／metadata準備查核](../reports/stage6/rfm_description_execution_preflight.json)已完成。完整載入→原來源獨立名冊→單次core→私有／公開聚合→反讀已串接，但本輪只對合成資料走完整路徑；真實僅metadata／hash準備，未解析CSV、建立真實名冊、執行描述、估切點、分群、訓練或Dashboard。
+
+| 本輪工作 | 實際結果／範圍 |
+| --- | --- |
+| 來源與名冊 | 原orders／customers最小事件／身分投影獨立重建顧客全集、全部T前訂單及窗口集合，逐單核UID／時間／資格；保留母體外非合格／隔離單，不借衍生CSV反造expected IDs |
+| 輸出與反讀 | 未來私有四檔description、customer roster、order roster、manifest；公開只有聚合與完整版本。全ID／欄值／nullable／float位元及母體／金額守恆須通過 |
+| 合成驗收 | sources20＋outputs21＋runner17＝58項全過（18.236869秒），含端到端單次core、失敗停止、來源／public／private bytes變更與禁止重播 |
+| 實際準備 | 41來源、原42項metadata及source-bound實測receipt通過；prepare被禁止loader／名冊衍生／core／writer／CSV解析時仍成功 |
+| 成功界線 | public JSON單獨存在不算成功；必須output_guard有效、無failure且verify_completed通過。真實四檔與公開結果本輪均未建立 |
+
+CLI只有--prepare；execute_prepared與verify_completed已接妥並用合成資料驗證，沒有暴露真實執行參數。下一步可另輪依凍結入口執行一次真實只讀描述及完整反讀，再解讀G1；切點／分群與模型仍不進行。Stage 4、5維持待資料，Stage 4每日10%與五種子不變；跨時間與營運用途仍待資料。
+
+## Stage 6前輪只讀RFM描述與資格守門實作
+
+以下保留前輪純描述器46項測試與oracle紀錄；本輪未重跑或加總為新測試。最新串接／輸出／名冊契約以上節為準。
 
 [實作與驗收文件](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)、[33份來源規格](../reports/stage6/rfm_description_implementation_specification.json)及[合成驗收](../reports/stage6/rfm_description_pipeline_verification.json)已完成。描述器與資格守門只用合成資料驗證；真實來源僅核metadata／bytes，沒有解析CSV、計真實描述、估分群切點、打分／分群、重抽樣、訓練或Dashboard。
 

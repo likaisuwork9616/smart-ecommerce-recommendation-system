@@ -91,3 +91,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Stage 6本輪描述器合成驗收
 
 本輪[只讀描述實作](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)只對合成記憶體資料驗證；真實dataset_v1與Stage 4／5凍結資產只核metadata／hash，不解析內容或新增個體值。新guard在`.runtime/stage6_rfm_description_implementation_v1/`，測試收據／log在`.runtime/stage6_rfm_description_unit.*`、獨立oracle在`.runtime/stage6_rfm_description_independent/`；未建立未來evaluation_v1或真實描述輸出。
+
+## Stage 6本輪真實描述執行準備
+
+本輪[串接與凍結](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)建立`.runtime/stage6_rfm_description_execution_v1/input_guard.json`，只保存原source snapshot及實測receipt版本。名冊會在未來read_inputs從原orders／customers事件獨立衍生；本輪真實名冊／描述未產生。`.runtime/stage6_rfm_evaluation_v1/`四檔與公開rfm_description.json仍不存在，合成scratch與真實產物分開，原資料及Stage 4／5資產不改。

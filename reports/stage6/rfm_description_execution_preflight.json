@@ -1,0 +1,133 @@
+{
+  "accepted_metadata_checks": {
+    "acceptance_build_report": true,
+    "acceptance_build_specification": true,
+    "acceptance_independent_receipt": true,
+    "acceptance_prior_read_only_permissions": true,
+    "acceptance_real_bundle": true,
+    "acceptance_stage4_stage5_unchanged": true,
+    "acceptance_version_status_permissions": true,
+    "accepted_money_mask_and_conservation": true,
+    "accepted_population_denominators": true,
+    "accepted_readback_schema_types_counts": true,
+    "accepted_state_types_sum": true,
+    "bound_original_contract_support": true,
+    "complete_twenty_original_sources": true,
+    "independent_customer_null_cells": true,
+    "independent_per_file_rows_cells_binary64": true,
+    "independent_prior_acceptance_passed": true,
+    "independent_prior_cell_count": true,
+    "independent_reference_clock_and_quality_counts": true,
+    "independent_reference_customer_bytes": true,
+    "independent_reference_money_conservation": true,
+    "independent_reference_order_bytes": true,
+    "independent_reference_population_frequency_nulls": true,
+    "independent_reference_source_rows": true,
+    "independent_reference_states": true,
+    "independent_total_equals_per_file_cells": true,
+    "manifest_dataset_contract": true,
+    "manifest_prior_readback": true,
+    "manifest_private_csv_bytes": true,
+    "manifest_rows": true,
+    "manifest_schema": true,
+    "manifest_seven_keys": true,
+    "manifest_sources": true,
+    "manifest_summary": true,
+    "prior_readback_passed": true,
+    "private_bundle_all_three_bytes": true,
+    "private_guard_build_specification": true,
+    "private_guard_dataset_contract": true,
+    "private_guard_prior_readback": true,
+    "private_guard_source_list": true,
+    "private_guard_version": true,
+    "public_build_specification": true,
+    "public_build_version_policy_status": true
+  },
+  "decision": "prepared_only_next_decide_one_real_readonly_description_no_cutpoints_or_groups",
+  "execution": {
+    "core_dispatch_wired": true,
+    "cutpoints_estimated": false,
+    "dashboard": false,
+    "future_outputs_created": false,
+    "independent_roster_wired": true,
+    "model_fits": 0,
+    "private_public_outputs_and_readback_wired": true,
+    "real_CSV_parsed": false,
+    "real_description_executed": false,
+    "real_roster_created": false,
+    "resampling_executed": false,
+    "scores_or_groups_created": false,
+    "source_loader_wired": true,
+    "synthetic_only": true
+  },
+  "format_version": 1,
+  "policy": {
+    "CLI": "prepare_only_no_real_execution_or_path_override",
+    "core": "one_frozen_describe_dataset_call_after_full_source_ID_guard_expected_customer_roster_required",
+    "current_round": {
+      "real_CSV_parsed": false,
+      "real_description_executed": false,
+      "real_description_outputs_created": false,
+      "real_roster_created": false
+    },
+    "cutpoints": false,
+    "dashboard": false,
+    "failure": "stop_no_success_return_no_automatic_resume_overwrite_or_rebuild_private_failure_receipt",
+    "future_execute_callable": "wired_and_tested_on_synthetic_inputs_not_called_on_real_data_this_round",
+    "future_private_output": ".runtime/stage6_rfm_evaluation_v1/",
+    "future_public_output": "reports/stage6/rfm_description.json",
+    "future_verify": "source_and_output_guards_then_readback_without_reexecuting_core",
+    "independent_roster": "original_order_customer_event_projections_not_derived_bundle_roster",
+    "model_fits": 0,
+    "publication": "private_four_file_staging_full_typed_readback_then_public_aggregate_then_external_output_guard",
+    "readback": "all_roster_rows_and_aggregate_values_exact_types_nulls_float64_bits_plus_population_money_conservation",
+    "resampling": false,
+    "roster_checks": "all_history_customer_IDs_all_preT_order_IDs_window_order_IDs_and_every_order_mapping_clock_reason_flags",
+    "scope": "freeze_complete_readonly_description_execution_synthetic_tests_only",
+    "scores_or_groups": false,
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    }
+  },
+  "reused_accepted_rows": {
+    "customers.csv": 93234,
+    "order_decisions.csv": 99421
+  },
+  "source_count": 41,
+  "specification": {
+    "bytes": 10656,
+    "path": "reports/stage6/rfm_description_execution_specification.json",
+    "sha256": "565c8a46c3b730b020c42f47faf5f9137865beda549ecd0f9576e353d72055f8"
+  },
+  "status": "readonly_description_execution_prepared_synthetic_accepted_real_run_not_executed",
+  "unit_tests": {
+    "elapsed_seconds": 18.236869,
+    "errors": 0,
+    "failures": 0,
+    "modules": [
+      "tests.test_rfm_description_sources",
+      "tests.test_rfm_description_outputs",
+      "tests.test_prepare_rfm_description"
+    ],
+    "skipped": 0,
+    "successful": true,
+    "tests_by_module": {
+      "tests.test_prepare_rfm_description": 17,
+      "tests.test_rfm_description_outputs": 21,
+      "tests.test_rfm_description_sources": 20
+    },
+    "tests_run": 58
+  }
+}
