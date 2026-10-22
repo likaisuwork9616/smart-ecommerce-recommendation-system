@@ -14,6 +14,7 @@
 
 | 範圍 | 測試內容／入口 |
 | --- | --- |
+| Stage 6 G2規則候選 | [test_rfm_rule_candidate.py](test_rfm_rule_candidate.py)、[test_verify_rfm_rule_candidate.py](test_verify_rfm_rule_candidate.py)；合成ties／切點／級數／支援／同ID重現、完整G0與入口不可覆寫／source-bound收據 |
 | 特徵與標記 | `test_delay_*features.py`、`test_delay_features.py`；訂單聚合、key、缺值與事件時鐘 |
 | 訓練與時間切分 | `test_delay_*training.py`、`test_delay_*validation.py`；成熟答案、同月隔離與query群組 |
 | 提醒政策與排名 | `test_delay_alert_policy.py`、`test_delay_calibration_policy.py`及排序測試；完整日分母、取整、ties與未知答案 |
@@ -21,9 +22,21 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6真實描述交付驗收
+## 本輪Stage 6 G2規則候選與資格守門
 
-本輪不修改凍結程式／測試，不重跑合成suite或全專案discover；沿用前輪58項source-bound實測receipt。一次真實execute的core恰好1次，完成後以禁止core的verify_completed及獨立名冊稽核驗收。93,234顧客／99,421訂單、776,807格名冊與244個聚合scalar（含45個binary64）反讀一致；這些是實際資料交付核對，不加總為單元測試數、模型效能或未知資料成績。詳見[真實結果與驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate tests.test_verify_rfm_rule_candidate -q
+```
+
+新[純核心](../scripts/rfm_rule_candidate.py)的31項合成測試涵蓋原整數rank、ties不拆、重複／min／max切點、1–5級與R實際方向、支援99／100及20,000／20,001邊界、M>2^53與零元、空參考、五狀態／名冊／型別／守恆及不修改輸入。同ID對抗會拒收同箱大小卻交換ID、改切點、跨序一致仍拆ties或遺漏分配。另以125格各4人的案例核小joint cell單獨限制，不誤使每軸已達支援的G2失敗。
+
+[合成驗證入口](../scripts/verify_rfm_rule_candidate.py)首次--verify-synthetic實跑上述兩套新測試與四組獨立預期案例，核完整49來源與既有G1證據，再固定[實作規格](../reports/stage6/rfm_rule_candidate_implementation_specification.json)及[實測報告](../reports/stage6/rfm_rule_candidate_verification.json)；兩套測數、耗時與完整test IDs以報告為準。重入只驗現有來源、報告語義及收據bytes，不重跑測試或覆寫；一般unittest命令不建立正式verification收據。
+
+本輪未解析真實CSV、估真實切點、產生真實tuple、分群、訓練或做Dashboard，G3未實作／執行，也未重跑舊suite或全專案discover。Stage 4、5待資料，Stage 4每日10%與11／29／42／73／101五種子不變；詳見[實作與限制](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)。
+
+## 前輪Stage 6真實描述交付驗收
+
+該輪不修改凍結程式／測試，不重跑合成suite或全專案discover；沿用當時58項source-bound實測receipt。一次真實execute的core恰好1次，完成後以禁止core的verify_completed及獨立名冊稽核驗收。93,234顧客／99,421訂單、776,807格名冊與244個聚合scalar（含45個binary64）反讀一致；這些是實際資料交付核對，不加總為單元測試數、模型效能或未知資料成績。詳見[真實結果與驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
 
 ## 前輪Stage 6真實描述執行串接驗證
 

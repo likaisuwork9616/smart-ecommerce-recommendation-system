@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 驗證Stage 6 G2規則候選與資格守門 | [verify_rfm_rule_candidate.py](verify_rfm_rule_candidate.py)、[純G2核心](rfm_rule_candidate.py)、[實作與操作](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 僅--verify-synthetic；首次實跑兩套新測試與四組合成案例，核49來源及既有G1證據後固定報告；重入只核既有收據，不重跑或覆寫。沒有真實G2入口 |
 | 反讀Stage 6真實描述現有結果 | [凍結函式verify_completed](prepare_rfm_description.py)、[結果與操作](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 已完成一次真實execute及完整反讀；現有bundle只做verify，不重播prepare／execute；不重算描述／切點或分群 |
 | 前輪準備Stage 6真實只讀描述 | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；future execute／verify callable只用合成驗證，本輪不讀真實CSV或執行描述 |
 | 驗證Stage 6只讀描述與資格守門 | [verify_rfm_description.py](verify_rfm_description.py)、[純描述器](rfm_description.py) | 只有--verify-synthetic，核兩套實測receipt／33來源／原metadata；不執行真實描述或估切點 |
@@ -59,9 +60,27 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6本輪真實描述與現有產物反讀
+## Stage 6本輪G2規則候選合成驗收
 
-已在新授權下直接呼叫凍結execute_prepared一次，未修改其CLI／41來源；core1次，verify_completed禁止core時仍通過。私有四檔與public JSON已存在，禁止重播execute／prepare或刪檔重建；可用以下只讀命令核來源、全名冊與現有輸出，詳見[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
+[純核心](rfm_rule_candidate.py)只接收記憶體資料，先核完整G0／獨立名冊與G1接受聲明，再產生精確分位切點、每軸箱支援及同ID重現檢查；個體分配僅留私有記憶體。可單獨執行[核心測試](../tests/test_rfm_rule_candidate.py)與[入口測試](../tests/test_verify_rfm_rule_candidate.py)，不需要真實資料：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate tests.test_verify_rfm_rule_candidate -q
+```
+
+正式合成驗證入口需要原本機來源與已完成G1驗收證據：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\verify_rfm_rule_candidate.py --verify-synthetic
+```
+
+首次執行實跑兩套新測試與四組合成案例，前後只以binary hash／JSON metadata核既有真實來源，固定[49來源規格](../reports/stage6/rfm_rule_candidate_implementation_specification.json)、[合成驗收](../reports/stage6/rfm_rule_candidate_verification.json)及私有guard／log。再次執行只核同版來源、完整報告語義及現有收據bytes，不重跑測試或改耗時；缺檔、部分產物或來源不同即停止，不刪檔重凍結。
+
+本輪沒有真實CSV解析、真實切點／tuple、分群、訓練或Dashboard，G3未做；Stage 4、5維持待資料，Stage 4每日10%與11／29／42／73／101五種子不變。詳見[實作、案例與下一步](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)。
+
+## Stage 6前輪真實描述與現有產物反讀
+
+前輪已直接呼叫凍結execute_prepared一次，未修改其CLI／41來源；core1次，verify_completed禁止core時仍通過。私有四檔與public JSON已存在，禁止重播execute／prepare或刪檔重建；可用以下只讀命令核來源、全名冊與現有輸出，詳見[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
 
 ```powershell
 .\.venv\Scripts\python.exe -c "from scripts.prepare_rfm_description import verify_completed; print(verify_completed())"

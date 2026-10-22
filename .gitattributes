@@ -204,3 +204,10 @@ reports/stage6/rfm_description_execution_preflight.json -text whitespace=blank-a
 # Preserve the one-time real RFM description and aggregate acceptance bytes.
 reports/stage6/rfm_description.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage6/rfm_description_acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve synthetic-only G2 candidate implementation and verification bindings.
+scripts/rfm_rule_candidate.py text eol=lf
+scripts/verify_rfm_rule_candidate.py text eol=lf
+tests/test_rfm_rule_candidate.py text eol=lf
+tests/test_verify_rfm_rule_candidate.py text eol=lf
+reports/stage6/rfm_rule_candidate_implementation_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage6/rfm_rule_candidate_verification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
