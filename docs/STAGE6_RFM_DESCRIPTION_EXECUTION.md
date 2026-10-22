@@ -1,5 +1,7 @@
 # Stage 6：真實只讀描述串接與執行準備
 
+本文件保留準備輪的合成測試與real=false歷史紀錄；後續已另輪完成[一次真實描述及交付驗收](STAGE6_RFM_DESCRIPTION_RESULTS.md)。下文「本輪／未來」均指原準備輪，凍結程式、規格、報告與guard未改。
+
 已串接來源守門、獨立完整同ID名冊、單次凍結描述器、私有／公開聚合輸出及反讀驗收，並凍結[執行規格](../reports/stage6/rfm_description_execution_specification.json)與[準備查核](../reports/stage6/rfm_description_execution_preflight.json)。**本輪只執行合成測試與真實來源的metadata／hash準備查核，未執行真實描述或建立真實名冊。** 切點、分數／分群、重抽樣、訓練及Dashboard均未執行；Stage 4、5待資料，Stage 4每日10%與11／29／42／73／101五種子不變。
 
 [前輪純描述器](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)與[評估方法](STAGE6_RFM_EVALUATION_SPEC.md)原位保留，程式／JSON／私有產物bytes不改。本輪新增串接，沒有將前輪46項或原資料集反讀結果回寫成本輪新成果，也沒有新的分布、模型或業務結論。

@@ -79,3 +79,7 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 ## Stage 6本輪真實描述流程串接
 
 最新[執行準備與合成驗收](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)使用獨立CLI --prepare及三套synthetic tests，沒有新增或執行Notebook。source／名冊／單core／private-public輸出與反讀已接妥，但本輪未對真實資料呼叫execute_prepared；切點、分群、訓練、Dashboard未執行，不重跑03／04或原builder補證據。
+
+## Stage 6本輪一次真實只讀描述
+
+最新[真實結果及交付驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)透過凍結函式完成一次描述、完整來源名冊及私有／公開反讀；沒有新增或執行Notebook，也未重跑03／04或原builder。F高度集中於1且IQR退化，尚無真實切點、分群、訓練或Dashboard；Stage 4、5待資料，Stage 4每日10%與五種子不變。前文各節的「未真實描述」保留當輪歷史。

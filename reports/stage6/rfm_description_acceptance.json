@@ -1,0 +1,193 @@
+{
+  "accepted_metadata_checks": {
+    "acceptance_build_report": true,
+    "acceptance_build_specification": true,
+    "acceptance_independent_receipt": true,
+    "acceptance_prior_read_only_permissions": true,
+    "acceptance_real_bundle": true,
+    "acceptance_stage4_stage5_unchanged": true,
+    "acceptance_version_status_permissions": true,
+    "accepted_money_mask_and_conservation": true,
+    "accepted_population_denominators": true,
+    "accepted_readback_schema_types_counts": true,
+    "accepted_state_types_sum": true,
+    "bound_original_contract_support": true,
+    "complete_twenty_original_sources": true,
+    "independent_customer_null_cells": true,
+    "independent_per_file_rows_cells_binary64": true,
+    "independent_prior_acceptance_passed": true,
+    "independent_prior_cell_count": true,
+    "independent_reference_clock_and_quality_counts": true,
+    "independent_reference_customer_bytes": true,
+    "independent_reference_money_conservation": true,
+    "independent_reference_order_bytes": true,
+    "independent_reference_population_frequency_nulls": true,
+    "independent_reference_source_rows": true,
+    "independent_reference_states": true,
+    "independent_total_equals_per_file_cells": true,
+    "manifest_dataset_contract": true,
+    "manifest_prior_readback": true,
+    "manifest_private_csv_bytes": true,
+    "manifest_rows": true,
+    "manifest_schema": true,
+    "manifest_seven_keys": true,
+    "manifest_sources": true,
+    "manifest_summary": true,
+    "prior_readback_passed": true,
+    "private_bundle_all_three_bytes": true,
+    "private_guard_build_specification": true,
+    "private_guard_dataset_contract": true,
+    "private_guard_prior_readback": true,
+    "private_guard_source_list": true,
+    "private_guard_version": true,
+    "public_build_specification": true,
+    "public_build_version_policy_status": true
+  },
+  "completed_verification": {
+    "core_calls": 0,
+    "elapsed_seconds": 93.232474,
+    "failure_absent": true,
+    "output_guard_valid": true,
+    "status": "readonly_description_verified_without_core_reexecution"
+  },
+  "current_round": {
+    "frozen_sources_or_preparation_modified": false,
+    "full_project_discover_executed": false,
+    "real_CSV_parsed": true,
+    "real_description_executed": true,
+    "real_outputs_created": true,
+    "real_roster_created": true,
+    "unit_tests_rerun": false
+  },
+  "decision": "description_accepted_next_synthetic_rule_candidate_implementation_no_real_cuts_or_groups",
+  "execution": {
+    "cutpoints_estimated": false,
+    "dashboard": false,
+    "model_fits": 0,
+    "resampling_executed": false,
+    "scores_assigned": false,
+    "segments_assigned": false,
+    "source_RFM_modified": false
+  },
+  "execution_specification": {
+    "bytes": 10656,
+    "path": "reports/stage6/rfm_description_execution_specification.json",
+    "sha256": "565c8a46c3b730b020c42f47faf5f9137865beda549ecd0f9576e353d72055f8"
+  },
+  "format_version": 1,
+  "gate_status": {
+    "G0": "passed",
+    "G1": "ready_for_aggregate_review",
+    "G2": "not_executed",
+    "G3": "not_executed",
+    "temporal": "pending_data"
+  },
+  "independent_acceptance": {
+    "checks": {
+      "all_four_private_files_and_public_guard": true,
+      "all_new_roster_rows_values": true,
+      "cutpoints_groups_fits_dashboard_not_executed": true,
+      "every_order_11_proof_fields": true,
+      "exact_all_preT_orders": true,
+      "exact_source_customer_universe": true,
+      "exact_window_order_IDs": true,
+      "independent_state_and_F_M_conservation": true,
+      "no_failure": true,
+      "public_private_description_and_core_hash_same": true
+    },
+    "core_attempts": 0,
+    "independent_order_proof_cells_compared": 1093631,
+    "independent_order_proof_fields": 11,
+    "money_cents": {
+      "known_window_product": 1016801111,
+      "masked_known_product": 14799,
+      "published_customer_product": 1016786312
+    },
+    "new_roster_cells_compared": 776807,
+    "old_private_evidence_unchanged": 66,
+    "readback_acceptance": {
+      "aggregate_scalar_values_compared": 244,
+      "all_values_read_back": true,
+      "binary64_values_compared": 45,
+      "float64_bitwise": true,
+      "roster_cells_compared": 776807,
+      "rows": {
+        "customer_roster.csv": 93234,
+        "order_roster.csv": 99421
+      },
+      "same_ID_rosters": true,
+      "strict_types_and_nulls": true
+    },
+    "rows": {
+      "customer_roster.csv": 93234,
+      "order_roster.csv": 99421,
+      "outside_customer_universe_orders_retained": 2872,
+      "window_eligible_orders": 74088
+    },
+    "source_bindings_unchanged": 41,
+    "status": "passed_independent_source_roster_and_completed_readback_without_core",
+    "total_seconds": 95.679569,
+    "verification_seconds": 88.731752
+  },
+  "limitations": [
+    "Retrospective final snapshot; no original ingestion/revision or complete lifetime proof.",
+    "M is product gross snapshot, not refunds, settlement, net revenue or future customer value.",
+    "Only complete active customers enter numeric summaries; withheld R/F remain partial subsets.",
+    "Descriptive output is not approval for cutpoints, customer partitions, models or business use.",
+    "One snapshot cannot establish temporal stability."
+  ],
+  "one_real_execution": {
+    "counts": {
+      "core_calls": 1,
+      "independent_roster_calls": 1,
+      "source_loader_calls": 1,
+      "verify_core_calls": 0
+    },
+    "elapsed_seconds": 175.759135,
+    "full_roster_counts": {
+      "core_expected_customer_count": 93234,
+      "customer_ids_count": 93234,
+      "order_ids_count": 99421,
+      "order_proofs_count": 99421,
+      "window_order_ids_count": 74088
+    },
+    "status": "readonly_RFM_description_completed_readback_accepted"
+  },
+  "readback_acceptance": {
+    "aggregate_scalar_values_compared": 244,
+    "all_values_read_back": true,
+    "binary64_values_compared": 45,
+    "float64_bitwise": true,
+    "roster_cells_compared": 776807,
+    "rows": {
+      "customer_roster.csv": 93234,
+      "order_roster.csv": 99421
+    },
+    "same_ID_rosters": true,
+    "strict_types_and_nulls": true
+  },
+  "source_bindings_before_after_match": true,
+  "source_count": 41,
+  "source_report": {
+    "bytes": 18060,
+    "path": "reports/stage6/rfm_description.json",
+    "sha256": "e291816e5b40595bece098adb82f6b88dd8b845c2d49b0b6bbe357b7c587b63d"
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "stage5": {
+    "H60_roles_scores_and_window_purposes_unchanged": true,
+    "status": "pending_data"
+  },
+  "status": "one_real_readonly_RFM_description_and_independent_readback_accepted",
+  "validation_scope": "historical_snapshot_G0_G1_and_delivery_not_model_performance_or_business_validation"
+}

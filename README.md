@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已串接並凍結真實只讀描述的來源、完整同ID名冊、私有／公開聚合及反讀流程，58項合成測試通過；真實描述與名冊尚未執行，切點／分群亦未進行。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已依凍結入口完成一次真實只讀RFM描述與完整同ID／輸出反讀；72,124完整活躍顧客中97.52%只有1單，F的IQR為0。切點／分群尚未進行。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
 | Stage 5：評論低評分預測 | 適用範圍／交付模型卡完成；維持待資料 | 四欄保留開發對照、三欄保留消融證據；新驗證窗0，無追加訓練／新效能 |
-| Stage 6：RFM | 真實只讀描述串接／規格凍結；合成驗收完成 | 58測、41來源／42項metadata通過；完整名冊、私有／公開反讀已接，未執行真實描述／切點／分群 |
+| Stage 6：RFM | 一次真實只讀描述／完整交付反讀完成 | 93,234顧客／99,421訂單同ID，776,807格名冊與244聚合值一致；F高度單次交易，切點／分群未執行 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
@@ -43,6 +43,7 @@ py -3.12 -m venv .venv
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
+| 看Stage 6真實描述結果與交付驗收 | [分流、RFM摘要與限制](docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) |
 | 看Stage 6真實描述執行準備與輸出契約 | [來源、完整名冊、輸出與反讀](docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md) |
 | 驗證Stage 6只讀描述與資格守門 | [實作與合成驗收](docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) |
 | 看Stage 6描述／分群評估及下一步 | [凍結分流、偏態、切點與穩定性規格](docs/STAGE6_RFM_EVALUATION_SPEC.md) |
@@ -112,7 +113,23 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 6本輪真實只讀描述執行準備
+## Stage 6本輪一次真實只讀RFM描述
+
+[真實結果與交付驗收](docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)、[完整聚合](reports/stage6/rfm_description.json)及[驗收報告](reports/stage6/rfm_description_acceptance.json)已完成。本輪沿用凍結入口執行一次，core恰好1次；再以禁止core的verify_completed完成反讀，原RFM／41來源與準備證據不改。
+
+| 本輪工作 | 實際結果／限制 |
+| --- | --- |
+| 完整來源／名冊 | 41來源及42項既有metadata相符；93,234顧客、99,421筆T前訂單與74,088窗口合格單同ID，逐單時鐘／資格／映射一致 |
+| 私有／公開反讀 | 私有四檔、公開聚合及output_guard通過、無failure；776,807格名冊、244個聚合scalar（含45個binary64）比對一致 |
+| 數值母體 | 僅72,124完整活躍顧客；21,109乾淨零活動及1隔離顧客保留分流，不混入RFM分布 |
+| 主要描述 | F=1占97.516777%，F的IQR=0、Bowley／fence為null；R中位173.51天、M中位BRL89.80。M≥Q99共723人，商品毛額占11.312277%，包含全部ties |
+| 執行界線 | G0通過、G1摘要可檢視；G2／G3未執行。0切點／分群／重抽樣／訓練／Dashboard，沒有新模型效能或營運結論 |
+
+這是S=2017-09-01、T=2018-09-01的單一歷史快照；M是商品毛額，退款／結算、入庫／版本與跨時間仍待資料。下一步先依既定G2規格實作規則候選及合成驗收，重點核F大量ties、退化、有效級數、支援與同ID重現，再決定真實切點／分群；不能預設五等份。Stage 4、5維持待資料，Stage 4每日10%與五種子不變。現有結果只用verify_completed反讀，不重播execute_prepared或刪檔重建。
+
+## Stage 6前輪真實只讀描述執行準備
+
+以下保留準備輪的58項合成測試及real=false紀錄；本輪真實結果另見上節，未回寫原報告。
 
 [執行準備文件](docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)、[41份來源規格](reports/stage6/rfm_description_execution_specification.json)與[合成／metadata準備查核](reports/stage6/rfm_description_execution_preflight.json)已完成。完整載入→原來源獨立名冊→單次core→私有／公開聚合→反讀已串接，但本輪只對合成資料走完整路徑；真實僅metadata／hash準備，未解析CSV、建立真實名冊、執行描述、估切點、分群、訓練或Dashboard。
 
@@ -461,7 +478,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪sources20＋outputs21＋runner17共58項合成測試全過（18.236869秒），完整端到端與反讀／失敗停止皆驗證；真實只核41來源／42項metadata與實測receipt，未解析CSV或執行描述、切點、分群、訓練或Dashboard。原46／32／130項及3,082,480格個體反讀保留，未重跑／加總，全專案discover未執行；原Stage 4／5與RFM資料／來源鏈不改。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪不改凍結程式、不重跑單元測試或全專案discover，沿用前輪58項實測receipt；執行一次真實描述（core1次），來源／完整同ID／四檔及公開聚合反讀通過，另做禁止core重算的完成驗收。776,807格名冊、244個聚合scalar及45個binary64值一致；不是新增測試數或模型效能。前輪58／46／32／130測、原RFM及Stage 4／5證據保留。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

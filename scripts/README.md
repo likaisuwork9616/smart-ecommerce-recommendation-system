@@ -6,7 +6,8 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| 準備Stage 6真實只讀描述 | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；future execute／verify callable只用合成驗證，本輪不讀真實CSV或執行描述 |
+| 反讀Stage 6真實描述現有結果 | [凍結函式verify_completed](prepare_rfm_description.py)、[結果與操作](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 已完成一次真實execute及完整反讀；現有bundle只做verify，不重播prepare／execute；不重算描述／切點或分群 |
+| 前輪準備Stage 6真實只讀描述 | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；future execute／verify callable只用合成驗證，本輪不讀真實CSV或執行描述 |
 | 驗證Stage 6只讀描述與資格守門 | [verify_rfm_description.py](verify_rfm_description.py)、[純描述器](rfm_description.py) | 只有--verify-synthetic，核兩套實測receipt／33來源／原metadata；不執行真實描述或估切點 |
 | 凍結Stage 6描述／分群評估方法 | [freeze_rfm_evaluation_spec.py](freeze_rfm_evaluation_spec.py)、[純方法規則](rfm_evaluation_contract.py) | --specification-only再--audit；只核metadata／hash，連CSV header也不解析，不計描述或分群 |
 | 驗收Stage 6實際RFM資料集 | [build_rfm_dataset.py](build_rfm_dataset.py)、[純builder](rfm_dataset_builder.py)、[私有writer](rfm_dataset_artifacts.py) | 一次建置已完成，現有bundle只用--verify；需原來源與guard，勿刪檔重播；不分群／訓練 |
@@ -58,7 +59,15 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6本輪真實只讀描述執行準備
+## Stage 6本輪真實描述與現有產物反讀
+
+已在新授權下直接呼叫凍結execute_prepared一次，未修改其CLI／41來源；core1次，verify_completed禁止core時仍通過。私有四檔與public JSON已存在，禁止重播execute／prepare或刪檔重建；可用以下只讀命令核來源、全名冊與現有輸出，詳見[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
+
+```powershell
+.\.venv\Scripts\python.exe -c "from scripts.prepare_rfm_description import verify_completed; print(verify_completed())"
+```
+
+## Stage 6前輪真實只讀描述執行準備
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description_sources tests.test_rfm_description_outputs tests.test_prepare_rfm_description -q
