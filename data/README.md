@@ -83,3 +83,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Stage 6 RFM實際私有資料集
 
 已依[凍結契約](../docs/STAGE6_RFM_DATASET_SPEC.md)完成[builder與資料集驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)：`.runtime/stage6_rfm_dataset_v1/`包含93,234列customers、99,421列order_decisions及manifest；控制guard留`.runtime/stage6_rfm_dataset_build_v1/`，獨立參考與比較留`.runtime/stage6_rfm_builder_independent/`。個體ID、RFM及私有digest不提交；Git clone不含這些檔案。現有bundle只作--verify，不刪檔重播；原四CSV、Stage 4／5私有產物與原契約均保留。快照毛額不升格淨額／營運as-of，未分群。
+
+## Stage 6本輪RFM評估規格的版本沿用
+
+本輪[凍結描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)，只核原bundle與驗收收據metadata／bytes，未解析CSV或產生新個體值。新input guard在`.runtime/stage6_rfm_evaluation_spec_v1/`；未來`.runtime/stage6_rfm_evaluation_v1/`僅預留名稱、未建立，原資料與Stage 4／5凍結資產保留。

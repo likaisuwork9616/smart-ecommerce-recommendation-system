@@ -1,0 +1,96 @@
+{
+  "execution": {
+    "csv_content_parsed": false,
+    "csv_header_parsed": false,
+    "csv_values_parsed": false,
+    "cut_points_computed": false,
+    "dashboard": false,
+    "existing_dataset_rebuilt": false,
+    "model_fits": 0,
+    "new_descriptive_statistics_computed": false,
+    "new_model_performance_conclusion": false,
+    "prior_readback_reexecuted": false,
+    "scores_assigned": false,
+    "segments_assigned": false
+  },
+  "format_version": 1,
+  "metadata_checks": {
+    "acceptance_build_report": true,
+    "acceptance_build_specification": true,
+    "acceptance_independent_receipt": true,
+    "acceptance_prior_read_only_permissions": true,
+    "acceptance_real_bundle": true,
+    "acceptance_stage4_stage5_unchanged": true,
+    "acceptance_version_status_permissions": true,
+    "accepted_money_mask_and_conservation": true,
+    "accepted_population_denominators": true,
+    "accepted_readback_schema_types_counts": true,
+    "accepted_state_types_sum": true,
+    "bound_original_contract_support": true,
+    "complete_twenty_original_sources": true,
+    "independent_customer_null_cells": true,
+    "independent_per_file_rows_cells_binary64": true,
+    "independent_prior_acceptance_passed": true,
+    "independent_prior_cell_count": true,
+    "independent_reference_clock_and_quality_counts": true,
+    "independent_reference_customer_bytes": true,
+    "independent_reference_money_conservation": true,
+    "independent_reference_order_bytes": true,
+    "independent_reference_population_frequency_nulls": true,
+    "independent_reference_source_rows": true,
+    "independent_reference_states": true,
+    "independent_total_equals_per_file_cells": true,
+    "manifest_dataset_contract": true,
+    "manifest_prior_readback": true,
+    "manifest_private_csv_bytes": true,
+    "manifest_rows": true,
+    "manifest_schema": true,
+    "manifest_seven_keys": true,
+    "manifest_sources": true,
+    "manifest_summary": true,
+    "prior_readback_passed": true,
+    "private_bundle_all_three_bytes": true,
+    "private_guard_build_specification": true,
+    "private_guard_dataset_contract": true,
+    "private_guard_prior_readback": true,
+    "private_guard_source_list": true,
+    "private_guard_version": true,
+    "public_build_specification": true,
+    "public_build_version_policy_status": true
+  },
+  "reused_accepted_population": {
+    "customer_rows": 93234,
+    "customer_states": {
+      "active_complete": 72124,
+      "active_money_unknown": 0,
+      "active_with_quarantine": 1,
+      "inactive_complete": 21109,
+      "inactive_with_quarantine": 0
+    },
+    "history_event_eligible_orders": 96350,
+    "order_decision_rows": 99421,
+    "source": "reports/stage6/rfm_dataset_build.json",
+    "window_event_eligible_orders": 74088
+  },
+  "specification": {
+    "bytes": 15752,
+    "path": "reports/stage6/rfm_evaluation_specification.json",
+    "sha256": "9ce0a91b0f2e7994f14f7348687e58796fd2204ee0bf909632731ff654f96af9"
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "stage5": {
+    "H60_roles_scores_and_window_purposes_unchanged": true,
+    "status": "pending_data"
+  },
+  "status": "evaluation_contract_frozen_existing_dataset_bytes_verified_only"
+}

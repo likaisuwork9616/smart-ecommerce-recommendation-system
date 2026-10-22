@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6 RFM builder與反讀驗收
+## 本輪Stage 6 RFM評估契約驗證
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_evaluation_spec -q
+```
+
+本輪只驗規格與metadata守門：完整27來源、opaque CSV不可解析、原guard／manifest／獨立收據、型別與少綁／改bytes／不同輸出拒收及前後變動停止。測試與metadata實測數見[凍結文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md)；未實作或測試真實分位數／分箱演算法、分群或模型，原130項及個體反讀是前輪紀錄，未重跑。
+
+## 前輪Stage 6 RFM builder與反讀驗收
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec tests.test_rfm_dataset_builder tests.test_rfm_dataset_artifacts tests.test_build_rfm_dataset -q

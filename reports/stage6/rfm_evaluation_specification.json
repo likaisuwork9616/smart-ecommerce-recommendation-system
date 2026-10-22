@@ -1,0 +1,367 @@
+{
+  "format_version": 1,
+  "planned_outputs": {
+    "cutpoint_aggregate_if_later_authorized": [
+      "reference_ID_count",
+      "axis",
+      "percentages",
+      "raw_cut_values",
+      "effective_levels",
+      "bin_counts",
+      "neutral_joint_cell_counts",
+      "support_flags",
+      "gate_status"
+    ],
+    "description_aggregate": [
+      "source_version",
+      "routing_counts",
+      "eligible_n",
+      "axes_and_units",
+      "statistics_and_null_reasons",
+      "shape_and_tail_diagnostics",
+      "outlier_flags_not_removed",
+      "population_and_money_conservation",
+      "gate_status",
+      "limitations"
+    ],
+    "fit_parameters": "reference_or_resample_only_no_review_delay_outcome_or_future_snapshot_input",
+    "future_private_namespace": ".runtime/stage6_rfm_evaluation_v1/",
+    "private_individual_outputs": "none_in_current_round_future_only_separately_authorized_ID_tuple_ledger_with_guard",
+    "public_outputs": "aggregate_only_no_customer_ID_individual_RFM_or_private_bundle_digests",
+    "sensitivity_aggregate_if_later_authorized": [
+      "seed",
+      "sample_n",
+      "reference_n",
+      "levels",
+      "cuts",
+      "bin_counts",
+      "axis_agreement",
+      "joint_ARI",
+      "degeneracy_and_support_flags",
+      "gate_status"
+    ],
+    "status": "future_schema_only_none_created_this_round"
+  },
+  "policy": {
+    "current_run": {
+      "CSV_content_parsed": false,
+      "customer_scores_or_groups_created": false,
+      "cutpoints_estimated": false,
+      "dashboard": false,
+      "descriptive_statistics_computed": false,
+      "individual_RFM_recomputed": false,
+      "model_fits": 0,
+      "resampling_executed": false
+    },
+    "cutpoints": {
+      "assignment": "raw_value<=cut_is_lower_numeric_bin_else_next_right_closed_bin",
+      "candidate": "single_unweighted_empirical_marginal_quantile_rule_reference_not_trained_clusters",
+      "constant_axis": "one_effective_level_no_separation_full_three_axis_candidate_ineligible",
+      "direction": "numeric_bin_1_to_k_R_score=k+1-bin_F_and_M_score=bin",
+      "effective_levels": "unique_retained_cuts_plus_1_report_all_bin_N_empty_bins_fail_no_claim_of_five_equal_bins",
+      "estimator": "same_exact_integer_rank_empirical_quantile_as_description",
+      "joint_cells": "observed_R_F_M_tuple_cells_max125_not_selected_business_group_count",
+      "names": "neutral_axis_bin_or_tuple_only_no_VIP_churn_LTV_or_action_claims",
+      "no_posthoc_merging": "no_manual_cuts_tie_splitting_or_merging_sparse_cells_to_pass",
+      "percentages": [
+        20,
+        40,
+        60,
+        80
+      ],
+      "reference": "all_active_complete_IDs_canonical_ascending",
+      "representation": "tuple_of_three_ordinals_and_per_axis_level_counts_not_sum_or_weighted_value",
+      "status": "planned_unestimated_not_authorized_to_assign_this_round",
+      "ties": "deduplicate_cut_values_keep_min_cut_if_lt_max_drop_cut_ge_max_no_ID_or_row_tie_break"
+    },
+    "decision_gates": {
+      "G0_source_and_routing": "any_source_guard_schema_ID_state_domain_or_conservation_failure_stop",
+      "G1_description": "complete_specified_summaries_and_denominators_with_all_null_degeneracies_declared",
+      "G2_rule_candidate": "only_after_separate_authorization_and_G1_acceptance_min2_levels_all_axes_support_and_reproducibility",
+      "G3_sensitivity": "all_five_seeds_pass_declared_levels_per_axis_bin_support_agreement_ARI_degeneracy_checks",
+      "business_or_temporal_release": "pending_data_not_granted_even_if_G1_G2_G3_pass",
+      "clustering_models": "algorithm_k_scaler_weights_and_model_selection_unset_requires_separate_future_contract",
+      "current": "only_specification_and_metadata_reuse_accepted_no_G1_G2_G3_execution",
+      "failure": "retain_descriptive_results_and_failed_checks_no_recut_reseed_reweight_or_threshold_change_this_version",
+      "future_implementation": "next_decide_description_only_read_only_implementation_and_synthetic_leakage_checks_first",
+      "joint_cell_support": "small_joint_cell_flags_do_not_fail_global_ARI_gate_but_that_cell_is_not_accepted_as_stable"
+    },
+    "description": {
+      "Bowley_skewness": "(Q75+Q25-2*Q50)/(Q75-Q25)_null_if_IQR0",
+      "axes": [
+        "recency_seconds",
+        "frequency_orders",
+        "monetary_product_cents"
+      ],
+      "cohort": "active_complete_only_for_joint_RFM_and_numeric_summaries",
+      "empty_cohort": "N0_other_statistics_null_reason_empty_reference_G1_not_evaluable_no_cutpoints",
+      "integer_rank": "(n*p+99)//100_for_positive_integer_percent_p",
+      "mean": "exact_integer_sum_and_n_recorded_float_display_only_no_currency_rounding_in_source",
+      "partial_quality_cohorts": "counts_and_null_masks_only_no_pooled_partial_R_F_distribution",
+      "quantile_percentages": [
+        0,
+        1,
+        5,
+        25,
+        50,
+        75,
+        95,
+        99,
+        100
+      ],
+      "quantile_rule": "sorted_x_rank_1_if_p0_else_ceil(n*p/100)_1_based_no_interpolation",
+      "shape_diagnostics": "report_values_without_declaring_success_threshold_for_skew_or_repeat_rate",
+      "specials": [
+        "F_equals_1_count_and_fraction",
+        "M_equals_0_count_and_fraction",
+        "M_ge_Q99_count_fraction_and_share_of_total_M_include_all_threshold_ties"
+      ],
+      "statistics": [
+        "n",
+        "null_count",
+        "distinct_count",
+        "min",
+        "max",
+        "arithmetic_mean",
+        "empirical_quantiles",
+        "IQR",
+        "Bowley_skewness"
+      ],
+      "zero_total_M_share": null
+    },
+    "input": {
+      "F": "frequency_orders_distinct_eligible_window_orders_int64",
+      "M": "monetary_product_cents_nonnegative_int64_nominal_BRL_product_gross_snapshot",
+      "R": "recency_seconds_exact_integer_for_order_statistics_display_seconds_div_86400_days",
+      "S_inclusive": "2017-09-01 00:00:00",
+      "T_exclusive": "2018-09-01 00:00:00",
+      "clock": "source_naive_seconds_no_timezone_assignment",
+      "namespace": ".runtime/stage6_rfm_dataset_v1/",
+      "no_rebuild_repair_new_window_or_additional_sources": true,
+      "reuse": "accepted_v1_only_complete_27_source_bindings_and_private_guard_before_after"
+    },
+    "outliers_and_scale": {
+      "IQR0": "degenerate_axis_flag_fence_counts_null_report_distinct_and_tail_mass_no_division_by_zero",
+      "IQR_fences": "Q25-1.5*IQR_and_Q75+1.5*IQR_strict_outside_count_when_IQR_gt0",
+      "default": "flags_only_no_delete_no_winsorization_no_clip_no_change_to_source_RFM",
+      "domain_failure": "R_not_in_(0,365days]_or_F_lt1_or_M_lt0_or_required_null_nonfinite_stop",
+      "fence_precision": "compare_2*x_lt_2*Q25-3*IQR_or_2*x_gt_2*Q75+3*IQR_exact_integers_display_denominator2_no_rounding",
+      "log_partition": "not_a_second_quantile_candidate_monotone_view_not_independent_stability_evidence",
+      "log_view": "secondary_descriptive_log1p(R_seconds/86400)_log1p(F)_log1p(M_cents/100)_finite_only",
+      "log_view_outliers": "none_flags_and_fences_are_raw_scale_only_no_separate_cutpoints_or_gate",
+      "log_view_statistics": [
+        "n",
+        "null_count",
+        "min",
+        "max",
+        "arithmetic_mean",
+        "same_empirical_quantiles"
+      ],
+      "scaling_or_weighting": "none_for_rule_partition_no_zscore_distance_or_weighted_total",
+      "tail_changes": "any_trimming_capping_or_new_transform_requires_new_specification_before_execution"
+    },
+    "references": {
+      "ARI_definition": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html",
+      "quantile_definition": "https://numpy.org/doc/stable/reference/generated/numpy.quantile.html",
+      "used_for": "definitions_only_not_justification_for_project_thresholds_no_current_library_execution"
+    },
+    "routing": {
+      "active_complete": "full_RFM_description_cutpoint_reference_and_future_sensitivity_only",
+      "active_money_unknown": "retain_universe_quality_and_eligible_subset_R_F_only_M_null_unscored",
+      "active_with_quarantine": "retain_universe_quality_and_eligible_subset_R_F_only_M_null_unscored",
+      "active_zero_money": "valid_M0_retained_not_filtered_by_M_gt_0",
+      "exhaustive_disjoint": "all_five_states_cover_exact_same_ID_universe_no_silent_drop",
+      "flags": "verify_activity_state_rfm_usable_monetary_complete_R_F_M_and_quality_counters_jointly",
+      "inactive_complete": "separate_status_count_R_null_F0_M0_not_in_cutpoints_or_numeric_RFM",
+      "inactive_with_quarantine": "retain_universe_quality_R_null_F0_M_null_unscored_not_clean_inactive"
+    },
+    "scope": "specification_only_descriptive_RFM_and_future_rule_partition_evaluation",
+    "stability": {
+      "joint_ARI_encoding": "each_partition_tuple_to_unique_1D_label_same_canonical_ID_order_not_flattened_axes_or_mean_axis_ARI",
+      "joint_degeneracy": "single_joint_group_or_every_ID_singleton_in_any_partition_fails_even_if_ARI1",
+      "minimum_joint_adjusted_Rand_every_seed": 0.8,
+      "minimum_per_axis_agreement_every_seed": 0.9,
+      "per_axis_support": "every_reference_and_seed_bin_on_full_reference_N>=max(100,ceil(0.005*n))",
+      "preconditions": "same_effective_levels_as_reference_each_axis_in_every_seed_at_least2_at_most5_no_empty_bins",
+      "reference_evaluation_IDs": "fixed_all_active_complete_IDs_for_every_resample",
+      "report": [
+        "sample_n",
+        "per_axis_cut_values",
+        "per_axis_effective_levels",
+        "per_axis_bin_counts_on_full_reference",
+        "per_axis_assignment_agreement_vs_reference",
+        "joint_tuple_adjusted_Rand_index_vs_reference",
+        "joint_cell_counts_and_small_cell_flags"
+      ],
+      "reproducibility": "same_input_reverse_and_seed42_permuted_rows_exact_same_cutpoints_and_ID_assignments_100pct",
+      "resample": "each_seed_Generator(PCG64(seed)).choice(n,size=sample_n,replace=False)_indices_of_canonical_IDs",
+      "resample_parameters": "estimate_cutpoints_on_sample_only_apply_to_full_reference_IDs_no_heldout_outcome",
+      "sampling_arithmetic": "sample_n=(4*n)//5_support_floor=max(100,(n+199)//200)_no_float_rounding",
+      "seed_scope": "future_RFM_sensitivity_only_separate_from_unchanged_Stage4_training_seeds",
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "small_joint_cells": "N<max(100,ceil(0.005*n))_flag_insufficient_group_support_do_not_merge_or_claim_stable_cell",
+      "status": "planned_not_executed",
+      "summary": "all_five_seeds_and_minimum_reported_not_best_seed_no_CI_or_independent_new_samples",
+      "temporal": "pending_data_single_T_single_snapshot_no_cross_time_validation_or_future_value_claim",
+      "threshold_status": "project_preregistered_research_screen_not_universal_statistical_standard_or_business_effect"
+    },
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    }
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 4472,
+      "path": "reports/stage6/rfm_feasibility_specification.json",
+      "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+    },
+    {
+      "bytes": 14558,
+      "path": "reports/stage6/rfm_feasibility.json",
+      "sha256": "44b0824b4a429530a23e6b61ebf9cf21313dafb295bd0e85e5a0fc424c697e14"
+    },
+    {
+      "bytes": 18396,
+      "path": "scripts/freeze_rfm_dataset_spec.py",
+      "sha256": "da50f96c62f2b25af9ce9a9b5412042b429c1ff9a7f908b33ccdd3c389169a07"
+    },
+    {
+      "bytes": 8214,
+      "path": "tests/test_rfm_dataset_spec.py",
+      "sha256": "24997b4b36eacb3fed134be707718eb20814af08bccca76ea5b4d2ded3574747"
+    },
+    {
+      "bytes": 11012,
+      "path": "reports/stage6/rfm_dataset_specification.json",
+      "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+    },
+    {
+      "bytes": 7869,
+      "path": "reports/stage6/rfm_dataset_contract_audit.json",
+      "sha256": "66138a23585f756ccefaf628c0dbc9ab83925829ddba6b7f05dbdd7d750399ea"
+    },
+    {
+      "bytes": 18823,
+      "path": "scripts/rfm_dataset_builder.py",
+      "sha256": "ae2e580d8c5a978f4886a8798e55885694575d4b3d399606f158c8c43f2b2332"
+    },
+    {
+      "bytes": 27463,
+      "path": "tests/test_rfm_dataset_builder.py",
+      "sha256": "8451fdb6838c0637f76f4d43f4ec20bb46505a20cfbb4745575884cc9d372498"
+    },
+    {
+      "bytes": 20172,
+      "path": "scripts/rfm_dataset_artifacts.py",
+      "sha256": "16a7028871ab03109dfcf47d9527fc52741566c2b97d376677b5b4e8c9b93af3"
+    },
+    {
+      "bytes": 12071,
+      "path": "tests/test_rfm_dataset_artifacts.py",
+      "sha256": "2a0302b284831a016fcf6a9ed5277377f4e9939899a9a65450a888494ab5866d"
+    },
+    {
+      "bytes": 10429,
+      "path": "scripts/build_rfm_dataset.py",
+      "sha256": "2237c89f1b1e2749f5d99db928ac330fdbe7d4def6fe040aabb214022f5f8fec"
+    },
+    {
+      "bytes": 17247,
+      "path": "tests/test_build_rfm_dataset.py",
+      "sha256": "7c52cc4ffee3bab6e5b075d2ac47d8068a215d43ff7ef7266d80ef538b7bbe79"
+    },
+    {
+      "bytes": 4990,
+      "path": "reports/stage6/rfm_dataset_build_specification.json",
+      "sha256": "a4145701c876b1666e69652e9e790989a930f28ceae0f44b9bb55b76636a8a19"
+    },
+    {
+      "bytes": 8767,
+      "path": "reports/stage6/rfm_dataset_build.json",
+      "sha256": "f8e2c75c75b43bb4fa795bdbb09250b40e4114ae89b8bbb51a45c03f3b914e36"
+    },
+    {
+      "bytes": 4009,
+      "path": "reports/stage6/rfm_dataset_build_acceptance.json",
+      "sha256": "0b8c7e750e6697684bb0769fb874d4966fe10d295a19f8cd9da7b4c072be4f7a"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 11479,
+      "path": "scripts/rfm_evaluation_contract.py",
+      "sha256": "27fa606d618037f09534fadb68d6f84d9d0b34aa1995f46ae8166bd5f0ade18c"
+    },
+    {
+      "bytes": 21735,
+      "path": "scripts/freeze_rfm_evaluation_spec.py",
+      "sha256": "e8bfc251eb1adc174c57c2efbdf321207dfd1d34cbc9d9637babb26d9c9c4da8"
+    },
+    {
+      "bytes": 26592,
+      "path": "tests/test_rfm_evaluation_spec.py",
+      "sha256": "280d4a12827c684fe5dc23b032b50b2dd48ebf1400d6e68dffae18a1e96a6601"
+    }
+  ]
+}
