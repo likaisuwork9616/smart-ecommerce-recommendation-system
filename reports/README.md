@@ -1,14 +1,15 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約、合成驗證及離線開發回測；`stage6/`保存RFM輸入盤點、資料集契約、builder／真實建置／反讀聚合、描述／評估規格與本輪G2規則候選的合成驗收；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約、合成驗證及離線開發回測；`stage6/`保存RFM輸入盤點、資料集契約、builder／真實建置／反讀聚合、描述／評估規格、G2候選合成驗收與本輪真實G2執行準備；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
-本輪G2報告只列合成案例、實測測試收據與既有來源metadata／bytes沿用；未解析真實CSV、估真實切點或產生真實tuple，沒有真實分群、訓練、Dashboard或G3結果。Stage 4、5待資料，Stage 4每日10%與11／29／42／73／101五種子不變。
+本輪G2準備報告只列合成接線驗收、實測測試收據與既有來源metadata／bytes沿用；未解析真實CSV、估真實切點或產生真實tuple，未來真實結果檔未建立，沒有分群、訓練、Dashboard或G3結果。Stage 4、5待資料，Stage 4每日10%與11／29／42／73／101五種子不變。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 本輪Stage 6 G2規則候選合成驗收 | [實作與界線](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) → [49來源／實作規格](stage6/rfm_rule_candidate_implementation_specification.json) → [合成驗收](stage6/rfm_rule_candidate_verification.json)；ties、退化、支援與同ID重現，測數／耗時以實測收據為準，不是Olist切點或真實G2通過 |
+| 本輪Stage 6真實G2執行準備 | [完整來源／名冊與反讀契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) → [57來源規格](stage6/rfm_rule_candidate_execution_specification.json) → [準備查核](stage6/rfm_rule_candidate_execution_preflight.json)；合成E2E、metadata/hash、prepare-only，未建立真實候選結果 |
+| 前輪Stage 6 G2規則候選合成驗收 | [實作與界線](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) → [49來源／實作規格](stage6/rfm_rule_candidate_implementation_specification.json) → [合成驗收](stage6/rfm_rule_candidate_verification.json)；ties、退化、支援與同ID重現，測數／耗時以實測收據為準，不是Olist切點或真實G2通過 |
 | 前輪Stage 6真實只讀描述結果 | [結果與限制](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) → [完整聚合](stage6/rfm_description.json) → [交付驗收](stage6/rfm_description_acceptance.json)；core1次、全ID／776,807格名冊及244聚合值一致，當輪切點／分群未執行 |
 | 前輪Stage 6只讀描述執行準備 | [串接／輸出契約](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md) → [41份來源規格](stage6/rfm_description_execution_specification.json) → [準備查核](stage6/rfm_description_execution_preflight.json)；58測、完整名冊／四檔與public反讀接妥，真實描述與結果檔未建立 |
 | 前輪Stage 6只讀描述合成驗收 | [實作解讀](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) → [33份來源規格](stage6/rfm_description_implementation_specification.json) → [合成verification](stage6/rfm_description_pipeline_verification.json)；46測＋metadata沿用，沒有真實分布／切點／群組值 |

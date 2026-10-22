@@ -14,6 +14,7 @@
 
 | 範圍 | 測試內容／入口 |
 | --- | --- |
+| Stage 6真實G2執行準備 | [test_rfm_rule_candidate_sources.py](test_rfm_rule_candidate_sources.py)、[test_rfm_rule_candidate_outputs.py](test_rfm_rule_candidate_outputs.py)、[test_prepare_rfm_rule_candidate.py](test_prepare_rfm_rule_candidate.py)；合成完整同ID/G1反讀、候選四檔持久化及單次core／prepare-only守門 |
 | Stage 6 G2規則候選 | [test_rfm_rule_candidate.py](test_rfm_rule_candidate.py)、[test_verify_rfm_rule_candidate.py](test_verify_rfm_rule_candidate.py)；合成ties／切點／級數／支援／同ID重現、完整G0與入口不可覆寫／source-bound收據 |
 | 特徵與標記 | `test_delay_*features.py`、`test_delay_features.py`；訂單聚合、key、缺值與事件時鐘 |
 | 訓練與時間切分 | `test_delay_*training.py`、`test_delay_*validation.py`；成熟答案、同月隔離與query群組 |
@@ -22,7 +23,17 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6 G2規則候選與資格守門
+## 本輪Stage 6真實G2執行準備
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate_sources tests.test_rfm_rule_candidate_outputs tests.test_prepare_rfm_rule_candidate -q
+```
+
+三套新測試以合成資料驗來源／完整名冊與原G1交付、G2候選四檔及公開聚合反讀、來源變動／ID與分配矛盾／部分產物拒收、單次core與禁重播。候選ineligible仍保留完整active分配及失敗原因，不能當技術失敗重切；verify_completed禁止G1／G2 core重跑。
+
+[prepare入口](../scripts/prepare_rfm_rule_candidate.py)只有--prepare，需實際source-bound收據及原私有證據，凍結[57來源規格](../reports/stage6/rfm_rule_candidate_execution_specification.json)與[準備查核](../reports/stage6/rfm_rule_candidate_execution_preflight.json)；測數／耗時以正式實測報告為準，不沿用或加總前輪60測。真實只核metadata／hash，未解析CSV、估切點／tuple、分群、訓練、做Dashboard或G3，也未重跑舊suite／全專案discover。Stage 4、5維持待資料，Stage 4每日10%與11／29／42／73／101五種子不變；詳見[準備契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)。
+
+## 前輪Stage 6 G2規則候選與資格守門
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate tests.test_verify_rfm_rule_candidate -q

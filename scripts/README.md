@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 準備Stage 6真實G2來源／輸出反讀 | [prepare_rfm_rule_candidate.py](prepare_rfm_rule_candidate.py)、[sources](rfm_rule_candidate_sources.py)、[outputs](rfm_rule_candidate_outputs.py)、[操作契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | CLI僅--prepare；核57來源／source-bound收據與metadata後凍結，未來execute／verify只在合成scratch驗證，本輪不解析真實CSV或估切點 |
 | 驗證Stage 6 G2規則候選與資格守門 | [verify_rfm_rule_candidate.py](verify_rfm_rule_candidate.py)、[純G2核心](rfm_rule_candidate.py)、[實作與操作](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 僅--verify-synthetic；首次實跑兩套新測試與四組合成案例，核49來源及既有G1證據後固定報告；重入只核既有收據，不重跑或覆寫。沒有真實G2入口 |
 | 反讀Stage 6真實描述現有結果 | [凍結函式verify_completed](prepare_rfm_description.py)、[結果與操作](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 已完成一次真實execute及完整反讀；現有bundle只做verify，不重播prepare／execute；不重算描述／切點或分群 |
 | 前輪準備Stage 6真實只讀描述 | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；future execute／verify callable只用合成驗證，本輪不讀真實CSV或執行描述 |
@@ -60,7 +61,20 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6本輪G2規則候選合成驗收
+## Stage 6本輪真實G2執行準備
+
+[來源載入](rfm_rule_candidate_sources.py)、[私有輸出／反讀](rfm_rule_candidate_outputs.py)與[準備入口](prepare_rfm_rule_candidate.py)先以三套新合成測試驗證，不需要真實CSV、MySQL或模型：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate_sources tests.test_rfm_rule_candidate_outputs tests.test_prepare_rfm_rule_candidate -q
+.\.venv\Scripts\python.exe scripts\prepare_rfm_rule_candidate.py --prepare
+```
+
+第二行需原本機來源、完整G1／G2既有證據與本輪實際source-bound測試收據；只核metadata／hash，凍結[57來源規格](../reports/stage6/rfm_rule_candidate_execution_specification.json)、[準備查核](../reports/stage6/rfm_rule_candidate_execution_preflight.json)及私有input guard，不自動重跑suite，也不呼叫真實loader、G1個體反讀、G2 core或writer。CLI沒有真實執行或路徑覆寫參數。
+
+未來execute_prepared只允許單次G2 core，完整原來源同ID→私有四檔→公開聚合→外部guard；verify_completed不重跑G1／G2 core。這兩個callable本輪只走合成scratch，真實G2 namespace、公開結果、output guard與failure均未建立。詳見[完整契約、候選不合格與失敗停止](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)。Stage 4、5仍待資料，每日10%與五種子不變；G3、分群、訓練與Dashboard未做。
+
+## Stage 6前輪G2規則候選合成驗收
 
 [純核心](rfm_rule_candidate.py)只接收記憶體資料，先核完整G0／獨立名冊與G1接受聲明，再產生精確分位切點、每軸箱支援及同ID重現檢查；個體分配僅留私有記憶體。可單獨執行[核心測試](../tests/test_rfm_rule_candidate.py)與[入口測試](../tests/test_verify_rfm_rule_candidate.py)，不需要真實資料：
 
