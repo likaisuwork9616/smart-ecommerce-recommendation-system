@@ -63,3 +63,7 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 本輪[顧客鍵、訂單資格、金額與時間截止盤點](../docs/STAGE6_RFM_FEASIBILITY.md)使用獨立只讀CLI，沒有新增或執行Notebook，不重跑03的營收／評論聚合或04的模型訓練。個體RFM與分群未開始，先凍結資料集語義再決定builder；Stage 4、5待資料與Dashboard暫緩不變。
 
 最新[Stage 6 RFM資料集契約](../docs/STAGE6_RFM_DATASET_SPEC.md)已凍結顧客母體、時鐘異常、S／T、R單位、零活動與M毛額／未知政策，只以CLI核聚合支援。沒有建立RFM個體資料集、builder或Notebook，沒有分群、訓練或Dashboard；下一步依契約另輪決定實作與反讀驗收。
+
+## Stage 6本輪RFM builder與反讀
+
+最新[實作與驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)以獨立CLI完成一次RFM私有資料集建置及反讀／同ID核對。沒有新增或執行Notebook，不重跑03／04；分群、訓練、Dashboard未進行，Stage 4、5待資料不變。前文各輪「未builder」只描述當時狀態；現有資料集用build_rfm_dataset.py --verify唯讀驗收。

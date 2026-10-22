@@ -1,0 +1,122 @@
+{
+  "build_report": {
+    "bytes": 8767,
+    "path": "reports/stage6/rfm_dataset_build.json",
+    "sha256": "f8e2c75c75b43bb4fa795bdbb09250b40e4114ae89b8bbb51a45c03f3b914e36"
+  },
+  "customer_money_conservation": {
+    "eligible_window_product_cents_on_known_orders": 1016801111,
+    "eligible_window_product_known_orders": 74088,
+    "eligible_window_product_unknown_orders": 0,
+    "inactive_complete_zero_customers": 21109,
+    "known_product_cents_equal_published_plus_masked_known": true,
+    "known_product_cents_masked_customer_subsets": 14799,
+    "known_product_orders_in_masked_customer_subsets": 1,
+    "masked_customers": 1,
+    "published_customer_product_cents": 1016786312,
+    "unknown_product_amounts_are_zero_filled": false,
+    "unknown_product_orders_in_masked_customer_subsets": 0,
+    "unmasked_customers": 93233
+  },
+  "format_version": 1,
+  "independent_acceptance": {
+    "datasets": {
+      "customers.csv": {
+        "binary64_comparisons": 72125,
+        "nullable_cells": 63328,
+        "rows": 93234,
+        "typed_cell_comparisons": 1491744
+      },
+      "order_decisions.csv": {
+        "binary64_comparisons": 0,
+        "nullable_cells": 5356,
+        "rows": 99421,
+        "typed_cell_comparisons": 1590736
+      }
+    },
+    "frozen_raw_source_fingerprints_rechecked": true,
+    "method": "independent_reference_full_same_ID_canonical_order_typed_all_cells_binary64_float_comparison",
+    "production_code_imported": false,
+    "reference_fingerprints_rechecked": true,
+    "segmentation_training_dashboard": false,
+    "status": "pass",
+    "total_cell_comparisons": 3082480
+  },
+  "limitations": [
+    "Retrospective final snapshot; not operational as-of or complete lifetime.",
+    "Original ingestion, revision, refund, settlement and upstream completion evidence remain unavailable.",
+    "Raw future approval/delivery timestamps in the private order ledger are exclusion evidence, not model features.",
+    "No segmentation, model fit, Dashboard or new model performance conclusion."
+  ],
+  "read_only_entry_verification": {
+    "command": "scripts/build_rfm_dataset.py --verify",
+    "passed": true,
+    "rebuilt": false,
+    "source_binding_count": 20,
+    "wrote_files": false
+  },
+  "real_private_bundle": {
+    "all_values_read_back": true,
+    "canonical_ids": true,
+    "cells_compared": 3082480,
+    "customer_order_semantics": true,
+    "rows": {
+      "customers.csv": 93234,
+      "order_decisions.csv": 99421
+    },
+    "schema_types_nulls": true
+  },
+  "scope": {
+    "dashboard": false,
+    "dataset_correctness_only": true,
+    "model_fits": 0,
+    "new_model_performance_conclusion": false,
+    "operational_as_of_accepted": false,
+    "refund_net_money_supported": false,
+    "segmentation": false
+  },
+  "specification": {
+    "bytes": 4990,
+    "path": "reports/stage6/rfm_dataset_build_specification.json",
+    "sha256": "a4145701c876b1666e69652e9e790989a930f28ceae0f44b9bb55b76636a8a19"
+  },
+  "stage4": {
+    "daily_budget": 0.1,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "status": "pending_data"
+  },
+  "stage5": {
+    "H60_roles_scores_and_window_purposes_unchanged": true,
+    "status": "pending_data"
+  },
+  "status": "synthetic_real_readback_independent_same_ID_and_read_only_verification_passed",
+  "unit_tests": {
+    "elapsed_seconds": 5.417821,
+    "errors": 0,
+    "failures": 0,
+    "modules": [
+      "tests.test_rfm_feasibility",
+      "tests.test_rfm_dataset_spec",
+      "tests.test_rfm_dataset_builder",
+      "tests.test_rfm_dataset_artifacts",
+      "tests.test_build_rfm_dataset"
+    ],
+    "scope": "synthetic_builder_artifact_entry_and_prior_stage6_regression_no_training",
+    "skipped": 0,
+    "successful": true,
+    "tests_by_module": {
+      "tests.test_build_rfm_dataset": 25,
+      "tests.test_rfm_dataset_artifacts": 20,
+      "tests.test_rfm_dataset_builder": 42,
+      "tests.test_rfm_dataset_spec": 23,
+      "tests.test_rfm_feasibility": 20
+    },
+    "tests_run": 130
+  }
+}

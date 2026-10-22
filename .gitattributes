@@ -168,3 +168,13 @@ scripts/freeze_rfm_dataset_spec.py text eol=lf
 tests/test_rfm_dataset_spec.py text eol=lf
 reports/stage6/rfm_dataset_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage6/rfm_dataset_contract_audit.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the implemented RFM builder, private writer and one-time acceptance.
+scripts/rfm_dataset_builder.py text eol=lf
+scripts/rfm_dataset_artifacts.py text eol=lf
+scripts/build_rfm_dataset.py text eol=lf
+tests/test_rfm_dataset_builder.py text eol=lf
+tests/test_rfm_dataset_artifacts.py text eol=lf
+tests/test_build_rfm_dataset.py text eol=lf
+reports/stage6/rfm_dataset_build_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage6/rfm_dataset_build.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage6/rfm_dataset_build_acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

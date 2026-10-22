@@ -1,0 +1,142 @@
+{
+  "dataset_contract": {
+    "bytes": 11012,
+    "path": "reports/stage6/rfm_dataset_specification.json",
+    "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+  },
+  "format_version": 1,
+  "policy": {
+    "approval_delivery_ledger": "raw_parseable_times_may_be_at_or_after_T_exclusion_evidence_only_not_features",
+    "build": "output_control_and_public_report_must_not_exist_no_resume_or_overwrite",
+    "dashboard": false,
+    "frozen_contract": "reports/stage6/rfm_dataset_specification.json",
+    "measured_zero_product": "nonnegative_valid_active_order_can_have_M_zero_empty_sum_imputation_only_for_clean_inactive",
+    "operational_as_of_accepted": false,
+    "private_control": ".runtime/stage6_rfm_dataset_build_v1/",
+    "private_output": ".runtime/stage6_rfm_dataset_v1/",
+    "refund_net_money_supported": false,
+    "scope": "one_shot_retrospective_snapshot_RFM_dataset_no_segmentation",
+    "segmentation": false,
+    "source_completeness_accepted": false,
+    "source_guard": "complete_contract_and_execution_specification_equality_before_after_reads_and_writes",
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    },
+    "training": false,
+    "verify": "read_only_existing_bundle_guard_and_public_aggregate_no_source_table_rebuild"
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 4472,
+      "path": "reports/stage6/rfm_feasibility_specification.json",
+      "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+    },
+    {
+      "bytes": 14558,
+      "path": "reports/stage6/rfm_feasibility.json",
+      "sha256": "44b0824b4a429530a23e6b61ebf9cf21313dafb295bd0e85e5a0fc424c697e14"
+    },
+    {
+      "bytes": 18396,
+      "path": "scripts/freeze_rfm_dataset_spec.py",
+      "sha256": "da50f96c62f2b25af9ce9a9b5412042b429c1ff9a7f908b33ccdd3c389169a07"
+    },
+    {
+      "bytes": 8214,
+      "path": "tests/test_rfm_dataset_spec.py",
+      "sha256": "24997b4b36eacb3fed134be707718eb20814af08bccca76ea5b4d2ded3574747"
+    },
+    {
+      "bytes": 11012,
+      "path": "reports/stage6/rfm_dataset_specification.json",
+      "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+    },
+    {
+      "bytes": 7869,
+      "path": "reports/stage6/rfm_dataset_contract_audit.json",
+      "sha256": "66138a23585f756ccefaf628c0dbc9ab83925829ddba6b7f05dbdd7d750399ea"
+    },
+    {
+      "bytes": 18823,
+      "path": "scripts/rfm_dataset_builder.py",
+      "sha256": "ae2e580d8c5a978f4886a8798e55885694575d4b3d399606f158c8c43f2b2332"
+    },
+    {
+      "bytes": 27463,
+      "path": "tests/test_rfm_dataset_builder.py",
+      "sha256": "8451fdb6838c0637f76f4d43f4ec20bb46505a20cfbb4745575884cc9d372498"
+    },
+    {
+      "bytes": 20172,
+      "path": "scripts/rfm_dataset_artifacts.py",
+      "sha256": "16a7028871ab03109dfcf47d9527fc52741566c2b97d376677b5b4e8c9b93af3"
+    },
+    {
+      "bytes": 12071,
+      "path": "tests/test_rfm_dataset_artifacts.py",
+      "sha256": "2a0302b284831a016fcf6a9ed5277377f4e9939899a9a65450a888494ab5866d"
+    },
+    {
+      "bytes": 10429,
+      "path": "scripts/build_rfm_dataset.py",
+      "sha256": "2237c89f1b1e2749f5d99db928ac330fdbe7d4def6fe040aabb214022f5f8fec"
+    },
+    {
+      "bytes": 17247,
+      "path": "tests/test_build_rfm_dataset.py",
+      "sha256": "7c52cc4ffee3bab6e5b075d2ac47d8068a215d43ff7ef7266d80ef538b7bbe79"
+    }
+  ]
+}

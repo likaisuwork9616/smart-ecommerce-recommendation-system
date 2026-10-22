@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已凍結RFM顧客母體、訂單資格、S／T、R單位、零活動與M口徑並核聚合支援，builder及個體RFM尚未實作。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6已依凍結契約完成RFM builder、私有資料集、洩漏／反讀及完整同ID獨立驗收；93,234位顧客中72,124位為研究契約下的完整活躍列。本輪不分群、不訓練、不做Dashboard；推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
 | Stage 5：評論低評分預測 | 適用範圍／交付模型卡完成；維持待資料 | 四欄保留開發對照、三欄保留消融證據；新驗證窗0，無追加訓練／新效能 |
-| Stage 6：RFM | 資料集契約凍結；builder／個體RFM未實作 | 93,234歷史顧客、74,088窗口單、21,109零活動顧客；僅研究支援，營運as-of／淨額待資料 |
+| Stage 6：RFM | builder與私有資料集驗收完成；未分群 | 93,234顧客／99,421逐單、130項測試與3,082,480格獨立核對通過；營運as-of／淨額待資料 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
@@ -43,6 +43,7 @@ py -3.12 -m venv .venv
 | 重現單日凍結分數的離線交付 | [單日驗收文件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md) |
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
+| 驗收Stage 6 RFM builder與實際資料集 | [實作、反讀與同ID驗收](docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) |
 | 看Stage 6凍結母體、RFM定義與輸出 | [RFM資料集規格](docs/STAGE6_RFM_DATASET_SPEC.md) |
 | 看Stage 6 RFM資料支援與下一步 | [顧客鍵、資格、金額與時間盤點](docs/STAGE6_RFM_FEASIBILITY.md) |
 | 看Stage 5模型適用範圍、限制與交付 | [四欄／三欄模型卡](docs/STAGE5_MODEL_APPLICABILITY.md) |
@@ -108,7 +109,25 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 6本輪RFM資料集契約凍結
+## Stage 6本輪RFM builder與資料集驗收
+
+[實作與驗收文件](docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)、[20份來源規格](reports/stage6/rfm_dataset_build_specification.json)、[真實建置](reports/stage6/rfm_dataset_build.json)與[分項驗收](reports/stage6/rfm_dataset_build_acceptance.json)已備妥。依原凍結契約實作builder、顧客彙總及私有writer，合成測試通過後完成一次真實建置；本輪沒有分群、訓練、新效能結論或Dashboard。
+
+| 本輪工作 | 實際結果 |
+| --- | --- |
+| 實際私有資料集 | 93,234列顧客、99,421列T前逐單決策，各16欄；manifest與三檔guard只留本機 |
+| R／F／M與母體 | 窗口74,088單、72,125位活躍；完整可用72,124位、零活動21,109位、隔離混合1位M=null。F合計與同ID全集對帳通過 |
+| 金額與未知 | 商品整數分總額1,016,801,111＝完整顧客M 1,016,786,312＋遮罩顧客已知子集14,799；子集只作對帳，不回填M |
+| 合成／反讀 | Stage 6共130項合成與回歸測試通過（5.417821秒）；來源守門、截止、未知遮罩、整包防覆寫及嚴格型別均驗證 |
+| 獨立驗收 | 原四CSV另以pandas／Decimal重算，兩檔全部3,082,480格同ID／同值，含nullable與float64位元；不當成模型效果 |
+
+現有工作目錄請只用`.\.venv\Scripts\python.exe scripts\build_rfm_dataset.py --verify`驗收，勿刪除既有bundle重建；合成測試與一次建置前提見文件。原契約、支援報告及Stage 4／5凍結產物保留，個體ID、RFM、原始資料及私有digest均不提交。
+
+下一步先凍結RFM描述／分群評估規格，明定完整活躍、零活動及隔離顧客的處理，核偏態／離群值、切點與群組穩定性後再決定實作。原入庫／版本、退款／結算及全量證據仍缺；本輪驗收不代表營運as-of或淨額可用。Stage 4、5維持待資料，Stage 4每日10%與五種子不變。
+
+## Stage 6前輪RFM資料集契約凍結
+
+以下保留契約凍結輪次的支援與測試紀錄；當時尚未實作builder，最新成果以上節與實作驗收文件為準。
 
 [資料集文件](docs/STAGE6_RFM_DATASET_SPEC.md)、[機器規格](reports/stage6/rfm_dataset_specification.json)與[聚合支援查核](reports/stage6/rfm_dataset_contract_audit.json)已完成；builder及個體RFM資料集尚未實作。本輪只凍結規則、核母體／訂單／狀態支援，不分群、不訓練、不做Dashboard。
 
@@ -390,7 +409,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪新23項契約測試＋原20項盤點回歸共43項全過、0.012秒；另獨立核對母體、隔離、零活動、金額與混合顧客狀態。未執行builder、模型或全專案discover；原Stage 4／5與Stage 6候選盤點程式／報告及私有資產保留，不將前輪59項對帳混作本輪測試。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪Stage 6共130項合成與回歸測試全過、5.417821秒；依凍結入口完成一次真實RFM資料集建置、3,082,480格反讀及獨立同ID每欄核對，唯讀驗收也通過。沒有分群、模型fit或全專案discover；463份原追蹤檔與38份原私有證據bytes不變，保留Stage 4／5及原Stage 6來源鏈，不將資料集驗收當成模型或業務效果。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 
