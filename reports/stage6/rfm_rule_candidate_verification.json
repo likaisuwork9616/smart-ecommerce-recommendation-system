@@ -1,0 +1,220 @@
+{
+  "decision": "synthetic_implementation_accepted_next_decide_real_G2_preparation_no_real_execution_authorized",
+  "execution": {
+    "G3_executed": false,
+    "dashboard": false,
+    "model_fits": 0,
+    "real_CSV_parsed": false,
+    "real_cutpoints_estimated": false,
+    "real_ordinals_or_tuples_assigned": false,
+    "synthetic_candidate_tests_executed": true
+  },
+  "format_version": 1,
+  "limitations": [
+    "Synthetic verification is not a real-data G2 pass or model performance.",
+    "G1 acceptance bool is a caller precondition, not provenance or execution authorization.",
+    "G3 sensitivity, temporal stability and business applicability remain unassessed."
+  ],
+  "policy": {
+    "CLI": "verify_synthetic_only_no_real_dispatch_input_path_or_override",
+    "G1": "existing_completed_description_receipt_checked_without_reexecution",
+    "G2": "exact_integer_quantiles_ties_intact_levels_support_and_full_same_ID_reproducibility",
+    "G3": "not_implemented_or_executed_no_five_seed_subsampling_or_ARI",
+    "frozen_method": "reports/stage6/rfm_evaluation_specification.json",
+    "outputs": "aggregate_specification_verification_and_private_guard_log_only",
+    "real_inputs": "existing_source_metadata_and_binary_hashes_only_no_CSV_parsing",
+    "repeat": "verify_existing_source_bound_receipt_no_rerun_overwrite_or_refreeze",
+    "scope": "G2_rule_candidate_implementation_synthetic_verification_only",
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    },
+    "synthetic_execution": "two_actual_unittest_modules_no_skips_complete_source_bindings"
+  },
+  "prior_metadata": {
+    "all_passed": true,
+    "checks": {
+      "acceptance_build_report": true,
+      "acceptance_build_specification": true,
+      "acceptance_independent_receipt": true,
+      "acceptance_prior_read_only_permissions": true,
+      "acceptance_real_bundle": true,
+      "acceptance_stage4_stage5_unchanged": true,
+      "acceptance_version_status_permissions": true,
+      "accepted_money_mask_and_conservation": true,
+      "accepted_population_denominators": true,
+      "accepted_readback_schema_types_counts": true,
+      "accepted_state_types_sum": true,
+      "bound_original_contract_support": true,
+      "complete_twenty_original_sources": true,
+      "independent_customer_null_cells": true,
+      "independent_per_file_rows_cells_binary64": true,
+      "independent_prior_acceptance_passed": true,
+      "independent_prior_cell_count": true,
+      "independent_reference_clock_and_quality_counts": true,
+      "independent_reference_customer_bytes": true,
+      "independent_reference_money_conservation": true,
+      "independent_reference_order_bytes": true,
+      "independent_reference_population_frequency_nulls": true,
+      "independent_reference_source_rows": true,
+      "independent_reference_states": true,
+      "independent_total_equals_per_file_cells": true,
+      "manifest_dataset_contract": true,
+      "manifest_prior_readback": true,
+      "manifest_private_csv_bytes": true,
+      "manifest_rows": true,
+      "manifest_schema": true,
+      "manifest_seven_keys": true,
+      "manifest_sources": true,
+      "manifest_summary": true,
+      "prior_readback_passed": true,
+      "private_bundle_all_three_bytes": true,
+      "private_guard_build_specification": true,
+      "private_guard_dataset_contract": true,
+      "private_guard_prior_readback": true,
+      "private_guard_source_list": true,
+      "private_guard_version": true,
+      "public_build_specification": true,
+      "public_build_version_policy_status": true
+    },
+    "completed_description_output_hashes_match": true,
+    "individual_readback_rerun": false
+  },
+  "source_count": 49,
+  "status": "G2_implementation_synthetic_verified_real_candidate_not_executed",
+  "synthetic_cases": {
+    "balanced_500": {
+      "G2": "passed",
+      "bin_counts_each_axis": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "levels": [
+        5,
+        5,
+        5
+      ],
+      "n": 500
+    },
+    "constant_F_500": {
+      "F_bins": [
+        500
+      ],
+      "F_cuts": [],
+      "F_levels": 1,
+      "G2": "ineligible",
+      "n": 500
+    },
+    "small_joint_cells": {
+      "G2": "passed",
+      "each_cell_n": 4,
+      "joint_cells": 125,
+      "n": 500,
+      "unsupported_cells": 125
+    },
+    "support_99_per_bin": {
+      "G2": "ineligible",
+      "bin_counts_each_axis": [
+        99,
+        99,
+        99,
+        99,
+        99
+      ],
+      "n": 495,
+      "support_floor": 100
+    }
+  },
+  "unit_tests": {
+    "elapsed_seconds": 10.15675,
+    "errors": 0,
+    "failures": 0,
+    "modules": [
+      "tests.test_rfm_rule_candidate",
+      "tests.test_verify_rfm_rule_candidate"
+    ],
+    "skipped": 0,
+    "successful": true,
+    "test_ids": [
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_altered_frozen_policy_or_schema_is_rejected",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_bad_schema_types_and_rfm_domain_cannot_reach_cut_estimator",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_balanced_five_levels_passes_support_at_exact_floor",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_collapsed_effective_levels_and_recency_direction_are_actual",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_complete_roster_detects_customer_removed_consistently_with_ledger",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_constant_axis_has_one_level_and_makes_candidate_ineligible",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_duplicate_cutpoints_removed_min_retained_and_max_removed",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_each_axis_low_support_fails_without_recutting_or_merging",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_empty_active_reference_skips_partition_and_remains_not_evaluable",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_empty_population_is_not_evaluable_instead_of_a_pass",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_g1_acceptance_requires_exact_true_boolean",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_independent_complete_roster_is_required_and_strict",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_large_integer_money_does_not_round_to_binary64",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_legitimate_zero_money_customer_is_never_filtered",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_mask_and_state_flags_cannot_promote_incomplete_customer",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_missing_or_duplicate_customer_order_ids_fail_g0",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_only_active_complete_enters_reference_and_masked_rows_are_retained_outside",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_only_one_axis_bin_below_floor_is_not_hidden_by_average_support",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_original_reverse_and_pcg64_seed42_have_identical_same_id_assignments",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_population_frequency_and_money_conservation_fail_closed",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_pure_core_never_opens_files_mutates_sources_or_runs_sensitivity",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_quantile_ranks_use_integer_ceiling_without_interpolation",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_reproducibility_rejects_a_missing_assignment_id",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_reproducibility_rejects_changed_cut_even_with_unchanged_bin_counts",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_reproducibility_rejects_swapped_ids_despite_identical_group_sizes",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_small_joint_cells_are_flagged_without_failing_axis_g2",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_support_floor_exact_integer_ceiling_at_point_five_percent",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_three_and_four_level_axes_use_collapsed_recency_direction",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_tie_split_is_rejected_even_if_partition_is_consistent_across_orders",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_ties_are_never_split_by_id_or_original_row_position",
+      "tests.test_rfm_rule_candidate.RFMRuleCandidateTests.test_values_equal_to_cut_are_in_lower_numeric_bin",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_actual_suite_empty_or_outside_required_modules_is_rejected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_actual_suite_skips_failures_errors_and_duplicate_ids_are_rejected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_changed_existing_outputs_never_overwritten",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_changed_new_implementation_or_prior_source_blocks_existing_receipt",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_cli_dispatches_only_synthetic_flag",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_complete_forty_nine_distinct_source_bindings",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_invalid_mocked_actual_receipt_stops_before_any_output",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_metadata_only_never_parses_opaque_bundle_or_calls_real_entry",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_missing_or_duplicate_prior_source_binding_is_rejected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_only_explicit_synthetic_action_is_supported",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_partial_outputs_are_not_regenerated",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_G1_acceptance_gate_readback_and_decision_are_required",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_completed_core_count_rejects_bool_and_float_impersonation",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_failure_marker_stops_before_suites",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_output_guard_canonical_schema_and_version_are_checked",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_private_bundle_and_input_guard_bytes_are_checked",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_prior_public_G2_gate_cannot_be_relabelled_even_with_refreshed_guard",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_public_reports_exclude_private_digests_and_guards",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_real_unittest_receipt_collection_records_actual_ids_counts_and_log",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_receipt_fail_skip_error_and_imprecise_numeric_types_rejected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_receipt_schema_counts_identity_and_module_requirements",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_same_bytes_reentry_preserves_outputs_and_never_reruns_suites",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_source_mutation_during_existing_verification_is_detected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_source_mutation_during_publication_stops_and_retains_evidence",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_source_mutation_during_suites_stops_before_publication",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_success_records_validated_receipt_and_no_real_execution",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_synchronized_report_and_guard_tampering_is_rejected",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_synthetic_scenario_disagreement_stops_before_any_output",
+      "tests.test_verify_rfm_rule_candidate.RFMRuleCandidateVerificationTests.test_unexpected_control_file_is_preserved_and_rejected"
+    ],
+    "tests_by_module": {
+      "tests.test_rfm_rule_candidate": 31,
+      "tests.test_verify_rfm_rule_candidate": 29
+    },
+    "tests_run": 60
+  }
+}
