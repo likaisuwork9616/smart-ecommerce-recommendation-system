@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6 RFM資料集契約
+## 本輪Stage 6 RFM builder與反讀驗收
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec tests.test_rfm_dataset_builder tests.test_rfm_dataset_artifacts tests.test_build_rfm_dataset -q
+```
+
+130項全過、5.417821秒（原20＋23、新builder42＋artifact20＋入口25），只用合成fixture，核截止、未知／隔離與五狀態、精確R／分、來源守門、整包不可覆寫、strict型別、偽摘要／排除理由拒收及唯讀驗收。另做真實資料3,082,480格反讀與獨立同ID每欄核對，不與單元測試數相加；未跑全專案discover、分群或模型fit。見[實作與驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)及[實際報告](../reports/stage6/rfm_dataset_build_acceptance.json)。
+
+## 前輪Stage 6 RFM資料集契約
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec -q

@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4、5維持待資料；Stage 6最新凍結RFM資料集契約並核對母體、隔離與狀態支援，builder及個體RFM未實作。本輪不分群、不訓練、不做Dashboard。先看[專案首頁](../README.md)，再查本輪凍結規格與前輪盤點。
+Stage 4、5維持待資料；Stage 6已依凍結契約完成builder、實際私有RFM與反讀／完整同ID驗收。本輪不分群、不訓練、不做Dashboard。先看[專案首頁](../README.md)，再查本輪實作與前輪契約／盤點。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 6 RFM資料集契約 | [母體、資格、RFM與輸出](STAGE6_RFM_DATASET_SPEC.md) | 93,234歷史顧客、74,088窗口單；59異常隔離、零活動／未知遮罩、S／T及16欄輸出凍結，未做builder |
+| 最新Stage 6 RFM實作與驗收 | [builder、反讀與完整同ID核對](STAGE6_RFM_DATASET_IMPLEMENTATION.md) | 93,234顧客／99,421逐單、130項測試與3,082,480格獨立核對通過；未分群 |
+| 前輪Stage 6 RFM資料集契約 | [母體、資格、RFM與輸出](STAGE6_RFM_DATASET_SPEC.md) | 93,234歷史顧客、74,088窗口單；59異常隔離、零活動／未知遮罩、S／T及16欄輸出凍結，未做builder |
 | 前輪Stage 6 RFM輸入盤點 | [顧客鍵、資格、金額與時間截止](STAGE6_RFM_FEASIBILITY.md) | 原四表來源守門、候選74,147單／72,183顧客鍵，20項合成測試與59項獨立對帳；未建RFM／分群 |
 | 前輪Stage 5適用範圍與交付 | [四欄／三欄模型卡](STAGE5_MODEL_APPLICABILITY.md) | 開發回測範圍、未知／時鐘／版本限制、公開與私有產物、操作及下一步；不追加訓練 |
 | 前輪Stage 5新時間窗交接 | [交接清單](templates/review_window_handoff/README.md)、[驗收紀錄](templates/review_window_handoff/acceptance_record.template.md)、[JSON範本](templates/review_window_handoff/handoff_manifest.template.json) | 同ID名冊、H60完成、原入庫／評分版本、新標籤角色；分月15項與三關卡，均待資料 |

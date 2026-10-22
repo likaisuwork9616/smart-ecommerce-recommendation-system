@@ -1,5 +1,7 @@
 # Stage 6：RFM資料集凍結規格
 
+最新已依本契約完成[builder、實際私有資料集與反讀／同ID驗收](STAGE6_RFM_DATASET_IMPLEMENTATION.md)。下文保留契約凍結輪次的決策、聚合支援與當時尚未實作的紀錄；原機器規格／報告bytes不改，不代表最新仍缺builder。M.zero指空集合補零政策；合法零元活躍交易仍可M=0，實作解讀與測試見最新文件。
+
 **資料集契約已凍結；builder、個體RFM資料集與分群尚未實作。** 本輪將[前輪輸入盤點](STAGE6_RFM_FEASIBILITY.md)的候選選項定為可驗收的離線快照研究契約，先寫[機器規格](../reports/stage6/rfm_dataset_specification.json)，再做[聚合支援查核](../reports/stage6/rfm_dataset_contract_audit.json)。沒有訓練、預測、讀評論／模型分數或Dashboard；Stage 4、5維持待資料。
 
 本規格不是原營運as-of、完整顧客生命週期或淨消費驗收。來源、最終狀態及金額仍是後來取得的快照，缺原入庫／修訂、退款／結算、日結與完整性證據。固定S／T不會解除這些限制。
