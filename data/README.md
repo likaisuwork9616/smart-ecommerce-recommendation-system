@@ -87,3 +87,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Stage 6本輪RFM評估規格的版本沿用
 
 本輪[凍結描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)，只核原bundle與驗收收據metadata／bytes，未解析CSV或產生新個體值。新input guard在`.runtime/stage6_rfm_evaluation_spec_v1/`；未來`.runtime/stage6_rfm_evaluation_v1/`僅預留名稱、未建立，原資料與Stage 4／5凍結資產保留。
+
+## Stage 6本輪描述器合成驗收
+
+本輪[只讀描述實作](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)只對合成記憶體資料驗證；真實dataset_v1與Stage 4／5凍結資產只核metadata／hash，不解析內容或新增個體值。新guard在`.runtime/stage6_rfm_description_implementation_v1/`，測試收據／log在`.runtime/stage6_rfm_description_unit.*`、獨立oracle在`.runtime/stage6_rfm_description_independent/`；未建立未來evaluation_v1或真實描述輸出。
