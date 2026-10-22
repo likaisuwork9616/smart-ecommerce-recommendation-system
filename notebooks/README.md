@@ -57,3 +57,7 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 本輪[新時間窗交接清單／驗收範本](../docs/templates/review_window_handoff/README.md)只整理文件與空白格式，五個月仍待資料；沒有新增或執行Notebook、標籤、訓練或Dashboard。實際來源到齊後先逐月驗收，不以重跑Notebook3聚合或04訓練補交接缺口。
 
 最新[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)只整理既有研究範圍與交付限制，沒有執行Notebook、訓練或Dashboard。Stage 5仍待資料；下一輪可先盤點Stage 6 RFM的顧客鍵、訂單／金額與時間截止，目前尚未開始RFM或新增Notebook。
+
+## Stage 6 RFM輸入盤點
+
+本輪[顧客鍵、訂單資格、金額與時間截止盤點](../docs/STAGE6_RFM_FEASIBILITY.md)使用獨立只讀CLI，沒有新增或執行Notebook，不重跑03的營收／評論聚合或04的模型訓練。個體RFM與分群未開始，先凍結資料集語義再決定builder；Stage 4、5待資料與Dashboard暫緩不變。

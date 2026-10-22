@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 5模型適用範圍文件
+## 本輪Stage 6 RFM輸入盤點
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility -q
+```
+
+20項合成測試全過、0.012秒，涵蓋顧客鍵、明細／付款獨立彙總、精確到分、未知／非法與負金額、缺流、T邊界與晚送達、不修改輸入及不輸出個體RFM。另59項正式聚合／候選比較通過，來源及候選由獨立CSV／Decimal與pandas計算核對；不加總成單元測試數。沒有執行個體RFM、分群、模型測試、全專案discover或業務成效評估，詳見[Stage 6文件](../docs/STAGE6_RFM_FEASIBILITY.md)。
+
+## 前輪Stage 5模型適用範圍文件
 
 [四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)只核對原聚合報告的逐月／macro AP、C、分母與固定門檻混淆數，並查文件連結／JSON格式與既有凍結資產保存。未讀逐筆分數重算指標，未新增或重跑單元／模型測試、訓練、資料集或新資料驗收；這次文件查核不算新效能或未知測試。
 

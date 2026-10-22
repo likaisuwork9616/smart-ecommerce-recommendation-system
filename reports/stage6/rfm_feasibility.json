@@ -1,0 +1,465 @@
+{
+  "format_version": 1,
+  "limitations": [
+    "Snapshot final status and events are retrospective proxies, not original availability.",
+    "No original ingestion, revisions, refunds or source completion evidence.",
+    "Candidate dates are for support inventory, not a final RFM scoring contract.",
+    "No customer RFM, segments, predictive performance or operational acceptance."
+  ],
+  "policy": {
+    "RFM_values_built": false,
+    "approval_is_eligibility_requirement": false,
+    "candidate_order_rule": "purchase_in_window_final_delivered_purchase_le_delivery_lt_T",
+    "candidate_window": {
+      "cutoff_exclusive": "2018-09-01 00:00:00",
+      "start_inclusive": "2017-09-01 00:00:00",
+      "status": "candidate_for_support_inventory_not_final_RFM_contract",
+      "time_zone": "source_naive_unverified_no_UTC_assignment"
+    },
+    "customer_key": "customer_unique_id_via_many_orders_to_unique_customer_id_mapping",
+    "customer_universe_and_zero_activity_policy": "must_freeze_before_builder_not_chosen_here",
+    "dashboard": false,
+    "freight": "separate_not_primary_M",
+    "missing_invalid_money": "unknown_never_zero_or_payment_fallback",
+    "model_training": false,
+    "operational_as_of_proven": false,
+    "payments": "independent_order_aggregation_reconciliation_only_not_instalments_multiplier",
+    "primary_money_candidate": "sum_item_price_in_integer_cents_product_gross_snapshot",
+    "prospective_F": "distinct_order_ids_in_same_window",
+    "prospective_M": "product_price_sum_in_same_window_not_net_revenue",
+    "prospective_R": "T_minus_last_purchase_of_same_eligible_set_elapsed_days_rounding_not_frozen",
+    "refund_net_revenue_available": false,
+    "scope": "snapshot_input_inventory_only_no_customer_RFM_or_segmentation",
+    "segments_built": false,
+    "source_completeness_proven": false,
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_and_frozen_scores_unchanged": true,
+      "status": "pending_data"
+    }
+  },
+  "results": {
+    "candidate_window_support": {
+      "cutoff_exclusive": "2018-09-01 00:00:00",
+      "distinct_customer_unique_ids": 72183,
+      "freight": {
+        "sum_cents_on_valid_orders": 171105733,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74147
+      },
+      "full_upstream_or_operational_as_of_accepted": false,
+      "input_supported_orders": 74147,
+      "orders_with_delivery_before_approval": 59,
+      "orders_with_missing_approval": 0,
+      "orders_without_valid_freight_reconciliation": 0,
+      "orders_without_valid_payment_reconciliation": 0,
+      "payment_reconciliation": {
+        "absolute_difference_above_one_cent_orders": 204,
+        "comparable_orders": 74147,
+        "equal_total_is_proof_of_net_settlement": false,
+        "exact_equal_cents_orders": 73708,
+        "nonzero_difference_orders": 439,
+        "one_cent_is_business_acceptance_tolerance": false,
+        "payment_higher_orders": 262,
+        "payment_lower_orders": 177,
+        "sum_payment_minus_items_freight_cents": 179092
+      },
+      "payments": {
+        "sum_cents_on_valid_orders": 1188760463,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74147
+      },
+      "price": {
+        "sum_cents_on_valid_orders": 1017475638,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74147
+      },
+      "sequential_order_ledger": [
+        {
+          "excluded_from_previous": 0,
+          "remaining_orders": 99441,
+          "rule": "valid_purchase_clock"
+        },
+        {
+          "excluded_from_previous": 23317,
+          "remaining_orders": 76124,
+          "rule": "purchase_in_candidate_window"
+        },
+        {
+          "excluded_from_previous": 1911,
+          "remaining_orders": 74213,
+          "rule": "snapshot_status_delivered"
+        },
+        {
+          "excluded_from_previous": 7,
+          "remaining_orders": 74206,
+          "rule": "valid_delivery_clock"
+        },
+        {
+          "excluded_from_previous": 0,
+          "remaining_orders": 74206,
+          "rule": "delivery_not_before_purchase"
+        },
+        {
+          "excluded_from_previous": 59,
+          "remaining_orders": 74147,
+          "rule": "delivery_strictly_before_candidate_T"
+        },
+        {
+          "excluded_from_previous": 0,
+          "remaining_orders": 74147,
+          "rule": "mapped_nonempty_customer_unique_id"
+        },
+        {
+          "excluded_from_previous": 0,
+          "remaining_orders": 74147,
+          "rule": "present_valid_item_price_and_key"
+        }
+      ],
+      "start_inclusive": "2017-09-01 00:00:00",
+      "status": "support_only_not_frozen_customer_RFM_dataset",
+      "time_status_eligible_orders": 74147
+    },
+    "identity": {
+      "customer_rows": 99441,
+      "customer_unique_ids_in_master": 96096,
+      "distinct_order_customer_ids": 99441,
+      "mapped_customers_with_multiple_source_orders": 2997,
+      "mapped_unique_customers_all_source": 96096,
+      "mapping_reuse_is_RFM_frequency": false,
+      "missing_unique_id_master_rows": 0,
+      "order_rows": 99441,
+      "orders_missing_unique_id_mapping": 0,
+      "orphan_customer_id_orders": 0,
+      "required_master_keys_present_unique": true
+    },
+    "items": {
+      "distinct_order_ids_including_missing": 98666,
+      "duplicate_key_groups": 0,
+      "money": {
+        "freight_value": {
+          "invalid_rows": 0,
+          "negative_rows": 0,
+          "parseable_rows": 112650,
+          "sum_parseable_cents": 225190954
+        },
+        "price": {
+          "invalid_rows": 0,
+          "negative_rows": 0,
+          "parseable_rows": 112650,
+          "sum_parseable_cents": 1359164370
+        }
+      },
+      "quality": {
+        "duplicate_key_excess_rows": 0,
+        "freight_value_invalid_rows": 0,
+        "freight_value_negative_rows": 0,
+        "invalid_sequence_rows": 0,
+        "missing_order_id_rows": 0,
+        "orphan_order_rows": 0,
+        "price_invalid_rows": 0,
+        "price_negative_rows": 0
+      },
+      "rows": 112650
+    },
+    "not_executed": [
+      "customer_RFM_values",
+      "RFM_scores",
+      "quantiles",
+      "segments",
+      "training",
+      "predictions",
+      "business_effectiveness",
+      "dashboard"
+    ],
+    "order_joins": {
+      "multi_item_and_multi_payment_orders": 275,
+      "naive_inner_item_payment_join_rows": 117601,
+      "order_aggregate_join_rows": 98665,
+      "orders_missing_items": 775,
+      "orders_missing_payments": 1,
+      "orders_with_both_sources": 98665
+    },
+    "orders": {
+      "approval_before_purchase": 0,
+      "clocks": {
+        "order_approved_at": {
+          "invalid_nonmissing": 0,
+          "max": "2018-09-03 17:40:06",
+          "min": "2016-09-15 12:16:38",
+          "missing": 160,
+          "valid": 99281
+        },
+        "order_delivered_customer_date": {
+          "invalid_nonmissing": 0,
+          "max": "2018-10-17 13:22:46",
+          "min": "2016-10-11 13:46:32",
+          "missing": 2965,
+          "valid": 96476
+        },
+        "order_purchase_timestamp": {
+          "invalid_nonmissing": 0,
+          "max": "2018-10-17 17:30:18",
+          "min": "2016-09-04 21:15:19",
+          "missing": 0,
+          "valid": 99441
+        }
+      },
+      "delivery_before_approval": 61,
+      "delivery_before_purchase": 0,
+      "monthly_purchase_counts": [
+        {
+          "all_orders": 4,
+          "delivered_with_valid_event_before_T": 1,
+          "purchase_month": "2016-09",
+          "snapshot_delivered": 1
+        },
+        {
+          "all_orders": 324,
+          "delivered_with_valid_event_before_T": 265,
+          "purchase_month": "2016-10",
+          "snapshot_delivered": 265
+        },
+        {
+          "all_orders": 1,
+          "delivered_with_valid_event_before_T": 1,
+          "purchase_month": "2016-12",
+          "snapshot_delivered": 1
+        },
+        {
+          "all_orders": 800,
+          "delivered_with_valid_event_before_T": 750,
+          "purchase_month": "2017-01",
+          "snapshot_delivered": 750
+        },
+        {
+          "all_orders": 1780,
+          "delivered_with_valid_event_before_T": 1653,
+          "purchase_month": "2017-02",
+          "snapshot_delivered": 1653
+        },
+        {
+          "all_orders": 2682,
+          "delivered_with_valid_event_before_T": 2546,
+          "purchase_month": "2017-03",
+          "snapshot_delivered": 2546
+        },
+        {
+          "all_orders": 2404,
+          "delivered_with_valid_event_before_T": 2303,
+          "purchase_month": "2017-04",
+          "snapshot_delivered": 2303
+        },
+        {
+          "all_orders": 3700,
+          "delivered_with_valid_event_before_T": 3545,
+          "purchase_month": "2017-05",
+          "snapshot_delivered": 3546
+        },
+        {
+          "all_orders": 3245,
+          "delivered_with_valid_event_before_T": 3135,
+          "purchase_month": "2017-06",
+          "snapshot_delivered": 3135
+        },
+        {
+          "all_orders": 4026,
+          "delivered_with_valid_event_before_T": 3872,
+          "purchase_month": "2017-07",
+          "snapshot_delivered": 3872
+        },
+        {
+          "all_orders": 4331,
+          "delivered_with_valid_event_before_T": 4193,
+          "purchase_month": "2017-08",
+          "snapshot_delivered": 4193
+        },
+        {
+          "all_orders": 4285,
+          "delivered_with_valid_event_before_T": 4150,
+          "purchase_month": "2017-09",
+          "snapshot_delivered": 4150
+        },
+        {
+          "all_orders": 4631,
+          "delivered_with_valid_event_before_T": 4478,
+          "purchase_month": "2017-10",
+          "snapshot_delivered": 4478
+        },
+        {
+          "all_orders": 7544,
+          "delivered_with_valid_event_before_T": 7288,
+          "purchase_month": "2017-11",
+          "snapshot_delivered": 7289
+        },
+        {
+          "all_orders": 5673,
+          "delivered_with_valid_event_before_T": 5513,
+          "purchase_month": "2017-12",
+          "snapshot_delivered": 5513
+        },
+        {
+          "all_orders": 7269,
+          "delivered_with_valid_event_before_T": 7069,
+          "purchase_month": "2018-01",
+          "snapshot_delivered": 7069
+        },
+        {
+          "all_orders": 6728,
+          "delivered_with_valid_event_before_T": 6554,
+          "purchase_month": "2018-02",
+          "snapshot_delivered": 6555
+        },
+        {
+          "all_orders": 7211,
+          "delivered_with_valid_event_before_T": 7003,
+          "purchase_month": "2018-03",
+          "snapshot_delivered": 7003
+        },
+        {
+          "all_orders": 6939,
+          "delivered_with_valid_event_before_T": 6798,
+          "purchase_month": "2018-04",
+          "snapshot_delivered": 6798
+        },
+        {
+          "all_orders": 6873,
+          "delivered_with_valid_event_before_T": 6748,
+          "purchase_month": "2018-05",
+          "snapshot_delivered": 6749
+        },
+        {
+          "all_orders": 6167,
+          "delivered_with_valid_event_before_T": 6093,
+          "purchase_month": "2018-06",
+          "snapshot_delivered": 6099
+        },
+        {
+          "all_orders": 6292,
+          "delivered_with_valid_event_before_T": 6138,
+          "purchase_month": "2018-07",
+          "snapshot_delivered": 6159
+        },
+        {
+          "all_orders": 6512,
+          "delivered_with_valid_event_before_T": 6315,
+          "purchase_month": "2018-08",
+          "snapshot_delivered": 6351
+        },
+        {
+          "all_orders": 16,
+          "delivered_with_valid_event_before_T": 0,
+          "purchase_month": "2018-09",
+          "snapshot_delivered": 0
+        },
+        {
+          "all_orders": 4,
+          "delivered_with_valid_event_before_T": 0,
+          "purchase_month": "2018-10",
+          "snapshot_delivered": 0
+        }
+      ],
+      "status_counts": {
+        "approved": 2,
+        "canceled": 625,
+        "created": 5,
+        "delivered": 96478,
+        "invoiced": 314,
+        "processing": 301,
+        "shipped": 1107,
+        "unavailable": 609
+      }
+    },
+    "payment_vs_product_plus_freight": {
+      "absolute_difference_above_one_cent_orders": 303,
+      "comparable_orders": 98665,
+      "equal_total_is_proof_of_net_settlement": false,
+      "exact_equal_cents_orders": 98089,
+      "nonzero_difference_orders": 576,
+      "one_cent_is_business_acceptance_tolerance": false,
+      "payment_higher_orders": 367,
+      "payment_lower_orders": 209,
+      "sum_payment_minus_items_freight_cents": 287039
+    },
+    "payments": {
+      "distinct_order_ids_including_missing": 99440,
+      "duplicate_key_groups": 0,
+      "installments_used_as_multiplier": false,
+      "money": {
+        "payment_value": {
+          "invalid_rows": 0,
+          "negative_rows": 0,
+          "parseable_rows": 103886,
+          "sum_parseable_cents": 1600887212
+        }
+      },
+      "payment_type_rows": {
+        "boleto": 19784,
+        "credit_card": 76795,
+        "debit_card": 1529,
+        "not_defined": 3,
+        "voucher": 5775
+      },
+      "quality": {
+        "duplicate_key_excess_rows": 0,
+        "invalid_sequence_rows": 0,
+        "missing_order_id_rows": 0,
+        "orphan_order_rows": 0,
+        "payment_value_invalid_rows": 0,
+        "payment_value_negative_rows": 0
+      },
+      "rows": 103886
+    },
+    "status": "input_inventory_completed_candidate_contract_not_RFM_implementation"
+  },
+  "source_headers": {
+    "customers": [
+      "customer_id",
+      "customer_unique_id",
+      "customer_zip_code_prefix",
+      "customer_city",
+      "customer_state"
+    ],
+    "order_items": [
+      "order_id",
+      "order_item_id",
+      "product_id",
+      "seller_id",
+      "shipping_limit_date",
+      "price",
+      "freight_value"
+    ],
+    "order_payments": [
+      "order_id",
+      "payment_sequential",
+      "payment_type",
+      "payment_installments",
+      "payment_value"
+    ],
+    "orders": [
+      "order_id",
+      "customer_id",
+      "order_status",
+      "order_purchase_timestamp",
+      "order_approved_at",
+      "order_delivered_carrier_date",
+      "order_delivered_customer_date",
+      "order_estimated_delivery_date"
+    ]
+  },
+  "specification": {
+    "bytes": 4472,
+    "path": "reports/stage6/rfm_feasibility_specification.json",
+    "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+  }
+}

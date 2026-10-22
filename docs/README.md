@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4維持待資料；Stage 5已整理四欄基線／三欄消融的適用範圍、限制與研究交付清單，五個新月份仍待資料。本輪不訓練、不重算分數／效能或做Dashboard。先看[專案首頁](../README.md)，再查模型卡及原報告。
+Stage 4、5維持待資料；Stage 6最新完成RFM顧客鍵、訂單資格、金額與候選時間截止的輸入盤點，個體RFM與分群未開始。本輪不訓練、不讀評論／模型分數或做Dashboard。先看[專案首頁](../README.md)，再查本輪盤點與原研究文件。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 最新Stage 5適用範圍與交付 | [四欄／三欄模型卡](STAGE5_MODEL_APPLICABILITY.md) | 開發回測範圍、未知／時鐘／版本限制、公開與私有產物、操作及下一步；不追加訓練 |
+| 最新Stage 6 RFM輸入盤點 | [顧客鍵、資格、金額與時間截止](STAGE6_RFM_FEASIBILITY.md) | 原四表來源守門、候選74,147單／72,183顧客鍵，20項合成測試與59項獨立對帳；未建RFM／分群 |
+| 前輪Stage 5適用範圍與交付 | [四欄／三欄模型卡](STAGE5_MODEL_APPLICABILITY.md) | 開發回測範圍、未知／時鐘／版本限制、公開與私有產物、操作及下一步；不追加訓練 |
 | 前輪Stage 5新時間窗交接 | [交接清單](templates/review_window_handoff/README.md)、[驗收紀錄](templates/review_window_handoff/acceptance_record.template.md)、[JSON範本](templates/review_window_handoff/handoff_manifest.template.json) | 同ID名冊、H60完成、原入庫／評分版本、新標籤角色；分月15項與三關卡，均待資料 |
 | 前輪Stage 5後續時間窗與用途 | [使用紀錄、H60與版本支援](STAGE5_REVIEW_VALIDATION_WINDOWS.md) | 五個較晚月份全待資料，只保留驗收後時間驗證用途；不是全新未知holdout，0新標籤／訓練／效能 |
 | 前輪Stage 5成熟先驗與時間漂移 | [逐fit H60先驗與覆蓋](STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md) | 6個fit情境、12完整角色；固定近期窗方向不一致，無訓練或參數更新 |
