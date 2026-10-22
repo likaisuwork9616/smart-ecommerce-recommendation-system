@@ -1,12 +1,13 @@
 # 文件導覽
 
-Stage 4、5維持待資料；Stage 6本輪依凍結G2規格實作規則候選與資格守門，只用合成資料驗ties、切點退化、有效級數、支援量與同ID重現。前輪真實只讀描述與完整反讀保留；本輪未解析真實CSV、估真實切點、產生真實tuple、分群、訓練或做Dashboard，G3未執行。先看[專案首頁](../README.md)，再查本輪合成驗收與前輪真實描述。
+Stage 4、5維持待資料；Stage 6本輪準備真實G2的完整來源、獨立同ID、輸出與反讀契約，以合成資料驗接線，真實僅核metadata／hash。前輪G2核心合成驗收與真實G1描述保留；本輪未解析真實CSV、估真實切點、產生真實tuple、分群、訓練或做Dashboard，G3未執行。先看[專案首頁](../README.md)，再查本輪執行準備。
 
 ## 目前要看哪裡
 
 | 需求 | 文件 | 內容 |
 | --- | --- | --- |
-| 本輪Stage 6 G2規則候選與資格守門 | [實作、合成案例與操作](STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 原整數切點、ties不拆、1–5級、每軸支援與100%同ID重現；[規格](../reports/stage6/rfm_rule_candidate_implementation_specification.json)及[合成驗收](../reports/stage6/rfm_rule_candidate_verification.json)；真實G2與G3未執行 |
+| 本輪Stage 6真實G2執行準備 | [來源、完整同ID、輸出與反讀契約](STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | [57來源規格](../reports/stage6/rfm_rule_candidate_execution_specification.json)與[準備查核](../reports/stage6/rfm_rule_candidate_execution_preflight.json)；CLI僅--prepare，接線只用合成驗證，真實G2及未來輸出未執行／建立 |
+| 前輪Stage 6 G2規則候選與資格守門 | [實作、合成案例與操作](STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 原整數切點、ties不拆、1–5級、每軸支援與100%同ID重現；[規格](../reports/stage6/rfm_rule_candidate_implementation_specification.json)及[合成驗收](../reports/stage6/rfm_rule_candidate_verification.json)；真實G2與G3未執行 |
 | 前輪Stage 6真實只讀描述結果 | [完整同ID、RFM摘要與交付驗收](STAGE6_RFM_DESCRIPTION_RESULTS.md) | 93,234顧客／99,421訂單、776,807格名冊／244聚合值反讀一致；F=1占97.52%，當輪未估切點／分群 |
 | 前輪Stage 6真實只讀描述執行準備 | [來源、完整同ID名冊、聚合與反讀](STAGE6_RFM_DESCRIPTION_EXECUTION.md) | 58合成測試與41來源／42項metadata通過；真實未執行，future output未建立 |
 | 前輪Stage 6只讀RFM描述實作 | [資格守門、精確描述與合成驗收](STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) | 46測、獨立手算／反例與33來源／42項metadata通過；未執行真實描述／切點／分群 |

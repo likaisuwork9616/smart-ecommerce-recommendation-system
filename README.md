@@ -2,7 +2,7 @@
 
 Smart E-Commerce Recommendation System
 
-以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6最新依凍結G2規格實作規則候選與資格守門，先以合成資料驗ties、退化、有效級數、支援量及同ID重現。前輪真實只讀描述保留，72,124完整活躍顧客中97.52%只有1單。本輪未估真實切點、未分群／訓練／做Dashboard；推薦系統與API尚未開始。
+以Olist電商資料練習資料建置、SQL、商業分析、延遲及評論預測，再延伸至Retailrocket推薦系統、API與前端。資料環境、SQL與EDA初版已完成；Stage 4、5維持待資料。Stage 6最新準備真實G2的來源、完整同ID、輸出與反讀契約，接線先以合成資料驗證、真實僅核metadata／hash。前輪G2核心合成驗收與真實G1描述保留；本輪未解析真實CSV、估真實切點、分群／訓練／做Dashboard，推薦系統與API尚未開始。
 
 ## 目前進度
 
@@ -13,7 +13,7 @@ Smart E-Commerce Recommendation System
 | Stage 3：商業 EDA | 初版完成 | 八張趨勢、品類、付款、評論、配送與地區圖表 |
 | Stage 4：延遲預測 | 交接清單／驗收範本完成；資料仍待取得 | 每日10%與五種子維持，研究名冊交付保留；全量資料與正式提醒尚未驗收 |
 | Stage 5：評論低評分預測 | 適用範圍／交付模型卡完成；維持待資料 | 四欄保留開發對照、三欄保留消融證據；新驗證窗0，無追加訓練／新效能 |
-| Stage 6：RFM | G2規則候選／資格守門合成驗收完成 | 精確切點、ties不拆、1–5級、支援與同ID重現已驗；前輪真實G1保留，真實G2／G3未執行 |
+| Stage 6：RFM | 真實G2來源／完整同ID／輸出反讀準備完成 | 57來源、完整獨立名冊及私有四檔／公開聚合接線以合成驗證；真實G2／G3未執行 |
 | Stage 7：Dashboard | 暫緩 | 先確認延遲模型適用程度 |
 | Stage 8–13：推薦系統 | 尚未開始 | Retailrocket 行為、熱門、共現與個人化推薦 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
@@ -44,7 +44,8 @@ py -3.12 -m venv .venv
 | 看全量日名冊、入庫／版本與日結缺口 | [資料契約與停止條件](docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract) |
 | 準備資料交接與填寫驗收紀錄 | [交接清單](docs/templates/daily_data_handoff/README.md)、[驗收範本](docs/templates/daily_data_handoff/acceptance_record.template.md) |
 | 看Stage 6真實描述結果與交付驗收 | [分流、RFM摘要與限制](docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) |
-| 看最新Stage 6 G2規則候選實作 | [ties、有效級數、支援與同ID合成驗收](docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) |
+| 看最新Stage 6真實G2執行準備 | [57來源、完整同ID、輸出與反讀契約](docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) |
+| 看前輪Stage 6 G2規則候選實作 | [ties、有效級數、支援與同ID合成驗收](docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) |
 | 看Stage 6真實描述執行準備與輸出契約 | [來源、完整名冊、輸出與反讀](docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md) |
 | 驗證Stage 6只讀描述與資格守門 | [實作與合成驗收](docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md) |
 | 看Stage 6描述／分群評估及下一步 | [凍結分流、偏態、切點與穩定性規格](docs/STAGE6_RFM_EVALUATION_SPEC.md) |
@@ -114,7 +115,30 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 [取消／結案與承諾版本方向](docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md)繼續待資料。下一步取得可稽核的同ID核准清冊、雙時間版本與日結／入庫證據，再按清單驗收；沒有新資料就維持0訓練、0新效能結論，正式通知與模型Dashboard暫緩。
 
-## Stage 6本輪G2規則候選與資格守門
+## Stage 6本輪真實G2執行準備
+
+[來源、輸出與反讀契約](docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)、[57來源規格](reports/stage6/rfm_rule_candidate_execution_specification.json)及[準備查核](reports/stage6/rfm_rule_candidate_execution_preflight.json)獨立新增。沿用原G2核心與既有G1交付，不改原來源／規格／報告；真實資料只核metadata與binary hash。
+
+| 本輪工作 | 已準備的行為／執行界線 |
+| --- | --- |
+| 完整來源與G1 | 原49＋G2 spec／report兩份＋新程式／測試六份＝57；完整source-bound實測收據與私有證據同版，缺件或改bytes即停止 |
+| 完整同ID | 原來源獨立衍生顧客、全部T前訂單、窗口合格訂單與逐單11欄proof；載入一次原RFM再反讀既有G1，不重跑G1 core |
+| 私有／公開輸出 | 四檔契約：顧客9欄、訂單11欄、candidate與manifest；逐格及aggregate反讀，再發布白名單公開聚合與外部guard |
+| 完成與不合格 | 候選ineligible仍完整交付診斷、不重切；來源／ID／反讀或寫檔失敗留failure、禁止重播或刪檔重建 |
+| 實測準備 | sources 17＋outputs 27＋prepare 24共68項全過，75.543972秒；57來源及原42項metadata相符 |
+| 本輪執行 | 只走三套新合成測試與真實metadata準備；未解析真實CSV、建立真實名冊、估真實切點或產生真實tuple，G3／分群／訓練／Dashboard均未執行 |
+
+合成測數與耗時見[實測準備報告](reports/stage6/rfm_rule_candidate_execution_preflight.json)，不是實際顧客分配、真實G2合格結果或模型效能。可在無原始資料的clone執行：
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate_sources tests.test_rfm_rule_candidate_outputs tests.test_prepare_rfm_rule_candidate -q
+```
+
+原本機來源及實測receipt齊備時，`.\.venv\Scripts\python.exe scripts\prepare_rfm_rule_candidate.py --prepare`只驗準備產物；沒有真實執行或路徑覆寫參數。未來execute_prepared／verify_completed已接線並在合成scratch驗收，本輪不對真實workspace呼叫；未來真實四檔、公開結果及output guard未建立。下一步再決定是否依固定入口執行一次真實G2；不自動進G3或改規則。Stage 4、5仍待資料，Stage 4每日10%與11／29／42／73／101五種子不變。
+
+## Stage 6前輪G2規則候選與資格守門
+
+以下保留前輪核心實作與60測歷史，最新執行準備以上節為準；原報告bytes不回寫。
 
 [實作與限制](docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)、[49來源規格](reports/stage6/rfm_rule_candidate_implementation_specification.json)及[實測合成驗收](reports/stage6/rfm_rule_candidate_verification.json)獨立新增。沿用凍結P20／40／60／80原整數rank、右閉邊界及支援門檻；原41來源與G1證據不改，真實來源只核metadata／hash，不解析CSV或重播描述／個體反讀。
 
@@ -502,7 +526,7 @@ shop/
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只跑新增G2核心與驗證入口兩套合成測試及四組合成案例，不重跑舊suite或全專案discover。完整49來源、原G1 metadata／四檔bytes前後相符；未解析真實CSV、重算描述或估真實切點。實測測數與耗時見[合成驗收](reports/stage6/rfm_rule_candidate_verification.json)，前輪58／46／32／130測與原RFM、Stage 4／5證據保留，不加總成新測試或效能。
+測試範圍、分組及Windows權限見[測試說明](tests/README.md)。本輪只跑G2 sources／outputs／prepare三套新合成測試，不重跑舊suite或全專案discover；57來源與原G1／G2 metadata及bytes前後相符。未解析真實CSV、重算描述、估真實切點或建立真實輸出。實際測數／耗時見[準備查核](reports/stage6/rfm_rule_candidate_execution_preflight.json)，前輪60／58／46／32／130測與原RFM、Stage 4／5證據保留，不加總為新測試或效能。
 
 先前專案清整的範圍與驗證保留在[研究歷程](docs/PROJECT_PROGRESS.md#專案清整)，首頁持續只摘要目前結果及入口。
 

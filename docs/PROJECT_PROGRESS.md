@@ -1,6 +1,6 @@
 # 專案從起始到目前的進度
 
-資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6最新完成凍結G2規則候選與資格守門的合成驗收，原整數切點、ties、常數軸、有效級數、支援與同ID重現已驗；前輪真實G1描述與完整交付保留。本輪未解析真實CSV、估真實切點、分群、訓練或Dashboard，G3、跨時間及營運用途尚未驗收。
+資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6最新準備真實G2的來源、完整同ID、輸出及反讀契約，57來源與既有G1／G2證據同版，完整流程先以合成資料驗接線。本輪真實只核metadata／hash，未解析CSV、估真實切點、產生真實tuple、分群、訓練或Dashboard；G3、跨時間及營運用途仍未驗收。
 
 這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段，延遲模型仍在研究驗證。
 
@@ -13,14 +13,31 @@
 | Stage 3：商業 EDA | 分析每月訂單與營收、品類、付款、評論、配送時間、延遲比例與顧客地區，產出八張分析圖 | 初版完成 |
 | Stage 4：延遲預測 | 每日10%、五種子、模型卡、研究名冊交付及資料交接清單／驗收範本 | 範本已備；全量名冊／時鐘／版本／日結與事件訊號待資料 |
 | Stage 5：評論低評分預測 | 適用範圍、限制與交付模型卡備妥 | 僅離線開發研究；四欄保留對照、三欄未支持替換，新驗證待資料 |
-| Stage 6：RFM | G2規則候選與資格守門合成驗收完成 | 49來源／兩套新合成suite；前輪真實G1保留，真實G2／G3未執行，未分群 |
+| Stage 6：RFM | 真實G2來源、完整同ID與輸出／反讀準備完成 | 57來源／三套新合成suite；真實只核metadata，G2／G3尚未執行，未分群 |
 | Stage 7：Dashboard | 展示分析與模型結果 | 暫緩，先確認延遲模型的適用程度 |
 | Stage 8–13：Retailrocket 與推薦 | 行為分析、熱門商品、共現與個人化推薦 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
 Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
 
-## Stage 6本輪G2規則候選與資格守門
+## Stage 6本輪真實G2執行準備
+
+[來源、同ID與輸出反讀契約](STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)、[57來源規格](../reports/stage6/rfm_rule_candidate_execution_specification.json)及[準備查核](../reports/stage6/rfm_rule_candidate_execution_preflight.json)獨立新增，原方法、core、G1／G2既有交付及資料集保持bytes。
+
+| 本輪工作 | 實際狀態與限制 |
+| --- | --- |
+| 完整版本鏈 | 原49＋原G2 spec／verification兩份＋新六份source／outputs／runner與tests＝57，實測receipt及私有證據同版 |
+| 完整同ID／G1 | 未來loader已接原來源獨立全集／全部T前訂單／窗口訂單／逐單proof，載入一次原RFM並完整反讀G1，不重跑描述core |
+| 輸出反讀 | 私有四檔、9欄顧客／11欄訂單名冊與aggregate完整逐格驗；另從原RFM獨立核rank、切點、每ID分配、支援與gate，禁止重跑G2 core |
+| 一次完成與停止 | G2不合格仍保存完整候選診斷；來源／同ID／反讀／寫檔失敗留failure。已存在、部分或不同產物不重建、不重播 |
+| 合成與準備 | sources 17＋outputs 27＋prepare 24共68項全過，75.543972秒；57來源與原42項metadata相符。真實prepare封鎖19個解析／core／反讀等入口仍通過，未來結果全未建立；前輪60測不重跑或加總 |
+| 其他階段 | Stage 4／5仍待資料，10%／五種子不變；G3、分群、訓練與Dashboard未執行 |
+
+下一步另行決定是否依凍結入口執行一次真實G2並完整反讀，不改切點、門檻或規則直到合格，也不自動進入G3。單一快照、原入庫／版本、退款／結算及營運適用限制保留。
+
+## Stage 6前輪G2規則候選與資格守門
+
+以下保留前輪核心合成驗收與當時下一步；最新準備狀態以上節為準。
 
 [實作文件](STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)、[49來源規格](../reports/stage6/rfm_rule_candidate_implementation_specification.json)及[實測合成驗收](../reports/stage6/rfm_rule_candidate_verification.json)已新增，凍結方法及原41來源不變。
 
