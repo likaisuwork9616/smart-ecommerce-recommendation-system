@@ -1,12 +1,13 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約、合成驗證及離線開發回測；`stage6/`保存RFM輸入盤點、資料集契約、builder來源、真實建置與反讀驗收聚合；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格，`stage5/`保存評論預測盤點、資料集／基線契約、合成驗證及離線開發回測；`stage6/`保存RFM輸入盤點、資料集契約、builder／真實建置／反讀聚合，以及描述／分群評估規格與metadata沿用查核；`images/`保存EDA及較早Stage 4圖表。先讀[專案現況](../README.md)及[研究文件索引](../docs/README.md)，需要重現時再查[程式入口](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| 最新Stage 6 RFM建置與驗收 | [實作解讀](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) → [20份來源規格](stage6/rfm_dataset_build_specification.json) → [真實建置](stage6/rfm_dataset_build.json) → [分項驗收](stage6/rfm_dataset_build_acceptance.json)；只放聚合，不含個體RFM／私有digest或分群效果 |
+| 最新Stage 6 RFM評估規格 | [方法文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md) → [27份來源／機器規格](stage6/rfm_evaluation_specification.json) → [metadata查核](stage6/rfm_evaluation_contract_audit.json)；僅沿用版本，沒有新分布、切點、群組或效果數字 |
+| 前輪Stage 6 RFM建置與驗收 | [實作解讀](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md) → [20份來源規格](stage6/rfm_dataset_build_specification.json) → [真實建置](stage6/rfm_dataset_build.json) → [分項驗收](stage6/rfm_dataset_build_acceptance.json)；只放聚合，不含個體RFM／私有digest或分群效果 |
 | 前輪Stage 6 RFM資料集契約 | [解讀與輸出規格](../docs/STAGE6_RFM_DATASET_SPEC.md) → [凍結規格](stage6/rfm_dataset_specification.json) → [聚合支援查核](stage6/rfm_dataset_contract_audit.json)；母體、59異常、零活動與M遮罩已凍結，未建個體資料集或分群 |
 | 前輪Stage 6 RFM輸入支援 | [解讀與候選契約](../docs/STAGE6_RFM_FEASIBILITY.md) → [來源／政策規格](stage6/rfm_feasibility_specification.json) → [實際聚合盤點](stage6/rfm_feasibility.json)；只查鍵、資格、金額與時間，不含RFM個體值、分群或效能 |
 | 前輪Stage 5模型適用與交付 | [模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md) → [原四欄報告](stage5/review_baseline_training.json) → [原三欄報告](stage5/review_month_ablation_training.json) → [原配對驗收](stage5/review_month_ablation_training_acceptance.json)；僅整理已有開發結果，沒有新效能報告，Stage 5待資料 |

@@ -67,3 +67,7 @@ Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DA
 ## Stage 6本輪RFM builder與反讀
 
 最新[實作與驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)以獨立CLI完成一次RFM私有資料集建置及反讀／同ID核對。沒有新增或執行Notebook，不重跑03／04；分群、訓練、Dashboard未進行，Stage 4、5待資料不變。前文各輪「未builder」只描述當時狀態；現有資料集用build_rfm_dataset.py --verify唯讀驗收。
+
+## Stage 6本輪RFM評估方法凍結
+
+最新[描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)只用metadata／hash核沿用版本，沒有新增或執行Notebook、描述統計、切點、分群、訓練或Dashboard。後續先決定只讀描述器與合成驗證，不重跑03／04或原RFM builder補證據。

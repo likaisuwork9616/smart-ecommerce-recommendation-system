@@ -1,6 +1,6 @@
 # 專案從起始到目前的進度
 
-資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6已完成RFM builder與私有資料集：93,234顧客、99,421逐單，130項測試與3,082,480格獨立同ID驗收通過；完整活躍72,124位、零活動21,109位、混合隔離1位M遮罩。這是快照研究資料集；未分群、訓練、做Dashboard或驗收營運as-of。
+資料環境、SQL與商業分析初版已完成；Stage 4仍待資料、每日10%與五種子維持，Stage 5仍待資料並保留兩臂研究交付。Stage 6沿用已驗收RFM資料集，最新凍結描述／分群評估規格：顧客分流、偏態／離群、ties切點、支援與穩定性門檻已明定。只做metadata／bytes沿用查核，未計描述、切點、分群或訓練；跨時間、原可得／版本、退款及營運用途仍待資料。
 
 這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段，延遲模型仍在研究驗證。
 
@@ -13,14 +13,31 @@
 | Stage 3：商業 EDA | 分析每月訂單與營收、品類、付款、評論、配送時間、延遲比例與顧客地區，產出八張分析圖 | 初版完成 |
 | Stage 4：延遲預測 | 每日10%、五種子、模型卡、研究名冊交付及資料交接清單／驗收範本 | 範本已備；全量名冊／時鐘／版本／日結與事件訊號待資料 |
 | Stage 5：評論低評分預測 | 適用範圍、限制與交付模型卡備妥 | 僅離線開發研究；四欄保留對照、三欄未支持替換，新驗證待資料 |
-| Stage 6：RFM | 凍結契約、builder、顧客彙總與私有bundle | 真實資料集及洩漏／反讀／同ID驗收完成；未分群，營運as-of／淨額待資料 |
+| Stage 6：RFM | 已驗收bundle；描述／分群評估方法凍結 | 顧客分流、精確rank／ties、離群與穩定性驗收明定；描述器／分群尚未實作，跨時間及營運仍待資料 |
 | Stage 7：Dashboard | 展示分析與模型結果 | 暫緩，先確認延遲模型的適用程度 |
 | Stage 8–13：Retailrocket 與推薦 | 行為分析、熱門商品、共現與個人化推薦 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
 Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
 
-## Stage 6本輪RFM builder與資料集驗收
+## Stage 6本輪RFM描述／分群評估規格
+
+[凍結文件](STAGE6_RFM_EVALUATION_SPEC.md)、[機器規格](../reports/stage6/rfm_evaluation_specification.json)及[metadata查核](../reports/stage6/rfm_evaluation_contract_audit.json)固定後續方法，沿用已驗收v1；本輪只核來源／版本與bytes，沒有解析CSV內容、重算RFM、計描述／切點、產生分數／分群、重抽樣、訓練或Dashboard。
+
+| 面向 | 本輪凍結內容／狀態 |
+| --- | --- |
+| 顧客分流 | 原完整活躍72,124位才進數值描述／未來切點；乾淨零活動21,109位另列；混合隔離1位M=null。五狀態完整覆蓋原93,234顧客，合法活躍M=0保留 |
+| 偏態與離群 | 精確經驗分位rank、IQR／Bowley、F=1／M=0及Q99尾端占比；IQR=0明列退化，離群只flag、不刪人／clip，log1p僅第二描述尺度；尚未計算 |
+| 待評估切點 | 各軸P20／40／60／80，ties不拆、重複切點去重、移除max空箱並揭露有效級數；不強迫五等份、不加總價值分或指定商業群名；尚未估計 |
+| 方法穩定性 | 同資料重現須100%；五種子各抽80%估切點再套同ID全集，預定每軸agreement≥0.90、joint ARI≥0.80與每軸bin支援門檻；尚未執行，不是通用標準或效果 |
+| 時間與用途 | 單一T無法驗跨時間穩定，維持待資料；未選分群演算法／K、未驗未來價值或營運用途 |
+| 來源沿用 | 27份完整來源、原bundle／guard／獨立收據metadata對帳通過；原個體反讀及130項測試是前輪成果，本輪未重跑 |
+
+下一步先依規格實作只讀描述與資格守門，用合成資料驗精確rank、ties、退化、同ID分流與守恆，再決定真實描述執行。切點／tuple、敏感度及分群模型另行決定；Stage 4、5仍待資料，Stage 4每日10%與五種子不變。
+
+## Stage 6前輪RFM builder與資料集驗收
+
+以下保留前輪一次建置與個體反讀／獨立驗收紀錄；本輪只沿用版本證據，沒有重跑這些工作。
 
 [實作與驗收文件](STAGE6_RFM_DATASET_IMPLEMENTATION.md)、[20份來源規格](../reports/stage6/rfm_dataset_build_specification.json)、[真實建置](../reports/stage6/rfm_dataset_build.json)與[分項驗收](../reports/stage6/rfm_dataset_build_acceptance.json)已備妥。依原凍結契約實作builder、顧客彙總及私有writer，合成測試通過後完成一次真實建置；本輪沒有分群、訓練、新效能結論或Dashboard。
 
