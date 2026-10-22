@@ -21,7 +21,15 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6 RFM輸入盤點
+## 本輪Stage 6 RFM資料集契約
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec -q
+```
+
+新23項契約測試＋原盤點20項共43項全過、0.012秒。核完整歷史母體、窗口端點、已知時鐘矛盾隔離、可缺核准、未知商品不刪活動、混合／零活動狀態、來源異動與int64保守溢位前置條件；無builder或模型fit。正式聚合與獨立母體／隔離／金額／狀態對帳另列，未執行個體RFM反讀、分群或全專案discover，詳見[資料集規格](../docs/STAGE6_RFM_DATASET_SPEC.md)。
+
+## 前輪Stage 6 RFM輸入盤點
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility -q

@@ -1,5 +1,7 @@
 # Stage 6：RFM顧客鍵、訂單資格、金額與時間截止盤點
 
+後續已完成[RFM資料集契約凍結](STAGE6_RFM_DATASET_SPEC.md)，採同一S／T但明定59張時鐘異常隔離、歷史顧客母體及零活動／未知規則；builder未實作。以下保留本頁原候選盤點數字與驗證紀錄，不以新資格回寫舊報告。
+
 **輸入盤點完成；個體RFM、分數與分群尚未開始。** 現有四表足以盤點快照研究的候選支援，但原入庫／修訂、退款／結算與完整性證據不足，不能宣稱歷史營運as-of或淨消費。Stage 4、5維持待資料；本輪不訓練、不預測、不讀評論或既有模型分數、不做Dashboard。
 
 先凍結[盤點規格](../reports/stage6/rfm_feasibility_specification.json)，再以[只讀入口](../scripts/audit_rfm_feasibility.py)執行[聚合報告](../reports/stage6/rfm_feasibility.json)。規格固定欄位、來源、候選日期及禁止事項；候選日期只用來查資料支援，**不是已凍結的RFM資料集／分群契約**。未比較其他窗口、分數或業務結果來選日期。

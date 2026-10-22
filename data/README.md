@@ -75,3 +75,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 ## Stage 6 RFM候選輸入
 
 [本輪盤點](../docs/STAGE6_RFM_FEASIBILITY.md)只讀原orders／customers／items／payments，原檔bytes沿既有來源查核，未讀評論／模型分數。客戶經customer_id連接、以customer_unique_id彙總；商品與付款先各按order聚合，不直接明細×付款join。缺金額不補0，缺退款／原可得與修訂，金額只能作快照毛額研究；個體RFM、分數與分群尚未產生。公開只有聚合盤點，私有驗證留`.runtime/stage6_rfm_*`，原Stage 4／5資產不改。
+
+## Stage 6 RFM資料集契約
+
+[凍結規格](../docs/STAGE6_RFM_DATASET_SPEC.md)保留T前合格歷史顧客，窗口[S,T)同集合計R／F／M。缺商品不刪訂單／顧客；商品未知或窗口有隔離時M=null，乾淨零活動才R=null、F=0、M=0。只核聚合支援，`.runtime/stage6_rfm_dataset_v1/`及其顧客／逐單CSV與manifest本輪未建立；原四表、舊盤點及Stage 4／5凍結資產保留，私有查核收據留`.runtime/stage6_rfm_dataset_*`。

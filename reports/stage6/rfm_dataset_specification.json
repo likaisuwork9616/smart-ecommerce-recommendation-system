@@ -1,0 +1,373 @@
+{
+  "columns_read": {
+    "customers": [
+      "customer_id",
+      "customer_unique_id"
+    ],
+    "order_items": [
+      "order_id",
+      "order_item_id",
+      "price",
+      "freight_value"
+    ],
+    "order_payments": [
+      "order_id",
+      "payment_sequential",
+      "payment_type",
+      "payment_installments",
+      "payment_value"
+    ],
+    "orders": [
+      "order_id",
+      "customer_id",
+      "order_status",
+      "order_purchase_timestamp",
+      "order_approved_at",
+      "order_delivered_customer_date"
+    ]
+  },
+  "format_version": 1,
+  "planned_schemas": {
+    "customers.csv": [
+      [
+        "customer_unique_id",
+        "nonempty_unique_string"
+      ],
+      [
+        "S",
+        "timestamp"
+      ],
+      [
+        "T",
+        "timestamp"
+      ],
+      [
+        "activity_state",
+        "enum"
+      ],
+      [
+        "rfm_usable",
+        "bool"
+      ],
+      [
+        "monetary_complete",
+        "bool"
+      ],
+      [
+        "last_window_purchase_at",
+        "nullable_timestamp"
+      ],
+      [
+        "recency_seconds",
+        "nullable_int64"
+      ],
+      [
+        "recency_days",
+        "nullable_float64"
+      ],
+      [
+        "frequency_orders",
+        "nonnegative_int64"
+      ],
+      [
+        "monetary_product_cents",
+        "nullable_nonnegative_int64"
+      ],
+      [
+        "window_quarantined_orders",
+        "nonnegative_int64"
+      ],
+      [
+        "window_price_unknown_orders",
+        "nonnegative_int64"
+      ],
+      [
+        "window_approval_missing_or_invalid_orders",
+        "nonnegative_int64"
+      ],
+      [
+        "window_payment_missing_or_invalid_orders",
+        "nonnegative_int64"
+      ],
+      [
+        "window_freight_missing_or_invalid_orders",
+        "nonnegative_int64"
+      ]
+    ],
+    "manifest.json": [
+      "specification_bytes_sha",
+      "source_bindings",
+      "schema",
+      "rows",
+      "private_bytes_sha",
+      "population_and_state_counts",
+      "readback_acceptance"
+    ],
+    "order_decisions.csv": [
+      [
+        "order_id",
+        "nonempty_unique_string"
+      ],
+      [
+        "customer_unique_id",
+        "nonempty_string"
+      ],
+      [
+        "purchase_at",
+        "timestamp_before_T"
+      ],
+      [
+        "approval_at",
+        "nullable_timestamp"
+      ],
+      [
+        "delivery_at",
+        "nullable_timestamp"
+      ],
+      [
+        "in_window",
+        "bool"
+      ],
+      [
+        "history_event_eligible",
+        "bool"
+      ],
+      [
+        "window_event_eligible",
+        "bool"
+      ],
+      [
+        "primary_exclusion_reason",
+        "enum"
+      ],
+      [
+        "window_quarantine",
+        "bool"
+      ],
+      [
+        "approval_missing_or_invalid",
+        "bool"
+      ],
+      [
+        "price_complete",
+        "bool"
+      ],
+      [
+        "product_cents",
+        "nullable_nonnegative_int64"
+      ],
+      [
+        "freight_cents",
+        "nullable_nonnegative_int64"
+      ],
+      [
+        "payment_cents",
+        "nullable_nonnegative_int64"
+      ],
+      [
+        "payment_difference_cents",
+        "nullable_int64"
+      ]
+    ],
+    "order_decisions_scope": "all_source_orders_with_purchase<T_not_only_eligible_orders",
+    "primary_exclusion_precedence": [
+      "status_not_delivered",
+      "missing_or_invalid_delivery",
+      "delivery_before_purchase",
+      "delivery_at_or_after_T",
+      "approval_clock_conflict",
+      "eligible"
+    ],
+    "source_exclusion_summary": "purchase>=T_counts_without_future_customer_rows; unlocatable_purchase_stops"
+  },
+  "policy": {
+    "F": "distinct_window_event_eligible_order_id_not_filtered_for_missing_money",
+    "M": {
+      "freight": "separate_optional_reconciliation",
+      "negative_invalid_duplicate_item_or_overflow": "unknown_not_drop_order_not_zero",
+      "payments": "separate_optional_reconciliation_no_installment_multiplier_or_fallback",
+      "source": "sum_all_eligible_window_item_price_integer_cents",
+      "unit": "nominal_BRL_product_gross_snapshot_not_net_or_settlement",
+      "unknown": "null_if_any_eligible_window_price_unknown_OR_any_window_quarantine_for_customer",
+      "zero": "0_only_when_no_eligible_window_orders_and_no_window_quarantine"
+    },
+    "R": {
+      "active_range": "(0,365]",
+      "event": "last_eligible_window_purchase",
+      "integer_seconds_then_divisor": 86400,
+      "no_eligible_window_order": null,
+      "rounding": "none_no_floor_no_calendar_day",
+      "unit": "elapsed_days"
+    },
+    "RFM_values_built": false,
+    "S_inclusive": "2017-09-01 00:00:00",
+    "T_exclusive": "2018-09-01 00:00:00",
+    "activity_states": [
+      "active_complete",
+      "active_money_unknown",
+      "active_with_quarantine",
+      "inactive_complete",
+      "inactive_with_quarantine"
+    ],
+    "approval_missing_or_invalid": "flag_nonblocking_not_replaced_by_purchase",
+    "builder_implemented": false,
+    "clock": "strict_source_naive_seconds_no_timezone_or_DST_assignment",
+    "clock_anomaly": "quarantine_by_comparison_in_all_history_not_by_fixed_count_59",
+    "customer_key": "customer_unique_id_via_unique_customer_id_mapping",
+    "dashboard": false,
+    "delivery_at_or_after_T": "not_completed_before_T_not_quality_quarantine",
+    "history_event_eligible": [
+      "purchase<T",
+      "snapshot_status=delivered",
+      "purchase<=delivery<T",
+      "nonempty_unique_customer_mapping",
+      "if_approval_parseable_purchase<=approval<=delivery"
+    ],
+    "history_start": "first_observed_purchase_not_complete_lifetime",
+    "join": "independent_item_payment_order_aggregates_then_order_left_join_no_silent_denominator_loss",
+    "monetary_precision": "strict_decimal_to_int64_cents_checked_sum_no_float_rounding",
+    "operational_as_of_accepted": false,
+    "outputs": {
+      "canonical_order": "customer_unique_id_ascending; order_id_ascending",
+      "csv_boolean_literals": [
+        "true",
+        "false"
+      ],
+      "format": "UTF8_CSV_nullable_empty_not_zero_float64_17_significant_digits_strict_JSON",
+      "integer_format": "base10_no_thousands_separator",
+      "null": "empty_CSV_cell_only_for_nullable_fields_JSON_null",
+      "private_namespace": ".runtime/stage6_rfm_dataset_v1/",
+      "status": "planned_not_created_builder_not_implemented",
+      "timestamp_format": "%Y-%m-%d %H:%M:%S",
+      "write": "preflight_whole_bundle_no_different_overwrite_readback_all_values"
+    },
+    "partial_values": "R_and_F_describe_eligible_subset_even_when_M_masked_and_rfm_usable_false",
+    "quality_count_scope": "approval_price_payment_freight_unknown_counts_on_window_event_eligible_orders; window_quarantine_separately_on_potential_delivered_window_orders",
+    "refund_net_money_supported": false,
+    "rfm_usable": "true_only_active_complete_for_research_not_segmentation_authorization",
+    "scope": "frozen_retrospective_snapshot_RFM_dataset_contract_no_builder",
+    "segmentation": false,
+    "source_completeness_accepted": false,
+    "source_failures": "missing_duplicate_master_keys_or_unlocatable_purchase_or_unmapped_history_identity_stop",
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    },
+    "state_priority": "eligible_price_unknown_then_window_quarantine_then_clean_active_or_inactive",
+    "support_money_guard": "sum_all_known_nonnegative_order_amounts_across_price_freight_payment<=int64_max_guarantees_subset_sums_and_differences; otherwise_stop_support_audit",
+    "training": false,
+    "universe": "customers_with_at_least_one_history_event_eligible_order_before_T_independent_of_money",
+    "window_days": 365,
+    "window_event_eligible": "history_event_eligible_AND_S<=purchase<T",
+    "window_quarantine": "delivered_purchase_in_window_AND_missing_delivery_or_delivery<purchase_or_parseable_approval_conflict_when_delivery<T",
+    "zero_activity": "retain_history_customer_R=null_F=0_M=0_only_clean_inactive"
+  },
+  "source_headers": {
+    "customers": [
+      "customer_id",
+      "customer_unique_id",
+      "customer_zip_code_prefix",
+      "customer_city",
+      "customer_state"
+    ],
+    "order_items": [
+      "order_id",
+      "order_item_id",
+      "product_id",
+      "seller_id",
+      "shipping_limit_date",
+      "price",
+      "freight_value"
+    ],
+    "order_payments": [
+      "order_id",
+      "payment_sequential",
+      "payment_type",
+      "payment_installments",
+      "payment_value"
+    ],
+    "orders": [
+      "order_id",
+      "customer_id",
+      "order_status",
+      "order_purchase_timestamp",
+      "order_approved_at",
+      "order_delivered_carrier_date",
+      "order_delivered_customer_date",
+      "order_estimated_delivery_date"
+    ]
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 4472,
+      "path": "reports/stage6/rfm_feasibility_specification.json",
+      "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+    },
+    {
+      "bytes": 14558,
+      "path": "reports/stage6/rfm_feasibility.json",
+      "sha256": "44b0824b4a429530a23e6b61ebf9cf21313dafb295bd0e85e5a0fc424c697e14"
+    },
+    {
+      "bytes": 18396,
+      "path": "scripts/freeze_rfm_dataset_spec.py",
+      "sha256": "da50f96c62f2b25af9ce9a9b5412042b429c1ff9a7f908b33ccdd3c389169a07"
+    },
+    {
+      "bytes": 8214,
+      "path": "tests/test_rfm_dataset_spec.py",
+      "sha256": "24997b4b36eacb3fed134be707718eb20814af08bccca76ea5b4d2ded3574747"
+    }
+  ]
+}

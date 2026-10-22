@@ -1,0 +1,189 @@
+{
+  "format_version": 1,
+  "limitations": [
+    "Final snapshot event proxy, not operational as-of or complete lifetime.",
+    "No ingestion/revision/refund/settlement or upstream completion evidence.",
+    "Customer state counts are metadata support, not built per-customer RFM."
+  ],
+  "policy": {
+    "F": "distinct_window_event_eligible_order_id_not_filtered_for_missing_money",
+    "M": {
+      "freight": "separate_optional_reconciliation",
+      "negative_invalid_duplicate_item_or_overflow": "unknown_not_drop_order_not_zero",
+      "payments": "separate_optional_reconciliation_no_installment_multiplier_or_fallback",
+      "source": "sum_all_eligible_window_item_price_integer_cents",
+      "unit": "nominal_BRL_product_gross_snapshot_not_net_or_settlement",
+      "unknown": "null_if_any_eligible_window_price_unknown_OR_any_window_quarantine_for_customer",
+      "zero": "0_only_when_no_eligible_window_orders_and_no_window_quarantine"
+    },
+    "R": {
+      "active_range": "(0,365]",
+      "event": "last_eligible_window_purchase",
+      "integer_seconds_then_divisor": 86400,
+      "no_eligible_window_order": null,
+      "rounding": "none_no_floor_no_calendar_day",
+      "unit": "elapsed_days"
+    },
+    "RFM_values_built": false,
+    "S_inclusive": "2017-09-01 00:00:00",
+    "T_exclusive": "2018-09-01 00:00:00",
+    "activity_states": [
+      "active_complete",
+      "active_money_unknown",
+      "active_with_quarantine",
+      "inactive_complete",
+      "inactive_with_quarantine"
+    ],
+    "approval_missing_or_invalid": "flag_nonblocking_not_replaced_by_purchase",
+    "builder_implemented": false,
+    "clock": "strict_source_naive_seconds_no_timezone_or_DST_assignment",
+    "clock_anomaly": "quarantine_by_comparison_in_all_history_not_by_fixed_count_59",
+    "customer_key": "customer_unique_id_via_unique_customer_id_mapping",
+    "dashboard": false,
+    "delivery_at_or_after_T": "not_completed_before_T_not_quality_quarantine",
+    "history_event_eligible": [
+      "purchase<T",
+      "snapshot_status=delivered",
+      "purchase<=delivery<T",
+      "nonempty_unique_customer_mapping",
+      "if_approval_parseable_purchase<=approval<=delivery"
+    ],
+    "history_start": "first_observed_purchase_not_complete_lifetime",
+    "join": "independent_item_payment_order_aggregates_then_order_left_join_no_silent_denominator_loss",
+    "monetary_precision": "strict_decimal_to_int64_cents_checked_sum_no_float_rounding",
+    "operational_as_of_accepted": false,
+    "outputs": {
+      "canonical_order": "customer_unique_id_ascending; order_id_ascending",
+      "csv_boolean_literals": [
+        "true",
+        "false"
+      ],
+      "format": "UTF8_CSV_nullable_empty_not_zero_float64_17_significant_digits_strict_JSON",
+      "integer_format": "base10_no_thousands_separator",
+      "null": "empty_CSV_cell_only_for_nullable_fields_JSON_null",
+      "private_namespace": ".runtime/stage6_rfm_dataset_v1/",
+      "status": "planned_not_created_builder_not_implemented",
+      "timestamp_format": "%Y-%m-%d %H:%M:%S",
+      "write": "preflight_whole_bundle_no_different_overwrite_readback_all_values"
+    },
+    "partial_values": "R_and_F_describe_eligible_subset_even_when_M_masked_and_rfm_usable_false",
+    "quality_count_scope": "approval_price_payment_freight_unknown_counts_on_window_event_eligible_orders; window_quarantine_separately_on_potential_delivered_window_orders",
+    "refund_net_money_supported": false,
+    "rfm_usable": "true_only_active_complete_for_research_not_segmentation_authorization",
+    "scope": "frozen_retrospective_snapshot_RFM_dataset_contract_no_builder",
+    "segmentation": false,
+    "source_completeness_accepted": false,
+    "source_failures": "missing_duplicate_master_keys_or_unlocatable_purchase_or_unmapped_history_identity_stop",
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_roles_scores_and_window_purposes_unchanged": true,
+      "status": "pending_data"
+    },
+    "state_priority": "eligible_price_unknown_then_window_quarantine_then_clean_active_or_inactive",
+    "support_money_guard": "sum_all_known_nonnegative_order_amounts_across_price_freight_payment<=int64_max_guarantees_subset_sums_and_differences; otherwise_stop_support_audit",
+    "training": false,
+    "universe": "customers_with_at_least_one_history_event_eligible_order_before_T_independent_of_money",
+    "window_days": 365,
+    "window_event_eligible": "history_event_eligible_AND_S<=purchase<T",
+    "window_quarantine": "delivered_purchase_in_window_AND_missing_delivery_or_delivery<purchase_or_parseable_approval_conflict_when_delivery<T",
+    "zero_activity": "retain_history_customer_R=null_F=0_M=0_only_clean_inactive"
+  },
+  "results": {
+    "acceptance": {
+      "builder_implemented": false,
+      "individual_RFM_values_built": false,
+      "known_money_int64_subset_guarantee": true,
+      "population_equals_active_plus_zero": true,
+      "private_dataset_created": false,
+      "segmentation_training_dashboard": false,
+      "states_cover_universe": true,
+      "window_customers_subset_of_history": true
+    },
+    "customer_state_support_only": {
+      "active_complete": 72124,
+      "active_money_unknown": 0,
+      "active_with_quarantine": 1,
+      "inactive_complete": 21109,
+      "inactive_with_quarantine": 0
+    },
+    "history": {
+      "approval_conflict_orders": 61,
+      "approval_missing_or_invalid_eligible_orders": 14,
+      "customer_universe": 93234,
+      "eligible_orders_missing_items": 0,
+      "eligible_orders_missing_payments": 1,
+      "event_candidates_before_approval_check": 96411,
+      "event_eligible_orders": 96350,
+      "mutually_exclusive_primary_reasons": {
+        "approval_clock_conflict": 61,
+        "delivery_at_or_after_T": 59,
+        "eligible": 96350,
+        "missing_or_invalid_delivery": 8,
+        "status_not_delivered": 2943
+      },
+      "order_decisions_scope_rows": 99421
+    },
+    "status": "contract_support_audited_no_RFM_dataset_or_builder",
+    "window": {
+      "active_customers": 72125,
+      "approval_conflict_orders": 59,
+      "approval_missing_or_invalid_eligible_orders": 0,
+      "event_candidates_before_approval_check": 74147,
+      "event_eligible_orders": 74088,
+      "freight": {
+        "sum_cents_on_valid_orders": 171027130,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74088
+      },
+      "payment_reconciliation": {
+        "absolute_difference_above_one_cent_orders": 199,
+        "comparable_orders": 74088,
+        "equal_total_is_proof_of_net_settlement": false,
+        "exact_equal_cents_orders": 73655,
+        "nonzero_difference_orders": 433,
+        "one_cent_is_business_acceptance_tolerance": false,
+        "payment_higher_orders": 262,
+        "payment_lower_orders": 171,
+        "sum_payment_minus_items_freight_cents": 183638
+      },
+      "payments": {
+        "sum_cents_on_valid_orders": 1188011879,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74088
+      },
+      "price": {
+        "sum_cents_on_valid_orders": 1016801111,
+        "unknown_or_invalid_orders": 0,
+        "valid_orders": 74088
+      },
+      "price_unknown_orders": 0,
+      "zero_eligible_window_customers": 21109
+    },
+    "window_quarantine": {
+      "customers_inside_universe": 1,
+      "not_completed_before_T_orders": 59,
+      "orders": 66,
+      "orders_linked_to_universe": 1,
+      "orders_outside_universe": 65,
+      "primary_reasons": {
+        "approval_clock_conflict": 59,
+        "missing_or_invalid_delivery": 7
+      }
+    }
+  },
+  "specification": {
+    "bytes": 11012,
+    "path": "reports/stage6/rfm_dataset_specification.json",
+    "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+  }
+}

@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 凍結Stage 6 RFM資料集契約 | [freeze_rfm_dataset_spec.py](freeze_rfm_dataset_spec.py) | 先--specification-only再核母體／隔離／狀態聚合；不建立個體RFM、builder或分群 |
 | 盤點Stage 6 RFM輸入支援 | [audit_rfm_feasibility.py](audit_rfm_feasibility.py) | 先--specification-only再只讀四CSV的鍵／時鐘／金額與候選窗口；不建個體RFM／分群，不讀評論或模型分數 |
 | 盤點Stage 5後續時間窗與用途 | [audit_review_validation_windows.py](audit_review_validation_windows.py)、[metadata核心](review_validation_windows.py) | 先--specification-only凍結歷史與盤點，再核ID／時鐘；不讀新評分、不建y或訓練 |
 | 稽核Stage 5逐fit成熟先驗與漂移 | [audit_review_mature_prior.py](audit_review_mature_prior.py)、[純統計核心](review_mature_prior_audit.py) | 先--specification-only再稽核原H60完整角色；不讀分數值、不fit或修正參數 |
@@ -53,7 +54,16 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6 RFM輸入盤點
+## Stage 6 RFM資料集契約
+
+```powershell
+.\.venv\Scripts\python.exe scripts\freeze_rfm_dataset_spec.py --specification-only
+.\.venv\Scripts\python.exe scripts\freeze_rfm_dataset_spec.py
+```
+
+需原四CSV、舊盤點規格／報告與原來源。先凍結12份來源／程式／測試綁定，再只查母體、訂單與狀態聚合；來源、政策或輸出不同即停止，不覆寫。兩份16欄CSV與manifest是未來輸出契約，本輪未建立私有資料集或builder；詳見[資料集規格](../docs/STAGE6_RFM_DATASET_SPEC.md)。
+
+## Stage 6前輪RFM輸入盤點
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_rfm_feasibility.py --specification-only
