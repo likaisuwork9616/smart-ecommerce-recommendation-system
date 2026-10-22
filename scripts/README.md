@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| 盤點Stage 6 RFM輸入支援 | [audit_rfm_feasibility.py](audit_rfm_feasibility.py) | 先--specification-only再只讀四CSV的鍵／時鐘／金額與候選窗口；不建個體RFM／分群，不讀評論或模型分數 |
 | 盤點Stage 5後續時間窗與用途 | [audit_review_validation_windows.py](audit_review_validation_windows.py)、[metadata核心](review_validation_windows.py) | 先--specification-only凍結歷史與盤點，再核ID／時鐘；不讀新評分、不建y或訓練 |
 | 稽核Stage 5逐fit成熟先驗與漂移 | [audit_review_mature_prior.py](audit_review_mature_prior.py)、[純統計核心](review_mature_prior_audit.py) | 先--specification-only再稽核原H60完整角色；不讀分數值、不fit或修正參數 |
 | 只讀Stage 5雙臂機率／排序／支援 | [diagnose_review_ablation.py](diagnose_review_ablation.py)、[統計核心](review_ablation_diagnostics.py) | 先--specification-only，再讀兩臂成功產物與完整角色；18組配對及12組排序；模型呼叫及重新選C拒收 |
@@ -52,7 +53,16 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 5適用範圍與交付文件
+## Stage 6 RFM輸入盤點
+
+```powershell
+.\.venv\Scripts\python.exe scripts\audit_rfm_feasibility.py --specification-only
+.\.venv\Scripts\python.exe scripts\audit_rfm_feasibility.py
+```
+
+先固定欄位、候選日期與8份原來源／程式／測試綁定，再驗資料前後bytes及只讀盤點。需原四CSV，來源／政策／既有輸出不同即停止，不覆寫或重建證據；不需DB，沒有個體RFM、分數、分群或模型呼叫。完整[語義、結果與限制](../docs/STAGE6_RFM_FEASIBILITY.md)保留，候選日期尚非RFM資料集契約。
+
+## Stage 5前輪適用範圍與交付文件
 
 本輪只整理[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)及既有聚合報告，沒有新增或執行CLI。原訓練命令不是交付驗收命令，已有training_v1與凍結分數不能為看結果刪檔重跑；缺原私有證據則停止，不補訓練。Stage 5維持待資料，Stage 6 RFM目前僅為下一輪規格盤點建議。
 

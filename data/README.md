@@ -71,3 +71,7 @@ Stage 4直接讀CSV，不需要啟動MySQL。原始欄位、延遲標記與時�
 本輪[2018年5–9月交接清單與範本](../docs/templates/review_window_handoff/README.md)備妥，但沒有新來源、標籤或交接實例。日後真實副本及原始清冊、版本鏈、H60完成與逐ID對帳留Git忽略的`.runtime/review_window_handoffs/<handoff_id>/`，與原dataset／兩臂training_v1分開；不得覆寫舊guard或把前輪匯出數抄成已接受全量N。
 
 本輪[四欄／三欄適用範圍與交付清單](../docs/STAGE5_MODEL_APPLICABILITY.md)彙整現有私有H60、角色、分數與manifest用途；沒有新增資料、重包私有檔案或讀逐筆分數。Git只提供公開研究來源，原guard、資料集、兩臂產物及新窗交接範本均保留；Stage 5維持待資料。
+
+## Stage 6 RFM候選輸入
+
+[本輪盤點](../docs/STAGE6_RFM_FEASIBILITY.md)只讀原orders／customers／items／payments，原檔bytes沿既有來源查核，未讀評論／模型分數。客戶經customer_id連接、以customer_unique_id彙總；商品與付款先各按order聚合，不直接明細×付款join。缺金額不補0，缺退款／原可得與修訂，金額只能作快照毛額研究；個體RFM、分數與分群尚未產生。公開只有聚合盤點，私有驗證留`.runtime/stage6_rfm_*`，原Stage 4／5資產不改。

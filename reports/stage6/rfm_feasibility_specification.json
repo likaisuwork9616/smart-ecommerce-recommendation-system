@@ -1,0 +1,149 @@
+{
+  "columns_read": {
+    "customers": [
+      "customer_id",
+      "customer_unique_id"
+    ],
+    "order_items": [
+      "order_id",
+      "order_item_id",
+      "price",
+      "freight_value"
+    ],
+    "order_payments": [
+      "order_id",
+      "payment_sequential",
+      "payment_type",
+      "payment_installments",
+      "payment_value"
+    ],
+    "orders": [
+      "order_id",
+      "customer_id",
+      "order_status",
+      "order_purchase_timestamp",
+      "order_approved_at",
+      "order_delivered_customer_date"
+    ]
+  },
+  "format_version": 1,
+  "policy": {
+    "RFM_values_built": false,
+    "approval_is_eligibility_requirement": false,
+    "candidate_order_rule": "purchase_in_window_final_delivered_purchase_le_delivery_lt_T",
+    "candidate_window": {
+      "cutoff_exclusive": "2018-09-01 00:00:00",
+      "start_inclusive": "2017-09-01 00:00:00",
+      "status": "candidate_for_support_inventory_not_final_RFM_contract",
+      "time_zone": "source_naive_unverified_no_UTC_assignment"
+    },
+    "customer_key": "customer_unique_id_via_many_orders_to_unique_customer_id_mapping",
+    "customer_universe_and_zero_activity_policy": "must_freeze_before_builder_not_chosen_here",
+    "dashboard": false,
+    "freight": "separate_not_primary_M",
+    "missing_invalid_money": "unknown_never_zero_or_payment_fallback",
+    "model_training": false,
+    "operational_as_of_proven": false,
+    "payments": "independent_order_aggregation_reconciliation_only_not_instalments_multiplier",
+    "primary_money_candidate": "sum_item_price_in_integer_cents_product_gross_snapshot",
+    "prospective_F": "distinct_order_ids_in_same_window",
+    "prospective_M": "product_price_sum_in_same_window_not_net_revenue",
+    "prospective_R": "T_minus_last_purchase_of_same_eligible_set_elapsed_days_rounding_not_frozen",
+    "refund_net_revenue_available": false,
+    "scope": "snapshot_input_inventory_only_no_customer_RFM_or_segmentation",
+    "segments_built": false,
+    "source_completeness_proven": false,
+    "stage4": {
+      "daily_budget": 0.1,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "status": "pending_data"
+    },
+    "stage5": {
+      "H60_and_frozen_scores_unchanged": true,
+      "status": "pending_data"
+    }
+  },
+  "source_headers": {
+    "customers": [
+      "customer_id",
+      "customer_unique_id",
+      "customer_zip_code_prefix",
+      "customer_city",
+      "customer_state"
+    ],
+    "order_items": [
+      "order_id",
+      "order_item_id",
+      "product_id",
+      "seller_id",
+      "shipping_limit_date",
+      "price",
+      "freight_value"
+    ],
+    "order_payments": [
+      "order_id",
+      "payment_sequential",
+      "payment_type",
+      "payment_installments",
+      "payment_value"
+    ],
+    "orders": [
+      "order_id",
+      "customer_id",
+      "order_status",
+      "order_purchase_timestamp",
+      "order_approved_at",
+      "order_delivered_carrier_date",
+      "order_delivered_customer_date",
+      "order_estimated_delivery_date"
+    ]
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    }
+  ]
+}
