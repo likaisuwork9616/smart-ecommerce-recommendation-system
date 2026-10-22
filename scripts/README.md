@@ -6,10 +6,10 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| 準備Stage 6真實G2來源／輸出反讀 | [prepare_rfm_rule_candidate.py](prepare_rfm_rule_candidate.py)、[sources](rfm_rule_candidate_sources.py)、[outputs](rfm_rule_candidate_outputs.py)、[操作契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | CLI僅--prepare；核57來源／source-bound收據與metadata後凍結，未來execute／verify只在合成scratch驗證，本輪不解析真實CSV或估切點 |
+| 準備Stage 6真實G2來源／輸出反讀 | [prepare_rfm_rule_candidate.py](prepare_rfm_rule_candidate.py)、[sources](rfm_rule_candidate_sources.py)、[outputs](rfm_rule_candidate_outputs.py)、[操作契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | CLI僅--prepare；核57來源／source-bound收據與metadata後凍結，未來execute／verify只在合成scratch驗證；真實G2尚未執行，不解析真實CSV或估切點 |
 | 驗證Stage 6 G2規則候選與資格守門 | [verify_rfm_rule_candidate.py](verify_rfm_rule_candidate.py)、[純G2核心](rfm_rule_candidate.py)、[實作與操作](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 僅--verify-synthetic；首次實跑兩套新測試與四組合成案例，核49來源及既有G1證據後固定報告；重入只核既有收據，不重跑或覆寫。沒有真實G2入口 |
 | 反讀Stage 6真實描述現有結果 | [凍結函式verify_completed](prepare_rfm_description.py)、[結果與操作](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 已完成一次真實execute及完整反讀；現有bundle只做verify，不重播prepare／execute；不重算描述／切點或分群 |
-| 前輪準備Stage 6真實只讀描述 | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；future execute／verify callable只用合成驗證，本輪不讀真實CSV或執行描述 |
+| 準備Stage 6真實只讀描述（已完成） | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；準備本身不讀真實CSV，真實描述已另以凍結函式執行一次（見上一列），勿重播 |
 | 驗證Stage 6只讀描述與資格守門 | [verify_rfm_description.py](verify_rfm_description.py)、[純描述器](rfm_description.py) | 只有--verify-synthetic，核兩套實測receipt／33來源／原metadata；不執行真實描述或估切點 |
 | 凍結Stage 6描述／分群評估方法 | [freeze_rfm_evaluation_spec.py](freeze_rfm_evaluation_spec.py)、[純方法規則](rfm_evaluation_contract.py) | --specification-only再--audit；只核metadata／hash，連CSV header也不解析，不計描述或分群 |
 | 驗收Stage 6實際RFM資料集 | [build_rfm_dataset.py](build_rfm_dataset.py)、[純builder](rfm_dataset_builder.py)、[私有writer](rfm_dataset_artifacts.py) | 一次建置已完成，現有bundle只用--verify；需原來源與guard，勿刪檔重播；不分群／訓練 |
@@ -19,7 +19,7 @@
 | 稽核Stage 5逐fit成熟先驗與漂移 | [audit_review_mature_prior.py](audit_review_mature_prior.py)、[純統計核心](review_mature_prior_audit.py) | 先--specification-only再稽核原H60完整角色；不讀分數值、不fit或修正參數 |
 | 只讀Stage 5雙臂機率／排序／支援 | [diagnose_review_ablation.py](diagnose_review_ablation.py)、[統計核心](review_ablation_diagnostics.py) | 先--specification-only，再讀兩臂成功產物與完整角色；18組配對及12組排序；模型呼叫及重新選C拒收 |
 | Stage 5三欄正式入口與私有交付 | [run_review_month_ablation.py](run_review_month_ablation.py)、[訓練控制](review_month_ablation_training.py)、[私有writer](review_month_ablation_artifacts.py) | 無參數只顯示說明；一次--train已完成，training_v1已占用，勿重播；[結果與只讀驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)，四欄沿用原分數 |
-| 前輪Stage 5三欄消融來源與配對準備 | [prepare_review_month_ablation.py](prepare_review_month_ablation.py)、[review_month_ablation_sources.py](review_month_ablation_sources.py)、[review_month_ablation_pairing.py](review_month_ablation_pairing.py) | 需原私有證據；當時凍結政策／輸出版本，再核12角色與四欄18區塊，沒有訓練參數；現有產物已完成，勿重跑準備流程 |
+| Stage 5三欄消融來源與配對準備（已完成） | [prepare_review_month_ablation.py](prepare_review_month_ablation.py)、[review_month_ablation_sources.py](review_month_ablation_sources.py)、[review_month_ablation_pairing.py](review_month_ablation_pairing.py) | 需原私有證據；當時凍結政策／輸出版本，再核12角色與四欄18區塊，沒有訓練參數；現有產物已完成，勿重跑準備流程 |
 | 驗證Stage 5三欄消融與四欄對照 | [verify_review_month_ablation_pipeline.py](verify_review_month_ablation_pipeline.py)、[review_month_ablation_pipeline.py](review_month_ablation_pipeline.py) | 只以合成fixture驗三欄32維／舊四欄44維；75項測試及35公開來源綁定，不讀真實CSV或私有分數 |
 | 凍結Stage 5月份消融規格 | [freeze_review_month_ablation.py](freeze_review_month_ablation.py) | 先--specification-only，再只核metadata；保留原來源、只刪purchase_month契約；不實作三欄模型、不fit或解析分數 |
 | 只讀Stage 5凍結分數做支援診斷 | [diagnose_review_scores.py](diagnose_review_scores.py)、[review_score_diagnostics.py](review_score_diagnostics.py) | 需原私有分數／角色／收據；先--specification-only固定診斷範圍，再核來源、統計分布；禁止模型fit／transform／predict，不補訓練 |
@@ -61,7 +61,9 @@
 
 `--complete-daily-batches`是呼叫端聲明，無法證明日已封閉或沒有漏單。通用CLI只支援有完整推論契約的artifact；五種子四設定的原始月版缺少必要wrapper欄位，不能直接傳`--model`當作已交付的五種子推論服務。範圍與未驗收部分見模型卡。
 
-## Stage 6本輪真實G2執行準備
+以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
+
+## Stage 6：G2真實執行準備（最新）
 
 [來源載入](rfm_rule_candidate_sources.py)、[私有輸出／反讀](rfm_rule_candidate_outputs.py)與[準備入口](prepare_rfm_rule_candidate.py)先以三套新合成測試驗證，不需要真實CSV、MySQL或模型：
 
@@ -74,7 +76,7 @@
 
 未來execute_prepared只允許單次G2 core，完整原來源同ID→私有四檔→公開聚合→外部guard；verify_completed不重跑G1／G2 core。這兩個callable本輪只走合成scratch，真實G2 namespace、公開結果、output guard與failure均未建立。詳見[完整契約、候選不合格與失敗停止](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)。Stage 4、5仍待資料，每日10%與五種子不變；G3、分群、訓練與Dashboard未做。
 
-## Stage 6前輪G2規則候選合成驗收
+## Stage 6：G2規則候選合成驗收
 
 [純核心](rfm_rule_candidate.py)只接收記憶體資料，先核完整G0／獨立名冊與G1接受聲明，再產生精確分位切點、每軸箱支援及同ID重現檢查；個體分配僅留私有記憶體。可單獨執行[核心測試](../tests/test_rfm_rule_candidate.py)與[入口測試](../tests/test_verify_rfm_rule_candidate.py)，不需要真實資料：
 
@@ -92,7 +94,7 @@
 
 本輪沒有真實CSV解析、真實切點／tuple、分群、訓練或Dashboard，G3未做；Stage 4、5維持待資料，Stage 4每日10%與11／29／42／73／101五種子不變。詳見[實作、案例與下一步](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)。
 
-## Stage 6前輪真實描述與現有產物反讀
+## Stage 6：真實描述與現有產物反讀
 
 前輪已直接呼叫凍結execute_prepared一次，未修改其CLI／41來源；core1次，verify_completed禁止core時仍通過。私有四檔與public JSON已存在，禁止重播execute／prepare或刪檔重建；可用以下只讀命令核來源、全名冊與現有輸出，詳見[真實結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
 
@@ -100,7 +102,7 @@
 .\.venv\Scripts\python.exe -c "from scripts.prepare_rfm_description import verify_completed; print(verify_completed())"
 ```
 
-## Stage 6前輪真實只讀描述執行準備
+## Stage 6：真實只讀描述執行準備
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description_sources tests.test_rfm_description_outputs tests.test_prepare_rfm_description -q
@@ -109,7 +111,7 @@
 
 prepare只核metadata／hash與source-bound實測receipt，凍結41來源／output schema／input guard，不呼叫原source parser、名冊衍生、core或writer。execute_prepared與verify_completed已接好，前者完整來源名冊→單core→私有四檔/public→guard，後者不重跑core；本輪只對synthetic scratch呼叫，沒有真實執行CLI。future outputs仍未建立，public檔單獨存在不代表成功；詳見[契約、失敗停止與驗收](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)。
 
-## Stage 6前輪只讀描述與合成驗收
+## Stage 6：只讀描述與合成驗收
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description tests.test_verify_rfm_description -q
@@ -118,7 +120,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 純describe_dataset只收記憶體資料、先核資格／同ID／遮罩／守恆再回聚合，不做I/O或分群。上列CLI不跑描述器或suite，需既有原始／私有來源及本輪實測source-bound receipt；先驗27原來源＋原eval spec／audit＋4新程式／測試，共33來源，核既有metadata與receipt後封存合成verification。缺檔或不同bytes即停止，不補假成功。沒有真實描述CLI，詳見[實作／驗收／下一步](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)。
 
-## Stage 6前輪RFM評估規格
+## Stage 6：RFM評估規格
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\freeze_rfm_evaluation_spec.py --specification-only
@@ -127,7 +129,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 只有方法與版本凍結、完整27份來源、既有bundle／guard／獨立收據metadata前後對帳，CSV只讀binary hash；不呼叫原builder或個體反讀，不估分位數、切點、分數／群組或fit。私有input guard在`.runtime/stage6_rfm_evaluation_spec_v1/`；未建立未來evaluation_v1。不同來源／既有bytes即停止，不能重凍結放行。用途、研究門檻及下一步見[評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)。
 
-## Stage 6前輪RFM builder與私有資料集
+## Stage 6：RFM builder與私有資料集
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\build_rfm_dataset.py --verify
@@ -135,7 +137,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 已依20份來源規格完成一次真實建置；兩份16欄私有CSV及manifest留`.runtime/stage6_rfm_dataset_v1/`，三檔guard在`.runtime/stage6_rfm_dataset_build_v1/`。上列只讀反讀／來源／公開聚合，不建置、不寫檔；需原四CSV及私有證據，缺檔即停止。合成測試、--specification-only→--build的本輪一次歷程與停止條件見[實作驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)；既有目錄不得刪除重播。沒有分群、訓練、Notebook或Dashboard。
 
-## Stage 6前輪RFM資料集契約
+## Stage 6：RFM資料集契約
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\freeze_rfm_dataset_spec.py --specification-only
@@ -144,7 +146,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 需原四CSV、舊盤點規格／報告與原來源。先凍結12份來源／程式／測試綁定，再只查母體、訂單與狀態聚合；來源、政策或輸出不同即停止，不覆寫。兩份16欄CSV與manifest是未來輸出契約，本輪未建立私有資料集或builder；詳見[資料集規格](../docs/STAGE6_RFM_DATASET_SPEC.md)。
 
-## Stage 6前輪RFM輸入盤點
+## Stage 6：RFM輸入盤點
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_rfm_feasibility.py --specification-only
@@ -153,15 +155,15 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 先固定欄位、候選日期與8份原來源／程式／測試綁定，再驗資料前後bytes及只讀盤點。需原四CSV，來源／政策／既有輸出不同即停止，不覆寫或重建證據；不需DB，沒有個體RFM、分數、分群或模型呼叫。完整[語義、結果與限制](../docs/STAGE6_RFM_FEASIBILITY.md)保留，候選日期尚非RFM資料集契約。
 
-## Stage 5前輪適用範圍與交付文件
+## Stage 5：適用範圍與交付文件（最新）
 
-本輪只整理[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)及既有聚合報告，沒有新增或執行CLI。原訓練命令不是交付驗收命令，已有training_v1與凍結分數不能為看結果刪檔重跑；缺原私有證據則停止，不補訓練。Stage 5維持待資料，Stage 6 RFM目前僅為下一輪規格盤點建議。
+本輪只整理[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)及既有聚合報告，沒有新增或執行CLI。原訓練命令不是交付驗收命令，已有training_v1與凍結分數不能為看結果刪檔重跑；缺原私有證據則停止，不補訓練。Stage 5維持待資料。
 
-## Stage 5新時間窗交接文件
+## Stage 5：新時間窗交接文件
 
 本輪交付[清單與空白驗收範本](../docs/templates/review_window_handoff/README.md)，沒有新增CLI、資料驗證器或訓練入口，不需為填範本重跑來源盤點／模型。日後收到新證據才在私有交接目錄逐月驗收；JSON只是待填格式，不能把解析成功當成來源／標籤通過。
 
-## Stage 5後續時間窗盤點
+## Stage 5：後續時間窗盤點
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_validation_windows.py --specification-only
@@ -170,7 +172,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 需原H60／來源guard及Git歷史、既有收據、已存版本metadata。先凍結政策與usage_history／guard，再讀評論ID／時間戳，不讀review_score值或建新y；新窗口全待資料，不因最大回答時間延長C或啟用出分。用途凍結另外保留在[正式文件](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)與聚合JSON。缺證據即停止，不重建guard補缺，也不需重跑舊訓練或診斷。
 
-## Stage 5逐fit成熟先驗與時間漂移
+## Stage 5：逐fit成熟先驗與時間漂移
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_mature_prior.py --specification-only
@@ -179,7 +181,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 需原完整H60角色、原資料及既有守門證據。先凍結政策／私有guard，再按每個fit自己的y核對全部與近期成熟先驗、互斥覆蓋、核准月／時齡及跨fit轉換。query只在歷史先驗完成後作事後描述；0模型／效能／參數更新，分數只核hash。缺檔或版本不同停止，不能用較晚標籤補回，也不需重跑舊訓練或診斷CLI。詳見[稽核文件](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)。
 
-## Stage 5雙臂只讀診斷
+## Stage 5：雙臂只讀診斷
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\diagnose_review_ablation.py --specification-only
@@ -188,7 +190,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 需原完整H60、兩臂凍結分數、manifest及收據，讀已完成版本，不呼叫訓練準備preflight。先凍結新診斷規格／私有guard，再計機率與排序差、星期／小時／等待支援及外層邊際損失。0fit／transform／predict／重新選C；缺檔或異動停止，不能補訓練。既有training_v1不重跑。結果及決策見[只讀診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)，本輪沒有新提醒排名政策或Dashboard。
 
-## Stage 5三欄正式入口
+## Stage 5：三欄正式入口與真實消融
 
 本輪已依凍結入口完成一次`--train`，9次內層＋3次外層fit與完整配對通過，見[實際開發結果](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。以下三個命令保留作執行前歷程；現有training_v1已占用，`--check`及前置凍結流程不能作發布後驗收，也不得刪除證據重跑。發布後改讀既有報告、manifest與獨立驗收紀錄。
 
@@ -200,7 +202,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 依序綁定入口／測試／JSON格式、跑合成驗證及只讀準備檢查。會核原本機來源與完整角色，但只在合成fixture上fit。真實訓練需明確`--train`且先通過同版成功驗證；前輪沒有執行該動作，本輪已完成一次。輸出占用、來源改版、配對不符或發布失敗均停止，詳見[正式入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。
 
-## 前輪Stage 5三欄消融執行準備
+## Stage 5：三欄消融執行準備
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\prepare_review_month_ablation.py --specification-only
@@ -211,7 +213,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 完整同ID配對validator已用合成資料驗證；該準備輪當時尚無真實三欄分數；現已另完成正式交付。該準備CLI沒有`--train`；當時dispatcher待另實作與綁定，詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。
 
-## 前輪Stage 5三欄消融與合成驗證
+## Stage 5：三欄消融與合成驗證
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py
@@ -221,7 +223,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 這不是三欄真實訓練入口；後續來源、完整12角色與輸出版本準備見上節，正式訓練仍待決定。原四欄程式與分數保留，舊`run_review_baseline.py`不能當三欄消融入口。詳見[實作與驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)。
 
-## 前輪Stage 5離線最小基線
+## Stage 5：四欄離線最小基線
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\run_review_baseline.py --specification-only
@@ -232,7 +234,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 逐筆inner／outer機率、fit診斷與manifest在`.runtime/stage5_review_baseline_training_v1/`，不隨Git交付。缺原CSV、H60 bundle、原收據或原基線guard即停止；不由CLI重建缺失證據。已有結果會在fit前拒收，不能直接重跑覆寫。三月已檢視，數字是開發回測；原入庫／版本限制仍在。詳細方法、實際結果及驗證見[離線基線文件](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)。
 
-## 前輪Stage 5四欄pipeline與合成驗證
+## Stage 5：四欄pipeline與合成驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
@@ -243,7 +245,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 受控pipeline只fit合格訓練列，query保留未知且不讀未來標籤；低階介面與真實來源loader、內層選參／評估CLI分開。後續已由上述離線入口串接，原入庫／版本限制保留。
 
-## 前輪Stage 5最小基線契約
+## Stage 5：最小基線契約
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_baseline_contract.py --specification-only
@@ -254,7 +256,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 需原資料來源、已凍結H60私有bundle及原正式執行收據（均不隨Git clone交付）；缺任一資產就停止，不能補造收據或把C全域標籤join回歷史fit。新input_guard只留Git忽略的.runtime/stage5_review_baseline_v1/，原標籤／角色CSV及其manifest不改寫，私有digest不公開。兩事件時鐘仍無原入庫／版本證明，核對通過只支持條件離線研究。
 
-## 前輪Stage 5資料集凍結
+## Stage 5：資料集凍結
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\freeze_review_dataset.py --specification-only
@@ -265,7 +267,7 @@ prepare只核metadata／hash與source-bound實測receipt，凍結41來源／outp
 
 兩CSV及manifest只寫Git忽略的.runtime/stage5_review_dataset_v1/，共9／12個標籤與審計欄，不是21欄特徵快取。公私輸出預檢、來源前後綁定、不可覆寫與逐值反讀皆需通過。沒有MySQL、評論文字輸入、模型載入、訓練、預測、效能或Dashboard；來源變更或改H不能直接覆寫本版。
 
-## 前輪Stage 5可行性盤點
+## Stage 5：可行性盤點
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\audit_review_prediction_feasibility.py

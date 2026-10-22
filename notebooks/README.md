@@ -40,46 +40,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 原始CSV、特徵快取、逐筆分數、模型與執行證明都保留在本機忽略路徑。新的Git checkout不會自帶這些資料；不要為了讓Notebook全部通過，就改寫凍結報告或重新評估原保留測試。研究操作與來源保護見[程式索引](../scripts/README.md)。
 
-現有成果的適用範圍、五種子與主方案區別、可交付項目及下一步見[模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md)。模型卡整理沒有新增Notebook cell、訓練或評分；四本Notebook並非每日10%生產通知系統。
+## Notebook與後續研究的關係
 
-最新[單日離線交付驗收](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md)以獨立CLI只讀凍結分數，沒有執行Notebook、模型訓練或新預測。請勿為重現交付驗收而整本執行04。
+Stage 4 colsample之後的研究，以及Stage 5、6全部研究，都以獨立CLI執行，沒有新增或執行Notebook；四本Notebook也不是每日10%生產通知系統。閱讀與重現方式如下：
 
-Stage 4目前維持待資料。Stage 5在[H60資料集](../docs/STAGE5_REVIEW_DATASET_SPEC.md)、[最小基線規格](../docs/STAGE5_REVIEW_BASELINE_SPEC.md)及[合成洩漏測試](../docs/STAGE5_REVIEW_PIPELINE_IMPLEMENTATION.md)後，以獨立CLI執行[四欄離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)。該入口會在來源守門通過後用真實資料訓練與做開發回測；沒有新增或執行Notebook，也沒有Dashboard。不要為了補Stage 5就執行04的延遲訓練。
+| 範圍 | 去哪裡看 | 注意 |
+| --- | --- | --- |
+| Stage 4 colsample之後：四模型邊界、成熟訊號、代表性、事件來源、模型卡、單日交付驗收 | [文件導覽](../docs/README.md#stage-4延遲預測)、[模型卡](../docs/STAGE4_MODEL_APPLICABILITY.md) | 單日驗收以獨立CLI只讀凍結分數；不要為重現交付驗收而整本執行04 |
+| Stage 5評論低評分預測 | [文件導覽](../docs/README.md#stage-5評論低評分預測)、[模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md) | 四欄基線與三欄消融各由正式入口執行過一次；不要藉執行04或重跑training_v1補證據。03的全來源評論聚合已列為過往曝光，不以Notebook重算新答案 |
+| Stage 6 RFM | [文件導覽](../docs/README.md#stage-6rfm-顧客分析)、[真實描述結果](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 私有資料集與G1描述只做唯讀驗收；不重跑03／04或原builder補證據 |
 
-已依[只移除購買月份的消融規格](../docs/STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)完成[三欄builder／pipeline及洩漏驗證](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)，[執行準備](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)再串接來源／完整角色及四欄凍結分數。該輪只核metadata與配對契約，0fit。後續[三欄正式入口與私有writer](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)完成合成驗證，前輪再依凍結入口完成一次[真實三欄消融及交付驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。結果只列開發回測；沒有新增或執行Notebook，也沒有Dashboard，四欄分數直接沿用。
-
-前輪[雙臂機率、排序與支援診斷](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)以獨立CLI只讀現有分數，0fit／transform／predict／重新選C，沒有新增或執行Notebook，也沒有Dashboard。不要藉整本執行04或重跑training_v1補齊本機證據。
-
-前輪[逐fit成熟先驗稽核](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)由獨立CLI只讀原H60角色，分開成熟未知／未成熟，不讀分數值、不訓練或回填參數。沒有新增或執行Notebook，也沒有Dashboard；不需整本執行04或重跑舊訓練。
-
-本輪[後續時間窗與用途盤點](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)由獨立CLI只讀ID／時鐘，較晚月份均待資料，不建新y或訓練。Notebook3全來源評論聚合與Stage 4跨任務使用列為過往曝光；不以新Notebook重算答案或執行04補證據，Dashboard仍暫緩。
-
-本輪[新時間窗交接清單／驗收範本](../docs/templates/review_window_handoff/README.md)只整理文件與空白格式，五個月仍待資料；沒有新增或執行Notebook、標籤、訓練或Dashboard。實際來源到齊後先逐月驗收，不以重跑Notebook3聚合或04訓練補交接缺口。
-
-最新[四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)只整理既有研究範圍與交付限制，沒有執行Notebook、訓練或Dashboard。Stage 5仍待資料；下一輪可先盤點Stage 6 RFM的顧客鍵、訂單／金額與時間截止，目前尚未開始RFM或新增Notebook。
-
-## Stage 6 RFM輸入盤點
-
-本輪[顧客鍵、訂單資格、金額與時間截止盤點](../docs/STAGE6_RFM_FEASIBILITY.md)使用獨立只讀CLI，沒有新增或執行Notebook，不重跑03的營收／評論聚合或04的模型訓練。個體RFM與分群未開始，先凍結資料集語義再決定builder；Stage 4、5待資料與Dashboard暫緩不變。
-
-最新[Stage 6 RFM資料集契約](../docs/STAGE6_RFM_DATASET_SPEC.md)已凍結顧客母體、時鐘異常、S／T、R單位、零活動與M毛額／未知政策，只以CLI核聚合支援。沒有建立RFM個體資料集、builder或Notebook，沒有分群、訓練或Dashboard；下一步依契約另輪決定實作與反讀驗收。
-
-## Stage 6本輪RFM builder與反讀
-
-最新[實作與驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)以獨立CLI完成一次RFM私有資料集建置及反讀／同ID核對。沒有新增或執行Notebook，不重跑03／04；分群、訓練、Dashboard未進行，Stage 4、5待資料不變。前文各輪「未builder」只描述當時狀態；現有資料集用build_rfm_dataset.py --verify唯讀驗收。
-
-## Stage 6本輪RFM評估方法凍結
-
-最新[描述／分群評估規格](../docs/STAGE6_RFM_EVALUATION_SPEC.md)只用metadata／hash核沿用版本，沒有新增或執行Notebook、描述統計、切點、分群、訓練或Dashboard。後續先決定只讀描述器與合成驗證，不重跑03／04或原RFM builder補證據。
-
-## Stage 6本輪只讀描述與資格守門
-
-最新[實作與合成驗收](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)以獨立pure core及synthetic-only CLI完成，不新增或執行Notebook。沒有真實描述、切點、分群、訓練或Dashboard，不重跑03／04、原RFM builder或個體反讀補證據；Stage 4、5維持待資料。
-
-## Stage 6本輪真實描述流程串接
-
-最新[執行準備與合成驗收](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)使用獨立CLI --prepare及三套synthetic tests，沒有新增或執行Notebook。source／名冊／單core／private-public輸出與反讀已接妥，但本輪未對真實資料呼叫execute_prepared；切點、分群、訓練、Dashboard未執行，不重跑03／04或原builder補證據。
-
-## Stage 6本輪一次真實只讀描述
-
-最新[真實結果及交付驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)透過凍結函式完成一次描述、完整來源名冊及私有／公開反讀；沒有新增或執行Notebook，也未重跑03／04或原builder。F高度集中於1且IQR退化，尚無真實切點、分群、訓練或Dashboard；Stage 4、5待資料，Stage 4每日10%與五種子不變。前文各節的「未真實描述」保留當輪歷史。
+研究入口與來源保護見[腳本導覽](../scripts/README.md)，Dashboard仍暫緩。

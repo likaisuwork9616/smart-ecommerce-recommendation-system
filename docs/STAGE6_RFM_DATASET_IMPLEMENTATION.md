@@ -1,6 +1,6 @@
 # Stage 6：RFM builder與私有資料集驗收
 
-最新已沿用本資料集凍結[描述／分群評估規格](STAGE6_RFM_EVALUATION_SPEC.md)，尚未執行描述、切點或分群。下文保留前輪builder與一次真實資料集驗收紀錄，原程式／JSON／私有產物bytes不改，沒有重跑個體反讀或訓練。
+後續已沿用本資料集凍結[描述／分群評估規格](STAGE6_RFM_EVALUATION_SPEC.md)，並完成一次[真實描述（G1）](STAGE6_RFM_DESCRIPTION_RESULTS.md)；真實切點與分群尚未執行，目前進度見[專案進度](PROJECT_PROGRESS.md)。下文保留前輪builder與一次真實資料集驗收紀錄，原程式／JSON／私有產物bytes不改，沒有重跑個體反讀或訓練。
 
 已依[凍結契約](STAGE6_RFM_DATASET_SPEC.md)完成純builder、私有輸出與正式入口，先通過合成洩漏／反讀測試，再執行一次真實快照建置。本輪產生可核對的顧客R／F／M與完整T前逐單決策，沒有分群、模型fit、效能評估或Dashboard。Stage 4、5仍待資料，Stage 4每日10%與11／29／42／73／101五種子維持。
 

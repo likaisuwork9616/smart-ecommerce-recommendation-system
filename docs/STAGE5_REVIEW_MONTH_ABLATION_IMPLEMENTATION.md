@@ -1,6 +1,6 @@
 # Stage 5：三欄月份消融實作與洩漏驗證
 
-後續已完成[來源／完整角色串接與執行政策準備驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)；三欄真實訓練仍未執行。以下保留本輪合成實作驗證紀錄及原報告bytes。
+後續已完成[來源／完整角色串接與執行政策準備驗收](STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)，並依正式入口完成一次[三欄真實消融](STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)。以下保留本輪合成實作驗證紀錄及原報告bytes。
 
 已依[凍結消融規格](STAGE5_REVIEW_MONTH_ABLATION_SPEC.md)實作只移除 `purchase_month` 的三欄 builder 與 train-only pipeline，保留原四欄程式與凍結分數。本輪用合成資料實際執行前處理、Logistic fit、transform、predict來驗證隔離；**真實資料特徵、訓練、選C、出分與效能計算均為0**，沒有Dashboard。
 

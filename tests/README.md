@@ -6,9 +6,9 @@
 .\.venv\Scripts\python.exe -m unittest discover -s tests -q
 ```
 
-最近一次完整測試為[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)的867項全過、165.394秒。其後事件來源查核15項、單日離線交付42項（3.017秒）、[全量日資料契約查核](../docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md#full-day-data-contract)8項（0.062秒）均已通過。這些是各前輪紀錄，不能合稱本輪完整測試。
+最近一次全專案測試在2026-10-22第二次專案清整時執行：1,764項全過（unittest回報605.317秒），0失敗／錯誤／跳過。該次只改文件，程式與測試未變；這是回歸確認，不是新研究結果或模型效能。
 
-前輪[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式；範本案例不能當成真實資料已驗收。Stage 5可行性、H60資料集、基線契約與合成pipeline驗證保留各輪紀錄。最新[離線最小基線](../docs/STAGE5_REVIEW_OFFLINE_BASELINE.md)分開記合成測試、只讀來源稽核、正式真實資料訓練及凍結分數獨立對帳，不把測試數當作效能。
+Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
 ## 依修改範圍選擇檢查
 
@@ -16,6 +16,8 @@
 | --- | --- |
 | Stage 6真實G2執行準備 | [test_rfm_rule_candidate_sources.py](test_rfm_rule_candidate_sources.py)、[test_rfm_rule_candidate_outputs.py](test_rfm_rule_candidate_outputs.py)、[test_prepare_rfm_rule_candidate.py](test_prepare_rfm_rule_candidate.py)；合成完整同ID/G1反讀、候選四檔持久化及單次core／prepare-only守門 |
 | Stage 6 G2規則候選 | [test_rfm_rule_candidate.py](test_rfm_rule_candidate.py)、[test_verify_rfm_rule_candidate.py](test_verify_rfm_rule_candidate.py)；合成ties／切點／級數／支援／同ID重現、完整G0與入口不可覆寫／source-bound收據 |
+| Stage 6 RFM資料集、評估規格與描述 | `test_rfm_feasibility.py`、`test_rfm_dataset_*.py`、`test_build_rfm_dataset.py`、`test_rfm_evaluation_spec.py`、`test_rfm_description*.py`、`test_prepare_rfm_description.py`、`test_verify_rfm_description.py`；來源守門、同ID名冊、未知遮罩、精確描述與反讀 |
+| Stage 5評論低評分預測 | `test_review_*.py`、`test_audit_review_*.py`、`test_diagnose_review_ablation.py`、`test_prepare_review_month_ablation.py`、`test_run_review_month_ablation.py`；H60標籤、train-only pipeline、選C、配對與只讀診斷 |
 | 特徵與標記 | `test_delay_*features.py`、`test_delay_features.py`；訂單聚合、key、缺值與事件時鐘 |
 | 訓練與時間切分 | `test_delay_*training.py`、`test_delay_*validation.py`；成熟答案、同月隔離與query群組 |
 | 提醒政策與排名 | `test_delay_alert_policy.py`、`test_delay_calibration_policy.py`及排序測試；完整日分母、取整、ties與未知答案 |
@@ -23,7 +25,9 @@
 | 診斷與可重現性 | `test_diagnose_*.py`、audit測試；來源綁定、共同漏報身分及分格對帳 |
 | 環境與資料庫 | [verify_environment.py](../scripts/verify_environment.py)；此項會讀本機設定與MySQL，與單元測試分開 |
 
-## 本輪Stage 6真實G2執行準備
+以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
+
+## Stage 6：G2真實執行準備（最新）
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate_sources tests.test_rfm_rule_candidate_outputs tests.test_prepare_rfm_rule_candidate -q
@@ -33,7 +37,7 @@
 
 [prepare入口](../scripts/prepare_rfm_rule_candidate.py)只有--prepare，需實際source-bound收據及原私有證據，凍結[57來源規格](../reports/stage6/rfm_rule_candidate_execution_specification.json)與[準備查核](../reports/stage6/rfm_rule_candidate_execution_preflight.json)；測數／耗時以正式實測報告為準，不沿用或加總前輪60測。真實只核metadata／hash，未解析CSV、估切點／tuple、分群、訓練、做Dashboard或G3，也未重跑舊suite／全專案discover。Stage 4、5維持待資料，Stage 4每日10%與11／29／42／73／101五種子不變；詳見[準備契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md)。
 
-## 前輪Stage 6 G2規則候選與資格守門
+## Stage 6：G2規則候選與資格守門
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate tests.test_verify_rfm_rule_candidate -q
@@ -45,11 +49,11 @@
 
 本輪未解析真實CSV、估真實切點、產生真實tuple、分群、訓練或做Dashboard，G3未實作／執行，也未重跑舊suite或全專案discover。Stage 4、5待資料，Stage 4每日10%與11／29／42／73／101五種子不變；詳見[實作與限制](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md)。
 
-## 前輪Stage 6真實描述交付驗收
+## Stage 6：真實描述交付驗收
 
 該輪不修改凍結程式／測試，不重跑合成suite或全專案discover；沿用當時58項source-bound實測receipt。一次真實execute的core恰好1次，完成後以禁止core的verify_completed及獨立名冊稽核驗收。93,234顧客／99,421訂單、776,807格名冊與244個聚合scalar（含45個binary64）反讀一致；這些是實際資料交付核對，不加總為單元測試數、模型效能或未知資料成績。詳見[真實結果與驗收](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md)。
 
-## 前輪Stage 6真實描述執行串接驗證
+## Stage 6：真實描述執行串接驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description_sources tests.test_rfm_description_outputs tests.test_prepare_rfm_description -q
@@ -57,7 +61,7 @@
 
 58項全過（18.236869秒）：sources20／outputs21／runner17，驗獨立顧客及全部T前名冊、逐單proof、五狀態／母體外單、canonical JSON／CSV／float bits、完整41來源／receipt與四檔/public反讀；synthetic E2E單core、來源變動／輸出變更／public失敗停止及禁重播均通過。沒有讀真實CSV、產真實名冊／描述或模型fit；舊46／32／130測與全專案discover未重跑或加總。詳見[準備文件](../docs/STAGE6_RFM_DESCRIPTION_EXECUTION.md)及[實測準備報告](../reports/stage6/rfm_description_execution_preflight.json)。
 
-## 前輪Stage 6只讀描述與資格守門
+## Stage 6：只讀描述與資格守門
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_description tests.test_verify_rfm_description -q
@@ -65,7 +69,7 @@
 
 本輪core26＋入口20共46項全過（15.635905秒），核五狀態同ID、原欄型別／ledger／遮罩守恆、精確rank／ties、2^53以上金額、IQR退化／半整數與等號界、全零／空集合、log、不突變、33來源／receipt及失敗停止。另7組獨立手算與7項資格反例通過，不與單元測試加總；原130／32項、全專案discover與真實個體反讀未重跑。詳見[實作驗收](../docs/STAGE6_RFM_DESCRIPTION_IMPLEMENTATION.md)及[合成報告](../reports/stage6/rfm_description_pipeline_verification.json)，沒有真實描述或分群效果。
 
-## 前輪Stage 6 RFM評估契約驗證
+## Stage 6：RFM評估契約驗證
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_evaluation_spec -q
@@ -73,7 +77,7 @@
 
 本輪只驗規格與metadata守門：完整27來源、opaque CSV不可解析、原guard／manifest／獨立收據、型別與少綁／改bytes／不同輸出拒收及前後變動停止。測試與metadata實測數見[凍結文件](../docs/STAGE6_RFM_EVALUATION_SPEC.md)；未實作或測試真實分位數／分箱演算法、分群或模型，原130項及個體反讀是前輪紀錄，未重跑。
 
-## 前輪Stage 6 RFM builder與反讀驗收
+## Stage 6：RFM builder與反讀驗收
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec tests.test_rfm_dataset_builder tests.test_rfm_dataset_artifacts tests.test_build_rfm_dataset -q
@@ -81,7 +85,7 @@
 
 130項全過、5.417821秒（原20＋23、新builder42＋artifact20＋入口25），只用合成fixture，核截止、未知／隔離與五狀態、精確R／分、來源守門、整包不可覆寫、strict型別、偽摘要／排除理由拒收及唯讀驗收。另做真實資料3,082,480格反讀與獨立同ID每欄核對，不與單元測試數相加；未跑全專案discover、分群或模型fit。見[實作與驗收](../docs/STAGE6_RFM_DATASET_IMPLEMENTATION.md)及[實際報告](../reports/stage6/rfm_dataset_build_acceptance.json)。
 
-## 前輪Stage 6 RFM資料集契約
+## Stage 6：RFM資料集契約
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility tests.test_rfm_dataset_spec -q
@@ -89,7 +93,7 @@
 
 新23項契約測試＋原盤點20項共43項全過、0.012秒。核完整歷史母體、窗口端點、已知時鐘矛盾隔離、可缺核准、未知商品不刪活動、混合／零活動狀態、來源異動與int64保守溢位前置條件；無builder或模型fit。正式聚合與獨立母體／隔離／金額／狀態對帳另列，未執行個體RFM反讀、分群或全專案discover，詳見[資料集規格](../docs/STAGE6_RFM_DATASET_SPEC.md)。
 
-## 前輪Stage 6 RFM輸入盤點
+## Stage 6：RFM輸入盤點
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_feasibility -q
@@ -97,15 +101,15 @@
 
 20項合成測試全過、0.012秒，涵蓋顧客鍵、明細／付款獨立彙總、精確到分、未知／非法與負金額、缺流、T邊界與晚送達、不修改輸入及不輸出個體RFM。另59項正式聚合／候選比較通過，來源及候選由獨立CSV／Decimal與pandas計算核對；不加總成單元測試數。沒有執行個體RFM、分群、模型測試、全專案discover或業務成效評估，詳見[Stage 6文件](../docs/STAGE6_RFM_FEASIBILITY.md)。
 
-## 前輪Stage 5模型適用範圍文件
+## Stage 5：模型適用範圍文件（最新）
 
 [四欄／三欄模型卡](../docs/STAGE5_MODEL_APPLICABILITY.md)只核對原聚合報告的逐月／macro AP、C、分母與固定門檻混淆數，並查文件連結／JSON格式與既有凍結資產保存。未讀逐筆分數重算指標，未新增或重跑單元／模型測試、訓練、資料集或新資料驗收；這次文件查核不算新效能或未知測試。
 
-## 前輪Stage 5新時間窗交接文件
+## Stage 5：新時間窗交接文件
 
 [交接清單與範本](../docs/templates/review_window_handoff/README.md)只做文件／格式查核：嚴格JSON解析、五個月完整區間及H60日曆界線、15個check_id與三關卡對應、所有實測null及pending_data、Markdown本機連結，另核既有程式／報告及私有證據未改。沒有新增或重跑單元測試、模型、原始資料稽核或真實交接驗收；範本所列案例是未來待執行義務，不能計為通過測試或新資料成績。
 
-## 前輪Stage 5後續時間窗盤點
+## Stage 5：後續時間窗盤點
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_validation_windows tests.test_audit_review_validation_windows -q
@@ -115,7 +119,7 @@
 
 另618項正式獨立盤點、6.270秒及95項用途核對、0.026秒分列，核25個月、五個待資料時間窗、14個commit及用途限制。原30份私有證據不變；0新評分／y／訓練／效能，不重跑舊模型或全專案discover。見[時間窗文件](../docs/STAGE5_REVIEW_VALIDATION_WINDOWS.md)及[驗證](../reports/stage5/review_validation_window_verification.json)。
 
-## 前輪Stage 5成熟先驗與時間漂移稽核
+## Stage 5：成熟先驗與時間漂移稽核
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_mature_prior_audit tests.test_audit_review_mature_prior -q
@@ -125,7 +129,7 @@
 
 獨立7,134項正式比較、4.850秒另列，核原核准名冊與12角色289,973列、先驗／覆蓋／窗口與跨fit轉換；原27份私有證據不變。不讀分數值、係數，不fit／預測／校準／更新參數，也不重跑全專案或舊模型測試。詳見[文件](../docs/STAGE5_REVIEW_MATURE_PRIOR_AUDIT.md)與[驗證](../reports/stage5/review_mature_prior_verification.json)。
 
-## 前輪Stage 5雙臂只讀診斷
+## Stage 5：雙臂只讀診斷
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_ablation_diagnostics tests.test_diagnose_review_ablation -q
@@ -135,11 +139,11 @@
 
 正式資料另10,389項獨立比較、4.917秒，核18組機率、12組排名、六組支援及固定切片；不合併為單元測試數。診斷0fit／transform／predict／選C，原24份私有證據不變。見[診斷文件](../docs/STAGE5_REVIEW_ABLATION_DIAGNOSTICS.md)及[驗證報告](../reports/stage5/review_ablation_diagnostic_verification.json)。未重跑舊模型測試或全專案discover。
 
-## 前輪Stage 5真實消融交付驗收
+## Stage 5：真實消融交付驗收
 
 本輪沒有修改凍結程式或重跑合成測試。一次真實執行實際完成9次內層＋3次外層fit，另以只讀程式核對完整角色、每臂18區塊108,744列的ID／truth、選C、指標與私有manifest。這是實際產物驗收，與下列前輪74項合成測試分列；詳見[實驗文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_RESULTS.md)及[聚合驗收](../reports/stage5/review_month_ablation_training_acceptance.json)。
 
-## 前輪Stage 5三欄正式入口與私有writer
+## Stage 5：三欄正式入口與私有writer
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_run_review_month_ablation tests.test_review_month_ablation_training tests.test_review_month_ablation_artifacts -q
@@ -149,7 +153,7 @@
 
 正式版本與測試名單見[合成報告](../reports/stage5/review_month_ablation_dispatcher_verification.json)，整合CLI另需原本機來源先`--specification-only`再`--verify-synthetic`；操作及界線見[入口驗收](../docs/STAGE5_REVIEW_MONTH_ABLATION_DISPATCHER.md)。該輪沒有重跑全專案discover，下列歷史紀錄各自保留。現有training_v1已占用，整合CLI不可當成發布後驗收重播。
 
-## 前輪Stage 5三欄執行準備與配對守門
+## Stage 5：三欄執行準備與配對守門
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_month_ablation_sources tests.test_review_month_ablation_pairing tests.test_prepare_review_month_ablation -q
@@ -159,7 +163,7 @@
 
 正式來源／分數獨立核對另有1,304,928個metadata欄值一致，以及21項私有I/O對抗案例；不加總成單元測試或效能結果。詳見[執行準備文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_EXECUTION.md)。本輪沒有重跑下列合成fit組或全專案discover，前輪紀錄保持分列。
 
-## 前輪Stage 5三欄實作與洩漏驗證
+## Stage 5：三欄實作與洩漏驗證
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\verify_review_month_ablation_pipeline.py
@@ -170,7 +174,7 @@
 
 第二行23＋20＋14共57項契約回歸全過，4.555秒。首次受限環境有6項暫存目錄ACL錯誤；允許相同本機資源後原樣重跑通過，沒有跳過或改舊斷言。兩組合計132項，沒有執行全專案discover。另194項跨3個fold內／外層獨立合成檢查及31項CLI對抗案例通過，與單元測試分列。詳見[實作文件](../docs/STAGE5_REVIEW_MONTH_ABLATION_IMPLEMENTATION.md)及[正式報告](../reports/stage5/review_month_ablation_pipeline_verification.json)。
 
-## 前輪Stage 5月份消融契約
+## Stage 5：月份消融契約
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_month_ablation_contract -q
@@ -180,7 +184,7 @@
 
 本輪只跑此新測試組；上方discover包含舊合成fit，本輪未執行，不宣稱全專案回歸。
 
-## 前輪Stage 5只讀診斷
+## Stage 5：凍結分數只讀診斷
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_score_diagnostics tests.test_review_score_diagnostic_runner -q
@@ -190,7 +194,7 @@
 
 獨立合成10情境15,400葉節點、來源對抗36項與正式聚合8,218比較另記私有證明，不加總為單元測試數。正式對帳直接讀原凍結分數、membership及事件時鐘，不重播模型。原42份凍結資產bytes不變。
 
-## 前輪Stage 5離線基線入口
+## Stage 5：離線基線入口
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_sources tests.test_review_baseline_training -q
@@ -204,7 +208,7 @@
 .\.venv\Scripts\python.exe -m unittest tests.test_review_prediction_feasibility tests.test_review_dataset_contract tests.test_review_baseline_contract tests.test_review_baseline_pipeline tests.test_review_baseline_sources tests.test_review_baseline_training -q
 ```
 
-## 前輪Stage 5builder／pipeline洩漏測試
+## Stage 5：builder／pipeline洩漏測試
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_review_baseline_pipeline -q
