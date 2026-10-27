@@ -1,45 +1,63 @@
 """Initialize the project's downloaded MySQL on Windows, without a system service."""
+import argparse
 import secrets
 import socket
 import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MYSQL = ROOT / '.runtime' / 'mysql'
-TOOLS = ROOT / '.runtime' / 'tools' / 'mysql-8.4.11-winx64'
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '--runtime-root', type=Path,
+        help='Existing path or junction that resolves to this project\'s .runtime directory.',
+    )
+    args = parser.parse_args()
+    runtime_root = ROOT / '.runtime'
+    if args.runtime_root is not None:
+        candidate = args.runtime_root.expanduser().absolute()
+        try:
+            valid = candidate.is_dir() and candidate.resolve(strict=True) == runtime_root.resolve(strict=True)
+        except (OSError, RuntimeError):
+            valid = False
+        if not valid:
+            parser.error('--runtime-root must already exist and resolve to this project\'s .runtime directory.')
+        # Keep the alias instead of replacing it with the resolved project path.
+        runtime_root = candidate
+    mysql = runtime_root / 'mysql'
+    tools = runtime_root / 'tools' / 'mysql-8.4.11-winx64'
     config_path = ROOT / 'scripts' / 'db_config.py'
-    if config_path.exists() or (MYSQL / 'data').exists():
+    if config_path.exists() or (mysql / 'data').exists():
         raise SystemExit('Existing database/config detected; setup will not overwrite it.')
-    server = TOOLS / 'bin' / 'mysqld.exe'
+    server = tools / 'bin' / 'mysqld.exe'
     if not server.exists():
         raise SystemExit('Extract the official MySQL ZIP into .runtime/tools first.')
     with socket.socket() as probe:
         probe.settimeout(1)
         if probe.connect_ex(('127.0.0.1', 3307)) == 0:
             raise SystemExit('Port 3307 is already occupied; no setup files were changed.')
-    MYSQL.mkdir(parents=True, exist_ok=True)
-    ini = MYSQL / 'my.ini'
+    mysql.mkdir(parents=True, exist_ok=True)
+    ini = mysql / 'my.ini'
     ini.write_text(
         '[mysqld]\n'
-        f'basedir="{TOOLS.as_posix()}"\n'
-        f'datadir="{(MYSQL / "data").as_posix()}"\n'
-        f'log-error="{(MYSQL / "mysql-error.log").as_posix()}"\n'
-        f'pid-file="{(MYSQL / "mysql.pid").as_posix()}"\n'
+        f'basedir="{tools.as_posix()}"\n'
+        f'datadir="{(mysql / "data").as_posix()}"\n'
+        f'log-error="{(mysql / "mysql-error.log").as_posix()}"\n'
+        f'pid-file="{(mysql / "mysql.pid").as_posix()}"\n'
         'bind-address=127.0.0.1\nport=3307\nmysqlx=OFF\n'
         'character-set-server=utf8mb4\ncollation-server=utf8mb4_unicode_ci\n'
         'innodb-buffer-pool-size=256M\n', encoding='utf-8'
     )
     admin_password = secrets.token_urlsafe(32)
     app_password = secrets.token_urlsafe(32)
-    (MYSQL / 'admin.ini').write_text(
+    (mysql / 'admin.ini').write_text(
         '[client]\nuser=root\n'
         f'password={admin_password}\nhost=127.0.0.1\nport=3307\nprotocol=TCP\n',
         encoding='utf-8'
     )
-    init_sql = MYSQL / 'bootstrap.sql'
+    init_sql = mysql / 'bootstrap.sql'
     init_sql.write_text(
         f"ALTER USER 'root'@'localhost' IDENTIFIED BY '{admin_password}';\n"
         "CREATE DATABASE IF NOT EXISTS olist_ecommerce CHARACTER SET utf8mb4 "
@@ -48,7 +66,7 @@ def main():
         "GRANT ALL PRIVILEGES ON olist_ecommerce.* TO 'olist_app'@'127.0.0.1';\n",
         encoding='utf-8'
     )
-    with (MYSQL / 'initialize.log').open('w', encoding='utf-8') as log:
+    with (mysql / 'initialize.log').open('w', encoding='utf-8') as log:
         subprocess.run(
             [str(server), f'--defaults-file={ini}', '--initialize-insecure'],
             stdout=log, stderr=subprocess.STDOUT, check=True,

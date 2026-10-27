@@ -57,6 +57,24 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start_jupyter.ps1
 
 此腳本會先啟動專案 MySQL。請使用 `Shop (Python 3.12)` kernel；各 Notebook 的資料前提與是否會觸發訓練，先看其[操作說明](notebooks/README.md)。
 
+## 本機環境重建與中文路徑修正
+
+2026-10-27 已在含中文的專案路徑完成環境重建，並實際驗證資料庫與四本 Notebook。這次是本機安裝與相容性修正，研究進度及既有模型成績維持原狀。
+
+| 項目 | 本輪實測結果 |
+| --- | --- |
+| Python 與套件 | Python 3.12.10；`.venv/` 內 116 個套件與 `requirements-lock.txt` 全部吻合，相依性檢查通過 |
+| Olist 與 MySQL | 官方 Kaggle 第 2 版九份 CSV 匯入 MySQL 8.4.11，九張表共 1,550,922 筆，逐表筆數核對一致 |
+| Notebook | `01`–`04` 共 59 個程式區塊完整執行，0 錯誤；執行副本另產生 8 張 EDA 圖表 |
+| MySQL 啟停 | 僅監聽 `127.0.0.1:3307`；停止、重啟、重複啟動及重啟後資料筆數檢查通過，未註冊 Windows 系統服務 |
+| JupyterLab | 正常啟動腳本、HTTP API、四本 Notebook 根目錄、專案 `.venv` kernel 建立與 Lab 頁面均通過 |
+
+MySQL 8.4.11 在本機中文路徑初始化與啟動時發生編碼錯誤，已用指向專案 `.runtime/` 的 ASCII 目錄 junction 處理。新增共用路徑解析，讓啟停腳本沿用 `my.ini` 中的路徑；初始化另支援 `--runtime-root`，只接受實際指向本專案 `.runtime/` 的既有路徑，並保留既有資料與連線設定的防覆寫檢查。操作步驟及搬移注意事項見[本機環境指南](docs/LOCAL_SETUP.md)。
+
+`04` 所需模型未隨 repository 提供，本輪僅使用原訓練集 54,145 筆重建教學模型，來源 SHA-256 與時間切分已核對。此模型不是原凍結研究 artifact；沒有重新預測或評估驗證集／保留測試集，Notebook 展示的歷史成績仍讀取既有報告。
+
+完整本機驗收保存在 `.runtime/verification/full-setup.json`，另有資料來源、MySQL 重啟、Jupyter 與 Notebook 執行紀錄。這些驗證檔、Notebook 執行副本、帳密、原始 CSV、資料庫、模型及下載檔都留在 Git 忽略路徑；本次提交僅包含文件與 MySQL 路徑相容性程式，不包含本機資料或研究產物。其他電腦仍需依建置指南下載資料與安裝工具，`git clone` 不會取得這些本機檔案。
+
 ## 研究目前的結果
 
 以下數字都來自已提交的正式報告。三個研究反覆使用的 2017-12、2018-02、2018-04 是**已檢視的開發回測月份**，不能當成未知資料成績。
@@ -150,6 +168,6 @@ shop/
 
 測試範圍、分組及 Windows 權限注意事項見[測試說明](tests/README.md)。各輪測試數與耗時以當輪報告為準，不加總成新的測試成績。
 
-本次為第二次專案清整，只整理文件：首頁回到現況摘要，Stage 5、6 逐輪紀錄改成[專案進度](docs/PROJECT_PROGRESS.md)的歷程表，並將文件、報告、腳本、測試、Notebook 與資料導覽依階段重排、修正過時描述。實驗程式、正式 JSON、圖表與 Notebook 沒有修改，也沒有新增訓練或研究結果。清整後 1,058 個本機連結全部有效、207 個 SHA 綁定檔前後一致，全專案測試 1,764 項全過（605.317 秒）；完整紀錄見[專案清整](docs/PROJECT_PROGRESS.md#專案清整)。
+先前第二次專案清整僅整理文件：首頁回到現況摘要，Stage 5、6 逐輪紀錄改成[專案進度](docs/PROJECT_PROGRESS.md)的歷程表，並將文件、報告、腳本、測試、Notebook 與資料導覽依階段重排、修正過時描述。該輪沒有修改實驗程式、正式 JSON、圖表與 Notebook，也沒有新增訓練或研究結果。清整後 1,058 個本機連結全部有效、207 個 SHA 綁定檔前後一致，全專案測試 1,764 項全過（605.317 秒）；完整紀錄見[專案清整](docs/PROJECT_PROGRESS.md#專案清整)。
 
 GitHub 保存程式、未執行的 Notebook、文件、聚合報告與圖表。原始資料、特徵快取、本機模型、連線帳密與執行狀態由 Git 忽略；連線設定範本為 [`scripts/db_config_example.py`](scripts/db_config_example.py)。每次推送需同步更新 README，commit 使用繁體中文，其餘協作規則見 [AGENTS.md](AGENTS.md)。
