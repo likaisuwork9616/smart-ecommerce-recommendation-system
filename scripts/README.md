@@ -6,7 +6,21 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| 準備Stage 6真實G2來源／輸出反讀 | [prepare_rfm_rule_candidate.py](prepare_rfm_rule_candidate.py)、[sources](rfm_rule_candidate_sources.py)、[outputs](rfm_rule_candidate_outputs.py)、[操作契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | CLI僅--prepare；核57來源／source-bound收據與metadata後凍結，未來execute／verify只在合成scratch驗證；真實G2尚未執行，不解析真實CSV或估切點 |
+| K1 validation 入口凍結核對 | [run_retailrocket_session_knn_v1.py](run_retailrocket_session_knn_v1.py)、[loader](retailrocket_session_knn_io.py)、[完整獨立反讀](retailrocket_session_knn_readback.py)、[操作](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md) | 真實單次執行已依 3 小時 30 分鐘上限停止；namespace 為 partial，禁止再 --run-validation，原 --verify 會拒絕部分結果。只讀來源核對見最新停止文件，無 final／test 模式 |
+| 三臂研究交付與保存 | [archive_retailrocket_three_arm_v1.py](archive_retailrocket_three_arm_v1.py)、[交付說明](../docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md) | --verify 核 ZIP／live 凍結證據／包外依賴；--verify-archive-only 僅核包與收據；不重算研究、不解壓、不開 test |
+| D1／三臂／bootstrap 真實完整驗收 | [run_retailrocket_directed_v1.py](run_retailrocket_directed_v1.py)、[結果與操作](../docs/STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md) | 已單次 train／完整 validation／主要 bootstrap 與全反讀；現只 --verify，不追加 fit／排名／抽樣；沒有 final／test 模式 |
+| D1／C1／P0 比較規格 | [freeze_retailrocket_directed_v1.py](freeze_retailrocket_directed_v1.py)、[守門](retailrocket_directed_protocol.py)、[規格](../docs/STAGE11_RETAILROCKET_DIRECTED_SPEC_V1.md) | --verify 核歷史凍結與 locked scope；沒有 D1 fit／rank／bootstrap／test 入口 |
+| C1／P0研究交付與證據保存 | [archive_retailrocket_c1_p0_v1.py](archive_retailrocket_c1_p0_v1.py)、[交付說明](../docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md) | --verify核ZIP／live凍結證據與包外依賴；--verify-archive-only僅核包與收據；不fit／rank／解壓／開test |
+| Retailrocket C1／配對／bootstrap 與真實入口 | [run_retailrocket_cooccurrence_v1.py](run_retailrocket_cooccurrence_v1.py)、[核心](retailrocket_cooccurrence.py)、[adapter](retailrocket_cooccurrence_io.py)、[獨立oracle](retailrocket_cooccurrence_oracle.py)、[結果與操作](../docs/STAGE10_RETAILROCKET_COOCCURRENCE_VALIDATION_V1.md) | 已單次train fit／完整validation／bootstrap及獨立反讀；只用--verify核bytes，不追加fit或重播；無final／test模式 |
+| Retailrocket 共現／P0 配對規格 | [freeze_retailrocket_cooccurrence_v1.py](freeze_retailrocket_cooccurrence_v1.py)、[規格守門](retailrocket_cooccurrence_protocol.py)、[規則與限制](../docs/STAGE10_RETAILROCKET_COOCCURRENCE_PAIRED_SPEC_V1.md) | 初始規格已凍結；其舊--verify要求真實目錄不存在，目前由最新run入口核全部歷史SHA。規格程式不做fit／rank或test |
+| Retailrocket P0／評估器與開發入口 | [run_retailrocket_popularity_v1.py](run_retailrocket_popularity_v1.py)、[核心](retailrocket_popularity.py)、[CSV](retailrocket_popularity_io.py)、[獨立oracle](retailrocket_popularity_oracle.py)、[操作](../docs/STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md) | 已一次真實train fit／完整validation及獨立反讀；現只用--verify，不重估或出分；只允許validation，無final/test模式 |
+| Retailrocket熱門baseline／評估規格 | [freeze_retailrocket_popularity_v1.py](freeze_retailrocket_popularity_v1.py)、[一致性檢查](retailrocket_popularity_protocol.py)、[完整規則](../docs/STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md) | 已凍結，只用 --verify 核SHA／規格；兩支程式都不實作fit、rank或指標，不啟用預留測試 |
+| Retailrocket推薦資料建置／反讀 | [build_retailrocket_v1.py](build_retailrocket_v1.py)、[核心](retailrocket_builder.py)、[獨立路徑](retailrocket_reference.py)、[結果／操作](../docs/STAGE8_RETAILROCKET_BUILD_V1.md) | 已單次建置並完整逐格驗收；現用 --verify 核來源／輸出／收據bytes，不重建或重做語意核對；部分產物拒絕重播 |
+| Retailrocket官方來源／推薦契約 | [audit_retailrocket_source.py](audit_retailrocket_source.py)、[freeze_retailrocket_contract.py](freeze_retailrocket_contract.py)、[完整說明](../docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md) | 已完成完整掃描、44項獨立核對與凍結，現只用 --verify 核既有 SHA／大小；無參數首次流程會拒絕現有 namespace，不建推薦樣本或模型 |
+| 核對第二快照資料盤點 | [audit_rfm_temporal_data.py](audit_rfm_temporal_data.py)、[結果與缺件](../docs/STAGE6_RFM_TEMPORAL_DATA_INVENTORY.md) | --verify 重新只讀原表／ZIP 的來源與時鐘／鍵聚合並比對報告；無參數僅首次建報告，來源或結果變更須另開版本。沒有新 RFM、切點、G2／G3 或模型訓練 |
+| 驗證目前五種子 G3 | [run_rfm_g3.py](run_rfm_g3.py)、[核心](rfm_g3.py)、[獨立反讀](rfm_g3_outputs.py)、[來源](rfm_g3_sources.py)、[結果與操作](../docs/STAGE6_RFM_G3_V2.md) | G3 已完成，僅用 --verify；核來源、固定抽樣、全名冊分配與 ARI，不重跑 G3 核心。原 v2 資料與 G2 保留 |
+| 驗證目前 v2 RFM／G2 | [rebuild_rfm_v2.py](rebuild_rfm_v2.py)、[獨立核對](rfm_rebuild_reference.py)、[操作與結果](../docs/STAGE6_RFM_REBUILD_V2.md) | v2 已完成，僅用 --verify；不重建或重跑核心。--prepare／--run 為本輪一次性流程，既有或部分產物阻止重播 |
+| 原 v1：準備Stage 6真實G2來源／輸出反讀 | [prepare_rfm_rule_candidate.py](prepare_rfm_rule_candidate.py)、[sources](rfm_rule_candidate_sources.py)、[outputs](rfm_rule_candidate_outputs.py)、[操作契約](../docs/STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) | CLI僅--prepare；核57來源／source-bound收據與metadata後凍結，未來execute／verify只在合成scratch驗證；該 v1 準備輪未執行真實G2；後續真實執行使用獨立 v2 入口 |
 | 驗證Stage 6 G2規則候選與資格守門 | [verify_rfm_rule_candidate.py](verify_rfm_rule_candidate.py)、[純G2核心](rfm_rule_candidate.py)、[實作與操作](../docs/STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) | 僅--verify-synthetic；首次實跑兩套新測試與四組合成案例，核49來源及既有G1證據後固定報告；重入只核既有收據，不重跑或覆寫。沒有真實G2入口 |
 | 反讀Stage 6真實描述現有結果 | [凍結函式verify_completed](prepare_rfm_description.py)、[結果與操作](../docs/STAGE6_RFM_DESCRIPTION_RESULTS.md) | 已完成一次真實execute及完整反讀；現有bundle只做verify，不重播prepare／execute；不重算描述／切點或分群 |
 | 準備Stage 6真實只讀描述（已完成） | [prepare_rfm_description.py](prepare_rfm_description.py)、[sources／獨立名冊](rfm_description_sources.py)、[outputs／反讀](rfm_description_outputs.py) | CLI只有--prepare，核41來源／實測receipt並凍結；準備本身不讀真實CSV，真實描述已另以凍結函式執行一次（見上一列），勿重播 |
@@ -63,7 +77,182 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 6：G2真實執行準備（最新）
+## Stage 12：一次真實 validation 已停止（最新）
+
+單次入口已用，完整反讀未完成；不得重跑、續跑或刪除 partial 目錄。停止後只呼叫現有 `verify_prepared()`／`gates()` 核對來源、環境與 test locks，不執行研究。原 `--verify` 拒絕 partial 是預期行為，不能改 guard 使其通過。見[停止與保存](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md)。
+
+## Stage 12：K1 validation 來源與單次入口（前輪）
+
+`run_retailrocket_session_knn_v1.py --verify` 核 358 份來源、15 份直接輸入及合成驗收產物，不重算研究。`--prepare` 已完成 83 項測試與兩組完整檔案合成 oracle；真實 CSV／JSONL 只核 bytes，沒有建立真實 K1 索引。`--run-validation` 留待後續明確要求，固定一次 train fit／完整 validation／全量獨立反讀；部分產物拒重播、成功重入只驗證，無 final／test 模式。參見[入口文件](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md)。
+
+## Stage 12：K1 實作與 train-only 準備入口（前輪）
+
+`prepare_retailrocket_session_knn_v1.py --verify` 核實作來源、合成與成本 bytes 及原 test gates，不重算。首次 `--prepare` 依序執行合成測試、兩組獨立 oracle、兩遍真實 train-only 成本並凍結；完成重入只讀，部分輸出保留並停止。只有這兩個選項，沒有真實 validation／final／test CLI。參見[實作文件](../docs/STAGE12_RETAILROCKET_KNN_IMPLEMENTATION_V1.md)。
+
+## Stage 12：K1 比較規格凍結（前輪）
+
+`freeze_retailrocket_session_knn_v1.py --verify` 只核本輪來源 bytes、比較規則與六份原 gate；不執行 K1。首次凍結使用 `--freeze`，僅接受空白 namespace，完成或部分產物不可覆寫。參見[規格與操作](../docs/STAGE12_TEMPORAL_AVAILABILITY_AND_KNN_SPEC_V1.md)；本輪無模型／validation／final／test 入口。
+
+## Stage 11：三臂證據保存
+
+```powershell
+.venv\Scripts\python.exe -B scripts\archive_retailrocket_three_arm_v1.py --verify
+.venv\Scripts\python.exe -B scripts\archive_retailrocket_three_arm_v1.py --verify-archive-only
+```
+
+144 個 payload 檔＋1 份 manifest，共 145 個 ZIP 成員，649,850,977 bytes（619.746 MiB）；全部成員 CRC／SHA-256 反讀通過，另列 159 份包外依賴；44 項合成保存驗收通過。首次 `--archive` 已完成；完整重入只驗證、部分產物停下保留，不覆寫原三臂或舊包。所有來源只核 bytes／metadata，0 新 fit、排名、指標或抽樣；test locked。見[交付與還原](../docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md)。
+
+## Stage 11：D1 三臂真實 validation（執行輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_directed_v1.py --verify
+```
+
+已完成一次真實 D1 train 擬合、166,897 validation／2,000 次主要 D1−C1 bootstrap 及獨立全反讀，D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]。現在只用 --verify 核 source／output bytes；完整 run 重入也只驗證，部分證據則拒絕重播。原 P0／C1 不重訓、不重排；沒有 final-refit／test CLI。詳見[實際結果、限制與下一步](../docs/STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md)。
+
+## Stage 11：D1 實作與真實入口（實作凍結輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_directed_v1.py --verify
+```
+
+首次 `--prepare` 已完成：60 項測試、217 份來源凍結、兩組正式合成 oracle 全過，再做兩遍 train-only 成本核對與入口凍結。只解碼 train 商品，沒有真實 D1 模型／validation出分；完整準備重入只驗證，部分證據拒絕覆寫。後續真實執行已於上節完成；首次入口先寫 started，單次 fit→完整三臂→主要 bootstrap→獨立全反讀，超限／錯誤保存 failure、不重播。P0／C1 原狀，沒有 final-refit／test CLI。詳見[實作與操作](../docs/STAGE11_RETAILROCKET_DIRECTED_IMPLEMENTATION_V1.md)。
+
+## Stage 11：D1 比較規格凍結（規格輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\freeze_retailrocket_directed_v1.py --verify
+```
+
+首次 `--freeze` 已完成：199 份來源 SHA、228 項規格檢查、109 項規格／I/O 守門測試通過；綁定原 C1／P0／交付包固定 bytes 與包外依賴，可變 README 等脈絡快照不綁 live bytes。完整重入只驗證、部分證據拒絕覆寫；只有 --freeze／--verify，沒有模型或測試執行模式。`--verify` 不重跑測試／指標、不解析真實 CSV／JSONL；`scope_at_freeze` 是歷史規格輪範圍，不因未來合法 D1 執行目錄存在而改寫。未來入口須另經合成／成本驗收，預留測試仍鎖定。
+
+## Stage 10：C1／P0交付保存（最新）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\archive_retailrocket_c1_p0_v1.py --verify
+.venv\Scripts\python.exe -B scripts\archive_retailrocket_c1_p0_v1.py --verify-archive-only
+```
+
+保存已完成：102個payload檔＋1份manifest，257,447,194 bytes（245.521 MiB）；全部CRC／SHA讀回通過，另列98份包外但仍在shop內依賴。首次空白namespace才用--archive；完整重入只驗證、部分產物拒絕覆寫，工具不解壓。只做檔案／JSON完整性，不解析逐筆標籤、不重跑研究；還原範圍與鎖定界線見[交付說明](../docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md)。
+
+## Stage 10：C1／P0真實配對與完整反讀（執行輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+C1 NDCG@10 0.106400714，配對差 0.104718885；166,897 validation／2,000次bootstrap及獨立反讀完成，test locked。只核已保存來源／輸出bytes，不重算模型、指標或區間；完整namespace重入只驗證，部分證據拒絕重播。原始規格／實作文件保留各輪當時範圍，實際結果與目前操作見[完整說明](../docs/STAGE10_RETAILROCKET_COOCCURRENCE_VALIDATION_V1.md)。
+
+## Stage 10：C1／配對／bootstrap 實作與真實入口（實作凍結輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+55 項測試、104 份來源凍結與兩組正式合成 oracle 全過，實際train-only成本及資源上限已固定；`--prepare`首次凍結已完成，完整命名空間只驗證，部分證據拒絕重播。下一輪才執行`--run-validation`，單次C1 train fit、原166,897 validation、2000次bootstrap與獨立逐筆反讀；本輪沒有真實fit或出分。操作及合作式資源停止限制見[說明](../docs/STAGE10_RETAILROCKET_COOCCURRENCE_IMPLEMENTATION_V1.md)。
+
+## Stage 10：共現 C1／P0 配對規格凍結（規格輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+本輪82 來源 SHA、131 項一致性檢查、64 項規格測試通過並完成凍結 JSON／SHA 反讀。`--freeze` 僅首次產生收據；完整命名空間重入只驗證，部分產物拒絕覆寫。真實 CSV 只讀 bytes 做 SHA，未解析資料列或執行推薦。規格／凍結與未來真實執行命名空間分開；初始空目錄鎖檢查及歷史驗證用途見[完整說明](../docs/STAGE10_RETAILROCKET_COOCCURRENCE_PAIRED_SPEC_V1.md)。後續實作與獨立合成 oracle、train-only 成本及真實入口已另行完成，見上一節。
+
+## Stage 9：P0一次真實開發與完整反讀（最新）
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\run_retailrocket_popularity_v1.py --verify
+```
+
+`--run-development`已成功執行一次主fit＋一次獨立SQL count audit，對166,897筆validation逐query反讀、全部CSV／聚合一致。已有完整namespace重入只verify；部分產物拒絕重播，不刪guard補證據。`--verify`不重估或重算指標，test保持locked；操作與真實結果見[本輪文件](../docs/STAGE9_RETAILROCKET_POPULARITY_DEVELOPMENT_V1.md)。
+
+## Stage 9：P0／完整候選評估實作與開發入口
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\run_retailrocket_popularity_v1.py --verify
+```
+
+已完成54項合成測試、兩個正式合成case逐格反讀與61來源／環境凍結。`--verify`不fit、不重計指標；`--run-development`已實作但本輪未執行，留待下一輪一次真實train fit及完整validation／獨立反讀。部分產物拒絕重播，沒有final-refit或test指令。詳見[手算、oracle與操作界線](../docs/STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md)。
+
+## Stage 9：熱門baseline／完整候選執行規格
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\freeze_retailrocket_popularity_v1.py --verify
+```
+
+首次`--freeze`已核47份來源／產物、38項規格一致性及28項反例測試，保存來源與locked初始收據。完整namespace重入只驗現有來源，部分產物拒絕覆寫。`--verify`不重跑測試、不解析資料CSV、不fit／rank／計指標；該規格輪沒有真實入口；後續P0／evaluator與開發入口已另由上節完成，仍未執行真實fit或排名。下一步見[規格與實作前提](../docs/STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md)。
+
+## Stage 8：推薦資料v1建置與獨立反讀（最新）
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\build_retailrocket_v1.py --verify
+```
+
+`--prepare`與`--run`已完成30項合成測試、來源／程式固定、一次真實建置及16CSV獨立逐格反讀。現有完整namespace重入只驗SHA；部分產物拒絕重播，不刪guard補證據。主路徑CSV／SQLite，獨立路徑直接重讀原ZIP，用pandas／numpy核對每格。詳見[結果、分母與限制](../docs/STAGE8_RETAILROCKET_BUILD_V1.md)，沒有模型或排名成績。
+
+## Stage 8：Retailrocket來源與推薦契約
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\audit_retailrocket_source.py --verify
+.\.venv\Scripts\python.exe -B scripts\freeze_retailrocket_contract.py --verify
+```
+
+首次完整CSV／SQLite掃描與pandas獨立核對已完成，兩支CLI現只核凍結來源bytes。無參數僅本輪首次建置／凍結使用，已完成的v1拒絕覆寫；不要刪guard重播。原始資料、SQLite與guard均在shop內Git忽略目錄。來源盤點入口不重建session／query；推薦builder已由上節另行完成，仍無推薦模型／排名成績。方法與實測見[來源與資料契約](../docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md)。
+
+## Stage 6：研究交付與 UCI v1 封存（最新）
+
+[封存工具](archive_uci_rfm_v1.py)只核既有證據 bytes、打包及逐檔驗 CRC／SHA，不匯入研究 runner、不讀個體值計指標。現有版本使用：
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\archive_uci_rfm_v1.py --verify
+```
+
+僅核 ZIP／外層收據而不要求 live 檔案時，用 `--verify-archive-only`。首次空白命名空間才用 `--archive`，完整既有版本只驗證，部分檔案則停止並保留；不解壓或覆寫來源。封存範圍、導覽快照與凍結檔案角色、還原順序及同磁碟限制見[研究交付](../docs/STAGE6_RFM_RESEARCH_HANDOFF.md)。
+
+## Stage 6：UCI v1 固定切點與跨期比較
+
+[入口](run_uci_rfm_temporal_v1.py)、[核心](uci_rfm_temporal.py)與[獨立數值核對](uci_rfm_temporal_reference.py)已完成單次 T1 主切點及八組固定套用。現有產物使用：
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\run_uci_rfm_temporal_v1.py --verify
+```
+
+此命令只核保存 bytes，不重估切點／重算指標。首次空白命名空間才用 `--prepare`、`--run`；主估計只允許 main／T1，部分失敗保留並拒絕重播，已完成則只驗證。完整結果、獨立計算與小組限制見[跨期文件](../docs/STAGE6_UCI_RFM_TEMPORAL_V1.md)。本輪沿用 `.venv` 既有 numpy／pandas／scipy／scikit-learn，沒有安裝新套件。
+
+## Stage 6：UCI v1 真實資料建置
+
+[建置入口](build_uci_rfm_v1.py)、[核心](uci_rfm_builder.py)與[獨立 XML／SQL 核算](uci_rfm_reference.py)已完成八組資料建置及 32 CSV 完整反讀。現有產物使用：
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\build_uci_rfm_v1.py --verify
+```
+
+此命令核保存 bytes，不重做本輪逐格核算。首次空白命名空間才依序 `--prepare`、`--run`；`--run` 會寫所有逐筆帳並獨立核算，既有完整 guard 時只驗證，部分產物則停止並保留。真實切點／跨期分級尚未執行。來源、實測數字與下一步見[建置文件](../docs/STAGE6_UCI_RFM_BUILD_V1.md)。
+
+## Stage 6：UCI 回溯 RFM 契約 v1
+
+[凍結入口](freeze_uci_rfm_contract.py)核對來源 hashes／JSON 與合成契約測試，不載入真實交易列，不建立 RFM 或估真實切點。
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\freeze_uci_rfm_contract.py --verify
+```
+
+本機已完成凍結，現有產物用 `--verify`。首次完整來源已備妥且本版輸出命名空間空白時才用 `--freeze`；重複 `--freeze` 只驗既有收據。部分產物或來源改變即停止，禁止刪檔重凍結。詳細規則與未來建置驗收見[契約文件](../docs/STAGE6_UCI_RFM_CONTRACT_V1.md)。腳本中的邊界／分級純函式只用於合成契約案例，沒有真實建置入口。
+
+## Stage 6：UCI 官方完整資料盤點
+
+[下載](download_uci_retail_ii.py)、[完整盤點](audit_uci_retail_ii.py)與[獨立 XML 核對](verify_uci_retail_ii.py)均只在專案內輸出，原始資料與逐筆 SQLite 放 Git 忽略路徑。完整來源、實際環境及首次執行次序見[UCI 盤點文件](../docs/STAGE6_UCI_RETAIL_II_INTAKE.md)。
+
+現有產物使用：
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\audit_uci_retail_ii.py --verify
+```
+
+此命令僅核來源、報告與資料庫雜湊，不重做逐格驗證。`--run` 需要 openpyxl；本輪用既有應用 runtime 的 3.1.5，專案 `.venv` 尚未新增此套件。下載、`--run` 及獨立核對都拒絕覆寫本輪已有產物；不可刪掉收據後重跑。候選是清理敏感度盤點，尚非正式 RFM 資料集。
+
+## Stage 6：原 v1 G2 真實執行準備
 
 [來源載入](rfm_rule_candidate_sources.py)、[私有輸出／反讀](rfm_rule_candidate_outputs.py)與[準備入口](prepare_rfm_rule_candidate.py)先以三套新合成測試驗證，不需要真實CSV、MySQL或模型：
 

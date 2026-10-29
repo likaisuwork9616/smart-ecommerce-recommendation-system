@@ -1,0 +1,95 @@
+{
+  "status": "D1_specification_metadata_sources_and_JSON_readback_passed",
+  "specification": {
+    "path": "reports/stage11/retailrocket_directed_v1_specification.json",
+    "bytes": 55882,
+    "sha256": "75ec8b5afcbee67d6d2176bdd07cc692cc8861d0b731f815b5e6a2eda3c5a0ac"
+  },
+  "sources_verified": 199,
+  "checks_passed": 228,
+  "tests": {
+    "tests_run": 109,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "meaning": "metadata protocol/entry safety only; no D1 model, ranking or bootstrap correctness claim"
+  },
+  "scope_at_freeze": {
+    "specification_only": true,
+    "D1_implemented": false,
+    "real_D1_fits": 0,
+    "new_P0_fits": 0,
+    "new_C1_fits": 0,
+    "new_ranked_queries": 0,
+    "new_paired_metrics": 0,
+    "new_bootstrap_replicates": 0,
+    "real_data_CSV_rows_parsed": 0,
+    "real_data_JSONL_rows_parsed": 0,
+    "train_cost_scan_executed": false,
+    "reserved_test_enabled": false
+  },
+  "fixed_validation": {
+    "queries": 166897,
+    "visitors": 62235,
+    "target_occurrences": 166952,
+    "reachable_target_occurrences": 161264,
+    "all_targets_reachable_queries": 161211,
+    "candidate_union_items": 222754,
+    "new_visitor_queries": 134249,
+    "multi_item_current_queries": 56,
+    "multi_item_target_queries": 53,
+    "support_floor_queries": 1669,
+    "target_model_query_counts": {
+      "all_positive": 154951,
+      "mixed": 3,
+      "all_zero": 11943
+    },
+    "interpretation": "copied from accepted P0/data receipts; C1 item-support keys must equal P0 positive keys, so these historical support partitions remain identical"
+  },
+  "reference_identity": {
+    "P0_guard": "shop-mysql-runtime/retailrocket_popularity_v1/development/output_guard.json",
+    "C1_guard": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/output_guard.json",
+    "release_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+    "release_guard": "shop-mysql-runtime/retailrocket_c1_p0_release_v1/output_guard.json",
+    "P0_fit_id": "3aaf35e8a4853bcd5e83caff917e90e318ef41a77e37e5f292d1bcc18f7146cd",
+    "C1_fit_id": "55d4fd748fb7ffe22b13476bed2ed16e83d23dd2d655b9fb02b41087dabe0dee",
+    "P0_item_counts": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv",
+      "bytes": 1784882,
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    "P0_ranked_queries": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/ranked_queries.csv",
+      "bytes": 47267532,
+      "sha256": "407fc4f8798bc9f496e0d8c8e59a48d4b2ae37ecec980e817cf2c7ac24e52bfe"
+    },
+    "P0_query_metrics": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_metrics.csv",
+      "bytes": 13245540,
+      "sha256": "eba159db54d1e0bb13a74306cd7637cd04291bf307b39552147cc79cb7c3d435"
+    },
+    "C1_support": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv",
+      "bytes": 1780347,
+      "sha256": "92774b2cec168ab26abadb30ea7e21aeecc7d54c6e5994555fc592bae5e6f875"
+    },
+    "C1_pairs": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/pairs.csv",
+      "bytes": 30361132,
+      "sha256": "76f86f31d78481b3bbfcb0a239f5c6095d67524e92244e72344d8bd35b29c0ca"
+    },
+    "C1_queries": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl",
+      "bytes": 215594386,
+      "sha256": "2218dc863ed5770f0f481c4e99d53c1744f72fb692a8fbc8c97300ef4ff0e1f3"
+    },
+    "C1_bootstrap": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/bootstrap.jsonl",
+      "bytes": 1024280,
+      "sha256": "a1ccc56add9e47e7615bbb0e8dbbd871f9a6dfecf4ae505a608a862a95c10f63"
+    },
+    "reuse": "Read accepted reference bytes; never refit, rerank, regenerate or edit P0/C1 outputs; C1 pairs are an audit upper bound, not a tunable D1 blend."
+  },
+  "elapsed_seconds": 30.53416,
+  "next_step": "Implement D1/three-arm evaluator/bootstrap plus hand and independent synthetic oracle; audit train-only cost, then separately freeze real validation entry. Keep test locked."
+}

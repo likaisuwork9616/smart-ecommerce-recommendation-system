@@ -10,6 +10,225 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
+## Stage 12：一次真實 validation 停止後核對（最新）
+
+本輪未重跑合成測試；啟動前與停止後各核 358 份來源、61 份準備產物與 locked gates。真實主要輸出已有 166,897 query／2,000 bootstrap，完整獨立反讀未完成，不能以列數或 SHA 核對當成研究驗收。下節 83 項是前輪準備紀錄。見[實際停止與保存](../reports/stage12/retailrocket_session_knn_v1_validation_attempt.json)。
+
+## Stage 12：來源檔案、完整反讀與單次入口（前輪）
+
+正式準備共 83 項通過（34 新來源／反讀／入口＋49 既有 K1）。新增測試模組 [validation](test_retailrocket_session_knn_validation.py) 與 [entry](test_retailrocket_session_knn_validation_entry.py) 涵蓋 15 份原格式輸入、501 鄰居、完整 SQL／候選／巢狀驗收、來源／輸出竄改、current／next basket、三臂原值／身分、缺多重複列、分母、finite binary64、中斷／超限／禁止重播及真實資料文字讀取禁用。兩組正式合成各核 2,000 draws，見[驗收](../reports/stage12/retailrocket_session_knn_v1_validation_entry_acceptance.json)。
+
+`.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_validation tests.test_retailrocket_session_knn_validation_entry -v` 只跑新增 34 項合成測試，不執行真實 validation；83 不是全專案測試數。
+
+## Stage 12：K1 合成實作、oracle 與入口守門（前輪）
+
+`.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn tests.test_retailrocket_session_knn_entry tests.test_retailrocket_session_knn_spec -v`：49 項通過（31 核心／完整 oracle／成本、6 入口、12 原規格）。兩組正式合成另完整反讀每組 2,000 次 bootstrap；非 train 商品欄使用不可解碼字串驗證成本分流。本命令不讀真實 train 商品列或真實 validation；實際成本驗收見[報告](../reports/stage12/retailrocket_session_knn_v1_implementation_acceptance.json)。
+
+## Stage 12：K1 metadata 與凍結守門（前輪）
+
+`.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_spec -v`：12 項規格／I/O 測試通過，涵蓋候選／鄰居改動、分母與主要比較、bootstrap、預留測試／refit、資源、假可取得性、路徑越界、同大小竄改及部分產物拒絕覆寫。合成小檔保存於 shop 內忽略路徑；沒有實作或驗收 K1 排名算法。
+
+## Stage 11：三臂交付保存驗收
+
+本輪 [保存工具 I/O 測試](test_archive_retailrocket_three_arm_v1.py) 共 44 項通過，0 失敗／錯誤／跳過。合成 fixture 全在 shop；涵蓋 SHA／CRC／精確 inventory、安全相對路徑、重複與越界、三臂 namespace、gate、來源變更與拒覆寫／部分產物。沒有重跑模型測試或研究 oracle。
+
+真實證據包 144 個 payload 檔＋1 份 manifest，共 145 個 ZIP 成員，649,850,977 bytes（619.746 MiB）；全部成員 CRC／SHA-256 反讀通過，另列 159 份包外依賴。保存核對只證明 bytes 完整，不取代前輪逐筆語意驗收；[收據](../reports/stage11/retailrocket_three_arm_v1_research_release.json)與[適用／還原限制](../docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md)保留各自範圍。
+
+## Stage 11：D1 真實三臂逐筆反讀（執行輪）
+
+本輪直接執行已凍結入口，沒有重跑合成測試或更改程式。獨立 SQL 反讀 support 198,946 列、directed edges 370,325 列、session lineage 1,180,256 筆、validation queries 166,897 筆及全部 2,000 次抽樣。所有巢狀值、精確有理分數／排序、三臂控制與分母、同 draw／RNG／分母及新 D1−C1 delta 全核對；報告的 top_level_cells 只計頂層，不能當作巢狀總格數。
+
+見[獨立驗收收據](../reports/stage11/retailrocket_directed_v1_validation_acceptance.json)及[結果／限制](../docs/STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md)。現用 `scripts/run_retailrocket_directed_v1.py --verify` 只核保存 bytes，不重播 fit／排名／抽樣；P0／C1 原狀、test locked。
+
+## Stage 11：D1 實作／三臂／bootstrap 驗收（合成輪）
+
+60 項測試、217 份來源凍結、兩組正式合成 oracle 全過。測試在 [D1 核心／整合](test_retailrocket_directed.py)與[入口／成本](test_retailrocket_directed_entry.py)，包含手算、24×6 完整候選差分、三臂缺筆／順序／分母、參照與輸出污染、成組權重／同 draw 新 delta、資源停止與拒絕重播。正式兩組各 5 queries，全部巢狀值與各 2,000 抽樣獨立反讀。
+
+真實 train-only 成本另核 1,180,256 列／10,622,304 格；沒有真實 D1 fit／排名／成績。實測見[收據](../reports/stage11/retailrocket_directed_v1_implementation_acceptance.json)。保存後使用 `scripts/run_retailrocket_directed_v1.py --verify` 只核來源與結果 bytes；不是重跑模型或測試。
+
+## Stage 11：D1 規格與凍結工具驗收（規格輪）
+
+199 份來源 SHA、228 項規格檢查、109 項規格／I/O 守門測試通過。本輪 [規格／I/O 測試](test_retailrocket_directed_protocol.py)檢查契約變更阻擋、完整三臂分母與主要比較、方向／支援／回退邊界、已曝光標示、鎖定／越界／拒絕覆寫等；合成暫存全部在 shop。這不是 D1 計數、排名或 bootstrap 的實作 oracle，後者尚待下一輪。
+
+正式收據見[規格驗收](../reports/stage11/retailrocket_directed_v1_spec_acceptance.json)。完成後可用下列命令只核既有 bytes 與 metadata，不重跑測試或讀真實資料列：
+
+```powershell
+.venv\Scripts\python.exe -B scripts\freeze_retailrocket_directed_v1.py --verify
+```
+
+## C1／P0研究交付保存驗收（最新）
+
+本輪29項[保存I/O合成測試](test_archive_retailrocket_c1_p0_v1.py)通過：逐成員CRC／SHA、來源與ZIP竄改／缺檔、路徑越界／重複成員、拒絕覆寫及部分證據保留；暫存均在shop內。正式保存另逐檔讀回102個payload，核對凍結來源／包外依賴與4份gate，見[收據](../reports/stage10/retailrocket_c1_p0_v1_research_release.json)。
+
+```powershell
+.venv\Scripts\python.exe -B scripts\archive_retailrocket_c1_p0_v1.py --verify
+```
+
+這是保存驗收，不是重新執行前輪55項推薦合成測試或真實oracle；本輪0新fit／排名／bootstrap／指標重算。
+
+## Retailrocket C1／P0真實逐筆反讀（執行輪）
+
+```powershell
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+單次C1 fit與獨立SQL重建後，support 198,946、pairs 1,954,889、session lineage 1,180,256、query 166,897、bootstrap 2,000筆均完整核對；JSON巢狀值全部反讀，全部抽樣SHA／RNG／分母／差值重播。沿用55項已凍結合成測試，不重跑或加總成新的測試數。見[正式驗收](../reports/stage10/retailrocket_cooccurrence_v1_validation_acceptance.json)。
+
+--verify只核現有bytes。原規格freeze的初始空目錄檢查是歷史用途，已有真實產物後改用上述新入口；P0及鎖定快照原狀核SHA，test仍locked。
+
+## Retailrocket C1／配對／bootstrap 實作驗收（合成輪）
+
+```powershell
+.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_cooccurrence tests.test_retailrocket_cooccurrence_entry -v
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+55 項測試、104 份來源凍結與兩組正式合成 oracle 全過。含40組固定合成session×8查詢的320筆完整候選差分、手算不可達target分母／有理平手／P0回退、配對缺筆／分母漂移、兩組正式5查詢case的SQL／完整有理排序／Decimal及所有JSON巢狀反讀、各2000次bootstrap重播；資源超限、started／failure及拒絕重播亦有反例。成本另核真實train-only 1,180,256列／5,901,280格，不建立模型或讀validation／test內容。該合成輪0真實C1 fit或出分，後續真實反讀見上節；不能將合成結果當推薦效能；見[驗收收據](../reports/stage10/retailrocket_cooccurrence_v1_implementation_acceptance.json)。
+
+## Retailrocket 共現／P0 配對規格守門（規格輪）
+
+```powershell
+.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_cooccurrence_protocol -v
+.venv\Scripts\python.exe -B scripts\run_retailrocket_cooccurrence_v1.py --verify
+```
+
+64 項規格測試通過：已驗收 P0 metadata 正例，以及重複計數、刪 singleton、未來 session／歷史、截斷／抽樣、回退／有理排序、P0 重估、配對缺筆／分母、bootstrap 叢集權重／seed／版本、測試解鎖等反例。正式凍結收據另記錄 131 項一致性檢查及 82 來源。這些是該規格輪的守門，當時尚未實作；後續實作及合成 oracle 已完成於上一節。規格守門不能當算法或真實效果驗收。
+
+## Retailrocket P0真實開發逐query反讀（最新）
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\run_retailrocket_popularity_v1.py --verify
+```
+
+一次真實train fit與一次獨立SQL audit後，完整166,897筆validation的四CSV共699,637列／5,738,596格及全部JSON聚合核對一致。ID／次數／列表精確，指標以獨立Decimal／Fraction核對abs／rel 1e-12，見[真實驗收收據](../reports/stage9/retailrocket_popularity_v1_development_acceptance.json)。本輪沿用凍結54項合成證據，不重跑或加總成新測試數。
+
+`--verify`核既有來源／輸出bytes，不重估或重算語意。這是已觀察的回溯開發驗證，0訓練期排名、0最終重估／預留測試，test仍locked，小組限制保留；詳見[結果與限制](../docs/STAGE9_RETAILROCKET_POPULARITY_DEVELOPMENT_V1.md)。
+
+## Retailrocket P0／評估器與開發入口合成驗收
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_popularity tests.test_retailrocket_popularity_entry -v
+.\.venv\Scripts\python.exe -B scripts\run_retailrocket_popularity_v1.py --verify
+```
+
+[核心／CSV測試](test_retailrocket_popularity.py)及[入口測試](test_retailrocket_popularity_entry.py)共54項通過，含1,024種命中排列、27個時間前綴、手算macro／不可達target、空候選、零分／同時刻／未來高分、合成四CSV反讀、損壞／分母／覆寫／階段與路徑拒收。另兩個有效合成case以獨立SQL／Decimal／Fraction oracle核35列／226格及全部JSON；[實際收據](../reports/stage9/retailrocket_popularity_v1_implementation_acceptance.json)記錄61來源與真實counter全部0。
+
+這些只證明合成行為與入口準備；尚無166,897筆真實validation成績。`--verify`只核已凍結bytes，不重跑合成或真實fit／指標，test仍locked。下一步依[實作與開發規格](../docs/STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md)做一次真實開發及獨立全反讀。
+
+## Retailrocket熱門baseline／評估規格守門
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_popularity_protocol -v
+.\.venv\Scripts\python.exe -B scripts\freeze_retailrocket_popularity_v1.py --verify
+```
+
+[28項規格反例](test_retailrocket_popularity_protocol.py)實際通過，拒絕跨角色fit、暖身混入、答案作ranker輸入、負採樣／縮分母／IDCG、空候選刪query、小組門檻降低或錯誤開測試。這是規格守門，尚未實作或測試真實baseline／metric計算。[凍結驗收](../reports/stage9/retailrocket_popularity_v1_spec_acceptance.json)另記47份SHA來源、38項一致性檢查與0真實fit／排名／指標，test locked。
+
+`--verify`只核既有bytes與規格，不重跑測試或語意反讀。後續實作仍須手算指標、精確全目錄排序與獨立oracle合成驗收，再做真實開發；詳見[執行規格](../docs/STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md)。
+
+## Retailrocket推薦資料建置／反讀驗收（最新）
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_builder -v
+.\.venv\Scripts\python.exe -B scripts\build_retailrocket_v1.py --verify
+```
+
+[30項合成測試](test_retailrocket_builder.py)通過，涵蓋ID、時間窗、30分鐘session、同毫秒、候選／屬性嚴格事前、重複、未知／衝突、尾端不改結果、兩路ZIP一致及損壞CSV。合成產物留shop內Git忽略目錄。真實16CSV共20,093,122列／221,676,649格由獨立原ZIP讀法完整反讀，見[收據](../reports/stage8/retailrocket_build_v1_acceptance.json)。
+
+`--verify`只核既有SHA與來源／輸出／收據，不重跑語意反讀；首次正式流程已完成完整核對。這些是資料驗收，沒有模型／排名成績，不加總歷史測試數冒充新成績。
+
+## Retailrocket來源與推薦契約驗收
+
+本輪沒有新增推薦builder或模型單元測試。實際做的是兩套獨立讀檔（標準CSV／SQLite及pandas）、四檔完整CRC／SHA反讀、44項來源／鍵／時間／契約前提核對；[收據](../reports/stage8/retailrocket_contract_v1_acceptance.json)保留實際檢查項目，不能稱為模型成績或builder逐格驗收。
+
+```powershell
+.\.venv\Scripts\python.exe -B scripts\audit_retailrocket_source.py --verify
+.\.venv\Scripts\python.exe -B scripts\freeze_retailrocket_contract.py --verify
+```
+
+目前CLI只核已保存SHA／大小，不重做語意盤點。該輪提出的builder合成邊界、真實逐筆核對與完整反讀，已由上節後續輪完成；詳見[推薦資料契約](../docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md)。原Stage 6資料／結果不重算，既有單元測試數不加總成新成績。
+
+## UCI v1 封存完整性測試（最新）
+
+[封存測試](test_archive_uci_rfm_v1.py)檢查 UTF-8 原始 bytes、完整 ZIP 反讀、CRC 損壞、合法 CRC 但 SHA 不符、manifest 變更、路徑安全、來源變更、禁止覆寫及部分封存拒絕重播。合成檔全部保留在專案 Git 忽略的 `shop-mysql-runtime/verification/uci-rfm-release-v1/synthetic/`。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_archive_uci_rfm_v1 -v
+.\.venv\Scripts\python.exe -B scripts\archive_uci_rfm_v1.py --verify
+```
+
+本輪實跑測試項數、耗時、ZIP 成員數與 CRC／SHA 結果以[封存收據](../reports/stage6/uci_rfm_v1_research_release.json)為準；第二行讀回完整 ZIP 並核 live 凍結研究檔，不重跑測試、RFM 或跨期指標。原有研究測試與逐格驗收收據保留，未重跑全專案回歸。
+
+## UCI v1 跨期評估測試
+
+[新測試](test_uci_rfm_temporal.py)實跑 30 項通過（0.622137 秒，0 失敗／錯誤／跳過），涵蓋逆經驗分位數、同值邊界、T2 禁止估參考、固定套用、平均同秩 Spearman、手算 ARI、退化／空分母、49／50 人支援邊界、完整母體與配對分流、未知金額覆蓋及獨立套件對照。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_uci_rfm_temporal -v
+.\.venv\Scripts\python.exe -B scripts\run_uci_rfm_temporal_v1.py --verify
+```
+
+正式驗收另用 pandas／NumPy／SciPy／scikit-learn 重算：9 份分級／名冊共 533,398 格，以及 59,798 項 JSON 欄值核對通過。整數與金額精確一致、衍生浮點容忍度 1e-12；第二行只核 bytes，不重播以上計算。本輪未跑全專案回歸，實際來源／版本與 test IDs 見[驗收](../reports/stage6/uci_rfm_temporal_v1_acceptance.json)。
+
+## UCI v1 建置器測試與真實逐格核對
+
+[建置器測試](test_uci_rfm_builder.py)實跑 30 項通過（0.038255 秒），0 失敗／錯誤／跳過。涵蓋未來衝突不能改 T1、完整與部分未知、取消、零價、精度／溢位、四口徑雙窗獨立 SQL 對帳及同總額交換顧客的反例。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_uci_rfm_builder -v
+.\.venv\Scripts\python.exe -B scripts\build_uci_rfm_v1.py --verify
+```
+
+真實驗收另從官方 Excel XML 重讀、用獨立 SQL 核算，32 CSV 共 12,720,628 筆／128,416,372 格全部一致，另有 32 項摘要核對；來源前後與輸出 bytes 通過。第二行只核保存 hashes，不重做以上獨立計算。本輪未跑全專案回歸，沒有真實切點或跨期成績。見[完整驗收](../reports/stage6/uci_rfm_build_v1_acceptance.json)及[結果](../docs/STAGE6_UCI_RFM_BUILD_V1.md)。
+
+## UCI 回溯契約 v1 測試
+
+[新測試](test_uci_rfm_contract.py)實跑 38 項通過（0.204402 秒，0 失敗／錯誤／跳過），涵蓋 S／T 邊界、非重疊年度窗、同值分級與極端值套用、千分之一金額尺度、小組門檻，以及來源／收據竄改、禁止覆寫、部分失敗拒絕重凍結。另有 35 項政策一致性檢查及 15 份來源／方法綁定；這是契約驗證，不是未來資料建置器的逐筆驗收。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_uci_rfm_contract -v
+.\.venv\Scripts\python.exe -B scripts\freeze_uci_rfm_contract.py --verify
+```
+
+第二行只核既有來源與收據，不重跑測試；本輪沒有全專案回歸或真實資料列解析。合成檔案全部留在專案 Git 忽略的 `shop-mysql-runtime/verification/uci-rfm-contract-v1/synthetic/`。實際 test IDs 與結果見[凍結驗收](../reports/stage6/uci_rfm_v1_contract_acceptance.json)，未來完整建置所需的防前視案例見[契約](../docs/STAGE6_UCI_RFM_CONTRACT_V1.md)。
+
+## UCI 官方資料盤點測試
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_uci_retail_ii -v
+```
+
+14 項合成測試實跑通過（unittest 0.030 秒）；涵蓋重複發票／明細的區別、跨表重複、缺顧客、取消／負數、零價、千分之一金額、時間衝突與窗口邊界。這不是全專案回歸。
+
+另以標準庫 ZIP／XML 獨立解析原檔，逐格核對 1,067,371 列／8,538,968 格，215 項聚合／完整性檢查通過（164.717 秒）；[公開收據](../reports/stage6/uci_retail_ii_verification.json)綁定原檔、資料庫、盤點報告與驗證程式。`audit_uci_retail_ii.py --verify` 只核 bytes，不等同重新執行此獨立核對。見[結果與限制](../docs/STAGE6_UCI_RETAIL_II_INTAKE.md)。
+
+## 第二快照資料盤點測試
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_temporal_data -q
+.\.venv\Scripts\python.exe scripts\audit_rfm_temporal_data.py --verify
+```
+
+15 項合成測試通過，涵蓋截止邊界、晚送達舊單、未成熟／異常事件、同檔備份與未知完整性；另以 pandas 獨立核對 83 項真實聚合，不與單元測試數相加。驗證只盤點來源與時間／鍵覆蓋，沒有建第二個 RFM 或計跨期成績；見[盤點與資料缺口](../docs/STAGE6_RFM_TEMPORAL_DATA_INVENTORY.md)。
+
+## G3 五種子同快照敏感度測試
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rfm_g3 tests.test_run_rfm_g3 -q
+```
+
+26 項實測通過（7.618957 秒），0 error／failure／skip；涵蓋固定五種子與 80% 抽樣、完整參考分母、級數改變、90% 邊界、同值不拆、小組支援、tuple ARI／精確列聯表核對、退化、來源／分配竄改及失敗後禁止重播。來源與實際 test IDs 見 [G3 規格](../reports/stage6/rfm_g3_v2_specification.json)，真實結果及限制見 [G3 文件](../docs/STAGE6_RFM_G3_V2.md)。
+
+## v2 RFM 重建與真實 G2 的測試
+
+[新增測試](test_rebuild_rfm_v2.py)涵蓋獨立原始來源重算、五狀態、同總額但交換顧客、缺漏 ID、型別錯誤、來源變更、部分輸出、最後 guard 寫入失敗，以及完成後封鎖 builder／G1／G2 核心仍可只讀驗證。
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest tests.test_rebuild_rfm_v2 -q
+```
+
+本輪準備實際執行原 builder、artifact、G1、G2、G2 outputs 加新測試六套，共 161 項通過（12.103883 秒），0 error／failure／skip；完整 test IDs 見 [v2 規格](../reports/stage6/rfm_rebuild_v2_specification.json)。這是合成／回歸測試；真實資料核對及 G2 結果另見 [v2 文件](../docs/STAGE6_RFM_REBUILD_V2.md)。
+
 ## 依修改範圍選擇檢查
 
 | 範圍 | 測試內容／入口 |
@@ -27,7 +246,7 @@ Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESE
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 6：G2真實執行準備（最新）
+## Stage 6：原 v1 G2 真實執行準備
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest tests.test_rfm_rule_candidate_sources tests.test_rfm_rule_candidate_outputs tests.test_prepare_rfm_rule_candidate -q

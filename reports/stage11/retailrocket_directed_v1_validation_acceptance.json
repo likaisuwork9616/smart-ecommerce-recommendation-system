@@ -1,0 +1,36 @@
+{
+  "status": "complete_D1_counts_lineage_three_arm_queries_and_bootstrap_accepted",
+  "result": {
+    "path": "reports/stage11/retailrocket_directed_v1_validation.json",
+    "bytes": 65936,
+    "sha256": "80de78613e02855710695f053e11f9ea8469090a6fd2b1a176736bf97b62e6f9"
+  },
+  "scope": {
+    "real_D1_primary_fits": 1,
+    "real_independent_count_audits": 1,
+    "P0_C1_refits_or_rerankings": 0,
+    "validation_queries": 166897,
+    "training_ranked_queries": 0,
+    "reserved_test_ranked_queries": 0,
+    "final_refits": 0,
+    "reserved_test_state": "locked"
+  },
+  "readback": {
+    "rows": {
+      "support.csv": 198946,
+      "edges.csv": 370325,
+      "train_sessions.jsonl": 1180256,
+      "queries.jsonl": 166897,
+      "bootstrap.jsonl": 2000
+    },
+    "top_level_cells": {
+      "support.csv": 397892,
+      "edges.csv": 1110975,
+      "train_sessions.jsonl": 8261792,
+      "queries.jsonl": 1835867,
+      "bootstrap.jsonl": 12000
+    },
+    "all_nested_JSON_values_checked": true,
+    "ranking_oracle": "all SQL outgoing neighbors plus exact zero-score complement proof"
+  }
+}

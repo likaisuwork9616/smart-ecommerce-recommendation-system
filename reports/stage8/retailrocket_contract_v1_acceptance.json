@@ -1,0 +1,317 @@
+{
+  "status": "source_audit_independently_reconciled_contract_v1_frozen",
+  "date_asia_taipei": "2026-10-28",
+  "verification": {
+    "checks_passed": 44,
+    "checks": [
+      {
+        "check": "official_zip_sha",
+        "passed": true
+      },
+      {
+        "check": "event_schema",
+        "passed": true
+      },
+      {
+        "check": "independent_event_rows",
+        "passed": true
+      },
+      {
+        "check": "independent_event_types",
+        "passed": true
+      },
+      {
+        "check": "independent_visitors",
+        "passed": true
+      },
+      {
+        "check": "independent_items",
+        "passed": true
+      },
+      {
+        "check": "independent_min_timestamp",
+        "passed": true
+      },
+      {
+        "check": "independent_max_timestamp",
+        "passed": true
+      },
+      {
+        "check": "independent_exact_duplicates",
+        "passed": true
+      },
+      {
+        "check": "independent_four_field_duplicates",
+        "passed": true
+      },
+      {
+        "check": "independent_missing_transactionid",
+        "passed": true
+      },
+      {
+        "check": "independent_nonmonotonic_steps",
+        "passed": true
+      },
+      {
+        "check": "independent_simultaneous_multi_item_groups",
+        "passed": true
+      },
+      {
+        "check": "independent_transaction_ids",
+        "passed": true
+      },
+      {
+        "check": "independent_transaction_multi_clock",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part1.csv_rows",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part1.csv_min",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part1.csv_max",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part2.csv_rows",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part2.csv_min",
+        "passed": true
+      },
+      {
+        "check": "independent_item_properties_part2.csv_max",
+        "passed": true
+      },
+      {
+        "check": "independent_critical_duplicates",
+        "passed": true
+      },
+      {
+        "check": "independent_critical_conflicts",
+        "passed": true
+      },
+      {
+        "check": "independent_critical_counts",
+        "passed": true
+      },
+      {
+        "check": "independent_category_rows",
+        "passed": true
+      },
+      {
+        "check": "independent_category_roots",
+        "passed": true
+      },
+      {
+        "check": "independent_orphan_category_values",
+        "passed": true
+      },
+      {
+        "check": "category_tree_cycles",
+        "passed": true
+      },
+      {
+        "check": "warmup_positive_interval",
+        "passed": true
+      },
+      {
+        "check": "warmup_every_day_has_an_event",
+        "passed": true
+      },
+      {
+        "check": "train_positive_interval",
+        "passed": true
+      },
+      {
+        "check": "train_contiguous_boundary",
+        "passed": true
+      },
+      {
+        "check": "train_every_day_has_an_event",
+        "passed": true
+      },
+      {
+        "check": "validation_positive_interval",
+        "passed": true
+      },
+      {
+        "check": "validation_contiguous_boundary",
+        "passed": true
+      },
+      {
+        "check": "validation_every_day_has_an_event",
+        "passed": true
+      },
+      {
+        "check": "reserved_test_positive_interval",
+        "passed": true
+      },
+      {
+        "check": "reserved_test_contiguous_boundary",
+        "passed": true
+      },
+      {
+        "check": "reserved_test_every_day_has_an_event",
+        "passed": true
+      },
+      {
+        "check": "time_roles_and_tail_reconcile",
+        "passed": true
+      },
+      {
+        "check": "no_property_features_in_primary",
+        "passed": true
+      },
+      {
+        "check": "no_evaluation_negative_sampling",
+        "passed": true
+      },
+      {
+        "check": "source_scope_no_model",
+        "passed": true
+      },
+      {
+        "check": "builder_not_implemented",
+        "passed": true
+      }
+    ],
+    "independent_reader": "pandas directly from official ZIP; intake uses csv+SQLite",
+    "pandas_version": "3.0.1",
+    "elapsed_seconds": 53.344
+  },
+  "raw_time_role_coverage": [
+    {
+      "role": "warmup",
+      "start_utc": "2015-05-03T00:00:00+00:00",
+      "end_exclusive_utc": "2015-05-04T00:00:00+00:00",
+      "raw_rows": 13683,
+      "event_counts": {
+        "view": 13304,
+        "addtocart": 296,
+        "transaction": 83
+      },
+      "observed_utc_days": 1,
+      "not_an_ingestion_completeness_proof": true
+    },
+    {
+      "role": "train",
+      "start_utc": "2015-05-04T00:00:00+00:00",
+      "end_exclusive_utc": "2015-08-01T00:00:00+00:00",
+      "raw_rows": 1885346,
+      "event_counts": {
+        "view": 1823443,
+        "addtocart": 46530,
+        "transaction": 15373
+      },
+      "observed_utc_days": 89,
+      "not_an_ingestion_completeness_proof": true
+    },
+    {
+      "role": "validation",
+      "start_utc": "2015-08-01T00:00:00+00:00",
+      "end_exclusive_utc": "2015-09-01T00:00:00+00:00",
+      "raw_rows": 553362,
+      "event_counts": {
+        "view": 533905,
+        "addtocart": 14825,
+        "transaction": 4632
+      },
+      "observed_utc_days": 31,
+      "not_an_ingestion_completeness_proof": true
+    },
+    {
+      "role": "reserved_test",
+      "start_utc": "2015-09-01T00:00:00+00:00",
+      "end_exclusive_utc": "2015-09-18T00:00:00+00:00",
+      "raw_rows": 302182,
+      "event_counts": {
+        "view": 292181,
+        "addtocart": 7647,
+        "transaction": 2354
+      },
+      "observed_utc_days": 17,
+      "not_an_ingestion_completeness_proof": true
+    }
+  ],
+  "excluded_tail_raw_rows": 1528,
+  "critical_property_strict_prior_view_coverage": {
+    "available": {
+      "view_rows": 2664312,
+      "no_strict_prior_value": 522307,
+      "strict_prior_value_present": 2142005,
+      "prior_zero": 850097,
+      "prior_one": 1291908
+    },
+    "categoryid": {
+      "view_rows": 2664312,
+      "no_strict_prior_value": 640748,
+      "strict_prior_value_present": 2023564
+    }
+  },
+  "scope": {
+    "source_structure_seen": true,
+    "recommendation_samples_built": 0,
+    "model_fits": 0,
+    "ranking_metrics_computed": 0,
+    "reserved_test_scored": false
+  },
+  "sources": [
+    {
+      "path": "docs/contracts/retailrocket_recommendation_v1.json",
+      "bytes": 13358,
+      "sha256": "5b98958ab1695a1f50b9917d6a08a91aa0b299dd6378a6ec3bf5402827def9d0"
+    },
+    {
+      "path": "reports/stage8/retailrocket_source_audit_v1.json",
+      "bytes": 49002,
+      "sha256": "e4ef5d22b55a82f390e57ea3b51325645b585a558c8feb57c179d1de63957811"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_contract.py",
+      "bytes": 10893,
+      "sha256": "8a391f373ce5e58c58171348ed342ba5411e6d87ff6313195840fcd7cdbe6080"
+    },
+    {
+      "path": "scripts/audit_retailrocket_source.py",
+      "bytes": 13059,
+      "sha256": "0c6358335e614428ea757d57d09943d019ea1c9e2e1792e880e899807a7728cb"
+    },
+    {
+      "path": "data/raw/retailrocket/source_manifest.json",
+      "bytes": 3369,
+      "sha256": "338e4c12bfcdc1524b10ed304c634ab3f3ca1eb084322166c60cbc9f12298f40"
+    },
+    {
+      "path": "data/raw/retailrocket/metadata.response",
+      "bytes": 19053,
+      "sha256": "69ff3248fbf129fac49f738f636fd1a4163a228560e5cc685f3cec7742da448e"
+    },
+    {
+      "path": "data/raw/retailrocket/file_list.response",
+      "bytes": 1461,
+      "sha256": "629460015289d82bc5a4488c57a047cde945e7fc46262d23624c4318106c249f"
+    },
+    {
+      "path": "data/raw/retailrocket/license.response",
+      "bytes": 52858,
+      "sha256": "527c4e0e75a7aafe819a9ed481c227f27645736fa800f25d6d94ed37a362afd7"
+    },
+    {
+      "path": "data/raw/retailrocket/ecommerce-dataset-v2.zip",
+      "bytes": 304719974,
+      "sha256": "5dc06173eaa4a4d3b0a5f6afc4daffb0218d95e409aaacba5fdaa0214eacf2a2"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_intake_v1/inventory.sqlite",
+      "bytes": 570630144,
+      "sha256": "38b467d3a02d16e1f9db5fb2847e076977ecd620c2d29e0e795a12b5327baec1"
+    }
+  ],
+  "next_step": "implement the v1 builder and independent row-level acceptance before any baseline fit"
+}

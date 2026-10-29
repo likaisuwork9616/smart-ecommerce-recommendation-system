@@ -1,0 +1,41 @@
+{
+  "protocol_id": "retailrocket_session_knn_validation_entry_v1",
+  "parent_protocol": "docs/contracts/retailrocket_session_knn_paired_v1.json",
+  "implementation_protocol": "docs/contracts/retailrocket_session_knn_implementation_v1.json",
+  "commands": ["--prepare", "--verify", "--run-validation"],
+  "prepare_runs_real_validation": false,
+  "real_execution_requires_later_explicit_request": true,
+  "final_selection_enabled": false,
+  "final_refit_enabled": false,
+  "reserved_test_enabled": false,
+  "directories": {
+    "dataset": "shop-mysql-runtime/retailrocket_dataset_v1",
+    "P0": "shop-mysql-runtime/retailrocket_popularity_v1/development",
+    "C1": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1",
+    "D1": "shop-mysql-runtime/retailrocket_directed_paired_v1"
+  },
+  "artifacts": ["sessions.jsonl", "postings.jsonl", "train_sessions.jsonl", "fit_audit.json", "queries.jsonl", "bootstrap.jsonl", "aggregate.json"],
+  "limits": {
+    "maximum_process_RSS_bytes": 8589934592,
+    "maximum_execution_disk_bytes": 21474836480,
+    "minimum_free_disk_bytes": 8589934592,
+    "minimum_available_memory_bytes": 4294967296,
+    "maximum_elapsed_seconds": 21600,
+    "monitor_interval_seconds": 0.5
+  },
+  "source_binding": "Inherit all previous source and acceptance-output SHA256/size descriptors; explicitly map 15 direct data/control files. Bind schemas, all three original fit IDs, fixed denominator/slices, original control aggregates, train-only costs, implementation, independent oracle, tests and environment. Hash before and after one run.",
+  "prepare": "Synthetic accepted-format CSV/JSONL cases only, full pipeline and complete independent readback, then byte/metadata source binding and freeze. No real data CSV/JSONL semantic parse, K1 index, query ranking, metrics or bootstrap; no cost rerun.",
+  "loader": "Role-filter before item/target decoding. Train-only fit, warmup/train/validation causal history, validation-labelled queries only. Complete C1 train lineage and support equality. Original P0 rank/metric/slice files cross-checked against C1 and D1 stored copies. Copy original three-arm values; no control refit/rerank.",
+  "oracle": "Separate raw CSV/JSONL parser with SQL DISTINCT train memberships and history; complete session/posting/lineage/fit readback; EVERY train session and EVERY causal candidate for EVERY query, exact Fraction ordering/votes. Independently join current and next basket, history and target; full nested four-arm row, Decimal/Fraction metrics, all fixed slices/diagnostics/aggregates and all 2000 Counter/struct bootstrap draws. No production K1/loader/evaluator imports, no sampling.",
+  "lifecycle": "Absent namespace exclusively created once. Started marker before model work. Any failure, interruption or resource excess preserves partial artifacts and blocks replay; complete reentry verifies bytes only. No CLI source/window/k/sample/budget/role override. No final/test mode or test-use journal.",
+  "checkpoints": "Frozen cooperative 0.5s resource monitor during source hashing, data rows, fit, queries, index/output loops, full oracle session/candidate loops, bootstrap and SQLite VM steps; phase checks around noninterruptible Python sorts. Sampled limits are not OS hard limits. Primary index released before independent reconstruction.",
+  "output_schema": {
+    "sessions.jsonl": ["key", "items"],
+    "postings.jsonl": ["itemid", "sessions", "support"],
+    "train_sessions.jsonl": ["key", "items", "baskets", "basket_memberships"],
+    "queries.jsonl": ["key", "history", "history_sha256", "targets", "candidate_count", "reachable_targets", "predictions", "terms", "delta", "slices"],
+    "bootstrap.jsonl": ["replicate", "draw_sha256", "query_denominator", "rng_before", "rng_after", "delta"],
+    "nested_schema": "Exact frozen K1 core/evaluator output fields; oracle rejects missing, extra or altered nested fields. Fit audit and aggregates retain implementation-v1 shape. Complete artifacts are SHA-bound."
+  },
+  "interpretation": "Entry acceptance on synthetic files is not real validation acceptance, runtime feasibility, recommendation performance or final model selection. P0/C1/D1 exposure remains disclosed; future K1-C1 interval is development evidence only."
+}

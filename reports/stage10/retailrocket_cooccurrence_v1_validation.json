@@ -1,0 +1,1361 @@
+{
+  "status": "C1_paired_validation_and_bootstrap_independently_accepted",
+  "specification": {
+    "path": "reports/stage10/retailrocket_cooccurrence_v1_validation_specification.json",
+    "bytes": 25939,
+    "sha256": "fca41a1c5abd6dfd6e830a3e53b756cfb4d4de48f96fbf845bb5fd97f54e959b"
+  },
+  "scope": {
+    "real_C1_primary_fits": 1,
+    "real_independent_count_audits": 1,
+    "P0_refits_or_rerankings": 0,
+    "validation_queries": 166897,
+    "training_ranked_queries": 0,
+    "reserved_test_ranked_queries": 0,
+    "final_refits": 0,
+    "reserved_test_state": "locked"
+  },
+  "fit_audit": {
+    "train_sessions": 1180256,
+    "singleton_sessions": 998801,
+    "train_baskets": 1823018,
+    "basket_item_memberships": 1823388,
+    "distinct_session_item_memberships": 1587436,
+    "exact_unordered_pair_emissions": 2292165,
+    "unique_pairs": 1954889,
+    "positive_support_items": 198946,
+    "start_ms": 1430697600000,
+    "end_ms": 1438387200000,
+    "fit_id": "55d4fd748fb7ffe22b13476bed2ed16e83d23dd2d655b9fb02b41087dabe0dee"
+  },
+  "validation": {
+    "arms": {
+      "P0": {
+        "queries": 166897,
+        "visitors": 62235,
+        "target_occurrences": 166952,
+        "reachable_target_occurrences": 161264,
+        "all_targets_reachable_queries": 161211,
+        "recommended_unique_items": 10,
+        "candidate_union_items": 222754,
+        "metrics": {
+          "ndcg": 0.0016818292431993401,
+          "recall": 0.0041792243120008146,
+          "hit_rate": 0.004182220171722679,
+          "mrr": 0.000943565040732755,
+          "visitor_macro_ndcg": 0.0016225255300279361,
+          "catalog_coverage": 4.489257207502447e-05
+        },
+        "undefined_reason": null,
+        "conditional": {
+          "queries": 161211,
+          "visitors": 60588,
+          "target_occurrences": 161264,
+          "reachable_target_occurrences": 161264,
+          "all_targets_reachable_queries": 161211,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.001741148278977491,
+            "recall": 0.004326627835569533,
+            "hit_rate": 0.00432972936089969,
+            "mrr": 0.0009768450949573825,
+            "visitor_macro_ndcg": 0.001666849123899551,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null
+        },
+        "support_floor_queries": 1669,
+        "slices": {
+          "visitor_history": {
+            "seen": {
+              "queries": 32648,
+              "visitors": 6298,
+              "target_occurrences": 32662,
+              "reachable_target_occurrences": 30677,
+              "all_targets_reachable_queries": 30663,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.0018196379949786488,
+                "recall": 0.004334109286939476,
+                "hit_rate": 0.004349424160744916,
+                "mrr": 0.0010717859184840317,
+                "visitor_macro_ndcg": 0.001461791916624039,
+                "catalog_coverage": 4.489277361023196e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "new": {
+              "queries": 134249,
+              "visitors": 55937,
+              "target_occurrences": 134290,
+              "reachable_target_occurrences": 130587,
+              "all_targets_reachable_queries": 130548,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0016483155475435745,
+                "recall": 0.004141557851455132,
+                "hit_rate": 0.004141557851455132,
+                "mrr": 0.0009123830191398665,
+                "visitor_macro_ndcg": 0.001640622680343787,
+                "catalog_coverage": 4.489257207502447e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          },
+          "current_basket": {
+            "single": {
+              "queries": 166841,
+              "visitors": 62231,
+              "target_occurrences": 166895,
+              "reachable_target_occurrences": 161208,
+              "all_targets_reachable_queries": 161156,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0016823937473537099,
+                "recall": 0.004180627064090961,
+                "hit_rate": 0.004183623929369879,
+                "mrr": 0.00094388174731136,
+                "visitor_macro_ndcg": 0.0016227045425975023,
+                "catalog_coverage": 4.489257207502447e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "multiple": {
+              "queries": 56,
+              "visitors": 43,
+              "target_occurrences": 57,
+              "reachable_target_occurrences": 56,
+              "all_targets_reachable_queries": 55,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 221700,
+              "metrics": {
+                "ndcg": 0.0,
+                "recall": 0.0,
+                "hit_rate": 0.0,
+                "mrr": 0.0,
+                "visitor_macro_ndcg": 0.0,
+                "catalog_coverage": 4.510599909788002e-05
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            }
+          },
+          "target_basket": {
+            "single": {
+              "queries": 166844,
+              "visitors": 62230,
+              "target_occurrences": 166844,
+              "reachable_target_occurrences": 161160,
+              "all_targets_reachable_queries": 161160,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0016810544446634109,
+                "recall": 0.0041775550813933976,
+                "hit_rate": 0.0041775550813933976,
+                "mrr": 0.0009428658383670252,
+                "visitor_macro_ndcg": 0.0016228030853427501,
+                "catalog_coverage": 4.489257207502447e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "multiple": {
+              "queries": 53,
+              "visitors": 41,
+              "target_occurrences": 108,
+              "reachable_target_occurrences": 104,
+              "all_targets_reachable_queries": 51,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 221700,
+              "metrics": {
+                "ndcg": 0.0041208950343049845,
+                "recall": 0.009433962264150943,
+                "hit_rate": 0.018867924528301886,
+                "mrr": 0.003144654088050314,
+                "visitor_macro_ndcg": 0.0026635053270507828,
+                "catalog_coverage": 4.510599909788002e-05
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            }
+          },
+          "train_activity": {
+            "0": {
+              "queries": 134300,
+              "visitors": 55959,
+              "target_occurrences": 134341,
+              "reachable_target_occurrences": 130638,
+              "all_targets_reachable_queries": 130599,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0016476896049305834,
+                "recall": 0.004139985107967237,
+                "hit_rate": 0.004139985107967237,
+                "mrr": 0.0009120365445756362,
+                "visitor_macro_ndcg": 0.001639977677771054,
+                "catalog_coverage": 4.489257207502447e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "1": {
+              "queries": 6523,
+              "visitors": 2485,
+              "target_occurrences": 6525,
+              "reachable_target_occurrences": 6296,
+              "all_targets_reachable_queries": 6294,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222745,
+              "metrics": {
+                "ndcg": 0.00167731355485178,
+                "recall": 0.004292503449333129,
+                "hit_rate": 0.004292503449333129,
+                "mrr": 0.000934605023981078,
+                "visitor_macro_ndcg": 0.0017656993789926705,
+                "catalog_coverage": 4.489438595703607e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "2-5": {
+              "queries": 6009,
+              "visitors": 2185,
+              "target_occurrences": 6012,
+              "reachable_target_occurrences": 5814,
+              "all_targets_reachable_queries": 5811,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222751,
+              "metrics": {
+                "ndcg": 0.0037271349034179177,
+                "recall": 0.008320852055250457,
+                "hit_rate": 0.008320852055250457,
+                "mrr": 0.0023195365681636278,
+                "visitor_macro_ndcg": 0.0016387499845228787,
+                "catalog_coverage": 4.4893176686075484e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "6+": {
+              "queries": 20065,
+              "visitors": 1606,
+              "target_occurrences": 20074,
+              "reachable_target_occurrences": 18516,
+              "all_targets_reachable_queries": 18507,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.0012992809024234486,
+                "recall": 0.003164714677298779,
+                "hit_rate": 0.003189633690505856,
+                "mrr": 0.0007454344807945605,
+                "visitor_macro_ndcg": 0.0007708180684426666,
+                "catalog_coverage": 4.489277361023196e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          },
+          "target_model": {
+            "all_positive": {
+              "queries": 154951,
+              "visitors": 59411,
+              "target_occurrences": 155000,
+              "reachable_target_occurrences": 155000,
+              "all_targets_reachable_queries": 154951,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.0018114904402181354,
+                "recall": 0.004501423030506418,
+                "hit_rate": 0.004504649857051584,
+                "mrr": 0.0010163095081875857,
+                "visitor_macro_ndcg": 0.0017041583196888916,
+                "catalog_coverage": 4.489277361023196e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "mixed": {
+              "queries": 3,
+              "visitors": 2,
+              "target_occurrences": 6,
+              "reachable_target_occurrences": 6,
+              "all_targets_reachable_queries": 3,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 221183,
+              "metrics": {
+                "ndcg": 0.0,
+                "recall": 0.0,
+                "hit_rate": 0.0,
+                "mrr": 0.0,
+                "visitor_macro_ndcg": 0.0,
+                "catalog_coverage": 4.521143125827934e-05
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            },
+            "all_zero": {
+              "queries": 11943,
+              "visitors": 5769,
+              "target_occurrences": 11946,
+              "reachable_target_occurrences": 6258,
+              "all_targets_reachable_queries": 6257,
+              "recommended_unique_items": 10,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0,
+                "recall": 0.0,
+                "hit_rate": 0.0,
+                "mrr": 0.0,
+                "visitor_macro_ndcg": 0.0,
+                "catalog_coverage": 4.489257207502447e-05
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          }
+        }
+      },
+      "C1": {
+        "queries": 166897,
+        "visitors": 62235,
+        "target_occurrences": 166952,
+        "reachable_target_occurrences": 161264,
+        "all_targets_reachable_queries": 161211,
+        "recommended_unique_items": 44547,
+        "candidate_union_items": 222754,
+        "metrics": {
+          "ndcg": 0.10640071437048426,
+          "recall": 0.1801515305847319,
+          "hit_rate": 0.18018298711181147,
+          "mrr": 0.0836641142892903,
+          "visitor_macro_ndcg": 0.11307289067371264,
+          "catalog_coverage": 0.19998294082261148
+        },
+        "undefined_reason": null,
+        "conditional": {
+          "queries": 161211,
+          "visitors": 60588,
+          "target_occurrences": 161264,
+          "reachable_target_occurrences": 161264,
+          "all_targets_reachable_queries": 161211,
+          "recommended_unique_items": 44272,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.1101535256669254,
+            "recall": 0.18650557344101829,
+            "hit_rate": 0.18653813945698494,
+            "mrr": 0.08661499328544381,
+            "visitor_macro_ndcg": 0.11647538934972079,
+            "catalog_coverage": 0.1987483950905483
+          },
+          "undefined_reason": null
+        },
+        "support_floor_queries": 1669,
+        "slices": {
+          "visitor_history": {
+            "seen": {
+              "queries": 32648,
+              "visitors": 6298,
+              "target_occurrences": 32662,
+              "reachable_target_occurrences": 30677,
+              "all_targets_reachable_queries": 30663,
+              "recommended_unique_items": 23037,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.08433229090618038,
+                "recall": 0.14527689291840234,
+                "hit_rate": 0.14530752266601324,
+                "mrr": 0.06563631599008958,
+                "visitor_macro_ndcg": 0.10905957480185774,
+                "catalog_coverage": 0.10341948256589137
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "new": {
+              "queries": 134249,
+              "visitors": 55937,
+              "target_occurrences": 134290,
+              "reachable_target_occurrences": 130587,
+              "all_targets_reachable_queries": 130548,
+              "recommended_unique_items": 42352,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.11176753192042944,
+                "recall": 0.18863269000141528,
+                "hit_rate": 0.1886643475929057,
+                "mrr": 0.08804829263603631,
+                "visitor_macro_ndcg": 0.11352475372251651,
+                "catalog_coverage": 0.19012902125214362
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          },
+          "current_basket": {
+            "single": {
+              "queries": 166841,
+              "visitors": 62231,
+              "target_occurrences": 166895,
+              "reachable_target_occurrences": 161208,
+              "all_targets_reachable_queries": 161156,
+              "recommended_unique_items": 44546,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.10636348618934414,
+                "recall": 0.18008612990811612,
+                "hit_rate": 0.18011759699354477,
+                "mrr": 0.08363593110178182,
+                "visitor_macro_ndcg": 0.1130430903423206,
+                "catalog_coverage": 0.19997845156540398
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "multiple": {
+              "queries": 56,
+              "visitors": 43,
+              "target_occurrences": 57,
+              "reachable_target_occurrences": 56,
+              "all_targets_reachable_queries": 55,
+              "recommended_unique_items": 441,
+              "candidate_union_items": 221700,
+              "metrics": {
+                "ndcg": 0.21731476739895214,
+                "recall": 0.375,
+                "hit_rate": 0.375,
+                "mrr": 0.16763038548752834,
+                "visitor_macro_ndcg": 0.23210448214920487,
+                "catalog_coverage": 0.001989174560216509
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            }
+          },
+          "target_basket": {
+            "single": {
+              "queries": 166844,
+              "visitors": 62230,
+              "target_occurrences": 166844,
+              "reachable_target_occurrences": 161160,
+              "all_targets_reachable_queries": 161160,
+              "recommended_unique_items": 44547,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.10638651712518958,
+                "recall": 0.18013233919110067,
+                "hit_rate": 0.18013233919110067,
+                "mrr": 0.08364658099020737,
+                "visitor_macro_ndcg": 0.11305982923142605,
+                "catalog_coverage": 0.19998294082261148
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "multiple": {
+              "queries": 53,
+              "visitors": 41,
+              "target_occurrences": 108,
+              "reachable_target_occurrences": 104,
+              "all_targets_reachable_queries": 51,
+              "recommended_unique_items": 395,
+              "candidate_union_items": 221700,
+              "metrics": {
+                "ndcg": 0.15109364255813768,
+                "recall": 0.24056603773584906,
+                "hit_rate": 0.33962264150943394,
+                "mrr": 0.13885893980233602,
+                "visitor_macro_ndcg": 0.14467732025674146,
+                "catalog_coverage": 0.0017816869643662607
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            }
+          },
+          "train_activity": {
+            "0": {
+              "queries": 134300,
+              "visitors": 55959,
+              "target_occurrences": 134341,
+              "reachable_target_occurrences": 130638,
+              "all_targets_reachable_queries": 130599,
+              "recommended_unique_items": 42362,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.11177217318395027,
+                "recall": 0.18862062546537603,
+                "hit_rate": 0.18865227103499627,
+                "mrr": 0.08805767116973372,
+                "visitor_macro_ndcg": 0.11352244117901612,
+                "catalog_coverage": 0.19017391382421864
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "1": {
+              "queries": 6523,
+              "visitors": 2485,
+              "target_occurrences": 6525,
+              "reachable_target_occurrences": 6296,
+              "all_targets_reachable_queries": 6294,
+              "recommended_unique_items": 11502,
+              "candidate_union_items": 222745,
+              "metrics": {
+                "ndcg": 0.10772083699207181,
+                "recall": 0.18833358883949103,
+                "hit_rate": 0.18841024068680054,
+                "mrr": 0.0829856016196657,
+                "visitor_macro_ndcg": 0.10510166728576449,
+                "catalog_coverage": 0.05163752272778289
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "2-5": {
+              "queries": 6009,
+              "visitors": 2185,
+              "target_occurrences": 6012,
+              "reachable_target_occurrences": 5814,
+              "all_targets_reachable_queries": 5811,
+              "recommended_unique_items": 11111,
+              "candidate_union_items": 222751,
+              "metrics": {
+                "ndcg": 0.11664912157324064,
+                "recall": 0.19920119820269597,
+                "hit_rate": 0.19920119820269597,
+                "mrr": 0.09120122725963965,
+                "visitor_macro_ndcg": 0.11694343808091685,
+                "catalog_coverage": 0.04988080861589847
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "6+": {
+              "queries": 20065,
+              "visitors": 1606,
+              "target_occurrences": 20074,
+              "reachable_target_occurrences": 18516,
+              "all_targets_reachable_queries": 18507,
+              "recommended_unique_items": 15857,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.06694989167472225,
+                "recall": 0.11510092200348866,
+                "hit_rate": 0.11512584101669573,
+                "mrr": 0.05222034340773438,
+                "visitor_macro_ndcg": 0.10447696745330955,
+                "catalog_coverage": 0.07118647111374482
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          },
+          "target_model": {
+            "all_positive": {
+              "queries": 154951,
+              "visitors": 59411,
+              "target_occurrences": 155000,
+              "reachable_target_occurrences": 155000,
+              "all_targets_reachable_queries": 154951,
+              "recommended_unique_items": 44110,
+              "candidate_union_items": 222753,
+              "metrics": {
+                "ndcg": 0.1146012169878444,
+                "recall": 0.19403714722718796,
+                "hit_rate": 0.19406780207936702,
+                "mrr": 0.09011100078437495,
+                "visitor_macro_ndcg": 0.11941307835146746,
+                "catalog_coverage": 0.19802202439473318
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            },
+            "mixed": {
+              "queries": 3,
+              "visitors": 2,
+              "target_occurrences": 6,
+              "reachable_target_occurrences": 6,
+              "all_targets_reachable_queries": 3,
+              "recommended_unique_items": 23,
+              "candidate_union_items": 221183,
+              "metrics": {
+                "ndcg": 0.1289509357448472,
+                "recall": 0.16666666666666666,
+                "hit_rate": 0.3333333333333333,
+                "mrr": 0.16666666666666666,
+                "visitor_macro_ndcg": 0.09671320180863541,
+                "catalog_coverage": 0.0001039862918940425
+              },
+              "undefined_reason": null,
+              "support": "descriptive_only"
+            },
+            "all_zero": {
+              "queries": 11943,
+              "visitors": 5769,
+              "target_occurrences": 11946,
+              "reachable_target_occurrences": 6258,
+              "all_targets_reachable_queries": 6257,
+              "recommended_unique_items": 14387,
+              "candidate_union_items": 222754,
+              "metrics": {
+                "ndcg": 0.0,
+                "recall": 0.0,
+                "hit_rate": 0.0,
+                "mrr": 0.0,
+                "visitor_macro_ndcg": 0.0,
+                "catalog_coverage": 0.0645869434443377
+              },
+              "undefined_reason": null,
+              "support": "sufficient_query_count"
+            }
+          }
+        }
+      }
+    },
+    "paired": {
+      "queries": 166897,
+      "visitors": 62235,
+      "delta_metrics": {
+        "ndcg": 0.10471888512728492,
+        "recall": 0.17597230627273108,
+        "hit_rate": 0.1760007669400888,
+        "mrr": 0.08272054924855754,
+        "visitor_macro_ndcg": 0.1114503651436847,
+        "catalog_coverage": 0.19993804825053646
+      },
+      "conditional": {
+        "queries": 161211,
+        "visitors": 60588,
+        "delta_metrics": {
+          "ndcg": 0.10841237738794791,
+          "recall": 0.18217894560544876,
+          "hit_rate": 0.18220841009608527,
+          "mrr": 0.08563814819048643,
+          "visitor_macro_ndcg": 0.11480854022582124,
+          "catalog_coverage": 0.1987035025184733
+        }
+      },
+      "slices": {
+        "visitor_history": {
+          "seen": {
+            "queries": 32648,
+            "visitors": 6298,
+            "delta_metrics": {
+              "ndcg": 0.08251265291120174,
+              "recall": 0.14094278363146287,
+              "hit_rate": 0.1409580985052683,
+              "mrr": 0.06456453007160555,
+              "visitor_macro_ndcg": 0.1075977828852337,
+              "catalog_coverage": 0.10337458979228113
+            },
+            "support": "sufficient_query_count"
+          },
+          "new": {
+            "queries": 134249,
+            "visitors": 55937,
+            "delta_metrics": {
+              "ndcg": 0.11011921637288587,
+              "recall": 0.18449113214996016,
+              "hit_rate": 0.1845227897414506,
+              "mrr": 0.08713590961689643,
+              "visitor_macro_ndcg": 0.11188413104217272,
+              "catalog_coverage": 0.1900841286800686
+            },
+            "support": "sufficient_query_count"
+          }
+        },
+        "current_basket": {
+          "single": {
+            "queries": 166841,
+            "visitors": 62231,
+            "delta_metrics": {
+              "ndcg": 0.10468109244199043,
+              "recall": 0.17590550284402515,
+              "hit_rate": 0.17593397306417488,
+              "mrr": 0.08269204935447046,
+              "visitor_macro_ndcg": 0.1114203857997231,
+              "catalog_coverage": 0.19993355899332896
+            },
+            "support": "sufficient_query_count"
+          },
+          "multiple": {
+            "queries": 56,
+            "visitors": 43,
+            "delta_metrics": {
+              "ndcg": 0.21731476739895214,
+              "recall": 0.375,
+              "hit_rate": 0.375,
+              "mrr": 0.16763038548752834,
+              "visitor_macro_ndcg": 0.23210448214920487,
+              "catalog_coverage": 0.0019440685611186287
+            },
+            "support": "descriptive_only"
+          }
+        },
+        "target_basket": {
+          "single": {
+            "queries": 166844,
+            "visitors": 62230,
+            "delta_metrics": {
+              "ndcg": 0.10470546268052616,
+              "recall": 0.17595478410970727,
+              "hit_rate": 0.17595478410970727,
+              "mrr": 0.08270371515184034,
+              "visitor_macro_ndcg": 0.11143702614608329,
+              "catalog_coverage": 0.19993804825053646
+            },
+            "support": "sufficient_query_count"
+          },
+          "multiple": {
+            "queries": 53,
+            "visitors": 41,
+            "delta_metrics": {
+              "ndcg": 0.14697274752383266,
+              "recall": 0.23113207547169812,
+              "hit_rate": 0.32075471698113206,
+              "mrr": 0.13571428571428573,
+              "visitor_macro_ndcg": 0.14201381492969067,
+              "catalog_coverage": 0.0017365809652683806
+            },
+            "support": "descriptive_only"
+          }
+        },
+        "train_activity": {
+          "0": {
+            "queries": 134300,
+            "visitors": 55959,
+            "delta_metrics": {
+              "ndcg": 0.11012448357901969,
+              "recall": 0.1844806403574088,
+              "hit_rate": 0.18451228592702903,
+              "mrr": 0.08714563462515808,
+              "visitor_macro_ndcg": 0.11188246350124507,
+              "catalog_coverage": 0.19012902125214362
+            },
+            "support": "sufficient_query_count"
+          },
+          "1": {
+            "queries": 6523,
+            "visitors": 2485,
+            "delta_metrics": {
+              "ndcg": 0.10604352343722004,
+              "recall": 0.1840410853901579,
+              "hit_rate": 0.1841177372374674,
+              "mrr": 0.08205099659568463,
+              "visitor_macro_ndcg": 0.10333596790677183,
+              "catalog_coverage": 0.051592628341825854
+            },
+            "support": "sufficient_query_count"
+          },
+          "2-5": {
+            "queries": 6009,
+            "visitors": 2185,
+            "delta_metrics": {
+              "ndcg": 0.11292198666982274,
+              "recall": 0.1908803461474455,
+              "hit_rate": 0.1908803461474455,
+              "mrr": 0.08888169069147603,
+              "visitor_macro_ndcg": 0.11530468809639398,
+              "catalog_coverage": 0.0498359154392124
+            },
+            "support": "sufficient_query_count"
+          },
+          "6+": {
+            "queries": 20065,
+            "visitors": 1606,
+            "delta_metrics": {
+              "ndcg": 0.0656506107722988,
+              "recall": 0.11193620732618988,
+              "hit_rate": 0.11193620732618988,
+              "mrr": 0.05147490892693982,
+              "visitor_macro_ndcg": 0.10370614938486689,
+              "catalog_coverage": 0.07114157834013458
+            },
+            "support": "sufficient_query_count"
+          }
+        },
+        "target_model": {
+          "all_positive": {
+            "queries": 154951,
+            "visitors": 59411,
+            "delta_metrics": {
+              "ndcg": 0.11278972654762626,
+              "recall": 0.18953572419668152,
+              "hit_rate": 0.18956315222231543,
+              "mrr": 0.08909469127618735,
+              "visitor_macro_ndcg": 0.11770892003177856,
+              "catalog_coverage": 0.19797713162112296
+            },
+            "support": "sufficient_query_count"
+          },
+          "mixed": {
+            "queries": 3,
+            "visitors": 2,
+            "delta_metrics": {
+              "ndcg": 0.1289509357448472,
+              "recall": 0.16666666666666666,
+              "hit_rate": 0.3333333333333333,
+              "mrr": 0.16666666666666666,
+              "visitor_macro_ndcg": 0.09671320180863541,
+              "catalog_coverage": 5.877486063576315e-05
+            },
+            "support": "descriptive_only"
+          },
+          "all_zero": {
+            "queries": 11943,
+            "visitors": 5769,
+            "delta_metrics": {
+              "ndcg": 0.0,
+              "recall": 0.0,
+              "hit_rate": 0.0,
+              "mrr": 0.0,
+              "visitor_macro_ndcg": 0.0,
+              "catalog_coverage": 0.06454205087226267
+            },
+            "support": "sufficient_query_count"
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "history_size": {
+        "1": 83276,
+        "2": 30803,
+        "3": 14754,
+        "4": 8586,
+        "5": 5635,
+        "6": 3942,
+        "7": 2801,
+        "8": 2157,
+        "9": 1708,
+        "10": 1328,
+        "11": 1091,
+        "12": 944,
+        "13": 788,
+        "14": 690,
+        "15": 626,
+        "16": 522,
+        "17": 496,
+        "18": 419,
+        "19": 431,
+        "20": 347,
+        "21": 303,
+        "22": 288,
+        "23": 257,
+        "24": 253,
+        "25": 231,
+        "26": 210,
+        "27": 204,
+        "28": 180,
+        "29": 195,
+        "30": 166,
+        "31": 151,
+        "32": 145,
+        "33": 137,
+        "34": 131,
+        "35": 143,
+        "36": 122,
+        "37": 132,
+        "38": 109,
+        "39": 98,
+        "40": 94,
+        "41": 90,
+        "42": 91,
+        "43": 79,
+        "44": 77,
+        "45": 79,
+        "46": 80,
+        "47": 70,
+        "48": 59,
+        "49": 58,
+        "50": 49,
+        "51": 52,
+        "52": 52,
+        "53": 42,
+        "54": 42,
+        "55": 39,
+        "56": 38,
+        "57": 44,
+        "58": 37,
+        "59": 38,
+        "60": 35,
+        "61": 33,
+        "62": 30,
+        "63": 36,
+        "64": 24,
+        "65": 25,
+        "66": 24,
+        "67": 22,
+        "68": 20,
+        "69": 33,
+        "70": 20,
+        "71": 18,
+        "72": 18,
+        "73": 21,
+        "74": 17,
+        "75": 15,
+        "76": 21,
+        "77": 15,
+        "78": 16,
+        "79": 17,
+        "80": 12,
+        "81": 12,
+        "82": 14,
+        "83": 12,
+        "84": 10,
+        "85": 12,
+        "86": 8,
+        "87": 7,
+        "88": 7,
+        "89": 9,
+        "90": 8,
+        "91": 7,
+        "92": 5,
+        "93": 6,
+        "94": 5,
+        "95": 5,
+        "96": 5,
+        "97": 5,
+        "98": 5,
+        "99": 5,
+        "100": 6,
+        "101": 4,
+        "102": 4,
+        "103": 4,
+        "104": 4,
+        "105": 4,
+        "106": 4,
+        "107": 3,
+        "108": 4,
+        "109": 4,
+        "110": 4,
+        "111": 4,
+        "112": 3,
+        "113": 3,
+        "114": 3,
+        "115": 3,
+        "116": 5,
+        "117": 2,
+        "118": 2,
+        "119": 2,
+        "120": 2,
+        "121": 2,
+        "122": 2,
+        "123": 3,
+        "124": 3,
+        "125": 2,
+        "126": 3,
+        "127": 6,
+        "128": 2,
+        "129": 2,
+        "130": 2,
+        "131": 3,
+        "132": 3,
+        "133": 2,
+        "134": 2,
+        "135": 2,
+        "136": 5,
+        "137": 2,
+        "138": 2,
+        "139": 2,
+        "140": 2,
+        "141": 2,
+        "142": 2,
+        "143": 2,
+        "144": 3,
+        "145": 3,
+        "146": 2,
+        "147": 2,
+        "148": 2,
+        "149": 2,
+        "150": 3,
+        "151": 2,
+        "152": 2,
+        "153": 2,
+        "154": 2,
+        "155": 5,
+        "156": 2,
+        "157": 5,
+        "158": 2,
+        "159": 3,
+        "160": 2,
+        "161": 2,
+        "162": 2,
+        "163": 2,
+        "164": 2,
+        "165": 2,
+        "166": 2,
+        "167": 2,
+        "168": 2,
+        "169": 2,
+        "170": 2,
+        "171": 4,
+        "172": 2,
+        "173": 2,
+        "174": 2,
+        "175": 4,
+        "176": 2,
+        "177": 2,
+        "178": 2,
+        "179": 4,
+        "180": 2,
+        "181": 2,
+        "182": 2,
+        "183": 2,
+        "184": 2,
+        "185": 2,
+        "186": 1,
+        "187": 4,
+        "188": 2,
+        "189": 1,
+        "190": 3,
+        "191": 1,
+        "192": 1,
+        "193": 2,
+        "194": 1,
+        "195": 3,
+        "196": 1,
+        "197": 1,
+        "198": 1,
+        "199": 1,
+        "200": 1,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "205": 1,
+        "206": 1,
+        "207": 1,
+        "208": 1,
+        "209": 1,
+        "210": 1,
+        "211": 1,
+        "212": 1,
+        "213": 1
+      },
+      "supported_seeds": {
+        "1": 81107,
+        "2": 29812,
+        "3": 14149,
+        "4": 8189,
+        "5": 5289,
+        "6": 3723,
+        "0": 6981,
+        "7": 2582,
+        "8": 1994,
+        "9": 1575,
+        "10": 1240,
+        "11": 987,
+        "12": 837,
+        "13": 739,
+        "14": 644,
+        "15": 553,
+        "16": 470,
+        "17": 434,
+        "18": 374,
+        "19": 394,
+        "20": 275,
+        "21": 278,
+        "22": 241,
+        "23": 231,
+        "24": 210,
+        "25": 225,
+        "26": 165,
+        "27": 180,
+        "28": 135,
+        "29": 141,
+        "30": 144,
+        "31": 129,
+        "32": 130,
+        "33": 127,
+        "34": 104,
+        "35": 114,
+        "36": 90,
+        "37": 89,
+        "38": 93,
+        "39": 90,
+        "40": 72,
+        "41": 64,
+        "42": 71,
+        "43": 58,
+        "44": 52,
+        "45": 52,
+        "46": 47,
+        "47": 39,
+        "48": 40,
+        "49": 37,
+        "50": 48,
+        "51": 36,
+        "52": 40,
+        "53": 31,
+        "54": 30,
+        "55": 38,
+        "56": 47,
+        "57": 33,
+        "58": 33,
+        "59": 29,
+        "60": 44,
+        "61": 24,
+        "62": 23,
+        "63": 20,
+        "64": 18,
+        "65": 28,
+        "66": 17,
+        "67": 17,
+        "68": 20,
+        "69": 21,
+        "70": 16,
+        "71": 16,
+        "72": 21,
+        "73": 16,
+        "74": 13,
+        "75": 17,
+        "76": 11,
+        "77": 11,
+        "78": 11,
+        "79": 9,
+        "80": 9,
+        "81": 11,
+        "82": 11,
+        "83": 7,
+        "84": 6,
+        "85": 5,
+        "86": 8,
+        "87": 4,
+        "88": 4,
+        "89": 4,
+        "90": 4,
+        "91": 4,
+        "92": 4,
+        "93": 4,
+        "94": 4,
+        "95": 5,
+        "96": 4,
+        "97": 4,
+        "98": 4,
+        "99": 4,
+        "100": 4,
+        "101": 5,
+        "102": 4,
+        "103": 6,
+        "104": 3,
+        "105": 3,
+        "106": 3,
+        "107": 3,
+        "108": 4,
+        "109": 5,
+        "110": 3,
+        "111": 3,
+        "112": 3,
+        "113": 4,
+        "114": 5,
+        "115": 2,
+        "116": 3,
+        "117": 6,
+        "118": 2,
+        "119": 2,
+        "120": 2,
+        "121": 3,
+        "122": 3,
+        "123": 2,
+        "124": 2,
+        "125": 2,
+        "126": 5,
+        "127": 2,
+        "128": 2,
+        "129": 2,
+        "130": 2,
+        "131": 2,
+        "132": 2,
+        "133": 2,
+        "134": 3,
+        "135": 3,
+        "136": 2,
+        "137": 2,
+        "138": 2,
+        "139": 3,
+        "140": 3,
+        "141": 2,
+        "142": 2,
+        "143": 2,
+        "144": 2,
+        "145": 5,
+        "146": 2,
+        "147": 5,
+        "148": 2,
+        "149": 3,
+        "150": 2,
+        "151": 3,
+        "152": 2,
+        "153": 2,
+        "154": 2,
+        "155": 2,
+        "156": 2,
+        "157": 2,
+        "158": 2,
+        "159": 2,
+        "160": 4,
+        "161": 2,
+        "162": 2,
+        "163": 5,
+        "164": 2,
+        "165": 2,
+        "166": 2,
+        "167": 4,
+        "168": 2,
+        "169": 2,
+        "170": 2,
+        "171": 2,
+        "172": 2,
+        "173": 2,
+        "174": 1,
+        "175": 1,
+        "176": 1,
+        "177": 2,
+        "178": 1,
+        "179": 1,
+        "180": 1,
+        "181": 1,
+        "182": 1,
+        "183": 1,
+        "184": 1,
+        "185": 4,
+        "186": 2,
+        "187": 1,
+        "188": 3,
+        "189": 1,
+        "190": 1,
+        "191": 6,
+        "192": 1,
+        "193": 1,
+        "194": 1,
+        "195": 1,
+        "196": 1,
+        "197": 1,
+        "198": 1,
+        "199": 1,
+        "200": 1,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "205": 1,
+        "206": 1,
+        "207": 1,
+        "208": 1,
+        "209": 1
+      },
+      "positive_evidence": {
+        "0": 16319,
+        "at_least_10": 132025,
+        "1-9": 18553
+      },
+      "fallback_reason": {
+        "no_positive_causal_neighbor": 9338,
+        "positive_evidence": 150578,
+        "no_supported_seeds": 6981
+      },
+      "zero_fill_slots": {
+        "10": 16319,
+        "0": 132025,
+        "6": 2081,
+        "7": 2477,
+        "9": 4461,
+        "8": 2951,
+        "1": 988,
+        "4": 1447,
+        "2": 1092,
+        "5": 1756,
+        "3": 1300
+      }
+    },
+    "uncertainty": {
+      "replicates": 2000,
+      "visitors": 62235,
+      "mean_delta": 0.10471888512728492,
+      "interval": [
+        0.10100491526937505,
+        0.10844658181889381
+      ],
+      "reason": null
+    },
+    "roster_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2"
+  },
+  "files": [
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv",
+      "bytes": 1780347,
+      "sha256": "92774b2cec168ab26abadb30ea7e21aeecc7d54c6e5994555fc592bae5e6f875"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/pairs.csv",
+      "bytes": 30361132,
+      "sha256": "76f86f31d78481b3bbfcb0a239f5c6095d67524e92244e72344d8bd35b29c0ca"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/train_sessions.jsonl",
+      "bytes": 106241966,
+      "sha256": "bf5b1e2bc9be78cb27f6510d2bfdd0351f2fc86c5b6d710880ea17cd5bf88cab"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl",
+      "bytes": 215594386,
+      "sha256": "2218dc863ed5770f0f481c4e99d53c1744f72fb692a8fbc8c97300ef4ff0e1f3"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/bootstrap.jsonl",
+      "bytes": 1024280,
+      "sha256": "a1ccc56add9e47e7615bbb0e8dbbd871f9a6dfecf4ae505a608a862a95c10f63"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/fit_audit.json",
+      "bytes": 377,
+      "sha256": "839d3e143c4bf1018df29a700fe5d3b4a122d0799306b425e2b0757a197b11a1"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/aggregate.json",
+      "bytes": 22180,
+      "sha256": "5b72f06c1e8edf245025658a0893acb49f380314d469b4a0fb35c56ff93d2c53"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/oracle.sqlite",
+      "bytes": 464388096,
+      "sha256": "e6f283a7cbe0c3c242a3123e9d11d6490f3302b58baf96890330c163a31fbd32"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/resource_usage.json",
+      "bytes": 516,
+      "sha256": "43091df3f971441e9695cb1f339faac4f4670e10f0253e71841650afa2f297ed"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/started.json",
+      "bytes": 338,
+      "sha256": "dd0c1dae4a892a3bd02e91d36bcf8667558e5159a7854f00f383fdfad64b5ea9"
+    }
+  ],
+  "resources": {
+    "elapsed_seconds": 4197.172,
+    "observed_peak_sampled_RSS_bytes": 1110982656,
+    "samples": 7379,
+    "limits": {
+      "maximum_process_RSS_bytes": 8589934592,
+      "maximum_execution_disk_bytes": 21474836480,
+      "minimum_free_disk_bytes": 8589934592,
+      "minimum_available_memory_bytes": 4294967296,
+      "maximum_elapsed_seconds": 21600,
+      "monitor_interval_seconds": 0.5
+    },
+    "enforcement": "cooperative checks at most every 0.5 seconds; pair loop also checks every 50000 emissions; no OS hard-memory kill"
+  }
+}

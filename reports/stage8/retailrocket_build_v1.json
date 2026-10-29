@@ -1,0 +1,274 @@
+{
+  "status": "dataset_v1_built_and_independently_accepted",
+  "specification": {
+    "path": "reports/stage8/retailrocket_build_v1_specification.json",
+    "bytes": 9331,
+    "sha256": "67dfbf1e5d1a9e8ad0903bcb5c4f8043635b6356f521eda7ce1723b6441fc37c"
+  },
+  "summary": {
+    "scope": {
+      "model_fits": 0,
+      "ranking_metrics": 0,
+      "reserved_test_scored": false
+    },
+    "roles": {
+      "warmup": {
+        "baskets": 13300,
+        "sessions_starting": 8304,
+        "statuses": {
+          "warmup_context_only": 13300
+        },
+        "labelled_visitors": 0,
+        "labelled_targets": 0,
+        "reachable_targets": 0,
+        "all_targets_reachable_queries": 0,
+        "new_visitor_queries": 0,
+        "new_to_fit_targets": 0,
+        "multi_item_context_queries": 0,
+        "multi_item_target_queries": 0,
+        "min_candidate_count": null,
+        "available_unknown_basket_items": 13303,
+        "category_unknown_basket_items": 13303,
+        "support_floor_queries": 50
+      },
+      "train": {
+        "baskets": 1823018,
+        "sessions_starting": 1180239,
+        "statuses": {
+          "no_observed_continuation": 1179931,
+          "labelled": 642619,
+          "right_censored": 468
+        },
+        "labelled_visitors": 210395,
+        "labelled_targets": 642814,
+        "reachable_targets": 593583,
+        "all_targets_reachable_queries": 593397,
+        "new_visitor_queries": 0,
+        "new_to_fit_targets": 0,
+        "multi_item_context_queries": 199,
+        "multi_item_target_queries": 192,
+        "min_candidate_count": 8761,
+        "available_unknown_basket_items": 414973,
+        "category_unknown_basket_items": 529554,
+        "support_floor_queries": 6427
+      },
+      "validation": {
+        "baskets": 533790,
+        "sessions_starting": 366757,
+        "statuses": {
+          "no_observed_continuation": 366423,
+          "labelled": 166897,
+          "right_censored": 470
+        },
+        "labelled_visitors": 62235,
+        "labelled_targets": 166952,
+        "reachable_targets": 161264,
+        "all_targets_reachable_queries": 161211,
+        "new_visitor_queries": 134249,
+        "new_to_fit_targets": 11913,
+        "multi_item_context_queries": 56,
+        "multi_item_target_queries": 53,
+        "min_candidate_count": 199510,
+        "available_unknown_basket_items": 60574,
+        "category_unknown_basket_items": 63963,
+        "support_floor_queries": 1669
+      },
+      "reserved_test": {
+        "baskets": 292114,
+        "sessions_starting": 199946,
+        "statuses": {
+          "labelled": 92086,
+          "no_observed_continuation": 199776,
+          "right_censored": 252
+        },
+        "labelled_visitors": 34875,
+        "labelled_targets": 92116,
+        "reachable_targets": 88907,
+        "all_targets_reachable_queries": 88879,
+        "new_visitor_queries": 70045,
+        "new_to_fit_targets": 5838,
+        "multi_item_context_queries": 33,
+        "multi_item_target_queries": 29,
+        "min_candidate_count": 222776,
+        "available_unknown_basket_items": 33282,
+        "category_unknown_basket_items": 33749,
+        "support_floor_queries": 921
+      }
+    },
+    "source_rows": {
+      "item_properties_part1.csv": 10999999,
+      "item_properties_part2.csv": 9275903,
+      "events.csv": 2756101,
+      "category_tree.csv": 1669
+    },
+    "row_decisions": {
+      "canonical": 2754113,
+      "duplicate": 460,
+      "excluded": 1528
+    },
+    "limitations": [
+      "anonymous visitor keys",
+      "retrospective event-time proxy; no ingestion watermark",
+      "no exposures or verified sellable catalog",
+      "CC BY-NC-SA 4.0 noncommercial conditions retained"
+    ],
+    "property_version_states": {
+      "known": 2291853
+    },
+    "orphan_category_ids": 30,
+    "sessions": 1755246,
+    "catalog_items": 234795,
+    "visitors_with_any_qualified_event": 1406800,
+    "files": {
+      "row_decisions.csv": 2756101,
+      "qualified_events.csv": 2754113,
+      "duplicate_map.csv": 460,
+      "exclusions.csv": 1528,
+      "baskets.csv": 2662222,
+      "sessions.csv": 1755246,
+      "query_decisions.csv": 2662222,
+      "queries.csv": 901602,
+      "boundary_ledger.csv": 1742,
+      "catalog.csv": 234795,
+      "visitor_history.csv": 1406800,
+      "property_versions.csv": 2291853,
+      "view_property_diagnostics.csv": 2662739,
+      "property_exclusions.csv": 0,
+      "category_tree_diagnostics.csv": 1669,
+      "orphan_categories.csv": 30
+    }
+  },
+  "files": [
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/row_decisions.csv",
+      "bytes": 571284845,
+      "sha256": "849a11d04fbf183986131308fa480eb458d06e98d5ead79ec8f1d6e4ed5df986",
+      "rows": 2756101,
+      "columns": 12
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/qualified_events.csv",
+      "bytes": 494846524,
+      "sha256": "69f0faa20bba20c75639bf4483210757a727bf091107624e5c1725a5b7a7cdfd",
+      "rows": 2754113,
+      "columns": 9
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/duplicate_map.csv",
+      "bytes": 70653,
+      "sha256": "502912b862e4f5dbb5235ac7965c2c458a953947f42dda74b78bc6198b74dd07",
+      "rows": 460,
+      "columns": 5
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/exclusions.csv",
+      "bytes": 330495,
+      "sha256": "c711d99837df706dc4f2ca6b16d2b860f1f5fc4c719b4293106d45ead8f3d5de",
+      "rows": 1528,
+      "columns": 12
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/baskets.csv",
+      "bytes": 190511325,
+      "sha256": "b32cc6ea4aa71f15f2687b389daff7f4e9193f245887abcce896629a8d13ed7f",
+      "rows": 2662222,
+      "columns": 8
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/sessions.csv",
+      "bytes": 96797617,
+      "sha256": "3be5d8a0d4a48bf465945648de8a47c995c40711b577292421d2f6463ea4109c",
+      "rows": 1755246,
+      "columns": 7
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/query_decisions.csv",
+      "bytes": 298665122,
+      "sha256": "c8cf4ab1fb4001e913a32288fbf224f467c29874fe28e322fd1fcea4b484c951",
+      "rows": 2662222,
+      "columns": 21
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/queries.csv",
+      "bytes": 109168416,
+      "sha256": "a680a43a3eb8afbe5fa63e948392652fc67ae6489a49ce0dd59ca47a36e874e1",
+      "rows": 901602,
+      "columns": 21
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/boundary_ledger.csv",
+      "bytes": 132902,
+      "sha256": "38d432d6b3983d21fc4286da64129b054dbf6274be7c155a9ed356bf66698d12",
+      "rows": 1742,
+      "columns": 9
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/catalog.csv",
+      "bytes": 4874693,
+      "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e",
+      "rows": 234795,
+      "columns": 2
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/visitor_history.csv",
+      "bytes": 32667876,
+      "sha256": "6377ecea40bf48f904fda9c72a9d08005973d8e4bc53a7546c491c1b7799d6ba",
+      "rows": 1406800,
+      "columns": 3
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/property_versions.csv",
+      "bytes": 196834126,
+      "sha256": "38fc6c297040035dc4e5fad42162cb0b8f24fe180856fcd73afb4664721309b3",
+      "rows": 2291853,
+      "columns": 7
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/view_property_diagnostics.csv",
+      "bytes": 280928614,
+      "sha256": "f0f618bc32933a66a48ddfb7af2d0f4f976e7b6a41b0629960847e16cbd6e8eb",
+      "rows": 2662739,
+      "columns": 13
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/property_exclusions.csv",
+      "bytes": 65,
+      "sha256": "7a50fa08cf8a10d017743ac654a6ad0185aff7b78e43e4b4da8942ed830b21db",
+      "rows": 0,
+      "columns": 7
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/category_tree_diagnostics.csv",
+      "bytes": 26722,
+      "sha256": "ea571715e8e9b3e6b0dbc1ee88c0d2bfbc5cd01c45d979007d2859ac71524d9b",
+      "rows": 1669,
+      "columns": 4
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/orphan_categories.csv",
+      "bytes": 218,
+      "sha256": "75b3052f4a94d75288a1b57fbdc5f625812411008ca8238836fbac1ce15499a0",
+      "rows": 30,
+      "columns": 2
+    }
+  ],
+  "verification": {
+    "independent_rows": 20093122,
+    "independent_cells": 221676649,
+    "all_16_csvs_full_readback_passed": true,
+    "aggregate_roles_equal": true,
+    "primary_seconds": 594.117303,
+    "total_seconds": 1104.424908
+  },
+  "scope": {
+    "model_fits": 0,
+    "ranking_metrics": 0,
+    "reserved_test_scored": false
+  },
+  "limitations": [
+    "anonymous visitor keys",
+    "retrospective event-time proxy; no ingestion watermark",
+    "no exposures or verified sellable catalog",
+    "CC BY-NC-SA 4.0 noncommercial conditions retained"
+  ]
+}

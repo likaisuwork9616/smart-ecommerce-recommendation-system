@@ -1,0 +1,427 @@
+{
+  "environment": {
+    "numpy": "2.5.4",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "format_version": 1,
+  "policy": {
+    "ARI_readback_absolute_tolerance": 1e-12,
+    "actual_private_namespace": ".runtime/stage6_rfm_g3_v2",
+    "assignment": "sample_cutpoints_applied_to_full_reference_R_direction_uses_actual_levels",
+    "business": "pending_data",
+    "completion": "private_bundle_public_aggregate_external_guard_and_full_readback_no_failure",
+    "cuts": "sample_only_exact_integer_P20_40_60_80_deduplicate_drop_ge_sample_max_ties_intact",
+    "dashboard": false,
+    "different_levels_agreement": "null_not_comparable_and_gate_fails",
+    "failure": "retain_evidence_no_overwrite_retry_reseed_recut_or_threshold_change",
+    "gates": {
+      "all_five_required": true,
+      "joint_degeneracy": "single_group_or_all_singletons_fails",
+      "levels": "each_axis_2_to_5_and_same_as_reference_no_empty_bins",
+      "minimum_axis_agreement": 0.9,
+      "minimum_joint_ARI": 0.8
+    },
+    "original_method": "reports/stage6/rfm_evaluation_specification.json",
+    "prior": "reports/stage6/rfm_rebuild_v2.json",
+    "readback": "independent_exact_sample_membership_rank_assignment_support_and_rational_contingency_ARI",
+    "reference": "same_all_active_complete_IDs_canonical_ascending_for_all_five_seeds",
+    "sampling": "Generator(PCG64(seed)).choice(n,size=(4*n)//5,replace=False)",
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "small_cells": "flag_every_reference_and_seed_joint_cell_below_floor_no_merge_no_stable_cell_claim",
+    "stage4_daily_budget": 0.1,
+    "stage5": "pending_data",
+    "support_floor": "max(100,(n+199)//200)_full_reference_denominator",
+    "temporal": "pending_data",
+    "training": false,
+    "version": "G3_on_RFM_v2"
+  },
+  "sources": [
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 19628,
+      "path": "scripts/audit_rfm_feasibility.py",
+      "sha256": "af31640590631201c6ae2344d08b46a1c379cdb4299909deb92f6c3af5363264"
+    },
+    {
+      "bytes": 7798,
+      "path": "tests/test_rfm_feasibility.py",
+      "sha256": "4a94020425dcbe07cdb46a45a6e85a2179f22b7e32b01dec2aa86f4b72274be2"
+    },
+    {
+      "bytes": 5246,
+      "path": "sql/03_business_analysis.sql",
+      "sha256": "14340c1336725d188d1827938a0f262f312178198e1ef34a472728ee580ddd30"
+    },
+    {
+      "bytes": 4472,
+      "path": "reports/stage6/rfm_feasibility_specification.json",
+      "sha256": "ae93abbf9cf0d315a7007b9928d4b99c9de0963b284f1f699edb55a3173b5ff8"
+    },
+    {
+      "bytes": 14558,
+      "path": "reports/stage6/rfm_feasibility.json",
+      "sha256": "44b0824b4a429530a23e6b61ebf9cf21313dafb295bd0e85e5a0fc424c697e14"
+    },
+    {
+      "bytes": 18396,
+      "path": "scripts/freeze_rfm_dataset_spec.py",
+      "sha256": "da50f96c62f2b25af9ce9a9b5412042b429c1ff9a7f908b33ccdd3c389169a07"
+    },
+    {
+      "bytes": 8214,
+      "path": "tests/test_rfm_dataset_spec.py",
+      "sha256": "24997b4b36eacb3fed134be707718eb20814af08bccca76ea5b4d2ded3574747"
+    },
+    {
+      "bytes": 11012,
+      "path": "reports/stage6/rfm_dataset_specification.json",
+      "sha256": "2f9c4e6be03581f48d9eb2707227584d5fdfa62ed31f697da510ee7cb6331cee"
+    },
+    {
+      "bytes": 7869,
+      "path": "reports/stage6/rfm_dataset_contract_audit.json",
+      "sha256": "66138a23585f756ccefaf628c0dbc9ab83925829ddba6b7f05dbdd7d750399ea"
+    },
+    {
+      "bytes": 18823,
+      "path": "scripts/rfm_dataset_builder.py",
+      "sha256": "ae2e580d8c5a978f4886a8798e55885694575d4b3d399606f158c8c43f2b2332"
+    },
+    {
+      "bytes": 27463,
+      "path": "tests/test_rfm_dataset_builder.py",
+      "sha256": "8451fdb6838c0637f76f4d43f4ec20bb46505a20cfbb4745575884cc9d372498"
+    },
+    {
+      "bytes": 20172,
+      "path": "scripts/rfm_dataset_artifacts.py",
+      "sha256": "16a7028871ab03109dfcf47d9527fc52741566c2b97d376677b5b4e8c9b93af3"
+    },
+    {
+      "bytes": 12071,
+      "path": "tests/test_rfm_dataset_artifacts.py",
+      "sha256": "2a0302b284831a016fcf6a9ed5277377f4e9939899a9a65450a888494ab5866d"
+    },
+    {
+      "bytes": 10429,
+      "path": "scripts/build_rfm_dataset.py",
+      "sha256": "2237c89f1b1e2749f5d99db928ac330fdbe7d4def6fe040aabb214022f5f8fec"
+    },
+    {
+      "bytes": 17247,
+      "path": "tests/test_build_rfm_dataset.py",
+      "sha256": "7c52cc4ffee3bab6e5b075d2ac47d8068a215d43ff7ef7266d80ef538b7bbe79"
+    },
+    {
+      "bytes": 4990,
+      "path": "reports/stage6/rfm_dataset_build_specification.json",
+      "sha256": "a4145701c876b1666e69652e9e790989a930f28ceae0f44b9bb55b76636a8a19"
+    },
+    {
+      "bytes": 8767,
+      "path": "reports/stage6/rfm_dataset_build.json",
+      "sha256": "f8e2c75c75b43bb4fa795bdbb09250b40e4114ae89b8bbb51a45c03f3b914e36"
+    },
+    {
+      "bytes": 4009,
+      "path": "reports/stage6/rfm_dataset_build_acceptance.json",
+      "sha256": "0b8c7e750e6697684bb0769fb874d4966fe10d295a19f8cd9da7b4c072be4f7a"
+    },
+    {
+      "bytes": 2272,
+      "path": "requirements-lock.txt",
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "bytes": 11479,
+      "path": "scripts/rfm_evaluation_contract.py",
+      "sha256": "27fa606d618037f09534fadb68d6f84d9d0b34aa1995f46ae8166bd5f0ade18c"
+    },
+    {
+      "bytes": 21735,
+      "path": "scripts/freeze_rfm_evaluation_spec.py",
+      "sha256": "e8bfc251eb1adc174c57c2efbdf321207dfd1d34cbc9d9637babb26d9c9c4da8"
+    },
+    {
+      "bytes": 26592,
+      "path": "tests/test_rfm_evaluation_spec.py",
+      "sha256": "280d4a12827c684fe5dc23b032b50b2dd48ebf1400d6e68dffae18a1e96a6601"
+    },
+    {
+      "bytes": 15752,
+      "path": "reports/stage6/rfm_evaluation_specification.json",
+      "sha256": "9ce0a91b0f2e7994f14f7348687e58796fd2204ee0bf909632731ff654f96af9"
+    },
+    {
+      "bytes": 3287,
+      "path": "reports/stage6/rfm_evaluation_contract_audit.json",
+      "sha256": "a22c3ba0b2f59b0bf40605b8d058e149d3a770894d490304a8f5cfa1d5231b7f"
+    },
+    {
+      "bytes": 13729,
+      "path": "scripts/rfm_description.py",
+      "sha256": "3ea100c22776c46c06db7c88ab0d9b9c8156a95faeb76fbb8b550bbeed65ba78"
+    },
+    {
+      "bytes": 16701,
+      "path": "tests/test_rfm_description.py",
+      "sha256": "427054df51f3dd22221e6042ee96e8bce916a3c0e7d07a407598c28bc0200ef8"
+    },
+    {
+      "bytes": 10067,
+      "path": "scripts/verify_rfm_description.py",
+      "sha256": "87f57159c8a2dc1e9c140b6c1b7c6f414df1f496fa0aca3b22fb1b06fbda6ab6"
+    },
+    {
+      "bytes": 12216,
+      "path": "tests/test_verify_rfm_description.py",
+      "sha256": "8d74c39dc42f226e9619b85d51ae6a5316689950b10d111d0dfd3d9dfbf05e22"
+    },
+    {
+      "bytes": 6887,
+      "path": "reports/stage6/rfm_description_implementation_specification.json",
+      "sha256": "835b3013255494e2023d10952bc5f79166d40e99d12b94c0a54ccaaebceb16aa"
+    },
+    {
+      "bytes": 4312,
+      "path": "reports/stage6/rfm_description_pipeline_verification.json",
+      "sha256": "a829080b3a27ee4a8a470d3039c00a6ef1ef75179563c30af37e341e6320a076"
+    },
+    {
+      "bytes": 8997,
+      "path": "scripts/rfm_description_sources.py",
+      "sha256": "aabf5d9b4de0cf2d7dbb203674f2328e5a7b87f2d7e2a77a88ba4f8c889b0884"
+    },
+    {
+      "bytes": 16222,
+      "path": "tests/test_rfm_description_sources.py",
+      "sha256": "5f264620622a2b113d0018ae9b2ed39a6437b2d96272b3f720d7c27bb47c8486"
+    },
+    {
+      "bytes": 25359,
+      "path": "scripts/rfm_description_outputs.py",
+      "sha256": "a6614f13c488c573b71720a4c0783ad8f9c886a96b57ef5c5620458b647113c3"
+    },
+    {
+      "bytes": 15334,
+      "path": "tests/test_rfm_description_outputs.py",
+      "sha256": "9acadf7700f10228d506d6373fbfabc01baaa2e0426881e81c7bf8d98579ed48"
+    },
+    {
+      "bytes": 14590,
+      "path": "scripts/prepare_rfm_description.py",
+      "sha256": "afdd28e61baef73c0c39b35fc332724845f6e608b4628bc56d5031cc5c7975f7"
+    },
+    {
+      "bytes": 13744,
+      "path": "tests/test_prepare_rfm_description.py",
+      "sha256": "03291cc5712b73e2e02cc81179513044f5fab48074357031b02a9efc83febef0"
+    },
+    {
+      "bytes": 10656,
+      "path": "reports/stage6/rfm_description_execution_specification.json",
+      "sha256": "565c8a46c3b730b020c42f47faf5f9137865beda549ecd0f9576e353d72055f8"
+    },
+    {
+      "bytes": 5157,
+      "path": "reports/stage6/rfm_description_execution_preflight.json",
+      "sha256": "79ae3987c33d5788f63029f15adb7019dd9691950194bd55e3fc26452460d993"
+    },
+    {
+      "bytes": 18060,
+      "path": "reports/stage6/rfm_description.json",
+      "sha256": "e291816e5b40595bece098adb82f6b88dd8b845c2d49b0b6bbe357b7c587b63d"
+    },
+    {
+      "bytes": 6799,
+      "path": "reports/stage6/rfm_description_acceptance.json",
+      "sha256": "c5904e9441d595f431e1546aa45581a1731eddeae57ea3bb781b7f6ab0327b04"
+    },
+    {
+      "bytes": 11177,
+      "path": "scripts/rfm_rule_candidate.py",
+      "sha256": "af5ce9f970f5bd2b8c4d2daf95e2e44c345eb2b678fa7e428861fe277750e784"
+    },
+    {
+      "bytes": 21561,
+      "path": "tests/test_rfm_rule_candidate.py",
+      "sha256": "b46b30034b666b01e97d28c4874ac4023249fdad8dbd83988dae48e2a1079f61"
+    },
+    {
+      "bytes": 15444,
+      "path": "scripts/verify_rfm_rule_candidate.py",
+      "sha256": "6c9ede494affe265dc4eebb3e28d49cd3645efea1d8fe4c3ef965e210337875a"
+    },
+    {
+      "bytes": 22294,
+      "path": "tests/test_verify_rfm_rule_candidate.py",
+      "sha256": "26e935e349514d34adbbd471fbeeab2e2ec8c0c24a3be790f0412451898e8cea"
+    },
+    {
+      "bytes": 9706,
+      "path": "reports/stage6/rfm_rule_candidate_implementation_specification.json",
+      "sha256": "36f88eb93bf76e189285fe2e3761917f155b694887d95230ffac98d469e7d135"
+    },
+    {
+      "bytes": 13029,
+      "path": "reports/stage6/rfm_rule_candidate_verification.json",
+      "sha256": "18a77d0d2484c2fe96710f548635fbff70fc15d596a6b83dd2d83071264e948c"
+    },
+    {
+      "bytes": 4968,
+      "path": "scripts/rfm_rule_candidate_sources.py",
+      "sha256": "38303785355b6e43fd2b76622458fcccf42168597329cfdc67f5bd40b0ff147e"
+    },
+    {
+      "bytes": 19359,
+      "path": "tests/test_rfm_rule_candidate_sources.py",
+      "sha256": "43e99d5eb1c4d3410f65bba42994e4c28235b1ed8d4feaed8c7851e39010c90f"
+    },
+    {
+      "bytes": 25916,
+      "path": "scripts/rfm_rule_candidate_outputs.py",
+      "sha256": "bbe1304fda99a83b3b1664b592479e4450f91e0860474bcf02a3192ec516e869"
+    },
+    {
+      "bytes": 17958,
+      "path": "tests/test_rfm_rule_candidate_outputs.py",
+      "sha256": "041702644fdd43a90cb3ba88eb5c703a05ce869b52c7e75cce70471d1cfeef2e"
+    },
+    {
+      "bytes": 15822,
+      "path": "scripts/prepare_rfm_rule_candidate.py",
+      "sha256": "32c516fcb5bd4c81f27365fb4aa5651e4ab8bbdc90d8a35c46aad4dee49ca8fb"
+    },
+    {
+      "bytes": 18741,
+      "path": "tests/test_prepare_rfm_rule_candidate.py",
+      "sha256": "a0d9a4db1a70cea45a48f89b24f8338699cfc874ae99fbcebabd3051af06a91c"
+    },
+    {
+      "bytes": 15840,
+      "path": "reports/stage6/rfm_rule_candidate_execution_specification.json",
+      "sha256": "63065ad2106f3e8b20e9e8e453fb15b56511c428d2a6089f77a47a548000b6fd"
+    },
+    {
+      "bytes": 14974,
+      "path": "scripts/rebuild_rfm_v2.py",
+      "sha256": "6cd9e1421a73017795a2362103586dc8ee2618a72b5bee27405386d00a0ec875"
+    },
+    {
+      "bytes": 7185,
+      "path": "scripts/rfm_rebuild_reference.py",
+      "sha256": "574dfaeac34ad83c4f5f8c433b2498e9653b0b0974f7a456d4d8e39e6a0336b0"
+    },
+    {
+      "bytes": 10661,
+      "path": "tests/test_rebuild_rfm_v2.py",
+      "sha256": "e56cd75e4b7fc0074ae5f5e2a2f5519f2f85d5ffe5bb4ef66049756c7850973e"
+    },
+    {
+      "bytes": 31639,
+      "path": "reports/stage6/rfm_rebuild_v2_specification.json",
+      "sha256": "b2e227708ad8146bca66622f9f255f2bc9c91c2ccbc0ef3bc35c6dd2d2faf77f"
+    },
+    {
+      "bytes": 67726,
+      "path": "reports/stage6/rfm_rebuild_v2.json",
+      "sha256": "d2ee7c747709eb249ebce3f532f18d7bd93e0d09b2bb5bb342239ccddee79b6d"
+    },
+    {
+      "bytes": 3694,
+      "path": "scripts/rfm_g3_sources.py",
+      "sha256": "3dd06b79b94f88bce7d28e292b4c26b4a33f91eb1bcde5cb18a0d602352f372f"
+    },
+    {
+      "bytes": 8787,
+      "path": "scripts/rfm_g3.py",
+      "sha256": "47c7cbf6ec75d8ac0afe4f7165f3a3d08be0c86a0d5c16681911ccb6c10d1359"
+    },
+    {
+      "bytes": 10656,
+      "path": "scripts/rfm_g3_outputs.py",
+      "sha256": "34a4688d430ec381f92d643b34403870f620ce12b87daf5abc6bfe2b7b2fd2d4"
+    },
+    {
+      "bytes": 9424,
+      "path": "scripts/run_rfm_g3.py",
+      "sha256": "b9e881cd5ec5309034f7b7c036876f517718dd690473e381847c3bdfbaa9200d"
+    },
+    {
+      "bytes": 10706,
+      "path": "tests/test_rfm_g3.py",
+      "sha256": "5541cd1e84e4cc9f3f2a4a9e4b89f271ca7bf5ceae05ec0e1b14c856c6efe126"
+    },
+    {
+      "bytes": 6949,
+      "path": "tests/test_run_rfm_g3.py",
+      "sha256": "ca23be697f0ad4881bdb9127fe7213d7a9a65255fd948df0868622bd0e4bd09d"
+    }
+  ],
+  "synthetic_verification": {
+    "elapsed_seconds": 7.61895689999983,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "test_ids": [
+      "tests.test_rfm_g3.G3CoreTests.test_changed_effective_levels_fail_and_agreement_is_null",
+      "tests.test_rfm_g3.G3CoreTests.test_domain_missing_duplicate_noncanonical_ID_and_frozen_policy_guards",
+      "tests.test_rfm_g3.G3CoreTests.test_exact_90_percent_agreement_is_inclusive",
+      "tests.test_rfm_g3.G3CoreTests.test_fixed_five_seeds_exact_sample_size_and_full_denominator",
+      "tests.test_rfm_g3.G3CoreTests.test_legal_zero_and_large_integer_money_keep_exact_cuts",
+      "tests.test_rfm_g3.G3CoreTests.test_no_G2_core_reexecution_and_original_inputs_unchanged",
+      "tests.test_rfm_g3.G3CoreTests.test_sample_only_cuts_and_low_agreement_are_not_rescued",
+      "tests.test_rfm_g3.G3CoreTests.test_small_joint_cells_preserved_without_failing_global_gate",
+      "tests.test_rfm_g3.G3CoreTests.test_stable_fixture_and_worst_case_not_best_seed",
+      "tests.test_rfm_g3.G3CoreTests.test_ties_never_split_and_f_direction_uses_two_levels",
+      "tests.test_rfm_g3.G3OracleTests.test_degenerate_partitions_flag_even_when_ARI_is_one",
+      "tests.test_rfm_g3.G3OracleTests.test_exact_ARI_hand_cases_and_label_permutation",
+      "tests.test_rfm_g3.G3OracleTests.test_extra_keys_missing_seed_and_false_small_cell_claim_rejected",
+      "tests.test_rfm_g3.G3OracleTests.test_oracle_never_calls_G3_core_or_sklearn_ARI",
+      "tests.test_rfm_g3.G3OracleTests.test_sample_membership_cutpoints_ID_swap_and_ARI_tampering_rejected",
+      "tests.test_rfm_g3.G3OracleTests.test_tuple_ARI_differs_from_mean_axis_ARI",
+      "tests.test_run_rfm_g3.G3EntryTests.test_assignment_tampering_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_complete_run_readback_and_no_G3_core_on_verify",
+      "tests.test_run_rfm_g3.G3EntryTests.test_ineligible_is_saved_as_completed_diagnostic",
+      "tests.test_run_rfm_g3.G3EntryTests.test_late_guard_failure_keeps_evidence_and_blocks_replay",
+      "tests.test_run_rfm_g3.G3EntryTests.test_partial_namespace_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_public_report_tampering_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_source_change_after_core_prevents_publication",
+      "tests.test_run_rfm_g3.G3EntryTests.test_source_change_and_changed_test_log_rejected_before_execution",
+      "tests.test_run_rfm_g3.G3SourceEvidenceTests.test_actual_verification_receipt_binds_before_after_and_cannot_overwrite",
+      "tests.test_run_rfm_g3.G3SourceEvidenceTests.test_changed_source_during_input_verify_does_not_create_receipt"
+    ],
+    "tests_run": 26
+  }
+}

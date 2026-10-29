@@ -1,0 +1,460 @@
+{
+  "status": "prepared_before_real_cutpoint_estimation",
+  "contract": {
+    "path": "docs/contracts/uci_rfm_v1.json",
+    "bytes": 15463,
+    "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+  },
+  "sources": [
+    {
+      "path": "data/raw/online_retail_ii/online_retail_II.xlsx",
+      "bytes": 45622278,
+      "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+    },
+    {
+      "path": "data/raw/online_retail_ii/online_retail_ii_official.zip",
+      "bytes": 45622418,
+      "sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_manifest.json",
+      "bytes": 1298,
+      "sha256": "704876a3cac02641866f430206b91cb5127dbea0c582e5c0cbb7ca16063c0649"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_page.html",
+      "bytes": 85208,
+      "sha256": "d7c9ebf9428dfa5aaf12d67a1430652096f0df292fd85a2b69682bfd862121ea"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_CONTRACT_V1.md",
+      "bytes": 17045,
+      "sha256": "6bddbd0c7cfb15e0b97985884dcee0d1e946a328224ea69a2005085449e37d53"
+    },
+    {
+      "path": "docs/contracts/uci_rfm_v1.json",
+      "bytes": 15463,
+      "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_intake.json",
+      "bytes": 27649,
+      "sha256": "0b4d496ebbbfd20dafdb6d70a84bb2db3a6907978446b3c6cdb349b2d2e35cf6"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_verification.json",
+      "bytes": 6686,
+      "sha256": "5a2671249140664853105c493f8343cac0295a20f7fbc9ca9e2894091856f010"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1.json",
+      "bytes": 9529,
+      "sha256": "e0da1d507644626692f36fff779db70fcb14ac78f351f69695645528b773d4d8"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1_acceptance.json",
+      "bytes": 6805,
+      "sha256": "c562da3de7f0e3c2007c317c4db77c2b50700c8834d5a049af3bef951375cd92"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1_specification.json",
+      "bytes": 10667,
+      "sha256": "5d67ebfed8f13e88a777aea5b3805ecbb1da859c4726b5919dc16a4386952225"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_contract_acceptance.json",
+      "bytes": 5516,
+      "sha256": "d558fa7045b8eeffc910e210cd7fa44268d5c6b54a787b0eb5d23cfe102faa5c"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_specification.json",
+      "bytes": 3329,
+      "sha256": "36d818b8f7f0ee76a9cd3a8806f849529621eca3595e0fb097b99c2690f3f92f"
+    },
+    {
+      "path": "scripts/audit_uci_retail_ii.py",
+      "bytes": 19776,
+      "sha256": "335c68c000220afee37c10c83f0d5d36cdb885eb8e6c2624644646f0fc26fc31"
+    },
+    {
+      "path": "scripts/build_uci_rfm_v1.py",
+      "bytes": 16133,
+      "sha256": "6fc44854be5f4bbc0aaa6daf35fe088314aab8b8e962d94d70119a523553d1cd"
+    },
+    {
+      "path": "scripts/freeze_uci_rfm_contract.py",
+      "bytes": 14110,
+      "sha256": "8fb560810f070cdfb0982d55fc28bbd610bf117187372c0f6598d037c94bfdc9"
+    },
+    {
+      "path": "scripts/run_uci_rfm_temporal_v1.py",
+      "bytes": 14011,
+      "sha256": "99b61117955ea565519bb1ca245aed4407bc05b1ea0ab0a09cdfde10ff17d970"
+    },
+    {
+      "path": "scripts/uci_rfm_builder.py",
+      "bytes": 10966,
+      "sha256": "be21803339dfe488b7e38916672ab6ea1dc033a6829c6b44e80af70e8d2449de"
+    },
+    {
+      "path": "scripts/uci_rfm_reference.py",
+      "bytes": 10448,
+      "sha256": "f5878b214b0b3db6b71d7ace6ccf442a96303358b2350318d4f01b3619fd5394"
+    },
+    {
+      "path": "scripts/uci_rfm_temporal.py",
+      "bytes": 13189,
+      "sha256": "121fc96180dbf7564a30974dc6514a153a2b64da7d8a918fb5e5fad56c0846e2"
+    },
+    {
+      "path": "scripts/uci_rfm_temporal_reference.py",
+      "bytes": 11447,
+      "sha256": "aa2f717bbd08de4f13139eb4fd2153908f7cc1a0abf34d61615f892288af8807"
+    },
+    {
+      "path": "scripts/verify_uci_retail_ii.py",
+      "bytes": 11436,
+      "sha256": "73c4af63fa9f66e800d8d3b0b0c22e29dcfaa2b62f2d2f8fa738355757083844"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/inventory.sqlite",
+      "bytes": 313020416,
+      "sha256": "367e019ba9698ca2e670b0aaf04f4321a948ed9052d36bf3be51d11d5ed44193"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/output_guard.json",
+      "bytes": 1466,
+      "sha256": "0897323c226dd8c10642520b8d592a074247a9254ae311080b8364e847161148"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_contract_v1/output_guard.json",
+      "bytes": 3238,
+      "sha256": "6a2fc3f0b84d61588f21f1bebb85eb803fb618f5566be07ed56e3d191b75bbf8"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/customers.csv",
+      "bytes": 631146,
+      "sha256": "27d859b0508d05fb67448d8bcb295e88ad6cafaf47db543081cb3a604d08efc8"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/duplicate_map.csv",
+      "bytes": 67178132,
+      "sha256": "1f790d73f4563335a4a1d7ff8828671daa61b3800255705d2420b57b8334494d"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3093607,
+      "sha256": "c58f10dda61cf000375363ef51d91ca91bfa68e660532414c663e2a56140b394"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/row_decisions.csv",
+      "bytes": 97919800,
+      "sha256": "5809aae9b345d49abbd363a165c3b64a515e22143b165c30e319f29a2cb15e94"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/customers.csv",
+      "bytes": 799009,
+      "sha256": "b0214b8d7d18949ce74b37be54f73b9b865d981e3317166a8c1032cea1f90a58"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/duplicate_map.csv",
+      "bytes": 139230607,
+      "sha256": "2533c4434e3cab8ceaf795be7bede7ba257d67fc03fea06b417106c456be085c"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 5924420,
+      "sha256": "cfbf1b1e52aec53789cf03d37764e8782dedb4a8dd198dd5a8734d64ed7c9e2e"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/row_decisions.csv",
+      "bytes": 202481588,
+      "sha256": "acf4b516e129eec02c28561c6d54de1263d9557beedfad59c7f60a16ec4cc4f9"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/customers.csv",
+      "bytes": 648518,
+      "sha256": "d367fadbc13747f2a931f319129c361250a31acd19fef0659cd040e0cbf7d627"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/duplicate_map.csv",
+      "bytes": 69183340,
+      "sha256": "35eb9ff036f917f2602e7df4f863c82c4f874e7bcf69ac38b78bc4a1ad49a822"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3204586,
+      "sha256": "e501e90aea3afcf93188513129b56f8b2a903e0899ba5955277eb6ff09c4022a"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/row_decisions.csv",
+      "bytes": 99973766,
+      "sha256": "7687b659ff59d9fbba00605e7b4de18439f2fbf5d38054525ccb8fd319787fe7"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/customers.csv",
+      "bytes": 822681,
+      "sha256": "b6bc4cb6eea487d89ef1788be0ce031e71ea116d5f6cff8b0a0bb108c581c96a"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/duplicate_map.csv",
+      "bytes": 143386454,
+      "sha256": "a1189742458f81e86ad5ca1b75a34e0d3bbdd40b14cf9530c4d94912964975dc"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 6134988,
+      "sha256": "597162da4cb5802b8a82aa2afc6020caf2a0669db6e9fa5f784da2675e6d0429"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/row_decisions.csv",
+      "bytes": 206722903,
+      "sha256": "2d07931199696ef579e258699d0864081289a7dcd90d8433dcc3603dd0faf67d"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/customers.csv",
+      "bytes": 653158,
+      "sha256": "5eca38b06244b5e83e26791568c26e2a8d288390ec77fc2d84bc316c2381bfbe"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/duplicate_map.csv",
+      "bytes": 69686278,
+      "sha256": "7b6d7ccc583137a8c02799d8434764587caa08971775a4feecea5b2fc2513b6e"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3233454,
+      "sha256": "426c5e9dd38b1ab70f9536340543f8fe81550b676e917ac2351d911308ea831e"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/row_decisions.csv",
+      "bytes": 100481835,
+      "sha256": "27efd0f041a08ac30c0baddd3ad826eadc7ab4a5667583a8e8996dc1420ceb46"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/customers.csv",
+      "bytes": 828685,
+      "sha256": "56839b277ade615cfed62c96c8b0f913a560f7a21d80761ddef7845bf8f84c9f"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/duplicate_map.csv",
+      "bytes": 144428299,
+      "sha256": "4453b12a22c905934b1ecb18bde9b0b9a75565349b85916e5cf16b25059f2341"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 6189382,
+      "sha256": "a358099e473b562cc9e97a74b5481940fc68a06a6b500a350ddaed2d73de7d3a"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/row_decisions.csv",
+      "bytes": 207775848,
+      "sha256": "af0a641cddf97eb1515da0fd398c694fbfc49b11c58857a2a6b0986b8f6c54f1"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/customers.csv",
+      "bytes": 579422,
+      "sha256": "c91a1cccc0dd051ba9ff4a79ee40a23b3cdf594138663ee2224e32bae2ca1182"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/duplicate_map.csv",
+      "bytes": 61142876,
+      "sha256": "afbf50e353b2a8e1278b7af62b8443ed4bda48ea6eccf21a8334c4bc1246f898"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/invoice_decisions.csv",
+      "bytes": 2762011,
+      "sha256": "290c7cc643d043ad63048b271b1d9ff3f3cb4dd94870464fc3a204fd9136a4a9"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/row_decisions.csv",
+      "bytes": 91889660,
+      "sha256": "fa984c4a82184281ef9f55fb0ef3f0bde37f0e59900126785b30417541e8a010"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/customers.csv",
+      "bytes": 728133,
+      "sha256": "5bb2c50c477b4c545620fbc6a07db83f6851c837051ff91b040cde3763102cb4"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/duplicate_map.csv",
+      "bytes": 126728467,
+      "sha256": "232f7552e734ce4fde9883b67adb2e2e6827dc4b644aacb3eecd8d9516d3383b"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/invoice_decisions.csv",
+      "bytes": 5294844,
+      "sha256": "afa00935202d445d6825536dbfaa6a8d8b29f29235721aa4f8775d17908767b3"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/row_decisions.csv",
+      "bytes": 189990513,
+      "sha256": "39985f0fda93a52e735da6241d975148669c3105443e85a2ac00549fadde140e"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/output_guard.json",
+      "bytes": 12809,
+      "sha256": "32c37d8b6fd323f0b7ed9f092e7b794680ff349a7d68c9758da4edc5334d550b"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/root_manifest.json",
+      "bytes": 25360,
+      "sha256": "9e1e475d21ae643ac1390ffb4ffc6e7fd950c180f5db316046a1098c1a1dc283"
+    },
+    {
+      "path": "tests/test_uci_retail_ii.py",
+      "bytes": 4481,
+      "sha256": "5f4e814ebf8632fa19c133e063ae82cc4a0938db358e1d931b3934eea61d0d3a"
+    },
+    {
+      "path": "tests/test_uci_rfm_builder.py",
+      "bytes": 10095,
+      "sha256": "184a9eae1a1cf5fc105a72713a2ffcc9bf4c385d5bbcf11193cb19be655c555a"
+    },
+    {
+      "path": "tests/test_uci_rfm_contract.py",
+      "bytes": 9352,
+      "sha256": "a9c62bf0a44b01154c097c88c226241313a6517d223ac954b34fe9b3598e93a3"
+    },
+    {
+      "path": "tests/test_uci_rfm_temporal.py",
+      "bytes": 11081,
+      "sha256": "ecb5fa1864602d116793068a0ad6c445db368952f75929ae2509524441ce1f5c"
+    }
+  ],
+  "windows": [
+    {
+      "id": "T1",
+      "start_inclusive": "2009-12-01 00:00:00",
+      "cutoff_exclusive": "2010-12-01 00:00:00",
+      "days": 365,
+      "role": "reference_only_for_cutpoints"
+    },
+    {
+      "id": "T2",
+      "start_inclusive": "2010-12-01 00:00:00",
+      "cutoff_exclusive": "2011-12-01 00:00:00",
+      "days": 365,
+      "role": "retrospective_temporal_comparison_not_unseen_test"
+    }
+  ],
+  "evaluation": {
+    "role": "retrospective_descriptive_temporal_comparison_no_predictive_performance_or_business_effect_claim",
+    "reference": "main_T1_active_complete_only",
+    "minimum_reference_active_complete": 200,
+    "insufficient_reference": "descriptive_and_state_counts_only_no_cutpoints_or_scores_do_not_change_dates",
+    "cutpoint_probabilities": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+    ],
+    "quantile": "inverse_empirical_CDF_sorted_x_at_ceil_n_p_1_based_no_interpolation",
+    "quantile_endpoints": "p_0_is_minimum_p_1_is_maximum",
+    "cutpoint_cleanup": "unique_sorted_thresholds_strictly_less_than_reference_maximum",
+    "ties": "never_split_ties_by_ID_or_random_jitter",
+    "score": "j=count_thresholds_strictly_less_than_value; F_M=j+1; R=K-j; K=number_of_thresholds+1; equality_in_lower_value_bin",
+    "constant_axis": "K_1_score_1_report_degenerate",
+    "apply": "save_main_T1_cutpoints_once_apply_unchanged_to_T2_and_all_sensitivity_arms_no_T2_refit_or_best_arm_selection",
+    "descriptive_quantiles": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      0.99,
+      1
+    ],
+    "all_universe_reports": [
+      "universe_and_state_counts",
+      "5_by_5_state_transition_counts_on_U1",
+      "new_observed_keys_separately",
+      "unknown_customer_rows_and_amount_share_by_window",
+      "exclusion_and_duplicate_reconciliation_by_arm"
+    ],
+    "numeric_reports": [
+      "R_F_M_distribution_on_each_active_complete_population",
+      "F_ge_2_share_with_active_denominator",
+      "paired_T2_minus_T1_quantiles_on_both_active_complete",
+      "paired_absolute_change_P50_P90",
+      "paired_Spearman_with_average_tied_ranks",
+      "per_axis_exact_and_within_one_score_agreement",
+      "joint_tuple_exact_agreement",
+      "fixed_tuple_partition_ARI",
+      "per_axis_and_joint_transition_counts_and_T1_row_normalized_rates"
+    ],
+    "paired_panel": "U1_members_active_complete_at_both_T; always_report_n_over_U1_and_each_active_population_and_excluded_states",
+    "minimum_paired_for_correlations_and_ARI": 200,
+    "degenerate_metrics": "Spearman_null_if_either_axis_constant; ARI_null_if_zero_denominator; insufficient_n_metrics_null_with_reason; never_report_vacuous_100_percent",
+    "support_minimum": "max_50_and_ceiling_0_01_times_that_snapshot_active_complete_population",
+    "support_applies_to": "each_axis_bin_and_each_nonempty_joint_tuple_for_each_T_and_arm; zero_bins_report_empty; list_count_and_people_in_under_supported_groups",
+    "small_group_use": "no_group_level_business_claim_when_under_supported; do_not_merge_bins_or_change_thresholds_after_results",
+    "sensitivity_reports": "paired_same_T_same_customer_against_main_all_three_arms; M_delta_quantiles_total_delta_relative_delta_if_main_nonzero_score_agreement_and_support; common_universe_states_R_F_must_be_identical",
+    "temporal_pass_fail": "no_arbitrary_stability_pass_threshold_natural_behavior_change_is_not_model_failure",
+    "uncertainty_and_scope": "descriptive_sample_statistics_no_population_CI_no_claim_of_causal_effect_or_future_generalization",
+    "retuning": "no_window_threshold_seed_scope_or_arm_selection_using_T2; change_requires_new_version_and_retrospective_disclosure",
+    "new_training_or_G3_resampling": false
+  },
+  "details": {
+    "fit": "main/T1 active_complete only, one primary fit call; independent quantile recomputation is acceptance, not candidate selection",
+    "applications": "same saved cuts on all eight arm/snapshot customer files; no T2 refit",
+    "paired": "U1 members active_complete both snapshots; all four arms compared separately",
+    "raw_ledger": "main row decisions original raw rows restricted to each S,T; signed and positive amount missing-ID shares reported separately",
+    "accepted_build_summaries": "reuse byte-bound accepted exclusion/duplicate summaries for all arms, do not rebuild prior RFM",
+    "transitions": "sparse positive cells, full label and source denominator list, unlisted cells zero; empty row rates undefined",
+    "relative_M": "total relative difference and nearest-rank per-customer relative changes excluding main M=0",
+    "verification": "independent pandas/numpy inverted-CDF and searchsorted; scipy average-rank Spearman; sklearn ARI; own support/transitions/ledger calculations",
+    "float_tolerance": {
+      "relative": 1e-12,
+      "absolute": 1e-12
+    },
+    "counts_and_integer_money": "exact",
+    "hypothesis_role": "descriptive retrospective, no temporal pass/fail or business performance claim",
+    "serialization": "same UTF8 LF CSV null-empty booleans and compact JSON arrays as accepted builder"
+  },
+  "independent_libraries": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.6"
+  },
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.622137,
+    "test_ids": [
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ARI_hand_negative",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ARI_partition_not_label_agreement",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_JSON_audit_rejects_wrong_count_or_scope",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_JSON_float_tolerance_and_undefined_value",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_T2_or_sensitivity_reference_rejected",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_application_never_fits_or_mutates_thresholds",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_constant_Spearman_undefined",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_constant_axis_one_level",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_degenerate_ARI_null",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_empty_panel_rates_null_not_100",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_equal_cutpoint_stays_lower_value_bin_R_reversed",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_inactive_and_quarantine_have_no_scores",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_independent_empty_and_degenerate_metrics",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_independent_numpy_cutpoints_and_all_metrics",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ledger_missing_ID_signed_and_positive_shares",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_nearest_rank_hand_endpoints_no_interpolation",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_readback_catches_swapped_scores",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_reference_200_allowed",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_reference_insufficient_199",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_repeated_quantiles_remove_maximum_and_keep_ties",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_sensitivity_R_or_state_change_rejected",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_sensitivity_money_changes_and_zero_main_ratio",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_signed_delta_quantiles",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_small_panel_no_correlation_or_ARI",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_state_population_and_new_keys_not_dropped",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_support_at_50_allowed_49_flagged",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_support_floor_ceiling_population",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_tied_rank_Spearman_hand_calculation",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_transition_denominators_and_empty_rows",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_universe_loss_rejected"
+    ]
+  }
+}

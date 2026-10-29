@@ -1,8 +1,56 @@
 # 專案從起始到目前的進度
 
-這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與顧客分析 → 推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段：資料環境、SQL 與 EDA 初版完成；延遲預測與評論低評分預測已整理成離線研究交付，正式適用待新資料；RFM 已完成真實資料集與描述，分群切點尚未對真實資料執行。
+這個專案想完成的完整流程是：讀懂電商資料 → 建立資料庫 → 找出商業現象 → 預測與顧客分析 → 推薦 → 透過 API、前端與 Dashboard 展示。目前完成的是前半段：資料環境、SQL 與 EDA 初版完成；延遲預測與評論低評分預測已整理成離線研究交付，正式適用待新資料；RFM 的 Olist G2／G3 與 UCI 跨期描述已整理為離線研究交付，UCI v1 已封存；小組支援及營運限制保留。Retailrocket 官方來源、推薦契約v1與推薦資料集／獨立逐格反讀已完成；P0已完成一次真實train擬合、完整validation與獨立逐query反讀；C1已完成一次train fit、完整validation配對／2000次bootstrap與獨立反讀，C1／P0研究交付及證據保存亦完成；Stage 11 的 D1 已完成一次真實 train 擬合、完整三臂 validation、主要 bootstrap 與獨立逐筆驗收，三臂研究交付與證據保存亦完成；validation 已曝光，預留測試仍 locked。
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
+
+## Stage 12 第 4 輪：一次真實 validation（已依時限停止）
+
+| 工作 | 狀態 | 實際結果 |
+| --- | --- | --- |
+| 啟動前／停止後來源核對 | 通過 | 各核 358 份來源、61 份準備產物與環境，原 gates locked |
+| 唯一一次主要 train／validation | 已產出，未完整驗收 | 166,897 query、2,000 bootstrap 實數列保存；1 次執行、0 重跑 |
+| 完整獨立反讀／K1−C1 | 未完成／無驗收結論 | 14:34:09 到使用者整輪 3 小時 30 分鐘上限，外部停止；沒有 acceptance／output_guard，獨立完成筆數未知 |
+| 資源與保存 | 完成 | worker 抽查 RSS 峰值 1.730659 GiB、目錄 2.718260 GiB；原規格／程式未改，全部部分產物原地保留並列 SHA |
+| 最終選模／重擬合／test | 未啟動 | 另行規劃，預留測試 locked |
+
+見[停止與證據界線](STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md)及[實際保存報告](../reports/stage12/retailrocket_session_knn_v1_validation_attempt.json)。本版 partial 不重跑；後續完整反讀成本檢視或新版需另行規劃。
+
+## Stage 12 第 3 輪：真實 validation 入口驗收與凍結
+
+| 工作 | 狀態 | 實際結果 |
+| --- | --- | --- |
+| 來源 loader 與三臂原值配對 | 完成 | 固定 15 份資料／對照輸入；原 key、history、target、分母、fit ID 與舊值逐筆核對 |
+| 完整獨立反讀 | 合成驗收通過 | 7 查詢案例與 501 鄰居案例；全 session／全候選、SQL membership／postings／lineage、current／next basket、每組 2,000 bootstrap |
+| 單次入口／測試 | 完成 | 83 項通過（34 新增＋49 既有）；失敗／中斷保留且拒絕重播，成功重入只核 SHA |
+| 來源／環境凍結 | 完成 | 358 份來源與直接輸入 SHA；實作、oracle、測試、schema、三臂 fit ID、固定切片及環境綁定 |
+| 真實 validation／最終選模／refit／test | 未執行 | 0 真實資料列語意解析、0 K1 index／排名／指標／bootstrap；不重算成本，test locked |
+
+見[入口與限制](STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md)、[驗收](../reports/stage12/retailrocket_session_knn_v1_validation_entry_acceptance.json)及[凍結](../reports/stage12/retailrocket_session_knn_v1_validation_entry_specification.json)。下一步依後續明確要求決定是否執行一次真實開發 validation；合成通過不保證全量 oracle 能在 6 小時內完成。
+
+## Stage 12 第 2 輪：K1 實作、合成驗收與成本
+
+| 工作 | 狀態 | 實際結果 |
+| --- | --- | --- |
+| 核心／四臂／守門 | 完成 | 49 項測試通過，Jaccard 分母、self-session、499／500／501 鄰居、完整候選與未來注入均核對 |
+| 獨立 oracle | 合成完整通過 | 7 查詢與 501 鄰居邊界兩組；SQL 重建所有 membership／postings，全候選排序及巢狀輸出、每組 2,000 bootstrap 反讀 |
+| 真實 train-only 成本 | 兩遍通過 | 1,180,256 sessions／1,823,018 baskets／1,587,436 個 session-item；最大集合 389、最大 posting 1,736 |
+| 完整對帳／資源 | 完成 | 1,180,256 列／7,081,536 格；成本 138.547 秒，準備期抽查 RSS 0.045383 GiB |
+| 真實 validation／final／test | 未執行 | 0 真實 K1 索引、0 排名／效能／bootstrap；下一步另行驗收來源 loader 與真實入口。成本不能保證完整評估耗時，test locked |
+
+見[實作](STAGE12_RETAILROCKET_KNN_IMPLEMENTATION_V1.md)、[正式驗收](../reports/stage12/retailrocket_session_knn_v1_implementation_acceptance.json)。
+
+## Stage 12 第 1 輪：時間盤點與 K1 規格
+
+| 工作 | 狀態 | 實際結果與下一步 |
+| --- | --- | --- |
+| 同來源後續時間 | 盤點完成；待資料 | Retailrocket API currentVersionNumber=2，四檔名稱／大小與既有清單一致；未確認後續事件，新驗收來源 0 |
+| 外部時間來源 | 連結／metadata 已查核，內容待驗收 | 多品類官方七個 gzip HEAD 200、標頭合計 17,668,345,567 bytes；化妝品 API 五檔共 2,434,277,452 bytes。未下載、未混入 Retailrocket |
+| 候選與主要問題 | K1 規格完成 | 精確 Jaccard session-kNN、500 鄰居；唯一主要 K1−C1 NDCG，其餘對照／指標只描述；validation 已曝光 |
+| 驗收 | metadata／守門測試完成 | 315 份來源 SHA、64 項規格檢查、12 項測試通過。此為規格輪紀錄；第 2 輪已完成合成模型驗收與 train-only 成本 |
+| 最終選模／refit／test | 留待另行規劃 | 全部 0 次；六份原 gate 保留 locked，不建立新 final／test／usage 產物 |
+
+完整理由、限制與操作見[Stage 12 規格](STAGE12_TEMPORAL_AVAILABILITY_AND_KNN_SPEC_V1.md)、[來源盤點](../reports/stage12/retailrocket_stage12_inventory_v1.json)及[凍結收據](../reports/stage12/retailrocket_session_knn_v1_specification.json)。
 
 ## 整體階段
 
@@ -13,12 +61,17 @@
 | Stage 3：商業 EDA | 分析每月訂單與營收、品類、付款、評論、配送時間、延遲比例與顧客地區，產出八張分析圖 | 初版完成 |
 | Stage 4：延遲預測 | 41輪研究：時間回測、每日10%提醒、五種子穩定性、共同漏報、模型卡、單日交付驗收與資料交接清單 | 離線研究交付；全量名冊／時鐘／版本／日結與事件訊號待資料 |
 | Stage 5：評論低評分預測 | 16輪研究：H60首答資料集、四欄基線、三欄月份消融、只讀診斷、時間窗盤點、交接清單與模型卡 | 離線研究交付；四欄保留對照、三欄未支持替換，新驗證窗待資料 |
-| Stage 6：RFM | 9輪研究：輸入盤點、資料集契約與建置、評估規格、真實描述（G1）、G2規則候選與真實執行準備 | 進行中；真實G2／G3未執行，尚未分群 |
+| Stage 6：RFM | 18輪：Olist G2／G3、UCI 建置／跨期／敏感度、研究交付及封存 | 離線研究交付完成；UCI v1 ZIP、清單與 CRC／SHA 驗收；UCI 87／83 及 Olist 25 個小組不足、營運適用待資料 |
 | Stage 7：Dashboard | 展示分析與模型結果 | 暫緩，先確認延遲模型的適用程度 |
-| Stage 8–13：Retailrocket 與推薦 | 行為分析、熱門商品、共現與個人化推薦 | 尚未開始 |
+| Stage 8：Retailrocket 資料 | 官方來源、凍結v1、去重／排除／跨界帳與16CSV逐格驗收 | 資料完成；三窗標註query 642,619／166,897／92,086，來源及資料反讀保持原狀 |
+| Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
+| Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
+| Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
+| Stage 12：session-kNN K1 | 一次真實 validation 已依時限停止 | 主要輸出 166,897 query／2,000 bootstrap；完整反讀未完成、K1−C1 未驗收；規格未改、0 重跑、test locked |
+| Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
-Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定放在 `.runtime/`，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
+Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定保留在專案內的 `shop-mysql-runtime/`，`.runtime/` 為既有相容連結，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
 
 ## 目前卡在哪裡、下一步
 
@@ -26,12 +79,54 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | --- | --- | --- |
 | Stage 4 | 現有 Olist 匯出沒有全量核准名冊、原入庫／版本時鐘、日結證據，也沒有取消／結案與承諾版本的取得時鐘 | 依[交接清單](templates/daily_data_handoff/README.md)取得同ID證據後逐項驗收；沒有新資料就維持每日10%與五種子、0訓練、0新效能結論 |
 | Stage 5 | 2018年5–9月缺 H60 觀察完成、入庫／評分版本與新標籤角色證據，可啟用新驗證窗為 0 | 依[新時間窗交接清單](templates/review_window_handoff/README.md)取得證據；不再對同三個開發月挑改動 |
-| Stage 6 | 真實 G2 的來源、輸出與反讀流程已備妥，尚未決定執行 | 決定是否依固定入口執行一次真實 G2 並完整反讀；結果不合格也不改規則，不自動進 G3 |
+| Stage 6 | 離線研究交付與 UCI v1 封存完成；小組支援、歷史可得／完整性／身分與業務證據仍限制營運 | 依[交付與適用說明](STAGE6_RFM_RESEARCH_HANDOFF.md)保存 v1，來源或規則變更另立版本；Olist 接續仍按交接清單待資料，Retailrocket 推薦資料已另行建置驗收，P0真實開發與共現配對規格已完成，共現實作、成本、真實入口與配對validation也已完成，研究交付與證據保存亦已完成，後續新模型另立規格 |
 | Stage 7 | 延遲模型適用程度尚未確認 | 先固定每日10%預算改善延遲辨識，確認適用程度後再做 Dashboard 視覺化 |
+| Stage 8–13 | D1三臂 validation、研究交付與證據保存完成；仍是已曝光開發窗，冷商品、小組及回溯界線成立 | Stage 12 單次真實 validation 已依使用者 3 小時 30 分鐘時限停止；完整反讀未完成，K1−C1 無驗收結論，部分證據保留且不重跑。後續成本檢視或新版另行規劃。原三臂版本及 validation 已曝光聲明保留，最終選模／refit／test 另行規劃，預留測試繼續 locked |
+
+## Stage 11：D1 候選與比較研究歷程
+
+| 本輪 | 做了什麼 | 實際結果與限制 |
+| --- | --- | --- |
+| 1. 候選盤點與 D1／C1／P0 規格凍結 | 五類候選選一個 D1；固定有向相鄰 session 二元關聯、共用 S_i／H(q)、三臂完整名冊與主要 D1−C1 bootstrap；D1−P0 僅描述 | 199 份來源 SHA、228 項規格檢查、109 項規格／I/O 守門測試通過；來源與 JSON 反讀通過。0 新 fit／排名／指標／bootstrap／真實資料列解析／成本掃描；D1 未實作，P0／C1 原狀、test locked。見[規格與下一步](STAGE11_RETAILROCKET_DIRECTED_SPEC_V1.md)及[收據](../reports/stage11/retailrocket_directed_v1_spec_acceptance.json) |
+| 2. D1／三臂／bootstrap 實作、成本與真實入口 | 精確有向計數、原控制逐筆重用、主要 D1−C1 新抽樣值、完整 oracle；合成通過後 train-only 兩遍成本核對並凍結入口 | 60 項測試、217 份來源凍結、兩組正式合成 oracle 全過；1,823,018 train baskets／1,180,256 sessions；相鄰 642,762 對、原始有向發射 493,669 次、session 去重邊量 479,231，重複 14,438 次；1,180,256 列／10,622,304 格成本反讀一致。0 真實 fit／排名／效能，P0／C1 原狀、test locked。見[實作](STAGE11_RETAILROCKET_DIRECTED_IMPLEMENTATION_V1.md)及[收據](../reports/stage11/retailrocket_directed_v1_implementation_acceptance.json) |
+| 3. 一次真實 D1／C1／P0 validation | 單次 train fit、166,897 查詢三臂配對、2,000 次主要 D1−C1 bootstrap 及獨立全反讀 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；2377.547000 秒、抽查 RSS 1.331944 GiB，未超限。P0／C1 原狀、test locked；冷商品、小組及回溯限制保留。見[結果與適用](STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md)及[驗收](../reports/stage11/retailrocket_directed_v1_validation_acceptance.json) |
+| 4. 三臂研究交付與證據保存 | 固定既有結果、適用與限制，建立獨立新 ZIP 與收據 | 144 個 payload 檔＋1 份 manifest，共 145 個 ZIP 成員，649,850,977 bytes（619.746 MiB）；全部成員 CRC／SHA-256 反讀通過，另列 159 份包外依賴；44 項保存測試通過，0 新研究計算；三臂與舊 ZIP 原狀、test locked。見[交付說明](STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md)及[保存收據](../reports/stage11/retailrocket_three_arm_v1_research_release.json) |
+
+P0／C1 validation 已在候選選擇前曝光；方向與鄰近性是共同變更，不能單獨歸因。冷商品、小組及回溯限制不變；Stage 12 單次真實 validation 已依使用者 3 小時 30 分鐘時限停止；完整反讀未完成，K1−C1 無驗收結論，部分證據保留且不重跑。後續成本檢視或新版另行規劃。原三臂版本及 validation 已曝光聲明保留，最終選模／refit／test 另行規劃，預留測試繼續 locked。
+
+## Stage 10：共現與 P0 配對比較研究歷程
+
+| 順序 | 做了什麼 | 實際結果與限制 |
+| --- | --- | --- |
+| 1. C1／P0 配對規格 v1 凍結 | 2026-10-28 固定 train session 二元共現、單商品支援、query 同 session 因果歷史、有理分數與 P0 回退；同 166,897 查詢／候選／完整分母、訪客成組 2,000 次區間規格 | 82 來源 SHA、131 項一致性檢查、64 項規格測試通過；來源及凍結 JSON 反讀通過，0 新 fit／排名／指標／bootstrap／CSV 列解析。P0 validation 已曝光、小組不足、回溯限制保留；test locked。見[規格與下一步](STAGE10_RETAILROCKET_COOCCURRENCE_PAIRED_SPEC_V1.md) |
+| 2. C1／配對／bootstrap 實作與入口 | 實作精確計數／歷史／排序、重用P0的完整配對與訪客重抽樣；獨立SQL／有理排序／Decimal指標／全部抽樣反讀，盤點train成本並固定資源 | 55 項測試、104 份來源凍結與兩組正式合成 oracle 全過；train 1,180,256 sessions、2,292,165 pair發射，1,180,256列／5,901,280格成本帳一致；RSS8GiB／disk20GiB／6小時，0真實C1 fit或validation出分，test locked。見[實作與操作](STAGE10_RETAILROCKET_COOCCURRENCE_IMPLEMENTATION_V1.md) |
+| 3. 一次真實C1／P0配對validation | 單次train fit、166,897查詢及2,000次訪客成組bootstrap，SQL／有理排序／Decimal指標及全抽樣獨立反讀 | C1 NDCG@10 0.106400714，配對差 0.104718885；166,897 validation／2,000次bootstrap及獨立反讀完成，test locked；抽查RSS 1.034683GiB、4197.172000秒，未超限；P0原狀，小組／回溯限制保留。見[結果與適用](STAGE10_RETAILROCKET_COOCCURRENCE_VALIDATION_V1.md) |
+| 4. C1／P0研究交付與證據保存 | 整理適用／缺件、全部測試閘門；保存模型／逐筆／抽樣／oracle、凍結程式與來源身分 | 102個payload檔＋1份manifest，257,447,194 bytes（245.521 MiB）；全部CRC／SHA讀回通過，另列98份包外但仍在shop內依賴；29項保存I/O測試通過，P0原狀、test locked；0新fit／排名／bootstrap／指標重算。見[交付](STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md)及[收據](../reports/stage10/retailrocket_c1_p0_v1_research_release.json) |
+
+C1／P0 v1交付已完成；後續 Stage 11 的 D1 候選與規格已另外凍結，validation 已曝光。不覆寫 v1 或挑組調參，最終選模／refit／test 仍未執行。
+
+## Stage 9：熱門baseline與完整候選評估研究歷程
+
+| 順序 | 做了什麼 | 實際結果與限制 |
+| --- | --- | --- |
+| 1. 執行規格v1凍結 | 2026-10-28 固定單一canonical view次數P0、train／train＋validation分離、冷啟動零分、全候選NDCG@10與分母、預留測試八項啟用條件 | 47來源SHA、38項規格檢查、28項反例測試通過；0真實fit／排名／指標，test locked。驗證56／53與測試33／29多商品query支援不足保留。見[規格與下一步](STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md) |
+| 2. P0／評估器實作、合成驗收與開發入口 | 2026-10-28 實作唯讀次數、因果精確top10、完整分母指標／切片；SQL／Decimal／Fraction獨立oracle及來源／階段守門 | 54項測試、兩個正式合成case共35列／226格及JSON反讀通過，61來源／環境固定；0真實fit／排名，test locked。見[實作與界線](STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md) |
+| 3. 一次真實P0開發與完整反讀 | 2026-10-28 依凍結入口一次主train fit、一次獨立SQL count audit、全部validation及高精度oracle反讀 | 1,823,388 view／198,946正次數商品；166,897 query NDCG@10 0.001681829、HitRate 0.418222%；699,637列／5,738,596格一致，test locked。見[真實結果](STAGE9_RETAILROCKET_POPULARITY_DEVELOPMENT_V1.md) |
+
+P0 對照已保存，C1／P0 配對比較規格另於 Stage 10 凍結；沿用資料 v1 與同名冊／候選／分母，實作及合成驗收與真實入口已完成，C1真實配對亦已完成。兩者仍只有開發驗證成績，沒有最終重估或預留測試分數，原八項啟用條件及小組限制保留。
+
+## Stage 8：Retailrocket 與推薦資料研究歷程
+
+| 順序 | 做了什麼 | 真實結果與限制 |
+| --- | --- | --- |
+| 1. 官方來源與契約 v1 | 2026-10-28 下載發布者 Kaggle v2，完整掃四份 CSV，獨立 pandas 核對並固定推薦任務／時間／候選與評估 | 2,756,101事件、20,275,902屬性列、1,669分類；460筆重複超額列、2,132組同毫秒多商品、30個分類值不在樹中；44項核對通過。CC BY-NC-SA 4.0 非商業等條件保留，0推薦樣本／模型／成績。見[來源、契約與下一步](STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md) |
+| 2. v1推薦資料建置及獨立反讀 | 30項合成測試、17來源固定後單次正式建置；保留去重／排除、session／query／target、事前目錄與屬性未知診斷 | 三窗query 642,619／166,897／92,086；16CSV共20,093,122列／221,676,649格全部獨立核對，0模型／排名成績。見[結果與限制](STAGE8_RETAILROCKET_BUILD_V1.md) |
+
+v1 訓練05-04至08-01前、驗證8月、預留回溯測試09-01至09-18前，年份2015；暖身與部分末日另列。後續 Stage 9 已完成 P0 實作、真實開發及反讀，Stage 10 共現配對規格已凍結；原始窗口筆數與已驗收query分母分開。Stage 6 封存不重建，原小組不足與回溯限制保留。
 
 ## Stage 6：RFM 研究歷程
 
-快照固定 S=2017-09-01、T=2018-09-01；M 是商品毛額，不是淨營收。關卡依序為 G0 版本與資格、G1 只讀描述、G2 規則切點候選、G3 方法敏感度；即使全部通過，營運用途仍待新資料驗收。
+Olist 快照固定 S=2017-09-01、T=2018-09-01；M 是商品毛額，不是淨營收。關卡依序為 G0 版本與資格、G1 只讀描述、G2 規則切點候選、G3 方法敏感度；即使全部通過，營運用途仍待新資料驗收。
 
 | 順序 | 做了什麼、為什麼做 | 實際發現與限制 |
 | --- | --- | --- |
@@ -44,6 +139,15 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | 7. 一次真實只讀描述（G1） | 依凍結入口執行一次描述，再以 verify_completed 完整反讀 | F=1 占 97.516777%、F 的 IQR=0；R 中位 173.51 天、M 中位 BRL 89.80；776,807 格名冊與 244 個聚合值反讀一致。0切點／分群。見[真實描述結果](STAGE6_RFM_DESCRIPTION_RESULTS.md) |
 | 8. G2 規則候選實作 | 實作 ties 不拆、重複切點去重、1–5 級與每軸支援門檻，合成驗收 | 核心31＋入口29＝60項全過；F 常數只得1級、每箱99人的候選都判不合格；同ID重現100%。真實 G2 未執行。見[G2 實作](STAGE6_RFM_RULE_CANDIDATE_IMPLEMENTATION.md) |
 | 9. G2 真實執行準備 | 凍結 57 份來源、完整同ID、私有四檔／公開聚合與反讀契約 | sources17＋outputs27＋prepare24＝68項全過（75.543972秒）；真實資料只核 metadata／hash，未解析 CSV 或估切點。見[G2 執行準備](STAGE6_RFM_RULE_CANDIDATE_EXECUTION.md) |
+| 10. v2 重建與真實 G2 | 本機找不到原私有資料，以相同來源另建 v2，逐格獨立核對後單次執行 G2 | 3,082,480 格資料核對通過；R／F／M 5／2／5 級，50 組中 25 組支援不足；161 測通過，G3 未執行。見[v2 結果與保存](STAGE6_RFM_REBUILD_V2.md) |
+| 11. 五種子 G3 同快照敏感度 | 固定五種子各抽 80% 估切點、回套 72,124 人；獨立核樣本、分配與精確 ARI | 五種子全過；R／F／M 最差一致率 99.6631%／100%／99.8267%，最差 ARI 0.990675；每次 25 個小組支援不足。26 測通過，見[G3 結果](STAGE6_RFM_G3_V2.md) |
+| 12. 第二時間快照與跨期資料盤點 | 核原九表及 ZIP 副本、時間／鍵／明細覆蓋，列交接缺件；未建 T2 RFM | 26 個副本每表僅 1 版；T 後 20 筆購買為 19 取消／1 出貨中，0 合格新增單；59 筆後期送達皆舊單。15 測及 83 項獨立聚合核對通過，第二快照 pending_data，見[盤點與下一步](STAGE6_RFM_TEMPORAL_DATA_INVENTORY.md) |
+| 13. Olist 後期公開來源與替代資料可用性 | 查發布者／API 與三個候選；實測 HTTP／檔案片段，未下載完整包或分析個體 | 未找到合格 Olist 延伸；UCI ZIP／REES46 gzip 各讀 4,096 bytes，dunnhumby 為申請後寄連結。首選 UCI 做新回溯研究；REES46 期間／授權及 dunnhumby 取得／條款待核，見[查核結果](STAGE6_RFM_PUBLIC_SOURCE_SEARCH.md) |
+| 14. UCI 官方全檔品質與跨期可行性 | 下載完整 ZIP、兩表八欄解析，核缺值／發票／取消／金額／月別與探索窗口 | 1,067,371 筆；顧客缺值 243,007，重複多餘列 34,335，83 張時間衝突；候選 5,875 顧客。14 測、8,538,968 格及 215 項核對通過；可另立回溯研究，正式契約未凍結，見[完整結果](STAGE6_UCI_RETAIL_II_INTAKE.md) |
+| 15. UCI 回溯 RFM 契約 v1 凍結 | 固定兩個不重疊年度窗口、去重／品質隔離／顧客／取消／千分之一 GBP、四口徑及 T1 切點套 T2 評估 | 15 來源、35 契約檢查與 38 合成測試通過（0.204402 秒）；0 真實列重算／RFM／切點／跨期成績，見[契約與下一步](STAGE6_UCI_RFM_CONTRACT_V1.md) |
+| 16. UCI v1 資料建置與獨立逐格驗收 | 四口徑、兩快照及全部去重／逐列／發票／顧客帳；原 XLSX XML→獨立 SQL 核算 | 32 CSV、12,720,628 筆／128,416,372 格一致；30 測通過；T1／T2 完整活躍 4,232／4,269，0 切點／跨期成績，見[建置與下一步](STAGE6_UCI_RFM_BUILD_V1.md) |
+| 17. UCI v1 單次固定切點、跨期與小組支援 | main／T1 單次估切點，八組固定套用；完整名冊、配對變化、三敏感度與支援檢查 | 配對 2,663、tuple 一致 10.8524%、ARI 0.085655；主口徑 87／83 小組不足。30 測、533,398 格及 59,798 JSON 欄值核對通過；見[結果與限制](STAGE6_UCI_RFM_TEMPORAL_V1.md) |
+| 18. Stage 6 研究交付與 UCI v1 封存 | 整理兩研究線、數字角色、適用／缺件與操作；UCI 必要來源／資料／結果打包並逐檔讀回 | 離線研究交付完成；ZIP、manifest、CRC／SHA 驗收收據已存，小組不足及回溯限制保留；0 新 RFM／切點／指標／訓練，見[交付說明](STAGE6_RFM_RESEARCH_HANDOFF.md)及[封存收據](../reports/stage6/uci_rfm_v1_research_release.json) |
 
 ## Stage 5：評論低評分預測研究歷程
 

@@ -1,0 +1,274 @@
+{
+  "status": "built_and_independently_accepted",
+  "contract": {
+    "path": "docs/contracts/uci_rfm_v1.json",
+    "bytes": 15463,
+    "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+  },
+  "execution_specification": {
+    "path": "reports/stage6/uci_rfm_build_v1_specification.json",
+    "bytes": 10667,
+    "sha256": "5d67ebfed8f13e88a777aea5b3805ecbb1da859c4726b5919dc16a4386952225"
+  },
+  "datasets": {
+    "main/T1": {
+      "prefix_rows": 502938,
+      "distinct_groups": 496394,
+      "duplicate_excess_rows": 6544,
+      "universe": 4336,
+      "states": {
+        "active_complete": 4232,
+        "active_with_quarantine": 30,
+        "inactive_with_quarantine": 4,
+        "observed_no_eligible_history": 70
+      },
+      "primary_reasons": {
+        "cancellation_document": 9877,
+        "duplicate_excess": 6420,
+        "eligible_paid_line": 385514,
+        "header_conflict": 2409,
+        "other_adjustment_document": 3,
+        "unknown_customer": 98685,
+        "zero_price_free_line": 30
+      },
+      "prefix_unknown_customer_rows": 100207,
+      "prefix_signed_amount_milli_GBP": 9161996184,
+      "history_eligible_invoices": 18403,
+      "window_eligible_invoices": 18403,
+      "quarantined_invoices": 2097,
+      "window_quarantined_invoices": 2097,
+      "window_partial_M_milli_GBP": 8469704674,
+      "window_complete_active_M_milli_GBP": 8234251454,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "duplicate_sensitivity/T1": {
+      "prefix_rows": 502938,
+      "distinct_groups": 496394,
+      "duplicate_excess_rows": 0,
+      "universe": 4336,
+      "states": {
+        "active_complete": 4232,
+        "active_with_quarantine": 30,
+        "inactive_with_quarantine": 4,
+        "observed_no_eligible_history": 70
+      },
+      "primary_reasons": {
+        "cancellation_document": 9877,
+        "eligible_paid_line": 391934,
+        "header_conflict": 2409,
+        "other_adjustment_document": 3,
+        "unknown_customer": 98685,
+        "zero_price_free_line": 30
+      },
+      "prefix_unknown_customer_rows": 100207,
+      "prefix_signed_amount_milli_GBP": 9161996184,
+      "history_eligible_invoices": 18403,
+      "window_eligible_invoices": 18403,
+      "quarantined_invoices": 2097,
+      "window_quarantined_invoices": 2097,
+      "window_partial_M_milli_GBP": 8502228834,
+      "window_complete_active_M_milli_GBP": 8266085034,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "code_sensitivity/T1": {
+      "prefix_rows": 502938,
+      "distinct_groups": 496394,
+      "duplicate_excess_rows": 6544,
+      "universe": 4336,
+      "states": {
+        "active_complete": 4232,
+        "active_with_quarantine": 30,
+        "inactive_with_quarantine": 4,
+        "observed_no_eligible_history": 70
+      },
+      "primary_reasons": {
+        "cancellation_document": 9877,
+        "duplicate_excess": 6420,
+        "eligible_paid_line": 385514,
+        "header_conflict": 2409,
+        "other_adjustment_document": 3,
+        "unknown_customer": 98685,
+        "zero_price_free_line": 30
+      },
+      "prefix_unknown_customer_rows": 100207,
+      "prefix_signed_amount_milli_GBP": 9161996184,
+      "history_eligible_invoices": 18403,
+      "window_eligible_invoices": 18403,
+      "quarantined_invoices": 2097,
+      "window_quarantined_invoices": 2097,
+      "window_partial_M_milli_GBP": 8313611630,
+      "window_complete_active_M_milli_GBP": 8090927870,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "combined_sensitivity/T1": {
+      "prefix_rows": 502938,
+      "distinct_groups": 496394,
+      "duplicate_excess_rows": 0,
+      "universe": 4336,
+      "states": {
+        "active_complete": 4232,
+        "active_with_quarantine": 30,
+        "inactive_with_quarantine": 4,
+        "observed_no_eligible_history": 70
+      },
+      "primary_reasons": {
+        "cancellation_document": 9877,
+        "eligible_paid_line": 391934,
+        "header_conflict": 2409,
+        "other_adjustment_document": 3,
+        "unknown_customer": 98685,
+        "zero_price_free_line": 30
+      },
+      "prefix_unknown_customer_rows": 100207,
+      "prefix_signed_amount_milli_GBP": 9161996184,
+      "history_eligible_invoices": 18403,
+      "window_eligible_invoices": 18403,
+      "quarantined_invoices": 2097,
+      "window_quarantined_invoices": 2097,
+      "window_partial_M_milli_GBP": 8346107140,
+      "window_complete_active_M_milli_GBP": 8122732800,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "main/T2": {
+      "prefix_rows": 1041845,
+      "distinct_groups": 1007789,
+      "duplicate_excess_rows": 34056,
+      "universe": 5914,
+      "states": {
+        "active_complete": 4269,
+        "active_with_quarantine": 26,
+        "inactive_complete": 1552,
+        "inactive_with_quarantine": 2,
+        "observed_no_eligible_history": 65
+      },
+      "primary_reasons": {
+        "cancellation_document": 19134,
+        "duplicate_excess": 25772,
+        "eligible_paid_line": 759594,
+        "header_conflict": 5793,
+        "other_adjustment_document": 6,
+        "unknown_customer": 231476,
+        "zero_price_free_line": 70
+      },
+      "prefix_unknown_customer_rows": 235143,
+      "prefix_signed_amount_milli_GBP": 18853564558,
+      "history_eligible_invoices": 36127,
+      "window_eligible_invoices": 17724,
+      "quarantined_invoices": 3445,
+      "window_quarantined_invoices": 1348,
+      "window_partial_M_milli_GBP": 8350811634,
+      "window_complete_active_M_milli_GBP": 8029057574,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "duplicate_sensitivity/T2": {
+      "prefix_rows": 1041845,
+      "distinct_groups": 1007789,
+      "duplicate_excess_rows": 22523,
+      "universe": 5914,
+      "states": {
+        "active_complete": 4269,
+        "active_with_quarantine": 26,
+        "inactive_complete": 1552,
+        "inactive_with_quarantine": 2,
+        "observed_no_eligible_history": 65
+      },
+      "primary_reasons": {
+        "cancellation_document": 19134,
+        "duplicate_excess": 14465,
+        "eligible_paid_line": 770901,
+        "header_conflict": 5793,
+        "other_adjustment_document": 6,
+        "unknown_customer": 231476,
+        "zero_price_free_line": 70
+      },
+      "prefix_unknown_customer_rows": 235143,
+      "prefix_signed_amount_milli_GBP": 18853564558,
+      "history_eligible_invoices": 36127,
+      "window_eligible_invoices": 17724,
+      "quarantined_invoices": 3445,
+      "window_quarantined_invoices": 1348,
+      "window_partial_M_milli_GBP": 8373877534,
+      "window_complete_active_M_milli_GBP": 8050873344,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "code_sensitivity/T2": {
+      "prefix_rows": 1041845,
+      "distinct_groups": 1007789,
+      "duplicate_excess_rows": 34056,
+      "universe": 5914,
+      "states": {
+        "active_complete": 4269,
+        "active_with_quarantine": 26,
+        "inactive_complete": 1552,
+        "inactive_with_quarantine": 2,
+        "observed_no_eligible_history": 65
+      },
+      "primary_reasons": {
+        "cancellation_document": 19134,
+        "duplicate_excess": 25772,
+        "eligible_paid_line": 759594,
+        "header_conflict": 5793,
+        "other_adjustment_document": 6,
+        "unknown_customer": 231476,
+        "zero_price_free_line": 70
+      },
+      "prefix_unknown_customer_rows": 235143,
+      "prefix_signed_amount_milli_GBP": 18853564558,
+      "history_eligible_invoices": 36127,
+      "window_eligible_invoices": 17724,
+      "quarantined_invoices": 3445,
+      "window_quarantined_invoices": 1348,
+      "window_partial_M_milli_GBP": 8205904090,
+      "window_complete_active_M_milli_GBP": 7893205470,
+      "row_invoice_customer_history_amount_reconciled": true
+    },
+    "combined_sensitivity/T2": {
+      "prefix_rows": 1041845,
+      "distinct_groups": 1007789,
+      "duplicate_excess_rows": 22523,
+      "universe": 5914,
+      "states": {
+        "active_complete": 4269,
+        "active_with_quarantine": 26,
+        "inactive_complete": 1552,
+        "inactive_with_quarantine": 2,
+        "observed_no_eligible_history": 65
+      },
+      "primary_reasons": {
+        "cancellation_document": 19134,
+        "duplicate_excess": 14465,
+        "eligible_paid_line": 770901,
+        "header_conflict": 5793,
+        "other_adjustment_document": 6,
+        "unknown_customer": 231476,
+        "zero_price_free_line": 70
+      },
+      "prefix_unknown_customer_rows": 235143,
+      "prefix_signed_amount_milli_GBP": 18853564558,
+      "history_eligible_invoices": 36127,
+      "window_eligible_invoices": 17724,
+      "quarantined_invoices": 3445,
+      "window_quarantined_invoices": 1348,
+      "window_partial_M_milli_GBP": 8228609990,
+      "window_complete_active_M_milli_GBP": 7914661240,
+      "row_invoice_customer_history_amount_reconciled": true
+    }
+  },
+  "universe_relation": {
+    "T1_subset_T2": true,
+    "new_observed_T2_keys": 1578
+  },
+  "scope": {
+    "snapshots": 2,
+    "arms": 4,
+    "cutpoints": 0,
+    "temporal_scores": 0,
+    "models_fitted": 0
+  },
+  "limits": [
+    "Retrospective event-time proxy; no visibility/revision clock or completion watermark.",
+    "Customer key non-reuse is an assumption; missing identities remain unlinked.",
+    "Money is positive line gross proxy, not product/net revenue.",
+    "Olist 25 under-supported groups retained; Stage4 daily10 percent; Dashboard deferred."
+  ]
+}

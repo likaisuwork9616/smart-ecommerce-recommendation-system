@@ -1,0 +1,180 @@
+{
+  "status": "independent_raw_zip_to_every_csv_cell_passed",
+  "files": {
+    "row_decisions.csv": {
+      "rows": 2756101,
+      "cells": 33073212
+    },
+    "qualified_events.csv": {
+      "rows": 2754113,
+      "cells": 24787017
+    },
+    "duplicate_map.csv": {
+      "rows": 460,
+      "cells": 2300
+    },
+    "exclusions.csv": {
+      "rows": 1528,
+      "cells": 18336
+    },
+    "baskets.csv": {
+      "rows": 2662222,
+      "cells": 21297776
+    },
+    "sessions.csv": {
+      "rows": 1755246,
+      "cells": 12286722
+    },
+    "query_decisions.csv": {
+      "rows": 2662222,
+      "cells": 55906662
+    },
+    "queries.csv": {
+      "rows": 901602,
+      "cells": 18933642
+    },
+    "boundary_ledger.csv": {
+      "rows": 1742,
+      "cells": 15678
+    },
+    "catalog.csv": {
+      "rows": 234795,
+      "cells": 469590
+    },
+    "visitor_history.csv": {
+      "rows": 1406800,
+      "cells": 4220400
+    },
+    "property_versions.csv": {
+      "rows": 2291853,
+      "cells": 16042971
+    },
+    "view_property_diagnostics.csv": {
+      "rows": 2662739,
+      "cells": 34615607
+    },
+    "property_exclusions.csv": {
+      "rows": 0,
+      "cells": 0
+    },
+    "category_tree_diagnostics.csv": {
+      "rows": 1669,
+      "cells": 6676
+    },
+    "orphan_categories.csv": {
+      "rows": 30,
+      "cells": 60
+    }
+  },
+  "rows": 20093122,
+  "cells": 221676649,
+  "roles": {
+    "warmup": {
+      "baskets": 13300,
+      "sessions_starting": 8304,
+      "statuses": {
+        "warmup_context_only": 13300
+      },
+      "labelled_visitors": 0,
+      "labelled_targets": 0,
+      "reachable_targets": 0,
+      "all_targets_reachable_queries": 0,
+      "new_visitor_queries": 0,
+      "new_to_fit_targets": 0,
+      "multi_item_context_queries": 0,
+      "multi_item_target_queries": 0,
+      "min_candidate_count": null,
+      "available_unknown_basket_items": 13303,
+      "category_unknown_basket_items": 13303,
+      "support_floor_queries": 50
+    },
+    "train": {
+      "baskets": 1823018,
+      "sessions_starting": 1180239,
+      "statuses": {
+        "no_observed_continuation": 1179931,
+        "labelled": 642619,
+        "right_censored": 468
+      },
+      "labelled_visitors": 210395,
+      "labelled_targets": 642814,
+      "reachable_targets": 593583,
+      "all_targets_reachable_queries": 593397,
+      "new_visitor_queries": 0,
+      "new_to_fit_targets": 0,
+      "multi_item_context_queries": 199,
+      "multi_item_target_queries": 192,
+      "min_candidate_count": 8761,
+      "available_unknown_basket_items": 414973,
+      "category_unknown_basket_items": 529554,
+      "support_floor_queries": 6427
+    },
+    "validation": {
+      "baskets": 533790,
+      "sessions_starting": 366757,
+      "statuses": {
+        "no_observed_continuation": 366423,
+        "labelled": 166897,
+        "right_censored": 470
+      },
+      "labelled_visitors": 62235,
+      "labelled_targets": 166952,
+      "reachable_targets": 161264,
+      "all_targets_reachable_queries": 161211,
+      "new_visitor_queries": 134249,
+      "new_to_fit_targets": 11913,
+      "multi_item_context_queries": 56,
+      "multi_item_target_queries": 53,
+      "min_candidate_count": 199510,
+      "available_unknown_basket_items": 60574,
+      "category_unknown_basket_items": 63963,
+      "support_floor_queries": 1669
+    },
+    "reserved_test": {
+      "baskets": 292114,
+      "sessions_starting": 199946,
+      "statuses": {
+        "labelled": 92086,
+        "no_observed_continuation": 199776,
+        "right_censored": 252
+      },
+      "labelled_visitors": 34875,
+      "labelled_targets": 92116,
+      "reachable_targets": 88907,
+      "all_targets_reachable_queries": 88879,
+      "new_visitor_queries": 70045,
+      "new_to_fit_targets": 5838,
+      "multi_item_context_queries": 33,
+      "multi_item_target_queries": 29,
+      "min_candidate_count": 222776,
+      "available_unknown_basket_items": 33282,
+      "category_unknown_basket_items": 33749,
+      "support_floor_queries": 921
+    }
+  },
+  "independent_algorithm": "raw ZIP pandas partitions/diff/cumulative groups/shift/numpy searchsorted/merge_asof",
+  "pandas_version": "3.0.6",
+  "numpy_version": "2.5.4",
+  "specification": {
+    "path": "reports/stage8/retailrocket_build_v1_specification.json",
+    "bytes": 9331,
+    "sha256": "67dfbf1e5d1a9e8ad0903bcb5c4f8043635b6356f521eda7ce1723b6441fc37c"
+  },
+  "result": {
+    "path": "reports/stage8/retailrocket_build_v1.json",
+    "bytes": 8938,
+    "sha256": "0cfd6a62b0b1e2ee199c765696c0495d8f8762406171f0a6f588ef585f2e12a3"
+  },
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.860948
+  },
+  "scope": {
+    "model_fits": 0,
+    "ranking_metrics": 0,
+    "reserved_test_scored": false
+  }
+}

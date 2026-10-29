@@ -1,0 +1,176 @@
+{
+  "status": "P0_evaluator_synthetic_hand_oracle_acceptance_passed_development_entry_frozen",
+  "specification": {
+    "path": "reports/stage9/retailrocket_popularity_v1_development_specification.json",
+    "bytes": 14852,
+    "sha256": "602ea6aff0e659d69691df02867e38f865feaaae8494b77cd1f2b0910d788d36"
+  },
+  "sources_verified": 61,
+  "tests": {
+    "tests_run": 54,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.310962
+  },
+  "synthetic_cases": [
+    {
+      "case": "hand_complete_target_and_zero_fallback",
+      "dataset_kind": "synthetic",
+      "validation_queries": 3,
+      "independent_readback_rows": 12,
+      "independent_readback_cells": 102,
+      "ranking_oracle": {
+        "universal_positive_order_proved": false,
+        "positive_fit_items": 3,
+        "proof_cutoff_ms": 1438387200000,
+        "basis": "all positive fit IDs precede every validation query and at least 10 positive IDs; otherwise full-catalog sort per query"
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/aggregate.json",
+          "bytes": 8397,
+          "sha256": "b1f97b383013a47dfaddf97026a4e9775cc9e17a47909ec51e4a16b09d86c495"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/fit_audit.json",
+          "bytes": 356,
+          "sha256": "2755bd9c1ee8dfa88a6833f7035f042efb18ae05560735de005b940ddfe2899d"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/item_counts.csv",
+          "bytes": 27,
+          "sha256": "6d150a2c3c502bdf33e568a57c3750e4b1f6b9299a8e138d6aa2740a62cde01f"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/query_metrics.csv",
+          "bytes": 470,
+          "sha256": "8104f459195e3834c9af505ef891f1e932fc27289d85e369c8137fe33df89711"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/query_slices.csv",
+          "bytes": 335,
+          "sha256": "c4bd66b04f71ff7f57c2a164c5e6d956b98528e5bc792494c0e1666a7df9a5b2"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/ranked_queries.csv",
+          "bytes": 548,
+          "sha256": "aeec24915caa2b8e49240a6bec00269ee6e41c801f90ea252b57bd1bc1bac087"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/baskets.csv",
+          "bytes": 285,
+          "sha256": "8a3b517b359d07bc2ce3df7eeb69e299524bfaaf2971066e54141ce39f1e0a5b"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/catalog.csv",
+          "bytes": 122,
+          "sha256": "0aea3b9fe7cb12a764dcf6950ec00f2841005fa4a72e288ca28bd5d09394e641"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/qualified_events.csv",
+          "bytes": 1914,
+          "sha256": "19a2e7fc34a58a3bde6eb108e6dace84dcbe54bc2de65922e74dd0c0dc4bc580"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/queries.csv",
+          "bytes": 792,
+          "sha256": "2410c63000201d3488e380a6adc535d88d7883ac5ef46bfa27560015afc7026c"
+        }
+      ],
+      "fit_counters": {
+        "synthetic_primary_fits": 1,
+        "synthetic_independent_count_audits": 1,
+        "real_primary_fits": 0
+      }
+    },
+    {
+      "case": "universal_positive_order_equivalence",
+      "dataset_kind": "synthetic",
+      "validation_queries": 3,
+      "independent_readback_rows": 23,
+      "independent_readback_cells": 124,
+      "ranking_oracle": {
+        "universal_positive_order_proved": true,
+        "positive_fit_items": 14,
+        "proof_cutoff_ms": 1438387200000,
+        "basis": "all positive fit IDs precede every validation query and at least 10 positive IDs; otherwise full-catalog sort per query"
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/aggregate.json",
+          "bytes": 8436,
+          "sha256": "d8097235ca7de7839b87d8e81a0719a8b1d75d47a2df853defd5f31345fa5c83"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/fit_audit.json",
+          "bytes": 358,
+          "sha256": "425036413e36589f2919313ca98148fb63dfd59221059a11b66bd219eb9f36b4"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/item_counts.csv",
+          "bytes": 82,
+          "sha256": "dde91d5d71f5791a20329c6c7daf740cce31e36b2ec1a84088c91d98832f30e1"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/query_metrics.csv",
+          "bytes": 438,
+          "sha256": "67c610a0539c643fa6ecf63e8a773ca4cab1a4afc213dc8b636dd926629e1d92"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/query_slices.csv",
+          "bytes": 332,
+          "sha256": "19a8ef27602bfab6b08f3aea9032886793425afb3082af893b69249170194f96"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/ranked_queries.csv",
+          "bytes": 707,
+          "sha256": "2224645f2f9b93ba6aba054d5371611510235f168ba37272fd9806ae34c76831"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/baskets.csv",
+          "bytes": 285,
+          "sha256": "8a3b517b359d07bc2ce3df7eeb69e299524bfaaf2971066e54141ce39f1e0a5b"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/catalog.csv",
+          "bytes": 292,
+          "sha256": "5711ebcca0d5be62478dcc7e0d4d78fda5ba453d50b40b4bf64e4affb6f773f1"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/qualified_events.csv",
+          "bytes": 3718,
+          "sha256": "3c485689617f63eb01da2cc4706cfd9be74347c816a384897f6dea54a20c8c64"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/queries.csv",
+          "bytes": 798,
+          "sha256": "9413f9bd26de6023eb8ba407bb1e21a05e2abfc3d8faf8531bb5f4f6cddee08d"
+        }
+      ],
+      "fit_counters": {
+        "synthetic_primary_fits": 1,
+        "synthetic_independent_count_audits": 1,
+        "real_primary_fits": 0
+      }
+    }
+  ],
+  "synthetic_readback": {
+    "rows": 35,
+    "cells": 226
+  },
+  "scope": {
+    "synthetic_only": true,
+    "real_primary_fits": 0,
+    "real_independent_count_audits": 0,
+    "real_ranked_queries": 0,
+    "real_metric_calculations": 0,
+    "real_data_CSV_rows_parsed": 0,
+    "reserved_test_enabled": false,
+    "reserved_test_state": "locked",
+    "real_development_executed": false,
+    "final_refit_implemented": false,
+    "reserved_test_entry_implemented": false
+  },
+  "next_step": "explicitly execute one guarded development fit and full validation only; reserved test remains locked"
+}

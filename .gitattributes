@@ -220,3 +220,198 @@ tests/test_rfm_rule_candidate_outputs.py text eol=lf
 tests/test_prepare_rfm_rule_candidate.py text eol=lf
 reports/stage6/rfm_rule_candidate_execution_specification.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage6/rfm_rule_candidate_execution_preflight.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the separate v2 rebuild execution and its new evidence.
+scripts/rebuild_rfm_v2.py text eol=lf
+scripts/rfm_rebuild_reference.py text eol=lf
+tests/test_rebuild_rfm_v2.py text eol=lf
+reports/stage6/rfm_rebuild_v2_specification.json -text
+reports/stage6/rfm_rebuild_v2.json -text
+# Preserve the G3 five-seed implementation, source bindings and actual evidence.
+scripts/rfm_g3_sources.py text eol=lf
+scripts/rfm_g3.py text eol=lf
+scripts/rfm_g3_outputs.py text eol=lf
+scripts/run_rfm_g3.py text eol=lf
+tests/test_rfm_g3.py text eol=lf
+tests/test_run_rfm_g3.py text eol=lf
+reports/stage6/rfm_g3_v2_specification.json -text
+reports/stage6/rfm_g3_v2.json -text
+# Preserve temporal inventory source hashes and aggregate bytes.
+scripts/audit_rfm_temporal_data.py text eol=lf
+tests/test_rfm_temporal_data.py text eol=lf
+reports/stage6/rfm_temporal_data_inventory.json -text
+# Preserve the official UCI intake parser and source-bound aggregate.
+scripts/download_uci_retail_ii.py text eol=lf
+scripts/audit_uci_retail_ii.py text eol=lf
+tests/test_uci_retail_ii.py text eol=lf
+reports/stage6/uci_retail_ii_intake.json -text
+scripts/verify_uci_retail_ii.py text eol=lf
+reports/stage6/uci_retail_ii_verification.json -text
+# Preserve the frozen UCI retrospective RFM v1 policy and evidence bytes.
+docs/STAGE6_UCI_RFM_CONTRACT_V1.md text eol=lf
+docs/contracts/uci_rfm_v1.json -text
+scripts/freeze_uci_rfm_contract.py text eol=lf
+tests/test_uci_rfm_contract.py text eol=lf
+reports/stage6/uci_rfm_v1_specification.json -text
+reports/stage6/uci_rfm_v1_contract_acceptance.json -text
+# Preserve UCI RFM v1 builder execution and independent readback bindings.
+scripts/uci_rfm_builder.py text eol=lf
+scripts/uci_rfm_reference.py text eol=lf
+scripts/build_uci_rfm_v1.py text eol=lf
+tests/test_uci_rfm_builder.py text eol=lf
+reports/stage6/uci_rfm_build_v1_specification.json -text
+reports/stage6/uci_rfm_build_v1.json -text
+reports/stage6/uci_rfm_build_v1_acceptance.json -text
+# Preserve single-reference UCI temporal evaluation and independent audit evidence.
+scripts/uci_rfm_temporal.py text eol=lf
+scripts/uci_rfm_temporal_reference.py text eol=lf
+scripts/run_uci_rfm_temporal_v1.py text eol=lf
+tests/test_uci_rfm_temporal.py text eol=lf
+reports/stage6/uci_rfm_temporal_v1_specification.json -text
+reports/stage6/uci_rfm_temporal_v1.json -text
+reports/stage6/uci_rfm_temporal_v1_acceptance.json -text
+# Preserve the Stage 6 handoff and detached UCI v1 archive receipt.
+docs/STAGE6_RFM_RESEARCH_HANDOFF.md text eol=lf
+scripts/archive_uci_rfm_v1.py text eol=lf
+tests/test_archive_uci_rfm_v1.py text eol=lf
+reports/stage6/uci_rfm_v1_research_release.json -text
+# Preserve Retailrocket source audit and recommendation v1 contract bytes.
+docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md text eol=lf
+docs/contracts/retailrocket_recommendation_v1.json -text
+scripts/audit_retailrocket_source.py text eol=lf
+scripts/freeze_retailrocket_contract.py text eol=lf
+reports/stage8/retailrocket_source_audit_v1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage8/retailrocket_contract_v1_acceptance.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve Retailrocket v1 builder, independent readback and acceptance evidence.
+scripts/retailrocket_builder.py text eol=lf
+scripts/retailrocket_reference.py text eol=lf
+scripts/build_retailrocket_v1.py text eol=lf
+tests/test_retailrocket_builder.py text eol=lf
+docs/STAGE8_RETAILROCKET_BUILD_V1.md text eol=lf
+reports/stage8/retailrocket_build_v1_specification.json -text
+reports/stage8/retailrocket_build_v1.json -text
+reports/stage8/retailrocket_build_v1_acceptance.json -text
+# Preserve Retailrocket P0/evaluator execution protocol and specification freeze.
+docs/contracts/retailrocket_popularity_execution_v1.json -text
+docs/STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md text eol=lf
+scripts/retailrocket_popularity_protocol.py text eol=lf
+scripts/freeze_retailrocket_popularity_v1.py text eol=lf
+tests/test_retailrocket_popularity_protocol.py text eol=lf
+reports/stage9/retailrocket_popularity_v1_specification.json -text
+reports/stage9/retailrocket_popularity_v1_spec_acceptance.json -text
+# Preserve P0 implementation, independent oracle and prepared development entry.
+scripts/retailrocket_popularity.py text eol=lf
+scripts/retailrocket_popularity_io.py text eol=lf
+scripts/retailrocket_popularity_oracle.py text eol=lf
+scripts/run_retailrocket_popularity_v1.py text eol=lf
+tests/test_retailrocket_popularity.py text eol=lf
+tests/test_retailrocket_popularity_entry.py text eol=lf
+docs/STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md text eol=lf
+reports/stage9/retailrocket_popularity_v1_implementation_acceptance.json -text
+reports/stage9/retailrocket_popularity_v1_development_specification.json -text
+# Preserve the once-executed P0 development report and independent validation receipt.
+docs/STAGE9_RETAILROCKET_POPULARITY_DEVELOPMENT_V1.md text eol=lf
+reports/stage9/retailrocket_popularity_v1_development.json -text
+reports/stage9/retailrocket_popularity_v1_development_acceptance.json -text
+
+# Preserve frozen C1/P0 paired specification and aggregate receipt bytes.
+docs/contracts/retailrocket_cooccurrence_paired_v1.json -text
+docs/STAGE10_RETAILROCKET_COOCCURRENCE_PAIRED_SPEC_V1.md text eol=lf
+scripts/retailrocket_cooccurrence_protocol.py text eol=lf
+scripts/freeze_retailrocket_cooccurrence_v1.py text eol=lf
+tests/test_retailrocket_cooccurrence_protocol.py text eol=lf
+reports/stage10/retailrocket_cooccurrence_v1_specification.json -text
+reports/stage10/retailrocket_cooccurrence_v1_spec_acceptance.json -text
+
+# Preserve C1 implementation, oracle, cost and frozen validation entry.
+docs/STAGE10_RETAILROCKET_COOCCURRENCE_IMPLEMENTATION_V1.md text eol=lf
+scripts/retailrocket_cooccurrence.py text eol=lf
+scripts/retailrocket_cooccurrence_io.py text eol=lf
+scripts/retailrocket_cooccurrence_oracle.py text eol=lf
+scripts/retailrocket_cooccurrence_cost.py text eol=lf
+scripts/run_retailrocket_cooccurrence_v1.py text eol=lf
+tests/test_retailrocket_cooccurrence.py text eol=lf
+tests/test_retailrocket_cooccurrence_entry.py text eol=lf
+reports/stage10/retailrocket_cooccurrence_v1_validation_specification.json -text
+reports/stage10/retailrocket_cooccurrence_v1_implementation_acceptance.json -text
+
+# Preserve once-executed C1/P0 validation report and independent receipt bytes.
+docs/STAGE10_RETAILROCKET_COOCCURRENCE_VALIDATION_V1.md text eol=lf
+reports/stage10/retailrocket_cooccurrence_v1_validation.json -text
+reports/stage10/retailrocket_cooccurrence_v1_validation_acceptance.json -text
+
+# Preserve C1/P0 research handoff and release tool bytes.
+docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md text eol=lf
+scripts/archive_retailrocket_c1_p0_v1.py text eol=lf
+tests/test_archive_retailrocket_c1_p0_v1.py text eol=lf
+reports/stage10/retailrocket_c1_p0_v1_research_release.json -text
+
+# Preserve D1 candidate and paired specification bytes before implementation.
+docs/STAGE11_RETAILROCKET_DIRECTED_SPEC_V1.md text eol=lf
+docs/contracts/retailrocket_directed_paired_v1.json -text
+scripts/retailrocket_directed_protocol.py text eol=lf
+scripts/freeze_retailrocket_directed_v1.py text eol=lf
+tests/test_retailrocket_directed_protocol.py text eol=lf
+reports/stage11/retailrocket_stage11_candidate_inventory_v1.json -text
+reports/stage11/retailrocket_directed_v1_specification.json -text
+reports/stage11/retailrocket_directed_v1_spec_acceptance.json -text
+
+# Preserve D1 implementation, independent oracle, cost and frozen validation entry.
+docs/STAGE11_RETAILROCKET_DIRECTED_IMPLEMENTATION_V1.md text eol=lf
+scripts/retailrocket_directed.py text eol=lf
+scripts/retailrocket_directed_io.py text eol=lf
+scripts/retailrocket_directed_oracle.py text eol=lf
+scripts/retailrocket_directed_cost.py text eol=lf
+scripts/run_retailrocket_directed_v1.py text eol=lf
+tests/test_retailrocket_directed.py text eol=lf
+tests/test_retailrocket_directed_entry.py text eol=lf
+reports/stage11/retailrocket_directed_v1_validation_specification.json -text
+reports/stage11/retailrocket_directed_v1_implementation_acceptance.json -text
+
+# Preserve once-executed D1 three-arm validation and independent receipt bytes.
+docs/STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md text eol=lf
+reports/stage11/retailrocket_directed_v1_validation.json -text
+reports/stage11/retailrocket_directed_v1_validation_acceptance.json -text
+
+# Preserve the accepted three-arm research evidence release.
+docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md text eol=lf
+scripts/archive_retailrocket_three_arm_v1.py text eol=lf
+tests/test_archive_retailrocket_three_arm_v1.py text eol=lf
+reports/stage11/retailrocket_three_arm_v1_research_release.json -text
+
+# Preserve Stage 12 availability evidence and session-kNN specification bytes.
+docs/STAGE12_TEMPORAL_AVAILABILITY_AND_KNN_SPEC_V1.md text eol=lf
+docs/contracts/retailrocket_session_knn_paired_v1.json -text
+reports/stage12/retailrocket_stage12_inventory_v1.json -text
+reports/stage12/retailrocket_session_knn_v1_specification.json -text
+scripts/freeze_retailrocket_session_knn_v1.py text eol=lf
+tests/test_retailrocket_session_knn_spec.py text eol=lf
+
+# Preserve Stage 12 K1 implementation and train-only acceptance bytes.
+docs/STAGE12_RETAILROCKET_KNN_IMPLEMENTATION_V1.md text eol=lf
+docs/contracts/retailrocket_session_knn_implementation_v1.json -text
+scripts/retailrocket_session_knn.py text eol=lf
+scripts/retailrocket_session_knn_evaluation.py text eol=lf
+scripts/retailrocket_session_knn_oracle.py text eol=lf
+scripts/retailrocket_session_knn_cost.py text eol=lf
+scripts/prepare_retailrocket_session_knn_v1.py text eol=lf
+tests/test_retailrocket_session_knn.py text eol=lf
+tests/test_retailrocket_session_knn_entry.py text eol=lf
+reports/stage12/retailrocket_session_knn_v1_implementation_specification.json -text
+reports/stage12/retailrocket_session_knn_v1_implementation_acceptance.json -text
+
+# Preserve Stage 12 source-bound validation entry and synthetic acceptance bytes.
+docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md text eol=lf
+docs/contracts/retailrocket_session_knn_validation_entry_v1.json -text
+scripts/retailrocket_session_knn_io.py text eol=lf
+scripts/retailrocket_session_knn_readback.py text eol=lf
+scripts/run_retailrocket_session_knn_v1.py text eol=lf
+tests/test_retailrocket_session_knn_validation.py text eol=lf
+tests/test_retailrocket_session_knn_validation_entry.py text eol=lf
+reports/stage12/retailrocket_session_knn_v1_validation_entry_specification.json -text
+reports/stage12/retailrocket_session_knn_v1_validation_entry_acceptance.json -text
+reports/stage12/retailrocket_session_knn_v1_validation.json -text
+reports/stage12/retailrocket_session_knn_v1_validation_acceptance.json -text
+
+# Preserve the stopped K1 attempt receipt without marking it scientifically accepted.
+docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md text eol=lf
+reports/stage12/retailrocket_session_knn_v1_validation_attempt.json -text

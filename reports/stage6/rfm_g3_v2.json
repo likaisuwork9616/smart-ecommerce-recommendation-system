@@ -1,0 +1,3475 @@
+{
+  "aggregate": {
+    "execution": {
+      "G2_core_calls": 0,
+      "dashboard": false,
+      "model_fits": 0,
+      "seeds_evaluated": 5,
+      "source_RFM_modified": false
+    },
+    "format_version": 1,
+    "gate_status": {
+      "G3": "passed",
+      "business": "pending_data",
+      "temporal": "pending_data"
+    },
+    "limitations": [
+      "Same snapshot sensitivity only; five resamples are not new time periods or a confidence interval.",
+      "Small joint cells remain insufficient_group_support even when the global G3 gate passes.",
+      "No automatic merging, commercial group naming, future value or business effect claim.",
+      "Temporal and operational validation remain pending_data; no model training or Dashboard."
+    ],
+    "minimum_axis_agreement": {
+      "frequency_orders": 1.0,
+      "monetary_product_cents": 0.9982668737174866,
+      "recency_seconds": 0.9966308025067938
+    },
+    "minimum_joint_ARI": 0.9906750038818078,
+    "reference": {
+      "failed_checks": [],
+      "joint": {
+        "cells": [
+          {
+            "n": 2874,
+            "ordinals": [
+              1,
+              1,
+              1
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 3128,
+            "ordinals": [
+              1,
+              1,
+              2
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2752,
+            "ordinals": [
+              1,
+              1,
+              3
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2617,
+            "ordinals": [
+              1,
+              1,
+              4
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2792,
+            "ordinals": [
+              1,
+              1,
+              5
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 4,
+            "ordinals": [
+              1,
+              2,
+              1
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 20,
+            "ordinals": [
+              1,
+              2,
+              2
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 47,
+            "ordinals": [
+              1,
+              2,
+              3
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 66,
+            "ordinals": [
+              1,
+              2,
+              4
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 124,
+            "ordinals": [
+              1,
+              2,
+              5
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 2986,
+            "ordinals": [
+              2,
+              1,
+              1
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2931,
+            "ordinals": [
+              2,
+              1,
+              2
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2774,
+            "ordinals": [
+              2,
+              1,
+              3
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2769,
+            "ordinals": [
+              2,
+              1,
+              4
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2645,
+            "ordinals": [
+              2,
+              1,
+              5
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 1,
+            "ordinals": [
+              2,
+              2,
+              1
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 18,
+            "ordinals": [
+              2,
+              2,
+              2
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 52,
+            "ordinals": [
+              2,
+              2,
+              3
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 89,
+            "ordinals": [
+              2,
+              2,
+              4
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 160,
+            "ordinals": [
+              2,
+              2,
+              5
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 3046,
+            "ordinals": [
+              3,
+              1,
+              1
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2984,
+            "ordinals": [
+              3,
+              1,
+              2
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2498,
+            "ordinals": [
+              3,
+              1,
+              3
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2856,
+            "ordinals": [
+              3,
+              1,
+              4
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2634,
+            "ordinals": [
+              3,
+              1,
+              5
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 14,
+            "ordinals": [
+              3,
+              2,
+              1
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 26,
+            "ordinals": [
+              3,
+              2,
+              2
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 51,
+            "ordinals": [
+              3,
+              2,
+              3
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 109,
+            "ordinals": [
+              3,
+              2,
+              4
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 207,
+            "ordinals": [
+              3,
+              2,
+              5
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 2800,
+            "ordinals": [
+              4,
+              1,
+              1
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2742,
+            "ordinals": [
+              4,
+              1,
+              2
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2737,
+            "ordinals": [
+              4,
+              1,
+              3
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2913,
+            "ordinals": [
+              4,
+              1,
+              4
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2837,
+            "ordinals": [
+              4,
+              1,
+              5
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 9,
+            "ordinals": [
+              4,
+              2,
+              1
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 31,
+            "ordinals": [
+              4,
+              2,
+              2
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 51,
+            "ordinals": [
+              4,
+              2,
+              3
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 96,
+            "ordinals": [
+              4,
+              2,
+              4
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 209,
+            "ordinals": [
+              4,
+              2,
+              5
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 3053,
+            "ordinals": [
+              5,
+              1,
+              1
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2965,
+            "ordinals": [
+              5,
+              1,
+              2
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2593,
+            "ordinals": [
+              5,
+              1,
+              3
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2825,
+            "ordinals": [
+              5,
+              1,
+              4
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 2582,
+            "ordinals": [
+              5,
+              1,
+              5
+            ],
+            "support_flag": null
+          },
+          {
+            "n": 7,
+            "ordinals": [
+              5,
+              2,
+              1
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 37,
+            "ordinals": [
+              5,
+              2,
+              2
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 54,
+            "ordinals": [
+              5,
+              2,
+              3
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 96,
+            "ordinals": [
+              5,
+              2,
+              4
+            ],
+            "support_flag": "insufficient_group_support"
+          },
+          {
+            "n": 213,
+            "ordinals": [
+              5,
+              2,
+              5
+            ],
+            "support_flag": "insufficient_group_support"
+          }
+        ],
+        "customers_in_small_cells": 1791,
+        "degenerate": false,
+        "observed_cells": 50,
+        "small_cells": 25
+      },
+      "levels": {
+        "frequency_orders": 2,
+        "monetary_product_cents": 5,
+        "recency_seconds": 5
+      }
+    },
+    "reference_n": 72124,
+    "runs": [
+      {
+        "axes": {
+          "frequency_orders": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72124,
+              "reference_n": 72124,
+              "value": 1.0
+            },
+            "cut_values": [
+              1
+            ],
+            "effective_levels": 2,
+            "full_reference_bin_counts": [
+              70333,
+              1791
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "sample_max": 11,
+            "sample_min": 1,
+            "sample_n": 57699
+          },
+          "monetary_product_cents": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72056,
+              "reference_n": 72124,
+              "value": 0.9990571793023126
+            },
+            "cut_values": [
+              3990,
+              6990,
+              10995,
+              17949
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14794,
+              14882,
+              13584,
+              14418,
+              14446
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              3990,
+              6990,
+              10995,
+              17949
+            ],
+            "sample_max": 716000,
+            "sample_min": 85,
+            "sample_n": 57699
+          },
+          "recency_seconds": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72044,
+              "reference_n": 72124,
+              "value": 0.9988907991791914
+            },
+            "cut_values": [
+              6273036,
+              12149059,
+              17763762,
+              23895512
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14417,
+              14451,
+              14451,
+              14391,
+              14414
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              6273036,
+              12149059,
+              17763762,
+              23895512
+            ],
+            "sample_max": 31535770,
+            "sample_min": 205163,
+            "sample_n": 57699
+          }
+        },
+        "failed_checks": [],
+        "gate": "passed",
+        "joint": {
+          "cells": [
+            {
+              "n": 2869,
+              "ordinals": [
+                1,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 3127,
+              "ordinals": [
+                1,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2745,
+              "ordinals": [
+                1,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2598,
+              "ordinals": [
+                1,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2814,
+              "ordinals": [
+                1,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 4,
+              "ordinals": [
+                1,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 20,
+              "ordinals": [
+                1,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 47,
+              "ordinals": [
+                1,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 65,
+              "ordinals": [
+                1,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 125,
+              "ordinals": [
+                1,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2981,
+              "ordinals": [
+                2,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2926,
+              "ordinals": [
+                2,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2764,
+              "ordinals": [
+                2,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2759,
+              "ordinals": [
+                2,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2643,
+              "ordinals": [
+                2,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 1,
+              "ordinals": [
+                2,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 18,
+              "ordinals": [
+                2,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                2,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 89,
+              "ordinals": [
+                2,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 159,
+              "ordinals": [
+                2,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3056,
+              "ordinals": [
+                3,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2988,
+              "ordinals": [
+                3,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2489,
+              "ordinals": [
+                3,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2865,
+              "ordinals": [
+                3,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2645,
+              "ordinals": [
+                3,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 14,
+              "ordinals": [
+                3,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 26,
+              "ordinals": [
+                3,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                3,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 109,
+              "ordinals": [
+                3,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 208,
+              "ordinals": [
+                3,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2801,
+              "ordinals": [
+                4,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2746,
+              "ordinals": [
+                4,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2741,
+              "ordinals": [
+                4,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2922,
+              "ordinals": [
+                4,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2844,
+              "ordinals": [
+                4,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 9,
+              "ordinals": [
+                4,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 31,
+              "ordinals": [
+                4,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 50,
+              "ordinals": [
+                4,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 97,
+              "ordinals": [
+                4,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 210,
+              "ordinals": [
+                4,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3052,
+              "ordinals": [
+                5,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2963,
+              "ordinals": [
+                5,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2592,
+              "ordinals": [
+                5,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2818,
+              "ordinals": [
+                5,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2585,
+              "ordinals": [
+                5,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 7,
+              "ordinals": [
+                5,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 37,
+              "ordinals": [
+                5,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 54,
+              "ordinals": [
+                5,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                5,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 213,
+              "ordinals": [
+                5,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            }
+          ],
+          "customers_in_small_cells": 1791,
+          "degenerate": false,
+          "observed_cells": 50,
+          "small_cells": 25
+        },
+        "joint_ARI": 0.9959126542873074,
+        "reference_n": 72124,
+        "sample_n": 57699,
+        "seed": 11
+      },
+      {
+        "axes": {
+          "frequency_orders": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72124,
+              "reference_n": 72124,
+              "value": 1.0
+            },
+            "cut_values": [
+              1
+            ],
+            "effective_levels": 2,
+            "full_reference_bin_counts": [
+              70333,
+              1791
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "sample_max": 11,
+            "sample_min": 1,
+            "sample_n": 57699
+          },
+          "monetary_product_cents": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72039,
+              "reference_n": 72124,
+              "value": 0.9988214741278909
+            },
+            "cut_values": [
+              3990,
+              6990,
+              10990,
+              17949
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14794,
+              14882,
+              13567,
+              14435,
+              14446
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              3990,
+              6990,
+              10990,
+              17949
+            ],
+            "sample_max": 1344000,
+            "sample_min": 85,
+            "sample_n": 57699
+          },
+          "recency_seconds": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 71881,
+              "reference_n": 72124,
+              "value": 0.9966308025067938
+            },
+            "cut_values": [
+              6270109,
+              12135813,
+              17728362,
+              23881296
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14404,
+              14414,
+              14362,
+              14425,
+              14519
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              6270109,
+              12135813,
+              17728362,
+              23881296
+            ],
+            "sample_max": 31534880,
+            "sample_min": 207692,
+            "sample_n": 57699
+          }
+        },
+        "failed_checks": [],
+        "gate": "passed",
+        "joint": {
+          "cells": [
+            {
+              "n": 2889,
+              "ordinals": [
+                1,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 3148,
+              "ordinals": [
+                1,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2759,
+              "ordinals": [
+                1,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2621,
+              "ordinals": [
+                1,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2839,
+              "ordinals": [
+                1,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 4,
+              "ordinals": [
+                1,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 20,
+              "ordinals": [
+                1,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 48,
+              "ordinals": [
+                1,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 65,
+              "ordinals": [
+                1,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 126,
+              "ordinals": [
+                1,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2987,
+              "ordinals": [
+                2,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2935,
+              "ordinals": [
+                2,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2762,
+              "ordinals": [
+                2,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2782,
+              "ordinals": [
+                2,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2639,
+              "ordinals": [
+                2,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 1,
+              "ordinals": [
+                2,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 18,
+              "ordinals": [
+                2,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                2,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 91,
+              "ordinals": [
+                2,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 159,
+              "ordinals": [
+                2,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3036,
+              "ordinals": [
+                3,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2965,
+              "ordinals": [
+                3,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2475,
+              "ordinals": [
+                3,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2848,
+              "ordinals": [
+                3,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2633,
+              "ordinals": [
+                3,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 14,
+              "ordinals": [
+                3,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 26,
+              "ordinals": [
+                3,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 50,
+              "ordinals": [
+                3,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 107,
+              "ordinals": [
+                3,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 208,
+              "ordinals": [
+                3,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2795,
+              "ordinals": [
+                4,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2744,
+              "ordinals": [
+                4,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2727,
+              "ordinals": [
+                4,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2915,
+              "ordinals": [
+                4,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2837,
+              "ordinals": [
+                4,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 9,
+              "ordinals": [
+                4,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 31,
+              "ordinals": [
+                4,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 50,
+              "ordinals": [
+                4,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 97,
+              "ordinals": [
+                4,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 209,
+              "ordinals": [
+                4,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3052,
+              "ordinals": [
+                5,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2958,
+              "ordinals": [
+                5,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2591,
+              "ordinals": [
+                5,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2813,
+              "ordinals": [
+                5,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2583,
+              "ordinals": [
+                5,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 7,
+              "ordinals": [
+                5,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 37,
+              "ordinals": [
+                5,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 54,
+              "ordinals": [
+                5,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                5,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 213,
+              "ordinals": [
+                5,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            }
+          ],
+          "customers_in_small_cells": 1791,
+          "degenerate": false,
+          "observed_cells": 50,
+          "small_cells": 25
+        },
+        "joint_ARI": 0.9906750038818078,
+        "reference_n": 72124,
+        "sample_n": 57699,
+        "seed": 29
+      },
+      {
+        "axes": {
+          "frequency_orders": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72124,
+              "reference_n": 72124,
+              "value": 1.0
+            },
+            "cut_values": [
+              1
+            ],
+            "effective_levels": 2,
+            "full_reference_bin_counts": [
+              70333,
+              1791
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "sample_max": 11,
+            "sample_min": 1,
+            "sample_n": 57699
+          },
+          "monetary_product_cents": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 71999,
+              "reference_n": 72124,
+              "value": 0.9982668737174866
+            },
+            "cut_values": [
+              3990,
+              6990,
+              10999,
+              17950
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14794,
+              14882,
+              13696,
+              14311,
+              14441
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              3990,
+              6990,
+              10999,
+              17950
+            ],
+            "sample_max": 1344000,
+            "sample_min": 85,
+            "sample_n": 57699
+          },
+          "recency_seconds": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72011,
+              "reference_n": 72124,
+              "value": 0.9984332538406079
+            },
+            "cut_values": [
+              6272804,
+              12145827,
+              17760621,
+              23932387
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14416,
+              14439,
+              14451,
+              14462,
+              14356
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              6272804,
+              12145827,
+              17760621,
+              23932387
+            ],
+            "sample_max": 31535770,
+            "sample_min": 207692,
+            "sample_n": 57699
+          }
+        },
+        "failed_checks": [],
+        "gate": "passed",
+        "joint": {
+          "cells": [
+            {
+              "n": 2855,
+              "ordinals": [
+                1,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 3114,
+              "ordinals": [
+                1,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2758,
+              "ordinals": [
+                1,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2566,
+              "ordinals": [
+                1,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2803,
+              "ordinals": [
+                1,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 4,
+              "ordinals": [
+                1,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 20,
+              "ordinals": [
+                1,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 47,
+              "ordinals": [
+                1,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 64,
+              "ordinals": [
+                1,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 125,
+              "ordinals": [
+                1,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2997,
+              "ordinals": [
+                2,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2942,
+              "ordinals": [
+                2,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2796,
+              "ordinals": [
+                2,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2754,
+              "ordinals": [
+                2,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2652,
+              "ordinals": [
+                2,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 1,
+              "ordinals": [
+                2,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 18,
+              "ordinals": [
+                2,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 52,
+              "ordinals": [
+                2,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 90,
+              "ordinals": [
+                2,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 160,
+              "ordinals": [
+                2,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3054,
+              "ordinals": [
+                3,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2986,
+              "ordinals": [
+                3,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2514,
+              "ordinals": [
+                3,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2844,
+              "ordinals": [
+                3,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2646,
+              "ordinals": [
+                3,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 14,
+              "ordinals": [
+                3,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 26,
+              "ordinals": [
+                3,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                3,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 108,
+              "ordinals": [
+                3,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 208,
+              "ordinals": [
+                3,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2801,
+              "ordinals": [
+                4,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2746,
+              "ordinals": [
+                4,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2767,
+              "ordinals": [
+                4,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2889,
+              "ordinals": [
+                4,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2840,
+              "ordinals": [
+                4,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 9,
+              "ordinals": [
+                4,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 31,
+              "ordinals": [
+                4,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                4,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                4,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 209,
+              "ordinals": [
+                4,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3052,
+              "ordinals": [
+                5,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2962,
+              "ordinals": [
+                5,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2606,
+              "ordinals": [
+                5,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2804,
+              "ordinals": [
+                5,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2585,
+              "ordinals": [
+                5,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 7,
+              "ordinals": [
+                5,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 37,
+              "ordinals": [
+                5,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 54,
+              "ordinals": [
+                5,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                5,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 213,
+              "ordinals": [
+                5,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            }
+          ],
+          "customers_in_small_cells": 1791,
+          "degenerate": false,
+          "observed_cells": 50,
+          "small_cells": 25
+        },
+        "joint_ARI": 0.9931914669891545,
+        "reference_n": 72124,
+        "sample_n": 57699,
+        "seed": 42
+      },
+      {
+        "axes": {
+          "frequency_orders": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72124,
+              "reference_n": 72124,
+              "value": 1.0
+            },
+            "cut_values": [
+              1
+            ],
+            "effective_levels": 2,
+            "full_reference_bin_counts": [
+              70333,
+              1791
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "sample_max": 9,
+            "sample_min": 1,
+            "sample_n": 57699
+          },
+          "monetary_product_cents": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72039,
+              "reference_n": 72124,
+              "value": 0.9988214741278909
+            },
+            "cut_values": [
+              3990,
+              6990,
+              10990,
+              17949
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14794,
+              14882,
+              13567,
+              14435,
+              14446
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              3990,
+              6990,
+              10990,
+              17949
+            ],
+            "sample_max": 1344000,
+            "sample_min": 85,
+            "sample_n": 57699
+          },
+          "recency_seconds": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 71993,
+              "reference_n": 72124,
+              "value": 0.9981836836559259
+            },
+            "cut_values": [
+              6269178,
+              12140882,
+              17744574,
+              23886558
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14401,
+              14434,
+              14401,
+              14411,
+              14477
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              6269178,
+              12140882,
+              17744574,
+              23886558
+            ],
+            "sample_max": 31535770,
+            "sample_min": 205163,
+            "sample_n": 57699
+          }
+        },
+        "failed_checks": [],
+        "gate": "passed",
+        "joint": {
+          "cells": [
+            {
+              "n": 2882,
+              "ordinals": [
+                1,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 3145,
+              "ordinals": [
+                1,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2748,
+              "ordinals": [
+                1,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2613,
+              "ordinals": [
+                1,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2828,
+              "ordinals": [
+                1,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 4,
+              "ordinals": [
+                1,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 20,
+              "ordinals": [
+                1,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 47,
+              "ordinals": [
+                1,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 65,
+              "ordinals": [
+                1,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 125,
+              "ordinals": [
+                1,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2988,
+              "ordinals": [
+                2,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2924,
+              "ordinals": [
+                2,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2760,
+              "ordinals": [
+                2,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2773,
+              "ordinals": [
+                2,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2644,
+              "ordinals": [
+                2,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 1,
+              "ordinals": [
+                2,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 18,
+              "ordinals": [
+                2,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 52,
+              "ordinals": [
+                2,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 91,
+              "ordinals": [
+                2,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 160,
+              "ordinals": [
+                2,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3037,
+              "ordinals": [
+                3,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2977,
+              "ordinals": [
+                3,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2483,
+              "ordinals": [
+                3,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2862,
+              "ordinals": [
+                3,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2637,
+              "ordinals": [
+                3,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 14,
+              "ordinals": [
+                3,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 26,
+              "ordinals": [
+                3,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 50,
+              "ordinals": [
+                3,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 107,
+              "ordinals": [
+                3,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 208,
+              "ordinals": [
+                3,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2802,
+              "ordinals": [
+                4,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2746,
+              "ordinals": [
+                4,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2732,
+              "ordinals": [
+                4,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2919,
+              "ordinals": [
+                4,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2839,
+              "ordinals": [
+                4,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 9,
+              "ordinals": [
+                4,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 31,
+              "ordinals": [
+                4,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 50,
+              "ordinals": [
+                4,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 97,
+              "ordinals": [
+                4,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 209,
+              "ordinals": [
+                4,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3050,
+              "ordinals": [
+                5,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2958,
+              "ordinals": [
+                5,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2591,
+              "ordinals": [
+                5,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2812,
+              "ordinals": [
+                5,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2583,
+              "ordinals": [
+                5,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 7,
+              "ordinals": [
+                5,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 37,
+              "ordinals": [
+                5,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 54,
+              "ordinals": [
+                5,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                5,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 213,
+              "ordinals": [
+                5,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            }
+          ],
+          "customers_in_small_cells": 1791,
+          "degenerate": false,
+          "observed_cells": 50,
+          "small_cells": 25
+        },
+        "joint_ARI": 0.9938686695011444,
+        "reference_n": 72124,
+        "sample_n": 57699,
+        "seed": 73
+      },
+      {
+        "axes": {
+          "frequency_orders": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72124,
+              "reference_n": 72124,
+              "value": 1.0
+            },
+            "cut_values": [
+              1
+            ],
+            "effective_levels": 2,
+            "full_reference_bin_counts": [
+              70333,
+              1791
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "sample_max": 11,
+            "sample_min": 1,
+            "sample_n": 57699
+          },
+          "monetary_product_cents": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 72030,
+              "reference_n": 72124,
+              "value": 0.9986966890355499
+            },
+            "cut_values": [
+              3990,
+              6990,
+              10999,
+              17979
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14794,
+              14882,
+              13696,
+              14356,
+              14396
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              3990,
+              6990,
+              10999,
+              17979
+            ],
+            "sample_max": 716000,
+            "sample_min": 229,
+            "sample_n": 57699
+          },
+          "recency_seconds": {
+            "agreement": {
+              "comparable_levels": true,
+              "matched_customers": 71964,
+              "reference_n": 72124,
+              "value": 0.9977815983583828
+            },
+            "cut_values": [
+              6259117,
+              12143314,
+              17762852,
+              23928000
+            ],
+            "effective_levels": 5,
+            "full_reference_bin_counts": [
+              14369,
+              14474,
+              14474,
+              14438,
+              14369
+            ],
+            "quantile_ranks_1based": [
+              11540,
+              23080,
+              34620,
+              46160
+            ],
+            "raw_cut_values": [
+              6259117,
+              12143314,
+              17762852,
+              23928000
+            ],
+            "sample_max": 31535194,
+            "sample_min": 205680,
+            "sample_n": 57699
+          }
+        },
+        "failed_checks": [],
+        "gate": "passed",
+        "joint": {
+          "cells": [
+            {
+              "n": 2857,
+              "ordinals": [
+                1,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 3119,
+              "ordinals": [
+                1,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2761,
+              "ordinals": [
+                1,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2590,
+              "ordinals": [
+                1,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2782,
+              "ordinals": [
+                1,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 4,
+              "ordinals": [
+                1,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 20,
+              "ordinals": [
+                1,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 47,
+              "ordinals": [
+                1,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 65,
+              "ordinals": [
+                1,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 124,
+              "ordinals": [
+                1,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2994,
+              "ordinals": [
+                2,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2934,
+              "ordinals": [
+                2,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2790,
+              "ordinals": [
+                2,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2757,
+              "ordinals": [
+                2,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2644,
+              "ordinals": [
+                2,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 1,
+              "ordinals": [
+                2,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 18,
+              "ordinals": [
+                2,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                2,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 90,
+              "ordinals": [
+                2,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 159,
+              "ordinals": [
+                2,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3055,
+              "ordinals": [
+                3,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2992,
+              "ordinals": [
+                3,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2522,
+              "ordinals": [
+                3,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2852,
+              "ordinals": [
+                3,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2644,
+              "ordinals": [
+                3,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 14,
+              "ordinals": [
+                3,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 26,
+              "ordinals": [
+                3,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 52,
+              "ordinals": [
+                3,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 109,
+              "ordinals": [
+                3,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 208,
+              "ordinals": [
+                3,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 2809,
+              "ordinals": [
+                4,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2756,
+              "ordinals": [
+                4,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2768,
+              "ordinals": [
+                4,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2902,
+              "ordinals": [
+                4,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2841,
+              "ordinals": [
+                4,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 10,
+              "ordinals": [
+                4,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 31,
+              "ordinals": [
+                4,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 51,
+              "ordinals": [
+                4,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 97,
+              "ordinals": [
+                4,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 209,
+              "ordinals": [
+                4,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 3044,
+              "ordinals": [
+                5,
+                1,
+                1
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2949,
+              "ordinals": [
+                5,
+                1,
+                2
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2600,
+              "ordinals": [
+                5,
+                1,
+                3
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2798,
+              "ordinals": [
+                5,
+                1,
+                4
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 2573,
+              "ordinals": [
+                5,
+                1,
+                5
+              ],
+              "support_flag": null
+            },
+            {
+              "n": 6,
+              "ordinals": [
+                5,
+                2,
+                1
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 37,
+              "ordinals": [
+                5,
+                2,
+                2
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 54,
+              "ordinals": [
+                5,
+                2,
+                3
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 96,
+              "ordinals": [
+                5,
+                2,
+                4
+              ],
+              "support_flag": "insufficient_group_support"
+            },
+            {
+              "n": 212,
+              "ordinals": [
+                5,
+                2,
+                5
+              ],
+              "support_flag": "insufficient_group_support"
+            }
+          ],
+          "customers_in_small_cells": 1791,
+          "degenerate": false,
+          "observed_cells": 50,
+          "small_cells": 25
+        },
+        "joint_ARI": 0.992770512999631,
+        "reference_n": 72124,
+        "sample_n": 57699,
+        "seed": 101
+      }
+    ],
+    "sample_n": 57699,
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "support_floor": 361
+  },
+  "environment": {
+    "numpy": "2.5.4",
+    "python": "3.12.10",
+    "scikit-learn": "1.9.1"
+  },
+  "execution": {
+    "G2_core_calls": 0,
+    "G3_core_calls": 1,
+    "dataset_rebuilt": false,
+    "model_fits": 0,
+    "seeds_evaluated": 5
+  },
+  "format_version": 1,
+  "policy": {
+    "ARI_readback_absolute_tolerance": 1e-12,
+    "actual_private_namespace": ".runtime/stage6_rfm_g3_v2",
+    "assignment": "sample_cutpoints_applied_to_full_reference_R_direction_uses_actual_levels",
+    "business": "pending_data",
+    "completion": "private_bundle_public_aggregate_external_guard_and_full_readback_no_failure",
+    "cuts": "sample_only_exact_integer_P20_40_60_80_deduplicate_drop_ge_sample_max_ties_intact",
+    "dashboard": false,
+    "different_levels_agreement": "null_not_comparable_and_gate_fails",
+    "failure": "retain_evidence_no_overwrite_retry_reseed_recut_or_threshold_change",
+    "gates": {
+      "all_five_required": true,
+      "joint_degeneracy": "single_group_or_all_singletons_fails",
+      "levels": "each_axis_2_to_5_and_same_as_reference_no_empty_bins",
+      "minimum_axis_agreement": 0.9,
+      "minimum_joint_ARI": 0.8
+    },
+    "original_method": "reports/stage6/rfm_evaluation_specification.json",
+    "prior": "reports/stage6/rfm_rebuild_v2.json",
+    "readback": "independent_exact_sample_membership_rank_assignment_support_and_rational_contingency_ARI",
+    "reference": "same_all_active_complete_IDs_canonical_ascending_for_all_five_seeds",
+    "sampling": "Generator(PCG64(seed)).choice(n,size=(4*n)//5,replace=False)",
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "small_cells": "flag_every_reference_and_seed_joint_cell_below_floor_no_merge_no_stable_cell_claim",
+    "stage4_daily_budget": 0.1,
+    "stage5": "pending_data",
+    "support_floor": "max(100,(n+199)//200)_full_reference_denominator",
+    "temporal": "pending_data",
+    "training": false,
+    "version": "G3_on_RFM_v2"
+  },
+  "readback_acceptance": {
+    "G3_core_reexecuted": false,
+    "accepted": true,
+    "aggregate_scalars_compared": 1922,
+    "assignment_cells_compared": 3245580,
+    "exact_contingency_ARI_oracle": true,
+    "full_reference_assignment_rows": 360620,
+    "same_ID_membership_cuts_bins_ordinals_support_verified": true,
+    "sample_positions_compared": 288495,
+    "seeds_verified": 5
+  },
+  "specification": {
+    "bytes": 16472,
+    "path": "reports/stage6/rfm_g3_v2_specification.json",
+    "sha256": "4af615e971cc2bfd88014a596d3ea10354bfaeb70487b0d001a4b981a0cdad5b"
+  },
+  "status": "five_seed_same_snapshot_sensitivity_completed_readback_accepted",
+  "synthetic_verification": {
+    "elapsed_seconds": 7.61895689999983,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "test_ids": [
+      "tests.test_rfm_g3.G3CoreTests.test_changed_effective_levels_fail_and_agreement_is_null",
+      "tests.test_rfm_g3.G3CoreTests.test_domain_missing_duplicate_noncanonical_ID_and_frozen_policy_guards",
+      "tests.test_rfm_g3.G3CoreTests.test_exact_90_percent_agreement_is_inclusive",
+      "tests.test_rfm_g3.G3CoreTests.test_fixed_five_seeds_exact_sample_size_and_full_denominator",
+      "tests.test_rfm_g3.G3CoreTests.test_legal_zero_and_large_integer_money_keep_exact_cuts",
+      "tests.test_rfm_g3.G3CoreTests.test_no_G2_core_reexecution_and_original_inputs_unchanged",
+      "tests.test_rfm_g3.G3CoreTests.test_sample_only_cuts_and_low_agreement_are_not_rescued",
+      "tests.test_rfm_g3.G3CoreTests.test_small_joint_cells_preserved_without_failing_global_gate",
+      "tests.test_rfm_g3.G3CoreTests.test_stable_fixture_and_worst_case_not_best_seed",
+      "tests.test_rfm_g3.G3CoreTests.test_ties_never_split_and_f_direction_uses_two_levels",
+      "tests.test_rfm_g3.G3OracleTests.test_degenerate_partitions_flag_even_when_ARI_is_one",
+      "tests.test_rfm_g3.G3OracleTests.test_exact_ARI_hand_cases_and_label_permutation",
+      "tests.test_rfm_g3.G3OracleTests.test_extra_keys_missing_seed_and_false_small_cell_claim_rejected",
+      "tests.test_rfm_g3.G3OracleTests.test_oracle_never_calls_G3_core_or_sklearn_ARI",
+      "tests.test_rfm_g3.G3OracleTests.test_sample_membership_cutpoints_ID_swap_and_ARI_tampering_rejected",
+      "tests.test_rfm_g3.G3OracleTests.test_tuple_ARI_differs_from_mean_axis_ARI",
+      "tests.test_run_rfm_g3.G3EntryTests.test_assignment_tampering_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_complete_run_readback_and_no_G3_core_on_verify",
+      "tests.test_run_rfm_g3.G3EntryTests.test_ineligible_is_saved_as_completed_diagnostic",
+      "tests.test_run_rfm_g3.G3EntryTests.test_late_guard_failure_keeps_evidence_and_blocks_replay",
+      "tests.test_run_rfm_g3.G3EntryTests.test_partial_namespace_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_public_report_tampering_rejected",
+      "tests.test_run_rfm_g3.G3EntryTests.test_source_change_after_core_prevents_publication",
+      "tests.test_run_rfm_g3.G3EntryTests.test_source_change_and_changed_test_log_rejected_before_execution",
+      "tests.test_run_rfm_g3.G3SourceEvidenceTests.test_actual_verification_receipt_binds_before_after_and_cannot_overwrite",
+      "tests.test_run_rfm_g3.G3SourceEvidenceTests.test_changed_source_during_input_verify_does_not_create_receipt"
+    ],
+    "tests_run": 26
+  },
+  "version": "G3_on_RFM_v2"
+}

@@ -1,0 +1,433 @@
+{
+  "status": "C1_paired_bootstrap_hand_independent_synthetic_acceptance_passed_entry_frozen",
+  "specification": {
+    "path": "reports/stage10/retailrocket_cooccurrence_v1_validation_specification.json",
+    "bytes": 25939,
+    "sha256": "fca41a1c5abd6dfd6e830a3e53b756cfb4d4de48f96fbf845bb5fd97f54e959b"
+  },
+  "sources_verified": 104,
+  "tests": {
+    "tests_run": 55,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "synthetic_cases": [
+    {
+      "case": "hand_and_full_catalog",
+      "kind": "synthetic_only",
+      "queries": 5,
+      "independent_readback_rows": {
+        "support.csv": 14,
+        "pairs.csv": 3,
+        "train_sessions.jsonl": 15,
+        "queries.jsonl": 5,
+        "bootstrap.jsonl": 2000
+      },
+      "top_level_cells": {
+        "support.csv": 28,
+        "pairs.csv": 9,
+        "train_sessions.jsonl": 60,
+        "queries.jsonl": 50,
+        "bootstrap.jsonl": 12000
+      },
+      "all_nested_JSON_values_checked": true,
+      "ranking_oracle": "full causal catalog sort",
+      "bootstrap_replicates_replayed": 2000,
+      "hand_first_query": {
+        "C1_top3": [
+          "2",
+          "3",
+          "1"
+        ],
+        "C1_recall": 0.5,
+        "C1_ndcg": 0.6131471927654584
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/aggregate.json",
+          "bytes": 15431,
+          "sha256": "02636aed402c2fc1a2a407d382f79af48ef70372da9a7b0f9fce1cea8458aed0"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/bootstrap.jsonl",
+          "bytes": 1012468,
+          "sha256": "f592f79512b708c178b091f56571fd7f597fddaf61362f1e6677f67163ecf7fb"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/fit_audit.json",
+          "bytes": 337,
+          "sha256": "c053f3c057693c6db2e406bba43a480b1927d8d3a69e4424a29cc37ee42b14bd"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/oracle.sqlite",
+          "bytes": 45056,
+          "sha256": "d3714dfb4f36785dee6656ea6c7f43ec1d61bf2f227ab7e50aae87dcc1466e6f"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/pairs.csv",
+          "bytes": 42,
+          "sha256": "950420c872e8b3e13056b73a2f1153a0155f1c979657d8228ed8a68e01f1472c"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/queries.jsonl",
+          "bytes": 5995,
+          "sha256": "134845e85f2fd17c4a722cbac8c55d991909571f266676c40939f8bfbe858c1d"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/support.csv",
+          "bytes": 76,
+          "sha256": "93f12af9f5186b51176d341b51ac82446a33520c7ceb0f6d9dea56d6a1ee7ed2"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/train_sessions.jsonl",
+          "bytes": 1189,
+          "sha256": "9f541ca7347d0f6186510b0dd90c876e79e437311b20ae016f0e525a2c289993"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/aggregate.json",
+          "bytes": 8609,
+          "sha256": "d5443d18097914cdfea3b7267ff49ce3c46a517a26fc422f842ecbe6318f5dd1"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/fit_audit.json",
+          "bytes": 358,
+          "sha256": "a7b5ac3447939eb7207b2e987d9457e501a0e1da6e46271dbb1af0c60140e8bc"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/item_counts.csv",
+          "bytes": 74,
+          "sha256": "ba0344700f70b2c1b48aa6716b3f845c6dcb1f9b36099eaa3a6b870787a51aa5"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/query_metrics.csv",
+          "bytes": 732,
+          "sha256": "92f10b86fb68e2beb23a528ee6cb15d70256dad96893ce394560e3e7054e1d02"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/query_slices.csv",
+          "bytes": 495,
+          "sha256": "3711c60d31fd52a6f721169a5885505e5381bf641b5ff62e99089c50b7bcec0b"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/ranked_queries.csv",
+          "bytes": 1079,
+          "sha256": "a7fde6198cc9e7a92859e5a5763d71fe46f537fedf0becba00a3d1ea515ee831"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/baskets.csv",
+          "bytes": 1693,
+          "sha256": "77e982934442d75c98fdb8ab541eb7846e7ab6f22462dcb20760dac0237eca31"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/catalog.csv",
+          "bytes": 302,
+          "sha256": "5c3324e214f4ba7980adcfb9c6674df05b793790fbafc934f86f97a375fe4b3a"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/qualified_events.csv",
+          "bytes": 3213,
+          "sha256": "11a3399abdc2805aefb4a9b5bd66cde7fba1cb1a3c489ba8afb66327bd5d784c"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/queries.csv",
+          "bytes": 1014,
+          "sha256": "ace8c4beac612a71630152f66787f2949646860021b24f4bb494bf5d1cdfea48"
+        }
+      ]
+    },
+    {
+      "case": "exact_sparse_complement",
+      "kind": "synthetic_only",
+      "queries": 5,
+      "independent_readback_rows": {
+        "support.csv": 14,
+        "pairs.csv": 3,
+        "train_sessions.jsonl": 15,
+        "queries.jsonl": 5,
+        "bootstrap.jsonl": 2000
+      },
+      "top_level_cells": {
+        "support.csv": 28,
+        "pairs.csv": 9,
+        "train_sessions.jsonl": 60,
+        "queries.jsonl": 50,
+        "bootstrap.jsonl": 12000
+      },
+      "all_nested_JSON_values_checked": true,
+      "ranking_oracle": "all SQL neighbors plus exact zero-score complement proof",
+      "bootstrap_replicates_replayed": 2000,
+      "hand_first_query": {
+        "C1_top3": [
+          "2",
+          "3",
+          "1"
+        ],
+        "C1_recall": 0.5,
+        "C1_ndcg": 0.6131471927654584
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/aggregate.json",
+          "bytes": 15431,
+          "sha256": "02636aed402c2fc1a2a407d382f79af48ef70372da9a7b0f9fce1cea8458aed0"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/bootstrap.jsonl",
+          "bytes": 1012468,
+          "sha256": "f592f79512b708c178b091f56571fd7f597fddaf61362f1e6677f67163ecf7fb"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/fit_audit.json",
+          "bytes": 337,
+          "sha256": "c053f3c057693c6db2e406bba43a480b1927d8d3a69e4424a29cc37ee42b14bd"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/oracle.sqlite",
+          "bytes": 45056,
+          "sha256": "d3714dfb4f36785dee6656ea6c7f43ec1d61bf2f227ab7e50aae87dcc1466e6f"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/pairs.csv",
+          "bytes": 42,
+          "sha256": "950420c872e8b3e13056b73a2f1153a0155f1c979657d8228ed8a68e01f1472c"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/queries.jsonl",
+          "bytes": 5995,
+          "sha256": "134845e85f2fd17c4a722cbac8c55d991909571f266676c40939f8bfbe858c1d"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/support.csv",
+          "bytes": 76,
+          "sha256": "93f12af9f5186b51176d341b51ac82446a33520c7ceb0f6d9dea56d6a1ee7ed2"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/train_sessions.jsonl",
+          "bytes": 1189,
+          "sha256": "9f541ca7347d0f6186510b0dd90c876e79e437311b20ae016f0e525a2c289993"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/aggregate.json",
+          "bytes": 8609,
+          "sha256": "d5443d18097914cdfea3b7267ff49ce3c46a517a26fc422f842ecbe6318f5dd1"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/fit_audit.json",
+          "bytes": 358,
+          "sha256": "a7b5ac3447939eb7207b2e987d9457e501a0e1da6e46271dbb1af0c60140e8bc"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/item_counts.csv",
+          "bytes": 74,
+          "sha256": "ba0344700f70b2c1b48aa6716b3f845c6dcb1f9b36099eaa3a6b870787a51aa5"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/query_metrics.csv",
+          "bytes": 732,
+          "sha256": "92f10b86fb68e2beb23a528ee6cb15d70256dad96893ce394560e3e7054e1d02"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/query_slices.csv",
+          "bytes": 495,
+          "sha256": "3711c60d31fd52a6f721169a5885505e5381bf641b5ff62e99089c50b7bcec0b"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/ranked_queries.csv",
+          "bytes": 1079,
+          "sha256": "a7fde6198cc9e7a92859e5a5763d71fe46f537fedf0becba00a3d1ea515ee831"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/baskets.csv",
+          "bytes": 1693,
+          "sha256": "77e982934442d75c98fdb8ab541eb7846e7ab6f22462dcb20760dac0237eca31"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/catalog.csv",
+          "bytes": 302,
+          "sha256": "5c3324e214f4ba7980adcfb9c6674df05b793790fbafc934f86f97a375fe4b3a"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/qualified_events.csv",
+          "bytes": 3213,
+          "sha256": "11a3399abdc2805aefb4a9b5bd66cde7fba1cb1a3c489ba8afb66327bd5d784c"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/queries.csv",
+          "bytes": 1014,
+          "sha256": "ace8c4beac612a71630152f66787f2949646860021b24f4bb494bf5d1cdfea48"
+        }
+      ]
+    }
+  ],
+  "train_only_cost": {
+    "train_sessions": 1180256,
+    "singleton_sessions": 998801,
+    "train_baskets": 1823018,
+    "basket_item_memberships": 1823388,
+    "distinct_session_item_memberships": 1587436,
+    "exact_unordered_pair_emissions": 2292165,
+    "maximum_session_items": 389,
+    "session_cardinality_histogram": {
+      "1": 998801,
+      "2": 111141,
+      "3": 32903,
+      "4": 14461,
+      "5": 7393,
+      "6": 4353,
+      "7": 2729,
+      "8": 1916,
+      "9": 1352,
+      "10": 924,
+      "11": 709,
+      "12": 572,
+      "13": 391,
+      "14": 356,
+      "15": 259,
+      "16": 226,
+      "17": 177,
+      "18": 159,
+      "19": 108,
+      "20": 116,
+      "21": 89,
+      "22": 71,
+      "23": 83,
+      "24": 79,
+      "25": 58,
+      "26": 48,
+      "27": 43,
+      "28": 52,
+      "29": 45,
+      "30": 39,
+      "31": 38,
+      "32": 23,
+      "33": 23,
+      "34": 23,
+      "35": 18,
+      "36": 26,
+      "37": 24,
+      "38": 16,
+      "39": 22,
+      "40": 19,
+      "41": 19,
+      "42": 12,
+      "43": 14,
+      "44": 15,
+      "45": 11,
+      "46": 15,
+      "47": 12,
+      "48": 9,
+      "49": 14,
+      "50": 11,
+      "51": 8,
+      "52": 8,
+      "53": 9,
+      "54": 13,
+      "55": 6,
+      "56": 3,
+      "57": 5,
+      "58": 11,
+      "59": 11,
+      "60": 5,
+      "61": 5,
+      "62": 3,
+      "63": 6,
+      "64": 4,
+      "65": 6,
+      "66": 5,
+      "67": 3,
+      "68": 4,
+      "69": 3,
+      "70": 2,
+      "71": 3,
+      "72": 2,
+      "73": 5,
+      "74": 2,
+      "75": 5,
+      "76": 3,
+      "77": 5,
+      "78": 4,
+      "79": 4,
+      "80": 2,
+      "81": 3,
+      "82": 3,
+      "83": 4,
+      "84": 5,
+      "85": 1,
+      "86": 1,
+      "87": 3,
+      "89": 1,
+      "90": 5,
+      "92": 2,
+      "93": 1,
+      "95": 3,
+      "96": 1,
+      "97": 1,
+      "98": 5,
+      "100": 1,
+      "102": 3,
+      "104": 2,
+      "105": 1,
+      "106": 3,
+      "107": 2,
+      "111": 1,
+      "112": 1,
+      "114": 3,
+      "115": 1,
+      "116": 1,
+      "117": 1,
+      "118": 3,
+      "119": 1,
+      "121": 1,
+      "132": 2,
+      "140": 1,
+      "143": 1,
+      "145": 1,
+      "147": 2,
+      "149": 1,
+      "150": 1,
+      "157": 1,
+      "158": 1,
+      "161": 2,
+      "162": 1,
+      "163": 1,
+      "172": 1,
+      "186": 1,
+      "190": 1,
+      "198": 1,
+      "389": 1
+    },
+    "unique_pairs_materialized": false,
+    "item_support_model_built": false,
+    "pair_count_model_built": false,
+    "validation_or_test_items_decoded": false,
+    "independent_cardinality_rows_checked": 1180256,
+    "independent_cardinality_cells_checked": 5901280,
+    "elapsed_seconds": 65.836239
+  },
+  "resources": {
+    "maximum_process_RSS_bytes": 8589934592,
+    "maximum_execution_disk_bytes": 21474836480,
+    "minimum_free_disk_bytes": 8589934592,
+    "minimum_available_memory_bytes": 4294967296,
+    "maximum_elapsed_seconds": 21600,
+    "monitor_interval_seconds": 0.5
+  },
+  "scope": {
+    "C1_and_paired_and_bootstrap_implemented": true,
+    "synthetic_acceptance_passed": true,
+    "real_C1_fits": 0,
+    "new_real_P0_fits": 0,
+    "real_validation_ranked_queries": 0,
+    "real_paired_metrics": 0,
+    "real_bootstrap_replicates": 0,
+    "train_only_cost_audit": true,
+    "real_train_baskets_parsed_per_cost_pass": 1823018,
+    "independent_cost_passes": 2,
+    "real_validation_or_test_items_decoded_this_round": false,
+    "reserved_test_state": "locked",
+    "final_refit_or_test_entry_implemented": false
+  },
+  "elapsed_seconds": 19.553279,
+  "next_step": "later execute --run-validation once, independently read back all outputs; test stays locked"
+}

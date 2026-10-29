@@ -1,0 +1,632 @@
+{
+  "after_baseline": {
+    "anonymous_customer_keys": 17,
+    "final_snapshot_status_counts": {
+      "canceled": 19,
+      "shipped": 1
+    },
+    "keys_also_in_before_cutoff_purchase_rows": 11,
+    "purchase_rows": 20
+  },
+  "clocks": {
+    "order_approved_at": {
+      "invalid_nonblank": 0,
+      "maximum": "2018-09-03T17:40:06",
+      "minimum": "2016-09-15T12:16:38",
+      "missing": 160
+    },
+    "order_delivered_customer_date": {
+      "invalid_nonblank": 0,
+      "maximum": "2018-10-17T13:22:46",
+      "minimum": "2016-10-11T13:46:32",
+      "missing": 2965
+    },
+    "order_purchase_timestamp": {
+      "invalid_nonblank": 0,
+      "maximum": "2018-10-17T17:30:18",
+      "minimum": "2016-09-04T21:15:19",
+      "missing": 0
+    }
+  },
+  "format_version": 1,
+  "future_coverage_probes": [
+    {
+      "accepted_for_temporal_validation": false,
+      "earlier_purchase_delivery_events_in_interval": 56,
+      "earlier_purchase_event_proxy_eligible_by_upper": 56,
+      "eligible_new_purchase_event_proxy": 0,
+      "final_snapshot_status_counts": {
+        "canceled": 15,
+        "shipped": 1
+      },
+      "new_purchase_event_proxy_reasons": {
+        "status_not_delivered": 16
+      },
+      "purchase_interval": [
+        "2018-09-01T00:00:00",
+        "2018-10-01T00:00:00"
+      ],
+      "purchase_rows": 16,
+      "upstream_complete": null
+    },
+    {
+      "accepted_for_temporal_validation": false,
+      "earlier_purchase_delivery_events_in_interval": 59,
+      "earlier_purchase_event_proxy_eligible_by_upper": 59,
+      "eligible_new_purchase_event_proxy": 0,
+      "final_snapshot_status_counts": {
+        "canceled": 19,
+        "shipped": 1
+      },
+      "new_purchase_event_proxy_reasons": {
+        "status_not_delivered": 20
+      },
+      "purchase_interval": [
+        "2018-09-01T00:00:00",
+        "2018-11-01T00:00:00"
+      ],
+      "purchase_rows": 20,
+      "upstream_complete": null
+    }
+  ],
+  "limitations": [
+    "Same final export can support retrospective event-proxy exploration only, not historical as-of knowledge or a new holdout.",
+    "Event maxima do not establish a completion watermark; absent events are not evidence of zero business activity.",
+    "Missing approval is nonblocking only under the original event-proxy rule; it is not an availability clock.",
+    "No amounts, refunds, settlement, entity-resolution revisions or business outcomes accepted this round.",
+    "The prior 25 small groups / 1791 customers retain insufficient-support status; no temporal group-size result was computed.",
+    "G3 agreement and ARI thresholds are same-snapshot sampling gates, not cross-time acceptance thresholds."
+  ],
+  "local_evidence": {
+    "accepted_additional_as_of_snapshots": 0,
+    "archives": [
+      {
+        "path": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "raw_table_members": 9
+      },
+      {
+        "path": ".runtime/backups/stage6_rfm_g3_v2.zip",
+        "raw_table_members": 4
+      },
+      {
+        "path": ".runtime/backups/stage6_rfm_rebuild_v2.zip",
+        "raw_table_members": 4
+      }
+    ],
+    "as_of_evidence": "No accepted historical ingestion/revision/completion bundle in inspected paths; a packaging/import date is not an original observation cutoff.",
+    "distinct_versions_by_raw_table": {
+      "olist_customers_dataset.csv": 1,
+      "olist_geolocation_dataset.csv": 1,
+      "olist_order_items_dataset.csv": 1,
+      "olist_order_payments_dataset.csv": 1,
+      "olist_order_reviews_dataset.csv": 1,
+      "olist_orders_dataset.csv": 1,
+      "olist_products_dataset.csv": 1,
+      "olist_sellers_dataset.csv": 1,
+      "product_category_name_translation.csv": 1
+    },
+    "local_import_receipt_available_not_live_DB_recheck": true,
+    "raw_copies": [
+      {
+        "container": "data/raw/olist",
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+        "table": "olist_customers_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+        "table": "olist_geolocation_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+        "table": "olist_order_items_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+        "table": "olist_order_payments_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+        "table": "olist_order_reviews_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+        "table": "olist_orders_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+        "table": "olist_products_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+        "table": "olist_sellers_dataset.csv"
+      },
+      {
+        "container": "data/raw/olist",
+        "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+        "table": "product_category_name_translation.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+        "table": "olist_customers_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+        "table": "olist_geolocation_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+        "table": "olist_order_items_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+        "table": "olist_order_payments_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+        "table": "olist_order_reviews_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+        "table": "olist_orders_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+        "table": "olist_products_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+        "table": "olist_sellers_dataset.csv"
+      },
+      {
+        "container": ".runtime/downloads/olist-brazilian-ecommerce-v2.zip",
+        "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+        "table": "product_category_name_translation.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_g3_v2.zip",
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+        "table": "olist_customers_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_g3_v2.zip",
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+        "table": "olist_order_items_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_g3_v2.zip",
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+        "table": "olist_order_payments_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_g3_v2.zip",
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+        "table": "olist_orders_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_rebuild_v2.zip",
+        "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+        "table": "olist_customers_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_rebuild_v2.zip",
+        "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+        "table": "olist_order_items_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_rebuild_v2.zip",
+        "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+        "table": "olist_order_payments_dataset.csv"
+      },
+      {
+        "container": ".runtime/backups/stage6_rfm_rebuild_v2.zip",
+        "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+        "table": "olist_orders_dataset.csv"
+      }
+    ],
+    "source_manifest_version": 2
+  },
+  "monthly_event_counts": [
+    {
+      "delivery_clock_rows": 0,
+      "month": "2016-09",
+      "purchase_rows": 4,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 208,
+      "month": "2016-10",
+      "purchase_rows": 324,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 60,
+      "month": "2016-11",
+      "purchase_rows": 0,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 4,
+      "month": "2016-12",
+      "purchase_rows": 1,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 283,
+      "month": "2017-01",
+      "purchase_rows": 800,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 1351,
+      "month": "2017-02",
+      "purchase_rows": 1780,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 2382,
+      "month": "2017-03",
+      "purchase_rows": 2682,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 1849,
+      "month": "2017-04",
+      "purchase_rows": 2404,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 3751,
+      "month": "2017-05",
+      "purchase_rows": 3700,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 3223,
+      "month": "2017-06",
+      "purchase_rows": 3245,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 3455,
+      "month": "2017-07",
+      "purchase_rows": 4026,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 4302,
+      "month": "2017-08",
+      "purchase_rows": 4331,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 3965,
+      "month": "2017-09",
+      "purchase_rows": 4285,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 4494,
+      "month": "2017-10",
+      "purchase_rows": 4631,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 4670,
+      "month": "2017-11",
+      "purchase_rows": 7544,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 7205,
+      "month": "2017-12",
+      "purchase_rows": 5673,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 6597,
+      "month": "2018-01",
+      "purchase_rows": 7269,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 5850,
+      "month": "2018-02",
+      "purchase_rows": 6728,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 6825,
+      "month": "2018-03",
+      "purchase_rows": 7211,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 7850,
+      "month": "2018-04",
+      "purchase_rows": 6939,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 7111,
+      "month": "2018-05",
+      "purchase_rows": 6873,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 6829,
+      "month": "2018-06",
+      "purchase_rows": 6167,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 5839,
+      "month": "2018-07",
+      "purchase_rows": 6292,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 8314,
+      "month": "2018-08",
+      "purchase_rows": 6512,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 56,
+      "month": "2018-09",
+      "purchase_rows": 16,
+      "upstream_complete": null
+    },
+    {
+      "delivery_clock_rows": 3,
+      "month": "2018-10",
+      "purchase_rows": 4,
+      "upstream_complete": null
+    }
+  ],
+  "scope": {
+    "audit_role": "Availability inspection after prior research exposure, not a preregistered model experiment.",
+    "baseline_cutoff": "2018-09-01T00:00:00",
+    "probes_not_selected_validation_cutoffs": [
+      "2018-10-01T00:00:00",
+      "2018-11-01T00:00:00"
+    ],
+    "raw_read_policy": "All nine file hashes/headers; orders clocks/status/keys, customer keys, item/payment keys only. No review values or monetary values used.",
+    "scope_limit": "Selected project data/download/backup/handoff paths only; no external drive, cloud, live web or live DB audit.",
+    "search": [
+      {
+        "csv_count": 9,
+        "exists": true,
+        "path": "data",
+        "zip_count": 0
+      },
+      {
+        "csv_count": 0,
+        "exists": true,
+        "path": ".runtime/downloads",
+        "zip_count": 2
+      },
+      {
+        "csv_count": 0,
+        "exists": true,
+        "path": ".runtime/backups",
+        "zip_count": 2
+      },
+      {
+        "csv_count": 0,
+        "exists": false,
+        "path": ".runtime/data_handoffs",
+        "zip_count": 0
+      },
+      {
+        "csv_count": 0,
+        "exists": false,
+        "path": ".runtime/review_window_handoffs",
+        "zip_count": 0
+      },
+      {
+        "csv_count": 0,
+        "exists": false,
+        "path": ".runtime/rfm_temporal_handoffs",
+        "zip_count": 0
+      }
+    ]
+  },
+  "sources": [
+    {
+      "bytes": 9033957,
+      "path": "data/raw/olist/olist_customers_dataset.csv",
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    {
+      "bytes": 61273883,
+      "path": "data/raw/olist/olist_geolocation_dataset.csv",
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    {
+      "bytes": 15438671,
+      "path": "data/raw/olist/olist_order_items_dataset.csv",
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    {
+      "bytes": 5777138,
+      "path": "data/raw/olist/olist_order_payments_dataset.csv",
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    {
+      "bytes": 14451670,
+      "path": "data/raw/olist/olist_order_reviews_dataset.csv",
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    {
+      "bytes": 17654914,
+      "path": "data/raw/olist/olist_orders_dataset.csv",
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    {
+      "bytes": 2379446,
+      "path": "data/raw/olist/olist_products_dataset.csv",
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    {
+      "bytes": 174703,
+      "path": "data/raw/olist/olist_sellers_dataset.csv",
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    {
+      "bytes": 2613,
+      "path": "data/raw/olist/product_category_name_translation.csv",
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    },
+    {
+      "bytes": 14931,
+      "path": "scripts/audit_rfm_temporal_data.py",
+      "sha256": "48af81e71130bac4713e2336eb703e5591d25a252a2c9b3ec2c763e890138114"
+    },
+    {
+      "bytes": 3594,
+      "path": "tests/test_rfm_temporal_data.py",
+      "sha256": "7d06b4349f8c1a83ab1d6ad9047f5ed49ae21c93b511b48cf03b6378755d6f71"
+    },
+    {
+      "bytes": 34886,
+      "path": "reports/stage4/event_source_availability.json",
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    },
+    {
+      "bytes": 60951,
+      "path": "reports/stage5/review_validation_window_inventory.json",
+      "sha256": "3b5cc32b85ab0f6fb993134b793a15ef61d73937df299a185964d252b10019f1"
+    },
+    {
+      "bytes": 67726,
+      "path": "reports/stage6/rfm_rebuild_v2.json",
+      "sha256": "d2ee7c747709eb249ebce3f532f18d7bd93e0d09b2bb5bb342239ccddee79b6d"
+    },
+    {
+      "bytes": 16472,
+      "path": "reports/stage6/rfm_g3_v2_specification.json",
+      "sha256": "4af615e971cc2bfd88014a596d3ea10354bfaeb70487b0d001a4b981a0cdad5b"
+    },
+    {
+      "bytes": 81589,
+      "path": "reports/stage6/rfm_g3_v2.json",
+      "sha256": "4764fe9bdcf1593e8b81764034b3416c7156d44dafde146c4a06b26beafc7598"
+    }
+  ],
+  "status": "inventory_complete_temporal_validation_pending_data",
+  "tables": {
+    "anonymous_customer_keys": 96096,
+    "customers": 99441,
+    "detail_key_quality": {
+      "items": {
+        "duplicate_composite_keys": 0,
+        "orders_missing_detail": 775,
+        "orphan_order_keys": 0,
+        "rows": 112650
+      },
+      "payments": {
+        "duplicate_composite_keys": 0,
+        "orders_missing_detail": 1,
+        "orphan_order_keys": 0,
+        "rows": 103886
+      }
+    },
+    "headers": {
+      "olist_customers_dataset.csv": [
+        "customer_id",
+        "customer_unique_id",
+        "customer_zip_code_prefix",
+        "customer_city",
+        "customer_state"
+      ],
+      "olist_geolocation_dataset.csv": [
+        "geolocation_zip_code_prefix",
+        "geolocation_lat",
+        "geolocation_lng",
+        "geolocation_city",
+        "geolocation_state"
+      ],
+      "olist_order_items_dataset.csv": [
+        "order_id",
+        "order_item_id",
+        "product_id",
+        "seller_id",
+        "shipping_limit_date",
+        "price",
+        "freight_value"
+      ],
+      "olist_order_payments_dataset.csv": [
+        "order_id",
+        "payment_sequential",
+        "payment_type",
+        "payment_installments",
+        "payment_value"
+      ],
+      "olist_order_reviews_dataset.csv": [
+        "review_id",
+        "order_id",
+        "review_score",
+        "review_comment_title",
+        "review_comment_message",
+        "review_creation_date",
+        "review_answer_timestamp"
+      ],
+      "olist_orders_dataset.csv": [
+        "order_id",
+        "customer_id",
+        "order_status",
+        "order_purchase_timestamp",
+        "order_approved_at",
+        "order_delivered_carrier_date",
+        "order_delivered_customer_date",
+        "order_estimated_delivery_date"
+      ],
+      "olist_products_dataset.csv": [
+        "product_id",
+        "product_category_name",
+        "product_name_lenght",
+        "product_description_lenght",
+        "product_photos_qty",
+        "product_weight_g",
+        "product_length_cm",
+        "product_height_cm",
+        "product_width_cm"
+      ],
+      "olist_sellers_dataset.csv": [
+        "seller_id",
+        "seller_zip_code_prefix",
+        "seller_city",
+        "seller_state"
+      ],
+      "product_category_name_translation.csv": [
+        "product_category_name",
+        "product_category_name_english"
+      ]
+    },
+    "orders": 99441
+  },
+  "verification": {
+    "holdout_evaluations": 0,
+    "model_fits": 0,
+    "monthly_purchase_rows_reconciled": true,
+    "new_RFM_snapshots_built": 0,
+    "new_cutpoints_or_scores": 0,
+    "prior_G3_bound_sources_byte_matched": 69,
+    "source_descriptors_rechecked_after_read": true
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "status": "prepared_before_real_dataset_build",
+  "contract": {
+    "path": "docs/contracts/retailrocket_recommendation_v1.json",
+    "bytes": 13358,
+    "sha256": "5b98958ab1695a1f50b9917d6a08a91aa0b299dd6378a6ec3bf5402827def9d0"
+  },
+  "sources": [
+    {
+      "path": "data/raw/retailrocket/ecommerce-dataset-v2.zip",
+      "bytes": 304719974,
+      "sha256": "5dc06173eaa4a4d3b0a5f6afc4daffb0218d95e409aaacba5fdaa0214eacf2a2"
+    },
+    {
+      "path": "data/raw/retailrocket/file_list.response",
+      "bytes": 1461,
+      "sha256": "629460015289d82bc5a4488c57a047cde945e7fc46262d23624c4318106c249f"
+    },
+    {
+      "path": "data/raw/retailrocket/license.response",
+      "bytes": 52858,
+      "sha256": "527c4e0e75a7aafe819a9ed481c227f27645736fa800f25d6d94ed37a362afd7"
+    },
+    {
+      "path": "data/raw/retailrocket/metadata.response",
+      "bytes": 19053,
+      "sha256": "69ff3248fbf129fac49f738f636fd1a4163a228560e5cc685f3cec7742da448e"
+    },
+    {
+      "path": "data/raw/retailrocket/source_manifest.json",
+      "bytes": 3369,
+      "sha256": "338e4c12bfcdc1524b10ed304c634ab3f3ca1eb084322166c60cbc9f12298f40"
+    },
+    {
+      "path": "docs/contracts/retailrocket_recommendation_v1.json",
+      "bytes": 13358,
+      "sha256": "5b98958ab1695a1f50b9917d6a08a91aa0b299dd6378a6ec3bf5402827def9d0"
+    },
+    {
+      "path": "reports/stage8/retailrocket_contract_v1_acceptance.json",
+      "bytes": 8627,
+      "sha256": "c50311ec5d91ea90e83699a3057802bebc59859801bc17f938a4e400c974c9f7"
+    },
+    {
+      "path": "reports/stage8/retailrocket_source_audit_v1.json",
+      "bytes": 49002,
+      "sha256": "e4ef5d22b55a82f390e57ea3b51325645b585a558c8feb57c179d1de63957811"
+    },
+    {
+      "path": "scripts/audit_retailrocket_source.py",
+      "bytes": 13059,
+      "sha256": "0c6358335e614428ea757d57d09943d019ea1c9e2e1792e880e899807a7728cb"
+    },
+    {
+      "path": "scripts/build_retailrocket_v1.py",
+      "bytes": 10621,
+      "sha256": "2a47cc80c82434db7395bf3ea77fb1ec97034e7d1f91e4eaecf43b15f9de15b4"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_contract.py",
+      "bytes": 10893,
+      "sha256": "8a391f373ce5e58c58171348ed342ba5411e6d87ff6313195840fcd7cdbe6080"
+    },
+    {
+      "path": "scripts/retailrocket_builder.py",
+      "bytes": 18731,
+      "sha256": "046fbf875dbb1de674f3b29fdf2bf131a297306fe3950bef2c159467c0363850"
+    },
+    {
+      "path": "scripts/retailrocket_reference.py",
+      "bytes": 15533,
+      "sha256": "9f0a24c2814325a1beb4322b0f2b5016410acb67b4777b12465c58e48b677145"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_contract_v1/input_guard.json",
+      "bytes": 2077,
+      "sha256": "cdbc355297912082b91f9cba240d0f5c65539d5251d1cb24a9aa904dbdea26d7"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_intake_v1/inventory.sqlite",
+      "bytes": 570630144,
+      "sha256": "38b467d3a02d16e1f9db5fb2847e076977ecd620c2d29e0e795a12b5327baec1"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_intake_v1/output_guard.json",
+      "bytes": 1693,
+      "sha256": "0a806feb54da1f169a0a808f31b59398cfb515f0177cfb16955ebab03ffa781d"
+    },
+    {
+      "path": "tests/test_retailrocket_builder.py",
+      "bytes": 9373,
+      "sha256": "02d1e14240b96f221075757dbc8630a286d7c4ba2d6ba74534cabb6272ef1d33"
+    }
+  ],
+  "schemas": {
+    "row_decisions.csv": [
+      "source_record",
+      "source_member_sha256",
+      "timestamp",
+      "visitorid",
+      "event",
+      "itemid",
+      "transactionid",
+      "content_sha256",
+      "role",
+      "canonical_record",
+      "decision",
+      "reason"
+    ],
+    "qualified_events.csv": [
+      "source_record",
+      "source_member_sha256",
+      "timestamp",
+      "visitorid",
+      "event",
+      "itemid",
+      "transactionid",
+      "content_sha256",
+      "role"
+    ],
+    "duplicate_map.csv": [
+      "source_record",
+      "canonical_record",
+      "source_member_sha256",
+      "content_sha256",
+      "role"
+    ],
+    "exclusions.csv": [
+      "source_record",
+      "source_member_sha256",
+      "timestamp",
+      "visitorid",
+      "event",
+      "itemid",
+      "transactionid",
+      "content_sha256",
+      "role",
+      "canonical_record",
+      "decision",
+      "reason"
+    ],
+    "baskets.csv": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms",
+      "role",
+      "basket_index",
+      "items",
+      "source_records",
+      "context_item_occurrences"
+    ],
+    "sessions.csv": [
+      "visitorid",
+      "session_start_ms",
+      "last_view_ms",
+      "basket_count",
+      "item_occurrences",
+      "first_role",
+      "last_role"
+    ],
+    "query_decisions.csv": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms",
+      "role",
+      "basket_index",
+      "context_item_occurrences",
+      "next_view_ms",
+      "next_role",
+      "next_in_session",
+      "mature",
+      "cross_role",
+      "status",
+      "candidate_count",
+      "target_items",
+      "target_count",
+      "reachable_target_count",
+      "all_targets_reachable",
+      "visitor_seen_before_fit",
+      "targets_seen_before_fit",
+      "train_view_events",
+      "train_activity_slice"
+    ],
+    "queries.csv": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms",
+      "role",
+      "basket_index",
+      "context_item_occurrences",
+      "next_view_ms",
+      "next_role",
+      "next_in_session",
+      "mature",
+      "cross_role",
+      "status",
+      "candidate_count",
+      "target_items",
+      "target_count",
+      "reachable_target_count",
+      "all_targets_reachable",
+      "visitor_seen_before_fit",
+      "targets_seen_before_fit",
+      "train_view_events",
+      "train_activity_slice"
+    ],
+    "boundary_ledger.csv": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms",
+      "role",
+      "next_view_ms",
+      "next_role",
+      "mature",
+      "cross_role",
+      "status"
+    ],
+    "catalog.csv": [
+      "itemid",
+      "first_view_ms"
+    ],
+    "visitor_history.csv": [
+      "visitorid",
+      "first_event_ms",
+      "train_view_events"
+    ],
+    "property_versions.csv": [
+      "itemid",
+      "property",
+      "timestamp",
+      "state",
+      "value",
+      "source_records",
+      "category_tree_missing"
+    ],
+    "view_property_diagnostics.csv": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms",
+      "itemid",
+      "available_version_ms",
+      "available_state",
+      "available_value",
+      "available_age_ms",
+      "category_version_ms",
+      "category_state",
+      "category_value",
+      "category_age_ms",
+      "category_tree_missing"
+    ],
+    "property_exclusions.csv": [
+      "source_part",
+      "source_record",
+      "timestamp",
+      "itemid",
+      "property",
+      "value",
+      "reason"
+    ],
+    "category_tree_diagnostics.csv": [
+      "source_record",
+      "categoryid",
+      "parentid",
+      "flags"
+    ],
+    "orphan_categories.csv": [
+      "categoryid",
+      "version_count"
+    ]
+  },
+  "implementation_details": {
+    "row_precedence": "malformed -> excluded; otherwise exact content representative over all valid rows; nonrepresentatives duplicate; representatives outside v1 excluded; others canonical",
+    "tail": "row accounting only; outside-v1 events never enter baskets, labels, catalog, visitor history or properties-as-features",
+    "context_encoding": "basket index within visitor/session; all baskets with same visitor/session and index <= query index, no full prefix duplication",
+    "session_end_fields": "last time and total length are audit-only future diagnostics, forbidden as query model features",
+    "query_next_fields": "next_view timestamp/role may diagnose later-session or boundary observations; target_items populated only for labelled rows",
+    "boundary_ledger": "all query decisions with immature observation or same-session cross-role next view, including applicable warmup rows; flags independent of primary status",
+    "visitor_known_fit": "first ANY qualified event strictly before fit cutoff; diagnostic slice only, no cart/transaction model features",
+    "activity": "canonical view event count in train window only; fixed slices 0 / 1 / 2-5 / 6+, diagnostic only",
+    "train_query_slices": "fit-cutoff and whole-training activity diagnostics are not causal per-query input features",
+    "properties": "all four original members scanned; only available/categoryid become version diagnostics with all critical lineage; generic values remain opaque in original ZIP",
+    "property_join_scope": "every distinct item in each current view basket; not a full candidate-catalog availability filter or model feature",
+    "catalog": "first qualified view time; filter strictly before each query; nonreachable targets stay in labels",
+    "unknowns": "CSV empty is null, JSON [] is empty set, 0/1 are explicit booleans; no_observed_continuation is unlabelled, never a negative",
+    "independent_path": "raw ZIP pandas vs production stdlib CSV/SQLite; pandas cumulative groups/shift and merge_asof; compare all cells in all 16 CSVs",
+    "execution_scope": "data building and acceptance only; no recommendation fit, candidate selection or ranking metric"
+  },
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.860948
+  }
+}
