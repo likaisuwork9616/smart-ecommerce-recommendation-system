@@ -1,0 +1,186 @@
+{
+  "status": "passed_full_independent_cell_readback",
+  "execution_specification": {
+    "path": "reports/stage6/uci_rfm_build_v1_specification.json",
+    "bytes": 10667,
+    "sha256": "5d67ebfed8f13e88a777aea5b3805ecbb1da859c4726b5919dc16a4386952225"
+  },
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.038255,
+    "test_ids": [
+      "tests.test_uci_rfm_builder.BuilderTests.test_C_positive_and_negative_excluded_without_suffix_matching",
+      "tests.test_uci_rfm_builder.BuilderTests.test_amount_overflow_and_extra_precision_stop",
+      "tests.test_uci_rfm_builder.BuilderTests.test_code_only_changes_money_and_can_give_zero_active",
+      "tests.test_uci_rfm_builder.BuilderTests.test_consistently_missing_country_description_nonblocking",
+      "tests.test_uci_rfm_builder.BuilderTests.test_country_conflict_includes_missing",
+      "tests.test_uci_rfm_builder.BuilderTests.test_cross_sheet_multiplicity_is_max_not_sum",
+      "tests.test_uci_rfm_builder.BuilderTests.test_csv_exclusive_create_and_null_zero_boolean",
+      "tests.test_uci_rfm_builder.BuilderTests.test_customer_conflict_links_both_keys",
+      "tests.test_uci_rfm_builder.BuilderTests.test_free_and_paid_invoice_counted_once",
+      "tests.test_uci_rfm_builder.BuilderTests.test_future_conflicting_rows_cannot_change_T1",
+      "tests.test_uci_rfm_builder.BuilderTests.test_hand_counted_invoice_not_line_frequency",
+      "tests.test_uci_rfm_builder.BuilderTests.test_history_customer_retained_clean_inactive",
+      "tests.test_uci_rfm_builder.BuilderTests.test_independent_SQL_all_arms_and_windows_full_ledger_parity",
+      "tests.test_uci_rfm_builder.BuilderTests.test_input_rows_unchanged",
+      "tests.test_uci_rfm_builder.BuilderTests.test_invalid_clock_and_customer_stop",
+      "tests.test_uci_rfm_builder.BuilderTests.test_larger_second_sheet_is_selected",
+      "tests.test_uci_rfm_builder.BuilderTests.test_missing_invoice_rows_do_not_invent_one_shared_document",
+      "tests.test_uci_rfm_builder.BuilderTests.test_missing_stock_quarantines_purchase",
+      "tests.test_uci_rfm_builder.BuilderTests.test_mixed_known_missing_customer_quarantines_known",
+      "tests.test_uci_rfm_builder.BuilderTests.test_negative_or_missing_price_not_silent_partial_total",
+      "tests.test_uci_rfm_builder.BuilderTests.test_negative_purchase_quantity_quarantines_entire_invoice",
+      "tests.test_uci_rfm_builder.BuilderTests.test_nonidentical_same_stock_retained",
+      "tests.test_uci_rfm_builder.BuilderTests.test_past_only_quarantine_does_not_mask_current_window",
+      "tests.test_uci_rfm_builder.BuilderTests.test_readback_catches_extra_row_and_schema",
+      "tests.test_uci_rfm_builder.BuilderTests.test_readback_catches_same_total_customer_swap",
+      "tests.test_uci_rfm_builder.BuilderTests.test_start_included_T_excluded",
+      "tests.test_uci_rfm_builder.BuilderTests.test_sub_penny_exactness",
+      "tests.test_uci_rfm_builder.BuilderTests.test_time_conflict_masks_whole_customer_but_preserves_partial",
+      "tests.test_uci_rfm_builder.BuilderTests.test_unknown_customer_kept_only_in_row_ledger",
+      "tests.test_uci_rfm_builder.BuilderTests.test_zero_price_does_not_add_activity_or_quarantine"
+    ]
+  },
+  "source_files": 22,
+  "files_compared": 32,
+  "data_records_compared": 12720628,
+  "data_cells_compared": 128416372,
+  "per_file": {
+    "main/T1/row_decisions.csv": {
+      "rows": 502938,
+      "cells": 6035256
+    },
+    "main/T1/duplicate_map.csv": {
+      "rows": 502938,
+      "cells": 4023504
+    },
+    "main/T1/invoice_decisions.csv": {
+      "rows": 27728,
+      "cells": 360464
+    },
+    "main/T1/customers.csv": {
+      "rows": 4336,
+      "cells": 69376
+    },
+    "duplicate_sensitivity/T1/row_decisions.csv": {
+      "rows": 502938,
+      "cells": 6035256
+    },
+    "duplicate_sensitivity/T1/duplicate_map.csv": {
+      "rows": 502938,
+      "cells": 4023504
+    },
+    "duplicate_sensitivity/T1/invoice_decisions.csv": {
+      "rows": 27728,
+      "cells": 360464
+    },
+    "duplicate_sensitivity/T1/customers.csv": {
+      "rows": 4336,
+      "cells": 69376
+    },
+    "code_sensitivity/T1/row_decisions.csv": {
+      "rows": 502938,
+      "cells": 6035256
+    },
+    "code_sensitivity/T1/duplicate_map.csv": {
+      "rows": 502938,
+      "cells": 4023504
+    },
+    "code_sensitivity/T1/invoice_decisions.csv": {
+      "rows": 27728,
+      "cells": 360464
+    },
+    "code_sensitivity/T1/customers.csv": {
+      "rows": 4336,
+      "cells": 69376
+    },
+    "combined_sensitivity/T1/row_decisions.csv": {
+      "rows": 502938,
+      "cells": 6035256
+    },
+    "combined_sensitivity/T1/duplicate_map.csv": {
+      "rows": 502938,
+      "cells": 4023504
+    },
+    "combined_sensitivity/T1/invoice_decisions.csv": {
+      "rows": 27728,
+      "cells": 360464
+    },
+    "combined_sensitivity/T1/customers.csv": {
+      "rows": 4336,
+      "cells": 69376
+    },
+    "main/T2/row_decisions.csv": {
+      "rows": 1041845,
+      "cells": 12502140
+    },
+    "main/T2/duplicate_map.csv": {
+      "rows": 1041845,
+      "cells": 8334760
+    },
+    "main/T2/invoice_decisions.csv": {
+      "rows": 52613,
+      "cells": 683969
+    },
+    "main/T2/customers.csv": {
+      "rows": 5914,
+      "cells": 94624
+    },
+    "duplicate_sensitivity/T2/row_decisions.csv": {
+      "rows": 1041845,
+      "cells": 12502140
+    },
+    "duplicate_sensitivity/T2/duplicate_map.csv": {
+      "rows": 1041845,
+      "cells": 8334760
+    },
+    "duplicate_sensitivity/T2/invoice_decisions.csv": {
+      "rows": 52613,
+      "cells": 683969
+    },
+    "duplicate_sensitivity/T2/customers.csv": {
+      "rows": 5914,
+      "cells": 94624
+    },
+    "code_sensitivity/T2/row_decisions.csv": {
+      "rows": 1041845,
+      "cells": 12502140
+    },
+    "code_sensitivity/T2/duplicate_map.csv": {
+      "rows": 1041845,
+      "cells": 8334760
+    },
+    "code_sensitivity/T2/invoice_decisions.csv": {
+      "rows": 52613,
+      "cells": 683969
+    },
+    "code_sensitivity/T2/customers.csv": {
+      "rows": 5914,
+      "cells": 94624
+    },
+    "combined_sensitivity/T2/row_decisions.csv": {
+      "rows": 1041845,
+      "cells": 12502140
+    },
+    "combined_sensitivity/T2/duplicate_map.csv": {
+      "rows": 1041845,
+      "cells": 8334760
+    },
+    "combined_sensitivity/T2/invoice_decisions.csv": {
+      "rows": 52613,
+      "cells": 683969
+    },
+    "combined_sensitivity/T2/customers.csv": {
+      "rows": 5914,
+      "cells": 94624
+    }
+  },
+  "independent_aggregate_checks": 32,
+  "source_and_output_bytes_unchanged": true,
+  "elapsed_seconds": 785.107,
+  "transaction_source": "original XLSX XML; eight-column SQL partitions; separate integer invoice/customer calculation",
+  "no_cutpoints_or_temporal_scores": true
+}

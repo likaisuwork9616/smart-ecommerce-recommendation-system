@@ -1,0 +1,36 @@
+{
+  "status": "all_validation_output_cells_and_aggregates_independently_accepted",
+  "result": {
+    "path": "reports/stage9/retailrocket_popularity_v1_development.json",
+    "bytes": 12999,
+    "sha256": "e3c6d6f9e057eeb10edf554e6dedebca22a5a0a933ba6cac9bde8f2152da84d5"
+  },
+  "files": {
+    "item_counts.csv": {
+      "rows": 198946,
+      "cells": 397892
+    },
+    "ranked_queries.csv": {
+      "rows": 166897,
+      "cells": 1335176
+    },
+    "query_metrics.csv": {
+      "rows": 166897,
+      "cells": 2503455
+    },
+    "query_slices.csv": {
+      "rows": 166897,
+      "cells": 1502073
+    }
+  },
+  "scope": {
+    "real_primary_fits": 1,
+    "real_independent_count_audits": 1,
+    "validation_ranked_queries": 166897,
+    "training_ranked_queries": 0,
+    "reserved_test_ranked_queries": 0,
+    "final_refits": 0,
+    "reserved_test_state": "locked"
+  },
+  "oracle": "separate SQL counts, exact rank proof and Decimal/Fraction metrics"
+}

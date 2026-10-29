@@ -1,0 +1,2333 @@
+{
+  "schema_version": 1,
+  "status": "source_audit_completed_contract_not_yet_frozen",
+  "checked_date_asia_taipei": "2026-10-28",
+  "official_source": {
+    "dataset_id": 1031,
+    "owner": "retailrocket",
+    "creator": "Roman Zykov",
+    "version": 2,
+    "license": "CC BY-NC-SA 4.0",
+    "url": "https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "scope": {
+    "models_trained": 0,
+    "recommendation_samples_built": 0,
+    "test_scores_computed": 0
+  },
+  "limitations": [
+    "event time is not historical ingestion or availability time",
+    "visitorid is an anonymous source key, not a verified person",
+    "no impression/exposure/propensity log, price/currency/order outcome evidence",
+    "raw file order does not resolve simultaneous event order",
+    "generic hashed properties are scanned structurally, not audited as model features"
+  ],
+  "events": {
+    "rows": 2756101,
+    "event_counts": {
+      "view": 2664312,
+      "addtocart": 69332,
+      "transaction": 22457
+    },
+    "missing": {
+      "transactionid": 2733644
+    },
+    "invalid": {},
+    "visitors": 1407580,
+    "items": 235061,
+    "min_ms": 1430622004384,
+    "max_ms": 1442545187788,
+    "min_utc": "2015-05-03T03:00:04.384+00:00",
+    "max_utc": "2015-09-18T02:59:47.788+00:00",
+    "raw_timestamp_backward_steps": 1377377,
+    "exact_duplicate_excess": 460,
+    "four_field_duplicate_excess": 460,
+    "four_field_groups_with_distinct_transactionid": 0,
+    "visitor_timestamp_groups_multiple_items": 2132,
+    "transaction_missing_id": 0,
+    "non_transaction_with_id": 0,
+    "transaction_ids": 17672,
+    "transaction_ids_multiple_visitors": 0,
+    "transaction_ids_multiple_timestamps": 1788,
+    "by_utc_day": [
+      {
+        "day": "2015-05-03",
+        "event": "addtocart",
+        "rows": 296
+      },
+      {
+        "day": "2015-05-03",
+        "event": "transaction",
+        "rows": 83
+      },
+      {
+        "day": "2015-05-03",
+        "event": "view",
+        "rows": 13304
+      },
+      {
+        "day": "2015-05-04",
+        "event": "addtocart",
+        "rows": 579
+      },
+      {
+        "day": "2015-05-04",
+        "event": "transaction",
+        "rows": 154
+      },
+      {
+        "day": "2015-05-04",
+        "event": "view",
+        "rows": 18681
+      },
+      {
+        "day": "2015-05-05",
+        "event": "addtocart",
+        "rows": 565
+      },
+      {
+        "day": "2015-05-05",
+        "event": "transaction",
+        "rows": 225
+      },
+      {
+        "day": "2015-05-05",
+        "event": "view",
+        "rows": 22225
+      },
+      {
+        "day": "2015-05-06",
+        "event": "addtocart",
+        "rows": 647
+      },
+      {
+        "day": "2015-05-06",
+        "event": "transaction",
+        "rows": 258
+      },
+      {
+        "day": "2015-05-06",
+        "event": "view",
+        "rows": 23015
+      },
+      {
+        "day": "2015-05-07",
+        "event": "addtocart",
+        "rows": 578
+      },
+      {
+        "day": "2015-05-07",
+        "event": "transaction",
+        "rows": 217
+      },
+      {
+        "day": "2015-05-07",
+        "event": "view",
+        "rows": 22369
+      },
+      {
+        "day": "2015-05-08",
+        "event": "addtocart",
+        "rows": 532
+      },
+      {
+        "day": "2015-05-08",
+        "event": "transaction",
+        "rows": 126
+      },
+      {
+        "day": "2015-05-08",
+        "event": "view",
+        "rows": 18766
+      },
+      {
+        "day": "2015-05-09",
+        "event": "addtocart",
+        "rows": 279
+      },
+      {
+        "day": "2015-05-09",
+        "event": "transaction",
+        "rows": 63
+      },
+      {
+        "day": "2015-05-09",
+        "event": "view",
+        "rows": 12353
+      },
+      {
+        "day": "2015-05-10",
+        "event": "addtocart",
+        "rows": 312
+      },
+      {
+        "day": "2015-05-10",
+        "event": "transaction",
+        "rows": 60
+      },
+      {
+        "day": "2015-05-10",
+        "event": "view",
+        "rows": 11771
+      },
+      {
+        "day": "2015-05-11",
+        "event": "addtocart",
+        "rows": 390
+      },
+      {
+        "day": "2015-05-11",
+        "event": "transaction",
+        "rows": 84
+      },
+      {
+        "day": "2015-05-11",
+        "event": "view",
+        "rows": 15704
+      },
+      {
+        "day": "2015-05-12",
+        "event": "addtocart",
+        "rows": 577
+      },
+      {
+        "day": "2015-05-12",
+        "event": "transaction",
+        "rows": 186
+      },
+      {
+        "day": "2015-05-12",
+        "event": "view",
+        "rows": 21611
+      },
+      {
+        "day": "2015-05-13",
+        "event": "addtocart",
+        "rows": 584
+      },
+      {
+        "day": "2015-05-13",
+        "event": "transaction",
+        "rows": 208
+      },
+      {
+        "day": "2015-05-13",
+        "event": "view",
+        "rows": 22975
+      },
+      {
+        "day": "2015-05-14",
+        "event": "addtocart",
+        "rows": 669
+      },
+      {
+        "day": "2015-05-14",
+        "event": "transaction",
+        "rows": 256
+      },
+      {
+        "day": "2015-05-14",
+        "event": "view",
+        "rows": 23231
+      },
+      {
+        "day": "2015-05-15",
+        "event": "addtocart",
+        "rows": 511
+      },
+      {
+        "day": "2015-05-15",
+        "event": "transaction",
+        "rows": 185
+      },
+      {
+        "day": "2015-05-15",
+        "event": "view",
+        "rows": 21498
+      },
+      {
+        "day": "2015-05-16",
+        "event": "addtocart",
+        "rows": 417
+      },
+      {
+        "day": "2015-05-16",
+        "event": "transaction",
+        "rows": 130
+      },
+      {
+        "day": "2015-05-16",
+        "event": "view",
+        "rows": 18766
+      },
+      {
+        "day": "2015-05-17",
+        "event": "addtocart",
+        "rows": 494
+      },
+      {
+        "day": "2015-05-17",
+        "event": "transaction",
+        "rows": 169
+      },
+      {
+        "day": "2015-05-17",
+        "event": "view",
+        "rows": 20216
+      },
+      {
+        "day": "2015-05-18",
+        "event": "addtocart",
+        "rows": 650
+      },
+      {
+        "day": "2015-05-18",
+        "event": "transaction",
+        "rows": 245
+      },
+      {
+        "day": "2015-05-18",
+        "event": "view",
+        "rows": 26189
+      },
+      {
+        "day": "2015-05-19",
+        "event": "addtocart",
+        "rows": 654
+      },
+      {
+        "day": "2015-05-19",
+        "event": "transaction",
+        "rows": 196
+      },
+      {
+        "day": "2015-05-19",
+        "event": "view",
+        "rows": 25949
+      },
+      {
+        "day": "2015-05-20",
+        "event": "addtocart",
+        "rows": 423
+      },
+      {
+        "day": "2015-05-20",
+        "event": "transaction",
+        "rows": 125
+      },
+      {
+        "day": "2015-05-20",
+        "event": "view",
+        "rows": 21688
+      },
+      {
+        "day": "2015-05-21",
+        "event": "addtocart",
+        "rows": 552
+      },
+      {
+        "day": "2015-05-21",
+        "event": "transaction",
+        "rows": 131
+      },
+      {
+        "day": "2015-05-21",
+        "event": "view",
+        "rows": 20993
+      },
+      {
+        "day": "2015-05-22",
+        "event": "addtocart",
+        "rows": 463
+      },
+      {
+        "day": "2015-05-22",
+        "event": "transaction",
+        "rows": 154
+      },
+      {
+        "day": "2015-05-22",
+        "event": "view",
+        "rows": 20446
+      },
+      {
+        "day": "2015-05-23",
+        "event": "addtocart",
+        "rows": 357
+      },
+      {
+        "day": "2015-05-23",
+        "event": "transaction",
+        "rows": 113
+      },
+      {
+        "day": "2015-05-23",
+        "event": "view",
+        "rows": 15938
+      },
+      {
+        "day": "2015-05-24",
+        "event": "addtocart",
+        "rows": 320
+      },
+      {
+        "day": "2015-05-24",
+        "event": "transaction",
+        "rows": 97
+      },
+      {
+        "day": "2015-05-24",
+        "event": "view",
+        "rows": 16831
+      },
+      {
+        "day": "2015-05-25",
+        "event": "addtocart",
+        "rows": 579
+      },
+      {
+        "day": "2015-05-25",
+        "event": "transaction",
+        "rows": 178
+      },
+      {
+        "day": "2015-05-25",
+        "event": "view",
+        "rows": 23106
+      },
+      {
+        "day": "2015-05-26",
+        "event": "addtocart",
+        "rows": 581
+      },
+      {
+        "day": "2015-05-26",
+        "event": "transaction",
+        "rows": 194
+      },
+      {
+        "day": "2015-05-26",
+        "event": "view",
+        "rows": 21222
+      },
+      {
+        "day": "2015-05-27",
+        "event": "addtocart",
+        "rows": 528
+      },
+      {
+        "day": "2015-05-27",
+        "event": "transaction",
+        "rows": 197
+      },
+      {
+        "day": "2015-05-27",
+        "event": "view",
+        "rows": 21211
+      },
+      {
+        "day": "2015-05-28",
+        "event": "addtocart",
+        "rows": 582
+      },
+      {
+        "day": "2015-05-28",
+        "event": "transaction",
+        "rows": 225
+      },
+      {
+        "day": "2015-05-28",
+        "event": "view",
+        "rows": 21215
+      },
+      {
+        "day": "2015-05-29",
+        "event": "addtocart",
+        "rows": 449
+      },
+      {
+        "day": "2015-05-29",
+        "event": "transaction",
+        "rows": 137
+      },
+      {
+        "day": "2015-05-29",
+        "event": "view",
+        "rows": 18988
+      },
+      {
+        "day": "2015-05-30",
+        "event": "addtocart",
+        "rows": 451
+      },
+      {
+        "day": "2015-05-30",
+        "event": "transaction",
+        "rows": 116
+      },
+      {
+        "day": "2015-05-30",
+        "event": "view",
+        "rows": 15463
+      },
+      {
+        "day": "2015-05-31",
+        "event": "addtocart",
+        "rows": 350
+      },
+      {
+        "day": "2015-05-31",
+        "event": "transaction",
+        "rows": 99
+      },
+      {
+        "day": "2015-05-31",
+        "event": "view",
+        "rows": 15948
+      },
+      {
+        "day": "2015-06-01",
+        "event": "addtocart",
+        "rows": 522
+      },
+      {
+        "day": "2015-06-01",
+        "event": "transaction",
+        "rows": 200
+      },
+      {
+        "day": "2015-06-01",
+        "event": "view",
+        "rows": 22074
+      },
+      {
+        "day": "2015-06-02",
+        "event": "addtocart",
+        "rows": 525
+      },
+      {
+        "day": "2015-06-02",
+        "event": "transaction",
+        "rows": 206
+      },
+      {
+        "day": "2015-06-02",
+        "event": "view",
+        "rows": 22605
+      },
+      {
+        "day": "2015-06-03",
+        "event": "addtocart",
+        "rows": 579
+      },
+      {
+        "day": "2015-06-03",
+        "event": "transaction",
+        "rows": 204
+      },
+      {
+        "day": "2015-06-03",
+        "event": "view",
+        "rows": 22776
+      },
+      {
+        "day": "2015-06-04",
+        "event": "addtocart",
+        "rows": 604
+      },
+      {
+        "day": "2015-06-04",
+        "event": "transaction",
+        "rows": 205
+      },
+      {
+        "day": "2015-06-04",
+        "event": "view",
+        "rows": 22820
+      },
+      {
+        "day": "2015-06-05",
+        "event": "addtocart",
+        "rows": 452
+      },
+      {
+        "day": "2015-06-05",
+        "event": "transaction",
+        "rows": 149
+      },
+      {
+        "day": "2015-06-05",
+        "event": "view",
+        "rows": 20213
+      },
+      {
+        "day": "2015-06-06",
+        "event": "addtocart",
+        "rows": 377
+      },
+      {
+        "day": "2015-06-06",
+        "event": "transaction",
+        "rows": 104
+      },
+      {
+        "day": "2015-06-06",
+        "event": "view",
+        "rows": 15679
+      },
+      {
+        "day": "2015-06-07",
+        "event": "addtocart",
+        "rows": 346
+      },
+      {
+        "day": "2015-06-07",
+        "event": "transaction",
+        "rows": 106
+      },
+      {
+        "day": "2015-06-07",
+        "event": "view",
+        "rows": 15699
+      },
+      {
+        "day": "2015-06-08",
+        "event": "addtocart",
+        "rows": 541
+      },
+      {
+        "day": "2015-06-08",
+        "event": "transaction",
+        "rows": 192
+      },
+      {
+        "day": "2015-06-08",
+        "event": "view",
+        "rows": 20208
+      },
+      {
+        "day": "2015-06-09",
+        "event": "addtocart",
+        "rows": 472
+      },
+      {
+        "day": "2015-06-09",
+        "event": "transaction",
+        "rows": 132
+      },
+      {
+        "day": "2015-06-09",
+        "event": "view",
+        "rows": 23078
+      },
+      {
+        "day": "2015-06-10",
+        "event": "addtocart",
+        "rows": 599
+      },
+      {
+        "day": "2015-06-10",
+        "event": "transaction",
+        "rows": 210
+      },
+      {
+        "day": "2015-06-10",
+        "event": "view",
+        "rows": 23214
+      },
+      {
+        "day": "2015-06-11",
+        "event": "addtocart",
+        "rows": 503
+      },
+      {
+        "day": "2015-06-11",
+        "event": "transaction",
+        "rows": 157
+      },
+      {
+        "day": "2015-06-11",
+        "event": "view",
+        "rows": 20255
+      },
+      {
+        "day": "2015-06-12",
+        "event": "addtocart",
+        "rows": 332
+      },
+      {
+        "day": "2015-06-12",
+        "event": "transaction",
+        "rows": 107
+      },
+      {
+        "day": "2015-06-12",
+        "event": "view",
+        "rows": 15427
+      },
+      {
+        "day": "2015-06-13",
+        "event": "addtocart",
+        "rows": 278
+      },
+      {
+        "day": "2015-06-13",
+        "event": "transaction",
+        "rows": 60
+      },
+      {
+        "day": "2015-06-13",
+        "event": "view",
+        "rows": 11932
+      },
+      {
+        "day": "2015-06-14",
+        "event": "addtocart",
+        "rows": 356
+      },
+      {
+        "day": "2015-06-14",
+        "event": "transaction",
+        "rows": 108
+      },
+      {
+        "day": "2015-06-14",
+        "event": "view",
+        "rows": 13691
+      },
+      {
+        "day": "2015-06-15",
+        "event": "addtocart",
+        "rows": 624
+      },
+      {
+        "day": "2015-06-15",
+        "event": "transaction",
+        "rows": 191
+      },
+      {
+        "day": "2015-06-15",
+        "event": "view",
+        "rows": 21451
+      },
+      {
+        "day": "2015-06-16",
+        "event": "addtocart",
+        "rows": 800
+      },
+      {
+        "day": "2015-06-16",
+        "event": "transaction",
+        "rows": 276
+      },
+      {
+        "day": "2015-06-16",
+        "event": "view",
+        "rows": 23591
+      },
+      {
+        "day": "2015-06-17",
+        "event": "addtocart",
+        "rows": 680
+      },
+      {
+        "day": "2015-06-17",
+        "event": "transaction",
+        "rows": 269
+      },
+      {
+        "day": "2015-06-17",
+        "event": "view",
+        "rows": 22948
+      },
+      {
+        "day": "2015-06-18",
+        "event": "addtocart",
+        "rows": 702
+      },
+      {
+        "day": "2015-06-18",
+        "event": "transaction",
+        "rows": 220
+      },
+      {
+        "day": "2015-06-18",
+        "event": "view",
+        "rows": 22402
+      },
+      {
+        "day": "2015-06-19",
+        "event": "addtocart",
+        "rows": 493
+      },
+      {
+        "day": "2015-06-19",
+        "event": "transaction",
+        "rows": 166
+      },
+      {
+        "day": "2015-06-19",
+        "event": "view",
+        "rows": 19962
+      },
+      {
+        "day": "2015-06-20",
+        "event": "addtocart",
+        "rows": 404
+      },
+      {
+        "day": "2015-06-20",
+        "event": "transaction",
+        "rows": 111
+      },
+      {
+        "day": "2015-06-20",
+        "event": "view",
+        "rows": 15053
+      },
+      {
+        "day": "2015-06-21",
+        "event": "addtocart",
+        "rows": 333
+      },
+      {
+        "day": "2015-06-21",
+        "event": "transaction",
+        "rows": 83
+      },
+      {
+        "day": "2015-06-21",
+        "event": "view",
+        "rows": 15217
+      },
+      {
+        "day": "2015-06-22",
+        "event": "addtocart",
+        "rows": 598
+      },
+      {
+        "day": "2015-06-22",
+        "event": "transaction",
+        "rows": 234
+      },
+      {
+        "day": "2015-06-22",
+        "event": "view",
+        "rows": 22462
+      },
+      {
+        "day": "2015-06-23",
+        "event": "addtocart",
+        "rows": 633
+      },
+      {
+        "day": "2015-06-23",
+        "event": "transaction",
+        "rows": 250
+      },
+      {
+        "day": "2015-06-23",
+        "event": "view",
+        "rows": 22733
+      },
+      {
+        "day": "2015-06-24",
+        "event": "addtocart",
+        "rows": 584
+      },
+      {
+        "day": "2015-06-24",
+        "event": "transaction",
+        "rows": 177
+      },
+      {
+        "day": "2015-06-24",
+        "event": "view",
+        "rows": 21199
+      },
+      {
+        "day": "2015-06-25",
+        "event": "addtocart",
+        "rows": 510
+      },
+      {
+        "day": "2015-06-25",
+        "event": "transaction",
+        "rows": 204
+      },
+      {
+        "day": "2015-06-25",
+        "event": "view",
+        "rows": 19557
+      },
+      {
+        "day": "2015-06-26",
+        "event": "addtocart",
+        "rows": 481
+      },
+      {
+        "day": "2015-06-26",
+        "event": "transaction",
+        "rows": 177
+      },
+      {
+        "day": "2015-06-26",
+        "event": "view",
+        "rows": 19217
+      },
+      {
+        "day": "2015-06-27",
+        "event": "addtocart",
+        "rows": 372
+      },
+      {
+        "day": "2015-06-27",
+        "event": "transaction",
+        "rows": 91
+      },
+      {
+        "day": "2015-06-27",
+        "event": "view",
+        "rows": 15014
+      },
+      {
+        "day": "2015-06-28",
+        "event": "addtocart",
+        "rows": 342
+      },
+      {
+        "day": "2015-06-28",
+        "event": "transaction",
+        "rows": 89
+      },
+      {
+        "day": "2015-06-28",
+        "event": "view",
+        "rows": 16764
+      },
+      {
+        "day": "2015-06-29",
+        "event": "addtocart",
+        "rows": 524
+      },
+      {
+        "day": "2015-06-29",
+        "event": "transaction",
+        "rows": 203
+      },
+      {
+        "day": "2015-06-29",
+        "event": "view",
+        "rows": 22257
+      },
+      {
+        "day": "2015-06-30",
+        "event": "addtocart",
+        "rows": 529
+      },
+      {
+        "day": "2015-06-30",
+        "event": "transaction",
+        "rows": 162
+      },
+      {
+        "day": "2015-06-30",
+        "event": "view",
+        "rows": 20757
+      },
+      {
+        "day": "2015-07-01",
+        "event": "addtocart",
+        "rows": 480
+      },
+      {
+        "day": "2015-07-01",
+        "event": "transaction",
+        "rows": 195
+      },
+      {
+        "day": "2015-07-01",
+        "event": "view",
+        "rows": 20089
+      },
+      {
+        "day": "2015-07-02",
+        "event": "addtocart",
+        "rows": 467
+      },
+      {
+        "day": "2015-07-02",
+        "event": "transaction",
+        "rows": 155
+      },
+      {
+        "day": "2015-07-02",
+        "event": "view",
+        "rows": 20791
+      },
+      {
+        "day": "2015-07-03",
+        "event": "addtocart",
+        "rows": 496
+      },
+      {
+        "day": "2015-07-03",
+        "event": "transaction",
+        "rows": 155
+      },
+      {
+        "day": "2015-07-03",
+        "event": "view",
+        "rows": 20131
+      },
+      {
+        "day": "2015-07-04",
+        "event": "addtocart",
+        "rows": 364
+      },
+      {
+        "day": "2015-07-04",
+        "event": "transaction",
+        "rows": 119
+      },
+      {
+        "day": "2015-07-04",
+        "event": "view",
+        "rows": 15609
+      },
+      {
+        "day": "2015-07-05",
+        "event": "addtocart",
+        "rows": 477
+      },
+      {
+        "day": "2015-07-05",
+        "event": "transaction",
+        "rows": 100
+      },
+      {
+        "day": "2015-07-05",
+        "event": "view",
+        "rows": 15173
+      },
+      {
+        "day": "2015-07-06",
+        "event": "addtocart",
+        "rows": 553
+      },
+      {
+        "day": "2015-07-06",
+        "event": "transaction",
+        "rows": 219
+      },
+      {
+        "day": "2015-07-06",
+        "event": "view",
+        "rows": 21584
+      },
+      {
+        "day": "2015-07-07",
+        "event": "addtocart",
+        "rows": 671
+      },
+      {
+        "day": "2015-07-07",
+        "event": "transaction",
+        "rows": 247
+      },
+      {
+        "day": "2015-07-07",
+        "event": "view",
+        "rows": 23467
+      },
+      {
+        "day": "2015-07-08",
+        "event": "addtocart",
+        "rows": 691
+      },
+      {
+        "day": "2015-07-08",
+        "event": "transaction",
+        "rows": 259
+      },
+      {
+        "day": "2015-07-08",
+        "event": "view",
+        "rows": 24085
+      },
+      {
+        "day": "2015-07-09",
+        "event": "addtocart",
+        "rows": 678
+      },
+      {
+        "day": "2015-07-09",
+        "event": "transaction",
+        "rows": 207
+      },
+      {
+        "day": "2015-07-09",
+        "event": "view",
+        "rows": 24112
+      },
+      {
+        "day": "2015-07-10",
+        "event": "addtocart",
+        "rows": 643
+      },
+      {
+        "day": "2015-07-10",
+        "event": "transaction",
+        "rows": 181
+      },
+      {
+        "day": "2015-07-10",
+        "event": "view",
+        "rows": 22327
+      },
+      {
+        "day": "2015-07-11",
+        "event": "addtocart",
+        "rows": 377
+      },
+      {
+        "day": "2015-07-11",
+        "event": "transaction",
+        "rows": 98
+      },
+      {
+        "day": "2015-07-11",
+        "event": "view",
+        "rows": 20319
+      },
+      {
+        "day": "2015-07-12",
+        "event": "addtocart",
+        "rows": 335
+      },
+      {
+        "day": "2015-07-12",
+        "event": "transaction",
+        "rows": 91
+      },
+      {
+        "day": "2015-07-12",
+        "event": "view",
+        "rows": 20701
+      },
+      {
+        "day": "2015-07-13",
+        "event": "addtocart",
+        "rows": 669
+      },
+      {
+        "day": "2015-07-13",
+        "event": "transaction",
+        "rows": 216
+      },
+      {
+        "day": "2015-07-13",
+        "event": "view",
+        "rows": 25234
+      },
+      {
+        "day": "2015-07-14",
+        "event": "addtocart",
+        "rows": 634
+      },
+      {
+        "day": "2015-07-14",
+        "event": "transaction",
+        "rows": 231
+      },
+      {
+        "day": "2015-07-14",
+        "event": "view",
+        "rows": 26007
+      },
+      {
+        "day": "2015-07-15",
+        "event": "addtocart",
+        "rows": 564
+      },
+      {
+        "day": "2015-07-15",
+        "event": "transaction",
+        "rows": 216
+      },
+      {
+        "day": "2015-07-15",
+        "event": "view",
+        "rows": 23361
+      },
+      {
+        "day": "2015-07-16",
+        "event": "addtocart",
+        "rows": 616
+      },
+      {
+        "day": "2015-07-16",
+        "event": "transaction",
+        "rows": 239
+      },
+      {
+        "day": "2015-07-16",
+        "event": "view",
+        "rows": 20777
+      },
+      {
+        "day": "2015-07-17",
+        "event": "addtocart",
+        "rows": 448
+      },
+      {
+        "day": "2015-07-17",
+        "event": "transaction",
+        "rows": 139
+      },
+      {
+        "day": "2015-07-17",
+        "event": "view",
+        "rows": 19599
+      },
+      {
+        "day": "2015-07-18",
+        "event": "addtocart",
+        "rows": 399
+      },
+      {
+        "day": "2015-07-18",
+        "event": "transaction",
+        "rows": 102
+      },
+      {
+        "day": "2015-07-18",
+        "event": "view",
+        "rows": 15988
+      },
+      {
+        "day": "2015-07-19",
+        "event": "addtocart",
+        "rows": 372
+      },
+      {
+        "day": "2015-07-19",
+        "event": "transaction",
+        "rows": 116
+      },
+      {
+        "day": "2015-07-19",
+        "event": "view",
+        "rows": 16316
+      },
+      {
+        "day": "2015-07-20",
+        "event": "addtocart",
+        "rows": 727
+      },
+      {
+        "day": "2015-07-20",
+        "event": "transaction",
+        "rows": 232
+      },
+      {
+        "day": "2015-07-20",
+        "event": "view",
+        "rows": 24373
+      },
+      {
+        "day": "2015-07-21",
+        "event": "addtocart",
+        "rows": 673
+      },
+      {
+        "day": "2015-07-21",
+        "event": "transaction",
+        "rows": 227
+      },
+      {
+        "day": "2015-07-21",
+        "event": "view",
+        "rows": 22713
+      },
+      {
+        "day": "2015-07-22",
+        "event": "addtocart",
+        "rows": 771
+      },
+      {
+        "day": "2015-07-22",
+        "event": "transaction",
+        "rows": 267
+      },
+      {
+        "day": "2015-07-22",
+        "event": "view",
+        "rows": 21289
+      },
+      {
+        "day": "2015-07-23",
+        "event": "addtocart",
+        "rows": 657
+      },
+      {
+        "day": "2015-07-23",
+        "event": "transaction",
+        "rows": 234
+      },
+      {
+        "day": "2015-07-23",
+        "event": "view",
+        "rows": 20710
+      },
+      {
+        "day": "2015-07-24",
+        "event": "addtocart",
+        "rows": 545
+      },
+      {
+        "day": "2015-07-24",
+        "event": "transaction",
+        "rows": 137
+      },
+      {
+        "day": "2015-07-24",
+        "event": "view",
+        "rows": 22073
+      },
+      {
+        "day": "2015-07-25",
+        "event": "addtocart",
+        "rows": 439
+      },
+      {
+        "day": "2015-07-25",
+        "event": "transaction",
+        "rows": 116
+      },
+      {
+        "day": "2015-07-25",
+        "event": "view",
+        "rows": 26551
+      },
+      {
+        "day": "2015-07-26",
+        "event": "addtocart",
+        "rows": 481
+      },
+      {
+        "day": "2015-07-26",
+        "event": "transaction",
+        "rows": 144
+      },
+      {
+        "day": "2015-07-26",
+        "event": "view",
+        "rows": 32078
+      },
+      {
+        "day": "2015-07-27",
+        "event": "addtocart",
+        "rows": 673
+      },
+      {
+        "day": "2015-07-27",
+        "event": "transaction",
+        "rows": 267
+      },
+      {
+        "day": "2015-07-27",
+        "event": "view",
+        "rows": 27622
+      },
+      {
+        "day": "2015-07-28",
+        "event": "addtocart",
+        "rows": 721
+      },
+      {
+        "day": "2015-07-28",
+        "event": "transaction",
+        "rows": 273
+      },
+      {
+        "day": "2015-07-28",
+        "event": "view",
+        "rows": 20986
+      },
+      {
+        "day": "2015-07-29",
+        "event": "addtocart",
+        "rows": 630
+      },
+      {
+        "day": "2015-07-29",
+        "event": "transaction",
+        "rows": 240
+      },
+      {
+        "day": "2015-07-29",
+        "event": "view",
+        "rows": 22330
+      },
+      {
+        "day": "2015-07-30",
+        "event": "addtocart",
+        "rows": 567
+      },
+      {
+        "day": "2015-07-30",
+        "event": "transaction",
+        "rows": 214
+      },
+      {
+        "day": "2015-07-30",
+        "event": "view",
+        "rows": 20193
+      },
+      {
+        "day": "2015-07-31",
+        "event": "addtocart",
+        "rows": 544
+      },
+      {
+        "day": "2015-07-31",
+        "event": "transaction",
+        "rows": 166
+      },
+      {
+        "day": "2015-07-31",
+        "event": "view",
+        "rows": 18232
+      },
+      {
+        "day": "2015-08-01",
+        "event": "addtocart",
+        "rows": 384
+      },
+      {
+        "day": "2015-08-01",
+        "event": "transaction",
+        "rows": 79
+      },
+      {
+        "day": "2015-08-01",
+        "event": "view",
+        "rows": 14996
+      },
+      {
+        "day": "2015-08-02",
+        "event": "addtocart",
+        "rows": 362
+      },
+      {
+        "day": "2015-08-02",
+        "event": "transaction",
+        "rows": 105
+      },
+      {
+        "day": "2015-08-02",
+        "event": "view",
+        "rows": 14753
+      },
+      {
+        "day": "2015-08-03",
+        "event": "addtocart",
+        "rows": 569
+      },
+      {
+        "day": "2015-08-03",
+        "event": "transaction",
+        "rows": 198
+      },
+      {
+        "day": "2015-08-03",
+        "event": "view",
+        "rows": 20502
+      },
+      {
+        "day": "2015-08-04",
+        "event": "addtocart",
+        "rows": 588
+      },
+      {
+        "day": "2015-08-04",
+        "event": "transaction",
+        "rows": 209
+      },
+      {
+        "day": "2015-08-04",
+        "event": "view",
+        "rows": 20438
+      },
+      {
+        "day": "2015-08-05",
+        "event": "addtocart",
+        "rows": 626
+      },
+      {
+        "day": "2015-08-05",
+        "event": "transaction",
+        "rows": 237
+      },
+      {
+        "day": "2015-08-05",
+        "event": "view",
+        "rows": 19542
+      },
+      {
+        "day": "2015-08-06",
+        "event": "addtocart",
+        "rows": 534
+      },
+      {
+        "day": "2015-08-06",
+        "event": "transaction",
+        "rows": 127
+      },
+      {
+        "day": "2015-08-06",
+        "event": "view",
+        "rows": 19669
+      },
+      {
+        "day": "2015-08-07",
+        "event": "addtocart",
+        "rows": 601
+      },
+      {
+        "day": "2015-08-07",
+        "event": "transaction",
+        "rows": 175
+      },
+      {
+        "day": "2015-08-07",
+        "event": "view",
+        "rows": 18570
+      },
+      {
+        "day": "2015-08-08",
+        "event": "addtocart",
+        "rows": 331
+      },
+      {
+        "day": "2015-08-08",
+        "event": "transaction",
+        "rows": 67
+      },
+      {
+        "day": "2015-08-08",
+        "event": "view",
+        "rows": 12459
+      },
+      {
+        "day": "2015-08-09",
+        "event": "addtocart",
+        "rows": 303
+      },
+      {
+        "day": "2015-08-09",
+        "event": "transaction",
+        "rows": 60
+      },
+      {
+        "day": "2015-08-09",
+        "event": "view",
+        "rows": 12754
+      },
+      {
+        "day": "2015-08-10",
+        "event": "addtocart",
+        "rows": 523
+      },
+      {
+        "day": "2015-08-10",
+        "event": "transaction",
+        "rows": 129
+      },
+      {
+        "day": "2015-08-10",
+        "event": "view",
+        "rows": 17772
+      },
+      {
+        "day": "2015-08-11",
+        "event": "addtocart",
+        "rows": 387
+      },
+      {
+        "day": "2015-08-11",
+        "event": "transaction",
+        "rows": 129
+      },
+      {
+        "day": "2015-08-11",
+        "event": "view",
+        "rows": 17690
+      },
+      {
+        "day": "2015-08-12",
+        "event": "addtocart",
+        "rows": 557
+      },
+      {
+        "day": "2015-08-12",
+        "event": "transaction",
+        "rows": 195
+      },
+      {
+        "day": "2015-08-12",
+        "event": "view",
+        "rows": 19331
+      },
+      {
+        "day": "2015-08-13",
+        "event": "addtocart",
+        "rows": 516
+      },
+      {
+        "day": "2015-08-13",
+        "event": "transaction",
+        "rows": 177
+      },
+      {
+        "day": "2015-08-13",
+        "event": "view",
+        "rows": 18466
+      },
+      {
+        "day": "2015-08-14",
+        "event": "addtocart",
+        "rows": 422
+      },
+      {
+        "day": "2015-08-14",
+        "event": "transaction",
+        "rows": 112
+      },
+      {
+        "day": "2015-08-14",
+        "event": "view",
+        "rows": 16442
+      },
+      {
+        "day": "2015-08-15",
+        "event": "addtocart",
+        "rows": 344
+      },
+      {
+        "day": "2015-08-15",
+        "event": "transaction",
+        "rows": 92
+      },
+      {
+        "day": "2015-08-15",
+        "event": "view",
+        "rows": 12987
+      },
+      {
+        "day": "2015-08-16",
+        "event": "addtocart",
+        "rows": 381
+      },
+      {
+        "day": "2015-08-16",
+        "event": "transaction",
+        "rows": 78
+      },
+      {
+        "day": "2015-08-16",
+        "event": "view",
+        "rows": 14033
+      },
+      {
+        "day": "2015-08-17",
+        "event": "addtocart",
+        "rows": 621
+      },
+      {
+        "day": "2015-08-17",
+        "event": "transaction",
+        "rows": 209
+      },
+      {
+        "day": "2015-08-17",
+        "event": "view",
+        "rows": 20028
+      },
+      {
+        "day": "2015-08-18",
+        "event": "addtocart",
+        "rows": 530
+      },
+      {
+        "day": "2015-08-18",
+        "event": "transaction",
+        "rows": 201
+      },
+      {
+        "day": "2015-08-18",
+        "event": "view",
+        "rows": 20020
+      },
+      {
+        "day": "2015-08-19",
+        "event": "addtocart",
+        "rows": 541
+      },
+      {
+        "day": "2015-08-19",
+        "event": "transaction",
+        "rows": 219
+      },
+      {
+        "day": "2015-08-19",
+        "event": "view",
+        "rows": 19328
+      },
+      {
+        "day": "2015-08-20",
+        "event": "addtocart",
+        "rows": 519
+      },
+      {
+        "day": "2015-08-20",
+        "event": "transaction",
+        "rows": 208
+      },
+      {
+        "day": "2015-08-20",
+        "event": "view",
+        "rows": 18488
+      },
+      {
+        "day": "2015-08-21",
+        "event": "addtocart",
+        "rows": 446
+      },
+      {
+        "day": "2015-08-21",
+        "event": "transaction",
+        "rows": 132
+      },
+      {
+        "day": "2015-08-21",
+        "event": "view",
+        "rows": 17172
+      },
+      {
+        "day": "2015-08-22",
+        "event": "addtocart",
+        "rows": 340
+      },
+      {
+        "day": "2015-08-22",
+        "event": "transaction",
+        "rows": 91
+      },
+      {
+        "day": "2015-08-22",
+        "event": "view",
+        "rows": 13817
+      },
+      {
+        "day": "2015-08-23",
+        "event": "addtocart",
+        "rows": 343
+      },
+      {
+        "day": "2015-08-23",
+        "event": "transaction",
+        "rows": 94
+      },
+      {
+        "day": "2015-08-23",
+        "event": "view",
+        "rows": 13577
+      },
+      {
+        "day": "2015-08-24",
+        "event": "addtocart",
+        "rows": 528
+      },
+      {
+        "day": "2015-08-24",
+        "event": "transaction",
+        "rows": 179
+      },
+      {
+        "day": "2015-08-24",
+        "event": "view",
+        "rows": 18033
+      },
+      {
+        "day": "2015-08-25",
+        "event": "addtocart",
+        "rows": 498
+      },
+      {
+        "day": "2015-08-25",
+        "event": "transaction",
+        "rows": 165
+      },
+      {
+        "day": "2015-08-25",
+        "event": "view",
+        "rows": 19018
+      },
+      {
+        "day": "2015-08-26",
+        "event": "addtocart",
+        "rows": 569
+      },
+      {
+        "day": "2015-08-26",
+        "event": "transaction",
+        "rows": 205
+      },
+      {
+        "day": "2015-08-26",
+        "event": "view",
+        "rows": 18204
+      },
+      {
+        "day": "2015-08-27",
+        "event": "addtocart",
+        "rows": 514
+      },
+      {
+        "day": "2015-08-27",
+        "event": "transaction",
+        "rows": 210
+      },
+      {
+        "day": "2015-08-27",
+        "event": "view",
+        "rows": 18842
+      },
+      {
+        "day": "2015-08-28",
+        "event": "addtocart",
+        "rows": 564
+      },
+      {
+        "day": "2015-08-28",
+        "event": "transaction",
+        "rows": 152
+      },
+      {
+        "day": "2015-08-28",
+        "event": "view",
+        "rows": 18886
+      },
+      {
+        "day": "2015-08-29",
+        "event": "addtocart",
+        "rows": 355
+      },
+      {
+        "day": "2015-08-29",
+        "event": "transaction",
+        "rows": 77
+      },
+      {
+        "day": "2015-08-29",
+        "event": "view",
+        "rows": 14533
+      },
+      {
+        "day": "2015-08-30",
+        "event": "addtocart",
+        "rows": 575
+      },
+      {
+        "day": "2015-08-30",
+        "event": "transaction",
+        "rows": 146
+      },
+      {
+        "day": "2015-08-30",
+        "event": "view",
+        "rows": 15557
+      },
+      {
+        "day": "2015-08-31",
+        "event": "addtocart",
+        "rows": 454
+      },
+      {
+        "day": "2015-08-31",
+        "event": "transaction",
+        "rows": 175
+      },
+      {
+        "day": "2015-08-31",
+        "event": "view",
+        "rows": 17998
+      },
+      {
+        "day": "2015-09-01",
+        "event": "addtocart",
+        "rows": 444
+      },
+      {
+        "day": "2015-09-01",
+        "event": "transaction",
+        "rows": 158
+      },
+      {
+        "day": "2015-09-01",
+        "event": "view",
+        "rows": 17576
+      },
+      {
+        "day": "2015-09-02",
+        "event": "addtocart",
+        "rows": 421
+      },
+      {
+        "day": "2015-09-02",
+        "event": "transaction",
+        "rows": 141
+      },
+      {
+        "day": "2015-09-02",
+        "event": "view",
+        "rows": 16977
+      },
+      {
+        "day": "2015-09-03",
+        "event": "addtocart",
+        "rows": 450
+      },
+      {
+        "day": "2015-09-03",
+        "event": "transaction",
+        "rows": 138
+      },
+      {
+        "day": "2015-09-03",
+        "event": "view",
+        "rows": 17453
+      },
+      {
+        "day": "2015-09-04",
+        "event": "addtocart",
+        "rows": 455
+      },
+      {
+        "day": "2015-09-04",
+        "event": "transaction",
+        "rows": 153
+      },
+      {
+        "day": "2015-09-04",
+        "event": "view",
+        "rows": 17125
+      },
+      {
+        "day": "2015-09-05",
+        "event": "addtocart",
+        "rows": 311
+      },
+      {
+        "day": "2015-09-05",
+        "event": "transaction",
+        "rows": 80
+      },
+      {
+        "day": "2015-09-05",
+        "event": "view",
+        "rows": 13974
+      },
+      {
+        "day": "2015-09-06",
+        "event": "addtocart",
+        "rows": 371
+      },
+      {
+        "day": "2015-09-06",
+        "event": "transaction",
+        "rows": 79
+      },
+      {
+        "day": "2015-09-06",
+        "event": "view",
+        "rows": 14124
+      },
+      {
+        "day": "2015-09-07",
+        "event": "addtocart",
+        "rows": 572
+      },
+      {
+        "day": "2015-09-07",
+        "event": "transaction",
+        "rows": 189
+      },
+      {
+        "day": "2015-09-07",
+        "event": "view",
+        "rows": 19032
+      },
+      {
+        "day": "2015-09-08",
+        "event": "addtocart",
+        "rows": 508
+      },
+      {
+        "day": "2015-09-08",
+        "event": "transaction",
+        "rows": 148
+      },
+      {
+        "day": "2015-09-08",
+        "event": "view",
+        "rows": 20159
+      },
+      {
+        "day": "2015-09-09",
+        "event": "addtocart",
+        "rows": 574
+      },
+      {
+        "day": "2015-09-09",
+        "event": "transaction",
+        "rows": 192
+      },
+      {
+        "day": "2015-09-09",
+        "event": "view",
+        "rows": 20995
+      },
+      {
+        "day": "2015-09-10",
+        "event": "addtocart",
+        "rows": 480
+      },
+      {
+        "day": "2015-09-10",
+        "event": "transaction",
+        "rows": 181
+      },
+      {
+        "day": "2015-09-10",
+        "event": "view",
+        "rows": 21887
+      },
+      {
+        "day": "2015-09-11",
+        "event": "addtocart",
+        "rows": 634
+      },
+      {
+        "day": "2015-09-11",
+        "event": "transaction",
+        "rows": 211
+      },
+      {
+        "day": "2015-09-11",
+        "event": "view",
+        "rows": 20672
+      },
+      {
+        "day": "2015-09-12",
+        "event": "addtocart",
+        "rows": 370
+      },
+      {
+        "day": "2015-09-12",
+        "event": "transaction",
+        "rows": 102
+      },
+      {
+        "day": "2015-09-12",
+        "event": "view",
+        "rows": 15024
+      },
+      {
+        "day": "2015-09-13",
+        "event": "addtocart",
+        "rows": 398
+      },
+      {
+        "day": "2015-09-13",
+        "event": "transaction",
+        "rows": 88
+      },
+      {
+        "day": "2015-09-13",
+        "event": "view",
+        "rows": 16373
+      },
+      {
+        "day": "2015-09-14",
+        "event": "addtocart",
+        "rows": 475
+      },
+      {
+        "day": "2015-09-14",
+        "event": "transaction",
+        "rows": 154
+      },
+      {
+        "day": "2015-09-14",
+        "event": "view",
+        "rows": 20284
+      },
+      {
+        "day": "2015-09-15",
+        "event": "addtocart",
+        "rows": 595
+      },
+      {
+        "day": "2015-09-15",
+        "event": "transaction",
+        "rows": 158
+      },
+      {
+        "day": "2015-09-15",
+        "event": "view",
+        "rows": 19674
+      },
+      {
+        "day": "2015-09-16",
+        "event": "addtocart",
+        "rows": 336
+      },
+      {
+        "day": "2015-09-16",
+        "event": "transaction",
+        "rows": 137
+      },
+      {
+        "day": "2015-09-16",
+        "event": "view",
+        "rows": 11022
+      },
+      {
+        "day": "2015-09-17",
+        "event": "addtocart",
+        "rows": 253
+      },
+      {
+        "day": "2015-09-17",
+        "event": "transaction",
+        "rows": 45
+      },
+      {
+        "day": "2015-09-17",
+        "event": "view",
+        "rows": 9830
+      },
+      {
+        "day": "2015-09-18",
+        "event": "addtocart",
+        "rows": 34
+      },
+      {
+        "day": "2015-09-18",
+        "event": "transaction",
+        "rows": 15
+      },
+      {
+        "day": "2015-09-18",
+        "event": "view",
+        "rows": 1479
+      }
+    ],
+    "by_utc_month": [
+      {
+        "month": "2015-05",
+        "event": "addtocart",
+        "rows": 14369
+      },
+      {
+        "month": "2015-05",
+        "event": "transaction",
+        "rows": 4611
+      },
+      {
+        "month": "2015-05",
+        "event": "view",
+        "rows": 571672
+      },
+      {
+        "month": "2015-06",
+        "event": "addtocart",
+        "rows": 15095
+      },
+      {
+        "month": "2015-06",
+        "event": "transaction",
+        "rows": 5043
+      },
+      {
+        "month": "2015-06",
+        "event": "view",
+        "rows": 590255
+      },
+      {
+        "month": "2015-07",
+        "event": "addtocart",
+        "rows": 17362
+      },
+      {
+        "month": "2015-07",
+        "event": "transaction",
+        "rows": 5802
+      },
+      {
+        "month": "2015-07",
+        "event": "view",
+        "rows": 674820
+      },
+      {
+        "month": "2015-08",
+        "event": "addtocart",
+        "rows": 14825
+      },
+      {
+        "month": "2015-08",
+        "event": "transaction",
+        "rows": 4632
+      },
+      {
+        "month": "2015-08",
+        "event": "view",
+        "rows": 533905
+      },
+      {
+        "month": "2015-09",
+        "event": "addtocart",
+        "rows": 7681
+      },
+      {
+        "month": "2015-09",
+        "event": "transaction",
+        "rows": 2369
+      },
+      {
+        "month": "2015-09",
+        "event": "view",
+        "rows": 293660
+      }
+    ]
+  },
+  "properties": {
+    "parts": {
+      "item_properties_part1.csv": {
+        "rows": 10999999,
+        "min_ms": 1431226800000,
+        "max_ms": 1442113200000,
+        "min_utc": "2015-05-10T03:00:00.000+00:00",
+        "max_utc": "2015-09-13T03:00:00.000+00:00"
+      },
+      "item_properties_part2.csv": {
+        "rows": 9275903,
+        "min_ms": 1431226800000,
+        "max_ms": 1442113200000,
+        "min_utc": "2015-05-10T03:00:00.000+00:00",
+        "max_utc": "2015-09-13T03:00:00.000+00:00"
+      }
+    },
+    "critical_values": {
+      "0": 863086,
+      "1": 640553
+    },
+    "invalid": {},
+    "all_items": 417053,
+    "property_names": 1104,
+    "critical_rows": {
+      "available": 1503639,
+      "categoryid": 788214
+    },
+    "critical_exact_duplicate_excess": 0,
+    "critical_same_timestamp_conflict_keys": 0,
+    "critical_category_values_not_in_tree": 30,
+    "critical_items": 417053,
+    "event_items_missing_any_properties": 49815
+  },
+  "category_tree": {
+    "rows": 1669,
+    "unique_children": 1669,
+    "roots": 25,
+    "parents_not_in_children": 0,
+    "self_links": 0
+  },
+  "files": [
+    {
+      "name": "events.csv",
+      "bytes": 94237913,
+      "sha256": "3745aa83238b1e6d44d8fda209807899f420084398f94ddf745f3cbcfecbf9e7",
+      "crc32": "2017ad34"
+    },
+    {
+      "name": "category_tree.csv",
+      "bytes": 14454,
+      "sha256": "94e865eb0a3d48cbbfe3b79079018dd92509315c88f5fd8d00d0b4b5af434f5b",
+      "crc32": "e763a00c"
+    },
+    {
+      "name": "item_properties_part1.csv",
+      "bytes": 484315749,
+      "sha256": "30aad5aeca58b2dc27dcc73e1708565f5818e45adb3eb57401f91e87355b0b81",
+      "crc32": "bc2fd36a"
+    },
+    {
+      "name": "item_properties_part2.csv",
+      "bytes": 408929907,
+      "sha256": "d5e7d1a91dc40f522aeb596b267e6c87d8aed689a7192d12369cfb165eb987e5",
+      "crc32": "149c30b3"
+    }
+  ],
+  "source_descriptors": [
+    {
+      "path": "data/raw/retailrocket/ecommerce-dataset-v2.zip",
+      "bytes": 304719974,
+      "sha256": "5dc06173eaa4a4d3b0a5f6afc4daffb0218d95e409aaacba5fdaa0214eacf2a2"
+    },
+    {
+      "path": "data/raw/retailrocket/metadata.response",
+      "bytes": 19053,
+      "sha256": "69ff3248fbf129fac49f738f636fd1a4163a228560e5cc685f3cec7742da448e"
+    },
+    {
+      "path": "data/raw/retailrocket/file_list.response",
+      "bytes": 1461,
+      "sha256": "629460015289d82bc5a4488c57a047cde945e7fc46262d23624c4318106c249f"
+    },
+    {
+      "path": "data/raw/retailrocket/source_page.response",
+      "bytes": 14792,
+      "sha256": "c154e89a573c8024a37eb9055be935ed3d2f167f35f9647ed3ad24e5f8182adb"
+    },
+    {
+      "path": "data/raw/retailrocket/license.response",
+      "bytes": 52858,
+      "sha256": "527c4e0e75a7aafe819a9ed481c227f27645736fa800f25d6d94ed37a362afd7"
+    },
+    {
+      "path": "data/raw/retailrocket/source_manifest.json",
+      "bytes": 3369,
+      "sha256": "338e4c12bfcdc1524b10ed304c634ab3f3ca1eb084322166c60cbc9f12298f40"
+    },
+    {
+      "path": "scripts/audit_retailrocket_source.py",
+      "bytes": 13059,
+      "sha256": "0c6358335e614428ea757d57d09943d019ea1c9e2e1792e880e899807a7728cb"
+    }
+  ],
+  "private_inventory": {
+    "path": "shop-mysql-runtime/retailrocket_intake_v1/inventory.sqlite",
+    "bytes": 570630144,
+    "sha256": "38b467d3a02d16e1f9db5fb2847e076977ecd620c2d29e0e795a12b5327baec1"
+  },
+  "verification": {
+    "all_four_members_crc_and_sha256_readback": true,
+    "all_csv_rows_scanned": true,
+    "event_count_reconciles": true,
+    "elapsed_seconds": 153.594
+  }
+}

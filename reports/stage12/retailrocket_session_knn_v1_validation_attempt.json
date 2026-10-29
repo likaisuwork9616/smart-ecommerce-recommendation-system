@@ -1,0 +1,235 @@
+{
+  "status": "single_K1_validation_attempt_stopped_at_user_deadline_not_accepted",
+  "created_utc": "2026-10-29T06:35:00.907254+00:00",
+  "reason": "The user shortened the total run allowance to 3 hours 30 minutes while the full independent readback was still running.",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v1_validation_entry_specification.json",
+    "bytes": 124807,
+    "sha256": "9afff96d9a258d9284fc241916414fd740858d6960e01a0e2ad8b24e10da78ae"
+  },
+  "entry_acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v1_validation_entry_acceptance.json",
+    "bytes": 19533,
+    "sha256": "c6aa9789378ae0c6436d253709b18ee647c5361c536e24d007b01514fc1245a1"
+  },
+  "scope": {
+    "research_cli_invocations": 1,
+    "retries": 0,
+    "primary_train_index_builds": 1,
+    "primary_validation_query_output_lines": 166897,
+    "primary_bootstrap_output_lines": 2000,
+    "full_independent_acceptance": false,
+    "independently_accepted_query_count": null,
+    "independent_query_progress_note": "No durable per-query oracle progress receipt; completed count is unknown.",
+    "K1_minus_C1_accepted_result": null,
+    "comparison_conclusion": "Unavailable: primary artifacts were generated, but full independent acceptance did not complete.",
+    "control_refits_or_rerankings": 0,
+    "final_model_selected": false,
+    "final_refits": 0,
+    "reserved_test_ranked_queries": 0,
+    "reserved_test": "locked",
+    "synthetic_tests_rerun_this_round": 0
+  },
+  "execution": {
+    "started_utc": "2026-10-29T03:04:09.906189+00:00",
+    "user_deadline_utc": "2026-10-29T06:34:09.906189+00:00",
+    "stop_signal_started_utc": "2026-10-29T06:34:09.921670+00:00",
+    "worker_stopped_utc": "2026-10-29T06:34:10.002107+00:00",
+    "user_total_limit_seconds": 12600,
+    "elapsed_at_stop_signal_seconds": 12600.015481,
+    "elapsed_at_confirmed_worker_exit_seconds": 12600.095918,
+    "observer_completion_elapsed_seconds": 12604.032,
+    "observer_completion_note": "The 5-second observer can record exit later than the actual stop.",
+    "exit_code": 15,
+    "worker_exit_code": 15,
+    "termination_method": "External Windows process termination at the user deadline; frozen research sources unchanged.",
+    "original_frozen_limit_seconds": 21600,
+    "original_frozen_RSS_limit_GiB": 8,
+    "original_frozen_execution_disk_limit_GiB": 20,
+    "native_six_hour_timeout_reached": false,
+    "first_primary_outputs_observed_elapsed_seconds": 1715.641,
+    "first_oracle_database_observed_elapsed_seconds": 1755.657,
+    "phase_timing_note": "First observed file presence/size at 5-second sampling; not an exact phase-completion receipt.",
+    "sampled_peak_worker_RSS_bytes": 1858281472,
+    "worker_RSS_sampling_first_utc": "2026-10-29T03:06:23.379309+00:00",
+    "worker_RSS_sampling_last_utc": "2026-10-29T06:34:09.889307+00:00",
+    "worker_RSS_sampling_note": "Sampled after attachment; not an OS-hard or whole-lifetime peak. Launcher RSS is not worker RSS.",
+    "sampled_peak_execution_disk_bytes": 2918709292,
+    "execution_bytes_at_preservation": 2918709292
+  },
+  "primary_fit_audit_unaccepted": {
+    "start_ms": 1430697600000,
+    "end_ms": 1438387200000,
+    "train_sessions": 1180256,
+    "singleton_sessions": 998801,
+    "train_baskets": 1823018,
+    "basket_item_memberships": 1823388,
+    "distinct_session_item_memberships": 1587436,
+    "positive_support_items": 198946,
+    "maximum_session_items": 389,
+    "maximum_posting_size": 1736,
+    "fit_id": "ceb483631be343e3646d1a367325e53a4a0e2c937405686095d700efbeb1c56a"
+  },
+  "post_stop_frozen_source_check": {
+    "status": "K1_validation_entry_sources_synthetic_acceptance_bytes_verified",
+    "sources_verified": 358,
+    "outputs_verified": 61,
+    "research_recomputed": false,
+    "real_validation_executed_by_verify": false,
+    "reserved_test": "locked"
+  },
+  "native_state": {
+    "state": "partial",
+    "native_failure_marker_present": false,
+    "native_acceptance_present": false,
+    "native_output_guard_present": false,
+    "native_resource_receipt_present": false,
+    "public_validation_result_present": false,
+    "public_validation_acceptance_present": false,
+    "note": "External Windows termination bypasses the Python exception handler; no synthetic failure/acceptance/guard was added. Existing partial namespace prevents replay."
+  },
+  "preservation": {
+    "scope": "File identity and physical line counts only; no resumed oracle, rescoring, bootstrap, SQLite recovery, or model selection.",
+    "execution_artifacts": [
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/aggregate.json",
+        "bytes": 116184,
+        "sha256": "cdbd3d43c2ea78a4c80c9503d7bfcdf4d05e220d90ec3bbe26720e2e43e7419b"
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/bootstrap.jsonl",
+        "bytes": 1023882,
+        "sha256": "a95a8249c06899f2a98bc144b2c0942870ae094eb23cc8eab102bc340909d2cd",
+        "physical_lines": 2000,
+        "newline_terminated": true
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/fit_audit.json",
+        "bytes": 369,
+        "sha256": "74c52a15b4e8a190d88b142f5de01999f9e337e59bc2b37aacba3231a0b4e7f7"
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/oracle.sqlite",
+        "bytes": 402698240,
+        "sha256": "b98e2d39860450ce1802be5bf592bd57a0c776cc08c5bc3462d2d00b0c26a985"
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/postings.jsonl",
+        "bytes": 48957640,
+        "sha256": "0c369172b9a692cb0c490855365ec0d0c3a6a4cbc1bf88143876c04df208392d",
+        "physical_lines": 198946,
+        "newline_terminated": true
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/queries.jsonl",
+        "bytes": 2294757672,
+        "sha256": "c4ae3432e2d6eeb4b1fd7ae95ad060192aee4ec4113f69fda90cfa9b45f1a157",
+        "physical_lines": 166897,
+        "newline_terminated": true
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/sessions.jsonl",
+        "bytes": 64913209,
+        "sha256": "6d65ebf6651d59712fec8fd17ae1e9bf6123975a2322f9e69dfa4c6c1463c481",
+        "physical_lines": 1180256,
+        "newline_terminated": true
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/started.json",
+        "bytes": 130,
+        "sha256": "f4f4b7c9b73301fad979e35212b998d4a927bfdf0a8b3a6bde66eae9ba765c93"
+      },
+      {
+        "path": "shop-mysql-runtime/retailrocket_session_knn_paired_v1/train_sessions.jsonl",
+        "bytes": 106241966,
+        "sha256": "bf5b1e2bc9be78cb27f6510d2bfdd0351f2fc86c5b6d710880ea17cd5bf88cab",
+        "physical_lines": 1180256,
+        "newline_terminated": true
+      }
+    ],
+    "observation_evidence": [
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/completion.json",
+        "bytes": 594,
+        "sha256": "5092dc300f4b8cf20e0ca1fc83abb8f558b3174541460ca96d091745b42814be"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/document_stopped_attempt.py",
+        "bytes": 15491,
+        "sha256": "2d84bbc930c72453f73571e2f5574822281fe9993c0257fb2f46540017647603"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/enforce_user_deadline.py",
+        "bytes": 3708,
+        "sha256": "b9a6e28a1a9c1af02054a80b13f3655496cbc04e4be8ecd814496a7ca92f9bcf"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/invocation.json",
+        "bytes": 350,
+        "sha256": "aa78330cb90d6fdf5d6b590706349fed876da083e1899b13eec81e2ba864580d"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/observations.jsonl",
+        "bytes": 1127216,
+        "sha256": "fe6ba005508ffb7c00f2c9d69173075d330705c0b485a3a0db817a745109f7ec",
+        "physical_lines": 2521,
+        "newline_terminated": true
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/observe_worker.py",
+        "bytes": 1305,
+        "sha256": "a9839b67244dc5b8349df52376203fb278db29c2c64f95a055bbb1dd6d0bbd65"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/post_stop_source_check.json",
+        "bytes": 243,
+        "sha256": "53ad2390e6ccac841220661e32a12193260235ea05265875a35c1a11f7c95ecd"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/preserve_stopped_attempt.py",
+        "bytes": 9275,
+        "sha256": "6d2838980cbb8fc553f8f277bb6b0459521efa86853fbe189e14187116fb7587"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/run_once_observed.py",
+        "bytes": 2624,
+        "sha256": "28f18f47f7166d1138adace9cff8f1f0b1a45ce5f1a369ed228df754fb996cd2"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/stdout_stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/user_deadline.json",
+        "bytes": 724,
+        "sha256": "15c93849b04006d67a034067ff23f019f81ad7bd09c71aaaab599862e6116e86"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/user_deadline_outcome.json",
+        "bytes": 295,
+        "sha256": "1d6d823cb68e16848d85df2ca24b56a47926216b54e2bd0dedc000b8e5331fe7"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/user_deadline_stop_started.json",
+        "bytes": 525,
+        "sha256": "dd5711bf6348d1b5d90d1086c30e9d79449d6c96791803373924725ee7fdef9e"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/worker_completion.json",
+        "bytes": 329,
+        "sha256": "3a776edce3c63e3ef7d208eb450745052634fc817a631a3be185846c94d695ce"
+      },
+      {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-validation-v1/worker_observations.jsonl",
+        "bytes": 382507,
+        "sha256": "50052aab691abe831f20adbd0e18aab9d5a68f135f84a6de9f14041cbef0d01b",
+        "physical_lines": 2494,
+        "newline_terminated": true
+      }
+    ],
+    "raw_data_and_local_models_remain_git_ignored": true,
+    "performance_numbers_published_in_this_attempt_report": false,
+    "cryptographic_identity_is_not_scientific_acceptance": true
+  }
+}

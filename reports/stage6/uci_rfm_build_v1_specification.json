@@ -1,0 +1,239 @@
+{
+  "status": "prepared_before_real_build",
+  "contract": {
+    "path": "docs/contracts/uci_rfm_v1.json",
+    "bytes": 15463,
+    "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+  },
+  "sources": [
+    {
+      "path": "data/raw/online_retail_ii/online_retail_II.xlsx",
+      "bytes": 45622278,
+      "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+    },
+    {
+      "path": "data/raw/online_retail_ii/online_retail_ii_official.zip",
+      "bytes": 45622418,
+      "sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_manifest.json",
+      "bytes": 1298,
+      "sha256": "704876a3cac02641866f430206b91cb5127dbea0c582e5c0cbb7ca16063c0649"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_page.html",
+      "bytes": 85208,
+      "sha256": "d7c9ebf9428dfa5aaf12d67a1430652096f0df292fd85a2b69682bfd862121ea"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_CONTRACT_V1.md",
+      "bytes": 17045,
+      "sha256": "6bddbd0c7cfb15e0b97985884dcee0d1e946a328224ea69a2005085449e37d53"
+    },
+    {
+      "path": "docs/contracts/uci_rfm_v1.json",
+      "bytes": 15463,
+      "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_intake.json",
+      "bytes": 27649,
+      "sha256": "0b4d496ebbbfd20dafdb6d70a84bb2db3a6907978446b3c6cdb349b2d2e35cf6"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_verification.json",
+      "bytes": 6686,
+      "sha256": "5a2671249140664853105c493f8343cac0295a20f7fbc9ca9e2894091856f010"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_contract_acceptance.json",
+      "bytes": 5516,
+      "sha256": "d558fa7045b8eeffc910e210cd7fa44268d5c6b54a787b0eb5d23cfe102faa5c"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_specification.json",
+      "bytes": 3329,
+      "sha256": "36d818b8f7f0ee76a9cd3a8806f849529621eca3595e0fb097b99c2690f3f92f"
+    },
+    {
+      "path": "scripts/audit_uci_retail_ii.py",
+      "bytes": 19776,
+      "sha256": "335c68c000220afee37c10c83f0d5d36cdb885eb8e6c2624644646f0fc26fc31"
+    },
+    {
+      "path": "scripts/build_uci_rfm_v1.py",
+      "bytes": 16133,
+      "sha256": "6fc44854be5f4bbc0aaa6daf35fe088314aab8b8e962d94d70119a523553d1cd"
+    },
+    {
+      "path": "scripts/freeze_uci_rfm_contract.py",
+      "bytes": 14110,
+      "sha256": "8fb560810f070cdfb0982d55fc28bbd610bf117187372c0f6598d037c94bfdc9"
+    },
+    {
+      "path": "scripts/uci_rfm_builder.py",
+      "bytes": 10966,
+      "sha256": "be21803339dfe488b7e38916672ab6ea1dc033a6829c6b44e80af70e8d2449de"
+    },
+    {
+      "path": "scripts/uci_rfm_reference.py",
+      "bytes": 10448,
+      "sha256": "f5878b214b0b3db6b71d7ace6ccf442a96303358b2350318d4f01b3619fd5394"
+    },
+    {
+      "path": "scripts/verify_uci_retail_ii.py",
+      "bytes": 11436,
+      "sha256": "73c4af63fa9f66e800d8d3b0b0c22e29dcfaa2b62f2d2f8fa738355757083844"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/inventory.sqlite",
+      "bytes": 313020416,
+      "sha256": "367e019ba9698ca2e670b0aaf04f4321a948ed9052d36bf3be51d11d5ed44193"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/output_guard.json",
+      "bytes": 1466,
+      "sha256": "0897323c226dd8c10642520b8d592a074247a9254ae311080b8364e847161148"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_contract_v1/output_guard.json",
+      "bytes": 3238,
+      "sha256": "6a2fc3f0b84d61588f21f1bebb85eb803fb618f5566be07ed56e3d191b75bbf8"
+    },
+    {
+      "path": "tests/test_uci_retail_ii.py",
+      "bytes": 4481,
+      "sha256": "5f4e814ebf8632fa19c133e063ae82cc4a0938db358e1d931b3934eea61d0d3a"
+    },
+    {
+      "path": "tests/test_uci_rfm_builder.py",
+      "bytes": 10095,
+      "sha256": "184a9eae1a1cf5fc105a72713a2ffcc9bf4c385d5bbcf11193cb19be655c555a"
+    },
+    {
+      "path": "tests/test_uci_rfm_contract.py",
+      "bytes": 9352,
+      "sha256": "a9c62bf0a44b01154c097c88c226241313a6517d223ac954b34fe9b3598e93a3"
+    }
+  ],
+  "schemas": {
+    "private_root": "shop-mysql-runtime/uci_rfm_dataset_v1",
+    "status": "planned_not_created_this_contract_turn",
+    "layout": "<arm>/<T_id>/customers.csv,invoice_decisions.csv,row_decisions.csv,duplicate_map.csv; root_manifest.json and output_guard.json",
+    "customers_fields": [
+      "customer_key",
+      "arm",
+      "T_id",
+      "S",
+      "T",
+      "state",
+      "rfm_usable",
+      "history_eligible_invoice_count",
+      "window_quarantine_count",
+      "R_seconds",
+      "F_invoices",
+      "M_milli_GBP",
+      "last_window_invoice_at",
+      "partial_R_seconds",
+      "partial_F_invoices",
+      "partial_M_milli_GBP"
+    ],
+    "invoice_decisions_fields": [
+      "invoice",
+      "arm",
+      "T_id",
+      "known_customer_keys",
+      "timestamp_if_unambiguous",
+      "header_flags",
+      "history_eligible",
+      "in_window",
+      "quarantined",
+      "primary_reason",
+      "paid_line_count",
+      "free_line_count",
+      "M_milli_GBP"
+    ],
+    "row_decisions_fields": [
+      "sheet",
+      "excel_row",
+      "arm",
+      "T_id",
+      "invoice",
+      "customer_key",
+      "timestamp",
+      "duplicate_group",
+      "primary_reason",
+      "all_reason_flags",
+      "signed_raw_amount_milli_GBP",
+      "included_paid_amount_milli_GBP"
+    ],
+    "duplicate_map_fields": [
+      "sheet",
+      "excel_row",
+      "arm",
+      "T_id",
+      "duplicate_group",
+      "representative_sheet",
+      "representative_excel_row",
+      "retained"
+    ],
+    "canonical_sort": "arms_as_listed_then_T1_T2; customers_by_ASCII_key; invoices_by_ASCII_key; source_rows_by_sheet_priority_then_excel_row",
+    "serialization": "UTF8_LF_CSV_header_null_empty_true_false_boolean_integers_base10_nested_lists_JSON_arrays_sorted; JSON_no_NaN; timestamps_YYYY_MM_DD_HH_MM_SS",
+    "manifest": "contract_source_and_code_hashes_schema_counts_per_file_bytes_hashes_state_counts_reconciliations_and_independent_readback",
+    "public": "aggregates_and_source_hashes_only_no_customer_invoice_or_source_row_records",
+    "publication": "whole_bundle_preflight_exclusive_create_readback_all_values_external_guard_last; failure_receipt_and_preserve_partial_outputs_no_delete_and_replay"
+  },
+  "implementation_details": {
+    "invoice_ledger": "nonblank_invoice_keys_only; missing-invoice rows stay in row decisions and affect own known key",
+    "quarantine_count": "distinct numeric invoice per linked customer plus each missing-invoice source row in window",
+    "invoice_in_window": "any prefix member in window; eligible invoices have one timestamp",
+    "invoice_header_flags": "four conflict flags plus country_missing diagnostic; numeric_bad separately recorded in row flags and primary reason",
+    "paid_and_free_counts": "retained eligible paid/free rows, regardless of the monetary code sensitivity",
+    "included_paid_amount": "history qualified amount per row; quarantine customer primary M is null while partial amount stays in diagnostics",
+    "last_window_invoice_at": "latest eligible subset time also retained for quarantined customers as a diagnostic",
+    "duplicate_representative": "group anchor; multiplicity arm may retain multiple rows from the chosen sheet",
+    "flag_order": "lexicographic; primary reason uses frozen precedence",
+    "independent_path": "original XLSX XML reader -> separate SQLite; full-eight-column SQL partitions, independent header/row/invoice/customer calculations",
+    "execution_limit": "dataset build/readback only, no cutpoint fitting or temporal scores"
+  },
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.038255,
+    "test_ids": [
+      "tests.test_uci_rfm_builder.BuilderTests.test_C_positive_and_negative_excluded_without_suffix_matching",
+      "tests.test_uci_rfm_builder.BuilderTests.test_amount_overflow_and_extra_precision_stop",
+      "tests.test_uci_rfm_builder.BuilderTests.test_code_only_changes_money_and_can_give_zero_active",
+      "tests.test_uci_rfm_builder.BuilderTests.test_consistently_missing_country_description_nonblocking",
+      "tests.test_uci_rfm_builder.BuilderTests.test_country_conflict_includes_missing",
+      "tests.test_uci_rfm_builder.BuilderTests.test_cross_sheet_multiplicity_is_max_not_sum",
+      "tests.test_uci_rfm_builder.BuilderTests.test_csv_exclusive_create_and_null_zero_boolean",
+      "tests.test_uci_rfm_builder.BuilderTests.test_customer_conflict_links_both_keys",
+      "tests.test_uci_rfm_builder.BuilderTests.test_free_and_paid_invoice_counted_once",
+      "tests.test_uci_rfm_builder.BuilderTests.test_future_conflicting_rows_cannot_change_T1",
+      "tests.test_uci_rfm_builder.BuilderTests.test_hand_counted_invoice_not_line_frequency",
+      "tests.test_uci_rfm_builder.BuilderTests.test_history_customer_retained_clean_inactive",
+      "tests.test_uci_rfm_builder.BuilderTests.test_independent_SQL_all_arms_and_windows_full_ledger_parity",
+      "tests.test_uci_rfm_builder.BuilderTests.test_input_rows_unchanged",
+      "tests.test_uci_rfm_builder.BuilderTests.test_invalid_clock_and_customer_stop",
+      "tests.test_uci_rfm_builder.BuilderTests.test_larger_second_sheet_is_selected",
+      "tests.test_uci_rfm_builder.BuilderTests.test_missing_invoice_rows_do_not_invent_one_shared_document",
+      "tests.test_uci_rfm_builder.BuilderTests.test_missing_stock_quarantines_purchase",
+      "tests.test_uci_rfm_builder.BuilderTests.test_mixed_known_missing_customer_quarantines_known",
+      "tests.test_uci_rfm_builder.BuilderTests.test_negative_or_missing_price_not_silent_partial_total",
+      "tests.test_uci_rfm_builder.BuilderTests.test_negative_purchase_quantity_quarantines_entire_invoice",
+      "tests.test_uci_rfm_builder.BuilderTests.test_nonidentical_same_stock_retained",
+      "tests.test_uci_rfm_builder.BuilderTests.test_past_only_quarantine_does_not_mask_current_window",
+      "tests.test_uci_rfm_builder.BuilderTests.test_readback_catches_extra_row_and_schema",
+      "tests.test_uci_rfm_builder.BuilderTests.test_readback_catches_same_total_customer_swap",
+      "tests.test_uci_rfm_builder.BuilderTests.test_start_included_T_excluded",
+      "tests.test_uci_rfm_builder.BuilderTests.test_sub_penny_exactness",
+      "tests.test_uci_rfm_builder.BuilderTests.test_time_conflict_masks_whole_customer_but_preserves_partial",
+      "tests.test_uci_rfm_builder.BuilderTests.test_unknown_customer_kept_only_in_row_ledger",
+      "tests.test_uci_rfm_builder.BuilderTests.test_zero_price_does_not_add_activity_or_quarantine"
+    ]
+  }
+}

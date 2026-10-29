@@ -1,0 +1,36 @@
+{
+  "status": "complete_C1_model_lineage_queries_nested_values_and_bootstrap_accepted",
+  "result": {
+    "path": "reports/stage10/retailrocket_cooccurrence_v1_validation.json",
+    "bytes": 42407,
+    "sha256": "addd420c76c371672b403895a86ba4e17f0c52b83c58ac7d3b8f335a6dacbc8a"
+  },
+  "scope": {
+    "real_C1_primary_fits": 1,
+    "real_independent_count_audits": 1,
+    "P0_refits_or_rerankings": 0,
+    "validation_queries": 166897,
+    "training_ranked_queries": 0,
+    "reserved_test_ranked_queries": 0,
+    "final_refits": 0,
+    "reserved_test_state": "locked"
+  },
+  "readback": {
+    "rows": {
+      "support.csv": 198946,
+      "pairs.csv": 1954889,
+      "train_sessions.jsonl": 1180256,
+      "queries.jsonl": 166897,
+      "bootstrap.jsonl": 2000
+    },
+    "top_level_cells": {
+      "support.csv": 397892,
+      "pairs.csv": 5864667,
+      "train_sessions.jsonl": 4721024,
+      "queries.jsonl": 1668970,
+      "bootstrap.jsonl": 12000
+    },
+    "all_nested_JSON_values_checked": true,
+    "ranking_oracle": "all SQL neighbors plus exact zero-score complement proof"
+  }
+}

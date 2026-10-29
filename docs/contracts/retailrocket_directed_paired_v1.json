@@ -1,0 +1,338 @@
+{
+  "protocol_id": "retailrocket_directed_paired_v1",
+  "version": 1,
+  "date_asia_taipei": "2026-10-28",
+  "status": "frozen_before_D1_implementation_after_P0_and_C1_validation_observed",
+  "parent_data_contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "parent_metric_protocol": "docs/contracts/retailrocket_popularity_execution_v1.json",
+  "parent_C1_protocol": "docs/contracts/retailrocket_cooccurrence_paired_v1.json",
+  "candidate_inventory": "reports/stage11/retailrocket_stage11_candidate_inventory_v1.json",
+  "research_question": "With the same session-binary unit, S_i, causal history, full candidates and denominators, how does restricting arbitrary unordered session cooccurrence to directed adjacent-basket association change next-basket validation NDCG?",
+  "interpretation": "Joint change of direction and adjacency; does not isolate either effect. Custom D1 association score, not standard first-order Markov or a probability; no claim that it solves cold items.",
+  "scope_this_round": {
+    "specification_only": true,
+    "D1_implemented": false,
+    "real_D1_fits": 0,
+    "new_P0_fits": 0,
+    "new_C1_fits": 0,
+    "new_ranked_queries": 0,
+    "new_paired_metrics": 0,
+    "new_bootstrap_replicates": 0,
+    "real_data_CSV_rows_parsed": 0,
+    "real_data_JSONL_rows_parsed": 0,
+    "train_cost_scan_executed": false,
+    "reserved_test_enabled": false
+  },
+  "comparison": {
+    "challenger": "D1_binary_session_directed_adjacent_association",
+    "challenger_count": 1,
+    "primary_control": "C1",
+    "secondary_control": "P0",
+    "hyperparameter_search": false,
+    "deterministic": true,
+    "model_seeds": null,
+    "parent_stochastic_seeds_if_future_method_changes": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "D1_primary_fit_limit": 1,
+    "independent_count_audits": 1,
+    "reference_refits_or_rerankings": 0,
+    "fit_roles": [
+      "train"
+    ],
+    "fit_start_inclusive_utc": "2015-05-04T00:00:00Z",
+    "fit_end_exclusive_utc": "2015-08-01T00:00:00Z",
+    "evaluation_roles": [
+      "validation"
+    ],
+    "statistics_update_during_evaluation": false,
+    "training_ranking": false,
+    "final_refit": false,
+    "test_ranking": false
+  },
+  "reference_identity": {
+    "P0_guard": "shop-mysql-runtime/retailrocket_popularity_v1/development/output_guard.json",
+    "C1_guard": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/output_guard.json",
+    "release_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+    "release_guard": "shop-mysql-runtime/retailrocket_c1_p0_release_v1/output_guard.json",
+    "P0_fit_id": "3aaf35e8a4853bcd5e83caff917e90e318ef41a77e37e5f292d1bcc18f7146cd",
+    "C1_fit_id": "55d4fd748fb7ffe22b13476bed2ed16e83d23dd2d655b9fb02b41087dabe0dee",
+    "P0_item_counts": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv",
+      "bytes": 1784882,
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    "P0_ranked_queries": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/ranked_queries.csv",
+      "bytes": 47267532,
+      "sha256": "407fc4f8798bc9f496e0d8c8e59a48d4b2ae37ecec980e817cf2c7ac24e52bfe"
+    },
+    "P0_query_metrics": {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_metrics.csv",
+      "bytes": 13245540,
+      "sha256": "eba159db54d1e0bb13a74306cd7637cd04291bf307b39552147cc79cb7c3d435"
+    },
+    "C1_support": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv",
+      "bytes": 1780347,
+      "sha256": "92774b2cec168ab26abadb30ea7e21aeecc7d54c6e5994555fc592bae5e6f875"
+    },
+    "C1_pairs": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/pairs.csv",
+      "bytes": 30361132,
+      "sha256": "76f86f31d78481b3bbfcb0a239f5c6095d67524e92244e72344d8bd35b29c0ca"
+    },
+    "C1_queries": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl",
+      "bytes": 215594386,
+      "sha256": "2218dc863ed5770f0f481c4e99d53c1744f72fb692a8fbc8c97300ef4ff0e1f3"
+    },
+    "C1_bootstrap": {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/bootstrap.jsonl",
+      "bytes": 1024280,
+      "sha256": "a1ccc56add9e47e7615bbb0e8dbbd871f9a6dfecf4ae505a608a862a95c10f63"
+    },
+    "reuse": "Read accepted reference bytes; never refit, rerank, regenerate or edit P0/C1 outputs; C1 pairs are an audit upper bound, not a tunable D1 blend."
+  },
+  "fit": {
+    "source": "shop-mysql-runtime/retailrocket_dataset_v1/baskets.csv",
+    "session_key": [
+      "visitorid",
+      "session_start_ms"
+    ],
+    "both_endpoint_roles": [
+      "train"
+    ],
+    "original_index_difference": 1,
+    "strictly_later_timestamp": true,
+    "maximum_gap_ms": 1800000,
+    "same_session_required": true,
+    "both_endpoints_inside_fit_window": true,
+    "bridge_after_filtering": false,
+    "within_basket_order": false,
+    "labelled_query_filter": false,
+    "include_unlabelled_train_baskets": true,
+    "future_session_end_or_total_length_used": false,
+    "boundary": "Take original adjacent baskets only when both endpoints are train and within cutoff; never connect warmup to train, train to validation, or across a removed/missing index. A session crossing cutoff is retained only through eligible train endpoints; no end-based session deletion.",
+    "shared_support": "Use byte-identical C1 S_i: count of train session item sets containing i, including singleton-only and no-transition items; no primary support refit. Independent oracle reconstructs S_i only to audit equality.",
+    "directed_count": "D_ij = number of train sessions with at least one original adjacent eligible basket pair (A,B) where i in A, j in B and i != j. Count each ordered (i,j) at most once per session; reverse direction is separate.",
+    "cross_basket_product": "Every A x B pair except i=j is eligible; no averaging by basket size and no invented order within either unordered same-ms basket.",
+    "repeat_within_session_counted_again": false,
+    "self_edges": false,
+    "minimum_directed_support": 1,
+    "row_sum_normalization": false,
+    "smoothing": null,
+    "decay": null,
+    "blend_weight": null,
+    "neighbor_top_L": null,
+    "session_cap": null,
+    "history_cap": null,
+    "pruning_or_sampling": false,
+    "invariants": [
+      "S_i positive keys exactly equal frozen C1 support and P0 positive keys; do not replace by D1 outgoing keys",
+      "For each stored edge: i != j and integer 0 < D_ij <= C1_C_ij <= min(S_i,S_j)",
+      "D_ij and D_ji need not match; their sum may exceed C1_C_ij",
+      "sum_(i,j) D_ij equals sum_s number of distinct directed edges in eligible train session s",
+      "sum D <= 2 * sum C1_C; distinct global D edges <= 2 * distinct global C1 pairs; these are count bounds, not raw scan-work or runtime bounds",
+      "Singleton/no-transition sessions add zero D edges but remain in shared S_i; no-transition keys must not disappear"
+    ]
+  },
+  "history": {
+    "source": "same accepted baskets.csv exact session/current-query join as C1",
+    "set": "Distinct union of same-session baskets through query_ms and basket_index inclusive, including current basket; identical to stored C1 query history",
+    "current_basket_included": true,
+    "visitor_lifetime_history": false,
+    "cross_role_past_context": true,
+    "multiplicity": "Each distinct seed once; no last-N cap, recency weight or last-basket-only substitution",
+    "unknown_seed": "Keep trace; S_i absent gives exact zero, never divide by zero or drop query",
+    "missing_or_empty_current_join": "Stop; accepted current basket is nonempty, so this is not a fallback condition",
+    "forbidden": [
+      "targets",
+      "next_view_ms",
+      "future_baskets",
+      "session_end_or_total_length",
+      "cart_or_transaction",
+      "test_values",
+      "known_reference_hits",
+      "diagnostic_seen_or_activity_flags"
+    ]
+  },
+  "ranking": {
+    "K": 10,
+    "catalog": "All accepted catalog IDs with first_view_ms < query_ms; same complete causal catalog as C1/P0",
+    "score": "sum(D_ij / S_i for distinct i in H(q) if i != j and S_i > 0); absent directed edge contributes zero",
+    "arithmetic": "exact reduced rational; no floating tie tolerance",
+    "order": [
+      "directed_rational_score_descending",
+      "frozen_P0_count_descending",
+      "numeric_itemid_ascending"
+    ],
+    "previously_seen_removed": false,
+    "full_fallback": "If every causal candidate has zero D1 score, exactly reuse P0 full-catalog order",
+    "partial_fallback": "Fill zero-score slots by full frozen P0-count/numeric-ID order over all causal candidates, excluding already chosen IDs; not a truncated P0 top10 append",
+    "unknown_candidate": "Retain every candidate. Missing D1 edges contribute zero; independently look up the frozen P0 count and use zero only if that P0 key is absent. A candidate without D1 incoming/outgoing evidence can still have positive P0 count, which must remain unchanged for tie/fill.",
+    "short_catalog": "Return min(10, candidate_count) unique IDs; no padding",
+    "empty_catalog": "Empty rank; keep nonempty-target query with zero retrieval metrics",
+    "negative_sampling": false,
+    "target_injection": false,
+    "availability_filter": false,
+    "property_features": false,
+    "exact_optimization": "All directed outgoing neighbors for all history seeds plus proven full zero-score complement; no top-L/ANN/sample/candidate cap",
+    "audit_bounds": [
+      "D1 candidate scores <= C1 scores mathematically at the same H and S; this does not order retrieval metrics",
+      "D1 positive candidate set is a subset of C1 positive set; supported-seed count using S is identical",
+      "Every C1 no-positive-evidence query must also fully fall back in D1; the converse need not hold"
+    ]
+  },
+  "evaluation": {
+    "roster": "queries.csv exact validation role; three-way complete key and stored order equality with C1 queries.jsonl and P0 outputs",
+    "key": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms"
+    ],
+    "missing_extra_duplicate_policy": "Stop; never inner-join away a query",
+    "primary_estimand": "mean_q(NDCG_D1(q)-NDCG_C1(q)) over all 166897 validation queries",
+    "secondary_comparison": "D1-P0 differences are descriptive only; preserve original C1-P0 report as historical reference",
+    "metrics": "Unchanged P0 v1 full-target NDCG/Recall/HitRate/MRR, visitor-macro NDCG and common-union coverage; full target includes unreachable items",
+    "conditional": "Same 161211 all-targets-reachable queries, separate descriptive denominator; never substitute for main",
+    "performance_pass_threshold": null,
+    "float_absolute_tolerance": 1e-12,
+    "float_relative_tolerance": 1e-12,
+    "nonfinite": "forbidden; explicit null plus reason for undefined groups",
+    "counts_keys_history_rational_ranks": "exact",
+    "source_exposure": "P0 and C1 validation, diagnostics and intervals were observed before D1 selection; future D1 is a new exposed-development comparison, not a pristine holdout."
+  },
+  "fixed_validation": {
+    "queries": 166897,
+    "visitors": 62235,
+    "target_occurrences": 166952,
+    "reachable_target_occurrences": 161264,
+    "all_targets_reachable_queries": 161211,
+    "candidate_union_items": 222754,
+    "new_visitor_queries": 134249,
+    "multi_item_current_queries": 56,
+    "multi_item_target_queries": 53,
+    "support_floor_queries": 1669,
+    "target_model_query_counts": {
+      "all_positive": 154951,
+      "mixed": 3,
+      "all_zero": 11943
+    },
+    "interpretation": "copied from accepted P0/data receipts; C1 item-support keys must equal P0 positive keys, so these historical support partitions remain identical"
+  },
+  "uncertainty": {
+    "primary_only": "D1-C1 query-macro NDCG difference",
+    "method": "paired visitor-cluster percentile bootstrap",
+    "replicates": 2000,
+    "seed": 42,
+    "numpy_version": "2.5.4",
+    "bit_generator": "PCG64",
+    "cluster_order": "ascending numeric visitorid, exactly 62235 visitors",
+    "draw": "rng.integers(0,V,size=V,dtype=np.int64), V=62235, Generator(PCG64(42)), replicate order 0..1999",
+    "reference_value": "Round-trip binary64 C1 NDCG from accepted C1 query JSONL; copy original P0 values for descriptive D1-P0",
+    "reduction": "Per-query D1 binary64 minus copied C1 binary64; main math.fsum in accepted query order. Per-visitor d_v=math.fsum in within-visitor query order; each replicate math.fsum(w_v*d_v in numeric visitor order)/sum(w_v*n_v) with exact integer denominator. Do not average visitor means.",
+    "confidence_level": 0.95,
+    "quantiles": [
+      0.025,
+      0.975
+    ],
+    "quantile_method": "linear",
+    "audit_reuse": "Verify each draw SHA (little-endian signed int64), RNG before/after and sampled query denominator against accepted C1 bootstrap; compute NEW D1-C1 deltas and interval in D1 namespace only. Never copy C1-P0 deltas/interval as D1 results.",
+    "D1_P0_interval": false,
+    "secondary_or_slice_intervals": false,
+    "p_values": false,
+    "multiple_comparison_policy": "One prespecified primary contrast only. No simultaneous two-control superiority claim or new family-wise inference. All secondary differences descriptive.",
+    "interpretation": "Conditional exposed-development resampling only; report unfavorable or cross-zero interval unchanged, no automatic model selection/test unlock."
+  },
+  "slices_and_diagnostics": {
+    "shared_membership": "Exact inherited C1/P0 visitor seen/new, current/target one/multiple, original train activity 0/1/2-5/6+, and target support based on shared frozen C1 S_i/P0 positive keys",
+    "support_floor_queries": 1669,
+    "visitor_counts_separate": true,
+    "small_groups": {
+      "current_multiple": 56,
+      "target_multiple": 53,
+      "mixed_target_support": 3
+    },
+    "small_group_rule": "descriptive_only; no removal/merge/tuning or slice CI; original train/test and Olist/UCI restrictions retained",
+    "cold_reference": "11943 all-zero shared-support target queries had zero C1/P0 NDCG, Recall, HitRate and MRR; coverage is not asserted zero. This is not a prediction of D1 performance, and does not mean all targets are unreachable or never seen.",
+    "D1_extra_diagnostics": [
+      "shared-S supported seeds (must match C1)",
+      "history seeds with at least one D1 outgoing edge; not a replacement support definition",
+      "incoming-edge target coverage: all/mixed/none, complete denominator, descriptive only",
+      "positive causal candidate count 0 / 1-9 / at_least_10 and zero-fill slots",
+      "mutually exclusive reason: positive_evidence; else no_shared_supported_seed; else no_outgoing_seed; else no_positive_causal_neighbor",
+      "C1 full-fallback implies D1 full-fallback; report extra D1 fallback without dropping queries"
+    ],
+    "D1_metrics_known": false
+  },
+  "resources_and_next_entry": {
+    "this_round_scan": false,
+    "train_only_preflight": "Before real D1 fit, independently count original adjacent train basket pairs, raw cross-products excluding diagonal, repeated directed emissions and per-session unique edge totals/maxima; temporary per-session sets only, no global D1 table. Role metadata may be scanned for filtering; decode item arrays only for train baskets, never validation/test item arrays or targets; no validation/test ranking.",
+    "counts_to_reconcile": "raw=sum_adj(|A|*|B|-|A intersection B|); unique=sum_s|E_s|; sum fitted D_ij=unique. Raw can exceed 2*sum C1_C due to repeats; no raw/runtime promise from bound.",
+    "limits": {
+      "maximum_process_RSS_bytes": 8589934592,
+      "maximum_execution_disk_bytes": 21474836480,
+      "minimum_free_disk_bytes": 8589934592,
+      "minimum_available_memory_bytes": 4294967296,
+      "maximum_elapsed_seconds": 21600,
+      "monitor_interval_seconds": 0.5
+    },
+    "budget_scope": "Future one D1 fit + full validation + bootstrap + independent acceptance; cooperative checks, exact checkpoint placement frozen at implementation entry; not OS-hard instantaneous guarantee",
+    "on_exceed": "Stop and preserve started/failure/partial evidence; no sampling, truncation, relaxed denominator or silent retry",
+    "entry_gate": "Implement D1, three-arm adapter, bootstrap and independent synthetic oracle first; then train-only cost audit and separately frozen real-validation entry. This spec does not implement or launch that entry."
+  },
+  "reserved_test": {
+    "state": "locked",
+    "enabled_this_round": false,
+    "D1_test_authorized": false,
+    "reuse_P0_or_C1_gate": false,
+    "future_final_selection_refit_test_protocol_required": true,
+    "create_test_output_or_usage_journal": false,
+    "logical_tests_consumed_this_round": 0,
+    "rule": "Preserve P0 eight technical/identity/explicit-scope gates and C1 final-choice restriction; favorable development result or this specification cannot open test. No final-refit/test command this round."
+  },
+  "planned_acceptance": {
+    "private_execution_root": "shop-mysql-runtime/retailrocket_directed_paired_v1/",
+    "D1_implemented": false,
+    "synthetic_cases": [
+      "direction and reverse independence, reverse sum may exceed C1 pair",
+      "repeat direction in one session counts once, across sessions increments",
+      "singleton and no-transition S keys retained",
+      "unordered same-ms baskets: cross product across adjacent baskets only, diagonal removed",
+      "original index gaps and role boundaries never bridged",
+      "future rows cannot change train D or shared S",
+      "same full C1 history, unseen visitor with valid current context, unknown seeds",
+      "known S but no outgoing vs incoming-only candidate remains eligible",
+      "rational ties, full P0 fallback and exact zero complement",
+      "pointwise D<=C1 and positive-set subset, without metric-order claim",
+      "three-way missing/extra/duplicate query and full-target denominator cases",
+      "primary cluster-weighted bootstrap versus incorrect iid/query or visitor-mean methods",
+      "new D1 deltas with identical old C1 draw SHA/RNG/denominators, independent percentile"
+    ],
+    "independent_oracle": "Separate SQL/relational original adjacent basket join and DISTINCT(session,i,j), independent shared S reconstruction and equality check, counts/lineage conservation, exact rational complete ranking with full zero complement, independent Decimal/Fraction metrics, all nested query values and all bootstrap replicates; no sampled acceptance.",
+    "artifacts": [
+      "model directed counts and fit identity, shared-support descriptor",
+      "per-session original adjacency/directed-set lineage and exclusion/boundary accounting",
+      "complete per-query H trace, exact scores/ranks/candidate counts, copied controls and metric terms",
+      "three-arm aggregates, main D1-C1 and descriptive D1-P0 deltas with slices",
+      "new bootstrap records with old draw identity audit",
+      "cost/resource/start/failure/manifests/guards and public aggregates/acceptance"
+    ],
+    "reentry": "Complete verify-only; partial evidence preserved and replay/overwrite refused",
+    "publication": "Only code, specification and aggregate receipts public; raw/ID-level/models/draws remain Git ignored inside shop"
+  },
+  "limitations": [
+    "Validation P0 and C1 results were exposed before selection; D1 is not unseen validation or final testing",
+    "D1 jointly changes direction and adjacency, not a single isolated causal direction effect",
+    "Shared S normalization and complete H make this a custom association score, not standard first-order MC or a probability",
+    "No new item content; train-unsupported cold-item gap remains; new visitor with current history is not context-free cold start",
+    "Small-group, anonymous-key, missing ingestion/revision/completeness/exposure/propensity/inventory limitations remain",
+    "No conversion/revenue/causal/commercial deployment claim; existing CC BY-NC-SA 4.0 conditions and Olist/UCI restrictions retained"
+  ],
+  "change_control": "New D1 protocol only; preserve P0/C1, their release ZIP/receipts and parent contracts byte-for-byte. Any change to relation/count unit/S/history/self-edge/fallback/candidates/metrics/inference requires a new version before execution; no alternate D1 variants in this round."
+}

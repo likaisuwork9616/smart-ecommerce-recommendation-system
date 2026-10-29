@@ -1,0 +1,683 @@
+{
+  "status": "research_handoff_archived_and_verified",
+  "release_id": "uci_rfm_v1_research_release_v1",
+  "archive": {
+    "path": "shop-mysql-runtime/backups/uci_rfm_v1_research_release_v1.zip",
+    "bytes": 852514837,
+    "sha256": "d4e19d6a7c1f9d2ff18108e859c1467c05932717722cc33915d57aea34b48d02"
+  },
+  "archive_manifest": {
+    "path": "shop-mysql-runtime/uci_rfm_release_v1/archive_manifest.json",
+    "bytes": 25628,
+    "sha256": "293e9a43c7264af29e566ba773723149031389cd047a9fb27adfb39aef74a8d8"
+  },
+  "verification": {
+    "payload_files": 102,
+    "zip_members": 103,
+    "payload_bytes": 2469567125,
+    "all_payload_CRC_and_SHA256_passed": true,
+    "manifest_sha256": "293e9a43c7264af29e566ba773723149031389cd047a9fb27adfb39aef74a8d8"
+  },
+  "frozen_research_sources": 90,
+  "context_snapshots": 12,
+  "research_facts": {
+    "reference_customers": 4232,
+    "primary_fit_calls": 1,
+    "T2_cutpoint_fits": 0,
+    "paired_active_customers": 2663,
+    "paired_over_U1": 0.614160516605166,
+    "joint_exact_rate": 0.10852422080360495,
+    "ARI": 0.08565458689986927,
+    "joint_support": {
+      "T1": {
+        "empty_groups": 11,
+        "nonempty_groups": 114,
+        "under_supported_groups": 87,
+        "people_in_under_supported_groups": 1531,
+        "minimum_nonempty_group": 1
+      },
+      "T2": {
+        "empty_groups": 13,
+        "nonempty_groups": 112,
+        "under_supported_groups": 83,
+        "people_in_under_supported_groups": 1422,
+        "minimum_nonempty_group": 1
+      }
+    },
+    "missing_customer_raw_row_share": {
+      "T1": 0.19924324668249366,
+      "T2": 0.25038828591946294
+    },
+    "provenance": "copied_from_accepted_report_not_new_metric_recalculation"
+  },
+  "sources": [
+    {
+      "path": ".gitattributes",
+      "bytes": 20000,
+      "sha256": "dc4dc38ec6ff7f648b8f1c5891a70c631bb1ef2b237b929b178e575b17e5cb3a",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 436,
+      "sha256": "e8bf86df38ae6c2bd2e68c3a5bea9dfe4b3fdb23465dc35a0b9c8cf2d5d05c95",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "README.md",
+      "bytes": 31998,
+      "sha256": "a6a9bc42d25b88b9c738cb14eea50cba3a10b6f0f39036f482f0e20f88666858",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 12636,
+      "sha256": "d938c5cb7e1a15dea95604ce4e0de5b0867e5052a3cd42feb3468b67cdc2784e",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "data/raw/online_retail_ii/online_retail_II.xlsx",
+      "bytes": 45622278,
+      "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "data/raw/online_retail_ii/online_retail_ii_official.zip",
+      "bytes": 45622418,
+      "sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_manifest.json",
+      "bytes": 1298,
+      "sha256": "704876a3cac02641866f430206b91cb5127dbea0c582e5c0cbb7ca16063c0649",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_page.html",
+      "bytes": 85208,
+      "sha256": "d7c9ebf9428dfa5aaf12d67a1430652096f0df292fd85a2b69682bfd862121ea",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/PROJECT_PROGRESS.md",
+      "bytes": 39765,
+      "sha256": "1524b36059da2e662e4afc4ce23df0c8f731dd7c5621928bf309c3e75045db60",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 16546,
+      "sha256": "d762810f4a634d16014a668e246660fe2548d9617d6b38ad57b231ecf9b0de22",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "docs/STAGE6_RFM_RESEARCH_HANDOFF.md",
+      "bytes": 12753,
+      "sha256": "7700ea3b227d211588c2f5d302c1b5618dcfc9f479cb87de0ac5708005d71b50",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RETAIL_II_INTAKE.md",
+      "bytes": 15657,
+      "sha256": "383ea937618ed18993ff3de1dbcf909c125cdcfba51fe68d3730d5a7349e43bf",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_BUILD_V1.md",
+      "bytes": 8801,
+      "sha256": "5e3e46d22cbae48a898416f0d876679ba7d72c3c996ae6305f08e37a6b338369",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_CONTRACT_V1.md",
+      "bytes": 17045,
+      "sha256": "6bddbd0c7cfb15e0b97985884dcee0d1e946a328224ea69a2005085449e37d53",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_TEMPORAL_V1.md",
+      "bytes": 10118,
+      "sha256": "dda4d9668369b8848e020f03ff3e56ea570fd7cd5aba18eba32d3b4df04a20b7",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/contracts/uci_rfm_v1.json",
+      "bytes": 15463,
+      "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/README.md",
+      "bytes": 26243,
+      "sha256": "bbe1436d8bdab8c1a39d1b386a574b1ffc74a3e9046259a385742fd44c3a4a6a",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_intake.json",
+      "bytes": 27649,
+      "sha256": "0b4d496ebbbfd20dafdb6d70a84bb2db3a6907978446b3c6cdb349b2d2e35cf6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_verification.json",
+      "bytes": 6686,
+      "sha256": "5a2671249140664853105c493f8343cac0295a20f7fbc9ca9e2894091856f010",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1.json",
+      "bytes": 9529,
+      "sha256": "e0da1d507644626692f36fff779db70fcb14ac78f351f69695645528b773d4d8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1_acceptance.json",
+      "bytes": 6805,
+      "sha256": "c562da3de7f0e3c2007c317c4db77c2b50700c8834d5a049af3bef951375cd92",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_build_v1_specification.json",
+      "bytes": 10667,
+      "sha256": "5d67ebfed8f13e88a777aea5b3805ecbb1da859c4726b5919dc16a4386952225",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_temporal_v1.json",
+      "bytes": 1343723,
+      "sha256": "008870d464ad9a97305821e92053aed463df36fd01130daddb07222338106144",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_temporal_v1_acceptance.json",
+      "bytes": 4410,
+      "sha256": "01587d2f7274badefdb3d11e07a4e42cb7f9a866529999a707dfd4c246d46870",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_temporal_v1_specification.json",
+      "bytes": 20608,
+      "sha256": "89782ff52dccdb436cd01d8b64a56523ec9e05fa0e4545fa8450a7f41c00a0ff",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_contract_acceptance.json",
+      "bytes": 5516,
+      "sha256": "d558fa7045b8eeffc910e210cd7fa44268d5c6b54a787b0eb5d23cfe102faa5c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage6/uci_rfm_v1_specification.json",
+      "bytes": 3329,
+      "sha256": "36d818b8f7f0ee76a9cd3a8806f849529621eca3595e0fb097b99c2690f3f92f",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 2272,
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 194,
+      "sha256": "4068a2cc9afdd036cb83a808b98e52eaf6c1da0165252a5fcc76056ff3ff4d86",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 42664,
+      "sha256": "be823af54d61f6abade19a384a28b5bfc368cf3561b571a2bba5b7bdf3bd4015",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/archive_uci_rfm_v1.py",
+      "bytes": 12518,
+      "sha256": "1f82d8f3c20c7190916fb8e1c376d7c0dce59ab0a7731844e520f8a6e59a04ef",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/audit_uci_retail_ii.py",
+      "bytes": 19776,
+      "sha256": "335c68c000220afee37c10c83f0d5d36cdb885eb8e6c2624644646f0fc26fc31",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/build_uci_rfm_v1.py",
+      "bytes": 16133,
+      "sha256": "6fc44854be5f4bbc0aaa6daf35fe088314aab8b8e962d94d70119a523553d1cd",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/freeze_uci_rfm_contract.py",
+      "bytes": 14110,
+      "sha256": "8fb560810f070cdfb0982d55fc28bbd610bf117187372c0f6598d037c94bfdc9",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/run_uci_rfm_temporal_v1.py",
+      "bytes": 14011,
+      "sha256": "99b61117955ea565519bb1ca245aed4407bc05b1ea0ab0a09cdfde10ff17d970",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/uci_rfm_builder.py",
+      "bytes": 10966,
+      "sha256": "be21803339dfe488b7e38916672ab6ea1dc033a6829c6b44e80af70e8d2449de",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/uci_rfm_reference.py",
+      "bytes": 10448,
+      "sha256": "f5878b214b0b3db6b71d7ace6ccf442a96303358b2350318d4f01b3619fd5394",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/uci_rfm_temporal.py",
+      "bytes": 13189,
+      "sha256": "121fc96180dbf7564a30974dc6514a153a2b64da7d8a918fb5e5fad56c0846e2",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/uci_rfm_temporal_reference.py",
+      "bytes": 11447,
+      "sha256": "aa2f717bbd08de4f13139eb4fd2153908f7cc1a0abf34d61615f892288af8807",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/verify_uci_retail_ii.py",
+      "bytes": 11436,
+      "sha256": "73c4af63fa9f66e800d8d3b0b0c22e29dcfaa2b62f2d2f8fa738355757083844",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/inventory.sqlite",
+      "bytes": 313020416,
+      "sha256": "367e019ba9698ca2e670b0aaf04f4321a948ed9052d36bf3be51d11d5ed44193",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/output_guard.json",
+      "bytes": 1466,
+      "sha256": "0897323c226dd8c10642520b8d592a074247a9254ae311080b8364e847161148",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_contract_v1/output_guard.json",
+      "bytes": 3238,
+      "sha256": "6a2fc3f0b84d61588f21f1bebb85eb803fb618f5566be07ed56e3d191b75bbf8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_contract_v1/tests.log",
+      "bytes": 4781,
+      "sha256": "1a8974ca9c036f69babeab18f90c71ae698bc97aff022e2b2c0550a8c7266e03",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/customers.csv",
+      "bytes": 631146,
+      "sha256": "27d859b0508d05fb67448d8bcb295e88ad6cafaf47db543081cb3a604d08efc8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/duplicate_map.csv",
+      "bytes": 67178132,
+      "sha256": "1f790d73f4563335a4a1d7ff8828671daa61b3800255705d2420b57b8334494d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3093607,
+      "sha256": "c58f10dda61cf000375363ef51d91ca91bfa68e660532414c663e2a56140b394",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T1/row_decisions.csv",
+      "bytes": 97919800,
+      "sha256": "5809aae9b345d49abbd363a165c3b64a515e22143b165c30e319f29a2cb15e94",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/customers.csv",
+      "bytes": 799009,
+      "sha256": "b0214b8d7d18949ce74b37be54f73b9b865d981e3317166a8c1032cea1f90a58",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/duplicate_map.csv",
+      "bytes": 139230607,
+      "sha256": "2533c4434e3cab8ceaf795be7bede7ba257d67fc03fea06b417106c456be085c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 5924420,
+      "sha256": "cfbf1b1e52aec53789cf03d37764e8782dedb4a8dd198dd5a8734d64ed7c9e2e",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/code_sensitivity/T2/row_decisions.csv",
+      "bytes": 202481588,
+      "sha256": "acf4b516e129eec02c28561c6d54de1263d9557beedfad59c7f60a16ec4cc4f9",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/customers.csv",
+      "bytes": 648518,
+      "sha256": "d367fadbc13747f2a931f319129c361250a31acd19fef0659cd040e0cbf7d627",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/duplicate_map.csv",
+      "bytes": 69183340,
+      "sha256": "35eb9ff036f917f2602e7df4f863c82c4f874e7bcf69ac38b78bc4a1ad49a822",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3204586,
+      "sha256": "e501e90aea3afcf93188513129b56f8b2a903e0899ba5955277eb6ff09c4022a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T1/row_decisions.csv",
+      "bytes": 99973766,
+      "sha256": "7687b659ff59d9fbba00605e7b4de18439f2fbf5d38054525ccb8fd319787fe7",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/customers.csv",
+      "bytes": 822681,
+      "sha256": "b6bc4cb6eea487d89ef1788be0ce031e71ea116d5f6cff8b0a0bb108c581c96a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/duplicate_map.csv",
+      "bytes": 143386454,
+      "sha256": "a1189742458f81e86ad5ca1b75a34e0d3bbdd40b14cf9530c4d94912964975dc",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 6134988,
+      "sha256": "597162da4cb5802b8a82aa2afc6020caf2a0669db6e9fa5f784da2675e6d0429",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/combined_sensitivity/T2/row_decisions.csv",
+      "bytes": 206722903,
+      "sha256": "2d07931199696ef579e258699d0864081289a7dcd90d8433dcc3603dd0faf67d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/customers.csv",
+      "bytes": 653158,
+      "sha256": "5eca38b06244b5e83e26791568c26e2a8d288390ec77fc2d84bc316c2381bfbe",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/duplicate_map.csv",
+      "bytes": 69686278,
+      "sha256": "7b6d7ccc583137a8c02799d8434764587caa08971775a4feecea5b2fc2513b6e",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/invoice_decisions.csv",
+      "bytes": 3233454,
+      "sha256": "426c5e9dd38b1ab70f9536340543f8fe81550b676e917ac2351d911308ea831e",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T1/row_decisions.csv",
+      "bytes": 100481835,
+      "sha256": "27efd0f041a08ac30c0baddd3ad826eadc7ab4a5667583a8e8996dc1420ceb46",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/customers.csv",
+      "bytes": 828685,
+      "sha256": "56839b277ade615cfed62c96c8b0f913a560f7a21d80761ddef7845bf8f84c9f",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/duplicate_map.csv",
+      "bytes": 144428299,
+      "sha256": "4453b12a22c905934b1ecb18bde9b0b9a75565349b85916e5cf16b25059f2341",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/invoice_decisions.csv",
+      "bytes": 6189382,
+      "sha256": "a358099e473b562cc9e97a74b5481940fc68a06a6b500a350ddaed2d73de7d3a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/duplicate_sensitivity/T2/row_decisions.csv",
+      "bytes": 207775848,
+      "sha256": "af0a641cddf97eb1515da0fd398c694fbfc49b11c58857a2a6b0986b8f6c54f1",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/customers.csv",
+      "bytes": 579422,
+      "sha256": "c91a1cccc0dd051ba9ff4a79ee40a23b3cdf594138663ee2224e32bae2ca1182",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/duplicate_map.csv",
+      "bytes": 61142876,
+      "sha256": "afbf50e353b2a8e1278b7af62b8443ed4bda48ea6eccf21a8334c4bc1246f898",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/invoice_decisions.csv",
+      "bytes": 2762011,
+      "sha256": "290c7cc643d043ad63048b271b1d9ff3f3cb4dd94870464fc3a204fd9136a4a9",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T1/row_decisions.csv",
+      "bytes": 91889660,
+      "sha256": "fa984c4a82184281ef9f55fb0ef3f0bde37f0e59900126785b30417541e8a010",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/customers.csv",
+      "bytes": 728133,
+      "sha256": "5bb2c50c477b4c545620fbc6a07db83f6851c837051ff91b040cde3763102cb4",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/duplicate_map.csv",
+      "bytes": 126728467,
+      "sha256": "232f7552e734ce4fde9883b67adb2e2e6827dc4b644aacb3eecd8d9516d3383b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/invoice_decisions.csv",
+      "bytes": 5294844,
+      "sha256": "afa00935202d445d6825536dbfaa6a8d8b29f29235721aa4f8775d17908767b3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/main/T2/row_decisions.csv",
+      "bytes": 189990513,
+      "sha256": "39985f0fda93a52e735da6241d975148669c3105443e85a2ac00549fadde140e",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/output_guard.json",
+      "bytes": 12809,
+      "sha256": "32c37d8b6fd323f0b7ed9f092e7b794680ff349a7d68c9758da4edc5334d550b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_dataset_v1/root_manifest.json",
+      "bytes": 25360,
+      "sha256": "9e1e475d21ae643ac1390ffb4ffc6e7fd950c180f5db316046a1098c1a1dc283",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/code_sensitivity/T1/scores.csv",
+      "bytes": 347762,
+      "sha256": "0964a5e0ddf16c092bf1725b1d3eb6b112e7780ade65cd7d1d1d62e5b3b249f8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/code_sensitivity/T2/scores.csv",
+      "bytes": 441718,
+      "sha256": "13c28f2a010895fb265be0e5458832e7696c3cbbaf6f64ae69599c7659309752",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/combined_sensitivity/T1/scores.csv",
+      "bytes": 365120,
+      "sha256": "1aadb04e3ed1c11ce16ac3179c90660c5ccbb044884b15f2212620ad57498d99",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/combined_sensitivity/T2/scores.csv",
+      "bytes": 465382,
+      "sha256": "4671ffb38fb0731368fe2c76826f0fb6f787c9d944720176b9749f454b61c5d8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/cutpoints.json",
+      "bytes": 1514,
+      "sha256": "d61c7f7c455b84117f794dcdcc734f9dab300157fb882ac4fb39d60f48b5dbbc",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/duplicate_sensitivity/T1/scores.csv",
+      "bytes": 369608,
+      "sha256": "fa64a4bc6b95689d97fac2cae5f891583a3dd4101118fcd43e2ebef0fe177c3c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/duplicate_sensitivity/T2/scores.csv",
+      "bytes": 471341,
+      "sha256": "6dc3bdd23eb71e0bdc2b191a088ed39595014fb02a1b995a332f01b8ed0badcd",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/main/T1/scores.csv",
+      "bytes": 295884,
+      "sha256": "128aef6f4368f021c619829dccadd2c535200b9ac89a4bc9777cac905a91ab11",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/main/T2/scores.csv",
+      "bytes": 370796,
+      "sha256": "cf4942eaaa0e6dd402b51e28325702e8a86ee8fdb761c4024082932d8e2326d0",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/manifest.json",
+      "bytes": 15265,
+      "sha256": "77ab819d8d2e37b93cb9655da553b44295c1ae9a7e6f037d20fcfcb36949e5ff",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/output_guard.json",
+      "bytes": 15455,
+      "sha256": "e84dd012dcc71f6648b22e301769d05331af94777a0b5cdfcde7bed08b359881",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_rfm_temporal_v1/panel.csv",
+      "bytes": 333893,
+      "sha256": "ee46a3415e0984c961f62903585a2c43525c9962a7b5d68e91e0ffa4bbcfb3d5",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/uci-rfm-build-v1/prepared_guard.json",
+      "bytes": 4272,
+      "sha256": "3081b0f4face11dd0f0c53262ab03ea4cd0b37ae74928f2e028562e93ab14118",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/uci-rfm-build-v1/tests.log",
+      "bytes": 4359,
+      "sha256": "732be683886e6d179d890d1219be9bc312cd7ed48d817e06f663c84f6c1abfb3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/uci-rfm-release-v1/tests.log",
+      "bytes": 1779,
+      "sha256": "0f805dc4a3ed9a7ce1d4de24fedeed04e681e88c0e58e0326724429356e5b52a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/uci-rfm-temporal-v1/prepared_guard.json",
+      "bytes": 12681,
+      "sha256": "bbd79a532552966398d685a422271537e317858782366ccd9dd0a9fd328f3c09",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/uci-rfm-temporal-v1/tests.log",
+      "bytes": 4043,
+      "sha256": "4762dc966f715d79b6b047ac47e46cf2a19fffcff4df387baa9eadebacb0d617",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/README.md",
+      "bytes": 33714,
+      "sha256": "c0b96cae985532e3e58798ee4daec3c63fd48e157a4c9fde3a68b908caac1cd0",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "tests/test_archive_uci_rfm_v1.py",
+      "bytes": 4299,
+      "sha256": "d7a659828f2253993bb1630a036009ffffc914b6785803fe25b89cd91a543c3c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_uci_retail_ii.py",
+      "bytes": 4481,
+      "sha256": "5f4e814ebf8632fa19c133e063ae82cc4a0938db358e1d931b3934eea61d0d3a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_uci_rfm_builder.py",
+      "bytes": 10095,
+      "sha256": "184a9eae1a1cf5fc105a72713a2ffcc9bf4c385d5bbcf11193cb19be655c555a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_uci_rfm_contract.py",
+      "bytes": 9352,
+      "sha256": "a9c62bf0a44b01154c097c88c226241313a6517d223ac954b34fe9b3598e93a3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_uci_rfm_temporal.py",
+      "bytes": 11081,
+      "sha256": "ecb5fa1864602d116793068a0ad6c445db368952f75929ae2509524441ce1f5c",
+      "live_role": "frozen_research_source"
+    }
+  ],
+  "archive_tests": {
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.101708
+  },
+  "elapsed_seconds": 61.304,
+  "scope_this_turn": {
+    "RFM_rebuilds": 0,
+    "cutpoint_fits": 0,
+    "metric_recalculations": 0,
+    "new_models": 0,
+    "research_tests_rerun": false
+  },
+  "backup_limit": "Same shop drive only; no remote/offsite backup or GitHub publication performed."
+}

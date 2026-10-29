@@ -1,0 +1,103 @@
+{
+  "status": "passed_independent_scores_and_aggregates",
+  "source_files": 63,
+  "synthetic_tests": {
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.622137,
+    "test_ids": [
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ARI_hand_negative",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ARI_partition_not_label_agreement",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_JSON_audit_rejects_wrong_count_or_scope",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_JSON_float_tolerance_and_undefined_value",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_T2_or_sensitivity_reference_rejected",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_application_never_fits_or_mutates_thresholds",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_constant_Spearman_undefined",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_constant_axis_one_level",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_degenerate_ARI_null",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_empty_panel_rates_null_not_100",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_equal_cutpoint_stays_lower_value_bin_R_reversed",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_inactive_and_quarantine_have_no_scores",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_independent_empty_and_degenerate_metrics",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_independent_numpy_cutpoints_and_all_metrics",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_ledger_missing_ID_signed_and_positive_shares",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_nearest_rank_hand_endpoints_no_interpolation",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_readback_catches_swapped_scores",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_reference_200_allowed",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_reference_insufficient_199",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_repeated_quantiles_remove_maximum_and_keep_ties",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_sensitivity_R_or_state_change_rejected",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_sensitivity_money_changes_and_zero_main_ratio",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_signed_delta_quantiles",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_small_panel_no_correlation_or_ARI",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_state_population_and_new_keys_not_dropped",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_support_at_50_allowed_49_flagged",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_support_floor_ceiling_population",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_tied_rank_Spearman_hand_calculation",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_transition_denominators_and_empty_rows",
+      "tests.test_uci_rfm_temporal.TemporalTests.test_universe_loss_rejected"
+    ]
+  },
+  "primary_fit_calls": 1,
+  "T2_cutpoint_fits": 0,
+  "independent_reference_recomputation": "audit only, not an alternate fitted candidate",
+  "score_and_panel_files": 9,
+  "per_file": {
+    "main/T1/scores.csv": {
+      "rows": 4336,
+      "cells": 52032
+    },
+    "main/T2/scores.csv": {
+      "rows": 5914,
+      "cells": 70968
+    },
+    "duplicate_sensitivity/T1/scores.csv": {
+      "rows": 4336,
+      "cells": 52032
+    },
+    "duplicate_sensitivity/T2/scores.csv": {
+      "rows": 5914,
+      "cells": 70968
+    },
+    "code_sensitivity/T1/scores.csv": {
+      "rows": 4336,
+      "cells": 52032
+    },
+    "code_sensitivity/T2/scores.csv": {
+      "rows": 5914,
+      "cells": 70968
+    },
+    "combined_sensitivity/T1/scores.csv": {
+      "rows": 4336,
+      "cells": 52032
+    },
+    "combined_sensitivity/T2/scores.csv": {
+      "rows": 5914,
+      "cells": 70968
+    },
+    "panel.csv": {
+      "rows": 5914,
+      "cells": 41398
+    }
+  },
+  "data_records_compared": 46914,
+  "data_cells_compared": 533398,
+  "JSON_leaf_checks": 59798,
+  "independent_libraries": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "pandas": "3.0.6"
+  },
+  "integer_counts_and_money_exact": true,
+  "derived_float_tolerance": {
+    "relative": 1e-12,
+    "absolute": 1e-12
+  },
+  "prior_sources_and_new_outputs_unchanged": true,
+  "elapsed_seconds": 23.615,
+  "existing_RFM_rebuilt": false,
+  "models_fitted": 0
+}

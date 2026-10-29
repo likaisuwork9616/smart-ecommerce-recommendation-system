@@ -1,0 +1,360 @@
+{
+  "inventory_id": "retailrocket_stage12_availability_and_candidate_v1",
+  "date_asia_taipei": "2026-10-29",
+  "scope": "Public metadata/HEAD and local directory names plus historical aggregate reports; no event/query row parsing, bulk data download, training or evaluation.",
+  "bounded_search": "Current publisher-linked Retailrocket dataset, REES46 multi-category and cosmetics; not an exhaustive claim about all data on the internet.",
+  "local_directory_names": {
+    "data/raw": [
+      "olist",
+      "online_retail_ii",
+      "retailrocket"
+    ],
+    "shop-mysql-runtime/downloads": [
+      "mysql-8.4.11-winx64.zip",
+      "mysql-8.4.11-winx64.zip.md5",
+      "olist-brazilian-ecommerce-v2.zip"
+    ],
+    ".runtime/recommendation_temporal_handoffs": null,
+    ".runtime/review_window_handoffs": null,
+    ".runtime/rfm_temporal_handoffs": null,
+    ".runtime/daily_data_handoffs": null
+  },
+  "sources": [
+    {
+      "id": "retailrocket",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/retailrocket/ecommerce-dataset",
+      "files_url": "https://www.kaggle.com/api/v1/datasets/list/retailrocket/ecommerce-dataset",
+      "checked_at_utc": "2026-10-29T02:19:11.937715+00:00",
+      "http_status": [
+        200,
+        200
+      ],
+      "metadata": {
+        "id": 1031,
+        "title": "Retailrocket recommender system dataset",
+        "currentVersionNumber": 2,
+        "lastUpdated": "2022-11-08T16:03:10.607Z",
+        "licenseName": "CC BY-NC-SA 4.0",
+        "totalBytes": 987498023
+      },
+      "files": [
+        {
+          "name": "category_tree.csv",
+          "totalBytes": 14454,
+          "creationDate": "2022-11-08T16:03:12.269Z"
+        },
+        {
+          "name": "events.csv",
+          "totalBytes": 94237913,
+          "creationDate": "2022-11-08T16:03:14.798Z"
+        },
+        {
+          "name": "item_properties_part1.csv",
+          "totalBytes": 484315749,
+          "creationDate": "2022-11-08T16:03:28.827Z"
+        },
+        {
+          "name": "item_properties_part2.csv",
+          "totalBytes": 408929907,
+          "creationDate": "2022-11-08T16:03:29.478Z"
+        }
+      ],
+      "next_page_token": "",
+      "body_identity": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/retailrocket_metadata.response",
+          "bytes": 19053,
+          "sha256": "d2b4688a04035450e9a2abbc40715455e95fcdf3682f3069a711dadd496c1e4e"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/retailrocket_files.response",
+          "bytes": 1461,
+          "sha256": "629460015289d82bc5a4488c57a047cde945e7fc46262d23624c4318106c249f"
+        }
+      ]
+    },
+    {
+      "id": "multicategory",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/mkechinov/ecommerce-behavior-data-from-multi-category-store",
+      "files_url": "https://www.kaggle.com/api/v1/datasets/list/mkechinov/ecommerce-behavior-data-from-multi-category-store",
+      "checked_at_utc": "2026-10-29T02:19:11.939710+00:00",
+      "http_status": [
+        200,
+        200
+      ],
+      "metadata": {
+        "id": 411512,
+        "title": "eCommerce behavior data from multi category store",
+        "currentVersionNumber": 8,
+        "lastUpdated": "2019-12-09T20:43:39.273Z",
+        "licenseName": "Data files © Original Authors",
+        "totalBytes": 14675375250
+      },
+      "files": [
+        {
+          "name": "2019-Nov.csv",
+          "totalBytes": 9006762395,
+          "creationDate": "2019-12-09T20:52:13.431Z"
+        },
+        {
+          "name": "2019-Oct.csv",
+          "totalBytes": 5668612855,
+          "creationDate": "2019-12-09T20:51:21.345Z"
+        }
+      ],
+      "next_page_token": "",
+      "body_identity": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/multicategory_metadata.response",
+          "bytes": 13163,
+          "sha256": "65ef76647ecd93d214e934e5c4395d8cb0638cf200c9d850d5791e2a02ebdc3a"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/multicategory_files.response",
+          "bytes": 758,
+          "sha256": "5a8fa4810bb8ea581932765683e48f8b19a87e3a029a66c74c59f478d9ca7bcc"
+        }
+      ]
+    },
+    {
+      "id": "cosmetics",
+      "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/mkechinov/ecommerce-events-history-in-cosmetics-shop",
+      "files_url": "https://www.kaggle.com/api/v1/datasets/list/mkechinov/ecommerce-events-history-in-cosmetics-shop",
+      "checked_at_utc": "2026-10-29T02:19:12.331770+00:00",
+      "http_status": [
+        200,
+        200
+      ],
+      "metadata": {
+        "id": 426888,
+        "title": "eCommerce Events History in Cosmetics Shop",
+        "currentVersionNumber": 6,
+        "lastUpdated": "2020-03-16T12:04:15.63Z",
+        "licenseName": "Data files © Original Authors",
+        "totalBytes": 2434277452
+      },
+      "files": [
+        {
+          "name": "2019-Dec.csv",
+          "totalBytes": 415302972,
+          "creationDate": "2020-03-16T12:04:28.731Z"
+        },
+        {
+          "name": "2019-Nov.csv",
+          "totalBytes": 545839412,
+          "creationDate": "2020-03-16T12:04:32.706Z"
+        },
+        {
+          "name": "2019-Oct.csv",
+          "totalBytes": 482542278,
+          "creationDate": "2020-03-16T12:04:30.27Z"
+        },
+        {
+          "name": "2020-Feb.csv",
+          "totalBytes": 488799986,
+          "creationDate": "2020-03-16T12:04:33.327Z"
+        },
+        {
+          "name": "2020-Jan.csv",
+          "totalBytes": 501792804,
+          "creationDate": "2020-03-16T12:04:33.253Z"
+        }
+      ],
+      "next_page_token": "",
+      "body_identity": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/cosmetics_metadata.response",
+          "bytes": 9839,
+          "sha256": "3df0558e53404a597c44aee6727d83c371bc5bb09bda32c381c8192b17d927df"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/cosmetics_files.response",
+          "bytes": 1733,
+          "sha256": "a33bc4b978a591742b1f92c8ae76767fa5361d2286c7d6acdd7005feafe7b123"
+        }
+      ]
+    }
+  ],
+  "download_header_probes": [
+    {
+      "url": "https://www.kaggle.com/api/v1/datasets/download/retailrocket/ecommerce-dataset?datasetVersionNumber=2",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.488919+00:00",
+      "payload_bytes_read": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.kaggle.com/api/v1/datasets/download/mkechinov/ecommerce-behavior-data-from-multi-category-store?datasetVersionNumber=8",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.488919+00:00",
+      "payload_bytes_read": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.kaggle.com/api/v1/datasets/download/mkechinov/ecommerce-events-history-in-cosmetics-shop?datasetVersionNumber=6",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.504143+00:00",
+      "payload_bytes_read": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2019-Oct.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.589561+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "1741928540",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2019-Nov.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.916288+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2890421023",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2019-Dec.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.918307+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2951549375",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2020-Jan.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:10.927101+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2390063923",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2020-Feb.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:11.711299+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2347087112",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2020-Mar.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:11.732243+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2417362205",
+      "final_host": "data.rees46.com"
+    },
+    {
+      "url": "https://data.rees46.com/datasets/marketplace/2020-Apr.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-29T02:20:11.735234+00:00",
+      "payload_bytes_read": 0,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2929933389",
+      "final_host": "data.rees46.com"
+    }
+  ],
+  "retailrocket_file_names_and_sizes_match_existing": true,
+  "retailrocket_remote_payload_rehashed": false,
+  "retailrocket_version_caveat": "currentVersionNumber=2; versions array also includes older 2017 entries numbered 3/4 and repeated 2. Do not infer newer events from max version number or 2022 upload date.",
+  "same_source_extension": "No accepted post-2015-09-18 Retailrocket events found in the checked local namespaces or current official metadata; absence elsewhere is not proven.",
+  "external_multi_category": "Kaggle v8 lists only 2019-Oct/Nov (14675375250 uncompressed bytes). Metadata explicitly links seven publisher gzip files through 2020-Apr; all seven HEAD return 200. HEAD/filenames do not verify complete payloads, timestamps or compatibility.",
+  "external_multi_category_gzip_header_bytes": 17668345567,
+  "external_cosmetics": "Kaggle v6 lists five months 2019-Oct through 2020-Feb, 2434277452 uncompressed bytes; metadata listing verified, payload download not verified (HEAD 404 is inconclusive for GET). Smaller external intake option, not a Retailrocket continuation.",
+  "external_rights": "Both Kaggle API licenseName fields say Data files © Original Authors; descriptions permit free use with source/REES46 attribution. Record exact publisher terms and intended scope at intake; do not relabel as CC or infer commercial/model redistribution rights.",
+  "intake_missing": [
+    "full payload and SHA/CRC",
+    "actual event range and per-day completeness",
+    "schema/types/duplicate and conflict audit",
+    "visitor/session semantics and time zone",
+    "source-specific causal catalog/target contract",
+    "role boundaries before outcome inspection",
+    "rights and attribution snapshot",
+    "ingestion/revision/watermark evidence for operational claims"
+  ],
+  "new_temporal_sources_accepted": 0,
+  "stage12_data_decision": "Keep accepted Retailrocket v1 train/previously exposed validation; external intake is a separate future work item and cannot replace data under this frozen spec.",
+  "protected_roles": {
+    "validation": "already exposed P0/C1/D1 development window",
+    "reserved_test": "locked retrospective test, structurally and label inspected by builder; not fresh temporal data",
+    "partial_tail": "excluded 2015-09-18 partial day, not promoted to validation"
+  },
+  "candidates": [
+    {
+      "method": "K1 exact session-kNN, Jaccard, k=500",
+      "decision": "selected",
+      "reason": "Uses existing session sets/current history; deterministic rational voting with complete overlap search and no latent factors; adds a session-level comparison to item relation baselines. No measured K1 performance."
+    },
+    {
+      "method": "undirected adjacent association",
+      "decision": "deferred",
+      "reason": "Could isolate a direction effect with D1 under a separately stated ablation; not combined with the chosen session-neighbor question."
+    },
+    {
+      "method": "implicit ALS / BPR",
+      "decision": "deferred",
+      "reason": "Would add representation, fold-in, optimizer and stochastic parameter decisions; no fit or search this round."
+    },
+    {
+      "method": "EASE dense",
+      "decision": "deferred",
+      "reason": "Existing 198946 positive train items imply one float64 dense matrix of 316636087328 bytes; structural arithmetic, not measured memory."
+    }
+  ],
+  "method_source": {
+    "url": "https://arxiv.org/pdf/1803.09587v2",
+    "title": "Evaluation of Session-based Recommendation Algorithms",
+    "section": "3.2.2",
+    "interpretation": "Neighbor session similarity and weighted item voting motivate K1. Jaccard, k=500, exact unsampled search and tie rules are fixed here; not a replication or externally established optimum."
+  },
+  "evidence_files": [
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/probe_sources.py",
+      "bytes": 2989,
+      "sha256": "4fa16e8372639a1e572e37c5eb68ec8105686aed6bc1458de7ebf8220d33d470"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/probe_download_headers.py",
+      "bytes": 1556,
+      "sha256": "8ff19516af974bd323eb4d2bf97ae2992fe23f05cb8fb21e222a79e35746716a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/probe_results.json",
+      "bytes": 17580,
+      "sha256": "1e8ad9a0e4768b2fd5248260b03a32758846bdd175ef907835fe1b861d0ca827"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/download_headers.json",
+      "bytes": 3236,
+      "sha256": "6d32b9dbf571a315d6d3b04980d0f962b6fd08ab183e8023b80d833542c9b8db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-stage12-spec-v1/publisher.response",
+      "bytes": 28282,
+      "sha256": "d3d496022492f90e2f5ba13fee920d86c07e62d2058d32928809712ba28b70c9"
+    }
+  ],
+  "zero_execution": {
+    "event_or_query_rows_parsed": 0,
+    "new_model_fits": 0,
+    "new_ranked_queries": 0,
+    "new_metric_runs": 0,
+    "new_bootstrap": 0,
+    "final_refits": 0,
+    "test_queries_scored": 0
+  }
+}

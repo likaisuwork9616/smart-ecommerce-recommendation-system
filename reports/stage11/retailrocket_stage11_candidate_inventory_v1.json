@@ -1,0 +1,141 @@
+{
+  "inventory_id": "retailrocket_stage11_candidate_inventory_v1",
+  "date_asia_taipei": "2026-10-28",
+  "scope": "Method/data-contract review and public aggregate metadata only; zero real row parsing, candidate fitting or new performance evidence.",
+  "source_capture": "Primary papers were opened for technical review; URLs, version and notes are saved here, not full paper copies or external benchmark scores.",
+  "primary_sources": [
+    {
+      "id": "session_evaluation",
+      "title": "Evaluation of Session-based Recommendation Algorithms",
+      "authors": [
+        "Malte Ludewig",
+        "Dietmar Jannach"
+      ],
+      "year": 2018,
+      "url": "https://arxiv.org/abs/1803.09587v2",
+      "full_text": "https://arxiv.org/pdf/1803.09587v2",
+      "sections": [
+        "3.1.2",
+        "3.2.2"
+      ],
+      "supports": "Standard adjacent-transition MC and session-kNN definitions; D1 below is our own controlled variant, not their MC implementation."
+    },
+    {
+      "id": "implicit_als",
+      "title": "Collaborative Filtering for Implicit Feedback Datasets",
+      "authors": [
+        "Yifan Hu",
+        "Yehuda Koren",
+        "Chris Volinsky"
+      ],
+      "year": 2008,
+      "url": "https://yifanhu.net/PUB/cf.pdf",
+      "supports": "Confidence-weighted implicit-feedback factorization with alternating least squares."
+    },
+    {
+      "id": "bpr",
+      "title": "BPR: Bayesian Personalized Ranking from Implicit Feedback",
+      "authors": [
+        "Steffen Rendle",
+        "Christoph Freudenthaler",
+        "Zeno Gantner",
+        "Lars Schmidt-Thieme"
+      ],
+      "year": 2009,
+      "url": "https://arxiv.org/abs/1205.2618v1",
+      "supports": "Pairwise ranking criterion and sampling-based learning; the criterion still needs a chosen underlying model."
+    },
+    {
+      "id": "ease",
+      "title": "Embarrassingly Shallow Autoencoders for Sparse Data",
+      "authors": [
+        "Harald Steck"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/abs/1905.03375v1",
+      "full_text": "https://arxiv.org/html/1905.03375v1",
+      "sections": [
+        "3.1",
+        "3.4"
+      ],
+      "supports": "Regularized item-item Gram inverse and zero-diagonal linear weights; standard dense formulation has quadratic item storage."
+    }
+  ],
+  "existing_evidence": {
+    "C1_result": "reports/stage10/retailrocket_cooccurrence_v1_validation.json",
+    "P0_result": "reports/stage9/retailrocket_popularity_v1_development.json",
+    "positive_train_items": 198946,
+    "validation_queries": 166897,
+    "new_visitor_queries": 134249,
+    "cold_target_queries": 11943,
+    "C1_full_fallback_queries": 16319
+  },
+  "candidates": [
+    {
+      "family": "directed_adjacent_association",
+      "decision": "selected_custom_D1",
+      "source_ids": [
+        "session_evaluation"
+      ],
+      "data_fit": "Existing ordered view baskets, session IDs and C1 support suffice without item features or persistent user factors.",
+      "reason": "Deterministic exact sparse counts; preserves C1 session unit, denominator, history and tie/fill rules. Changes only the joint directional-adjacency relation; no training hyperparameters or search.",
+      "limitation": "Not standard first-order MC, not a probability, not a solution to unsupported items."
+    },
+    {
+      "family": "session_knn",
+      "decision": "deferred",
+      "source_ids": [
+        "session_evaluation"
+      ],
+      "data_fit": "Train session item sets and current session history are available; unknown visitor ID alone is not a blocker.",
+      "reason": "Would require fixed similarity, neighbor count, exact neighbor search or an explicit sampling policy, tie rules and separate cost/oracle work.",
+      "limitation": "Pure interaction neighbors do not learn associations for train-unsupported items; runtime not measured here."
+    },
+    {
+      "family": "implicit_als",
+      "decision": "deferred",
+      "source_ids": [
+        "implicit_als"
+      ],
+      "data_fit": "A train visitor/session-item matrix can be defined, but that representation and causal new-session fold-in are not yet contracted.",
+      "reason": "Requires latent dimension, confidence mapping, regularization, iteration, initialization/seeds and new-user rules.",
+      "limitation": "Does not automatically solve new-user or unsupported-item gaps; no fit or library installation in this round."
+    },
+    {
+      "family": "bpr",
+      "decision": "deferred",
+      "source_ids": [
+        "bpr"
+      ],
+      "data_fit": "Implicit train interactions exist; must separately choose underlying model and sampling universe.",
+      "reason": "Adds pairwise sampling, optimization, initialization, fixed seeds and convergence decisions.",
+      "limitation": "Unobserved items are not proven dislikes; no negative-sampling or stochastic-model scope is introduced this round."
+    },
+    {
+      "family": "ease_dense",
+      "decision": "not_selected_under_current_resource_envelope",
+      "source_ids": [
+        "ease"
+      ],
+      "data_fit": "Binary implicit session-item data are compatible in principle.",
+      "reason": "One dense float64 item-item matrix already exceeds the planned 8 GiB process budget; sparse/low-rank approximations would be different methods.",
+      "limitation": "Storage calculation is a structural estimate, not a measured runtime or peak-memory benchmark."
+    }
+  ],
+  "dense_EASE_structural_estimate": {
+    "formula": "positive_train_items ** 2 * 8",
+    "items": 198946,
+    "float64_matrix_bytes": 316636087328,
+    "GiB": 294.89033606648445,
+    "kind": "one_matrix_arithmetic_from_existing_public_aggregate_not_empirical_peak",
+    "excluded": "Additional matrices, factorization workspace and runtime"
+  },
+  "selection": {
+    "candidate": "D1_binary_session_directed_adjacent_association",
+    "candidate_count": 1,
+    "validation_already_exposed": true,
+    "P0_and_C1_scores_known_before_selection": true,
+    "D1_scores_not_computed": true,
+    "selection_basis": "Contract alignment, controlled representation change, exact auditability and feasible sparse design; not measured D1 superiority."
+  }
+}

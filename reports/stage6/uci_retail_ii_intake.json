@@ -1,0 +1,902 @@
+{
+  "format_version": 1,
+  "status": "intake_audited_retrospective_study_feasible_with_unresolved_policy",
+  "source": {
+    "url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+    "doi": "10.24432/C5CG6D",
+    "license": "CC BY 4.0",
+    "attribution": "Chen, D. (2012). Online Retail II. UCI Machine Learning Repository.",
+    "download_completed_utc": "2026-10-27T02:16:09.599976+00:00",
+    "package_crc_passed": true,
+    "xlsx_crc_passed": true,
+    "published_rows": 1067371,
+    "published_rows_match": true,
+    "files": [
+      {
+        "path": "data/raw/online_retail_ii/source_manifest.json",
+        "bytes": 1298,
+        "sha256": "704876a3cac02641866f430206b91cb5127dbea0c582e5c0cbb7ca16063c0649"
+      },
+      {
+        "path": "data/raw/online_retail_ii/online_retail_ii_official.zip",
+        "bytes": 45622418,
+        "sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb"
+      },
+      {
+        "path": "data/raw/online_retail_ii/online_retail_II.xlsx",
+        "bytes": 45622278,
+        "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+      },
+      {
+        "path": "data/raw/online_retail_ii/source_page.html",
+        "bytes": 85208,
+        "sha256": "d7c9ebf9428dfa5aaf12d67a1430652096f0df292fd85a2b69682bfd862121ea"
+      },
+      {
+        "path": "scripts/audit_uci_retail_ii.py",
+        "bytes": 19776,
+        "sha256": "335c68c000220afee37c10c83f0d5d36cdb885eb8e6c2624644646f0fc26fc31"
+      },
+      {
+        "path": "tests/test_uci_retail_ii.py",
+        "bytes": 4481,
+        "sha256": "5f4e814ebf8632fa19c133e063ae82cc4a0938db358e1d931b3934eea61d0d3a"
+      }
+    ]
+  },
+  "method": {
+    "reader": "openpyxl read_only / data_only=False",
+    "reader_version": "3.1.5",
+    "python": "3.12.14",
+    "formula_cells": 0,
+    "duplicates": "Exact decoded eight-column values across both sheets; numeric scalar formatting normalized. Dedup is sensitivity, not final cleaning.",
+    "money": "Decimal(str(decoded cell value)); Quantity * Price, preserve sub-penny precision, no FX or line rounding. Signed arithmetic is not verified net revenue.",
+    "candidate": "Six-digit invoice, known customer, valid naive clock, positive integral quantity and positive price; exact-value distinct view, then exclude invoices with conflicting known customer/time/country.",
+    "source_mutations": 0,
+    "new_RFM_or_cutpoints": 0,
+    "models_or_holdout_scores": 0,
+    "exposure": "Full-file quality/monthly amounts and exploratory window support inspected; later periods are not pristine unseen data."
+  },
+  "results": {
+    "tables": [
+      {
+        "sheet": "Year 2009-2010",
+        "headers": [
+          "Invoice",
+          "StockCode",
+          "Description",
+          "Quantity",
+          "InvoiceDate",
+          "Price",
+          "Customer ID",
+          "Country"
+        ],
+        "rows": 525461,
+        "minimum": "2009-12-01 07:45:00",
+        "maximum": "2010-12-09 20:01:00",
+        "distinct_eight_field_rows": 518596,
+        "within_sheet_duplicate_excess": 6865,
+        "missing_customer_rows": 107927
+      },
+      {
+        "sheet": "Year 2010-2011",
+        "headers": [
+          "Invoice",
+          "StockCode",
+          "Description",
+          "Quantity",
+          "InvoiceDate",
+          "Price",
+          "Customer ID",
+          "Country"
+        ],
+        "rows": 541910,
+        "minimum": "2010-12-01 08:26:00",
+        "maximum": "2011-12-09 12:50:00",
+        "distinct_eight_field_rows": 536642,
+        "within_sheet_duplicate_excess": 5268,
+        "missing_customer_rows": 135080
+      }
+    ],
+    "raw": {
+      "rows": 1067371,
+      "invoices": 53628,
+      "known_customers": 5942,
+      "signed_line_amount_GBP": "19287250.568"
+    },
+    "missing_cells": {
+      "invoice": 0,
+      "stock": 0,
+      "description": 4382,
+      "quantity": 0,
+      "ts": 0,
+      "price": 0,
+      "customer": 243007,
+      "country": 0
+    },
+    "duplicates": {
+      "rows": 1067371,
+      "distinct_eight_field_rows": 1033036,
+      "duplicate_excess_rows": 34335,
+      "duplicate_groups": 32907,
+      "within_sheet_duplicate_excess": 12133,
+      "cross_sheet_duplicate_excess_after_within_sheet_dedup": 22202,
+      "invoice_keys_in_multiple_sheets": 1088,
+      "raw_rows_in_cross_sheet_signatures": 45046,
+      "cross_sheet_duplicate_min_date": "2010-12-01 08:26:00",
+      "cross_sheet_duplicate_max_date": "2010-12-09 20:01:00"
+    },
+    "invoice_integrity": {
+      "multiple_detail_rows_is_not_itself_an_error": true,
+      "invoices_with_multiple_rows": 40334,
+      "multiple_known_customers": 0,
+      "multiple_timestamps": 83,
+      "multiple_countries": 0,
+      "mixed_missing_and_known_customer": 0,
+      "ambiguous_header_union": 83,
+      "distinct_rows_on_ambiguous_invoices": 5721,
+      "invoice_stock_pairs_with_multiple_distinct_rows": 11162
+    },
+    "quality_issues": {
+      "cancellation_prefix": {
+        "rows": 19494,
+        "invoices": 8292,
+        "known_customers": 2572,
+        "signed_line_amount_GBP": "-1526667.86"
+      },
+      "negative_quantity_without_cancellation_prefix": {
+        "rows": 3457,
+        "invoices": 3393,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "0"
+      },
+      "cancellation_prefix_with_nonnegative_quantity": {
+        "rows": 1,
+        "invoices": 1,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "373.57"
+      },
+      "zero_quantity": {
+        "rows": 0,
+        "invoices": 0,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "0"
+      },
+      "negative_price": {
+        "rows": 5,
+        "invoices": 5,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "-158676.14"
+      },
+      "zero_price": {
+        "rows": 6202,
+        "invoices": 5379,
+        "known_customers": 51,
+        "signed_line_amount_GBP": "0"
+      },
+      "missing_customer": {
+        "rows": 243007,
+        "invoices": 8752,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "2638958.18"
+      },
+      "known_customer_non_five_digit_format": {
+        "rows": 0,
+        "invoices": 0,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "0"
+      },
+      "non_six_digit_non_cancellation_invoice": {
+        "rows": 6,
+        "invoices": 6,
+        "known_customers": 0,
+        "signed_line_amount_GBP": "-147614.08"
+      },
+      "invalid_timestamp_rows": 0,
+      "invalid_quantity_rows": 0,
+      "nonintegral_quantity_rows": 0,
+      "invalid_price_rows": 0,
+      "price_more_than_two_decimal_places_rows": 18,
+      "maximum_price_decimal_places": 3,
+      "quantity_min_max": [
+        -80995.0,
+        80995.0
+      ],
+      "price_min_max": [
+        -53594.36,
+        38970.0
+      ]
+    },
+    "cancellation_quantity_price_sign_matrix": [
+      {
+        "cancellation_prefix": false,
+        "quantity_sign": -1,
+        "price_sign": 0,
+        "rows": 3457,
+        "signed_line_amount_GBP": "0"
+      },
+      {
+        "cancellation_prefix": false,
+        "quantity_sign": 1,
+        "price_sign": -1,
+        "rows": 5,
+        "signed_line_amount_GBP": "-158676.14"
+      },
+      {
+        "cancellation_prefix": false,
+        "quantity_sign": 1,
+        "price_sign": 0,
+        "rows": 2745,
+        "signed_line_amount_GBP": "0"
+      },
+      {
+        "cancellation_prefix": false,
+        "quantity_sign": 1,
+        "price_sign": 1,
+        "rows": 1041670,
+        "signed_line_amount_GBP": "20972594.568"
+      },
+      {
+        "cancellation_prefix": true,
+        "quantity_sign": -1,
+        "price_sign": 1,
+        "rows": 19493,
+        "signed_line_amount_GBP": "-1527041.43"
+      },
+      {
+        "cancellation_prefix": true,
+        "quantity_sign": 1,
+        "price_sign": 1,
+        "rows": 1,
+        "signed_line_amount_GBP": "373.57"
+      }
+    ],
+    "sensitivity_views": {
+      "raw": {
+        "rows": 1067371,
+        "invoices": 53628,
+        "known_customers": 5942,
+        "signed_line_amount_GBP": "19287250.568"
+      },
+      "eight_field_distinct_sensitivity": {
+        "rows": 1033036,
+        "invoices": 53628,
+        "known_customers": 5942,
+        "signed_line_amount_GBP": "18855533.698"
+      },
+      "raw_positive_known_customer_candidate": {
+        "rows": 805549,
+        "invoices": 36969,
+        "known_customers": 5878,
+        "signed_line_amount_GBP": "17743429.178"
+      },
+      "distinct_positive_known_customer_candidate": {
+        "rows": 779425,
+        "invoices": 36969,
+        "known_customers": 5878,
+        "signed_line_amount_GBP": "17374804.268"
+      },
+      "distinct_positive_header_coherent_candidate": {
+        "rows": 776621,
+        "invoices": 36905,
+        "known_customers": 5875,
+        "signed_line_amount_GBP": "17337724.748"
+      },
+      "coherent_candidate_nonstandard_stock_shape": {
+        "rows": 2843,
+        "invoices": 2780,
+        "known_customers": 893,
+        "signed_line_amount_GBP": "305980.948"
+      }
+    },
+    "sequential_candidate_exclusions": [
+      {
+        "step": "six_digit_invoice",
+        "removed_at_this_step": 19110,
+        "remaining": 1013926
+      },
+      {
+        "step": "valid_naive_timestamp",
+        "removed_at_this_step": 0,
+        "remaining": 1013926
+      },
+      {
+        "step": "known_customer",
+        "removed_at_this_step": 234431,
+        "remaining": 779495
+      },
+      {
+        "step": "positive_integral_quantity",
+        "removed_at_this_step": 0,
+        "remaining": 779495
+      },
+      {
+        "step": "positive_price",
+        "removed_at_this_step": 70,
+        "remaining": 779425
+      },
+      {
+        "step": "unambiguous_invoice_header",
+        "removed_at_this_step": 2804,
+        "remaining": 776621
+      }
+    ],
+    "monthly_coverage": [
+      {
+        "month": "2009-12",
+        "raw": {
+          "rows": 45228,
+          "invoices": 2330,
+          "known_customers": 1045,
+          "signed_line_amount_GBP": "799847.11"
+        },
+        "coherent_candidate": {
+          "rows": 30242,
+          "invoices": 1511,
+          "known_customers": 955,
+          "signed_line_amount_GBP": "683161.19"
+        },
+        "missing_customer_rows": 13468,
+        "cancellation_rows": 1015,
+        "first_event": "2009-12-01 07:45:00",
+        "last_event": "2009-12-23 16:58:00",
+        "observed_calendar_days": 21,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-01",
+        "raw": {
+          "rows": 31555,
+          "invoices": 1633,
+          "known_customers": 786,
+          "signed_line_amount_GBP": "624032.892"
+        },
+        "coherent_candidate": {
+          "rows": 21458,
+          "invoices": 1011,
+          "known_customers": 720,
+          "signed_line_amount_GBP": "555802.672"
+        },
+        "missing_customer_rows": 9116,
+        "cancellation_rows": 686,
+        "first_event": "2010-01-04 09:24:00",
+        "last_event": "2010-01-31 16:02:00",
+        "observed_calendar_days": 24,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-02",
+        "raw": {
+          "rows": 29388,
+          "invoices": 1969,
+          "known_customers": 807,
+          "signed_line_amount_GBP": "533091.426"
+        },
+        "coherent_candidate": {
+          "rows": 23040,
+          "invoices": 1104,
+          "known_customers": 772,
+          "signed_line_amount_GBP": "504558.956"
+        },
+        "missing_customer_rows": 5482,
+        "cancellation_rows": 576,
+        "first_event": "2010-02-01 08:13:00",
+        "last_event": "2010-02-28 16:16:00",
+        "observed_calendar_days": 24,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-03",
+        "raw": {
+          "rows": 41511,
+          "invoices": 2367,
+          "known_customers": 1111,
+          "signed_line_amount_GBP": "765848.761"
+        },
+        "coherent_candidate": {
+          "rows": 31607,
+          "invoices": 1520,
+          "known_customers": 1056,
+          "signed_line_amount_GBP": "692745.761"
+        },
+        "missing_customer_rows": 8397,
+        "cancellation_rows": 844,
+        "first_event": "2010-03-01 08:38:00",
+        "last_event": "2010-03-31 17:53:00",
+        "observed_calendar_days": 27,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-04",
+        "raw": {
+          "rows": 34057,
+          "invoices": 1892,
+          "known_customers": 998,
+          "signed_line_amount_GBP": "590580.432"
+        },
+        "coherent_candidate": {
+          "rows": 26772,
+          "invoices": 1327,
+          "known_customers": 941,
+          "signed_line_amount_GBP": "590932.722"
+        },
+        "missing_customer_rows": 6224,
+        "cancellation_rows": 626,
+        "first_event": "2010-04-01 07:49:00",
+        "last_event": "2010-04-30 17:33:00",
+        "observed_calendar_days": 23,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-05",
+        "raw": {
+          "rows": 35323,
+          "invoices": 2418,
+          "known_customers": 1062,
+          "signed_line_amount_GBP": "615322.83"
+        },
+        "coherent_candidate": {
+          "rows": 28164,
+          "invoices": 1376,
+          "known_customers": 966,
+          "signed_line_amount_GBP": "596444.12"
+        },
+        "missing_customer_rows": 5719,
+        "cancellation_rows": 983,
+        "first_event": "2010-05-02 10:22:00",
+        "last_event": "2010-05-30 15:58:00",
+        "observed_calendar_days": 24,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-06",
+        "raw": {
+          "rows": 39983,
+          "invoices": 2216,
+          "known_customers": 1095,
+          "signed_line_amount_GBP": "679786.61"
+        },
+        "coherent_candidate": {
+          "rows": 30640,
+          "invoices": 1495,
+          "known_customers": 1040,
+          "signed_line_amount_GBP": "635446.35"
+        },
+        "missing_customer_rows": 8033,
+        "cancellation_rows": 793,
+        "first_event": "2010-06-01 09:02:00",
+        "last_event": "2010-06-30 17:38:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-07",
+        "raw": {
+          "rows": 33383,
+          "invoices": 2017,
+          "known_customers": 988,
+          "signed_line_amount_GBP": "575236.36"
+        },
+        "coherent_candidate": {
+          "rows": 26582,
+          "invoices": 1380,
+          "known_customers": 927,
+          "signed_line_amount_GBP": "589462.21"
+        },
+        "missing_customer_rows": 5637,
+        "cancellation_rows": 734,
+        "first_event": "2010-07-01 08:39:00",
+        "last_event": "2010-07-30 17:08:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-08",
+        "raw": {
+          "rows": 33306,
+          "invoices": 1877,
+          "known_customers": 964,
+          "signed_line_amount_GBP": "656776.34"
+        },
+        "coherent_candidate": {
+          "rows": 25701,
+          "invoices": 1286,
+          "known_customers": 907,
+          "signed_line_amount_GBP": "599428.94"
+        },
+        "missing_customer_rows": 6364,
+        "cancellation_rows": 573,
+        "first_event": "2010-08-01 10:04:00",
+        "last_event": "2010-08-31 17:44:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-09",
+        "raw": {
+          "rows": 42091,
+          "invoices": 2375,
+          "known_customers": 1202,
+          "signed_line_amount_GBP": "853650.431"
+        },
+        "coherent_candidate": {
+          "rows": 33870,
+          "invoices": 1680,
+          "known_customers": 1137,
+          "signed_line_amount_GBP": "824814.811"
+        },
+        "missing_customer_rows": 6705,
+        "cancellation_rows": 812,
+        "first_event": "2010-09-01 09:22:00",
+        "last_event": "2010-09-30 20:11:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-10",
+        "raw": {
+          "rows": 59098,
+          "invoices": 2965,
+          "known_customers": 1577,
+          "signed_line_amount_GBP": "1045168.35"
+        },
+        "coherent_candidate": {
+          "rows": 48693,
+          "invoices": 2132,
+          "known_customers": 1496,
+          "signed_line_amount_GBP": "1032736.58"
+        },
+        "missing_customer_rows": 8537,
+        "cancellation_rows": 1041,
+        "first_event": "2010-10-01 08:19:00",
+        "last_event": "2010-10-31 16:26:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-11",
+        "raw": {
+          "rows": 78015,
+          "invoices": 3669,
+          "known_customers": 1683,
+          "signed_line_amount_GBP": "1422654.642"
+        },
+        "coherent_candidate": {
+          "rows": 58745,
+          "invoices": 2581,
+          "known_customers": 1605,
+          "signed_line_amount_GBP": "1164170.362"
+        },
+        "missing_customer_rows": 16525,
+        "cancellation_rows": 1194,
+        "first_event": "2010-11-01 08:56:00",
+        "last_event": "2010-11-30 19:35:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2010-12",
+        "raw": {
+          "rows": 65004,
+          "invoices": 2025,
+          "known_customers": 948,
+          "signed_line_amount_GBP": "1126445.47"
+        },
+        "coherent_candidate": {
+          "rows": 25630,
+          "invoices": 1399,
+          "known_customers": 885,
+          "signed_line_amount_GBP": "570224.41"
+        },
+        "missing_customer_rows": 23351,
+        "cancellation_rows": 1057,
+        "first_event": "2010-12-01 08:26:00",
+        "last_event": "2010-12-23 17:41:00",
+        "observed_calendar_days": 20,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-01",
+        "raw": {
+          "rows": 35147,
+          "invoices": 1476,
+          "known_customers": 783,
+          "signed_line_amount_GBP": "560000.26"
+        },
+        "coherent_candidate": {
+          "rows": 20648,
+          "invoices": 981,
+          "known_customers": 737,
+          "signed_line_amount_GBP": "564546.15"
+        },
+        "missing_customer_rows": 13235,
+        "cancellation_rows": 701,
+        "first_event": "2011-01-04 10:00:00",
+        "last_event": "2011-01-31 16:59:00",
+        "observed_calendar_days": 24,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-02",
+        "raw": {
+          "rows": 27707,
+          "invoices": 1393,
+          "known_customers": 798,
+          "signed_line_amount_GBP": "498062.65"
+        },
+        "coherent_candidate": {
+          "rows": 19547,
+          "invoices": 992,
+          "known_customers": 755,
+          "signed_line_amount_GBP": "441498.41"
+        },
+        "missing_customer_rows": 7344,
+        "cancellation_rows": 475,
+        "first_event": "2011-02-01 08:23:00",
+        "last_event": "2011-02-28 17:04:00",
+        "observed_calendar_days": 24,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-03",
+        "raw": {
+          "rows": 36748,
+          "invoices": 1983,
+          "known_customers": 1020,
+          "signed_line_amount_GBP": "683267.08"
+        },
+        "coherent_candidate": {
+          "rows": 26725,
+          "invoices": 1318,
+          "known_customers": 972,
+          "signed_line_amount_GBP": "592690.56"
+        },
+        "missing_customer_rows": 8926,
+        "cancellation_rows": 699,
+        "first_event": "2011-03-01 08:30:00",
+        "last_event": "2011-03-31 19:55:00",
+        "observed_calendar_days": 27,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-04",
+        "raw": {
+          "rows": 29916,
+          "invoices": 1744,
+          "known_customers": 899,
+          "signed_line_amount_GBP": "493207.121"
+        },
+        "coherent_candidate": {
+          "rows": 22287,
+          "invoices": 1145,
+          "known_customers": 854,
+          "signed_line_amount_GBP": "467024.901"
+        },
+        "missing_customer_rows": 6718,
+        "cancellation_rows": 559,
+        "first_event": "2011-04-01 08:22:00",
+        "last_event": "2011-04-28 19:53:00",
+        "observed_calendar_days": 21,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-05",
+        "raw": {
+          "rows": 37030,
+          "invoices": 2162,
+          "known_customers": 1079,
+          "signed_line_amount_GBP": "723333.51"
+        },
+        "coherent_candidate": {
+          "rows": 27912,
+          "invoices": 1551,
+          "known_customers": 1054,
+          "signed_line_amount_GBP": "675333.84"
+        },
+        "missing_customer_rows": 8122,
+        "cancellation_rows": 621,
+        "first_event": "2011-05-01 10:51:00",
+        "last_event": "2011-05-31 15:53:00",
+        "observed_calendar_days": 25,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-06",
+        "raw": {
+          "rows": 36874,
+          "invoices": 2012,
+          "known_customers": 1051,
+          "signed_line_amount_GBP": "691123.12"
+        },
+        "coherent_candidate": {
+          "rows": 26878,
+          "invoices": 1392,
+          "known_customers": 990,
+          "signed_line_amount_GBP": "659824.67"
+        },
+        "missing_customer_rows": 9038,
+        "cancellation_rows": 711,
+        "first_event": "2011-06-01 07:37:00",
+        "last_event": "2011-06-30 20:08:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-07",
+        "raw": {
+          "rows": 39518,
+          "invoices": 1927,
+          "known_customers": 993,
+          "signed_line_amount_GBP": "681300.111"
+        },
+        "coherent_candidate": {
+          "rows": 26580,
+          "invoices": 1331,
+          "known_customers": 949,
+          "signed_line_amount_GBP": "598962.901"
+        },
+        "missing_customer_rows": 12016,
+        "cancellation_rows": 685,
+        "first_event": "2011-07-01 08:16:00",
+        "last_event": "2011-07-31 16:04:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-08",
+        "raw": {
+          "rows": 35284,
+          "invoices": 1737,
+          "known_customers": 980,
+          "signed_line_amount_GBP": "682680.51"
+        },
+        "coherent_candidate": {
+          "rows": 26740,
+          "invoices": 1278,
+          "known_customers": 933,
+          "signed_line_amount_GBP": "643195.12"
+        },
+        "missing_customer_rows": 7622,
+        "cancellation_rows": 668,
+        "first_event": "2011-08-01 08:30:00",
+        "last_event": "2011-08-31 17:45:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-09",
+        "raw": {
+          "rows": 50226,
+          "invoices": 2327,
+          "known_customers": 1302,
+          "signed_line_amount_GBP": "1019687.622"
+        },
+        "coherent_candidate": {
+          "rows": 39277,
+          "invoices": 1754,
+          "known_customers": 1265,
+          "signed_line_amount_GBP": "946900.032"
+        },
+        "missing_customer_rows": 9404,
+        "cancellation_rows": 805,
+        "first_event": "2011-09-01 08:25:00",
+        "last_event": "2011-09-30 17:22:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-10",
+        "raw": {
+          "rows": 60742,
+          "invoices": 2637,
+          "known_customers": 1425,
+          "signed_line_amount_GBP": "1070704.67"
+        },
+        "coherent_candidate": {
+          "rows": 48779,
+          "invoices": 1928,
+          "known_customers": 1363,
+          "signed_line_amount_GBP": "1034857.38"
+        },
+        "missing_customer_rows": 10047,
+        "cancellation_rows": 1200,
+        "first_event": "2011-10-02 10:32:00",
+        "last_event": "2011-10-31 17:19:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-11",
+        "raw": {
+          "rows": 84711,
+          "invoices": 3462,
+          "known_customers": 1711,
+          "signed_line_amount_GBP": "1461756.25"
+        },
+        "coherent_candidate": {
+          "rows": 63077,
+          "invoices": 2655,
+          "known_customers": 1663,
+          "signed_line_amount_GBP": "1155753.26"
+        },
+        "missing_customer_rows": 19113,
+        "cancellation_rows": 1076,
+        "first_event": "2011-11-01 08:16:00",
+        "last_event": "2011-11-30 17:42:00",
+        "observed_calendar_days": 26,
+        "upstream_complete": null
+      },
+      {
+        "month": "2011-12",
+        "raw": {
+          "rows": 25526,
+          "invoices": 1015,
+          "known_customers": 686,
+          "signed_line_amount_GBP": "433686.01"
+        },
+        "coherent_candidate": {
+          "rows": 17027,
+          "invoices": 778,
+          "known_customers": 615,
+          "signed_line_amount_GBP": "517208.44"
+        },
+        "missing_customer_rows": 7864,
+        "cancellation_rows": 360,
+        "first_event": "2011-12-01 08:12:00",
+        "last_event": "2011-12-09 12:50:00",
+        "observed_calendar_days": 8,
+        "upstream_complete": null
+      }
+    ],
+    "exploratory_365_day_windows": [
+      {
+        "start_inclusive": "2009-12-01 00:00:00",
+        "cutoff_exclusive": "2010-12-01 00:00:00",
+        "days": 365,
+        "coherent_candidate_support": {
+          "rows": 385514,
+          "invoices": 18403,
+          "known_customers": 4262,
+          "signed_line_amount_GBP": "8469704.674"
+        },
+        "selected_research_cutoff": false,
+        "as_of_complete": null
+      },
+      {
+        "start_inclusive": "2010-06-01 00:00:00",
+        "cutoff_exclusive": "2011-06-01 00:00:00",
+        "days": 365,
+        "coherent_candidate_support": {
+          "rows": 366980,
+          "invoices": 17940,
+          "known_customers": 4333,
+          "signed_line_amount_GBP": "8157377.524"
+        },
+        "selected_research_cutoff": false,
+        "as_of_complete": null
+      }
+    ],
+    "exploratory_customer_overlap": {
+      "both_windows": 3666,
+      "first_only": 596,
+      "second_only": 667,
+      "union": 4929,
+      "meaning": "Observed positive-purchase keys in exploratory windows, not retailer entry/exit or clean holdout."
+    },
+    "reconciliation": {
+      "row_counts": true,
+      "duplicate_decomposition": true,
+      "monthly_signed_amount": true,
+      "candidate_waterfall": true
+    }
+  },
+  "limitations": [
+    "No original visibility/revision timestamps or certified completion watermark; event-proxy retrospective only.",
+    "No canonical original-sale linkage for cancellations; do not mechanically strip C and match invoice suffixes.",
+    "Repeated exact lines may be source duplicates or genuine identical lines; no line-level key, sensitivity is not truth.",
+    "Known-customer positive candidates exclude unknown IDs and adjustments; retain excluded ledgers when building any future dataset.",
+    "Nonstandard stock-code shape may represent fees/adjustments or valid products; monetary eligibility requires a new explicit policy.",
+    "Workbook sheets overlap; future ingestion cannot concatenate and assume distinct periods.",
+    "Original Olist small-group limitation and Stage4 daily 10 percent budget remain; Dashboard deferred."
+  ]
+}

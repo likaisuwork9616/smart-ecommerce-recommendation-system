@@ -1,0 +1,371 @@
+{
+  "status": "development_fit_and_full_validation_independently_accepted",
+  "specification": {
+    "path": "reports/stage9/retailrocket_popularity_v1_development_specification.json",
+    "bytes": 14852,
+    "sha256": "602ea6aff0e659d69691df02867e38f865feaaae8494b77cd1f2b0910d788d36"
+  },
+  "scope": {
+    "real_primary_fits": 1,
+    "real_independent_count_audits": 1,
+    "validation_ranked_queries": 166897,
+    "training_ranked_queries": 0,
+    "reserved_test_ranked_queries": 0,
+    "final_refits": 0,
+    "reserved_test_state": "locked"
+  },
+  "fit_audit": {
+    "source_rows": 2754113,
+    "counted_view_rows": 1823388,
+    "excluded_other_role_rows": 869049,
+    "excluded_other_event_rows": 61676,
+    "positive_items": 198946,
+    "start_ms": 1430697600000,
+    "end_ms": 1438387200000,
+    "primary_fits": 1,
+    "fit_roles": [
+      "train"
+    ],
+    "all_zero_fit": false,
+    "fit_id": "3aaf35e8a4853bcd5e83caff917e90e318ef41a77e37e5f292d1bcc18f7146cd"
+  },
+  "validation": {
+    "queries": 166897,
+    "visitors": 62235,
+    "target_occurrences": 166952,
+    "reachable_target_occurrences": 161264,
+    "all_targets_reachable_queries": 161211,
+    "recommended_unique_items": 10,
+    "candidate_union_items": 222754,
+    "metrics": {
+      "ndcg": 0.0016818292431993401,
+      "recall": 0.0041792243120008146,
+      "hit_rate": 0.004182220171722679,
+      "mrr": 0.000943565040732755,
+      "visitor_macro_ndcg": 0.0016225255300279361,
+      "catalog_coverage": 4.489257207502447e-05
+    },
+    "undefined_reason": null,
+    "conditional": {
+      "queries": 161211,
+      "visitors": 60588,
+      "target_occurrences": 161264,
+      "reachable_target_occurrences": 161264,
+      "all_targets_reachable_queries": 161211,
+      "recommended_unique_items": 10,
+      "candidate_union_items": 222754,
+      "metrics": {
+        "ndcg": 0.001741148278977491,
+        "recall": 0.004326627835569533,
+        "hit_rate": 0.00432972936089969,
+        "mrr": 0.0009768450949573825,
+        "visitor_macro_ndcg": 0.001666849123899551,
+        "catalog_coverage": 4.489257207502447e-05
+      },
+      "undefined_reason": null
+    },
+    "support_floor_queries": 1669,
+    "slices": {
+      "visitor_history": {
+        "seen": {
+          "queries": 32648,
+          "visitors": 6298,
+          "target_occurrences": 32662,
+          "reachable_target_occurrences": 30677,
+          "all_targets_reachable_queries": 30663,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222753,
+          "metrics": {
+            "ndcg": 0.0018196379949786488,
+            "recall": 0.004334109286939476,
+            "hit_rate": 0.004349424160744916,
+            "mrr": 0.0010717859184840317,
+            "visitor_macro_ndcg": 0.001461791916624039,
+            "catalog_coverage": 4.489277361023196e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "new": {
+          "queries": 134249,
+          "visitors": 55937,
+          "target_occurrences": 134290,
+          "reachable_target_occurrences": 130587,
+          "all_targets_reachable_queries": 130548,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.0016483155475435745,
+            "recall": 0.004141557851455132,
+            "hit_rate": 0.004141557851455132,
+            "mrr": 0.0009123830191398665,
+            "visitor_macro_ndcg": 0.001640622680343787,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        }
+      },
+      "current_basket": {
+        "single": {
+          "queries": 166841,
+          "visitors": 62231,
+          "target_occurrences": 166895,
+          "reachable_target_occurrences": 161208,
+          "all_targets_reachable_queries": 161156,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.0016823937473537099,
+            "recall": 0.004180627064090961,
+            "hit_rate": 0.004183623929369879,
+            "mrr": 0.00094388174731136,
+            "visitor_macro_ndcg": 0.0016227045425975023,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "multiple": {
+          "queries": 56,
+          "visitors": 43,
+          "target_occurrences": 57,
+          "reachable_target_occurrences": 56,
+          "all_targets_reachable_queries": 55,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 221700,
+          "metrics": {
+            "ndcg": 0.0,
+            "recall": 0.0,
+            "hit_rate": 0.0,
+            "mrr": 0.0,
+            "visitor_macro_ndcg": 0.0,
+            "catalog_coverage": 4.510599909788002e-05
+          },
+          "undefined_reason": null,
+          "support": "descriptive_only"
+        }
+      },
+      "target_basket": {
+        "single": {
+          "queries": 166844,
+          "visitors": 62230,
+          "target_occurrences": 166844,
+          "reachable_target_occurrences": 161160,
+          "all_targets_reachable_queries": 161160,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.0016810544446634109,
+            "recall": 0.0041775550813933976,
+            "hit_rate": 0.0041775550813933976,
+            "mrr": 0.0009428658383670252,
+            "visitor_macro_ndcg": 0.0016228030853427501,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "multiple": {
+          "queries": 53,
+          "visitors": 41,
+          "target_occurrences": 108,
+          "reachable_target_occurrences": 104,
+          "all_targets_reachable_queries": 51,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 221700,
+          "metrics": {
+            "ndcg": 0.0041208950343049845,
+            "recall": 0.009433962264150943,
+            "hit_rate": 0.018867924528301886,
+            "mrr": 0.003144654088050314,
+            "visitor_macro_ndcg": 0.0026635053270507828,
+            "catalog_coverage": 4.510599909788002e-05
+          },
+          "undefined_reason": null,
+          "support": "descriptive_only"
+        }
+      },
+      "train_activity": {
+        "0": {
+          "queries": 134300,
+          "visitors": 55959,
+          "target_occurrences": 134341,
+          "reachable_target_occurrences": 130638,
+          "all_targets_reachable_queries": 130599,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.0016476896049305834,
+            "recall": 0.004139985107967237,
+            "hit_rate": 0.004139985107967237,
+            "mrr": 0.0009120365445756362,
+            "visitor_macro_ndcg": 0.001639977677771054,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "1": {
+          "queries": 6523,
+          "visitors": 2485,
+          "target_occurrences": 6525,
+          "reachable_target_occurrences": 6296,
+          "all_targets_reachable_queries": 6294,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222745,
+          "metrics": {
+            "ndcg": 0.00167731355485178,
+            "recall": 0.004292503449333129,
+            "hit_rate": 0.004292503449333129,
+            "mrr": 0.000934605023981078,
+            "visitor_macro_ndcg": 0.0017656993789926705,
+            "catalog_coverage": 4.489438595703607e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "2-5": {
+          "queries": 6009,
+          "visitors": 2185,
+          "target_occurrences": 6012,
+          "reachable_target_occurrences": 5814,
+          "all_targets_reachable_queries": 5811,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222751,
+          "metrics": {
+            "ndcg": 0.0037271349034179177,
+            "recall": 0.008320852055250457,
+            "hit_rate": 0.008320852055250457,
+            "mrr": 0.0023195365681636278,
+            "visitor_macro_ndcg": 0.0016387499845228787,
+            "catalog_coverage": 4.4893176686075484e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "6+": {
+          "queries": 20065,
+          "visitors": 1606,
+          "target_occurrences": 20074,
+          "reachable_target_occurrences": 18516,
+          "all_targets_reachable_queries": 18507,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222753,
+          "metrics": {
+            "ndcg": 0.0012992809024234486,
+            "recall": 0.003164714677298779,
+            "hit_rate": 0.003189633690505856,
+            "mrr": 0.0007454344807945605,
+            "visitor_macro_ndcg": 0.0007708180684426666,
+            "catalog_coverage": 4.489277361023196e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        }
+      },
+      "target_model": {
+        "all_positive": {
+          "queries": 154951,
+          "visitors": 59411,
+          "target_occurrences": 155000,
+          "reachable_target_occurrences": 155000,
+          "all_targets_reachable_queries": 154951,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222753,
+          "metrics": {
+            "ndcg": 0.0018114904402181354,
+            "recall": 0.004501423030506418,
+            "hit_rate": 0.004504649857051584,
+            "mrr": 0.0010163095081875857,
+            "visitor_macro_ndcg": 0.0017041583196888916,
+            "catalog_coverage": 4.489277361023196e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        },
+        "mixed": {
+          "queries": 3,
+          "visitors": 2,
+          "target_occurrences": 6,
+          "reachable_target_occurrences": 6,
+          "all_targets_reachable_queries": 3,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 221183,
+          "metrics": {
+            "ndcg": 0.0,
+            "recall": 0.0,
+            "hit_rate": 0.0,
+            "mrr": 0.0,
+            "visitor_macro_ndcg": 0.0,
+            "catalog_coverage": 4.521143125827934e-05
+          },
+          "undefined_reason": null,
+          "support": "descriptive_only"
+        },
+        "all_zero": {
+          "queries": 11943,
+          "visitors": 5769,
+          "target_occurrences": 11946,
+          "reachable_target_occurrences": 6258,
+          "all_targets_reachable_queries": 6257,
+          "recommended_unique_items": 10,
+          "candidate_union_items": 222754,
+          "metrics": {
+            "ndcg": 0.0,
+            "recall": 0.0,
+            "hit_rate": 0.0,
+            "mrr": 0.0,
+            "visitor_macro_ndcg": 0.0,
+            "catalog_coverage": 4.489257207502447e-05
+          },
+          "undefined_reason": null,
+          "support": "sufficient_query_count"
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv",
+      "bytes": 1784882,
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/ranked_queries.csv",
+      "bytes": 47267532,
+      "sha256": "407fc4f8798bc9f496e0d8c8e59a48d4b2ae37ecec980e817cf2c7ac24e52bfe"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_metrics.csv",
+      "bytes": 13245540,
+      "sha256": "eba159db54d1e0bb13a74306cd7637cd04291bf307b39552147cc79cb7c3d435"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_slices.csv",
+      "bytes": 13237725,
+      "sha256": "844ca726d858fb289df1d77fe1b9d4d81a0948ed1f6ae520790dba0fd763e4e6"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/fit_audit.json",
+      "bytes": 381,
+      "sha256": "b71b2585f82829a9a7bd52769f6c5e3e5e6c1256e2f3d4469e16e2e9765df2fe"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/aggregate.json",
+      "bytes": 9741,
+      "sha256": "298f7d9658bb2d9ac83a27327c02dc7c387160ebab7010b2d983a793acde8b1c"
+    }
+  ],
+  "verification": {
+    "rows": 699637,
+    "cells": 5738596,
+    "ranking_oracle": {
+      "universal_positive_order_proved": true,
+      "positive_fit_items": 198946,
+      "proof_cutoff_ms": 1438387200000,
+      "basis": "all positive fit IDs precede every validation query and at least 10 positive IDs; otherwise full-catalog sort per query"
+    },
+    "elapsed_seconds": 150.841752
+  }
+}

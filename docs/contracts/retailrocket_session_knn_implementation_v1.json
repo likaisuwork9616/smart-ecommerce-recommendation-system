@@ -1,0 +1,28 @@
+{
+  "protocol_id": "retailrocket_session_knn_implementation_v1",
+  "parent_protocol": "docs/contracts/retailrocket_session_knn_paired_v1.json",
+  "date_asia_taipei": "2026-10-29",
+  "allowed_commands": ["--prepare", "--verify"],
+  "real_validation_enabled": false,
+  "real_K1_index_build_enabled": false,
+  "final_refit_enabled": false,
+  "reserved_test_enabled": false,
+  "scope": "Implement and test pure K1 core/evaluator, independently accept synthetic cases, then two real train-only cost passes. No real model index, ranking, performance or bootstrap.",
+  "source_order": "Train baskets and lineage retain accepted lexical visitorid/session/time order; neighbor and fit-identity session ordering uses numeric visitorid then integer session_start_ms.",
+  "fit_identity": "SHA256 of K1_Jaccard_exact_session_k500_v1 newline start,end newline, then compact JSON [session key, numeric-sorted distinct items] plus newline in numeric session-key order. Training audit counts retained separately.",
+  "index": "Read-only session item frozensets, complete item postings and support. Every posting count must equal C1 S_i; no model construction on real data this round.",
+  "ranking": "All positive-overlap sessions considered before exact top500; complete pool SHA records key/intersection/union in numeric-key order. Selected-neighbor records, rational scores, boundary ties, self-session exclusions and full zero-fill diagnostics retained.",
+  "synthetic_evaluation": "Four-arm exact key/history/target/candidate alignment and copied original controls; main, conditional and all fixed slices; primary K1-C1 2000 visitor-cluster bootstrap. P0/C1/D1 models are generated only on artificial fixtures.",
+  "control_provenance": "Synthetic reference wrappers carry all three control fit IDs. A future real entry must bind original P0/C1/D1 bytes and loaders independently; the in-memory evaluator alone is not an accepted real-data entry.",
+  "independent_oracle": "No imports from K1 production or evaluator. SQL DISTINCT train membership and postings; brute-force all sessions, complete candidate scoring/sorting, separate prefix history; inherited independent Decimal metrics and Counter/struct bootstrap replay. Full nested output/model/lineage/aggregate readback.",
+  "train_cost": "First streaming train sets checked against all C1 train-session lineage, then independent direct CSV/per-session SQL DISTINCT pass checks every ledger row and membership SHA. Nontrain item JSON is never decoded. Existing C1 support supplies exact sum/max posting lengths; no new global support/index fit.",
+  "cost_inputs": [
+    "shop-mysql-runtime/retailrocket_dataset_v1/baskets.csv",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/train_sessions.jsonl",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv"
+  ],
+  "private_outputs": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/",
+  "lifecycle": "Only absent preparation namespace may start; preserve started/failure/partial evidence. Completed --prepare delegates to read-only verify. No automatic retry, overwrite, sampling, k reduction or relaxed denominator.",
+  "resources": "Parent 8 GiB RSS / 20 GiB execution disk / 6h with 8 GiB free disk and 4 GiB available memory floors. Cooperative 0.5s checks during cost rows/SQL and phase boundaries; sampled, not OS-hard.",
+  "future_work": "Separately implement/accept/freeze a source-bound real validation dispatcher and complete full-data oracle before any real validation run. Final selection/refit/test remain separate. This implementation freeze does not unlock them."
+}

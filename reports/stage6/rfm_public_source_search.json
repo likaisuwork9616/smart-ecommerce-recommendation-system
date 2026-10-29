@@ -1,0 +1,445 @@
+{
+  "format_version": 1,
+  "checked_date": "2026-10-27",
+  "timezone": "Asia/Taipei",
+  "status": "source_review_complete_no_accepted_olist_extension",
+  "scope": {
+    "role": "Public-source availability and documentation review, not an experiment preregistration or data-quality acceptance.",
+    "search_topics": [
+      "Olist public orders after 2018 / later official releases",
+      "Olist dados abertos pedidos 2019 2025",
+      "Olist publisher datasets and seller marketing funnel",
+      "Olist authenticated API and original anonymous-ID continuity",
+      "UCI Online Retail II licence schema and public download",
+      "dunnhumby Complete Journey access and terms",
+      "REES46 jewelry purchase history official period and access"
+    ],
+    "negative_search_limit": "No qualifying continuation found within inspected sources; not an exhaustive claim that none exists.",
+    "publisher_version_listing_complete": false,
+    "new_workspace_files_outside_shop": false,
+    "private_evidence_directory": "shop-mysql-runtime/verification/rfm-public-source-search/"
+  },
+  "sources": [
+    {
+      "id": "olist_publisher_announcement",
+      "url": "https://www.kaggle.com/general/67613",
+      "evidence": "Publisher announcement viewed through web retrieval; describes 100k orders during 2016-2018."
+    },
+    {
+      "id": "olist_dataset",
+      "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+      "evidence": "Web page body unavailable in direct open; local HTTP and metadata API returned 404. Not proof of dataset absence."
+    },
+    {
+      "id": "olist_funnel",
+      "url": "https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist",
+      "evidence": "Publisher page indexed with closed-deal/marketing-qualified-lead tables; seller funnel is not later buyer transactions."
+    },
+    {
+      "id": "olist_api_start",
+      "url": "https://dev.olist.com/en/guides-and-tutorials/overview/get-started/",
+      "evidence": "Official indexed integration documentation; direct HTTP 502 / web timeout. No authenticated business API call."
+    },
+    {
+      "id": "olist_api_order",
+      "url": "https://dev.olist.com/en/guides-and-tutorials/orders/retrieving-an-order/",
+      "evidence": "Official indexed endpoint documentation requires Authorization; does not establish a public anonymized-ID crosswalk."
+    },
+    {
+      "id": "uci_502",
+      "url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+      "evidence": "Official page read live and saved, including dates, missingness, fields, cancellation marker, download link and CC BY 4.0."
+    },
+    {
+      "id": "dunnhumby_source",
+      "url": "https://www.dunnhumby.com/source-files/",
+      "evidence": "Official page read and saved; Complete Journey download metadata is a gated form with email delivery. No form submitted."
+    },
+    {
+      "id": "dunnhumby_terms",
+      "url": "https://www.dunnhumby.com/terms-and-conditions/",
+      "evidence": "Official website terms read; dataset-specific package licence not obtained."
+    },
+    {
+      "id": "rees_index",
+      "url": "https://data.rees46.com/",
+      "evidence": "Official index read and saved; jewelry period stated as December 2018 to December 2021."
+    },
+    {
+      "id": "rees_brand_overview",
+      "url": "https://rees46.com/en/datasets",
+      "evidence": "Official overview read and saved; jewelry period stated as November 2018 to November 2020, conflicting with index."
+    },
+    {
+      "id": "jewelry_kaggle",
+      "url": "https://www.kaggle.com/datasets/mkechinov/ecommerce-purchase-history-from-jewelry-store",
+      "evidence": "Original card linked by publisher; readable licence/schema not obtained this round."
+    }
+  ],
+  "prior_local_reports": [
+    {
+      "path": "reports/stage6/rfm_temporal_data_inventory.json",
+      "bytes": 19836,
+      "sha256": "e3ba2da196e5cdcc5e68211a95f297f0e7030f920cf253438096358c0a69ac36"
+    },
+    {
+      "path": "reports/stage6/rfm_g3_v2.json",
+      "bytes": 81589,
+      "sha256": "4764fe9bdcf1593e8b81764034b3416c7156d44dafde146c4a06b26beafc7598"
+    }
+  ],
+  "olist_continuation": {
+    "accepted_additional_snapshots": 0,
+    "decision": "pending_data",
+    "missing": [
+      "later complete orders/customers/items/payments export",
+      "cross-version original anonymized customer/order mapping",
+      "historical visibility and revision clocks for both periods",
+      "population controls and completion/late-arrival evidence",
+      "versioned amount reconciliation and source authorization"
+    ],
+    "marketing_funnel_is_buyer_extension": false,
+    "authenticated_API_is_public_dataset": false
+  },
+  "alternatives": [
+    {
+      "rank": 1,
+      "id": "uci_online_retail_ii",
+      "role": "preferred_for_new_retrospective_temporal_RFM",
+      "publisher_reported": {
+        "start": "2009-12-01",
+        "end": "2011-12-09",
+        "rows": 1067371,
+        "size_display": "43.5 MB",
+        "missing_values": true,
+        "license": "CC BY 4.0",
+        "fields": [
+          "invoice identifier",
+          "customer identifier",
+          "invoice date",
+          "quantity",
+          "unit price",
+          "stock code",
+          "description",
+          "country"
+        ]
+      },
+      "actual_access": "HTTP 200 page; HEAD 200 and bounded GET 200 with ZIP magic; 4096 bytes read, full archive not downloaded.",
+      "accepted_as_olist_continuation": false,
+      "dataset_quality_accepted": false,
+      "remaining": [
+        "full package hash and workbook/schema inventory",
+        "missing customer IDs and invoice/detail duplicates",
+        "actual date coverage and gaps",
+        "cancellations, returns, nonpositive prices and amount semantics",
+        "no original visibility/revision/completion guarantee established"
+      ],
+      "next": "Download official full package inside data/raw/online_retail_ii, inventory quality, then freeze an independent retrospective protocol."
+    },
+    {
+      "rank": 2,
+      "id": "rees46_jewelry",
+      "role": "conditional_alternative",
+      "publisher_reported": {
+        "index_period": "2018-12 through 2021-12",
+        "overview_period": "2018-11 through 2020-11",
+        "period_conflict": true,
+        "license": "not_verified"
+      },
+      "actual_access": "HEAD 200, content length 2690079; bounded GET 206 bytes 0-4095 with gzip magic.",
+      "accepted_as_olist_continuation": false,
+      "dataset_quality_accepted": false,
+      "remaining": [
+        "publisher period/version conflict",
+        "dataset-specific use licence",
+        "raw schema, customer/order key stability and amount meaning",
+        "returns and completion/revision evidence"
+      ],
+      "next": "Resolve licence and period/schema evidence before selecting for a new study."
+    },
+    {
+      "rank": 3,
+      "id": "dunnhumby_complete_journey",
+      "role": "conditional_access_and_terms",
+      "publisher_reported": {
+        "duration": "two years",
+        "households": 2500,
+        "selection": "frequent shoppers",
+        "unit": "household",
+        "license": "website terms reviewed; dataset-specific licence not obtained"
+      },
+      "actual_access": "Source page HTTP 200; download form and email delivery described in page metadata; no form submitted, no package obtained.",
+      "accepted_as_olist_continuation": false,
+      "dataset_quality_accepted": false,
+      "remaining": [
+        "official package acquisition and applicable licence",
+        "household/basket/time/spend schema and quality",
+        "selection bias and campaign confounding",
+        "no original visibility/revision/completion guarantee established"
+      ],
+      "next": "Use official request flow if this conditional alternative is selected; then inspect guide and package."
+    }
+  ],
+  "http_probes": [
+    {
+      "id": "olist_card",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/brazilian-ecommerce",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:16.688318+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "olist_funnel",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/marketing-funnel-olist",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:16.688318+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "olist_publisher",
+      "url": "https://www.kaggle.com/api/v1/datasets/list?user=olistbr",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:16.689289+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "olist_api",
+      "url": "https://dev.olist.com/en/guides-and-tutorials/overview/get-started/",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:16.690285+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "uci_retail_ii",
+      "url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:18.794181+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "uci_download",
+      "url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-27T02:03:18.794587+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "dunnhumby",
+      "url": "https://www.dunnhumby.com/source-files/",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:18.795618+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "rees46",
+      "url": "https://rees46.com/en/datasets",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:18.809585+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "retailrocket",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/retailrocket/ecommerce-dataset",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:20.827778+00:00",
+      "error_type": "URLError",
+      "error": "local_network_connection_refused"
+    },
+    {
+      "id": "olist_card",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/brazilian-ecommerce",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.328722+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "olist_funnel",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/olistbr/marketing-funnel-olist",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.328722+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "olist_publisher",
+      "url": "https://www.kaggle.com/api/v1/datasets/list?user=olistbr",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.328722+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "olist_api",
+      "url": "https://dev.olist.com/en/guides-and-tutorials/overview/get-started/",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.328722+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "id": "uci_retail_ii",
+      "url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.677735+00:00",
+      "status": 200,
+      "content_type": "text/html",
+      "content_length": "85208",
+      "complete_metadata_body": true,
+      "bytes_saved": 85208
+    },
+    {
+      "id": "uci_download",
+      "url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-27T02:03:41.692833+00:00",
+      "status": 200,
+      "content_type": null,
+      "content_length": null
+    },
+    {
+      "id": "dunnhumby",
+      "url": "https://www.dunnhumby.com/source-files/",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:41.695108+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "complete_metadata_body": true,
+      "bytes_saved": 382250
+    },
+    {
+      "id": "rees46",
+      "url": "https://rees46.com/en/datasets",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:42.996268+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "complete_metadata_body": true,
+      "bytes_saved": 28282
+    },
+    {
+      "id": "retailrocket",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/retailrocket/ecommerce-dataset",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:03:43.035495+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "olist_page",
+      "url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:20.913520+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "funnel_page",
+      "url": "https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:20.913520+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "jewelry_page",
+      "url": "https://www.kaggle.com/datasets/mkechinov/ecommerce-purchase-history-from-jewelry-store",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:20.913520+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "retailrocket_page",
+      "url": "https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:20.913520+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "rees_data",
+      "url": "https://data.rees46.com/",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:21.241128+00:00",
+      "status": 200,
+      "content_type": "text/html",
+      "content_length": "9694",
+      "complete_metadata_body": true,
+      "bytes_saved": 9694
+    },
+    {
+      "id": "jewelry_download",
+      "url": "https://data.rees46.com/datasets/jewelry-purchases/jewelry-purchases.csv.gz",
+      "method": "HEAD",
+      "checked_at_utc": "2026-10-27T02:04:21.246490+00:00",
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "content_length": "2690079"
+    },
+    {
+      "id": "olist_publisher_page",
+      "url": "https://www.kaggle.com/olistbr/datasets",
+      "method": "GET",
+      "checked_at_utc": "2026-10-27T02:04:21.253473+00:00",
+      "error_type": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "binary_probes": [
+    {
+      "id": "uci_retail_ii",
+      "url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+      "requested_range": "bytes=0-4095",
+      "checked_at_utc": "2026-10-27T02:05:11.695732+00:00",
+      "status": 200,
+      "content_type": null,
+      "content_range": null,
+      "content_length": null,
+      "bytes_read": 4096,
+      "expected_container_magic": true,
+      "full_dataset_downloaded": false
+    },
+    {
+      "id": "rees_jewelry",
+      "url": "https://data.rees46.com/datasets/jewelry-purchases/jewelry-purchases.csv.gz",
+      "requested_range": "bytes=0-4095",
+      "checked_at_utc": "2026-10-27T02:05:11.695732+00:00",
+      "status": 206,
+      "content_type": "application/octet-stream",
+      "content_range": "bytes 0-4095/2690079",
+      "content_length": "4096",
+      "bytes_read": 4096,
+      "expected_container_magic": true,
+      "full_dataset_downloaded": false
+    }
+  ],
+  "execution": {
+    "complete_candidate_datasets_downloaded": 0,
+    "candidate_data_rows_analysed": 0,
+    "new_RFM_snapshots": 0,
+    "new_cutpoints": 0,
+    "model_fits": 0,
+    "holdout_evaluations": 0,
+    "external_messages_or_forms_submitted": 0,
+    "package_installs": 0
+  },
+  "limitations": [
+    "Published date ranges/row counts are documentation claims, not measured data aggregates.",
+    "Two matching file prefixes prove limited access only, not full archive integrity, licence clearance or dataset completeness.",
+    "An invoice-based new study requires its own eligibility and monetary rules; Olist delivery conditions and cutpoints do not transfer.",
+    "None of the inspected alternatives passed original Olist P0 handoff gates; retrospective research must retain as-of limitations.",
+    "Prior Olist 25 small groups / 1791 customers remain insufficiently supported; no new temporal scores computed.",
+    "Stage4 daily 10 percent alert budget remains fixed; Dashboard deferred."
+  ]
+}

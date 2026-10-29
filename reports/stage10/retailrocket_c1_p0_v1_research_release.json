@@ -1,0 +1,1446 @@
+{
+  "status": "C1_P0_research_handoff_evidence_archived_and_verified",
+  "release_id": "retailrocket_c1_p0_research_release_v1",
+  "archive": {
+    "path": "shop-mysql-runtime/backups/retailrocket_c1_p0_research_release_v1.zip",
+    "bytes": 257447194,
+    "sha256": "251d17c00bfc9d227c018345385c349ee0c56b574c83ceed0b12e992ee91d61a"
+  },
+  "archive_manifest": {
+    "path": "shop-mysql-runtime/retailrocket_c1_p0_release_v1/archive_manifest.json",
+    "bytes": 59752,
+    "sha256": "4600a430806aade572f141be8ebd03e2dcdc9e8e0d834f7c25f626fed83e3009"
+  },
+  "verification": {
+    "payload_files": 102,
+    "zip_members": 103,
+    "payload_bytes": 896081296,
+    "all_payload_CRC_and_SHA256_passed": true,
+    "manifest_sha256": "4600a430806aade572f141be8ebd03e2dcdc9e8e0d834f7c25f626fed83e3009",
+    "external_dependencies_not_archived": 98
+  },
+  "sources": [
+    {
+      "path": ".gitattributes",
+      "bytes": 23825,
+      "sha256": "de20afdc1721a29fe830b7489e517cbf87f925f510631784ba5802c8303405d4",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 436,
+      "sha256": "e8bf86df38ae6c2bd2e68c3a5bea9dfe4b3fdb23465dc35a0b9c8cf2d5d05c95",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "README.md",
+      "bytes": 54177,
+      "sha256": "e34f9f1d2c95bbc9ffa87f671ddc9ffb9727ddfc1e64353c19c8f38471c0ee9a",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "data/README.md",
+      "bytes": 18686,
+      "sha256": "50ce371bed4508efcf21e72570b218f43d5a7f6152755d9f0546c434622cfdcd",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "docs/PROJECT_PROGRESS.md",
+      "bytes": 46099,
+      "sha256": "7546069ef22a73f5c0cfc85c547cff836bcf48b9234ca609b31e4b613bffae47",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 19752,
+      "sha256": "4cab50e43ec080535bfe9f98475a86709e42614434f9729bb853e65dfd0009e3",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md",
+      "bytes": 13117,
+      "sha256": "06c6317031944afec52c7c013340820dfa318dd9e03adfb75617fb77e745f03c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE10_RETAILROCKET_COOCCURRENCE_IMPLEMENTATION_V1.md",
+      "bytes": 9315,
+      "sha256": "f95d837600eff0b481143b83e114b003c26b4bd5166620326b05bd3c398195d8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE10_RETAILROCKET_COOCCURRENCE_PAIRED_SPEC_V1.md",
+      "bytes": 11416,
+      "sha256": "8972612e6cffe4fcbc5e440d3559a5a58512254816bc4412e6f4f2004ed2af25",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE10_RETAILROCKET_COOCCURRENCE_VALIDATION_V1.md",
+      "bytes": 8436,
+      "sha256": "9b78c275e8c2960961faa03555bd57d9c2f010515cf600dc95612af7c07efec5",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE8_RETAILROCKET_BUILD_V1.md",
+      "bytes": 10218,
+      "sha256": "cc56c06ad491076074280071a9e69616e549ace970c03e3280448e16e35bdf1a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md",
+      "bytes": 13982,
+      "sha256": "e86cc3145d267e2152e6240b06f17e4898012bc64662f37baa0d48177dc209e6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE9_RETAILROCKET_POPULARITY_DEVELOPMENT_V1.md",
+      "bytes": 9959,
+      "sha256": "5906c4528798a89a5ad14b70660b98f5a8857b0cf0c3a16148d28bd2a94b3930",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE9_RETAILROCKET_POPULARITY_IMPLEMENTATION_V1.md",
+      "bytes": 8902,
+      "sha256": "1c590cf75f36c90c9994a923b0d2a2483eaa030c73b25dfe43e814c25625b2f0",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/STAGE9_RETAILROCKET_POPULARITY_SPEC_V1.md",
+      "bytes": 11084,
+      "sha256": "c7f21130410b15428fc4dfeaa409321c1671c677c5960a49c768c9f28deee67f",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/contracts/retailrocket_cooccurrence_paired_v1.json",
+      "bytes": 18128,
+      "sha256": "9ad264eca87239614e1ec5b72add075637a0ecfcfd750ff143fcf775d5dfb8c0",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/contracts/retailrocket_popularity_execution_v1.json",
+      "bytes": 14794,
+      "sha256": "41cb36e1208624211e29757f60eb4e35269a28ff4d3aef38c5ce44b81d68fead",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "docs/contracts/retailrocket_recommendation_v1.json",
+      "bytes": 13358,
+      "sha256": "5b98958ab1695a1f50b9917d6a08a91aa0b299dd6378a6ec3bf5402827def9d0",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/README.md",
+      "bytes": 29625,
+      "sha256": "3ff56d1e40906bac2d74a723e7415f92dcf6f6e010978b175a5411b90cc155c1",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_implementation_acceptance.json",
+      "bytes": 16310,
+      "sha256": "b1690ee6e9831d35ab50da6ad23b1c77dd045a347581e0c43c51c36b00d96d52",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_spec_acceptance.json",
+      "bytes": 2947,
+      "sha256": "d8a5dd78390ce22004d032252de32f4bc2177dc6d7f8c47ef5b7b61e8e2172a6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_specification.json",
+      "bytes": 23838,
+      "sha256": "ddc01e5630830f8d87a683bc8b18d5c1e8a4b10fa64a49904cc2fb252e68c853",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_validation.json",
+      "bytes": 42407,
+      "sha256": "addd420c76c371672b403895a86ba4e17f0c52b83c58ac7d3b8f335a6dacbc8a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_validation_acceptance.json",
+      "bytes": 1089,
+      "sha256": "bed3de86a8c5b4140f568961a6e45e987dfb20e2ab44ab97e82f6b577dd40931",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage10/retailrocket_cooccurrence_v1_validation_specification.json",
+      "bytes": 25939,
+      "sha256": "fca41a1c5abd6dfd6e830a3e53b756cfb4d4de48f96fbf845bb5fd97f54e959b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage8/retailrocket_build_v1.json",
+      "bytes": 8938,
+      "sha256": "0cfd6a62b0b1e2ee199c765696c0495d8f8762406171f0a6f588ef585f2e12a3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage8/retailrocket_build_v1_acceptance.json",
+      "bytes": 4799,
+      "sha256": "23325f3e0b722faae39195ac4bd2311645c1661ba7173ce5714f9d33d998c55f",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage8/retailrocket_build_v1_specification.json",
+      "bytes": 9331,
+      "sha256": "67dfbf1e5d1a9e8ad0903bcb5c4f8043635b6356f521eda7ce1723b6441fc37c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage8/retailrocket_contract_v1_acceptance.json",
+      "bytes": 8627,
+      "sha256": "c50311ec5d91ea90e83699a3057802bebc59859801bc17f938a4e400c974c9f7",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage8/retailrocket_source_audit_v1.json",
+      "bytes": 49002,
+      "sha256": "e4ef5d22b55a82f390e57ea3b51325645b585a558c8feb57c179d1de63957811",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_development.json",
+      "bytes": 12999,
+      "sha256": "e3c6d6f9e057eeb10edf554e6dedebca22a5a0a933ba6cac9bde8f2152da84d5",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_development_acceptance.json",
+      "bytes": 949,
+      "sha256": "d51886538b40eec6cf32b9af02e34c7f5ab08ad53cb09b2dfb48d3eb494957d7",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_development_specification.json",
+      "bytes": 14852,
+      "sha256": "602ea6aff0e659d69691df02867e38f865feaaae8494b77cd1f2b0910d788d36",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_implementation_acceptance.json",
+      "bytes": 8332,
+      "sha256": "ff7253513286d2a790fa7f80e168adc67ff57c5e39120deb3e00bac0f9b6156c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_spec_acceptance.json",
+      "bytes": 3193,
+      "sha256": "d47b1662bfb68a9f7212da875b981ba845b7ff4d96237022e1c053256f6d2da1",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "reports/stage9/retailrocket_popularity_v1_specification.json",
+      "bytes": 11273,
+      "sha256": "eaac3a8203a9ef7dde4e26624dee1ea27f70f0eb0edcd585494a6a9746d1181a",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 2272,
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 194,
+      "sha256": "4068a2cc9afdd036cb83a808b98e52eaf6c1da0165252a5fcc76056ff3ff4d86",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 50235,
+      "sha256": "4ee598c9762128d34e6a71de2683aa92ca75e87502fafee9291ba0e8063da597",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "scripts/archive_retailrocket_c1_p0_v1.py",
+      "bytes": 22147,
+      "sha256": "a8f63f08e2fb7744f1c2523e5f0789a362d251dd72734f8ece2e9906a2420d3e",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/audit_retailrocket_source.py",
+      "bytes": 13059,
+      "sha256": "0c6358335e614428ea757d57d09943d019ea1c9e2e1792e880e899807a7728cb",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/build_retailrocket_v1.py",
+      "bytes": 10621,
+      "sha256": "2a47cc80c82434db7395bf3ea77fb1ec97034e7d1f91e4eaecf43b15f9de15b4",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_contract.py",
+      "bytes": 10893,
+      "sha256": "8a391f373ce5e58c58171348ed342ba5411e6d87ff6313195840fcd7cdbe6080",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_cooccurrence_v1.py",
+      "bytes": 8356,
+      "sha256": "85121a44ff7537e0ebb36cbf2f15267641148384f1a9202d372797f586674964",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_popularity_v1.py",
+      "bytes": 6824,
+      "sha256": "814664e43ac1186e8f1bb0621954e62b1c853a6075553eab65d31ed936cad284",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_builder.py",
+      "bytes": 18731,
+      "sha256": "046fbf875dbb1de674f3b29fdf2bf131a297306fe3950bef2c159467c0363850",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence.py",
+      "bytes": 9464,
+      "sha256": "b47f9f1ddaa803d41b6cfc29bd4c343bd6ad061b99c4244aca27e2ff670892eb",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_cost.py",
+      "bytes": 5873,
+      "sha256": "affb6c2be742a49743b46def422b3a2ec1796cced182aee856c70f04499d446d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_io.py",
+      "bytes": 12142,
+      "sha256": "83603ccef44dd4caa9ecb2f7f110f051ca5b6179b3ac8fba963b99d137791e24",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_oracle.py",
+      "bytes": 16964,
+      "sha256": "bbd129e99b59a1197ca9b0d4cfc29f398102c52f45c0e73322c50a8aa601ca52",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_protocol.py",
+      "bytes": 14270,
+      "sha256": "b493db944efaeaecc914f55a7d4665fb2a873ccbde03c299a796b5a1e26303ef",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_popularity.py",
+      "bytes": 11506,
+      "sha256": "c9e44bf53d73df61bea8b88dd4d99a2551756182edc14c592675fa26f0d01dc9",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_io.py",
+      "bytes": 6678,
+      "sha256": "ab8a4dc2e9f4f680e05021983726fd566cdeeb1395362e16146c766ed52416c2",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_protocol.py",
+      "bytes": 6292,
+      "sha256": "88687d684c71ef3a5a08a48af8c8ce81a016f1d42a49612b16185930e23d88f1",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/retailrocket_reference.py",
+      "bytes": 15533,
+      "sha256": "9f0a24c2814325a1beb4322b0f2b5016410acb67b4777b12465c58e48b677145",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/run_retailrocket_cooccurrence_v1.py",
+      "bytes": 17384,
+      "sha256": "be762bc1908a4309234092b592501dbc504e74ff1a98c9be4909b5cb86e95ed3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "scripts/run_retailrocket_popularity_v1.py",
+      "bytes": 14632,
+      "sha256": "4c67288232b7546b7beb4785759567c294fa8a9f1295b23ad7691d713b37369c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_contract_v1/input_guard.json",
+      "bytes": 2077,
+      "sha256": "cdbc355297912082b91f9cba240d0f5c65539d5251d1cb24a9aa904dbdea26d7",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_implementation_v1/output_guard.json",
+      "bytes": 30693,
+      "sha256": "4c09bcfa3faf3b3c6b322437a9f50cc77dc14741d0872329c49485522b0d4cd6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_implementation_v1/test_gate_snapshot.json",
+      "bytes": 211,
+      "sha256": "16e37da4aed183bdfe55f305ee0e15b3fca03e33995db1f0316fcd260d8eb91c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/aggregate.json",
+      "bytes": 22180,
+      "sha256": "5b72f06c1e8edf245025658a0893acb49f380314d469b4a0fb35c56ff93d2c53",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/bootstrap.jsonl",
+      "bytes": 1024280,
+      "sha256": "a1ccc56add9e47e7615bbb0e8dbbd871f9a6dfecf4ae505a608a862a95c10f63",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/fit_audit.json",
+      "bytes": 377,
+      "sha256": "839d3e143c4bf1018df29a700fe5d3b4a122d0799306b425e2b0757a197b11a1",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/manifest.json",
+      "bytes": 2613,
+      "sha256": "cce17a2e005eb22fca44e777496291b5b55ef81982956beda2808a8a1e909e41",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/oracle.sqlite",
+      "bytes": 464388096,
+      "sha256": "e6f283a7cbe0c3c242a3123e9d11d6490f3302b58baf96890330c163a31fbd32",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/output_guard.json",
+      "bytes": 23317,
+      "sha256": "78d5e622222d8ca41073c2a8462f99e0c735a4bd76c5ac855058e2dc04b403d2",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/pairs.csv",
+      "bytes": 30361132,
+      "sha256": "76f86f31d78481b3bbfcb0a239f5c6095d67524e92244e72344d8bd35b29c0ca",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl",
+      "bytes": 215594386,
+      "sha256": "2218dc863ed5770f0f481c4e99d53c1744f72fb692a8fbc8c97300ef4ff0e1f3",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/resource_usage.json",
+      "bytes": 516,
+      "sha256": "43091df3f971441e9695cb1f339faac4f4670e10f0253e71841650afa2f297ed",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/started.json",
+      "bytes": 338,
+      "sha256": "dd0c1dae4a892a3bd02e91d36bcf8667558e5159a7854f00f383fdfad64b5ea9",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv",
+      "bytes": 1780347,
+      "sha256": "92774b2cec168ab26abadb30ea7e21aeecc7d54c6e5994555fc592bae5e6f875",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/train_sessions.jsonl",
+      "bytes": 106241966,
+      "sha256": "bf5b1e2bc9be78cb27f6510d2bfdd0351f2fc86c5b6d710880ea17cd5bf88cab",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_spec_v1/initial_locked_scope.json",
+      "bytes": 689,
+      "sha256": "ce71f6c6d31c872c43e672aeb7e9deb70e47d51544fdafd43fbc7a71242d6d49",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_cooccurrence_spec_v1/output_guard.json",
+      "bytes": 16496,
+      "sha256": "2306b6a72f83412a05277d64a2bca6de2f4dae31ca30a8f260100415313c0985",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/output_guard.json",
+      "bytes": 7633,
+      "sha256": "8c038da059d2512691a2b2bd7e32ad34b09f62cc38c387f223fa6464656af04b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_intake_v1/output_guard.json",
+      "bytes": 1693,
+      "sha256": "0a806feb54da1f169a0a808f31b59398cfb515f0177cfb16955ebab03ffa781d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_implementation_v1/output_guard.json",
+      "bytes": 17783,
+      "sha256": "09ca6705d7089b5899279514901e7a7b3f324e058c27a33eebe234b9d42f6436",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_implementation_v1/test_gate_snapshot.json",
+      "bytes": 443,
+      "sha256": "b70dc333a7a0e9a57bbc7a0ff9fe67c608e5517e749146c5ea37843ea523dbe6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_spec_v1/initial_test_gate.json",
+      "bytes": 441,
+      "sha256": "ec6e164e593d24b4c1c3c7f80356315084582e6f85dc9a3d42626ba5fefd5f7d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_spec_v1/output_guard.json",
+      "bytes": 9704,
+      "sha256": "0bcb47ba24b45fbbf9065ee9281c49c68aa3c320891446680053ab0b04e758c5",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/aggregate.json",
+      "bytes": 9741,
+      "sha256": "298f7d9658bb2d9ac83a27327c02dc7c387160ebab7010b2d983a793acde8b1c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/fit_audit.json",
+      "bytes": 381,
+      "sha256": "b71b2585f82829a9a7bd52769f6c5e3e5e6c1256e2f3d4469e16e2e9765df2fe",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv",
+      "bytes": 1784882,
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/manifest.json",
+      "bytes": 1885,
+      "sha256": "e7d683c70bece26ece591428473d3e16dcb5c68a70bfde291c3dfbbd7f4e945c",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/output_guard.json",
+      "bytes": 14158,
+      "sha256": "ca1678f7a4496d681532adad52ee4cf317d27b636776a88b15739419a856b15b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_metrics.csv",
+      "bytes": 13245540,
+      "sha256": "eba159db54d1e0bb13a74306cd7637cd04291bf307b39552147cc79cb7c3d435",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/query_slices.csv",
+      "bytes": 13237725,
+      "sha256": "844ca726d858fb289df1d77fe1b9d4d81a0948ed1f6ae520790dba0fd763e4e6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/ranked_queries.csv",
+      "bytes": 47267532,
+      "sha256": "407fc4f8798bc9f496e0d8c8e59a48d4b2ae37ecec980e817cf2c7ac24e52bfe",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_popularity_v1/development/started.json",
+      "bytes": 425,
+      "sha256": "a3fb4de6f43e92cc217514d9451981e7fd5c979649c4764b134cc1bcb3e60705",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-build-v1/prepared_guard.json",
+      "bytes": 3470,
+      "sha256": "5ca21af5d89d6c1c430935b79f9ee0e319fb536155ff2e26db1bc61c4ba581b8",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-c1-p0-release-v1/tests.log",
+      "bytes": 4310,
+      "sha256": "287bfee6bdce3e963e799b6239fbaffc794c350ca0a16b97cea96c2d46c4f899",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/README.md",
+      "bytes": 40931,
+      "sha256": "78037d31402c9e0647574432a1242fb2bbb56ffb3b2f802884f6adf3b8fa9b47",
+      "live_role": "mutable_context_snapshot"
+    },
+    {
+      "path": "tests/test_archive_retailrocket_c1_p0_v1.py",
+      "bytes": 14773,
+      "sha256": "4dc375da00720138e73ade5eb2957dccf84375b1c8b615e80005148cc22d120d",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_builder.py",
+      "bytes": 9373,
+      "sha256": "02d1e14240b96f221075757dbc8630a286d7c4ba2d6ba74534cabb6272ef1d33",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_cooccurrence.py",
+      "bytes": 14750,
+      "sha256": "d42e2782ec2038bd6bc98091855f5ed26d27c817c96b0b883512bab934373ac0",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_cooccurrence_entry.py",
+      "bytes": 6971,
+      "sha256": "ab6b2634e25bfa8197dfa2c603dc10933ba5657e97e99f5152939afd1a56bc1b",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_cooccurrence_protocol.py",
+      "bytes": 5557,
+      "sha256": "84f718cae6546cf984bef0a589f3f0b2ef71f36ab772b939bfc8bf1cae5db205",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_popularity.py",
+      "bytes": 14058,
+      "sha256": "e1ed055d546133f9429b5a2eac74470fd28bd098671a34812c663d4d61249bbe",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_popularity_entry.py",
+      "bytes": 3359,
+      "sha256": "087821df7e49e293d7c605a6549454d2a7b445c38607db174f47a95a78e8b6a6",
+      "live_role": "frozen_research_source"
+    },
+    {
+      "path": "tests/test_retailrocket_popularity_protocol.py",
+      "bytes": 4380,
+      "sha256": "86154fe03135fcbaae12b2943c08c5c85f35f9a6522f562aa3e54eb661774df3",
+      "live_role": "frozen_research_source"
+    }
+  ],
+  "external_dependencies": [
+    {
+      "path": ".venv/Lib/site-packages/numpy-2.5.4.dist-info/METADATA",
+      "bytes": 6635,
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/numpy/__init__.py",
+      "bytes": 26470,
+      "sha256": "a6958cb364663b7acce81ccfd58eeb65a2b34d5376157f924777b97211a73be4",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/numpy/_core/_multiarray_umath.cp312-win_amd64.pyd",
+      "bytes": 3855872,
+      "sha256": "9c10617e66e992b5ac6d9f78fe7cedd0011618e1c2f89d09a185bb63073e2c90",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/numpy/random/_pcg64.cp312-win_amd64.pyd",
+      "bytes": 105984,
+      "sha256": "8eb5569b221d40884093def83d897376bddd99c9279f182b9db3145b9b897d34",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil-7.2.2.dist-info/METADATA",
+      "bytes": 22729,
+      "sha256": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil/__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil/_psutil_windows.pyd",
+      "bytes": 70656,
+      "sha256": "0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/Scripts/python.exe",
+      "bytes": 274424,
+      "sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": ".venv/pyvenv.cfg",
+      "bytes": 338,
+      "sha256": "98cd6b99ce997241ebb1f1f1364aa9865e5b881eafbf6e6ad65431d0b86671b2",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/ecommerce-dataset-v2.zip",
+      "bytes": 304719974,
+      "sha256": "5dc06173eaa4a4d3b0a5f6afc4daffb0218d95e409aaacba5fdaa0214eacf2a2",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/file_list.response",
+      "bytes": 1461,
+      "sha256": "629460015289d82bc5a4488c57a047cde945e7fc46262d23624c4318106c249f",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/license.response",
+      "bytes": 52858,
+      "sha256": "527c4e0e75a7aafe819a9ed481c227f27645736fa800f25d6d94ed37a362afd7",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/metadata.response",
+      "bytes": 19053,
+      "sha256": "69ff3248fbf129fac49f738f636fd1a4163a228560e5cc685f3cec7742da448e",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/source_manifest.json",
+      "bytes": 3369,
+      "sha256": "338e4c12bfcdc1524b10ed304c634ab3f3ca1eb084322166c60cbc9f12298f40",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "data/raw/retailrocket/source_page.response",
+      "bytes": 14792,
+      "sha256": "c154e89a573c8024a37eb9055be935ed3d2f167f35f9647ed3ad24e5f8182adb",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/baskets.csv",
+      "bytes": 190511325,
+      "sha256": "b32cc6ea4aa71f15f2687b389daff7f4e9193f245887abcce896629a8d13ed7f",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/boundary_ledger.csv",
+      "bytes": 132902,
+      "sha256": "38d432d6b3983d21fc4286da64129b054dbf6274be7c155a9ed356bf66698d12",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+      "bytes": 1734836224,
+      "sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/catalog.csv",
+      "bytes": 4874693,
+      "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/category_tree_diagnostics.csv",
+      "bytes": 26722,
+      "sha256": "ea571715e8e9b3e6b0dbc1ee88c0d2bfbc5cd01c45d979007d2859ac71524d9b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/duplicate_map.csv",
+      "bytes": 70653,
+      "sha256": "502912b862e4f5dbb5235ac7965c2c458a953947f42dda74b78bc6198b74dd07",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/exclusions.csv",
+      "bytes": 330495,
+      "sha256": "c711d99837df706dc4f2ca6b16d2b860f1f5fc4c719b4293106d45ead8f3d5de",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/manifest.json",
+      "bytes": 4411,
+      "sha256": "d40d110879c9bb67a45dfd9c3bd982ab1479be54ffa19e434f73530e0d69d99a",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/orphan_categories.csv",
+      "bytes": 218,
+      "sha256": "75b3052f4a94d75288a1b57fbdc5f625812411008ca8238836fbac1ce15499a0",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/property_exclusions.csv",
+      "bytes": 65,
+      "sha256": "7a50fa08cf8a10d017743ac654a6ad0185aff7b78e43e4b4da8942ed830b21db",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/property_versions.csv",
+      "bytes": 196834126,
+      "sha256": "38fc6c297040035dc4e5fad42162cb0b8f24fe180856fcd73afb4664721309b3",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/qualified_events.csv",
+      "bytes": 494846524,
+      "sha256": "69f0faa20bba20c75639bf4483210757a727bf091107624e5c1725a5b7a7cdfd",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/queries.csv",
+      "bytes": 109168416,
+      "sha256": "a680a43a3eb8afbe5fa63e948392652fc67ae6489a49ce0dd59ca47a36e874e1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/query_decisions.csv",
+      "bytes": 298665122,
+      "sha256": "c8cf4ab1fb4001e913a32288fbf224f467c29874fe28e322fd1fcea4b484c951",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/row_decisions.csv",
+      "bytes": 571284845,
+      "sha256": "849a11d04fbf183986131308fa480eb458d06e98d5ead79ec8f1d6e4ed5df986",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/sessions.csv",
+      "bytes": 96797617,
+      "sha256": "3be5d8a0d4a48bf465945648de8a47c995c40711b577292421d2f6463ea4109c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/view_property_diagnostics.csv",
+      "bytes": 280928614,
+      "sha256": "f0f618bc32933a66a48ddfb7af2d0f4f976e7b6a41b0629960847e16cbd6e8eb",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_dataset_v1/visitor_history.csv",
+      "bytes": 32667876,
+      "sha256": "6377ecea40bf48f904fda9c72a9d08005973d8e4bc53a7546c491c1b7799d6ba",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_intake_v1/inventory.sqlite",
+      "bytes": 570630144,
+      "sha256": "38b467d3a02d16e1f9db5fb2847e076977ecd620c2d29e0e795a12b5327baec1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-build-v1/tests.log",
+      "bytes": 4089,
+      "sha256": "98e404a90e4f240baef5522bb6fb614784b807d9909aaed287f1af209ce18338",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/aggregate.json",
+      "bytes": 15431,
+      "sha256": "02636aed402c2fc1a2a407d382f79af48ef70372da9a7b0f9fce1cea8458aed0",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/bootstrap.jsonl",
+      "bytes": 1012468,
+      "sha256": "f592f79512b708c178b091f56571fd7f597fddaf61362f1e6677f67163ecf7fb",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/fit_audit.json",
+      "bytes": 337,
+      "sha256": "c053f3c057693c6db2e406bba43a480b1927d8d3a69e4424a29cc37ee42b14bd",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/oracle.sqlite",
+      "bytes": 45056,
+      "sha256": "d3714dfb4f36785dee6656ea6c7f43ec1d61bf2f227ab7e50aae87dcc1466e6f",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/pairs.csv",
+      "bytes": 42,
+      "sha256": "950420c872e8b3e13056b73a2f1153a0155f1c979657d8228ed8a68e01f1472c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/queries.jsonl",
+      "bytes": 5995,
+      "sha256": "134845e85f2fd17c4a722cbac8c55d991909571f266676c40939f8bfbe858c1d",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/support.csv",
+      "bytes": 76,
+      "sha256": "93f12af9f5186b51176d341b51ac82446a33520c7ceb0f6d9dea56d6a1ee7ed2",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/C1/train_sessions.jsonl",
+      "bytes": 1189,
+      "sha256": "9f541ca7347d0f6186510b0dd90c876e79e437311b20ae016f0e525a2c289993",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/aggregate.json",
+      "bytes": 8609,
+      "sha256": "d5443d18097914cdfea3b7267ff49ce3c46a517a26fc422f842ecbe6318f5dd1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/fit_audit.json",
+      "bytes": 358,
+      "sha256": "a7b5ac3447939eb7207b2e987d9457e501a0e1da6e46271dbb1af0c60140e8bc",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/item_counts.csv",
+      "bytes": 74,
+      "sha256": "ba0344700f70b2c1b48aa6716b3f845c6dcb1f9b36099eaa3a6b870787a51aa5",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/query_metrics.csv",
+      "bytes": 732,
+      "sha256": "92f10b86fb68e2beb23a528ee6cb15d70256dad96893ce394560e3e7054e1d02",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/query_slices.csv",
+      "bytes": 495,
+      "sha256": "3711c60d31fd52a6f721169a5885505e5381bf641b5ff62e99089c50b7bcec0b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/P0/ranked_queries.csv",
+      "bytes": 1079,
+      "sha256": "a7fde6198cc9e7a92859e5a5763d71fe46f537fedf0becba00a3d1ea515ee831",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/baskets.csv",
+      "bytes": 1693,
+      "sha256": "77e982934442d75c98fdb8ab541eb7846e7ab6f22462dcb20760dac0237eca31",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/catalog.csv",
+      "bytes": 302,
+      "sha256": "5c3324e214f4ba7980adcfb9c6674df05b793790fbafc934f86f97a375fe4b3a",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/qualified_events.csv",
+      "bytes": 3213,
+      "sha256": "11a3399abdc2805aefb4a9b5bd66cde7fba1cb1a3c489ba8afb66327bd5d784c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/8a44907a64144422b2e77afd7f74bd15/source/queries.csv",
+      "bytes": 1014,
+      "sha256": "ace8c4beac612a71630152f66787f2949646860021b24f4bb494bf5d1cdfea48",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/aggregate.json",
+      "bytes": 15431,
+      "sha256": "02636aed402c2fc1a2a407d382f79af48ef70372da9a7b0f9fce1cea8458aed0",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/bootstrap.jsonl",
+      "bytes": 1012468,
+      "sha256": "f592f79512b708c178b091f56571fd7f597fddaf61362f1e6677f67163ecf7fb",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/fit_audit.json",
+      "bytes": 337,
+      "sha256": "c053f3c057693c6db2e406bba43a480b1927d8d3a69e4424a29cc37ee42b14bd",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/oracle.sqlite",
+      "bytes": 45056,
+      "sha256": "d3714dfb4f36785dee6656ea6c7f43ec1d61bf2f227ab7e50aae87dcc1466e6f",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/pairs.csv",
+      "bytes": 42,
+      "sha256": "950420c872e8b3e13056b73a2f1153a0155f1c979657d8228ed8a68e01f1472c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/queries.jsonl",
+      "bytes": 5995,
+      "sha256": "134845e85f2fd17c4a722cbac8c55d991909571f266676c40939f8bfbe858c1d",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/support.csv",
+      "bytes": 76,
+      "sha256": "93f12af9f5186b51176d341b51ac82446a33520c7ceb0f6d9dea56d6a1ee7ed2",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/C1/train_sessions.jsonl",
+      "bytes": 1189,
+      "sha256": "9f541ca7347d0f6186510b0dd90c876e79e437311b20ae016f0e525a2c289993",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/aggregate.json",
+      "bytes": 8609,
+      "sha256": "d5443d18097914cdfea3b7267ff49ce3c46a517a26fc422f842ecbe6318f5dd1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/fit_audit.json",
+      "bytes": 358,
+      "sha256": "a7b5ac3447939eb7207b2e987d9457e501a0e1da6e46271dbb1af0c60140e8bc",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/item_counts.csv",
+      "bytes": 74,
+      "sha256": "ba0344700f70b2c1b48aa6716b3f845c6dcb1f9b36099eaa3a6b870787a51aa5",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/query_metrics.csv",
+      "bytes": 732,
+      "sha256": "92f10b86fb68e2beb23a528ee6cb15d70256dad96893ce394560e3e7054e1d02",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/query_slices.csv",
+      "bytes": 495,
+      "sha256": "3711c60d31fd52a6f721169a5885505e5381bf641b5ff62e99089c50b7bcec0b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/P0/ranked_queries.csv",
+      "bytes": 1079,
+      "sha256": "a7fde6198cc9e7a92859e5a5763d71fe46f537fedf0becba00a3d1ea515ee831",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/baskets.csv",
+      "bytes": 1693,
+      "sha256": "77e982934442d75c98fdb8ab541eb7846e7ab6f22462dcb20760dac0237eca31",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/catalog.csv",
+      "bytes": 302,
+      "sha256": "5c3324e214f4ba7980adcfb9c6674df05b793790fbafc934f86f97a375fe4b3a",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/qualified_events.csv",
+      "bytes": 3213,
+      "sha256": "11a3399abdc2805aefb4a9b5bd66cde7fba1cb1a3c489ba8afb66327bd5d784c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/acceptance/9016cbb9d63f4579b071aa040277cb9e/source/queries.csv",
+      "bytes": 1014,
+      "sha256": "ace8c4beac612a71630152f66787f2949646860021b24f4bb494bf5d1cdfea48",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/tests.log",
+      "bytes": 7122,
+      "sha256": "c40ce658e613845b46a00f53b7020db06606365b5a6a87e748f74bd1a001ac7a",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/train_cost/cost.json",
+      "bytes": 2490,
+      "sha256": "d3f12547a7443ee446614a16eb53b2e4eb3f4aab6142c16f9bb60b0ae8858717",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/train_cost/independent_cost.sqlite",
+      "bytes": 192462848,
+      "sha256": "4c8ee064d94de57590d9f0f4f9aa12958a86cb12e355d18e64d3dfa036f2fd37",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-implementation-v1/train_cost/train_session_cardinalities.csv",
+      "bytes": 32139611,
+      "sha256": "b953a9905e0562f43e094c248a13a2fce413c890e4f4192b2445468f90a4a5a5",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-cooccurrence-spec-v1/tests.log",
+      "bytes": 11841,
+      "sha256": "9dd7ed14aaa02b20cf149897f0c125509ce97a0e59d3fc7b950395d6fd5d0f42",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/aggregate.json",
+      "bytes": 8397,
+      "sha256": "b1f97b383013a47dfaddf97026a4e9775cc9e17a47909ec51e4a16b09d86c495",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/fit_audit.json",
+      "bytes": 356,
+      "sha256": "2755bd9c1ee8dfa88a6833f7035f042efb18ae05560735de005b940ddfe2899d",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/item_counts.csv",
+      "bytes": 27,
+      "sha256": "6d150a2c3c502bdf33e568a57c3750e4b1f6b9299a8e138d6aa2740a62cde01f",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/query_metrics.csv",
+      "bytes": 470,
+      "sha256": "8104f459195e3834c9af505ef891f1e932fc27289d85e369c8137fe33df89711",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/query_slices.csv",
+      "bytes": 335,
+      "sha256": "c4bd66b04f71ff7f57c2a164c5e6d956b98528e5bc792494c0e1666a7df9a5b2",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/output/ranked_queries.csv",
+      "bytes": 548,
+      "sha256": "aeec24915caa2b8e49240a6bec00269ee6e41c801f90ea252b57bd1bc1bac087",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/baskets.csv",
+      "bytes": 285,
+      "sha256": "8a3b517b359d07bc2ce3df7eeb69e299524bfaaf2971066e54141ce39f1e0a5b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/catalog.csv",
+      "bytes": 122,
+      "sha256": "0aea3b9fe7cb12a764dcf6950ec00f2841005fa4a72e288ca28bd5d09394e641",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/qualified_events.csv",
+      "bytes": 1914,
+      "sha256": "19a2e7fc34a58a3bde6eb108e6dace84dcbe54bc2de65922e74dd0c0dc4bc580",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/e6400d6558c3407bb5c1dd40b1cce0d0/source/queries.csv",
+      "bytes": 792,
+      "sha256": "2410c63000201d3488e380a6adc535d88d7883ac5ef46bfa27560015afc7026c",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/aggregate.json",
+      "bytes": 8436,
+      "sha256": "d8097235ca7de7839b87d8e81a0719a8b1d75d47a2df853defd5f31345fa5c83",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/fit_audit.json",
+      "bytes": 358,
+      "sha256": "425036413e36589f2919313ca98148fb63dfd59221059a11b66bd219eb9f36b4",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/item_counts.csv",
+      "bytes": 82,
+      "sha256": "dde91d5d71f5791a20329c6c7daf740cce31e36b2ec1a84088c91d98832f30e1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/query_metrics.csv",
+      "bytes": 438,
+      "sha256": "67c610a0539c643fa6ecf63e8a773ca4cab1a4afc213dc8b636dd926629e1d92",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/query_slices.csv",
+      "bytes": 332,
+      "sha256": "19a8ef27602bfab6b08f3aea9032886793425afb3082af893b69249170194f96",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/output/ranked_queries.csv",
+      "bytes": 707,
+      "sha256": "2224645f2f9b93ba6aba054d5371611510235f168ba37272fd9806ae34c76831",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/baskets.csv",
+      "bytes": 285,
+      "sha256": "8a3b517b359d07bc2ce3df7eeb69e299524bfaaf2971066e54141ce39f1e0a5b",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/catalog.csv",
+      "bytes": 292,
+      "sha256": "5711ebcca0d5be62478dcc7e0d4d78fda5ba453d50b40b4bf64e4affb6f773f1",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/qualified_events.csv",
+      "bytes": 3718,
+      "sha256": "3c485689617f63eb01da2cc4706cfd9be74347c816a384897f6dea54a20c8c64",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/acceptance/f3a9a248ab4a413da382a8b218dd899a/source/queries.csv",
+      "bytes": 798,
+      "sha256": "9413f9bd26de6023eb8ba407bb1e21a05e2abfc3d8faf8531bb5f4f6cddee08d",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-implementation-v1/tests.log",
+      "bytes": 7207,
+      "sha256": "7717237177477dbe279e2e0eea468b544afec941f1e24648ece8d54eed6a6309",
+      "live_role": "external_dependency_not_archived"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-popularity-spec-v1/tests.log",
+      "bytes": 4231,
+      "sha256": "b67a6196e72c7447602eed644d7f83e58b2aed6c40bbae2ba7ddfb6d50020fe2",
+      "live_role": "external_dependency_not_archived"
+    }
+  ],
+  "research_facts": {
+    "provenance": "copied_from_accepted_reports_no_new_metrics",
+    "evaluation_role": "retrospective_exposed_development_validation",
+    "P0_scope": {
+      "real_primary_fits": 1,
+      "real_independent_count_audits": 1,
+      "validation_ranked_queries": 166897,
+      "training_ranked_queries": 0,
+      "reserved_test_ranked_queries": 0,
+      "final_refits": 0,
+      "reserved_test_state": "locked"
+    },
+    "C1_scope": {
+      "real_C1_primary_fits": 1,
+      "real_independent_count_audits": 1,
+      "P0_refits_or_rerankings": 0,
+      "validation_queries": 166897,
+      "training_ranked_queries": 0,
+      "reserved_test_ranked_queries": 0,
+      "final_refits": 0,
+      "reserved_test_state": "locked"
+    },
+    "queries": 166897,
+    "visitors": 62235,
+    "metrics": {
+      "P0": {
+        "ndcg": 0.0016818292431993401,
+        "recall": 0.0041792243120008146,
+        "hit_rate": 0.004182220171722679,
+        "mrr": 0.000943565040732755,
+        "visitor_macro_ndcg": 0.0016225255300279361,
+        "catalog_coverage": 4.489257207502447e-05
+      },
+      "C1": {
+        "ndcg": 0.10640071437048426,
+        "recall": 0.1801515305847319,
+        "hit_rate": 0.18018298711181147,
+        "mrr": 0.0836641142892903,
+        "visitor_macro_ndcg": 0.11307289067371264,
+        "catalog_coverage": 0.19998294082261148
+      }
+    },
+    "paired_delta": {
+      "ndcg": 0.10471888512728492,
+      "recall": 0.17597230627273108,
+      "hit_rate": 0.1760007669400888,
+      "mrr": 0.08272054924855754,
+      "visitor_macro_ndcg": 0.1114503651436847,
+      "catalog_coverage": 0.19993804825053646
+    },
+    "uncertainty": {
+      "replicates": 2000,
+      "visitors": 62235,
+      "mean_delta": 0.10471888512728492,
+      "interval": [
+        0.10100491526937505,
+        0.10844658181889381
+      ],
+      "reason": null
+    },
+    "cold_target_slice": {
+      "P0": {
+        "queries": 11943,
+        "visitors": 5769,
+        "target_occurrences": 11946,
+        "reachable_target_occurrences": 6258,
+        "all_targets_reachable_queries": 6257,
+        "recommended_unique_items": 10,
+        "candidate_union_items": 222754,
+        "metrics": {
+          "ndcg": 0.0,
+          "recall": 0.0,
+          "hit_rate": 0.0,
+          "mrr": 0.0,
+          "visitor_macro_ndcg": 0.0,
+          "catalog_coverage": 4.489257207502447e-05
+        },
+        "undefined_reason": null,
+        "support": "sufficient_query_count"
+      },
+      "C1": {
+        "queries": 11943,
+        "visitors": 5769,
+        "target_occurrences": 11946,
+        "reachable_target_occurrences": 6258,
+        "all_targets_reachable_queries": 6257,
+        "recommended_unique_items": 14387,
+        "candidate_union_items": 222754,
+        "metrics": {
+          "ndcg": 0.0,
+          "recall": 0.0,
+          "hit_rate": 0.0,
+          "mrr": 0.0,
+          "visitor_macro_ndcg": 0.0,
+          "catalog_coverage": 0.0645869434443377
+        },
+        "undefined_reason": null,
+        "support": "sufficient_query_count"
+      }
+    },
+    "fallback_reasons": {
+      "no_positive_causal_neighbor": 9338,
+      "positive_evidence": 150578,
+      "no_supported_seeds": 6981
+    },
+    "small_groups": {
+      "current_basket": {
+        "queries": 56,
+        "visitors": 43,
+        "delta_metrics": {
+          "ndcg": 0.21731476739895214,
+          "recall": 0.375,
+          "hit_rate": 0.375,
+          "mrr": 0.16763038548752834,
+          "visitor_macro_ndcg": 0.23210448214920487,
+          "catalog_coverage": 0.0019440685611186287
+        },
+        "support": "descriptive_only"
+      },
+      "target_basket": {
+        "queries": 53,
+        "visitors": 41,
+        "delta_metrics": {
+          "ndcg": 0.14697274752383266,
+          "recall": 0.23113207547169812,
+          "hit_rate": 0.32075471698113206,
+          "mrr": 0.13571428571428573,
+          "visitor_macro_ndcg": 0.14201381492969067,
+          "catalog_coverage": 0.0017365809652683806
+        },
+        "support": "descriptive_only"
+      },
+      "target_model": {
+        "queries": 3,
+        "visitors": 2,
+        "delta_metrics": {
+          "ndcg": 0.1289509357448472,
+          "recall": 0.16666666666666666,
+          "hit_rate": 0.3333333333333333,
+          "mrr": 0.16666666666666666,
+          "visitor_macro_ndcg": 0.09671320180863541,
+          "catalog_coverage": 5.877486063576315e-05
+        },
+        "support": "descriptive_only"
+      }
+    },
+    "support_floor_queries": 1669,
+    "historical_C1_readback": {
+      "rows": {
+        "support.csv": 198946,
+        "pairs.csv": 1954889,
+        "train_sessions.jsonl": 1180256,
+        "queries.jsonl": 166897,
+        "bootstrap.jsonl": 2000
+      },
+      "top_level_cells": {
+        "support.csv": 397892,
+        "pairs.csv": 5864667,
+        "train_sessions.jsonl": 4721024,
+        "queries.jsonl": 1668970,
+        "bootstrap.jsonl": 12000
+      },
+      "all_nested_JSON_values_checked": true,
+      "ranking_oracle": "all SQL neighbors plus exact zero-score complement proof"
+    },
+    "historical_C1_resources": {
+      "elapsed_seconds": 4197.172,
+      "observed_peak_sampled_RSS_bytes": 1110982656,
+      "samples": 7379,
+      "limits": {
+        "maximum_process_RSS_bytes": 8589934592,
+        "maximum_execution_disk_bytes": 21474836480,
+        "minimum_free_disk_bytes": 8589934592,
+        "minimum_available_memory_bytes": 4294967296,
+        "maximum_elapsed_seconds": 21600,
+        "monitor_interval_seconds": 0.5
+      },
+      "enforcement": "cooperative checks at most every 0.5 seconds; pair loop also checks every 50000 emissions; no OS hard-memory kill"
+    },
+    "fit_ids": {
+      "P0": "3aaf35e8a4853bcd5e83caff917e90e318ef41a77e37e5f292d1bcc18f7146cd",
+      "C1": "55d4fd748fb7ffe22b13476bed2ed16e83d23dd2d655b9fb02b41087dabe0dee"
+    }
+  },
+  "frozen_payload_files": 91,
+  "context_snapshots": 11,
+  "P0_result_files_unchanged": 9,
+  "C1_result_files_unchanged": 12,
+  "gates_unchanged_and_locked": [
+    "shop-mysql-runtime/retailrocket_popularity_spec_v1/initial_test_gate.json",
+    "shop-mysql-runtime/retailrocket_popularity_implementation_v1/test_gate_snapshot.json",
+    "shop-mysql-runtime/retailrocket_cooccurrence_spec_v1/initial_locked_scope.json",
+    "shop-mysql-runtime/retailrocket_cooccurrence_implementation_v1/test_gate_snapshot.json"
+  ],
+  "absent_test_final_failure_paths": [
+    "shop-mysql-runtime/retailrocket_popularity_v1/final_refit",
+    "shop-mysql-runtime/retailrocket_popularity_v1/reserved_test",
+    "shop-mysql-runtime/retailrocket_popularity_v1/test_usage.jsonl",
+    "shop-mysql-runtime/retailrocket_cooccurrence_final_v1",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/failure.json",
+    "shop-mysql-runtime/retailrocket_popularity_v1/development/failure.json"
+  ],
+  "archive_tests": {
+    "tests_run": 29,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 1.177963
+  },
+  "elapsed_seconds": 34.035013,
+  "scope_this_turn": {
+    "train_fits": 0,
+    "ranked_queries": 0,
+    "metric_recalculations": 0,
+    "bootstrap_replicates": 0,
+    "reserved_test_ranked_queries": 0,
+    "reserved_test_state": "locked",
+    "research_tests_rerun": false
+  },
+  "backup_limit": "Same shop drive only; external dependency bytes are not in ZIP; no remote backup or GitHub publication."
+}

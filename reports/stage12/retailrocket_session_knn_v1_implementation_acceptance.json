@@ -1,0 +1,322 @@
+{
+  "status": "K1_hand_synthetic_independent_oracle_and_train_cost_accepted",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v1_implementation_specification.json",
+    "bytes": 73618,
+    "sha256": "05df3af05ee258ebcc75186886b317d46c98f6b76c61a3a68698430d2c4b2ff6"
+  },
+  "sources_verified": 326,
+  "tests": {
+    "tests_run": 49,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "synthetic_cases": [
+    {
+      "name": "hand_cold_crossing_and_four_arms",
+      "kind": "synthetic_only",
+      "readback": {
+        "status": "independent_SQL_full_session_pool_full_catalog_and_Decimal_readback_passed",
+        "sessions": 7,
+        "postings": 5,
+        "memberships": 12,
+        "queries": 7,
+        "query_nested_scalars_checked": 1675,
+        "bootstrap_replicates": 2000,
+        "production_K1_helpers_imported": false,
+        "sampled_neighbor_or_candidate_oracle": false
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/aggregate.json",
+          "bytes": 31898,
+          "sha256": "384e351f535c96b9d1144e51df4aa1ec82675723ec9bcc1d8d10532f4ed7e403"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/bootstrap.jsonl",
+          "bytes": 1015215,
+          "sha256": "f906bd903498ae31f36459c1d2f0349a95ca2ccc750b0491e8903481476fb3e5"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/inputs.json",
+          "bytes": 16588,
+          "sha256": "886cff99ba80d8296869ce59cc44f44c45fa6257d5a49541e159a3aa4e0b7b9f"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/model.json",
+          "bytes": 894,
+          "sha256": "5181f70b2a8a5b00dd78b77616267d29de3e7f89b2d9ce0288b8c5b905c5d9fd"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/oracle.sqlite",
+          "bytes": 24576,
+          "sha256": "2f85c6513b1bedb14a61cb04c03c8ec6581822141b15566612a96ff54d916b87"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/queries.jsonl",
+          "bytes": 19895,
+          "sha256": "0f3fa3f9b2b1a4975c273eab4706f3341432e89e3e59c61f85defd8e8374d349"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/reference_bootstrap.jsonl",
+          "bytes": 1016971,
+          "sha256": "c0979ab950c0a21335d95b1df08daa8811026df15f31bf854ffef7599c4a2ca9"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/c6e23eaf3dcc4473b87da1b0350d97d3/train_sessions.jsonl",
+          "bytes": 489,
+          "sha256": "c09568f0e8b0b8b839550ff1f4f98b6d1be8a71268cb8bc7852c525b349c0796"
+        }
+      ]
+    },
+    {
+      "name": "501_neighbor_boundary",
+      "kind": "synthetic_only",
+      "readback": {
+        "status": "independent_SQL_full_session_pool_full_catalog_and_Decimal_readback_passed",
+        "sessions": 501,
+        "postings": 502,
+        "memberships": 1002,
+        "queries": 1,
+        "query_nested_scalars_checked": 3223,
+        "bootstrap_replicates": 2000,
+        "production_K1_helpers_imported": false,
+        "sampled_neighbor_or_candidate_oracle": false
+      },
+      "files": [
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/aggregate.json",
+          "bytes": 27590,
+          "sha256": "c82cfc49ca45cb4e302e9d0034c4ed92d682f25e5444641d62cb2fb698ce965c"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/bootstrap.jsonl",
+          "bytes": 950890,
+          "sha256": "d30eaebda06cd820b1e1cd9f3cb45e08e1bfac96310e3a474287fe0d11248041"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/inputs.json",
+          "bytes": 60890,
+          "sha256": "2b712826185c1e160df0c42223237e01713e1f88063d15c4cf531b949a31bd9e"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/model.json",
+          "bytes": 52683,
+          "sha256": "9d8702b14893d3630327d7af1e43784808e7ab09200eb50d1ad5eeff2ed66657"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/oracle.sqlite",
+          "bytes": 90112,
+          "sha256": "2ed155b6ff493889606abfa12350f39eb2b315f5205368302b9365bf1787866a"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/queries.jsonl",
+          "bytes": 35098,
+          "sha256": "a9e1fcf2b2cd8f4ead3a714cda1f93316d48ef59c199c928d56433d7d016d973"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/reference_bootstrap.jsonl",
+          "bytes": 950890,
+          "sha256": "d30eaebda06cd820b1e1cd9f3cb45e08e1bfac96310e3a474287fe0d11248041"
+        },
+        {
+          "path": "shop-mysql-runtime/verification/retailrocket-session-knn-implementation-v1/acceptance/250ae0f37e7047cab3f2c572912c82d8/train_sessions.jsonl",
+          "bytes": 37968,
+          "sha256": "bb39b4a6f725efff47ed2354005e1fbe667b11afc549e69782995c5f30f62764"
+        }
+      ]
+    }
+  ],
+  "train_only_cost": {
+    "train_sessions": 1180256,
+    "train_baskets": 1823018,
+    "basket_item_memberships": 1823388,
+    "distinct_session_item_memberships": 1587436,
+    "singleton_sessions": 998801,
+    "maximum_session_items": 389,
+    "maximum_session_baskets": 417,
+    "session_size_histogram": {
+      "1": 998801,
+      "2": 111141,
+      "3": 32903,
+      "4": 14461,
+      "5": 7393,
+      "6": 4353,
+      "7": 2729,
+      "8": 1916,
+      "9": 1352,
+      "10": 924,
+      "11": 709,
+      "12": 572,
+      "13": 391,
+      "14": 356,
+      "15": 259,
+      "16": 226,
+      "17": 177,
+      "18": 159,
+      "19": 108,
+      "20": 116,
+      "21": 89,
+      "22": 71,
+      "23": 83,
+      "24": 79,
+      "25": 58,
+      "26": 48,
+      "27": 43,
+      "28": 52,
+      "29": 45,
+      "30": 39,
+      "31": 38,
+      "32": 23,
+      "33": 23,
+      "34": 23,
+      "35": 18,
+      "36": 26,
+      "37": 24,
+      "38": 16,
+      "39": 22,
+      "40": 19,
+      "41": 19,
+      "42": 12,
+      "43": 14,
+      "44": 15,
+      "45": 11,
+      "46": 15,
+      "47": 12,
+      "48": 9,
+      "49": 14,
+      "50": 11,
+      "51": 8,
+      "52": 8,
+      "53": 9,
+      "54": 13,
+      "55": 6,
+      "56": 3,
+      "57": 5,
+      "58": 11,
+      "59": 11,
+      "60": 5,
+      "61": 5,
+      "62": 3,
+      "63": 6,
+      "64": 4,
+      "65": 6,
+      "66": 5,
+      "67": 3,
+      "68": 4,
+      "69": 3,
+      "70": 2,
+      "71": 3,
+      "72": 2,
+      "73": 5,
+      "74": 2,
+      "75": 5,
+      "76": 3,
+      "77": 5,
+      "78": 4,
+      "79": 4,
+      "80": 2,
+      "81": 3,
+      "82": 3,
+      "83": 4,
+      "84": 5,
+      "85": 1,
+      "86": 1,
+      "87": 3,
+      "89": 1,
+      "90": 5,
+      "92": 2,
+      "93": 1,
+      "95": 3,
+      "96": 1,
+      "97": 1,
+      "98": 5,
+      "100": 1,
+      "102": 3,
+      "104": 2,
+      "105": 1,
+      "106": 3,
+      "107": 2,
+      "111": 1,
+      "112": 1,
+      "114": 3,
+      "115": 1,
+      "116": 1,
+      "117": 1,
+      "118": 3,
+      "119": 1,
+      "121": 1,
+      "132": 2,
+      "140": 1,
+      "143": 1,
+      "145": 1,
+      "147": 2,
+      "149": 1,
+      "150": 1,
+      "157": 1,
+      "158": 1,
+      "161": 2,
+      "162": 1,
+      "163": 1,
+      "172": 1,
+      "186": 1,
+      "190": 1,
+      "198": 1,
+      "389": 1
+    },
+    "positive_support_items": 198946,
+    "maximum_posting_size": 1736,
+    "frozen_C1_support_memberships": 1587436,
+    "independent_rows_checked": 1180256,
+    "independent_cells_checked": 7081536,
+    "independent_raw_cost_passes": 2,
+    "train_item_arrays_decoded_per_pass": 1823018,
+    "role_metadata_counts_per_pass": {
+      "reserved_test": 292114,
+      "validation": 533790,
+      "train": 1823018,
+      "warmup": 13300
+    },
+    "validation_test_item_arrays_decoded": 0,
+    "global_K1_index_built": false,
+    "new_item_support_fitted": false,
+    "complete_C1_train_lineage_checked": true,
+    "maximum_independent_SQL_session_members": 389,
+    "interpretation": "M is exact membership count; posting maxima come from accepted C1 support, not a new K1 fit. No query-cost/RSS/runtime guarantee."
+  },
+  "cost_elapsed_seconds": 138.547,
+  "preparation_resources": {
+    "elapsed_seconds": 143.125,
+    "observed_peak_sampled_RSS_bytes": 48730112,
+    "observed_peak_execution_disk_bytes": 164552563,
+    "samples": 282,
+    "limits": {
+      "maximum_process_RSS_bytes": 8589934592,
+      "maximum_execution_disk_bytes": 21474836480,
+      "minimum_free_disk_bytes": 8589934592,
+      "minimum_available_memory_bytes": 4294967296,
+      "maximum_elapsed_seconds": 21600,
+      "monitor_interval_seconds": 0.5
+    },
+    "enforcement": "Cooperative 0.5s checks during cost rows/SQL and phase boundaries; no OS instantaneous hard-limit claim."
+  },
+  "scope": {
+    "K1_core_and_four_arm_evaluator_implemented": true,
+    "synthetic_SQL_full_pool_full_catalog_oracle_passed": true,
+    "real_K1_index_builds": 0,
+    "real_P0_C1_D1_refits_or_rerankings": 0,
+    "real_validation_ranked_queries": 0,
+    "real_validation_metrics": 0,
+    "real_bootstrap_replicates": 0,
+    "train_only_cost_passes": 2,
+    "train_item_arrays_decoded_per_pass": 1823018,
+    "real_validation_or_test_item_arrays_decoded": 0,
+    "final_refits": 0,
+    "reserved_test_ranked_queries": 0,
+    "reserved_test_state": "locked",
+    "real_validation_entry_implemented": false
+  },
+  "elapsed_seconds": 163.734,
+  "limits": "Train-only counts do not establish full-query search/oracle speed, real ranking quality, or final model suitability."
+}

@@ -1,0 +1,93 @@
+{
+  "status": "protocol_consistency_sources_and_freeze_readback_passed",
+  "specification": {
+    "path": "reports/stage9/retailrocket_popularity_v1_specification.json",
+    "bytes": 11273,
+    "sha256": "eaac3a8203a9ef7dde4e26624dee1ea27f70f0eb0edcd585494a6a9746d1181a"
+  },
+  "checks_passed": 38,
+  "checks": [
+    "protocol_identity",
+    "freeze_only_no_real_execution",
+    "sole_deterministic_candidate",
+    "view_only_fit",
+    "warmup_and_tail_excluded_from_fit",
+    "labels_not_fit_inputs",
+    "development_roles",
+    "development_clock",
+    "final_roles",
+    "final_clock",
+    "one_primary_fit_per_phase",
+    "frozen_statistics",
+    "final_refit_separate_and_gated",
+    "fixed_K10",
+    "integer_popularity_order",
+    "no_seen_or_availability_or_property_filter",
+    "ranker_does_not_receive_labels",
+    "label_and_future_fields_forbidden",
+    "full_catalog_without_sampling_or_target_injection",
+    "full_query_denominator",
+    "full_target_IDCG",
+    "causal_union_coverage_denominator",
+    "empty_catalog_keeps_query",
+    "no_training_resubstitution_or_performance_threshold",
+    "finite_metric_tolerances",
+    "validation_denominators_match_accepted_dataset",
+    "validation_support_floor",
+    "validation_multi_item_small_groups_preserved",
+    "reserved_test_denominators_match_accepted_dataset",
+    "reserved_test_support_floor",
+    "reserved_test_multi_item_small_groups_preserved",
+    "test_initially_locked",
+    "later_explicit_test_request",
+    "no_performance_based_test_gate",
+    "one_logical_reserved_test",
+    "all_test_prerequisites_retained",
+    "implementation_not_claimed",
+    "upstream_no_scoring_claim"
+  ],
+  "sources_verified": 47,
+  "tests": {
+    "tests_run": 28,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "elapsed_seconds": 0.005162
+  },
+  "scope": {
+    "real_statistic_fits": 0,
+    "real_ranked_queries": 0,
+    "real_metric_calculations": 0,
+    "data_CSV_rows_parsed": 0,
+    "reserved_test_enabled": false,
+    "test_gate": "locked",
+    "baseline_and_evaluator_implemented": false
+  },
+  "preserved_denominators": {
+    "validation": {
+      "queries": 166897,
+      "visitors": 62235,
+      "target_occurrences": 166952,
+      "reachable_target_occurrences": 161264,
+      "all_targets_reachable_queries": 161211,
+      "new_visitor_queries": 134249,
+      "multi_item_current_basket_queries": 56,
+      "multi_item_target_basket_queries": 53,
+      "support_floor_queries": 1669
+    },
+    "reserved_test": {
+      "queries": 92086,
+      "visitors": 34875,
+      "target_occurrences": 92116,
+      "reachable_target_occurrences": 88907,
+      "all_targets_reachable_queries": 88879,
+      "new_visitor_queries": 70045,
+      "multi_item_current_basket_queries": 33,
+      "multi_item_target_basket_queries": 29,
+      "support_floor_queries": 921
+    },
+    "interpretation": "copied from prior independently accepted dataset aggregates; not newly computed model scores or newly parsed test labels"
+  },
+  "elapsed_seconds": 25.780677,
+  "next_step": "implement baseline/evaluator with synthetic hand-counted independent oracles; then freeze real development execution; reserved-test remains locked"
+}

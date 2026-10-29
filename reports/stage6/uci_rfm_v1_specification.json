@@ -1,0 +1,94 @@
+{
+  "format_version": 1,
+  "contract_id": "uci_online_retail_ii_retrospective_rfm_v1",
+  "frozen_at_utc": "2026-10-27T02:41:03.655503+00:00",
+  "policy_file": {
+    "path": "docs/contracts/uci_rfm_v1.json",
+    "bytes": 15463,
+    "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+  },
+  "method_document": {
+    "path": "docs/STAGE6_UCI_RFM_CONTRACT_V1.md",
+    "bytes": 17045,
+    "sha256": "6bddbd0c7cfb15e0b97985884dcee0d1e946a328224ea69a2005085449e37d53"
+  },
+  "sources": [
+    {
+      "path": "data/raw/online_retail_ii/online_retail_II.xlsx",
+      "bytes": 45622278,
+      "sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+    },
+    {
+      "path": "data/raw/online_retail_ii/online_retail_ii_official.zip",
+      "bytes": 45622418,
+      "sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_manifest.json",
+      "bytes": 1298,
+      "sha256": "704876a3cac02641866f430206b91cb5127dbea0c582e5c0cbb7ca16063c0649"
+    },
+    {
+      "path": "data/raw/online_retail_ii/source_page.html",
+      "bytes": 85208,
+      "sha256": "d7c9ebf9428dfa5aaf12d67a1430652096f0df292fd85a2b69682bfd862121ea"
+    },
+    {
+      "path": "docs/STAGE6_UCI_RFM_CONTRACT_V1.md",
+      "bytes": 17045,
+      "sha256": "6bddbd0c7cfb15e0b97985884dcee0d1e946a328224ea69a2005085449e37d53"
+    },
+    {
+      "path": "docs/contracts/uci_rfm_v1.json",
+      "bytes": 15463,
+      "sha256": "d679e34a7309abdcea47a7e4088c313861d0a7efda69d0207a3aa78bab7ed703"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_intake.json",
+      "bytes": 27649,
+      "sha256": "0b4d496ebbbfd20dafdb6d70a84bb2db3a6907978446b3c6cdb349b2d2e35cf6"
+    },
+    {
+      "path": "reports/stage6/uci_retail_ii_verification.json",
+      "bytes": 6686,
+      "sha256": "5a2671249140664853105c493f8343cac0295a20f7fbc9ca9e2894091856f010"
+    },
+    {
+      "path": "scripts/audit_uci_retail_ii.py",
+      "bytes": 19776,
+      "sha256": "335c68c000220afee37c10c83f0d5d36cdb885eb8e6c2624644646f0fc26fc31"
+    },
+    {
+      "path": "scripts/freeze_uci_rfm_contract.py",
+      "bytes": 14110,
+      "sha256": "8fb560810f070cdfb0982d55fc28bbd610bf117187372c0f6598d037c94bfdc9"
+    },
+    {
+      "path": "scripts/verify_uci_retail_ii.py",
+      "bytes": 11436,
+      "sha256": "73c4af63fa9f66e800d8d3b0b0c22e29dcfaa2b62f2d2f8fa738355757083844"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/inventory.sqlite",
+      "bytes": 313020416,
+      "sha256": "367e019ba9698ca2e670b0aaf04f4321a948ed9052d36bf3be51d11d5ed44193"
+    },
+    {
+      "path": "shop-mysql-runtime/uci_retail_ii_intake_v1/output_guard.json",
+      "bytes": 1466,
+      "sha256": "0897323c226dd8c10642520b8d592a074247a9254ae311080b8364e847161148"
+    },
+    {
+      "path": "tests/test_uci_retail_ii.py",
+      "bytes": 4481,
+      "sha256": "5f4e814ebf8632fa19c133e063ae82cc4a0938db358e1d931b3934eea61d0d3a"
+    },
+    {
+      "path": "tests/test_uci_rfm_contract.py",
+      "bytes": 9352,
+      "sha256": "a9c62bf0a44b01154c097c88c226241313a6517d223ac954b34fe9b3598e93a3"
+    }
+  ],
+  "status": "frozen_before_UCI_RFM_build_and_temporal_scoring",
+  "amendment": "new_version_new_namespace_new_test_receipt_preserve_v1_disclose_prior_exposure"
+}

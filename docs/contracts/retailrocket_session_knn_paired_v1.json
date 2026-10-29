@@ -1,0 +1,231 @@
+{
+  "protocol_id": "retailrocket_session_knn_paired_v1",
+  "version": 1,
+  "date_asia_taipei": "2026-10-29",
+  "status": "specification_frozen_before_K1_implementation_or_scores_after_P0_C1_D1_exposure",
+  "inventory": "reports/stage12/retailrocket_stage12_inventory_v1.json",
+  "parents": {
+    "data": "docs/contracts/retailrocket_recommendation_v1.json",
+    "metrics": "docs/contracts/retailrocket_popularity_execution_v1.json",
+    "C1": "docs/contracts/retailrocket_cooccurrence_paired_v1.json",
+    "D1": "docs/contracts/retailrocket_directed_paired_v1.json",
+    "release": "reports/stage11/retailrocket_three_arm_v1_research_release.json"
+  },
+  "research_question": "On the same exposed development queries, what is the query-macro NDCG@10 difference of fixed exact Jaccard session-kNN K1 versus frozen C1?",
+  "interpretation": "Whole fixed method comparison: session-neighbor selection, normalization and self-item voting change together; not a one-factor attribution, temporal generalization claim or final model choice.",
+  "scope_this_round": {
+    "event_or_query_rows_parsed": 0,
+    "new_model_fits": 0,
+    "new_ranked_queries": 0,
+    "new_metric_runs": 0,
+    "new_bootstrap": 0,
+    "final_refits": 0,
+    "test_queries_scored": 0,
+    "specification_only": true,
+    "K1_implemented": false,
+    "train_cost_scan_executed": false,
+    "bulk_event_payloads_downloaded": 0
+  },
+  "comparison": {
+    "challenger": "K1",
+    "challenger_count": 1,
+    "primary_control": "C1",
+    "descriptive_controls": [
+      "P0",
+      "D1"
+    ],
+    "search": false,
+    "deterministic": true,
+    "model_seeds": null,
+    "fit_roles": [
+      "train"
+    ],
+    "fit_window_utc": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "evaluation_roles": [
+      "validation"
+    ],
+    "evaluation_window_utc": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ],
+    "future_primary_index_builds": 1,
+    "future_independent_index_audits": 1,
+    "reference_refits_or_rerankings": 0,
+    "statistics_update_during_evaluation": false,
+    "training_ranking": false,
+    "final_refit": false,
+    "test_ranking": false
+  },
+  "model": {
+    "source": "shop-mysql-runtime/retailrocket_dataset_v1/baskets.csv",
+    "session_key": [
+      "visitorid",
+      "session_start_ms"
+    ],
+    "train_set": "T_s = distinct items in every eligible train basket of s; include unlabelled baskets and singleton sets; keep only train-window part of crossing sessions, never filter by eventual length/end or label availability.",
+    "train_exclusions": [
+      "warmup items",
+      "validation items",
+      "reserved-test items",
+      "tail items",
+      "cart/transaction features",
+      "properties"
+    ],
+    "index": "Exact item-to-train-session inverted index and full distinct T_s; no sampled sessions, recent-session cap, pruning or ANN.",
+    "support_check": "Number of distinct indexed sessions per item must exactly equal frozen C1 S_i; T_s must match C1 train session lineage.",
+    "history": "H(q) = distinct same-session items through query_ms/basket_index inclusive, including current basket and eligible cross-role past context; identical to frozen C1 history.",
+    "unknown_seeds": "Retain all unknown items in H and in Jaccard union denominator; they contribute no train overlaps. Do not drop unknown seeds or the query.",
+    "neighbor_eligibility": "All train sessions with positive overlap with H, excluding exact current (visitorid,session_start_ms). Other train sessions of the same visitor remain eligible.",
+    "similarity": "|H intersection T_s| / (|H| + |T_s| - |H intersection T_s|)",
+    "arithmetic": "Exact integer numerator/denominator and rational comparisons/sums; no epsilon ties or binary64 ordering.",
+    "neighbor_count": 500,
+    "neighbor_order": [
+      "similarity descending",
+      "numeric visitorid ascending",
+      "integer session_start_ms ascending"
+    ],
+    "neighbor_boundary": "Take first min(500,positive eligible session count); do not expand ties. k is a fixed method parameter, not permission to truncate the search pool.",
+    "score": "score(j,q) = sum(sim(H,T_s) * indicator(j in T_s) for s in selected neighbors); one vote per item per selected session, no score normalization or P0 blend.",
+    "self_item_votes": true,
+    "repeat_items_in_H_or_T_count_once": true,
+    "session_end_or_recency_weight": false,
+    "time_decay": null,
+    "IDF": null,
+    "history_cap": null,
+    "unsupported_target": "Absent from all train sets implies zero K1 evidence, not removal from candidate or denominator; P0 tie/fill remains."
+  },
+  "ranking": {
+    "list_length": 10,
+    "candidate_rule": "All items with first_view_ms < query_ms from accepted causal catalog; keep seen, cold and zero-vote items.",
+    "order": [
+      "exact K1 score descending",
+      "original P0 count descending (missing only = 0)",
+      "numeric itemid ascending"
+    ],
+    "fallback": "If no positive causal scores, exactly original P0 order; if fewer than 10 positive items, fill from entire zero-score complement. No truncated P0-top10 shortcut.",
+    "negative_sampling": false,
+    "target_injection": false,
+    "inventory_filter": false,
+    "short_catalog": "Return min(10,candidate_count); empty nonempty-target query scores zero; broken/missing history join stops."
+  },
+  "fixed_validation": {
+    "queries": 166897,
+    "visitors": 62235,
+    "target_occurrences": 166952,
+    "reachable_target_occurrences": 161264,
+    "all_targets_reachable_queries": 161211,
+    "candidate_union_items": 222754,
+    "new_visitor_queries": 134249,
+    "multi_item_current_queries": 56,
+    "multi_item_target_queries": 53,
+    "support_floor_queries": 1669,
+    "target_model_query_counts": {
+      "all_positive": 154951,
+      "mixed": 3,
+      "all_zero": 11943
+    },
+    "interpretation": "copied from accepted P0/data receipts; C1 item-support keys must equal P0 positive keys, so these historical support partitions remain identical"
+  },
+  "evaluation": {
+    "roster": "All 166897 original validation keys and stored order; equality across K1/C1/P0/D1. Missing/extra/duplicate stops; no inner-join exclusions.",
+    "key": [
+      "visitorid",
+      "session_start_ms",
+      "query_ms"
+    ],
+    "primary_estimand": "mean_q(NDCG_K1(q)-NDCG_C1(q))",
+    "metrics": "Unchanged full-target P0 v1 NDCG/Recall/HitRate/MRR, visitor-macro NDCG and common-candidate-union coverage; unreachable target items remain in Recall and IDCG denominators.",
+    "descriptive": "K1-P0, K1-D1 and secondary metrics/slices only; no new old-control pairwise intervals.",
+    "conditional": "Same 161211 all-target-reachable queries reported separately; never substitute for main.",
+    "exposure": "P0/C1/D1 validation scores, slices and intervals already known before K1 selection. K1 score uncomputed; interval is conditional development evidence, not untouched test.",
+    "float_absolute_tolerance": 1e-12,
+    "float_relative_tolerance": 1e-12,
+    "nonfinite": "forbidden; undefined groups null with reason",
+    "performance_pass_threshold": null
+  },
+  "uncertainty": {
+    "primary_only": "K1-C1 query-macro NDCG difference",
+    "method": "paired visitor-cluster percentile bootstrap",
+    "replicates": 2000,
+    "seed": 42,
+    "numpy_version": "2.5.4",
+    "bit_generator": "PCG64",
+    "cluster_order": "ascending numeric visitorid, exactly 62235 visitors",
+    "draw": "rng.integers(0,V,size=V,dtype=np.int64), V=62235, Generator(PCG64(42)), replicate order 0..1999",
+    "reference_value": "Round-trip binary64 C1 NDCG from accepted C1 query JSONL; copy original P0 values for descriptive K1-P0",
+    "reduction": "Per-query K1 binary64 minus copied C1 binary64; main math.fsum in accepted query order. Per-visitor d_v=math.fsum in within-visitor query order; each replicate math.fsum(w_v*d_v in numeric visitor order)/sum(w_v*n_v) with exact integer denominator. Do not average visitor means.",
+    "confidence_level": 0.95,
+    "quantiles": [
+      0.025,
+      0.975
+    ],
+    "quantile_method": "linear",
+    "audit_reuse": "Verify each draw SHA (little-endian signed int64), RNG before/after and sampled query denominator against accepted C1 bootstrap; compute NEW K1-C1 deltas and interval in K1 namespace only. Never copy C1-P0 deltas/interval as K1 results.",
+    "K1_P0_interval": false,
+    "secondary_or_slice_intervals": false,
+    "p_values": false,
+    "multiple_comparison_policy": "One prespecified primary contrast only. No simultaneous two-control superiority claim or new family-wise inference. All secondary differences descriptive.",
+    "interpretation": "Conditional exposed-development resampling only; report unfavorable or cross-zero interval unchanged, no automatic model selection/test unlock.",
+    "secondary_comparison_intervals": false
+  },
+  "slices_and_diagnostics": {
+    "inherited": "All original visitor seen/new, train activity, current/target basket cardinality, and target support all-positive/mixed/all-zero slices; shared C1 S_i definition, never K1 neighbor keys.",
+    "floor_queries": 1669,
+    "report_visitors": true,
+    "low_support": "Keep current multiple 56, target multiple 53 and mixed 3 as descriptive; do not merge/drop to improve results.",
+    "K1": [
+      "H cardinality and unknown seed count",
+      "positive eligible overlaps before top-k",
+      "exact-current-session exclusions",
+      "selected neighbor count and boundary ties",
+      "positive causal score count and zero-fill count",
+      "full fallback with mutually exclusive reason: no_supported_seed / only_self_session_overlap / no_eligible_positive_neighbor / no_positive_causal_vote",
+      "cross-tabs with C1/D1 fallback and cold targets"
+    ],
+    "known_cold": "Historical all-zero target slice 11943 queries / 5769 visitors; old three-arm ranking metrics zero. K1 result unknown; not claimed to solve cold items."
+  },
+  "resources": {
+    "limits": {
+      "maximum_process_RSS_bytes": 8589934592,
+      "maximum_execution_disk_bytes": 21474836480,
+      "minimum_free_disk_bytes": 8589934592,
+      "minimum_available_memory_bytes": 4294967296,
+      "maximum_elapsed_seconds": 21600,
+      "monitor_interval_seconds": 0.5
+    },
+    "scope": "Future one train index build + full validation + primary bootstrap + full independent oracle; cooperative checkpoints, not instantaneous OS enforcement.",
+    "train_only_preflight": "Next phase only: scan role metadata, decode train basket items only; measure sessions, distinct memberships M=sum_s|T_s|=sum_i S_i, singleton count, max session size and max posting size. May use temporary per-session sets; no global K1 index or validation/test items/targets.",
+    "structural_cost": "For a query, raw posting visits <= sum_(i in H) S_i before self exclusion/dedup; voting <= sum_(s in N500)|T_s|. Train-only totals cannot guarantee query runtime or RSS. Exact overlaps must be fully considered.",
+    "on_exceed": "Stop and preserve started/failure/partial evidence; no retry, sampling, history clipping, smaller k or denominator change under v1."
+  },
+  "planned_acceptance": [
+    "Hand-calculated exact Jaccard/voting and brute-force independent synthetic reference before real use",
+    "Repeated items, simultaneous baskets, singleton self-votes, same-session exclusion versus same-visitor other-session inclusion, train cutoff and no future injection",
+    "Unknown H items in union denominator; zero overlaps; 499/500/501 positive neighbors; exact equal-similarity and kth-boundary ties",
+    "Full causal candidate enumeration, self-item recommendations, strict first_view equality, P0 missing-count independence, complete zero-score fill and short/empty catalogs",
+    "Independent SQL DISTINCT(session,item) reconstructs ALL train memberships and inverted postings; compare C1 support and complete lineage",
+    "Independent full eligible-neighbor set, exact similarity/order/top500 and full candidate-score/zero-complement ranking for EVERY validation query; no sampled oracle",
+    "Full four-arm keys/order/denominators and nested output readback; independent Fraction/Decimal metrics; all 2000 bootstrap draws and reductions",
+    "Tampered provenance, missing/duplicate queries, changed limits, future timestamp injection and test/final CLI rejection",
+    "Only after synthetic acceptance and train-only cost audit: freeze implementation/environment/oracle/output schema/checkpoints and separate guarded validation entry; not executed here"
+  ],
+  "reserved_test": {
+    "state": "locked",
+    "enabled_this_round": false,
+    "K1_test_authorized": false,
+    "future_final_selection_refit_test_protocol_required": true,
+    "create_test_output_or_usage_journal": false,
+    "logical_tests_consumed_this_round": 0,
+    "rule": "Existing P0/C1/D1 gates grant no K1 permission. Final selection, train+validation refit and at most one logical retrospective test are separate future specifications/acceptance/execution scope; this freeze does not authorize them."
+  },
+  "change_control": "Any change to source/window/k/similarity/self vote/history/neighbor pool/ties/metrics/inference/budgets needs a new version before scoring. Keep v1 and all old evidence bytes; report negative/cross-zero results. No final-choice rule or tuned alternate K1 in this round.",
+  "limitations": [
+    "Anonymous visitors are not proven independent people",
+    "No fresh-time generalization or operational ingestion/revision/completeness evidence",
+    "No purchase/revenue/causal or commercial deployment conclusion",
+    "Historical Olist 25 and UCI 87/83 group limits remain; daily delay alert budget 10%; Dashboard deferred"
+  ]
+}

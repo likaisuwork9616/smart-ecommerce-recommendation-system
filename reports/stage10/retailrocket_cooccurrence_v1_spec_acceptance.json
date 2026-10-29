@@ -1,0 +1,67 @@
+{
+  "status": "paired_specification_consistency_sources_and_freeze_readback_passed",
+  "specification": {
+    "path": "reports/stage10/retailrocket_cooccurrence_v1_specification.json",
+    "bytes": 23838,
+    "sha256": "ddc01e5630830f8d87a683bc8b18d5c1e8a4b10fa64a49904cc2fb252e68c853"
+  },
+  "sources_verified": 82,
+  "checks_passed": 131,
+  "tests": {
+    "tests_run": 64,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "meaning": "specification guard mutation tests only; C1 algorithm/oracle/bootstrap not implemented"
+  },
+  "scope": {
+    "specification_only": true,
+    "C1_implemented": false,
+    "real_C1_fits": 0,
+    "new_P0_fits": 0,
+    "real_new_ranked_queries": 0,
+    "real_paired_metrics": 0,
+    "real_bootstrap_replicates": 0,
+    "real_data_CSV_rows_parsed": 0,
+    "reserved_test_enabled": false
+  },
+  "fixed_validation": {
+    "queries": 166897,
+    "visitors": 62235,
+    "target_occurrences": 166952,
+    "reachable_target_occurrences": 161264,
+    "all_targets_reachable_queries": 161211,
+    "candidate_union_items": 222754,
+    "new_visitor_queries": 134249,
+    "multi_item_current_queries": 56,
+    "multi_item_target_queries": 53,
+    "support_floor_queries": 1669,
+    "target_model_query_counts": {
+      "all_positive": 154951,
+      "mixed": 3,
+      "all_zero": 11943
+    },
+    "interpretation": "copied from accepted P0/data receipts; C1 item-support keys must equal P0 positive keys, so these historical support partitions remain identical"
+  },
+  "P0_reference_only": {
+    "guard": "shop-mysql-runtime/retailrocket_popularity_v1/development/output_guard.json",
+    "result": "reports/stage9/retailrocket_popularity_v1_development.json",
+    "acceptance": "reports/stage9/retailrocket_popularity_v1_development_acceptance.json",
+    "fit_id": "3aaf35e8a4853bcd5e83caff917e90e318ef41a77e37e5f292d1bcc18f7146cd",
+    "item_counts_sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89",
+    "ranked_queries_sha256": "407fc4f8798bc9f496e0d8c8e59a48d4b2ae37ecec980e817cf2c7ac24e52bfe",
+    "query_metrics_sha256": "eba159db54d1e0bb13a74306cd7637cd04291bf307b39552147cc79cb7c3d435",
+    "observed_validation_ndcg": 0.0016818292431993401,
+    "observed_validation_hit_rate": 0.004182220171722679,
+    "positive_fit_items": 198946,
+    "interpretation": "existing accepted development reference, not a new fit or unseen baseline result"
+  },
+  "absent_execution_paths_verified": [
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1",
+    "shop-mysql-runtime/retailrocket_popularity_v1/final_refit",
+    "shop-mysql-runtime/retailrocket_popularity_v1/reserved_test",
+    "shop-mysql-runtime/retailrocket_popularity_v1/test_usage.jsonl"
+  ],
+  "elapsed_seconds": 39.599644,
+  "next_step": "implement exact C1 and paired evaluator with hand/independent synthetic oracle; train-only cost preflight and resource limits; freeze separate real validation entry; no test activation"
+}
