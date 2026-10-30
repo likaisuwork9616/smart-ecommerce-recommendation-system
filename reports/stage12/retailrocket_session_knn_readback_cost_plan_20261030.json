@@ -1,0 +1,212 @@
+{
+  "status": "planning_only_do_not_open_real_acceptance_yet",
+  "created_utc": "2026-10-30T08:07:19.798306+00:00",
+  "source_status_audit": {
+    "path": "reports/stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json",
+    "bytes": 8158,
+    "sha256": "4a500eb63a2d60c1af6b94d1dcf643b294b98d81fc1c19ac0df9c05ce4abcacd"
+  },
+  "verified_small_inputs": [
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/progress.jsonl",
+      "bytes": 58853,
+      "sha256": "462080f551ab82dc50af228dab50ef2384987ad8927809fef97b12a1e8720816"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/observations.jsonl",
+      "bytes": 639404,
+      "sha256": "c2724daee9628ecefd68c0b2f770ce8b9ac322b3defdaf430dfd97a8feb744c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/invocation.json",
+      "bytes": 1151,
+      "sha256": "cc2018a6978c7ab60c759743c89c29a3fcaff46ab15f7bad0de87030c9d70fe8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/oracle_started.json",
+      "bytes": 242,
+      "sha256": "dc5d683549fdaed851291675444e6a97c47447bbd6b756b84de454c8a4ec1de8"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v1_validation_attempt.json",
+      "bytes": 10799,
+      "sha256": "0562c3bc77d423dc914a64d091414064ee5e37f5016c5cf4df08191b239134a7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_validation_entry_v1.json",
+      "bytes": 4255,
+      "sha256": "e240c1c0f2e7db35b9f71f876c9226acf26ec5f649c56f77b8763dcd8d98fcb2"
+    }
+  ],
+  "scope": {
+    "historical_log_analysis_only": true,
+    "new_primary_fits": 0,
+    "new_rankings": 0,
+    "new_independent_readbacks": 0,
+    "new_bootstrap_generations": 0,
+    "new_real_cost_probes": 0,
+    "raw_or_model_or_query_payloads_decoded": false,
+    "reserved_test": "locked",
+    "K1_minus_C1_accepted_result": null
+  },
+  "observed_cost": {
+    "progress_records": 224,
+    "resource_records": 1363,
+    "query_counter_interval": {
+      "start_utc": "2026-10-29T07:16:30.164309+00:00",
+      "end_utc": "2026-10-29T09:05:57.877641+00:00",
+      "start_observed_counter": 4,
+      "end_observed_counter": 923,
+      "elapsed_seconds": 6567.713332,
+      "observed_query_difference": 919,
+      "seconds_per_observed_query": 7.146586868335147,
+      "observed_queries_per_hour": 503.73696791551737
+    },
+    "nonoverlapping_at_least_900_second_intervals": [
+      {
+        "start_utc": "2026-10-29T07:16:30.164309+00:00",
+        "end_utc": "2026-10-29T07:31:50.582680+00:00",
+        "start_observed_counter": 4,
+        "end_observed_counter": 141,
+        "elapsed_seconds": 920.418371,
+        "observed_query_difference": 137,
+        "seconds_per_observed_query": 6.7183822700729925,
+        "observed_queries_per_hour": 535.8432812071719
+      },
+      {
+        "start_utc": "2026-10-29T07:31:50.582680+00:00",
+        "end_utc": "2026-10-29T07:47:01.742361+00:00",
+        "start_observed_counter": 141,
+        "end_observed_counter": 244,
+        "elapsed_seconds": 911.159681,
+        "observed_query_difference": 103,
+        "seconds_per_observed_query": 8.84621049514563,
+        "observed_queries_per_hour": 406.9539156880231
+      },
+      {
+        "start_utc": "2026-10-29T07:47:01.742361+00:00",
+        "end_utc": "2026-10-29T08:02:15.944558+00:00",
+        "start_observed_counter": 244,
+        "end_observed_counter": 388,
+        "elapsed_seconds": 914.202197,
+        "observed_query_difference": 144,
+        "seconds_per_observed_query": 6.348626368055555,
+        "observed_queries_per_hour": 567.0517984983579
+      },
+      {
+        "start_utc": "2026-10-29T08:02:15.944558+00:00",
+        "end_utc": "2026-10-29T08:17:32.542713+00:00",
+        "start_observed_counter": 388,
+        "end_observed_counter": 534,
+        "elapsed_seconds": 916.598155,
+        "observed_query_difference": 146,
+        "seconds_per_observed_query": 6.278069554794521,
+        "observed_queries_per_hour": 573.4246759420981
+      },
+      {
+        "start_utc": "2026-10-29T08:17:32.542713+00:00",
+        "end_utc": "2026-10-29T08:32:52.057027+00:00",
+        "start_observed_counter": 534,
+        "end_observed_counter": 662,
+        "elapsed_seconds": 919.514314,
+        "observed_query_difference": 128,
+        "seconds_per_observed_query": 7.183705578125,
+        "observed_queries_per_hour": 501.1341237261044
+      },
+      {
+        "start_utc": "2026-10-29T08:32:52.057027+00:00",
+        "end_utc": "2026-10-29T08:48:12.507315+00:00",
+        "start_observed_counter": 662,
+        "end_observed_counter": 797,
+        "elapsed_seconds": 920.450288,
+        "observed_query_difference": 135,
+        "seconds_per_observed_query": 6.818150281481482,
+        "observed_queries_per_hour": 528.0024422133703
+      },
+      {
+        "start_utc": "2026-10-29T08:48:12.507315+00:00",
+        "end_utc": "2026-10-29T09:03:26.759426+00:00",
+        "start_observed_counter": 797,
+        "end_observed_counter": 902,
+        "elapsed_seconds": 914.252111,
+        "observed_query_difference": 105,
+        "seconds_per_observed_query": 8.707162961904762,
+        "observed_queries_per_hour": 413.45269587241893
+      }
+    ],
+    "final_shorter_interval": {
+      "start_utc": "2026-10-29T09:03:26.759426+00:00",
+      "end_utc": "2026-10-29T09:05:57.877641+00:00",
+      "start_observed_counter": 902,
+      "end_observed_counter": 923,
+      "elapsed_seconds": 151.118215,
+      "observed_query_difference": 21,
+      "seconds_per_observed_query": 7.196105476190476,
+      "observed_queries_per_hour": 500.2705994111961
+    },
+    "sampled_peak_worker_RSS_bytes": 760123392,
+    "sampled_peak_execution_disk_bytes": 2918709162,
+    "interpretation": "Historical sampled wall-time and counters; not per-query timers, full-run peaks or an accepted query count."
+  },
+  "conditional_cost_scenario": {
+    "validation_queries_from_existing_attempt": 166897,
+    "train_sessions_from_existing_attempt": 1180256,
+    "V1_full_query_session_visits_if_completed": 196981185632,
+    "formula_hours": "validation_queries * observed_interval_seconds / observed_counter_difference / 3600",
+    "query_phase_hours_if_prefix_mean_rate_persists": 331.3177523790364,
+    "query_phase_days_if_prefix_mean_rate_persists": 13.804906349126517,
+    "query_hours_at_min_max_full_window_rates": [
+      291.05304846848367,
+      410.1127758356445
+    ],
+    "query_only_speedup_needed_for_6h_scenario": 55.21962539650607,
+    "interpretation": "A conditional extrapolation of a sorted, observed prefix; not a measured full-run duration, confidence interval, runtime bound or remaining time. Startup, global aggregation, bootstrap, final hashing and interruptions are excluded. V1 has no resumable checkpoint."
+  },
+  "decision": {
+    "restart_V1": false,
+    "checkpoint_only_V1_rewrite_sufficient": false,
+    "open_new_real_acceptance_now": false,
+    "recommended_next_stage": "Specify and implement a separately versioned exact oracle with transactional chunks, then synthetic equivalence and crash recovery checks. Any real cost probe is a later, separately bounded step.",
+    "reason": "Observed V1 query cost is incompatible with an hours-scale run. The proposed exact acceleration and recovery path have not been implemented or measured."
+  },
+  "proposed_gate_not_execution_authorization": {
+    "candidate_total_wall_hours": 6,
+    "candidate_estimate_ceiling_hours_including_margin": 4.5,
+    "planning_safety_multiplier": 2,
+    "deadline_reserve_hours": 1.5,
+    "limits_reference_only": {
+      "maximum_process_RSS_bytes": 8589934592,
+      "maximum_execution_disk_bytes": 21474836480,
+      "minimum_free_disk_bytes": 8589934592,
+      "minimum_available_memory_bytes": 4294967296,
+      "maximum_elapsed_seconds": 21600,
+      "monitor_interval_seconds": 0.5
+    },
+    "checkpoint_max_completed_queries_proposal": 64,
+    "checkpoint_target_elapsed_seconds_proposal": 120,
+    "requirements": [
+      "exact semantic coverage and synthetic differential verification",
+      "crash/restart/duplicate/gap/tamper/changed-source/expired-budget tests",
+      "separately authorized cost probe with frozen no-outcome-based sampling and all-phase cost measurements",
+      "all cost strata supported; unknown phase costs block acceptance",
+      "source/control identities unchanged and all test gates locked",
+      "explicitly fixed total budget and deadline before real execution"
+    ],
+    "interpretation": "Proposals for a new protocol, not measured guarantees or authorization. Six hours does not revive the expired V1/readback time allowance. Checkpoint targets can be exceeded by one in-flight query and flush time."
+  }
+}
