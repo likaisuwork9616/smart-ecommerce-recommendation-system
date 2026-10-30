@@ -19,15 +19,25 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 一次真實 validation 已依 3 小時 30 分鐘時限停止 | 主要 166,897 query／2,000 bootstrap 已產出；完整獨立反讀未完成，K1−C1 未驗收；0 重跑、test locked |
+| Stage 12：session-kNN K1 | 原執行已停止；另授權反讀已不在執行，未取得完整驗收 | 末次觀測為 10/29 17:05:57、923 筆逐 query 核對；17:07 左右有系統關機／啟動事件，缺逐程序收尾收據，不能確認實際停止時刻／原因；K1−C1 未驗收，test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
-目前已整理 Stage 6–12 的程式、凍結規格、測試與聚合報告。Stage 12 的唯一一次真實 K1 執行已依時限停止，尚無完整獨立驗收或正式比較結論；原始資料、本機模型及逐筆執行證據留在 Git 忽略路徑，不隨 repository 提交。
+目前已整理 Stage 6–12 的程式、凍結規格、測試與聚合報告。Stage 12 的唯一一次真實 K1 執行已依時限停止，後續另授權的獨立反讀亦已不在執行，仍無完整獨立驗收或正式比較結論；原始資料、本機模型及逐筆執行證據留在 Git 忽略路徑，不隨 repository 提交。
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：一次真實 K1 validation（已依時限停止）
+## Stage 12：V1 獨立反讀已不在執行，未取得完整驗收
+
+2026-10-30 事後核對確認，10 月 29 日另授權的反讀已不在執行，沒有完整驗收收據。最後進度觀測為臺北時間 **2026-10-29 17:05:57，已走完當次逐 query 核對 923 筆**；這只是已觀測下界，不是全域驗收筆數、整體完成百分比或可續跑 checkpoint。
+
+原定截止為同日 **17:20:00**，但現存紀錄缺少成功、例外、期限停止及 supervisor completion 收據，不能寫成已於 17:20 正常依期限停止。Windows System 紀錄顯示 17:07 左右發生關機／重新啟動；這是同時段系統證據，仍不能確定 worker 的實際停止時刻、退出碼或直接原因。
+
+這次反讀於 10 月 29 日 15:12:05 啟動，沿用原 166,897 query／2,000 bootstrap，新增主要訓練／validation／bootstrap 產生為 0。今日核對 358 份凍結來源、61 份準備產物、原九份部分產物、七份複本與前輪 15 份停止證據的 SHA 均一致，六份 gate 仍 locked；這是檔案身分核對，不是 K1 效能驗收。本次不補造歷史收尾收據、不重啟 oracle，也不將原 partial namespace 改為成功。K1−C1 尚無完整驗收結論；最終選模／重擬合／預留測試未啟動。
+
+來源、保存核對與紀錄缺口見[獨立反讀說明](docs/STAGE12_RETAILROCKET_KNN_READBACK_ONLY_20261029.md)及[2026-10-30 事後核對報告](reports/stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json)。
+
+## Stage 12：一次真實 K1 validation（前輪已依時限停止）
 
 2026-10-29 唯一一次凍結入口已於臺北時間 14:34:09，依使用者追加的整輪 **3 小時 30 分鐘（含已用時間）** 上限停止。主要 train 索引、166,897 筆 validation 與 2,000 次 bootstrap 已產出；完整獨立反讀未完成，沒有驗收通過的 K1−C1 結論。1 次執行、0 次重跑，凍結程式及比較規格未改。
 

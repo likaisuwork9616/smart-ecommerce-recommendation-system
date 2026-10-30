@@ -1,6 +1,6 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本及 validation 入口合成驗收／凍結及單次執行停止保存（7份JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存及另授權反讀事後狀態核對（8份JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
@@ -8,7 +8,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| Stage 12最新：一次真實 validation 已停止 | [停止與界線](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md) → [實際保存](stage12/retailrocket_session_knn_v1_validation_attempt.json)；整輪 3 小時 30 分鐘到時停止，主要 166,897 query／2,000 bootstrap 已產出，完整獨立驗收未完成，無正式 K1−C1 結論；0 重跑、test locked |
+| Stage 12 最新：另授權反讀事後狀態核對 | [實際狀態與紀錄缺口](../docs/STAGE12_RETAILROCKET_KNN_READBACK_ONLY_20261029.md) → [10/30 核對報告](stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json)；已不在執行，末次觀測 923 筆，無完整驗收或逐程序收尾；17:07 左右有系統關機／啟動事件，原定 17:20 不等於實際停止時間。SHA 核對不是效能驗收，test locked |
+| Stage 12 前輪：一次真實 validation 已停止 | [停止與界線](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md) → [實際保存](stage12/retailrocket_session_knn_v1_validation_attempt.json)；整輪 3 小時 30 分鐘到時停止，主要 166,897 query／2,000 bootstrap 已產出，完整獨立驗收未完成，無正式 K1−C1 結論；0 重跑、test locked |
 | Stage 12前輪：validation 入口驗收 | [入口](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md) → [驗收](stage12/retailrocket_session_knn_v1_validation_entry_acceptance.json) → [凍結](stage12/retailrocket_session_knn_v1_validation_entry_specification.json)；83 項相關測試、兩組正式檔案合成案例完整 oracle 通過；358 份來源凍結、15 份直接輸入綁定；0 真實 K1 fit／validation，test locked |
 | Stage 12前輪：K1 實作與成本 | [方法](../docs/STAGE12_RETAILROCKET_KNN_IMPLEMENTATION_V1.md) → [驗收](stage12/retailrocket_session_knn_v1_implementation_acceptance.json) → [實作凍結](stage12/retailrocket_session_knn_v1_implementation_specification.json)；49 項測試與兩組完整合成 oracle 通過；train 1,180,256 sessions、1,587,436 個不同 session-item；0 真實 K1 fit／validation，test locked |
 | Stage 12前輪：時間可取得性與 K1 凍結 | [可讀規格](../docs/STAGE12_TEMPORAL_AVAILABILITY_AND_KNN_SPEC_V1.md) → [盤點](stage12/retailrocket_stage12_inventory_v1.json) → [凍結收據](stage12/retailrocket_session_knn_v1_specification.json)；新驗收來源 0、固定 Jaccard k=500，12 項規格測試通過，0 新 fit／排名／指標，test locked |
