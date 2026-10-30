@@ -1,0 +1,220 @@
+{
+  "status": "not_running_no_complete_acceptance_process_stop_unrecorded",
+  "audit_created_utc": "2026-10-30T07:57:52.724863+00:00",
+  "audit_timezone": "Asia/Taipei",
+  "scope": {
+    "new_primary_fits": 0,
+    "new_validation_rankings": 0,
+    "new_bootstrap_generations": 0,
+    "new_or_resumed_independent_readbacks": 0,
+    "new_model_selection_or_refits": 0,
+    "new_reserved_test_rankings": 0,
+    "model_or_query_outputs_semantically_decoded": false,
+    "sqlite_opened_or_recovered": false,
+    "original_receipts_modified_or_backfilled": false
+  },
+  "historical_attempts": {
+    "original_primary_attempt": {
+      "report": {
+        "path": "reports/stage12/retailrocket_session_knn_v1_validation_attempt.json",
+        "bytes": 10799,
+        "sha256": "0562c3bc77d423dc914a64d091414064ee5e37f5016c5cf4df08191b239134a7"
+      },
+      "worker_stopped_utc": "2026-10-29T06:34:10.002107+00:00",
+      "reason": "The user shortened the total run allowance to 3 hours 30 minutes while the full independent readback was still running.",
+      "independent_acceptance_complete": false
+    },
+    "separate_readback": {
+      "invocation": {
+        "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/invocation.json",
+        "bytes": 1151,
+        "sha256": "cc2018a6978c7ab60c759743c89c29a3fcaff46ab15f7bad0de87030c9d70fe8"
+      },
+      "started_utc": "2026-10-29T07:12:05.399118+00:00",
+      "oracle_started": {
+        "utc": "2026-10-29T07:12:58.077317+00:00",
+        "method": "unchanged_V1_oracle.verify",
+        "restart_from_beginning": true,
+        "resume_checkpoint_used": false,
+        "primary_pipeline_called": false,
+        "deadline_utc": "2026-10-29T09:20:00+00:00"
+      },
+      "planned_deadline_utc": "2026-10-29T09:20:00+00:00",
+      "actual_process_stop_utc": null,
+      "actual_process_exit_code": null,
+      "recorded_process_stop_cause": null,
+      "new_primary_train_runs_recorded": 0,
+      "new_primary_validation_runs_recorded": 0,
+      "new_primary_bootstrap_generations_recorded": 0
+    }
+  },
+  "process_checks": {
+    "checked_utc": "2026-10-30T07:57:52.724863+00:00",
+    "worker": {
+      "pid": 15264,
+      "pid_present": false,
+      "recorded_identity_running": false,
+      "expected_creation_time_available": true
+    },
+    "observed_launchers": [
+      {
+        "pid": 15428,
+        "pid_present": false,
+        "recorded_identity_running": false,
+        "expected_creation_time_available": false
+      }
+    ],
+    "matching_research_processes": [],
+    "python_commandlines_access_denied_pids": [],
+    "note": "Present-day PID checks do not establish historical process exit time or cause."
+  },
+  "readback_progress": {
+    "valid_progress_records": 224,
+    "valid_resource_observations": 1363,
+    "last_progress": {
+      "utc": "2026-10-29T09:05:57.877641+00:00",
+      "phase": "full_session_and_candidate_readback",
+      "completed_query_rows_observed": 923,
+      "global_acceptance_complete": false,
+      "note": "Read-only observation of V1 locals; not a resumable checkpoint or final acceptance."
+    },
+    "last_resource_observation": {
+      "utc": "2026-10-29T09:05:58.097018+00:00",
+      "elapsed_seconds": 6832.75,
+      "launcher_pid": 15428,
+      "worker_pid": 15264,
+      "worker_RSS_bytes": 701005824,
+      "worker_CPU_seconds": 6778.3125,
+      "execution_disk_bytes": 2918709162,
+      "execution_file_bytes": {
+        "aggregate.json": 116184,
+        "bootstrap.jsonl": 1023882,
+        "fit_audit.json": 369,
+        "oracle.sqlite": 402698240,
+        "postings.jsonl": 48957640,
+        "queries.jsonl": 2294757672,
+        "sessions.jsonl": 64913209,
+        "train_sessions.jsonl": 106241966
+      }
+    },
+    "completed_query_rows_observed_lower_bound": 923,
+    "query_counts_monotone": true,
+    "complete_independent_acceptance": false,
+    "accepted_query_count": null,
+    "K1_minus_C1_accepted_result": null,
+    "interpretation": "Observed completed per-query checks are a lower bound, not global acceptance, a percentage or a resumable checkpoint."
+  },
+  "system_events": {
+    "evidence": {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-status-audit-20261030/system_events.json",
+      "bytes": 939,
+      "sha256": "e2a799deb07df3ca0608c61948f643fa0f264bc60075b12b9e4cd04b7892df01"
+    },
+    "events": [
+      {
+        "utc": "2026-10-29T09:06:55.3810176Z",
+        "provider": "EventLog",
+        "event_id": 6006,
+        "record_id": 16700,
+        "data": {}
+      },
+      {
+        "utc": "2026-10-29T09:07:00.3459137Z",
+        "provider": "Microsoft-Windows-Kernel-Power",
+        "event_id": 109,
+        "record_id": 16712,
+        "data": {
+          "ShutdownActionType": "5",
+          "ShutdownEventCode": "0",
+          "ShutdownReason": "5"
+        }
+      },
+      {
+        "utc": "2026-10-29T09:07:03.5579472Z",
+        "provider": "Microsoft-Windows-Kernel-General",
+        "event_id": 13,
+        "record_id": 16713,
+        "data": {}
+      },
+      {
+        "utc": "2026-10-29T09:07:24.8838313Z",
+        "provider": "Microsoft-Windows-Kernel-General",
+        "event_id": 12,
+        "record_id": 16714,
+        "data": {
+          "BootMode": "0"
+        }
+      },
+      {
+        "utc": "2026-10-29T09:07:30.7411856Z",
+        "provider": "EventLog",
+        "event_id": 6005,
+        "record_id": 16710,
+        "data": {}
+      }
+    ],
+    "interpretation": "System shutdown/start events occur after the final observation and before the planned deadline. No per-process exit receipt proves the exact worker stop time or cause."
+  },
+  "receipt_presence": [
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/completion.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/deadline_stop_started.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/worker_outcome.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/worker_failure.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/post_stop_source_and_original_check.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-session-knn-readback-only-20261029/preservation_manifest.json",
+      "present": false
+    },
+    {
+      "path": "shop-mysql-runtime/retailrocket_session_knn_v1_readback_only_20261029/independent_readback_receipt.json",
+      "present": false
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v1_readback_only_20261029.json",
+      "present": false
+    }
+  ],
+  "identity_verification": {
+    "status": "all_checked_identities_match_saved_records",
+    "counts": {
+      "frozen_sources": 358,
+      "prepared_outputs": 61,
+      "original_execution_artifacts": 9,
+      "original_stop_observation_evidence": 15,
+      "copied_primary_inputs": 7,
+      "reference_gates": 6,
+      "invoked_helper": 1,
+      "original_stop_report_and_oracle_source": 2
+    },
+    "copied_files_match_originals": true,
+    "original_inventory_matches": true,
+    "original_namespace": "partial",
+    "original_frozen_oracle_unchanged": true,
+    "reserved_test": "locked",
+    "final_selection_or_test_namespaces": "absent_as_required",
+    "new_readback_files": 8,
+    "new_readback_bytes": 2918709162,
+    "note": "New oracle.sqlite is hashed as bytes only; no historical digest or scientific acceptance is claimed."
+  },
+  "audit_evidence_manifest": {
+    "path": "shop-mysql-runtime/verification/retailrocket-session-knn-status-audit-20261030/evidence_manifest.json",
+    "bytes": 111448,
+    "sha256": "8adeb9015c4c6ca9d6a936ea2e81f03be1fe6eb85dfec61b729c10e2d9d2023f"
+  },
+  "interpretation": "This is a later status/identity audit, not a reconstructed 2026-10-29 completion receipt or a K1 performance report."
+}
