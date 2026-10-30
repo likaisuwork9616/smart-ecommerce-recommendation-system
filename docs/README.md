@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V1 獨立反讀事後核對（最新，未取得完整驗收）
+## Stage 12：反讀成本與中斷保存規劃（最新，暫不另開驗收）
+
+[成本、精確等價與恢復設計](STAGE12_RETAILROCKET_KNN_READBACK_COST_AND_RECOVERY_PLAN_20261030.md) → [既有日誌成本報告](../reports/stage12/retailrocket_session_knn_readback_cost_plan_20261030.json)。前段觀測 919 筆／6,567.71 秒，同速率全量 query 情境約 331 小時，非實測總工時；先準備獨立 V2、合成差分／中斷恢復與有界成本探測，通過後才決定全量驗收。本輪僅規劃，K1−C1 無正式結論，test locked。
+
+## Stage 12：V1 獨立反讀事後核對（前輪，未取得完整驗收）
 
 [實際狀態、紀錄缺口與保存方式](STAGE12_RETAILROCKET_KNN_READBACK_ONLY_20261029.md) → [2026-10-30 事後核對報告](../reports/stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json)。反讀已不在執行，末次觀測為 10/29 17:05:57、923 筆逐 query 核對，尚無完整驗收。17:07 左右有系統關機／啟動事件；缺逐程序收尾，不能把原定 17:20 截止寫成實際停止時間。本輪只核既有證據，不重跑主要計算或 oracle，原 partial、K1−C1 未驗收與 test locked 保留。
 
