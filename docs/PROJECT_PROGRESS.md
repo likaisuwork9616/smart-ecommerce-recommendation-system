@@ -4,6 +4,22 @@
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## Stage 12 第 9 輪：完整分層、固定配對樣本與人工成本量測
+
+| 工作 | 狀態 | 實際結果與界線 |
+| --- | --- | --- |
+| 新入口守門與回歸 | 39 項全過 | monitor 11／人工代理 4／配對抽取 12／supervisor 12；0 failures／errors／skips，非全專案測試數 |
+| 來源／封存 DB | 前後核對一致 | 原 440 來源加新方法／模型／收據共 455 份；舊 DB 唯讀 immutable、TEMP MEMORY。新版重建未量，歷史 840.406 秒保留 |
+| 完整 validation 分層 | 完成 | 166,897 EOF、16 個非空層、64 固定 probes；491.907 秒含 profiler，未用 target／效果選樣 |
+| 樣本與四臂／checkpoint | 完成，非全量驗收 | 排名 4.215 秒；完整七串流抽取 62.808 秒；64 筆四臂核對／64 records／1 chunk 17.072 秒，無 candidate／acceptance |
+| 人工全規模 ledger／global | 完成，工程代理 | 166,897 queries／62,235 visitors／222,754 union；2,608 chunks，payload 577 MB；寫入 320.675 秒、global 80.833 秒 |
+| 人工 draws／恢復 | 完成，非真實原 draws 驗收 | 2,000 合成 draws：準備 43.336 秒、反讀 75.339 秒；完整人工鏈恢復 20.047 秒。未測真實完整前綴／尾段恢復 |
+| 整輪與資源 | 正常完成 | 1,268.609 秒、退出 0；RSS 抽樣峰值約 1.343 GiB、namespace 約 0.999 GiB；非完整上界 |
+| 成本門檻與全量 | **不啟動** | paired 分量按層最大值外推 11,159.009 秒，乘提案兩倍餘裕 6.20 小時已超 4.5 小時規劃門檻；非實測總工時，完整 T_plan 仍空值 |
+| 研究與保留測試 | 維持鎖定 | 0 新主要 fit／validation／bootstrap、0 final／refit／test；K1−C1 無正式結論，test locked；每日 10% 與 Dashboard 暫緩維持 |
+
+rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布／payload 及真實 joint SQL tail、完整 control prefix／未提交尾段恢復未覆蓋；下一步先降低逐筆核對成本並設計可驗證來源定位，再重估。見[量測方法與決策](STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md)、[39 項合成驗收](../reports/stage12/retailrocket_session_knn_v3_cost_entry_acceptance_20261103.json)及[實際成本證據](../reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)。
+
 ## Stage 12 第 8 輪：監控成本診斷
 
 | 工作 | 狀態 | 實際結果與界線 |

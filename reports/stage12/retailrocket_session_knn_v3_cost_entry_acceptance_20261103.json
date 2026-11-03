@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-11-03T04:40:03.985443+00:00",
+  "status": "v3_cost_diagnostic_entry_synthetic_accepted",
+  "tests_run": 39,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "seconds": 13.237549600016791,
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_monitor_v3.py",
+      "bytes": 5935,
+      "sha256": "6683cdd0fea3db236e4afd63b4104b1683a3b6557393461e2c40ad9455a837e3"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_probe_v3.py",
+      "bytes": 26337,
+      "sha256": "3824392b3db782edbd6e82423f0558e0444334597a1b882b783912a8f98dcb6b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_proxy_v3.py",
+      "bytes": 18883,
+      "sha256": "d9a9fd81330bd93d450f6be47d0049814df78f2a97d94e67737434dfbd78d769"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_cost_v3.py",
+      "bytes": 15299,
+      "sha256": "aa7cd4e0b6e3140ebcbc33d3c921ef2792a6c84444ca9716c8283c0eb958d481"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_monitor_v3.py",
+      "bytes": 6645,
+      "sha256": "9577a91dc03a9963391f022ea9af19adf1818b3bfd75b3762190c44ba6fbe54f"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pair_probe_v3.py",
+      "bytes": 10560,
+      "sha256": "f6b41f55c7d7156f1deb1656818194435c32fc7dbd3e29351da2fb45d9436748"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_proxy_v3.py",
+      "bytes": 6191,
+      "sha256": "84aca69a4ba9cc822b92c1a48a17d8778ed17a69150d368bdf07c0f4b40018bd"
+    },
+    {
+      "path": "tests/test_run_retailrocket_session_knn_cost_v3.py",
+      "bytes": 15494,
+      "sha256": "2b758d9abd615e06d29388317cbd6f9e2f896ddd37d10118c59cf1536d8f32aa"
+    }
+  ],
+  "test_modules": [
+    "tests.test_retailrocket_session_knn_monitor_v3",
+    "tests.test_retailrocket_session_knn_proxy_v3",
+    "tests.test_retailrocket_session_knn_pair_probe_v3",
+    "tests.test_run_retailrocket_session_knn_cost_v3"
+  ],
+  "local_evidence": {
+    "path": "shop-mysql-runtime/verification/knn-v3-entry-acceptance-445310922b3c402f8adeb75b3a4e7221/tests.log",
+    "bytes": 7345,
+    "sha256": "9a8b0c5729edf810c5d851a4c3bef9a3aa167a6967926d1d1f194423706833ac"
+  },
+  "scope": {
+    "real_primary_fits": 0,
+    "real_validation_ranking": 0,
+    "new_real_bootstrap": 0,
+    "full_readback": false,
+    "reserved_test": "locked"
+  },
+  "interpretation": "Synthetic loader/subset/monitor/proxy/supervisor acceptance only. Full-shape synthetic and frozen real selected measurements are not run by tests."
+}

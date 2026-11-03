@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V3 工程成本診斷 | [run_retailrocket_session_knn_cost_v3.py](run_retailrocket_session_knn_cost_v3.py)、[配對抽取](retailrocket_session_knn_pair_probe_v3.py)、[人工代理](retailrocket_session_knn_proxy_v3.py)、[方法](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) | --diagnose 會另開新 30 分鐘工程窗口，需方法名冊／SHA／封存 DB／原來源完整相符；已完成一次，不為查看結果重跑。無全量／final／test 開關 |
 | K1 validation 入口凍結核對 | [run_retailrocket_session_knn_v1.py](run_retailrocket_session_knn_v1.py)、[loader](retailrocket_session_knn_io.py)、[完整獨立反讀](retailrocket_session_knn_readback.py)、[操作](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md) | 真實單次執行已依 3 小時 30 分鐘上限停止；namespace 為 partial，禁止再 --run-validation，原 --verify 會拒絕部分結果。只讀來源核對見最新停止文件，無 final／test 模式 |
 | 三臂研究交付與保存 | [archive_retailrocket_three_arm_v1.py](archive_retailrocket_three_arm_v1.py)、[交付說明](../docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md) | --verify 核 ZIP／live 凍結證據／包外依賴；--verify-archive-only 僅核包與收據；不重算研究、不解壓、不開 test |
 | D1／三臂／bootstrap 真實完整驗收 | [run_retailrocket_directed_v1.py](run_retailrocket_directed_v1.py)、[結果與操作](../docs/STAGE11_RETAILROCKET_DIRECTED_VALIDATION_V1.md) | 已單次 train／完整 validation／主要 bootstrap 與全反讀；現只 --verify，不追加 fit／排名／抽樣；沒有 final／test 模式 |
@@ -77,7 +78,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V2 獨立反讀與成本入口（最新）
+## Stage 12：V3 完整分層、固定配對與人工成本（最新）
+
+`run_retailrocket_session_knn_cost_v3.py --diagnose` 在新 namespace 核原 440 來源及新增模型／方法共 455 份，以封存模型唯讀完成全窗分層，先凍結 64 keys 才讀所選 target／四臂；量樣本、checkpoint 與同規模人工 global／2,000 draws／ledger 恢復，來源／收尾及各 phase 分開保存。主 DB immutable／TEMP MEMORY，外部 supervisor 維持 30 分鐘／RSS／磁碟硬停止。
+
+首次工程窗口已正常完成、全量仍 no-go；查看既有[報告](../reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)不需要執行命令。人工代理不覆蓋真實完整 payload／joint SQL tail／前綴尾段恢復，沒有 full／refit／test CLI；詳細界線見[分段成本文件](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md)。
+
+## Stage 12：V2 獨立反讀與成本入口（前輪）
 
 [run_retailrocket_session_knn_v2.py](run_retailrocket_session_knn_v2.py) 的 `--probe` 在通過且 SHA 相同的合成驗收後，建立全新 namespace，最多 30 分鐘量來源核對、獨立 SQL 重建、全窗分層與最多 64 筆 query 的工程成本。只讀既有主要產物，不重訓或產生正式 K1 比較結論；沒有全量／final／test 開關。必要成本未量到即 no-go，詳見 [V2 操作與限制](../docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md)。
 

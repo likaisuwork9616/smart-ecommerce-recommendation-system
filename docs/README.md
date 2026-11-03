@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V3 監控與建置成本診斷（最新）
+## Stage 12：V3 分層、配對與人工成本量測（最新）
+
+[分段方法與決策](STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) → [39 項入口合成驗收](../reports/stage12/retailrocket_session_knn_v3_cost_entry_acceptance_20261103.json) → [實際成本](../reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)。完整 166,897 queries 分層／64 固定樣本配對、全規模人工 global／2,000 draws／ledger 恢復完成。paired 分量加兩倍餘裕約 6.20 小時，非實測總工時；T_plan 空值、全量 no-go，test locked。
+
+## Stage 12：V3 監控與建置成本診斷（前輪）
 
 [診斷方法與界線](STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md) → [監控微量測](../reports/stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)。11 項測試通過；20,000 callbacks 的三輪中位數 1.118→0.015 秒僅為微量測，不能當作全輪反讀加速。重複索引／三次 SHA 待端到端量測，原 840.406 秒仍保留，全量 no-go、test locked。
 

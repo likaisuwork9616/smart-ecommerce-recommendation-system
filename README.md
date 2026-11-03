@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V2 合成通過；V3 監控成本診斷完成，暫不全量 | V2 185 項測試通過；新監控 11 項通過。20,000 callbacks 中位數 1.118→0.015 秒僅為微量測；完整分層與後續成本待量，K1−C1 未驗收，test locked |
+| Stage 12：session-kNN K1 | V3 分層／配對／人工成本量測完成；全量 no-go | 新入口 39 項通過；完整 166,897 筆分層、64 固定樣本四臂核對、人工全規模全域／2,000 draws／ledger 恢復完成。兩倍配對分量情境約 6.20 小時，超提案門檻；K1−C1 未驗收、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,17 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：監控成本診斷完成（最新）
+## Stage 12：分層、配對與人工成本實測完成，維持全量 no-go（最新）
+
+2026-11-03 新入口 **39 項合成測試通過**後，獨立新窗口用時 **1,268.609 秒（約 21 分 9 秒）**、正常退出碼 0，前後各核原 440 來源及新增封存 DB／方法等共 455 份。完整 **166,897 筆 validation** 分層在 **491.907 秒**完成（含 profiler 開銷），16 層各凍結 4 筆、共 **64 probes**；其後才讀 targets／四臂原值。樣本排名 4.215 秒、完整來源抽取 62.808 秒、64 筆配對與 checkpoint 17.072 秒，均保存獨立收據。
+
+另完成 **166,897 queries／62,235 visitors／222,754 catalog union** 的人工工程代理：ledger 寫入 320.675 秒、全域 80.833 秒、2,000 合成 draws 準備 43.336 秒／反讀 75.339 秒、ledger 恢復 20.047 秒。人工 payload 約 577 MB，與原真實 payload、joint tail／恢復分布不同，不能當作完整實值上界。
+
+按每層最大配對成本外推，逐筆分量為 11,159.009 秒；乘提案兩倍餘裕約 **6.20 小時**，已超過候選 4.5 小時規劃門檻，還未加入其他必要成本。這是工程情境，**不是全量實測或上界**；完整 `T_plan` 仍空白，**暫不啟動全量**。新版完整重建未重新量測，歷史 840.406 秒仍保留；真實 payload、聯合 SQL 尾端與真實完整來源／尾段恢復待補。K1−C1 無正式結論，test locked；0 新主要 fit／validation／bootstrap。
+
+實際方法、成本與界線見[分段量測說明](docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md)、[新入口合成驗收](reports/stage12/retailrocket_session_knn_v3_cost_entry_acceptance_20261103.json)及[工程成本報告](reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)。下一步先降低逐筆配對成本並驗證來源定位／恢復，不延長舊窗口直接跑。
+
+## Stage 12：監控成本診斷完成（前輪）
 
 2026-11-03 先檢查前輪準備與分層路徑，固定每輪 20,000 callbacks、三輪微量測中位數：舊 UTC＋停止檔查詢 **1.117981 秒**，新 0.25 秒節流檢查 **0.015331 秒**；11 項監控測試通過。這不是整輪反讀加速倍數。另以唯讀 schema 確認兩個同欄序 posting 索引，並指出建置前來源 SHA 重複三次；未改原 DB 或凍結 V1／V2。
 
