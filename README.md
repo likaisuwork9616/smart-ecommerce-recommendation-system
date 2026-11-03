@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V5 完整形狀工程 ledger 已建置；全量關閉 | 166,897 筆／62,235 位訪客／2.414 GB，110 筆已驗參考 payload 全同；建置 350.266 秒、窗口 466.281 秒。完整鏈恢復／global／工程 draws 與保存分項待補；K1−C1 未正式驗收、test locked |
+| Stage 12：session-kNN K1 | V5 工程成本覆蓋與評估完成；維持 no-go | 完整重建、聯合尾端、166,897 筆真實格式工程 ledger／global／恢復／新工程 draws 已量；48 筆保存分項重測一致，查詢分量情境約 5.971 小時（非全量實測）；全量獨立驗收未啟動、K1−C1 未定、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V5 完整形狀工程 ledger 已建置（最新）
+## Stage 12：V5 成本覆蓋已補，評估仍不啟動全量（最新）
+
+新版完整重建、聯合尾端及 **166,897 筆／62,235 位訪客／2.414 GB** 真實格式工程 ledger 成本已補。最後窗口 **1,194.094 秒、正常退出 0**，初末 522 份來源一致；完整工程鏈與七路來源 EOF 恢復 **177.864 秒**、四臂 global **532.128 秒**、新 2,000 工程 draws 入口 **332.927 秒**。這是成本代理，完整 K1 獨立排名與原 aggregate／draws 尚未驗收。
+
+同一組 48 筆重測的科學 bytes 相同；budget 寫入另列後，查詢分量情境仍約 **5.971 小時**，乘提案兩倍餘裕約 **11.941 小時**，未加其他必要階段，超過提案 4.5 小時門檻。這不是全量實測或上界，也不與原窗口跨次相減。**維持 no-go：全量 K1 獨立反讀不啟動、預留測試 locked、K1−C1 無正式結論，T_plan 空值。** 下一步先處理查詢／分層情境與保存成本，再提全量規格；每日 10% 與 Dashboard 暫緩維持。見[方法與限制](docs/STAGE12_RETAILROCKET_KNN_COST_COVERAGE_DECISION_V5_20261103.md)、[實測](reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json)及[成本評估](reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json)。
+
+## Stage 12：V5 完整形狀工程 ledger 已建置（前步）
 
 **18 項合成測試通過**後，以既有四臂輸出建立完整筆數及真實 payload 形狀的工程成本代理：**166,897 筆、62,235 位訪客、2,608 chunks，共 2,413,599,879 bytes**。建置階段 **350.266 秒**，總窗口 **466.281 秒、正常退出 0**，初末 **498 份來源綁定一致**；先前不同的 **110 筆已驗 payload** 全部對上。
 

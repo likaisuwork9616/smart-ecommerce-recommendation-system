@@ -10,7 +10,17 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V5 原始輸出工程帳本（最新）
+## Stage 12：V5 預算保存成本觀測與全量決策（最新）
+
+[checkpoint 預算觀測器測試](test_retailrocket_session_knn_checkpoint_cost_v5.py) **5 項全部通過，耗時 1.456 秒**。以合成資料檢查觀測前後的科學內容位元組相同，並將實際原子寫入依逐筆附加、區塊提交、階段與初始化分開計時。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_checkpoint_cost_v5 -v
+```
+
+真實工程窗口另重測原本的 48 筆，輸出科學內容逐位元組相同。166,897 筆工程代理帳本用於量測完整規模的恢復與聚合；具獨立逐筆驗證參考的仍是 110 筆。扣除同次直接預算保存成本後，查詢情境 5.971 小時，乘兩倍餘裕後為 11.941 小時。全量反讀維持關閉，K1−C1 尚無正式結論，預留測試鎖定。[5 項合成驗收收據](../reports/stage12/retailrocket_session_knn_v5_budget_observer_acceptance_20261103.json) · [方法與範圍](../docs/STAGE12_RETAILROCKET_KNN_COST_COVERAGE_DECISION_V5_20261103.md) · [重播實測](../reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json) · [決策報告](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json)
+
+## Stage 12：V5 原始輸出工程帳本（前輪）
 
 [工程帳本合成驗收](test_retailrocket_session_knn_ledger_cost_v5.py) **18 項全部通過**。測試涵蓋逐筆編碼、訪客與分組人數、已驗子集的對照、已提交資料毀損與封存前中斷，以及工程帳本和已驗證帳本的區隔。
 

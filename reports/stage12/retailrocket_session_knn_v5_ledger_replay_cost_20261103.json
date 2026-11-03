@@ -1,0 +1,431 @@
+{
+  "created_utc": "2026-11-03T07:48:04.436969+00:00",
+  "namespace": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f",
+  "status": "v5_source_backed_engineering_replay_recovery_cost_measured",
+  "kind": "full_shape_source_derived_engineering_cost_proxy",
+  "decision": "full_real_readback_remains_disabled",
+  "T_plan": null,
+  "supervisor": {
+    "T_plan": null,
+    "actual_exit_observed_utc": "2026-11-03T07:46:02.977120+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "kind": "engineering_cost_v5_exit_observation",
+    "operation": "ledger_coverage",
+    "peak_sampled_execution_bytes": 4328542,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 743522304,
+    "reserved_test": "locked",
+    "seconds": 1194.094000000041,
+    "stop_reason": null,
+    "supervisor_error": null,
+    "tracked_processes": 3,
+    "tracked_processes_alive_after_cleanup": 0
+  },
+  "sources_bound": 522,
+  "preflight_seconds_before_window": 0.02885710005648434,
+  "phases": {
+    "complete_engineering_chain_plus_source_eof_position": {
+      "completed": true,
+      "error_type": null,
+      "phase": "complete_engineering_chain_plus_source_eof_position",
+      "seconds": 177.86425909999525
+    },
+    "complete_source_derived_global_cost": {
+      "completed": true,
+      "error_type": null,
+      "phase": "complete_source_derived_global_cost",
+      "seconds": 532.1277565999771
+    },
+    "final_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "final_frozen_source_hash",
+      "seconds": 74.71358169999439
+    },
+    "initial_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "initial_frozen_source_hash",
+      "seconds": 58.149856200034264
+    },
+    "new_engineering_self_reference_draw_cost": {
+      "completed": true,
+      "error_type": null,
+      "phase": "new_engineering_self_reference_draw_cost",
+      "seconds": 332.927373500017
+    },
+    "same_frozen_subset_periodic_budget_cost": {
+      "completed": true,
+      "error_type": null,
+      "phase": "same_frozen_subset_periodic_budget_cost",
+      "seconds": 16.828672499977984
+    }
+  },
+  "engineering_recovery_and_source_position": {
+    "engineering_ledger": {
+      "T_plan": null,
+      "chunks": 2608,
+      "full_verified_real_ledger_recovered": false,
+      "kind": "engineering_unaccepted_saved_outputs_ledger_cost_v5",
+      "payload_bytes_hashed": 2413599879,
+      "records": 166897,
+      "reserved_test": "locked",
+      "roster_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+      "scientific_acceptance": false,
+      "seconds": 161.14846810000017,
+      "source_hash_included": true,
+      "source_hash_scope": "original_queries_jsonl_if_enabled_plus_engineering_catalog_configuration_and_chain"
+    },
+    "scientifically_verified_full_prefix": false,
+    "source_only_eof_position": {
+      "anchor_and_eof_seconds": 3.290810100035742,
+      "anchors_verified": 2657,
+      "index_and_sample_hash_seconds": 0.15595589997246861,
+      "replayed_validation_rows": 1,
+      "seek_seconds": 0.005607699975371361,
+      "source_bytes_hashed": 3024512921,
+      "source_hash_seconds": 13.24527690000832
+    }
+  },
+  "engineering_global_cost": {
+    "T_plan": null,
+    "all_four_arm_Fold_results_materialized_for_cost": true,
+    "candidate_count_sum": 35283415722,
+    "catalog_union": 222754,
+    "conditional_queries": 161211,
+    "cross_tab_cells_processed": 9,
+    "diagnostic_families_processed": 9,
+    "effectiveness_values_returned_or_retained": false,
+    "full_scientific_acceptance": false,
+    "independent_K1_rank_checks": 0,
+    "input_status": "unaccepted_saved_outputs",
+    "kind": "engineering_unaccepted_saved_outputs_ledger_cost_v5",
+    "nested_scalars_processed": 172913449,
+    "original_bootstrap_files_opened": false,
+    "records": 166897,
+    "reserved_test": "locked",
+    "seconds": 530.9282300000195,
+    "slice_counts": {
+      "current_basket": {
+        "multiple": 56,
+        "single": 166841
+      },
+      "target_basket": {
+        "multiple": 53,
+        "single": 166844
+      },
+      "target_model": {
+        "all_positive": 154951,
+        "all_zero": 11943,
+        "mixed": 3
+      },
+      "train_activity": {
+        "0": 134300,
+        "1": 6523,
+        "2-5": 6009,
+        "6+": 20065
+      },
+      "visitor_history": {
+        "new": 134249,
+        "seen": 32648
+      }
+    },
+    "source_hash_included": true,
+    "source_hash_scope": "original_queries_jsonl_if_enabled_plus_engineering_catalog_configuration_and_chain",
+    "visitors": 62235
+  },
+  "new_engineering_self_reference_draw_cost": {
+    "T_plan": null,
+    "effectiveness_values_published": false,
+    "engineering_self_reference_draws": 2000,
+    "full_scientific_acceptance": false,
+    "input_status": "unaccepted_saved_output_deltas",
+    "kind": "engineering_unaccepted_saved_outputs_ledger_cost_v5",
+    "new_engineering_draw_values_retained_private": true,
+    "new_fixture_generation_seconds": 49.73713050002698,
+    "new_fixture_replay_seconds": 122.10074870003155,
+    "new_primary_bootstrap_generations": 0,
+    "original_bootstrap_files_opened": false,
+    "original_draws_accepted": false,
+    "records": 166897,
+    "reserved_test": "locked",
+    "seconds": 332.8707882000017,
+    "source_hash_included": true,
+    "source_hash_scope": "original_queries_jsonl_if_enabled_plus_engineering_catalog_configuration_and_chain",
+    "visitors_per_draw": 62235
+  },
+  "same_frozen_subset_budget_cost": {
+    "T_plan": null,
+    "actual_payload_bytes": 2115696,
+    "budget_publications": 12,
+    "by_context": {
+      "chunk_commit": {
+        "seconds": 0.01194029999896884,
+        "writes": 2
+      },
+      "query_append": {
+        "seconds": 0.06735470000421628,
+        "writes": 4
+      },
+      "stage": {
+        "seconds": 0.022262200072873384,
+        "writes": 4
+      },
+      "store_setup": {
+        "seconds": 0.005683800030965358,
+        "writes": 1
+      },
+      "writer_setup": {
+        "seconds": 0.015247599978465587,
+        "writes": 1
+      }
+    },
+    "direct_query_append_budget_seconds": 0.06735470000421628,
+    "full_readback_started": false,
+    "interpretation": "Same-repeat rows split only directly observed periodic budget publication; forced commit/stage/setup budget work remains separately nested. Raw first-window observations remain unchanged. Cache/time conditions differ; no causal speedup or runtime upper bound.",
+    "kind": "same_48_frozen_queries_budget_cost_observation",
+    "maximum_observed_budget_publication_seconds": 0.024757099978160113,
+    "measured_chunk_commit_seconds": 0.060303699981886894,
+    "payload_identical_to_original_joint_probe": true,
+    "repeat_query_scenario_excluding_direct_periodic_budget_seconds": 21494.632288331457,
+    "repeat_raw_query_scenario_seconds": 23796.046846910787,
+    "repeat_verification_only_scenario_seconds": 19298.745946302195,
+    "reserved_test": "locked",
+    "selected_queries": 48,
+    "total_budget_publication_seconds": 0.12248860008548945
+  },
+  "sources_reverified_before_after": true,
+  "post_exit_checks": {
+    "recorded_process_identities": 3,
+    "all_recorded_identities_stopped": true,
+    "engineering_artifact_files_rehashed": 5218,
+    "read_only_audit_seconds": 50.01043540000683,
+    "post_stop_source_hash_seconds": null
+  },
+  "interpretation": "This NEW diagnostic window binds the completed builder normal-exit receipt and immutable engineering seal; it does not extend the builder budget. The old engineering ledger is read-only, while the same frozen 48 V4 queries are rechecked in a NEW namespace solely to split actual periodic budget publication costs (zero new distinct keys or primary/full runs). Recovery checks all engineering chunks plus separate seven-source EOF positioning, not an independently verified full prefix. Global Fold results expose only workload shapes/costs. Draw work uses NEW private engineering self-reference files; original draw contents are not parsed for acceptance, although original files may be opened as opaque bytes for outer SHA checks. Nested timers overlap outer phases; do not add twice. The original joint-probe timings remain unchanged; repeat/split costs are derived from this same repeat, not cross-window subtraction or causal speedup.",
+  "scope": {
+    "engineering_ledger_records": 166897,
+    "new_K1_predictions": 48,
+    "new_independent_K1_query_checks": 48,
+    "new_distinct_engineering_query_keys": 0,
+    "engineering_queries_are_repeats_of_previously_frozen_48": true,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_real_bootstrap": 0,
+    "new_engineering_self_reference_draws": 2000,
+    "original_draws_scientifically_accepted": false,
+    "full_verified_real_ledger": false,
+    "full_real_readback": false,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "remaining": [
+    "unsampled_actual_query_tail_uncertainty",
+    "integrated_full_entry_budget_and_recovery_specification",
+    "independent_full_K1_query_global_original_draw_acceptance_not_started"
+  ],
+  "privacy": "Raw source rows, keys, per-visitor/per-query effects and engineering draw deltas remain ignored; no aggregate effectiveness mean, interval or winner is published.",
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_cost_summary.json",
+      "bytes": 1267,
+      "sha256": "4f0223ef4a83eb905c148c231aeb8cf8b0ef59588c73791b8db96ed1066529a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_pair_measurements.json",
+      "bytes": 60048,
+      "sha256": "ecfffc738db844ab7aa40a06c351ea617ddc5cf5e08db9457a8b7cd72ea9618b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_publication_observations.json",
+      "bytes": 15119,
+      "sha256": "57d72c40baeaae070e1fbd86d49cda752c321a53690f6a64069ebd68c765d9fc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/combined_engineering_recovery.json",
+      "bytes": 839,
+      "sha256": "3ed345b7b80e130b646635f174dc4969c3ed04a513ced11a842aae2bf70eac5b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/complete_engineering_chain_plus_source_eof_position_receipt.json",
+      "bytes": 128,
+      "sha256": "f23dabe96b3f7a733b2bb92da3abfc150362e1710a33157f111a53cdf1434d2c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/complete_engineering_chain_plus_source_eof_position_started.json",
+      "bytes": 105,
+      "sha256": "50060261bdf9c69c5b7772120341b4e03479a4553c55cf4ae51aa7076d6338c0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/complete_source_derived_global_cost_receipt.json",
+      "bytes": 111,
+      "sha256": "a0e9630536d02aaaea062d7d104ea33c180cb56fb792de0f63aef795699b5c73"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/complete_source_derived_global_cost_started.json",
+      "bytes": 89,
+      "sha256": "2a97ff0ada18e81a6f961f18e4cef62891ce7ac4f6b9b0d76c3a20089a3be938"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/draw_cost_summary.json",
+      "bytes": 729,
+      "sha256": "64416cca1ce43cfa624960b9321175f94b1b455d2ed53b9452de1fc5d2929e1f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/final_frozen_source_hash_receipt.json",
+      "bytes": 100,
+      "sha256": "322ee88923dc1b9b089e01de81b72590c50f80903b0c1137e925eb31ceab67f0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/final_frozen_source_hash_started.json",
+      "bytes": 78,
+      "sha256": "599c6ada030068bad33381a3e96301608f96cabeffed1aa110ed6e1af8cc1fac"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/global_cost_summary.json",
+      "bytes": 1024,
+      "sha256": "777e420012ee3c2444ce385423697328e884c3750223f5e89a87c411e24bf538"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/initial_frozen_source_hash_receipt.json",
+      "bytes": 103,
+      "sha256": "7f34145c7aec7b259941ed734c1a096cccb374a27e1125aa370d6f9d9eb5968a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/initial_frozen_source_hash_started.json",
+      "bytes": 80,
+      "sha256": "2db3ded747f24373206886d7b222084739605c143a2126ee31261894b4ce770c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/measurement_result.json",
+      "bytes": 5268,
+      "sha256": "55d1939f74bc394eb389981084b2e90b6608cb2e1db27b961e3110d5138037ae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/new_engineering_self_reference_draw_cost_receipt.json",
+      "bytes": 115,
+      "sha256": "79d163986ba405456218845d0c5fe8651d6f08a39c15f83451207ea19f64ca65"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/new_engineering_self_reference_draw_cost_started.json",
+      "bytes": 94,
+      "sha256": "b7ee292fb74fa820f1f1d8f4c07cb7344bc6e00955a03a2ef12d4b486a237ea3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/post_exit_identity_audit.json",
+      "bytes": 330,
+      "sha256": "bc71cc658e4233ab88f9295e7a30d440e9009c55493d33fb8fd3c871ea6e44c1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/post_exit_immutable_engineering_artifact_audit.json",
+      "bytes": 177,
+      "sha256": "a946ded15265b0bcd79aa3d52c6eb7835684d3b2a745bc1616b189e6eb62868a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/request.json",
+      "bytes": 102191,
+      "sha256": "f5e316eea3356ceacdec6dfd5cf510bd8422baeed30d7f2809e5eba98f357927"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/same_frozen_subset_periodic_budget_cost_receipt.json",
+      "bytes": 116,
+      "sha256": "3cf5aa429b8d8411bc4c3f3f11b14e6df0f93d8980ebc5269b0a9d7b27820f35"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/same_frozen_subset_periodic_budget_cost_started.json",
+      "bytes": 93,
+      "sha256": "d79cd3c88f980eb8384d68e64b857b82f9855b7528e188ea5de1da94e166a594"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/supervisor_completion.json",
+      "bytes": 452,
+      "sha256": "9bad2a33f2bdbaa0ec9ec34cbd87dab3ef19d5d19726b52ffc348e65ed69ebad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/tracked_process_identities.json",
+      "bytes": 264,
+      "sha256": "fd7df636b6f2287a32aeaf89900a293fe223412386f8e803326d74eb39d9aabb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/watch_statistics.json",
+      "bytes": 56,
+      "sha256": "a5cd78b17054edf6b77783900516fa5788ef0cdee70ac8b3fa209eb3fbb6a4bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/worker_identity.json",
+      "bytes": 70,
+      "sha256": "6fa8f4943f9fc5be997862ef077e715ef3c72535489956785b119e8b5420f85f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/engineering_chain_recovery/engineering_phase_receipt.json",
+      "bytes": 646,
+      "sha256": "6ee73b4f6873245a42b110d98c0dc920f14f95c0c8d4ec29eda3286962c17824"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/global_cost/engineering_phase_receipt.json",
+      "bytes": 1185,
+      "sha256": "c6f27015f1a1028e486d17dd90d885a6358a94f4fbfa808c8071edb62ad6e71a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/engineering_draws/engineering_phase_receipt.json",
+      "bytes": 899,
+      "sha256": "2f097047f177d2852cf8adad972c8baea3cfcdb688155878a3b9440bc11ec5c0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/engineering_draws/new_engineering_output.jsonl",
+      "bytes": 1025882,
+      "sha256": "9882f4a6bb1498edd91062eb18e09dbcc2c670ee06c0ccaaa90c06346efb7022"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/engineering_draws/new_engineering_reference.jsonl",
+      "bytes": 970583,
+      "sha256": "79fff8f93855c37012d61a5f3681b1c355ff58014da6e35caa4bc577a42ad907"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "2b32e85c67ebd5cfc70299fa531ffcaf37b89b0f813ae56867f021a6126115d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "ea8e017e5d456ae528f28b4034098e42969e076194c88f77ae648619dc879888"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/run.json",
+      "bytes": 28541,
+      "sha256": "3814a9c7abb49909c903f51a9b5cb0f1159211a6459780fa3a81dee148276c73"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "161f358ddc6855ec961d745be6bd4b767ed4fe0e183b2ec254a592ed7448375a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "d541e29ff2b4f63b59d7aa438d80464cccce467d34ef166315b89681cf40c752"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "b23ab996d73faa357ac47b86eefd4c43baf0348fbadb8eea4965f333b064b036"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-replay-ea85caa6729549c8abec6625315ffc7f/budget_observer_verified_subset/payloads/6f36155d53f64100853061761a60eaeb.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    }
+  ]
+}

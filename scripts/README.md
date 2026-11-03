@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V5 預算保存觀測與成本決策 | [checkpoint 成本觀測器](retailrocket_session_knn_checkpoint_cost_v5.py)、[工程帳本重播](retailrocket_session_knn_ledger_cost_v5.py) | 在同一批 48 筆查詢上分開計時逐筆寫入、區塊提交與其他階段的預算保存。全量反讀維持關閉。[決策報告](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json) |
 | K1 V5 完整規模工程帳本建置 | [來源帳本與封存](retailrocket_session_knn_ledger_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) | 從已存四臂輸出建立工程帳本，用於量測實際資料形狀的序列化、分塊與寫入成本。查看本次結果請讀[建置成本報告](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)。 |
 | K1 V5 聯合尾端成本 | [結構分層與成本彙總](retailrocket_session_knn_joint_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) | 依完整 validation 的工作量結構凍結樣本，在 12 個非空分層實測 48 筆配對。[聯合尾端成本報告](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json) |
 | K1 V5 完整獨立重建成本 | [重建與逐檔核對](retailrocket_session_knn_rebuild_cost_v5.py)、[外部監督窗口](retailrocket_session_knn_cost_window_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) | 只在全新目錄從已綁定的原始來源建立獨立 SQL 模型。實測已完成，耗時與範圍可直接查閱[成本報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)。 |
@@ -83,7 +84,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V5 完整規模工程帳本建置（最新）
+## Stage 12：V5 帳本重播與預算保存成本（最新，維持不啟動全量反讀）
+
+觀測器量測 `budget.json` 寫入、同步至磁碟與更名的時間。重測沿用相同 48 筆，科學內容逐位元組相同。預算保存 12 次合計 0.122489 秒，其中 4 次直接發生於逐筆寫入，共 0.067355 秒。從同次樣本的逐筆計時拆出這一項後，查詢部分的情境為 5.971 小時，加兩倍餘裕為 11.941 小時。其餘階段另計，情境值不代表全量實測或上界。
+
+166,897 筆工程帳本的完整鏈核對與來源檔尾定位 177.864 秒，全域聚合 532.128 秒，2,000 次新工程自我參照抽樣階段 332.927 秒（內含產生 49.737 秒、核對 122.101 秒）。監督窗口 1,194.094 秒，退出碼 0，522 份來源前後 SHA 相符。全量獨立排名驗收仍關閉，K1−C1 未定，預留測試鎖定。[方法與計時範圍](../docs/STAGE12_RETAILROCKET_KNN_COST_COVERAGE_DECISION_V5_20261103.md) · [5 項觀測器合成驗收](../reports/stage12/retailrocket_session_knn_v5_budget_observer_acceptance_20261103.json) · [重播實測](../reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json) · [決策報告](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json)
+
+## Stage 12：V5 完整規模工程帳本建置（前輪）
 
 `build_source_ledger` 讀取已存的四臂推薦，核對指標算術，將原輸出、精確指標字串與二進位差值的十六進位表示寫成工程紀錄。實測處理 166,897 筆、62,235 位訪客，分為 2,608 塊，紀錄共 2,413,599,879 bytes，其中 110 筆與已獨立驗證的參考內容相符。建置階段 350.266 秒包含在 466.281 秒監督窗口內，程序正常退出，498 份綁定來源前後雜湊一致。
 

@@ -11,7 +11,13 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V5 完整規模工程帳本建置（最新）
+## Stage 12：V5 成本覆蓋與決策：維持不啟動全量反讀（最新）
+
+**單就查詢部分，同一批 48 筆重測所得的情境為 5.971 小時，乘原提案兩倍餘裕為 11.941 小時。** 這已超過 4.5 小時規劃上限及 6 小時候選窗口。估算採各層母體筆數乘以樣本最大耗時，只扣除同次量到的逐筆預算保存費用。未抽中查詢的耗時仍未知，無法把情境值當成全量實測或工時上界。
+
+重播以 166,897 筆原始輸出衍生的工程帳本量測。完整帳本鏈與七路來源檔尾定位 177.864 秒，全域聚合 532.128 秒，新建 2,000 次工程自我參照抽樣的完整階段 332.927 秒，內含產生 49.737 秒及核對 122.101 秒。窗口共 1,194.094 秒，退出碼 0，522 份來源前後 SHA 一致。本輪主要模型擬合、主要 validation 與主要 bootstrap 均為 0。工程帳本的完整筆數沒有補足全量獨立排名驗收，K1−C1 尚無正式結論，預留測試維持鎖定。[成本範圍與限制](STAGE12_RETAILROCKET_KNN_COST_COVERAGE_DECISION_V5_20261103.md) · [5 項觀測器合成驗收](../reports/stage12/retailrocket_session_knn_v5_budget_observer_acceptance_20261103.json) · [重播實測](../reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json) · [決策報告](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json)
+
+## Stage 12：V5 完整規模工程帳本建置（前輪）
 
 將已存四臂 validation 輸出寫成工程帳本，保留 166,897 筆查詢、62,235 位訪客的實際資料形狀。逐筆資料分為 2,608 塊，共 2,413,599,879 bytes。110 筆先前獨立驗證過的查詢均與帳本內容相符。建置階段耗時 350.266 秒，監督窗口共 466.281 秒，退出碼 0，498 份綁定來源的 SHA 在前後核對一致。這次量到完整規模的建置成本；全量獨立排名反讀仍然關閉，K1−C1 尚無正式結論，預留測試維持鎖定。[方法與限制](STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) · [18 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_ledger_acceptance_20261103.json) · [建置成本實測](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)
 

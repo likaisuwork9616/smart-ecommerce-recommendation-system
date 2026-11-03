@@ -1,0 +1,103 @@
+{
+  "created_utc": "2026-11-03T07:48:35.600949+00:00",
+  "status": "v5_cost_coverage_assessed_do_not_start_full_readback",
+  "decision": "do_not_start_full_real_readback",
+  "execution_enabled": false,
+  "T_plan": null,
+  "basis": "Engineering cost coverage was extended without running full independent K1 readback. Both the original joint-query scenario and same-repeat scenario excluding direct periodic budget exceed the historical proposed planning gate after its factor-two allowance, before other necessary components. These are conditional sample-max scenarios, not measured full durations or runtime bounds. The user also explicitly keeps full execution disabled.",
+  "reference_proposal_only": {
+    "total_window_seconds": 21600,
+    "planning_cap_seconds": 16200.0,
+    "allowance_factor": 2.0,
+    "new_full_execution_authorization": false
+  },
+  "query_scenarios": {
+    "original_joint_query_component_seconds": 17176.06671698822,
+    "original_component_with_allowance_seconds": 34352.13343397644,
+    "repeat_raw_component_seconds": 23796.046846910787,
+    "same_repeat_excluding_direct_periodic_budget_seconds": 21494.632288331457,
+    "same_repeat_component_with_allowance_seconds": 42989.264576662914,
+    "same_repeat_verification_only_component_seconds": 19298.745946302195,
+    "both_allowance_scenarios_exceed_proposed_plan_cap": true,
+    "both_allowance_scenarios_exceed_proposed_total_window": true,
+    "first_window_observations_preserved": true,
+    "no_cross_window_subtraction": true
+  },
+  "measured_coverage": {
+    "complete_independent_rebuild_seconds": 248.67609710001852,
+    "structural_joint_roster_queries": 166897,
+    "joint_selected_queries": 48,
+    "known_independently_verified_unique_queries": 110,
+    "source_derived_engineering_records": 166897,
+    "source_derived_engineering_visitors": 62235,
+    "engineering_payload_bytes": 2413599879,
+    "engineering_chunks": 2608,
+    "engineering_build_seconds": 350.26599640003406,
+    "engineering_chain_and_seven_source_eof_position_seconds": 177.86425909999525,
+    "engineering_four_arm_global_seconds": 532.1277565999771,
+    "new_engineering_self_reference_draw_phase_seconds": 332.927373500017,
+    "new_engineering_self_reference_draws": 2000,
+    "same_verified_subset_repeat_queries": 48,
+    "budget_publications_observed": 12,
+    "budget_publication_seconds_observed": 0.12248860008548945,
+    "direct_query_append_budget_seconds_observed": 0.06735470000421628
+  },
+  "non_additivity": "Query verification already includes rank and row parsing; append includes encoding and physical writes. Full source-derived builder includes parsing, given-ID metric arithmetic, encoding and chunk I/O, so it is a fidelity/cost coverage measurement, not an extra disjoint term to blindly add to the query projection. Inner API/phase timers, forced budget within commits/stages, and generation/replay within the draw phase overlap. No artificial exact full T_plan is fabricated from them.",
+  "limits": [
+    "all-query source-derived ledger is scientifically unaccepted; the CP adapter is calibrated only at known verified keys",
+    "full-shape engineering chain recovery is not recovery of a full independently verified real ledger",
+    "finite targeted samples do not certify unsampled actual SQL/vote/payload timing tails",
+    "cache/system state was uncontrolled; no cross-window causal speedup is inferred",
+    "sampled RSS/disk and incomplete OS temporary lifetime are not full resource bounds",
+    "new engineering self-reference draws do not accept the original real 2000 draws",
+    "integrated full-run entry/deadline/recovery specification is not activated by this assessment"
+  ],
+  "recommended_next": "Keep full execution disabled. Use the retained per-stage SQL/rank/append/budget observations to reduce the coupled query cost, preserve exact scientific bytes and recovery checks, then repeat the same frozen sample before proposing a separate full acceptance specification. Do not extend expired namespaces or unlock reserved tests.",
+  "scope": {
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_real_bootstrap": 0,
+    "new_independent_engineering_reconstructions": 1,
+    "full_real_readback": false,
+    "new_real_independent_engineering_K1_evaluations": 96,
+    "known_independently_verified_unique_query_keys": 110,
+    "full_verified_real_ledger": false,
+    "original_real_global_and_bootstrap_accepted": false,
+    "K1_minus_C1_formal_conclusion": null,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json",
+      "bytes": 24412,
+      "sha256": "fe8cb1e394ee6eb2488563590cb5b12fa21a4398e4ef9893906641d14895c073"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json",
+      "bytes": 40143,
+      "sha256": "519db003a27000a786c4f782ee748e3c088567d46612513051c186c80ca52512"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json",
+      "bytes": 13415,
+      "sha256": "c9f927590568813be0593a97e8aa0d88bc736a07e0bfc1b8ebca24deda581c3f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json",
+      "bytes": 20135,
+      "sha256": "6c66aeaad61598e5567ce355fbe4502a578cd7efe1861a63be6f21f0a4349f98"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_readback_cost_plan_20261030.json",
+      "bytes": 9400,
+      "sha256": "b6982c1026d40b926d5e52c49333230b1cfd666d3972611e577ee777090b725b"
+    }
+  ]
+}

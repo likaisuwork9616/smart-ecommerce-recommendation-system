@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-03T07:21:01.894487+00:00",
+  "status": "v5_checkpoint_budget_observer_synthetic_accepted",
+  "kind": "synthetic_byte_equivalence_real_atomic_io_and_periodic_budget_context_observation",
+  "tests": {
+    "run": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.4560930000152439,
+    "modules": [
+      "tests.test_retailrocket_session_knn_checkpoint_cost_v5"
+    ]
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_cost_v5.py",
+      "bytes": 6650,
+      "sha256": "5ce501da8c2eeb7f4b3c7ea38d724b43246ace98ac4eb0038003293071bea0ff"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_cost_v5.py",
+      "bytes": 7592,
+      "sha256": "f5621322aaab63b552c0f9a7c99f1829b43c0c520d8f839b2921e9549d66cd3a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/v5-budget-observer-synthetic-acceptance-20261103/tests.log",
+      "bytes": 1090,
+      "sha256": "11e16158f4fb29b27d18f049b8c1432b6f0be88a06e09b8491b0d6300215ad92"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json",
+      "bytes": 40143,
+      "sha256": "519db003a27000a786c4f782ee748e3c088567d46612513051c186c80ca52512"
+    }
+  ],
+  "scope": {
+    "new_K1_predictions": 0,
+    "full_verified_real_ledger": false,
+    "new_primary_fits": 0,
+    "full_readback": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  }
+}
