@@ -1,6 +1,6 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測及 V4 配對優化（16份JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測、V4 配對優化及真實來源與子集恢復成本（18 份 JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
@@ -8,7 +8,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| Stage 12 最新：V4 配對優化 | [方法](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) → [39 項等價／故障驗收](stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json) → [公平成本](stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)；相同64筆六對AB／BA，14次科學payload bytes全同；逐筆另列commit中位數5.929→3.072秒，非全量保證，full 關閉／test locked |
+| Stage 12 最新：真實 payload、來源定位與 64 筆子集恢復 | 七路來源索引涵蓋 166,897 個 validation 查詢位置。已驗子集共 64 筆，從人工提早保存的 16 筆重啟，重算 48 筆後與不中斷版本逐位元組相同。全量反讀關閉，K1−C1 尚無正式結論，預留測試鎖定。[方法與範圍](../docs/STAGE12_RETAILROCKET_KNN_PAYLOAD_SOURCE_RECOVERY_V4_20261103.md) · [28 項工具合成驗收](stage12/retailrocket_session_knn_v4_source_tools_acceptance_20261103.json) · [真實來源與子集恢復成本](stage12/retailrocket_session_knn_v4_payload_source_cost_20261103.json) |
+| Stage 12 前輪：V4 配對優化 | [方法](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) → [39 項等價／故障驗收](stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json) → [公平成本](stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)；相同64筆六對AB／BA，14次科學payload bytes全同；逐筆另列commit中位數5.929→3.072秒，非全量保證，full 關閉／test locked |
 | Stage 12 前輪：V3 分段成本 | [方法與 no-go](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) → [39 項合成驗收](stage12/retailrocket_session_knn_v3_cost_entry_acceptance_20261103.json) → [實測](stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)；166,897 完整分層、64 固定配對樣本、全規模人工 global／2,000 draws／恢復完成；兩倍 paired 分量情境約 6.20 小時，非總工時上界，維持全量 no-go／test locked |
 | Stage 12 前輪：V3 成本診斷 | [診斷說明](../docs/STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md) → [監控微量測](stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)；11 項通過，20,000 callbacks 中位數 1.118→0.015 秒僅為監控微量測；當輪未做分層端到端與後續成本，全量 no-go、test locked |
 | Stage 12 前輪：V2 實作、恢復與成本 | [V2 說明](../docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md) → [合成驗收](stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json) → [成本探測與決策](stage12/retailrocket_session_knn_v2_cost_probe_20261103.json)；185 項相關測試全過；840.406 秒完成獨立重建，整輪 1,798.14 秒到期，整窗分層未完、固定樣本未啟動。來源保存核對通過，暫不全量，K1−C1 無正式結論，test locked |

@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V4 來源定位與逐筆大小量測 | [七路來源索引](retailrocket_session_knn_sources_v4.py)、[逐筆大小與前綴掃描](retailrocket_session_knn_payload_v4.py)、[定位成本對照](retailrocket_session_knn_source_cost_v4.py) | 28 項合成測試通過。工程配對限於凍結的 64 筆 validation 子集；六個固定位置另量原始來源的讀取成本。預留測試維持鎖定。 |
 | K1 V4 所選配對成本核心 | [精確 SQL](retailrocket_session_knn_sql_v4.py)、[指標檢查](retailrocket_session_knn_checks_v4.py)、[配對／恢復](retailrocket_session_knn_pair_v4.py)、[說明](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) | 只允許最多64個凍結工程樣本；39項等價／故障通過。full global helper僅限人工fixture，無真實全量／test CLI；既有成本直接讀報告，不重跑 |
 | K1 V3 工程成本診斷 | [run_retailrocket_session_knn_cost_v3.py](run_retailrocket_session_knn_cost_v3.py)、[配對抽取](retailrocket_session_knn_pair_probe_v3.py)、[人工代理](retailrocket_session_knn_proxy_v3.py)、[方法](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) | --diagnose 會另開新 30 分鐘工程窗口，需方法名冊／SHA／封存 DB／原來源完整相符；已完成一次，不為查看結果重跑。無全量／final／test 開關 |
 | K1 validation 入口凍結核對 | [run_retailrocket_session_knn_v1.py](run_retailrocket_session_knn_v1.py)、[loader](retailrocket_session_knn_io.py)、[完整獨立反讀](retailrocket_session_knn_readback.py)、[操作](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md) | 真實單次執行已依 3 小時 30 分鐘上限停止；namespace 為 partial，禁止再 --run-validation，原 --verify 會拒絕部分結果。只讀來源核對見最新停止文件，無 final／test 模式 |
@@ -79,7 +80,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V3 完整分層、固定配對與人工成本（最新）
+## Stage 12：V4 逐筆大小、來源索引與中斷恢復成本（最新）
+
+`payload_stats` 逐筆統計原始檔案的位元組數，連同換行符號計入。`build_source_index` 按 validation query 的原始順序，對齊資料集、P0 三種 CSV、C1、D1 與 K1 共七路來源，保存索引及所選原始位元組。`run_source_cost` 在六個預設位置比較索引定位與從頭掃描，逐一核對下一筆鍵值及七路原始內容，最後一點核對七路是否同步到達檔尾。每個階段分開保存起始、完成或中斷紀錄。
+
+掃描到檔尾可核對七路來源的名冊與順序。逐筆配對與已驗證帳本的恢復限於凍結的 64 筆工程子集。全量獨立反讀仍未通過，K1−C1 尚無正式結論，預留測試維持鎖定。工具已通過 28 項合成測試，本輪實測的完成範圍與耗時以成本報告為準。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v4_source_tools_acceptance_20261103.json)｜[量測說明](../docs/STAGE12_RETAILROCKET_KNN_PAYLOAD_SOURCE_RECOVERY_V4_20261103.md)｜[實測報告](../reports/stage12/retailrocket_session_knn_v4_payload_source_cost_20261103.json)
+
+## Stage 12：V3 完整分層、固定配對與人工成本（前輪）
 
 `run_retailrocket_session_knn_cost_v3.py --diagnose` 在新 namespace 核原 440 來源及新增模型／方法共 455 份，以封存模型唯讀完成全窗分層，先凍結 64 keys 才讀所選 target／四臂；量樣本、checkpoint 與同規模人工 global／2,000 draws／ledger 恢復，來源／收尾及各 phase 分開保存。主 DB immutable／TEMP MEMORY，外部 supervisor 維持 30 分鐘／RSS／磁碟硬停止。
 
@@ -97,7 +104,7 @@
 
 ## Stage 12：K1 validation 來源與單次入口（前輪）
 
-`run_retailrocket_session_knn_v1.py --verify` 核 358 份來源、15 份直接輸入及合成驗收產物，不重算研究。`--prepare` 已完成 83 項測試與兩組完整檔案合成 oracle；真實 CSV／JSONL 只核 bytes，沒有建立真實 K1 索引。`--run-validation` 留待後續明確要求，固定一次 train fit／完整 validation／全量獨立反讀；部分產物拒重播、成功重入只驗證，無 final／test 模式。參見[入口文件](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md)。
+準備階段以 `--verify` 核對 358 份來源、15 份直接輸入與合成驗收產物，`--prepare` 完成 83 項測試與兩組獨立合成反讀。其後已用 `--run-validation` 執行唯一一次真實 validation，現有部分產物保留，原入口拒絕重播。另行啟動的只讀反讀最後觀測到至少 923 筆，實際停止時間、退出碼與原因均無紀錄。[入口文件](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md)｜[停止與保存紀錄](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md)｜[只讀反讀狀態核對](../reports/stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json)
 
 ## Stage 12：K1 實作與 train-only 準備入口（前輪）
 

@@ -11,9 +11,13 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V4 逐筆配對優化與恢復驗收（最新）
+## Stage 12：V4 真實 payload、來源定位與 64 筆子集恢復（最新）
 
-[方法與範圍](STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) → [39 項驗收](../reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json) → [固定樣本 AB／BA](../reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)。14 次科學 payload bytes 相同，逐筆成本另列 commit 後中位數 5.929→3.072 秒；非全量工時保證。通過後才補真實 payload／來源恢復，full 關閉、test locked。
+七路來源索引涵蓋 166,897 個 validation 查詢位置。原 K1 輸出共 2,294,757,672 bytes，此數字只計實體列長。中斷恢復另以 64 筆已驗子集實測：人工提早保存 16 筆，第 20 筆後強制退出，重新核對其後 48 筆，最終 64 筆 payload 與不中斷執行逐位元組相同。全量反讀維持關閉，K1−C1 尚無正式驗收結論，預留測試鎖定。[方法與限制](STAGE12_RETAILROCKET_KNN_PAYLOAD_SOURCE_RECOVERY_V4_20261103.md) · [28 項工具合成驗收](../reports/stage12/retailrocket_session_knn_v4_source_tools_acceptance_20261103.json) · [真實來源與子集恢復成本](../reports/stage12/retailrocket_session_knn_v4_payload_source_cost_20261103.json)
+
+## Stage 12：V4 逐筆配對優化與恢復驗收（前輪）
+
+固定 64 筆樣本的 14 次執行產生相同的科學 payload。將 checkpoint 提交另計後，每回核對這 64 筆的合計耗時中位數由 5.929 秒降至 3.072 秒。本輪為後續真實來源與子集恢復量測的前置驗收。[方法與範圍](STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) · [39 項驗收](../reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json) · [固定樣本 AB／BA](../reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)
 
 ## Stage 12：V3 分層、配對與人工成本量測（前輪）
 

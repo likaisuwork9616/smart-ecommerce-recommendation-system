@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-11-03T06:17:57.161609+00:00",
+  "status": "v4_source_payload_tools_synthetic_accepted",
+  "tests_run": 28,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v4.py",
+      "bytes": 19252,
+      "sha256": "a84e8a782fdc0234e633d2b2f18e1f4755865eda9f0b590411e26fdd776258d6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_payload_v4.py",
+      "bytes": 6864,
+      "sha256": "cbea243f58aad33d9b9d0b751fcb6cf55b7bb7969223e8251d45b004204dee4d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_source_cost_v4.py",
+      "bytes": 9077,
+      "sha256": "e288f992f224685ab405f256d2a807f63146abec3a024cce72593b93f0c7d200"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sources_v4.py",
+      "bytes": 9432,
+      "sha256": "d55194bdb7cd9161db02da4004c702d5c377feb3778c73bc1016f9f0667d2a7e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_payload_v4.py",
+      "bytes": 9092,
+      "sha256": "6d4dc828dfa6ddf5d9dbb74a5a65f9aa9ec8c8eb356cf931a1aeade8b44081e8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_source_cost_v4.py",
+      "bytes": 8276,
+      "sha256": "1d0baffca8ee274b11e76fe7364a34d6f0e7c8d3b23fd89724e41f8c7623e58c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-source-tool-tests-f557806651f044acbcf30ae5e438ed0e/tests.log",
+      "bytes": 5280,
+      "sha256": "3ca4d21a235f8829baa37ddc59075e6ef57b4f8f3b9f3a20caf8cd531f45648d"
+    }
+  ],
+  "scope": {
+    "synthetic_only": true,
+    "source_position_only_not_query_acceptance": true,
+    "real_payload_measurement": false,
+    "full_real_readback": false,
+    "reserved_test": "locked"
+  },
+  "prerequisite_pair_acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json",
+    "bytes": 2181,
+    "sha256": "8208fdc9ede769dfdce5defa47c2688be663706d6927ad7bda34a23bb351cdcb"
+  }
+}

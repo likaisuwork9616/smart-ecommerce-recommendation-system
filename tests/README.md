@@ -10,7 +10,19 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V4 配對等價與故障恢復（最新）
+## Stage 12：V4 逐筆大小與七路來源定位（最新）
+
+本輪 **28 項合成測試全部通過**，無失敗、錯誤或跳過。三組分別是[七路來源索引與重新定位 12 項](test_retailrocket_session_knn_sources_v4.py)、[原始位元組大小與前綴掃描 10 項](test_retailrocket_session_knn_payload_v4.py)、[六個位置的成本量測與中斷保存 6 項](test_retailrocket_session_knn_source_cost_v4.py)。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_sources_v4 tests.test_retailrocket_session_knn_payload_v4 tests.test_retailrocket_session_knn_source_cost_v4 -v
+```
+
+測試涵蓋多行 CSV、不同換行符號、角色分流、來源 SHA 改變與期限中斷。即使 JSON 可解析且鍵值相同，下一筆的原始位元組只差一個空白，定位對照也須拒收。驗收收據綁定三個工具及三個測試檔的 SHA。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v4_source_tools_acceptance_20261103.json)
+
+真實工程量測另行記錄。凍結的 64 筆子集用於配對與恢復；索引測量的是七路原始來源在指定位置的讀取成本。K1−C1 尚無正式結論，預留測試維持鎖定。[量測說明](../docs/STAGE12_RETAILROCKET_KNN_PAYLOAD_SOURCE_RECOVERY_V4_20261103.md)｜[實測報告](../reports/stage12/retailrocket_session_knn_v4_payload_source_cost_20261103.json)
+
+## Stage 12：V4 配對等價與故障恢復（前輪）
 
 本輪 [SQL](test_retailrocket_session_knn_sql_v4.py) 11、[checks](test_retailrocket_session_knn_checks_v4.py) 20、[pair／故障](test_retailrocket_session_knn_pair_v4.py) 8，共 **39 項通過**。包括 V1／V2 完整巢狀差分、LCM 回退、原 binary metrics/delta、全域及 2,000 合成 draws、query／candidate 真正程序崩潰、SHA／來源／未提交尾段恢復；不開真實 full/global/test。
 
