@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V4 所選配對成本核心 | [精確 SQL](retailrocket_session_knn_sql_v4.py)、[指標檢查](retailrocket_session_knn_checks_v4.py)、[配對／恢復](retailrocket_session_knn_pair_v4.py)、[說明](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) | 只允許最多64個凍結工程樣本；39項等價／故障通過。full global helper僅限人工fixture，無真實全量／test CLI；既有成本直接讀報告，不重跑 |
 | K1 V3 工程成本診斷 | [run_retailrocket_session_knn_cost_v3.py](run_retailrocket_session_knn_cost_v3.py)、[配對抽取](retailrocket_session_knn_pair_probe_v3.py)、[人工代理](retailrocket_session_knn_proxy_v3.py)、[方法](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) | --diagnose 會另開新 30 分鐘工程窗口，需方法名冊／SHA／封存 DB／原來源完整相符；已完成一次，不為查看結果重跑。無全量／final／test 開關 |
 | K1 validation 入口凍結核對 | [run_retailrocket_session_knn_v1.py](run_retailrocket_session_knn_v1.py)、[loader](retailrocket_session_knn_io.py)、[完整獨立反讀](retailrocket_session_knn_readback.py)、[操作](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ENTRY_V1.md) | 真實單次執行已依 3 小時 30 分鐘上限停止；namespace 為 partial，禁止再 --run-validation，原 --verify 會拒絕部分結果。只讀來源核對見最新停止文件，無 final／test 模式 |
 | 三臂研究交付與保存 | [archive_retailrocket_three_arm_v1.py](archive_retailrocket_three_arm_v1.py)、[交付說明](../docs/STAGE11_RETAILROCKET_THREE_ARM_RESEARCH_HANDOFF_V1.md) | --verify 核 ZIP／live 凍結證據／包外依賴；--verify-archive-only 僅核包與收據；不重算研究、不解壓、不開 test |

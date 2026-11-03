@@ -1,0 +1,411 @@
+{
+  "created_utc": "2026-11-03T06:11:28.277478+00:00",
+  "status": "v4_paired_optimization_equivalent_and_measured",
+  "kind": "fixed_selected_engineering_AB_BA_comparison",
+  "scientific_payload_bytes_equal_all_14_runs": true,
+  "fixed_roster_reused_unchanged": true,
+  "distinct_selected_queries": 64,
+  "warmups": 2,
+  "measured_pairs": 6,
+  "independent_engineering_query_evaluations": 896,
+  "baseline_definition": "Same V4 timing and fault-instrumented verifier; frozen V2 exact ranker, frozen exact and frozen terms. Same DB/catalog/inputs/checkpoint policy as V4. Not a comparison of old separate-run wall clocks.",
+  "summary_median_seconds": {
+    "baseline": {
+      "append_without_commit_seconds": 0.225905749888625,
+      "commit_seconds": 0.06961679997039028,
+      "query_seconds": 6.019434150017332,
+      "query_without_commit_seconds": 5.928909950016532,
+      "setup_seconds": 5.57247034998727,
+      "verification_seconds": 5.693156100140186,
+      "whole_seconds": 15.208470450015739
+    },
+    "v4": {
+      "append_without_commit_seconds": 0.18092965008690953,
+      "commit_seconds": 0.07614255000953563,
+      "query_seconds": 3.1561454998736735,
+      "query_without_commit_seconds": 3.0723843501182273,
+      "setup_seconds": 5.448309949977556,
+      "verification_seconds": 2.8894681499514263,
+      "whole_seconds": 12.080869749974227
+    }
+  },
+  "ratios": {
+    "query_seconds": {
+      "baseline_over_v4": 1.9072105992129524,
+      "fraction_reduction": 0.4756740548670034
+    },
+    "query_without_commit_seconds": {
+      "baseline_over_v4": 1.9297422699697009,
+      "fraction_reduction": 0.4817960846057949
+    },
+    "verification_seconds": {
+      "baseline_over_v4": 1.9703128066097186,
+      "fraction_reduction": 0.49246637556973416
+    },
+    "append_without_commit_seconds": {
+      "baseline_over_v4": 1.2485833570125804,
+      "fraction_reduction": 0.19909231980102038
+    },
+    "commit_seconds": {
+      "baseline_over_v4": 0.9142956200136704,
+      "fraction_reduction": -0.09373815001437746
+    },
+    "setup_seconds": {
+      "baseline_over_v4": 1.0227887915977,
+      "fraction_reduction": 0.02228103376270052
+    },
+    "whole_seconds": {
+      "baseline_over_v4": 1.2588887029469202,
+      "fraction_reduction": 0.20564860288355136
+    }
+  },
+  "cells": [
+    {
+      "cell": "time_0/posting_0",
+      "population_queries": 1313,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.0034052000264637172,
+      "v4_median_of_max_query_without_commit_seconds": 0.0034726499870885164
+    },
+    {
+      "cell": "time_0/posting_1-100",
+      "population_queries": 24202,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.08005975000560284,
+      "v4_median_of_max_query_without_commit_seconds": 0.030057799973292276
+    },
+    {
+      "cell": "time_0/posting_101-1000",
+      "population_queries": 14925,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.06752284997492097,
+      "v4_median_of_max_query_without_commit_seconds": 0.05051895001088269
+    },
+    {
+      "cell": "time_0/posting_>1000",
+      "population_queries": 2361,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.6504579499887768,
+      "v4_median_of_max_query_without_commit_seconds": 0.2721994500316214
+    },
+    {
+      "cell": "time_1/posting_0",
+      "population_queries": 1609,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.004694049974204972,
+      "v4_median_of_max_query_without_commit_seconds": 0.004402600025059655
+    },
+    {
+      "cell": "time_1/posting_1-100",
+      "population_queries": 21497,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.07617615003255196,
+      "v4_median_of_max_query_without_commit_seconds": 0.024491900025168434
+    },
+    {
+      "cell": "time_1/posting_101-1000",
+      "population_queries": 13181,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.08517570002004504,
+      "v4_median_of_max_query_without_commit_seconds": 0.04981125000631437
+    },
+    {
+      "cell": "time_1/posting_>1000",
+      "population_queries": 1845,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.4019667999818921,
+      "v4_median_of_max_query_without_commit_seconds": 0.23651494999649003
+    },
+    {
+      "cell": "time_2/posting_0",
+      "population_queries": 1767,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.003912249987479299,
+      "v4_median_of_max_query_without_commit_seconds": 0.0035414999874774367
+    },
+    {
+      "cell": "time_2/posting_1-100",
+      "population_queries": 24783,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.08224524999968708,
+      "v4_median_of_max_query_without_commit_seconds": 0.0317038000212051
+    },
+    {
+      "cell": "time_2/posting_101-1000",
+      "population_queries": 14041,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.0726711500028614,
+      "v4_median_of_max_query_without_commit_seconds": 0.05236409997451119
+    },
+    {
+      "cell": "time_2/posting_>1000",
+      "population_queries": 2262,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.44095555003150366,
+      "v4_median_of_max_query_without_commit_seconds": 0.2145734000368975
+    },
+    {
+      "cell": "time_3/posting_0",
+      "population_queries": 2292,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.009879099990939721,
+      "v4_median_of_max_query_without_commit_seconds": 0.010085500020068139
+    },
+    {
+      "cell": "time_3/posting_1-100",
+      "population_queries": 24886,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.0824904500041157,
+      "v4_median_of_max_query_without_commit_seconds": 0.053303749999031425
+    },
+    {
+      "cell": "time_3/posting_101-1000",
+      "population_queries": 14200,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.08060744998510927,
+      "v4_median_of_max_query_without_commit_seconds": 0.053067200002260506
+    },
+    {
+      "cell": "time_3/posting_>1000",
+      "population_queries": 1733,
+      "samples": 4,
+      "baseline_median_of_max_query_without_commit_seconds": 0.3681137499806937,
+      "v4_median_of_max_query_without_commit_seconds": 0.15059109998401254
+    }
+  ],
+  "chunk_accounting": {
+    "max_queries": 64,
+    "seconds_at_next_safe_boundary": 120,
+    "commits_per_64_measured_run": 1,
+    "minimum_count_based_chunks_for_166897": 2608,
+    "interpretation": "Commit cost is measured and retained separately, not deleted. Time-triggered/EOF/interruption commits may add boundaries; ceil(N/64) is not an asserted total."
+  },
+  "optimization": {
+    "neighbor_order": "Exact integer-ratio groups/cross products; full original pool SHA, k=500 and ties preserved.",
+    "votes": "Arbitrary-precision common denominator; 4096-bit guard falls back to exact Fraction.",
+    "metric_cache": "Frozen terms by hit positions and full target count, dict copies and context/type fallbacks.",
+    "exact_strategy": "frozen JSON encoder; recursive candidate not enabled because its synthetic benchmark was slower."
+  },
+  "cache_info": {
+    "context_fallbacks": 0,
+    "exact_strategy": "frozen",
+    "label_fallbacks": 0,
+    "terms": {
+      "currsize": 10,
+      "hits": 1782,
+      "maxsize": 4096,
+      "misses": 10
+    }
+  },
+  "supervisor": {
+    "actual_exit_observed_utc": "2026-11-03T06:09:21.405365+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "namespace": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36",
+    "peak_execution_bytes": 31132204,
+    "peak_tree_and_supervisor_rss": 200134656,
+    "reason": null,
+    "reserved_test": "locked",
+    "seconds": 372.6719999999623
+  },
+  "source_files_bound": 464,
+  "sources_reverified_before_after": true,
+  "scope": {
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_real_bootstrap": 0,
+    "full_real_readback": false,
+    "real_payload_distribution_measurement": false,
+    "real_source_recovery_measurement": false,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "decision": "full_real_readback_remains_disabled",
+  "T_plan": null,
+  "remaining": [
+    "true_saved_payload_byte_profile",
+    "real_source_index_and_prefix_recovery",
+    "true_verified_subset_checkpoint_tail_restart",
+    "full_verified_real_ledger_and_joint_work_tail_still_not_accepted"
+  ],
+  "interpretation": "Observed same-corpus engineering reduction only, not a full-window runtime, quality metric, statistical bound or guarantee. V3 frozen 6.20-hour scenario is historical and is not overwritten.",
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/benchmark_result.json",
+      "bytes": 785652,
+      "sha256": "1f074fb74720df2765e9951ed405a7c2ad84769f4c675158e26bbe16d2a37196"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/extraction_result.json",
+      "bytes": 32864,
+      "sha256": "cd4459df0c120f08847c1fbe74e444836b12b2f73266c3e2acb1d03f50d0c003"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/frozen_probes.json",
+      "bytes": 33212,
+      "sha256": "14c80bd3f4d0e20cf978f2a7afaefabdabee03c09ef2406bbd9c7ec63c6515a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_0_baseline.json",
+      "bytes": 50425,
+      "sha256": "c1b1a9bc97e403bca996b8c67d62dd8126eddf28b75c3a281531905270b46946"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_0_v4.json",
+      "bytes": 80343,
+      "sha256": "db03a7a4a37ff235591af83a602ff96ce0702283f880c9376b618cbcbd555371"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_1_baseline.json",
+      "bytes": 50498,
+      "sha256": "e1cb95c8fde379db79f6f78c3d235b6984789b3a2c9bc7d5f08f9e20c033cfe4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_1_v4.json",
+      "bytes": 80315,
+      "sha256": "f1d3c900ea2af99832e2ab9044f84c1fa07cf2f81c27c6b647656aec1cc3d67f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_2_baseline.json",
+      "bytes": 50462,
+      "sha256": "c044e5e4d5c1fafa78b658627fd3fe264ba744e53375aa9028373be1c05e1484"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_2_v4.json",
+      "bytes": 80324,
+      "sha256": "f615057f257fee51dc530c62f1611b444345345a590151a568ad67ef0765ad32"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_3_baseline.json",
+      "bytes": 50463,
+      "sha256": "5e20ead6ac34deadfffa88eaab8b1077b37902ad153a8daeac299855e21f822a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_3_v4.json",
+      "bytes": 80325,
+      "sha256": "f312bc36e76caeee2b6a0db32813d2c2e0affc50b3adb48e19095f70d6b5f5bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_4_baseline.json",
+      "bytes": 50448,
+      "sha256": "631ed3894385900ef9771408973bf9e4fb9c355e723b7a3039686e64a2fc7ca2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_4_v4.json",
+      "bytes": 80313,
+      "sha256": "4570cad96c3582eca3f847d73521958cee17df922e570f626c07b4bc74d32067"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_5_baseline.json",
+      "bytes": 50452,
+      "sha256": "97005acfddb195fcf7ee2c459dcc53c1404eb41a4e72ba40c9c6bd68f2461fdb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_5_v4.json",
+      "bytes": 80263,
+      "sha256": "7df2226484a02aac24b0f1fd28448b5830c48bb1efd19335003b9878466613e1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/request.json",
+      "bytes": 89589,
+      "sha256": "316a3a14868f32133ae49b49ea5070a582b8266838697e364a3c169022161d11"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/supervisor_completion.json",
+      "bytes": 349,
+      "sha256": "7560f90b073d9ecd3fa5c79cb8608348432d8ee5648f8d30fe4e685c8acf0ca5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/warm_baseline.json",
+      "bytes": 50437,
+      "sha256": "d15221165db7f158ad8827c3988137130d941c56d17581af79a17a59677f924b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/warm_v4.json",
+      "bytes": 80255,
+      "sha256": "1922df016efe8988a3069809fbf735403a072e22bb1dad84d8f6afdca1efb237"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_0_baseline/payloads/2021f83a9fbf44e784b5a22fe90e9158.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_0_v4/payloads/d4a0e1f75cbe4e90b9ec4251f4f571e6.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_1_v4/payloads/fb1f50bbcfe4495db0f299ec113c8f37.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_1_baseline/payloads/6407a267740c467ba3fe79c5367d5927.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_2_baseline/payloads/83fce7a97ab048b7a2244a87120b3826.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_2_v4/payloads/8b5ddee29f4a4cbc81631aded8185298.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_3_v4/payloads/e68839bc57824229a97af4f4f8c5ce02.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_3_baseline/payloads/83ac8b66c8914e9ca172cabf9c1a509e.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_4_baseline/payloads/f26f059e3e604e6183229a82bc2ba00c.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_4_v4/payloads/478af451864041208a6fbc34651917f6.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_5_v4/payloads/8e428657512e4e2bbb6c5e062263282d.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/pair_5_baseline/payloads/df7ce9119d5041ccb989ce6fa6331f92.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/warm_baseline/payloads/01df8489215d4e53acba065eef91e5c2.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-pair-benchmark-aacd80776fe14493816a8ac3ebfa7a36/warm_v4/payloads/dd0e2ae389284b29b26ffac575dc080e.jsonl",
+      "bytes": 1509417,
+      "sha256": "840ce0b94eb49d7d7df4ead42f663759eee8fc843002bb0d0860146fac2168f6"
+    }
+  ],
+  "actual_committed_payload_file_bytes_match_all_14": true
+}

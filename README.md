@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V3 分層／配對／人工成本量測完成；全量 no-go | 新入口 39 項通過；完整 166,897 筆分層、64 固定樣本四臂核對、人工全規模全域／2,000 draws／ledger 恢復完成。兩倍配對分量情境約 6.20 小時，超提案門檻；K1−C1 未驗收、test locked |
+| Stage 12：session-kNN K1 | V4 配對優化／恢復驗收完成；全量關閉 | 新版 39 項通過；固定 64 筆六對 AB／BA 科學 payload bytes 全同，逐筆成本不含另列 commit 中位數 5.929→3.072 秒，約降 48%。真實 payload／來源恢復待下一步；K1−C1 未驗收、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,15 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：分層、配對與人工成本實測完成，維持全量 no-go（最新）
+## Stage 12：V4 逐筆成本降低，等價與故障恢復通過（最新）
+
+2026-11-03 新版以精確比率分組／整數交叉乘選鄰居、任意精度公分母投票（超限回 Fraction）及 frozen 指標快取降低逐筆成本；完整 pool SHA、500 邊界、因果候選、四臂核對與 checkpoint 都保留。**39 項等價／故障測試全過**，包含真正 query／candidate 後崩潰與新程序恢復，V1／V2／V3 未改。
+
+同一組凍結 64 probes、兩暖機及六對 AB／BA 的 **14 次科學 ledger bytes 全部相同**。同一框架內的逐筆配對中位數含 commit **6.019→3.156 秒**；將 commit 另外列帳後，逐筆部分 **5.929→3.072 秒（約降 48.2%）**，commit 本身 0.070→0.076 秒，沒有省略。含 setup／來源綁定的每次整段則為 15.208→12.081 秒；不能把逐筆比例當作全量工時保證。
+
+本步已通過，下一步才補真實原 bytes payload／七路來源定位與已驗子集的中斷恢復成本。**全量不啟動、K1−C1 無正式結論、預留測試 locked**；完整 T_plan 留空。見[V4 方法與界線](docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md)、[39 項驗收](reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json)及[公平配對成本](reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)。
+
+## Stage 12：分層、配對與人工成本實測完成，維持全量 no-go（前輪）
 
 2026-11-03 新入口 **39 項合成測試通過**後，獨立新窗口用時 **1,268.609 秒（約 21 分 9 秒）**、正常退出碼 0，前後各核原 440 來源及新增封存 DB／方法等共 455 份。完整 **166,897 筆 validation** 分層在 **491.907 秒**完成（含 profiler 開銷），16 層各凍結 4 筆、共 **64 probes**；其後才讀 targets／四臂原值。樣本排名 4.215 秒、完整來源抽取 62.808 秒、64 筆配對與 checkpoint 17.072 秒，均保存獨立收據。
 

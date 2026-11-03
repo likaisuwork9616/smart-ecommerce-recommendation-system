@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-03T06:03:08.163352+00:00",
+  "status": "v4_pair_equivalence_and_fault_recovery_accepted",
+  "tests_run": 39,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sql_v4.py",
+      "bytes": 9598,
+      "sha256": "e2a6956da3149c7bb077dec28b7d7823b9c356d2009e7f521d168093b337a86b"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checks_v4.py",
+      "bytes": 11212,
+      "sha256": "b9d7150ff6b3c44985192083f3e3493cf5702ec3f7dc294abe1d9f3865091640"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pair_v4.py",
+      "bytes": 12626,
+      "sha256": "bd2cd1c1fde892b80d164f2033b85ddec3be339313755cf439aa2daa96944585"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v4-paired-acceptance-tests.log",
+      "bytes": 7546,
+      "sha256": "efb88116651754a8703887b663583322788aa2e906476314805b88fc68898805"
+    }
+  ],
+  "scope": {
+    "synthetic_only": true,
+    "real_primary_fit": 0,
+    "real_validation_ranking": 0,
+    "real_bootstrap": 0,
+    "full_real_readback": false,
+    "reserved_test": "locked"
+  },
+  "coverage": [
+    "V1/V2/V3 nested scientific outputs, Decimal and binary delta equality",
+    "499/500/501 ratio ties, all-positive pool SHA, big numeric IDs, LCM overflow exact fallback",
+    "committed-chain vs orphan-tail, query and candidate real os._exit(9), normal-exit supervisor",
+    "exact remains frozen; cache uses frozen Decimal/float output and copies"
+  ],
+  "full_real_entry_enabled": false
+}

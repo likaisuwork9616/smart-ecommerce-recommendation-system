@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V3 分層、配對與人工成本量測（最新）
+## Stage 12：V4 逐筆配對優化與恢復驗收（最新）
+
+[方法與範圍](STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) → [39 項驗收](../reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json) → [固定樣本 AB／BA](../reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)。14 次科學 payload bytes 相同，逐筆成本另列 commit 後中位數 5.929→3.072 秒；非全量工時保證。通過後才補真實 payload／來源恢復，full 關閉、test locked。
+
+## Stage 12：V3 分層、配對與人工成本量測（前輪）
 
 [分段方法與決策](STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) → [39 項入口合成驗收](../reports/stage12/retailrocket_session_knn_v3_cost_entry_acceptance_20261103.json) → [實際成本](../reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json)。完整 166,897 queries 分層／64 固定樣本配對、全規模人工 global／2,000 draws／ledger 恢復完成。paired 分量加兩倍餘裕約 6.20 小時，非實測總工時；T_plan 空值、全量 no-go，test locked。
 

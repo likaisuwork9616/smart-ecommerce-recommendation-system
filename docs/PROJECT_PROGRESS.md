@@ -4,6 +4,20 @@
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## Stage 12 第 10 輪：V4 逐筆配對優化與等價／故障恢復驗收
+
+| 工作 | 狀態 | 實際結果 |
+| --- | --- | --- |
+| 精確計算改進 | 完成 | 比率分組／任意精度交叉乘、LCM 4096-bit 超限回 Fraction、frozen terms 快取；完整 pool SHA、k=500／ties／診斷不變，exact 仍原 JSON |
+| 等價／故障驗收 | 39 項全過 | SQL 11／checks 20／pair 8；完整巢狀、Decimal／delta bits、query／candidate 真正 os._exit(9)、未提交尾段與已提交 SHA 鏈恢復一致 |
+| 固定 64 筆公平比較 | 完成 | 兩暖機＋六對 AB／BA，896 次工程 query 計算；14 個 ledger 科學 payload bytes 全同，初末來源一致；整輪 372.672 秒，正常退出 0 |
+| 逐筆與 checkpoint 成本 | 有觀測下降 | 含 commit 中位數 6.019→3.156 秒；另列 commit 後逐筆 5.929→3.072 秒，約降 48.2%；commit 0.070→0.076 秒，未刪除也未假稱變快 |
+| 整段及推估界線 | 保留 | 同一框架內每次含 setup／來源綁定 15.208→12.081 秒；不與前輪不同時間秒數直接比，不外推完整總工時 |
+| 真實 payload／來源恢復 | 下一步 | 本步通過並提交後才量原 bytes、七路 source-only prefix/index、已驗64子集的真程序恢復；不能把未驗主輸出當 verified ledger |
+| 全量與 test | 維持關閉 | 0 新主要 fit／validation／bootstrap、0 final／refit／test；K1−C1 無正式結論，test locked，T_plan 空值 |
+
+見[方法與下一步範圍](STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md)、[39 項驗收](../reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json)及[固定樣本成本](../reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)。
+
 ## Stage 12 第 9 輪：完整分層、固定配對樣本與人工成本量測
 
 | 工作 | 狀態 | 實際結果與界線 |

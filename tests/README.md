@@ -10,7 +10,15 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V3 成本入口（最新）
+## Stage 12：V4 配對等價與故障恢復（最新）
+
+本輪 [SQL](test_retailrocket_session_knn_sql_v4.py) 11、[checks](test_retailrocket_session_knn_checks_v4.py) 20、[pair／故障](test_retailrocket_session_knn_pair_v4.py) 8，共 **39 項通過**。包括 V1／V2 完整巢狀差分、LCM 回退、原 binary metrics/delta、全域及 2,000 合成 draws、query／candidate 真正程序崩潰、SHA／來源／未提交尾段恢復；不開真實 full/global/test。
+
+`.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_sql_v4 tests.test_retailrocket_session_knn_checks_v4 tests.test_retailrocket_session_knn_pair_v4 -v`
+
+合成驗收後的固定64筆公平量測另存[成本報告](../reports/stage12/retailrocket_session_knn_v4_pair_cost_20261103.json)，不是unit test或全量K1效能。方法／測試 SHA 見[驗收](../reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json)。
+
+## Stage 12：V3 成本入口（前輪）
 
 本輪 [monitor](test_retailrocket_session_knn_monitor_v3.py) 11、[人工代理](test_retailrocket_session_knn_proxy_v3.py) 4、[來源抽取與四臂配對](test_retailrocket_session_knn_pair_probe_v3.py) 12、[新入口／supervisor](test_run_retailrocket_session_knn_cost_v3.py) 12，合計 **39 項通過**，0 failures／errors／skips。包含 frozen roster、原 ordinal／EOF、巢狀竄改拒收、copy／來源 SHA、immutable main／TEMP MEMORY、來源名冊完整性、停止與外部 hard kill。這是新入口合成驗收，不是全專案測試或完整真實 K1 驗收。
 
