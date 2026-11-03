@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-11-03T06:45:47.373623+00:00",
+  "status": "v5_rebuild_and_window_synthetic_accepted",
+  "kind": "synthetic_engineering_correctness_and_real_process_monitor_faults",
+  "tests": {
+    "run": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 8.179774200019892,
+    "modules": [
+      "tests.test_retailrocket_session_knn_cost_window_v5",
+      "tests.test_retailrocket_session_knn_rebuild_cost_v5"
+    ]
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 7807,
+      "sha256": "d4424a2cd7591e7a3dfd8b5757be235e66ccf05244fa92bff4eae71774110070"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_rebuild_cost_v5.py",
+      "bytes": 8681,
+      "sha256": "67656db785ef0914cb8fb9bcdea3f4b74b3e6d826ba2fba59e14e496af09daaa"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 4339,
+      "sha256": "15f68b1eee74072a07fb906217ae695a7abf4a81adfbd097d160fa2bb2577cad"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_rebuild_cost_v5.py",
+      "bytes": 10445,
+      "sha256": "cc2da509e35d3818f3b471aafd1fcb03ead0ab237e4bed36f26d5039c01f818d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/v5-rebuild-synthetic-acceptance-20261103/tests.log",
+      "bytes": 2749,
+      "sha256": "5f6489c9230677ab8425534b6aa9c43be1694b3fe7615c2b5e64e09815e05b30"
+    }
+  ],
+  "scope": {
+    "primary_fits": 0,
+    "real_full_reconstructions": 0,
+    "real_query_rankings": 0,
+    "full_readback": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  }
+}

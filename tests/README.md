@@ -10,7 +10,17 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V4 逐筆大小與七路來源定位（最新）
+## Stage 12：V5 完整獨立重建與監督窗口（最新）
+
+本輪 **15 項合成驗收全部通過**，無失敗、錯誤或跳過。[重建測試 7 項](test_retailrocket_session_knn_rebuild_cost_v5.py)用小型資料逐列比對 V2 建出的資料表，並檢查來源變更、對帳失敗與中斷後的保存。[監督窗口測試 8 項](test_retailrocket_session_knn_cost_window_v5.py)涵蓋正常退出、失敗、截止時終止程序樹，以及父程序先退出後清理已追蹤的子程序。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_cost_window_v5 tests.test_retailrocket_session_knn_rebuild_cost_v5 -v
+```
+
+合成方法驗收與真實重建成本各有一份收據。真實工程重建窗口共 321.312 秒，完整重建階段占 248.676 秒，482 份綁定檔案的 SHA 在前後核對一致。主要模型新增擬合 0 次，本輪未啟動全量反讀，K1−C1 尚無正式結論，預留測試維持鎖定。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v5_rebuild_acceptance_20261103.json) · [方法說明](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) · [實測報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)
+
+## Stage 12：V4 逐筆大小與七路來源定位（前輪）
 
 本輪 **28 項合成測試全部通過**，無失敗、錯誤或跳過。三組分別是[七路來源索引與重新定位 12 項](test_retailrocket_session_knn_sources_v4.py)、[原始位元組大小與前綴掃描 10 項](test_retailrocket_session_knn_payload_v4.py)、[六個位置的成本量測與中斷保存 6 項](test_retailrocket_session_knn_source_cost_v4.py)。
 

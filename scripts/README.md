@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V5 完整獨立重建成本 | [重建與逐檔核對](retailrocket_session_knn_rebuild_cost_v5.py)、[外部監督窗口](retailrocket_session_knn_cost_window_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) | 只在全新目錄從已綁定的原始來源建立獨立 SQL 模型。實測已完成，耗時與範圍可直接查閱[成本報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)。 |
 | K1 V4 來源定位與逐筆大小量測 | [七路來源索引](retailrocket_session_knn_sources_v4.py)、[逐筆大小與前綴掃描](retailrocket_session_knn_payload_v4.py)、[定位成本對照](retailrocket_session_knn_source_cost_v4.py) | 28 項合成測試通過。工程配對限於凍結的 64 筆 validation 子集；六個固定位置另量原始來源的讀取成本。預留測試維持鎖定。 |
 | K1 V4 所選配對成本核心 | [精確 SQL](retailrocket_session_knn_sql_v4.py)、[指標檢查](retailrocket_session_knn_checks_v4.py)、[配對／恢復](retailrocket_session_knn_pair_v4.py)、[說明](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) | 只允許最多64個凍結工程樣本；39項等價／故障通過。full global helper僅限人工fixture，無真實全量／test CLI；既有成本直接讀報告，不重跑 |
 | K1 V3 工程成本診斷 | [run_retailrocket_session_knn_cost_v3.py](run_retailrocket_session_knn_cost_v3.py)、[配對抽取](retailrocket_session_knn_pair_probe_v3.py)、[人工代理](retailrocket_session_knn_proxy_v3.py)、[方法](../docs/STAGE12_RETAILROCKET_KNN_COST_COMPONENTS_V3_20261103.md) | --diagnose 會另開新 30 分鐘工程窗口，需方法名冊／SHA／封存 DB／原來源完整相符；已完成一次，不為查看結果重跑。無全量／final／test 開關 |
@@ -80,7 +81,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V4 逐筆大小、來源索引與中斷恢復成本（最新）
+## Stage 12：V5 完整獨立重建成本（最新）
+
+`run_rebuild_cost` 沿用凍結的 `reconstruct` 與 `build_index`。它從購物籃獨立重建訓練成員關係，逐檔核對商品支援數、工作階段、倒排索引、兩份訓練沿革與 `fit_audit`，再檢查並封存新資料庫。`run_window` 監督這次執行，實測前後各核對 482 份綁定檔案的 SHA。完整重建階段 248.676 秒已包含在 321.312 秒的監督窗口中；歷史 840.406 秒的計時範圍不同。
+
+本輪獨立工程模型重建一次，主要模型新增擬合、validation 排名與 bootstrap 均為零。全量反讀關閉，K1−C1 尚無正式結論，預留測試維持鎖定。[方法與計時範圍](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) · [15 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_rebuild_acceptance_20261103.json) · [實測報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)
+
+## Stage 12：V4 逐筆大小、來源索引與中斷恢復成本（前輪）
 
 `payload_stats` 逐筆統計原始檔案的位元組數，連同換行符號計入。`build_source_index` 按 validation query 的原始順序，對齊資料集、P0 三種 CSV、C1、D1 與 K1 共七路來源，保存索引及所選原始位元組。`run_source_cost` 在六個預設位置比較索引定位與從頭掃描，逐一核對下一筆鍵值及七路原始內容，最後一點核對七路是否同步到達檔尾。每個階段分開保存起始、完成或中斷紀錄。
 

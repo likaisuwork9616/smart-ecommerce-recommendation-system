@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V4 配對優化、真實 payload／來源及子集恢復量測完成；全量關閉 | 39 項等價／故障與 28 項來源工具測試通過；逐筆成本中位數約降 48%。七路來源定位 bytes 相同，64 筆真程序恢復一致；K1−C1 未正式驗收、test locked |
+| Stage 12：session-kNN K1 | V5 完整重建成本完成；全量關閉 | 15 項前置測試通過；新獨立重建 248.676 秒，完整窗口 321.312 秒，fit_audit／support／method 同舊封存。聯合尾端與完整 ledger 工程成本待補；K1−C1 未正式驗收、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：真實 payload、來源定位與 64 筆子集恢復已量測（最新）
+## Stage 12：V5 新版完整獨立重建成本已量測（最新）
+
+2026-11-03 先通過 **15 項合成／真程序監控測試**，再於新窗口完整重建獨立 SQL 模型。總窗口 **321.312 秒、正常退出 0**，初末 **482 份來源綁定一致**；完整重建階段 **248.676 秒**，核對原 support、sessions、postings、兩份 train lineage、fit_audit 及 SQLite integrity，重建出的 fit_audit／support／method 與舊封存完整相同。
+
+這是一次獨立工程重建，**0 新主要 fit／validation 排名／bootstrap**。內含 canonical reconstruct 214.406 秒、derived index 2.586 秒；各層計時互有包含，不能相加，也不以歷史 840.406 秒算同條件加速。全量不啟動、K1−C1 無正式結論、預留測試 locked；接著補聯合尾端選樣與完整筆數的真實 payload ledger 工程成本，再評估全量。見[重建方法與界線](docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md)、[15 項驗收](reports/stage12/retailrocket_session_knn_v5_rebuild_acceptance_20261103.json)及[實測報告](reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)。
+
+## Stage 12：真實 payload、來源定位與 64 筆子集恢復已量測（前步）
 
 先完成 V4 配對等價／故障驗收並推送後，再跑本次來源量測。新增工具 **28 項合成測試通過**；真實工程窗口 **832.985 秒、正常退出 0**，前後核對 **475 份來源綁定**一致。七路來源的 **166,897 個 validation 位置**對齊至 EOF，索引建置 **124.904 秒**；六個固定位置及一個非錨點位置的下一筆原始 bytes 均一致，這是來源定位核對。
 

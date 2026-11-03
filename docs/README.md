@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V4 真實 payload、來源定位與 64 筆子集恢復（最新）
+## Stage 12：V5 完整獨立重建成本（最新）
+
+從原始購物籃重新建立獨立 SQL 模型，核對 1,180,256 個訓練工作階段與 1,587,436 個相異的工作階段／商品組合。完整重建階段耗時 248.676 秒，含 482 份綁定檔案前後 SHA 核對的監督窗口共 321.312 秒。歷史 840.406 秒涵蓋的工作不同，兩次耗時不可直接換算加速倍率。這次完成一次工程用獨立重建，主要模型新增擬合 0 次。全量逐筆反讀維持關閉，K1−C1 尚無正式結論，預留測試鎖定。[方法與計時範圍](STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) · [15 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_rebuild_acceptance_20261103.json) · [重建成本實測](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)
+
+## Stage 12：V4 真實 payload、來源定位與 64 筆子集恢復（前輪）
 
 七路來源索引涵蓋 166,897 個 validation 查詢位置。原 K1 輸出共 2,294,757,672 bytes，此數字只計實體列長。中斷恢復另以 64 筆已驗子集實測：人工提早保存 16 筆，第 20 筆後強制退出，重新核對其後 48 筆，最終 64 筆 payload 與不中斷執行逐位元組相同。全量反讀維持關閉，K1−C1 尚無正式驗收結論，預留測試鎖定。[方法與限制](STAGE12_RETAILROCKET_KNN_PAYLOAD_SOURCE_RECOVERY_V4_20261103.md) · [28 項工具合成驗收](../reports/stage12/retailrocket_session_knn_v4_source_tools_acceptance_20261103.json) · [真實來源與子集恢復成本](../reports/stage12/retailrocket_session_knn_v4_payload_source_cost_20261103.json)
 
@@ -25,7 +29,7 @@
 
 ## Stage 12：V3 監控與建置成本診斷（前輪）
 
-[診斷方法與界線](STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md) → [監控微量測](../reports/stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)。11 項測試通過；20,000 callbacks 的三輪中位數 1.118→0.015 秒僅為微量測，不能當作全輪反讀加速。重複索引／三次 SHA 待端到端量測，原 840.406 秒仍保留，全量 no-go、test locked。
+[診斷方法與界線](STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md) → [監控微量測](../reports/stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)。11 項測試通過；20,000 callbacks 的三輪中位數 1.118→0.015 秒僅為微量測，不能當作全輪反讀加速。當時仍欠端到端建置成本；上節 V5 已另行量測完整獨立重建，歷史 840.406 秒保留原口徑。
 
 ## Stage 12：V2 實作、合成恢復驗收與成本探測（前輪）
 

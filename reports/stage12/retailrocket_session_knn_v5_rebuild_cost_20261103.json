@@ -1,0 +1,565 @@
+{
+  "created_utc": "2026-11-03T06:51:29.054969+00:00",
+  "status": "v5_complete_independent_reconstruction_cost_measured",
+  "kind": "engineering_only_independent_model_reconstruction",
+  "decision": "full_real_readback_remains_disabled",
+  "T_plan": null,
+  "supervisor": {
+    "T_plan": null,
+    "actual_exit_observed_utc": "2026-11-03T06:51:15.392535+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "kind": "engineering_cost_v5_exit_observation",
+    "operation": "rebuild",
+    "peak_sampled_execution_bytes": 477387471,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 807813120,
+    "reserved_test": "locked",
+    "seconds": 321.31199999997625,
+    "stop_reason": null,
+    "supervisor_error": null,
+    "tracked_processes": 3,
+    "tracked_processes_alive_after_cleanup": 0
+  },
+  "sources_bound": 482,
+  "environment": {
+    "byteorder": "little",
+    "implementation": "CPython",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "python": "3.12.10"
+  },
+  "phases": {
+    "compare_previously_sealed_model_receipt": {
+      "completed": true,
+      "error_type": null,
+      "phase": "compare_previously_sealed_model_receipt",
+      "seconds": 0.2384779999847524
+    },
+    "complete_independent_reconstruction": {
+      "completed": true,
+      "error_type": null,
+      "phase": "complete_independent_reconstruction",
+      "seconds": 248.67609710001852
+    },
+    "final_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "final_frozen_source_hash",
+      "seconds": 29.13769449997926
+    },
+    "initial_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "initial_frozen_source_hash",
+      "seconds": 42.170718600042164
+    }
+  },
+  "rebuild": {
+    "T_plan": null,
+    "bootstrap_draws": 0,
+    "canonical_build_index_wall_seconds": 2.5858733000350185,
+    "canonical_reconstruct_wall_seconds": 214.40641189995222,
+    "database": {
+      "bytes": 475103232,
+      "path": "independent.sqlite",
+      "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+    },
+    "derived_index_counts": {
+      "session_item_memberships": 1587436,
+      "train_sessions": 1180256
+    },
+    "direct_source_bytes_verified_each_pass": 518646822,
+    "direct_source_files_verified_each_pass": 7,
+    "fit_audit": {
+      "basket_item_memberships": 1823388,
+      "distinct_session_item_memberships": 1587436,
+      "end_ms": 1438387200000,
+      "fit_id": "ceb483631be343e3646d1a367325e53a4a0e2c937405686095d700efbeb1c56a",
+      "maximum_posting_size": 1736,
+      "maximum_session_items": 389,
+      "positive_support_items": 198946,
+      "singleton_sessions": 998801,
+      "start_ms": 1430697600000,
+      "train_baskets": 1823018,
+      "train_sessions": 1180256
+    },
+    "formal_query_acceptance": false,
+    "full_readback_started": false,
+    "kind": "fresh_independent_model_reconstruction_cost_only",
+    "new_database_setup_to_close_wall_seconds": 243.862020200002,
+    "new_primary_fits": 0,
+    "phases": {
+      "both_lineage_files_check": {
+        "completed": true,
+        "cpu_seconds": 37.171875,
+        "error_type": null,
+        "phase": "both_lineage_files_check",
+        "wall_seconds": 37.30266320001101
+      },
+      "commit_integrity_check_and_close": {
+        "completed": true,
+        "cpu_seconds": 26.578125,
+        "error_type": null,
+        "phase": "commit_integrity_check_and_close",
+        "wall_seconds": 26.691125999961514
+      },
+      "create_relations_and_ingest_baskets": {
+        "completed": true,
+        "cpu_seconds": 105.109375,
+        "error_type": null,
+        "phase": "create_relations_and_ingest_baskets",
+        "wall_seconds": 110.50696460000472
+      },
+      "derived_posting_index_and_sizes": {
+        "completed": true,
+        "cpu_seconds": 2.328125,
+        "error_type": null,
+        "phase": "derived_posting_index_and_sizes",
+        "wall_seconds": 2.5906506999745034
+      },
+      "final_direct_source_hash": {
+        "completed": true,
+        "cpu_seconds": 1.21875,
+        "error_type": null,
+        "phase": "final_direct_source_hash",
+        "wall_seconds": 1.2336605000309646
+      },
+      "fit_audit_and_fixed_counts_check": {
+        "completed": true,
+        "cpu_seconds": 0.71875,
+        "error_type": null,
+        "phase": "fit_audit_and_fixed_counts_check",
+        "wall_seconds": 0.7186988999601454
+      },
+      "hash_and_seal_closed_database": {
+        "completed": true,
+        "cpu_seconds": 1.203125,
+        "error_type": null,
+        "phase": "hash_and_seal_closed_database",
+        "wall_seconds": 1.2446988000301644
+      },
+      "initial_direct_source_hash": {
+        "completed": true,
+        "cpu_seconds": 1.953125,
+        "error_type": null,
+        "phase": "initial_direct_source_hash",
+        "wall_seconds": 2.2935448000207543
+      },
+      "original_posting_index_and_commit": {
+        "completed": true,
+        "cpu_seconds": 1.875,
+        "error_type": null,
+        "phase": "original_posting_index_and_commit",
+        "wall_seconds": 2.208429000049364
+      },
+      "posting_file_check": {
+        "completed": true,
+        "cpu_seconds": 21.53125,
+        "error_type": null,
+        "phase": "posting_file_check",
+        "wall_seconds": 22.061509800027125
+      },
+      "session_map_from_train_memberships": {
+        "completed": true,
+        "cpu_seconds": 6.53125,
+        "error_type": null,
+        "phase": "session_map_from_train_memberships",
+        "wall_seconds": 6.547083999961615
+      },
+      "setup_new_database": {
+        "completed": true,
+        "cpu_seconds": 0.0,
+        "error_type": null,
+        "phase": "setup_new_database",
+        "wall_seconds": 0.006208300008438528
+      },
+      "support_and_session_file_check": {
+        "completed": true,
+        "cpu_seconds": 34.59375,
+        "error_type": null,
+        "phase": "support_and_session_file_check",
+        "wall_seconds": 35.110809899982996
+      }
+    },
+    "reconstruction": {
+      "bytes": 2179030,
+      "path": "reconstruction.json",
+      "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+    },
+    "reserved_test": "locked",
+    "sqlite_pragmas": {
+      "journal_mode": "delete",
+      "page_size": 4096,
+      "synchronous": 2,
+      "temp_store": 0
+    },
+    "total_wall_seconds_before_result_publication": 248.66922469995916,
+    "validation_queries_ranked": 0
+  },
+  "rebuild_partial_or_complete_phases": {
+    "both_lineage_files_check": {
+      "completed": true,
+      "cpu_seconds": 37.171875,
+      "error_type": null,
+      "phase": "both_lineage_files_check",
+      "wall_seconds": 37.30266320001101
+    },
+    "commit_integrity_check_and_close": {
+      "completed": true,
+      "cpu_seconds": 26.578125,
+      "error_type": null,
+      "phase": "commit_integrity_check_and_close",
+      "wall_seconds": 26.691125999961514
+    },
+    "create_relations_and_ingest_baskets": {
+      "completed": true,
+      "cpu_seconds": 105.109375,
+      "error_type": null,
+      "phase": "create_relations_and_ingest_baskets",
+      "wall_seconds": 110.50696460000472
+    },
+    "derived_posting_index_and_sizes": {
+      "completed": true,
+      "cpu_seconds": 2.328125,
+      "error_type": null,
+      "phase": "derived_posting_index_and_sizes",
+      "wall_seconds": 2.5906506999745034
+    },
+    "final_direct_source_hash": {
+      "completed": true,
+      "cpu_seconds": 1.21875,
+      "error_type": null,
+      "phase": "final_direct_source_hash",
+      "wall_seconds": 1.2336605000309646
+    },
+    "fit_audit_and_fixed_counts_check": {
+      "completed": true,
+      "cpu_seconds": 0.71875,
+      "error_type": null,
+      "phase": "fit_audit_and_fixed_counts_check",
+      "wall_seconds": 0.7186988999601454
+    },
+    "hash_and_seal_closed_database": {
+      "completed": true,
+      "cpu_seconds": 1.203125,
+      "error_type": null,
+      "phase": "hash_and_seal_closed_database",
+      "wall_seconds": 1.2446988000301644
+    },
+    "initial_direct_source_hash": {
+      "completed": true,
+      "cpu_seconds": 1.953125,
+      "error_type": null,
+      "phase": "initial_direct_source_hash",
+      "wall_seconds": 2.2935448000207543
+    },
+    "original_posting_index_and_commit": {
+      "completed": true,
+      "cpu_seconds": 1.875,
+      "error_type": null,
+      "phase": "original_posting_index_and_commit",
+      "wall_seconds": 2.208429000049364
+    },
+    "posting_file_check": {
+      "completed": true,
+      "cpu_seconds": 21.53125,
+      "error_type": null,
+      "phase": "posting_file_check",
+      "wall_seconds": 22.061509800027125
+    },
+    "session_map_from_train_memberships": {
+      "completed": true,
+      "cpu_seconds": 6.53125,
+      "error_type": null,
+      "phase": "session_map_from_train_memberships",
+      "wall_seconds": 6.547083999961615
+    },
+    "setup_new_database": {
+      "completed": true,
+      "cpu_seconds": 0.0,
+      "error_type": null,
+      "phase": "setup_new_database",
+      "wall_seconds": 0.006208300008438528
+    },
+    "support_and_session_file_check": {
+      "completed": true,
+      "cpu_seconds": 34.59375,
+      "error_type": null,
+      "phase": "support_and_session_file_check",
+      "wall_seconds": 35.110809899982996
+    }
+  },
+  "matches_previously_sealed_model_receipt": {
+    "fit_audit_support_and_method_equal": true
+  },
+  "sources_reverified_before_after": true,
+  "post_exit_checks": {
+    "recorded_process_identities": 3,
+    "all_recorded_identities_stopped": true,
+    "read_only_audit": true,
+    "new_database_seal_and_binding_rehashed": true,
+    "new_database_journal_sidecars_absent": true,
+    "partial_post_stop_source_hash_seconds": null
+  },
+  "timing_interpretation": "Outer complete_independent_reconstruction phase includes all direct input hashes, fresh SQL reconstruct/build_index, every frozen reference EOF comparison, integrity, closed DB hash/seal and result publication. Inner canonical/setup-to-close/phase times overlap; do not add them. Total supervisor window additionally includes full initial/final source inventory and prior model receipt comparison. Timing includes phase-receipt fsync and monitor overhead. Cache/machine state is uncontrolled; the historical 840.406s is not an equal-scope speedup baseline.",
+  "resource_interpretation": "Sampled process-tree plus supervisor RSS and namespace bytes; existing original inputs/model excluded from namespace disk. Canonical SQLite pragmas retained, so OS temp lifetime/bytes outside namespace are not fully measured and these are not full-run resource bounds.",
+  "scope": {
+    "new_independent_engineering_reconstructions": 1,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_real_bootstrap": 0,
+    "validation_queries_ranked": 0,
+    "full_real_readback": false,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "remaining": [
+    "joint_workload_tail_sample_cost_coverage",
+    "full_shape_real_payload_ledger_engineering_cost_coverage",
+    "full_independent_real_query_ledger_global_and_original_draw_acceptance_not_started"
+  ],
+  "privacy": "Raw records, support item map, session/posting contents and SQLite model remain ignored local evidence. Only aggregate costs, counts, hashes and paths are public.",
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/compare_previously_sealed_model_receipt_receipt.json",
+      "bytes": 116,
+      "sha256": "13f9d081127b6b57ccdd789d7297447beb517466098f9717576e778c5fe2483d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/compare_previously_sealed_model_receipt_started.json",
+      "bytes": 93,
+      "sha256": "60dc6b4477985be989e1ede7e37e1813e695227b270a7a3f60fb5598f814b36a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/complete_independent_reconstruction_receipt.json",
+      "bytes": 112,
+      "sha256": "ddb822649a2c35343b1d2abef16a23b3b9be67dbacbc28b09fefd69f66be8328"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/complete_independent_reconstruction_started.json",
+      "bytes": 89,
+      "sha256": "c282e1ed76baec0e44a5a2fd3be7e32ab9507fcf99b2b52e226548dd303da559"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/final_frozen_source_hash_receipt.json",
+      "bytes": 100,
+      "sha256": "f811d322f6cec28537a409bcbf4cdbd2b3cee3a77f0edcf4115f32593d7f2625"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/final_frozen_source_hash_started.json",
+      "bytes": 78,
+      "sha256": "565be99a0f9744055596d51eaaa661bc3c10aa776cd9c28431c7d9e1ec7d047d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/initial_frozen_source_hash_receipt.json",
+      "bytes": 103,
+      "sha256": "7b18acf465ab2558cd3944a4eb9fa7336afc0240c94b1b2f46c3fd86120367a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/initial_frozen_source_hash_started.json",
+      "bytes": 80,
+      "sha256": "4246dea255f9cc78e2acd95456a3a0088805e62793f4424cf14f6ebde92992cb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/measurement_result.json",
+      "bytes": 4376,
+      "sha256": "5021563e6346d67ddca3e0b3a29472b423c7305d3150cf1f6beb9cacf49abd23"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/model_receipt_comparison.json",
+      "bytes": 44,
+      "sha256": "af0e869fe2d648bb8f4740e3f03e37ba7850b647d16a965d1f9ee9be85ecdff7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/post_exit_identity_audit.json",
+      "bytes": 373,
+      "sha256": "6269dfea7a972a9afae73216eb5aa17b519fb3926dbc0ca0b9a5173e9a3c673f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuild_result.json",
+      "bytes": 3535,
+      "sha256": "bca005fdb09105df3649abf612409cef08ad621641a22c7a45f3a85de7a39bd3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/request.json",
+      "bytes": 92968,
+      "sha256": "f5073d75c4964f9efbbee576519f58ad01005d946952e1845f88d6a75e2fea4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/supervisor_completion.json",
+      "bytes": 447,
+      "sha256": "23e98ae8591fb92523ab3e0064a6d736386f38e4085a50b66d37c72bb713129e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/tracked_process_identities.json",
+      "bytes": 263,
+      "sha256": "c84385acbd629f74646670823856b41c12b93994fbd65c9e68642ffb32d0352d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/watch_statistics.json",
+      "bytes": 57,
+      "sha256": "49f2719c14c3ae60ea6ecef9eb262b5a1fd78dd92b53b7225e4c61ed8e2f99a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/worker_identity.json",
+      "bytes": 69,
+      "sha256": "9de1a1361171a3e72edf9a870820fc4e4891dce47cac39ac2c167aae5de8caa7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/rebuild_cost.json",
+      "bytes": 3535,
+      "sha256": "bca005fdb09105df3649abf612409cef08ad621641a22c7a45f3a85de7a39bd3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/reconstruction.json",
+      "bytes": 2179030,
+      "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/source_binding.json",
+      "bytes": 1362,
+      "sha256": "e1a5b0b8384a7ea1fb291b9125d849921f2ec46bfdbdec28bdcad39d6d37df61"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/both_lineage_files_check_receipt.json",
+      "bytes": 129,
+      "sha256": "3ec0e76988bfd77f6a5b0255f9f8b3bb2f4171843e844edec5192b4783c604e4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/both_lineage_files_check_started.json",
+      "bytes": 96,
+      "sha256": "0b45808b80f8d0a1978ebd054fa95bdece54fab832edb40bef40353c787d5f01"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/commit_integrity_check_and_close_receipt.json",
+      "bytes": 138,
+      "sha256": "fa45c5f77ed3608bce5da232a9a2a8235844747705c9ad4fc5bb0dd56aa36b3f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/commit_integrity_check_and_close_started.json",
+      "bytes": 104,
+      "sha256": "cee1f8b427a451fc74536451bf8fa90a5fcdc185156f1ac70ace0e0235207d0c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/create_relations_and_ingest_baskets_receipt.json",
+      "bytes": 142,
+      "sha256": "8a815072f13cb453e40271f7db8de52ea8ecb97c36ac8853404c9f71010ef0b8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/create_relations_and_ingest_baskets_started.json",
+      "bytes": 107,
+      "sha256": "a837b6f65aafc20ca552be63ea688f2c3212fe898adc4254612c6ae7c4539145"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/derived_posting_index_and_sizes_receipt.json",
+      "bytes": 136,
+      "sha256": "4fa1d61ac492e36a39cbef2b71dfacca8b8352a374070a03784d9dada2aea80c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/derived_posting_index_and_sizes_started.json",
+      "bytes": 103,
+      "sha256": "fbe0cac08f4030c7a2d30c81a9f595d50733d50903f2c281f21d5bdd1831bbe1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/final_direct_source_hash_receipt.json",
+      "bytes": 128,
+      "sha256": "4f0daa741b4bef37c09069ce723b211281f906c2099c07af3be81fd393e48005"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/final_direct_source_hash_started.json",
+      "bytes": 96,
+      "sha256": "2896cab78c00a921895667b068726f071613e2af5fa9d7847b0644199db572ef"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/fit_audit_and_fixed_counts_check_receipt.json",
+      "bytes": 136,
+      "sha256": "0421cbb54510909df41cce6ffa9e19bdcb0129173dc8bcfcf7abd44c007b63ae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/fit_audit_and_fixed_counts_check_started.json",
+      "bytes": 104,
+      "sha256": "35c477b3f7445e8e4013433536e927c3469ac59b216978f187e0d19fe47813ea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/hash_and_seal_closed_database_receipt.json",
+      "bytes": 134,
+      "sha256": "6d7e25ea83c1914ab87af77d8c2ebff91bd97d41981f77b490760cad951acea6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/hash_and_seal_closed_database_started.json",
+      "bytes": 101,
+      "sha256": "7e2aa03df03f76166d8231f756e5051506189289edde81c5d342719fc04d6a90"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/initial_direct_source_hash_receipt.json",
+      "bytes": 131,
+      "sha256": "cbdedf575abc340b184380897b123f5426bdd288fd670870f4a2124ed3cd2fc1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/initial_direct_source_hash_started.json",
+      "bytes": 98,
+      "sha256": "e8bba5e084902cead0cd401f51715633cb54e8315e141bcc56f5e2c09d8b922d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/original_posting_index_and_commit_receipt.json",
+      "bytes": 134,
+      "sha256": "43ccaed5863a01f3e818ee856a10aa908b98a7bf07eb5d8ce31a1be47b6a4396"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/original_posting_index_and_commit_started.json",
+      "bytes": 105,
+      "sha256": "bf494f0af733b022ce3a39129291b90590ecc4005e73611bc7e16516b32aa4ee"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/posting_file_check_receipt.json",
+      "bytes": 123,
+      "sha256": "a83405959dce4923c403e260ce8da34d96296e030225e5c0279fd82f59d79a46"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/posting_file_check_started.json",
+      "bytes": 90,
+      "sha256": "bb8b49ba18e21cc48f15ad32c7c23d83f93df4a776d79ca1d37e777d4a49bf04"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/session_map_from_train_memberships_receipt.json",
+      "bytes": 137,
+      "sha256": "6da58166837a22c695759279f24223f0bc9d6ea83191a5b76ab2cfcebbc2a56a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/session_map_from_train_memberships_started.json",
+      "bytes": 106,
+      "sha256": "92ecbdfbc4042af88f06e0cad6be56b0893cc9b7f3c575dbb948cc6306121eb3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/setup_new_database_receipt.json",
+      "bytes": 120,
+      "sha256": "04f133726a07fec9fb7f8793ff66499272c32567d84281f6c04f44b3975a8976"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/setup_new_database_started.json",
+      "bytes": 90,
+      "sha256": "6f2e020945dc694fb064b4d2f9f08150fbc430799295f5d7eec4997ff7a35bfe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/support_and_session_file_check_receipt.json",
+      "bytes": 135,
+      "sha256": "7e11b4ebf41ee972c0204c38a96f572f19ca0d2fb7247ffc98b03ac8ccb91811"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/phases/support_and_session_file_check_started.json",
+      "bytes": 102,
+      "sha256": "54a5ed4f4a084b69e85a83ae842d9b1de4d0da39948b66c17afb09270bf80f68"
+    }
+  ]
+}
