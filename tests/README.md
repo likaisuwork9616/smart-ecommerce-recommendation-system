@@ -1,5 +1,7 @@
 # 測試與驗證
 
+最新 Stage 12 V6 細分分層／append 診斷：**26 項相關測試全過，48.158 秒**（非全專案測試），含 V6 新工具、V5 budget 觀測、V4 四臂配對；檢查實體 bytes、互斥成本守恆、未覆蓋細層、期限與真程序退出後恢復。執行 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_refined_cost_v6 --acceptance`，見[收據](../reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)及[方法](../docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)。
+
 自動測試使用Python標準庫`unittest`，從專案根目錄執行：
 
 ```powershell

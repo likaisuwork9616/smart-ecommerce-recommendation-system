@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V5 成本覆蓋已補，評估仍不啟動全量（最新）
+## Stage 12：V6 分層細化與 append 診斷工具通過（最新）
+
+已完成原 V5 mask 加上鄰居數／投票上界分帶，以及 budget 檢查、guard、JSON 編碼、payload 開檔／write、chunk commit 的互斥計時。**26 項相關測試通過**，涵蓋與 V5 實體 bytes 差分、成本加總、期限、四臂精確配對及真程序崩潰後恢復。細層沒有原樣本時，會明列母體缺口與父層借值，不把借值當成覆蓋。
+
+**本步真實複測尚未執行。** 下一步新開最多 30 分鐘窗口，保留原固定 48 筆／原模型／原科學 bytes，做三次成本複測；不另選樣、不新增主要 fit／validation／bootstrap。全量 no-go、test locked、K1−C1 未定、`T_plan` 空值；每日 10% 與 Dashboard 暫緩維持。見[方法與操作](docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)及[26 項驗收](reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)。
+
+## Stage 12：V5 成本覆蓋已補，評估仍不啟動全量（前步）
 
 新版完整重建、聯合尾端及 **166,897 筆／62,235 位訪客／2.414 GB** 真實格式工程 ledger 成本已補。最後窗口 **1,194.094 秒、正常退出 0**，初末 522 份來源一致；完整工程鏈與七路來源 EOF 恢復 **177.864 秒**、四臂 global **532.128 秒**、新 2,000 工程 draws 入口 **332.927 秒**。這是成本代理，完整 K1 獨立排名與原 aggregate／draws 尚未驗收。
 
