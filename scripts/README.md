@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V5 完整規模工程帳本建置 | [來源帳本與封存](retailrocket_session_knn_ledger_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) | 從已存四臂輸出建立工程帳本，用於量測實際資料形狀的序列化、分塊與寫入成本。查看本次結果請讀[建置成本報告](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)。 |
 | K1 V5 聯合尾端成本 | [結構分層與成本彙總](retailrocket_session_knn_joint_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) | 依完整 validation 的工作量結構凍結樣本，在 12 個非空分層實測 48 筆配對。[聯合尾端成本報告](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json) |
 | K1 V5 完整獨立重建成本 | [重建與逐檔核對](retailrocket_session_knn_rebuild_cost_v5.py)、[外部監督窗口](retailrocket_session_knn_cost_window_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) | 只在全新目錄從已綁定的原始來源建立獨立 SQL 模型。實測已完成，耗時與範圍可直接查閱[成本報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)。 |
 | K1 V4 來源定位與逐筆大小量測 | [七路來源索引](retailrocket_session_knn_sources_v4.py)、[逐筆大小與前綴掃描](retailrocket_session_knn_payload_v4.py)、[定位成本對照](retailrocket_session_knn_source_cost_v4.py) | 28 項合成測試通過。工程配對限於凍結的 64 筆 validation 子集；六個固定位置另量原始來源的讀取成本。預留測試維持鎖定。 |
@@ -82,7 +83,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V5 聯合尾端成本（最新）
+## Stage 12：V5 完整規模工程帳本建置（最新）
+
+`build_source_ledger` 讀取已存的四臂推薦，核對指標算術，將原輸出、精確指標字串與二進位差值的十六進位表示寫成工程紀錄。實測處理 166,897 筆、62,235 位訪客，分為 2,608 塊，紀錄共 2,413,599,879 bytes，其中 110 筆與已獨立驗證的參考內容相符。建置階段 350.266 秒包含在 466.281 秒監督窗口內，程序正常退出，498 份綁定來源前後雜湊一致。
+
+本輪新增獨立 K1 排名核對 0 筆。工程帳本使用獨立的封存格式，供後續成本量測使用。全量獨立反讀關閉，K1−C1 尚無正式結論，預留測試鎖定。[方法與範圍](../docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) · [18 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_ledger_acceptance_20261103.json) · [實測報告](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)
+
+## Stage 12：V5 聯合尾端成本（前輪）
 
 `freeze_joint_roster` 以 166,897 筆 validation 查詢的工作量結構凍結名冊。實際配對限於 12 個非空分層的 48 筆樣本。`summarize_joint_cost` 以各層母體筆數乘以該層樣本最慢的逐筆耗時，得到僅涵蓋查詢部分的情境值 17,176.067 秒（4.771 小時）。此值未乘兩倍餘裕，checkpoint 提交、準備、全域聚合與恢復另計。整個採樣與量測窗口實耗 746.391 秒，退出碼 0。
 

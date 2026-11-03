@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-03T07:11:32.437878+00:00",
+  "status": "v5_source_backed_engineering_ledger_synthetic_accepted",
+  "kind": "synthetic_source_schema_fidelity_shape_gates_chain_and_accumulated_budget",
+  "tests": {
+    "run": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 7.756120199977886,
+    "modules": [
+      "tests.test_retailrocket_session_knn_ledger_cost_v5"
+    ]
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_ledger_cost_v5.py",
+      "bytes": 40842,
+      "sha256": "11fda030ac28f77e762d5b65b8e37ac25ba90015e8b4f8705ece2db240bcfc6e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_ledger_cost_v5.py",
+      "bytes": 17325,
+      "sha256": "a0f5c57926bb35741248858a02621cd4e1f36cd47054c48a7b0176872e51598a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/v5-ledger-synthetic-acceptance-20261103/tests.log",
+      "bytes": 4108,
+      "sha256": "68534b43f25c14bf3bb0532b6814dae13815913a3abd8643aeaac1a4ba54155c"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json",
+      "bytes": 40143,
+      "sha256": "519db003a27000a786c4f782ee748e3c088567d46612513051c186c80ca52512"
+    }
+  ],
+  "scope": {
+    "new_K1_predictions": 0,
+    "full_verified_real_ledger": false,
+    "new_primary_fits": 0,
+    "full_readback": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  }
+}

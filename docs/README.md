@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V5 聯合尾端成本（最新）
+## Stage 12：V5 完整規模工程帳本建置（最新）
+
+將已存四臂 validation 輸出寫成工程帳本，保留 166,897 筆查詢、62,235 位訪客的實際資料形狀。逐筆資料分為 2,608 塊，共 2,413,599,879 bytes。110 筆先前獨立驗證過的查詢均與帳本內容相符。建置階段耗時 350.266 秒，監督窗口共 466.281 秒，退出碼 0，498 份綁定來源的 SHA 在前後核對一致。這次量到完整規模的建置成本；全量獨立排名反讀仍然關閉，K1−C1 尚無正式結論，預留測試維持鎖定。[方法與限制](STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) · [18 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_ledger_acceptance_20261103.json) · [建置成本實測](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)
+
+## Stage 12：V5 聯合尾端成本（前輪）
 
 166,897 筆 validation 查詢依工作量結構分層，先凍結名冊，再對 12 個非空分層各 4 筆樣本做獨立配對。48 筆實測在 746.391 秒的工程窗口內完成，程序正常退出。將各層筆數乘以該層樣本最慢的逐筆核對與寫入耗時，合計 **17,176.067 秒（4.771 小時）**。這是查詢部分的情境值，未乘兩倍餘裕，checkpoint 提交、準備、全域聚合與恢復成本另計。未抽中查詢的耗時仍有不確定性，全量反讀關閉，K1−C1 尚無正式結論，預留測試維持鎖定。[方法與限制](STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) · [8 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_joint_acceptance_20261103.json) · [聯合尾端成本實測](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json)
 

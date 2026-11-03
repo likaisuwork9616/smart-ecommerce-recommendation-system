@@ -10,7 +10,17 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V5 聯合尾端選樣與配對（最新）
+## Stage 12：V5 原始輸出工程帳本（最新）
+
+[工程帳本合成驗收](test_retailrocket_session_knn_ledger_cost_v5.py) **18 項全部通過**。測試涵蓋逐筆編碼、訪客與分組人數、已驗子集的對照、已提交資料毀損與封存前中斷，以及工程帳本和已驗證帳本的區隔。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_ledger_cost_v5 -v
+```
+
+真實建置另有成本報告。166,897 筆已存查詢輸出涵蓋 62,235 位訪客，110 筆與既有獨立驗證參考相符。這次沒有重新計算 K1 排名，完整獨立反讀仍關閉，K1−C1 尚無正式結論，預留測試鎖定。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v5_ledger_acceptance_20261103.json) · [方法說明](../docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) · [實測報告](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)
+
+## Stage 12：V5 聯合尾端選樣與配對（前輪）
 
 [聯合尾端測試](test_retailrocket_session_knn_joint_cost_v5.py) **8 項全部通過**。合成資料驗證選樣只依工作量結構、先按角色分流、缺列或順序錯誤時拒絕凍結，以及只有凍結名冊內的樣本才進入 V4 配對與 checkpoint 提交。
 

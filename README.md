@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V5 完整重建及聯合尾端量測完成；全量關閉 | 166,897 筆結構名冊／12 個非空聯合層，48 筆實際四臂核對通過；逐筆分量情境約 4.77 小時（非全量實測），完整 ledger 工程成本待補；K1−C1 未正式驗收、test locked |
+| Stage 12：session-kNN K1 | V5 完整形狀工程 ledger 已建置；全量關閉 | 166,897 筆／62,235 位訪客／2.414 GB，110 筆已驗參考 payload 全同；建置 350.266 秒、窗口 466.281 秒。完整鏈恢復／global／工程 draws 與保存分項待補；K1−C1 未正式驗收、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V5 聯合工作量尾端已量測（最新）
+## Stage 12：V5 完整形狀工程 ledger 已建置（最新）
+
+**18 項合成測試通過**後，以既有四臂輸出建立完整筆數及真實 payload 形狀的工程成本代理：**166,897 筆、62,235 位訪客、2,608 chunks，共 2,413,599,879 bytes**。建置階段 **350.266 秒**，總窗口 **466.281 秒、正常退出 0**，初末 **498 份來源綁定一致**；先前不同的 **110 筆已驗 payload** 全部對上。
+
+這一步檢查來源、固定分母／切片、格式與已存推薦的指標自洽，**沒有全量獨立重新驗算 K1 排名**。工程 ledger 使用獨立協定，不會當成完整已驗 ledger；原 K1 主輸出仍未正式驗收。接著另開新成本窗口，只讀已封存工程 ledger 量完整鏈恢復／global／新工程 self-reference draws，並在新目錄重測既有 48 筆的週期 budget 保存成本。全量不啟動、預留測試 locked、K1−C1 無正式結論。見[方法與界線](docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md)、[18 項驗收](reports/stage12/retailrocket_session_knn_v5_ledger_acceptance_20261103.json)及[建置成本](reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)。
+
+## Stage 12：V5 聯合工作量尾端已量測（前步）
 
 **8 項合成測試通過**後，新窗口在 **746.391 秒**正常退出 0，初末 **489 份來源綁定一致**。完整 **166,897 筆結構名冊**耗時 454.289 秒，依同一 query 的四維工作量分成 12 個非空聯合層，各凍結 4 筆、共 **48 筆**；選樣未用 targets 或推薦效果。之後才抽七路原 bytes，48 筆四臂／精確指標核對與 checkpoint 在 **13.606 秒**完成，實體 ledger **2,115,696 bytes**。
 

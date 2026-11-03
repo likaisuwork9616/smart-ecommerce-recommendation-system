@@ -1,0 +1,372 @@
+{
+  "created_utc": "2026-11-03T07:20:56.524128+00:00",
+  "namespace": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35",
+  "status": "v5_source_backed_engineering_ledger_build_cost_measured",
+  "kind": "full_shape_real_saved_payload_engineering_cost_proxy",
+  "decision": "full_real_readback_remains_disabled",
+  "T_plan": null,
+  "supervisor": {
+    "T_plan": null,
+    "actual_exit_observed_utc": "2026-11-03T07:19:24.603938+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "kind": "engineering_cost_v5_exit_observation",
+    "operation": "ledger_coverage",
+    "peak_sampled_execution_bytes": 2420532823,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 134500352,
+    "reserved_test": "locked",
+    "seconds": 466.28100000001723,
+    "stop_reason": null,
+    "supervisor_error": null,
+    "tracked_processes": 3,
+    "tracked_processes_alive_after_cleanup": 0
+  },
+  "preflight_seconds_before_window": 0.26194500003475696,
+  "sources_bound": 498,
+  "phases": {
+    "complete_source_backed_engineering_ledger_build": {
+      "completed": true,
+      "error_type": null,
+      "phase": "complete_source_backed_engineering_ledger_build",
+      "seconds": 350.26599640003406
+    },
+    "final_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "final_frozen_source_hash",
+      "seconds": 52.83645579998847
+    },
+    "initial_frozen_source_hash": {
+      "completed": true,
+      "error_type": null,
+      "phase": "initial_frozen_source_hash",
+      "seconds": 61.58012589998543
+    }
+  },
+  "build": {
+    "T_plan": null,
+    "all_targets_reachable_queries": 161211,
+    "chunks": 2608,
+    "engineering_record_bytes": 2413599879,
+    "engineering_seal_sha256": "fd79840d9748bc12b2765446aa5eb7e7211c4a91847ac2cb51441d0ff38e9e4b",
+    "full_scientific_acceptance": false,
+    "independent_K1_rank_checks": 0,
+    "input_status": "unaccepted_saved_outputs",
+    "kind": "engineering_unaccepted_saved_outputs_ledger_cost_v5",
+    "known_verified_sample_payloads_matched": 110,
+    "latest_query_time": 1441063765821,
+    "metric_self_consistency_rows": 166897,
+    "new_K1_predictions": 0,
+    "raw_primary_bytes": 2294757672,
+    "reachable_target_occurrences": 161264,
+    "record_max_bytes": 48115,
+    "record_min_bytes": 3491,
+    "record_p50_bytes": 8342,
+    "record_p99_bytes": 44789,
+    "records": 166897,
+    "reserved_test": "locked",
+    "roster_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+    "seconds": 350.2372978000203,
+    "slice_counts": {
+      "current_basket": {
+        "multiple": 56,
+        "single": 166841
+      },
+      "target_basket": {
+        "multiple": 53,
+        "single": 166844
+      },
+      "target_model": {
+        "all_positive": 154951,
+        "all_zero": 11943,
+        "mixed": 3
+      },
+      "train_activity": {
+        "0": 134300,
+        "1": 6523,
+        "2-5": 6009,
+        "6+": 20065
+      },
+      "visitor_history": {
+        "new": 134249,
+        "seen": 32648
+      }
+    },
+    "target_occurrences": 166952,
+    "visitor_query_count_histogram": {
+      "1": 35731,
+      "2": 11747,
+      "3": 5222,
+      "4": 2954,
+      "5": 1720,
+      "6": 1091,
+      "7": 780,
+      "8": 590,
+      "9": 369,
+      "10": 329,
+      "11": 276,
+      "12": 192,
+      "13": 140,
+      "14": 139,
+      "15": 112,
+      "16": 98,
+      "17": 97,
+      "18": 75,
+      "19": 60,
+      "20": 48,
+      "21": 26,
+      "22": 36,
+      "23": 34,
+      "24": 25,
+      "25": 23,
+      "26": 23,
+      "27": 26,
+      "28": 14,
+      "29": 19,
+      "30": 19,
+      "31": 15,
+      "32": 13,
+      "33": 13,
+      "34": 6,
+      "35": 2,
+      "36": 10,
+      "37": 5,
+      "38": 6,
+      "39": 9,
+      "40": 6,
+      "41": 4,
+      "42": 9,
+      "43": 3,
+      "44": 2,
+      "45": 2,
+      "46": 4,
+      "47": 5,
+      "48": 1,
+      "49": 3,
+      "50": 2,
+      "51": 4,
+      "52": 5,
+      "53": 5,
+      "54": 2,
+      "55": 2,
+      "56": 2,
+      "57": 1,
+      "58": 3,
+      "59": 3,
+      "61": 2,
+      "62": 1,
+      "63": 2,
+      "64": 1,
+      "67": 3,
+      "68": 1,
+      "70": 2,
+      "71": 2,
+      "74": 1,
+      "75": 1,
+      "81": 1,
+      "82": 1,
+      "83": 1,
+      "84": 1,
+      "86": 2,
+      "90": 1,
+      "91": 2,
+      "97": 1,
+      "100": 1,
+      "108": 2,
+      "113": 1,
+      "115": 1,
+      "124": 1,
+      "129": 1,
+      "130": 1,
+      "132": 1,
+      "137": 1,
+      "143": 2,
+      "145": 1,
+      "149": 1,
+      "152": 2,
+      "164": 1,
+      "167": 1,
+      "179": 1,
+      "198": 2,
+      "207": 1,
+      "208": 1,
+      "210": 1,
+      "214": 1,
+      "216": 1,
+      "220": 1,
+      "277": 1,
+      "326": 1,
+      "333": 1,
+      "338": 1,
+      "347": 1,
+      "348": 1,
+      "376": 1,
+      "390": 1,
+      "422": 1,
+      "445": 1,
+      "467": 1,
+      "514": 1,
+      "673": 1,
+      "746": 1,
+      "880": 1,
+      "956": 1,
+      "969": 1,
+      "1042": 1,
+      "1260": 1,
+      "1399": 1
+    },
+    "visitors": 62235
+  },
+  "engineering_ledger_binding": {
+    "seal": {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_seal.json",
+      "bytes": 344734,
+      "sha256": "fd79840d9748bc12b2765446aa5eb7e7211c4a91847ac2cb51441d0ff38e9e4b"
+    },
+    "contract": {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_contract.json",
+      "bytes": 1423,
+      "sha256": "62b9d5bf2aad59d12c933888e87bc849434e49971580834681438963b90dd06c"
+    },
+    "summary": {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_summary.json",
+      "bytes": 2008,
+      "sha256": "c7ccd15b8587aabb783c532068dcb4269ef3c45042fe5cc61fcc449c53dc98bd"
+    }
+  },
+  "known_independently_verified_unique_queries": 110,
+  "sources_reverified_before_after": true,
+  "post_exit_checks": {
+    "recorded_process_identities": 3,
+    "all_recorded_identities_stopped": true,
+    "read_only_audit_seconds": 40.86310129996855,
+    "engineering_artifact_files_rehashed": 5218,
+    "post_stop_source_hash_seconds": null
+  },
+  "interpretation": "Every original saved four-arm expected payload is carried into the CP ordinal/key/payload byte schema with given-ID metric/Decimal/delta self-consistency. The original K1 outputs remain unaccepted; matching previously independently verified samples calibrates adapter fidelity only at those keys. No all-query independent ranking checks or scientific acceptance are performed. Engineering storage has a separate protocol/names/seal and never calls append_verified. Build parsing/terms/copy and physical writes are nested in the measured total; not additive to query verification costs. Later global/recovery/draw costs require separate new windows bound to this normal exit and seal; they do not extend this builder deadline.",
+  "scope": {
+    "source_derived_engineering_records": 166897,
+    "new_independent_K1_query_checks": 0,
+    "new_K1_predictions": 0,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_real_bootstrap": 0,
+    "full_verified_real_ledger": false,
+    "full_real_readback": false,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "remaining": [
+    "engineering_full_shape_global_chain_recovery_and_new_self_reference_draw_cost",
+    "full_independent_K1_rank_query_global_original_draw_acceptance_not_started"
+  ],
+  "privacy": "All source rows, keys, support/model contents, per-query payloads and engineering draw values remain ignored local evidence. Public values are aggregate costs, workload shapes and file identities.",
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/complete_source_backed_engineering_ledger_build_receipt.json",
+      "bytes": 124,
+      "sha256": "e70c66224e743fe1b0e414bc6ee777dc132fc75d3a6635f02446345b1dabeaff"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/complete_source_backed_engineering_ledger_build_started.json",
+      "bytes": 101,
+      "sha256": "c8899121542ad1fe59bcc2126bb5aea1198477727776cfb186cf107779b350ec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/final_frozen_source_hash_receipt.json",
+      "bytes": 100,
+      "sha256": "e7649e20bbd0018225b8b31f4d15330c4570a2d5061ad2504e6b445451f27e8b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/final_frozen_source_hash_started.json",
+      "bytes": 78,
+      "sha256": "a86f11d22939b7f161bc8467a38fc84d60d4990d8b955dd6c25df19a5ceb4b21"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/initial_frozen_source_hash_receipt.json",
+      "bytes": 102,
+      "sha256": "aeae44792c2f5affd0e5bf054fb314effcb0858cc208d9c4eab1cb9b6daa51c9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/initial_frozen_source_hash_started.json",
+      "bytes": 80,
+      "sha256": "825e981a41eb1b3e08466371457bb85a727568afd7a201b0cc24a9dd9625c6f0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/ledger_build_result.json",
+      "bytes": 2300,
+      "sha256": "c086d24cc7c5a4d2a006434cf659c09d1fe765e4fd7293fcb4f93df70ddbe07d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/measurement_result.json",
+      "bytes": 3041,
+      "sha256": "0f416c327d470d73c9aaaa9ebe28adc3a0d1f5ffcb6966a877625b45c254095e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/post_exit_engineering_inventory_audit.json",
+      "bytes": 1310540,
+      "sha256": "0196beca1be02b6d11244c7c8f050bd0f604e541119a9877ec208151206ea6f4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/post_exit_identity_audit.json",
+      "bytes": 332,
+      "sha256": "21a644ffdb5e829800008180f5ef5fe2c46783be0c8db2c8c24273aca001271f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/request.json",
+      "bytes": 96684,
+      "sha256": "6298d1de6d8e02d6295a6d57ff924ec9ab2d1805a34194177b837a489cb1acb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/supervisor_completion.json",
+      "bytes": 456,
+      "sha256": "16109ea3feb72d522969ba6029772c2ea1fe47c96047c6d100f69e2626a0b42f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/tracked_process_identities.json",
+      "bytes": 266,
+      "sha256": "03e4902b5853b1d84be565615e85d15d7be7572fadc221a0f3311fc75a46635c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/watch_statistics.json",
+      "bytes": 55,
+      "sha256": "a0e99d27b4260e5cfd72409a6574f2898a7ec6d39f150c627f33a9a71573513a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/worker_identity.json",
+      "bytes": 70,
+      "sha256": "6a7a253627d439a482f6074b9c4c1db0aba9403b7a964692f19eff3654428eea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_contract.json",
+      "bytes": 1423,
+      "sha256": "62b9d5bf2aad59d12c933888e87bc849434e49971580834681438963b90dd06c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_phase_receipt.json",
+      "bytes": 297,
+      "sha256": "966cca45fde123652336215b36a1c0ad1ae8b98b602e1d0bcf2195b4cfc02d7c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_seal.json",
+      "bytes": 344734,
+      "sha256": "fd79840d9748bc12b2765446aa5eb7e7211c4a91847ac2cb51441d0ff38e9e4b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-ledger-build-2c11e151605c41f598b0575a47ce5f35/engineering_ledger/engineering_summary.json",
+      "bytes": 2008,
+      "sha256": "c7ccd15b8587aabb783c532068dcb4269ef3c45042fe5cc61fcc449c53dc98bd"
+    }
+  ]
+}
