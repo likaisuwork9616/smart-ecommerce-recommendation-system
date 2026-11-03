@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V2 實作、合成恢復驗收與成本探測（最新）
+## Stage 12：V3 監控與建置成本診斷（最新）
+
+[診斷方法與界線](STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md) → [監控微量測](../reports/stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)。11 項測試通過；20,000 callbacks 的三輪中位數 1.118→0.015 秒僅為微量測，不能當作全輪反讀加速。重複索引／三次 SHA 待端到端量測，原 840.406 秒仍保留，全量 no-go、test locked。
+
+## Stage 12：V2 實作、合成恢復驗收與成本探測（前輪）
 
 [V2 方法、操作與界線](STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md) → [實作契約](contracts/retailrocket_session_knn_readback_v2.json) → [合成驗收](../reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json) → [成本探測與決策](../reports/stage12/retailrocket_session_knn_v2_cost_probe_20261103.json)。185 項相關測試全過，獨立重建約 14 分鐘；30 分鐘窗口內整窗分層未完成，未取得固定樣本計時，決定暫不全量。K1−C1 尚無正式結論，test locked。
 

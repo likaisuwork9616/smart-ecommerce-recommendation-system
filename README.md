@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V2 合成驗收通過；成本門檻未過，暫不全量 | 185 項相關測試通過；30 分鐘有界探測完成獨立重建，但整窗分層到期未完成，尚無固定樣本計時。K1−C1 未驗收，test locked |
+| Stage 12：session-kNN K1 | V2 合成通過；V3 監控成本診斷完成，暫不全量 | V2 185 項測試通過；新監控 11 項通過。20,000 callbacks 中位數 1.118→0.015 秒僅為微量測；完整分層與後續成本待量，K1−C1 未驗收，test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V2 合成通過，成本探測到期，暫不啟動全量（最新）
+## Stage 12：監控成本診斷完成（最新）
+
+2026-11-03 先檢查前輪準備與分層路徑，固定每輪 20,000 callbacks、三輪微量測中位數：舊 UTC＋停止檔查詢 **1.117981 秒**，新 0.25 秒節流檢查 **0.015331 秒**；11 項監控測試通過。這不是整輪反讀加速倍數。另以唯讀 schema 確認兩個同欄序 posting 索引，並指出建置前來源 SHA 重複三次；未改原 DB 或凍結 V1／V2。
+
+下一步用新窗口量完整分層、固定樣本與配對／checkpoint，再補全規模人工 global／bootstrap／恢復代理。原 840.406 秒仍作歷史重建保留額，未扣微量測推估節省。全量維持 no-go，K1−C1 無正式結論，test locked。見[診斷說明與界線](docs/STAGE12_RETAILROCKET_KNN_COST_DIAGNOSIS_V3_20261103.md)及[實際微量測](reports/stage12/retailrocket_session_knn_monitor_cost_diagnosis_20261103.json)。
+
+## Stage 12：V2 合成通過，成本探測到期，暫不啟動全量（前輪）
 
 2026-11-03 完成 V2 獨立 SQL 精確驗算與保存機制，**185 項相關測試全數通過（102 項 V2＋83 項既有 K1，0 失敗／錯誤／略過）**。包含完整巢狀 V1 暴力差分、四臂全域與各組原 2,000 draws，以及真的強制退出子程序後從已提交邊界恢復；worker 只產生完成候選，必須由獨立 supervisor 觀察正常退出才接受。來源、V1 程式與原 partial 保留原狀。
 

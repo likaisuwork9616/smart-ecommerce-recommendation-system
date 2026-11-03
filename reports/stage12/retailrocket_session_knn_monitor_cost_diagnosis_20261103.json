@@ -1,0 +1,219 @@
+{
+  "created_utc": "2026-11-03T04:29:41.761859+00:00",
+  "status": "monitor_microbenchmark_and_static_cost_diagnosis_complete",
+  "kind": "engineering_microbenchmark_only",
+  "tests": {
+    "run": 11,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "benchmark": {
+    "iterations": 20000,
+    "repeats": 3,
+    "interval_seconds": 0.25,
+    "results": {
+      "legacy": [
+        {
+          "wall_seconds": 1.203383499989286,
+          "cpu_seconds": 1.1875,
+          "calls": 20000,
+          "full_checks": 20000,
+          "stop_checks": 20000,
+          "monotonic_checks": 0
+        },
+        {
+          "wall_seconds": 1.0850566999870352,
+          "cpu_seconds": 1.046875,
+          "calls": 20000,
+          "full_checks": 20000,
+          "stop_checks": 20000,
+          "monotonic_checks": 0
+        },
+        {
+          "wall_seconds": 1.1179806999862194,
+          "cpu_seconds": 1.125,
+          "calls": 20000,
+          "full_checks": 20000,
+          "stop_checks": 20000,
+          "monotonic_checks": 0
+        }
+      ],
+      "throttled": [
+        {
+          "wall_seconds": 0.010482899961061776,
+          "cpu_seconds": 0.015625,
+          "calls": 20000,
+          "full_checks": 1,
+          "stop_checks": 1,
+          "monotonic_checks": 20000
+        },
+        {
+          "wall_seconds": 0.01771559996996075,
+          "cpu_seconds": 0.015625,
+          "calls": 20000,
+          "full_checks": 1,
+          "stop_checks": 1,
+          "monotonic_checks": 20000
+        },
+        {
+          "wall_seconds": 0.015331300033722073,
+          "cpu_seconds": 0.015625,
+          "calls": 20000,
+          "full_checks": 1,
+          "stop_checks": 1,
+          "monotonic_checks": 20000
+        }
+      ],
+      "monotonic_only": [
+        {
+          "wall_seconds": 0.001639300025999546,
+          "cpu_seconds": 0.0,
+          "calls": 20000,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 20000
+        },
+        {
+          "wall_seconds": 0.004043699998874217,
+          "cpu_seconds": 0.0,
+          "calls": 20000,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 20000
+        },
+        {
+          "wall_seconds": 0.004171899985522032,
+          "cpu_seconds": 0.0,
+          "calls": 20000,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 20000
+        }
+      ],
+      "empty_loop": [
+        {
+          "wall_seconds": 0.0004943999811075628,
+          "cpu_seconds": 0.0,
+          "calls": 0,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 0
+        },
+        {
+          "wall_seconds": 0.0010847999947145581,
+          "cpu_seconds": 0.0,
+          "calls": 0,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 0
+        },
+        {
+          "wall_seconds": 0.001047800004016608,
+          "cpu_seconds": 0.0,
+          "calls": 0,
+          "full_checks": 0,
+          "stop_checks": 0,
+          "monotonic_checks": 0
+        }
+      ]
+    }
+  },
+  "summary": {
+    "legacy": {
+      "median_wall_seconds": 1.1179806999862194,
+      "median_cpu_seconds": 1.125,
+      "median_seconds_per_call": 5.589903499931097e-05,
+      "stop_checks": [
+        20000,
+        20000,
+        20000
+      ]
+    },
+    "throttled": {
+      "median_wall_seconds": 0.015331300033722073,
+      "median_cpu_seconds": 0.015625,
+      "median_seconds_per_call": 7.665650016861037e-07,
+      "stop_checks": [
+        1,
+        1,
+        1
+      ]
+    },
+    "monotonic_only": {
+      "median_wall_seconds": 0.004043699998874217,
+      "median_cpu_seconds": 0.0,
+      "median_seconds_per_call": 2.0218499994371086e-07,
+      "stop_checks": [
+        0,
+        0,
+        0
+      ]
+    },
+    "empty_loop": {
+      "median_wall_seconds": 0.001047800004016608,
+      "median_cpu_seconds": 0.0,
+      "median_seconds_per_call": 5.23900002008304e-08,
+      "stop_checks": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "static_reconstruction_watch_lower_bound": 9908572,
+  "static_bound_formula": "1823018 + 1587436 + 198946 + 2*1180256 + 2*198946 + 3*1180256",
+  "static_bound_interpretation": "Loop-count lower bound, not measured callback count or attribution of the historical build time. Excludes non-train baskets and SQL VM callbacks.",
+  "source_hash_checks_before_build_in_v2": 3,
+  "source_hash_check_interpretation": "create, writer, explicit source_hash each rehash; 132.597 unattributed seconds cannot all be assigned to hashing.",
+  "sealed_model_index_columns": {
+    "k1_v2_posting": [
+      "i",
+      "v",
+      "s"
+    ],
+    "posting": [
+      "i",
+      "v",
+      "s"
+    ],
+    "sqlite_autoindex_m_1": [
+      "v",
+      "s",
+      "i"
+    ]
+  },
+  "limits": [
+    "Microbenchmark loop timings are not end-to-end model or stratification speedups.",
+    "Historical 840.406-second build remains a planning allowance; no savings subtracted.",
+    "Full-shape paired/global/bootstrap/resume costs still need measurement."
+  ],
+  "scope": {
+    "real_primary_fits": 0,
+    "real_validation_queries_ranked": 0,
+    "real_bootstrap_draws_generated": 0,
+    "full_readback_started": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-monitor-diagnosis-06458bab84df4740ab8d9ee2baf8e84c/tests.log",
+      "bytes": 2002,
+      "sha256": "b83a66e9d2c58dc418dab995b930d8659e5b87a28898ac16ed2674bce901ba61"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_monitor_v3.py",
+      "bytes": 5935,
+      "sha256": "6683cdd0fea3db236e4afd63b4104b1683a3b6557393461e2c40ad9455a837e3"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_monitor_v3.py",
+      "bytes": 6645,
+      "sha256": "9577a91dc03a9963391f022ea9af19adf1818b3bfd75b3762190c44ba6fbe54f"
+    }
+  ]
+}
