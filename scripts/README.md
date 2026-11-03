@@ -6,7 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| K1 V6 原48筆分層／append成本複測 | [驗收與有界入口](run_retailrocket_session_knn_refined_cost_v6.py)、[分層](retailrocket_session_knn_refined_cost_v6.py)、[append分項](retailrocket_session_knn_detailed_cost_v6.py) | `--acceptance` 已通過26項；`--measure` 限原48筆三次、新30分鐘總窗口，先保存結構分層再計時，來源初末及退出後再核；無全量／test入口。[方法與操作](../docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) |
+| K1 V6 原48筆分層／append成本複測 | [驗收與有界入口](run_retailrocket_session_knn_refined_cost_v6.py)、[分層](retailrocket_session_knn_refined_cost_v6.py)、[append分項](retailrocket_session_knn_detailed_cost_v6.py) | 26項驗收及三次原48筆實測均已完成；237.703秒正常退出，532來源／科學bytes同值。查看請直接讀[實測](../reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)，不為查看重跑；無全量／test入口。[方法與操作](../docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) |
 | K1 V5 預算保存觀測與成本決策 | [checkpoint 成本觀測器](retailrocket_session_knn_checkpoint_cost_v5.py)、[工程帳本重播](retailrocket_session_knn_ledger_cost_v5.py) | 在同一批 48 筆查詢上分開計時逐筆寫入、區塊提交與其他階段的預算保存。全量反讀維持關閉。[決策報告](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json) |
 | K1 V5 完整規模工程帳本建置 | [來源帳本與封存](retailrocket_session_knn_ledger_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_SOURCE_LEDGER_BUILD_V5_20261103.md) | 從已存四臂輸出建立工程帳本，用於量測實際資料形狀的序列化、分塊與寫入成本。查看本次結果請讀[建置成本報告](../reports/stage12/retailrocket_session_knn_v5_ledger_build_cost_20261103.json)。 |
 | K1 V5 聯合尾端成本 | [結構分層與成本彙總](retailrocket_session_knn_joint_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) | 依完整 validation 的工作量結構凍結樣本，在 12 個非空分層實測 48 筆配對。[聯合尾端成本報告](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json) |

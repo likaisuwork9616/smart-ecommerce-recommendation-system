@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V6 分層細化與 append 診斷（最新）
+## Stage 12：V6 原48筆三次複測與細分缺口（最新）
+
+237.703秒正常退出，532份來源初末一致，三次科學bytes全同。固定樣本成本主要在排名；55個細層中146,578筆所屬層沒有probe，借父值不是實測覆蓋。原12層情境5.106–7.493小時，仍未乘餘裕／加其他階段，維持全量no-go、T_plan空值、K1−C1未定、test locked。[分層、拆帳與限制](STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) · [三次實測](../reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)
+
+## Stage 12：V6 分層細化與 append 診斷工具（前步）
 
 已新增固定鄰居／投票上界分帶、未覆蓋細層與父層借值敏感度，以及 JSON 編碼、write、budget、commit 的互斥成本計時。26 項相關測試通過；下一步在新30分鐘總窗口內三次複測原48筆，0新keys，不啟動全量或預留測試。[方法與操作](STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) · [工具驗收](../reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)
 

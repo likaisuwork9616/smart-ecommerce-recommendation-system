@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V5 工程成本覆蓋與評估完成；維持 no-go | 完整重建、聯合尾端、166,897 筆真實格式工程 ledger／global／恢復／新工程 draws 已量；48 筆保存分項重測一致，查詢分量情境約 5.971 小時（非全量實測）；全量獨立驗收未啟動、K1−C1 未定、test locked |
+| Stage 12：session-kNN K1 | V6 細分分層與原48筆三次複測完成；維持 no-go | 26項測試通過，三次科學bytes全同；55細層中146,578筆所屬層無probe，原12層情境5.106–7.493小時（非全量實測）；排名為樣本主要成本，全量獨立驗收未啟動、K1−C1未定、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,11 +27,25 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V6 分層細化與 append 診斷工具通過（最新）
+## Stage 12：V6 分層細化與原固定48筆三次複測完成（最新）
+
+先通過26項相關測試並推送工具後，新工程窗口 **237.703秒、正常退出0**，初末 **532份來源一致**。三次各48筆四臂精確核對與checkpoint的科學bytes都同原封存，144次工程重算、**0新unique keys／主要fit／validation／bootstrap**。
+
+成本已釐清：每次48筆verification **3.865–4.056秒**，內含rank **3.446–3.637秒**；逐筆append **0.338–0.417秒**，其中payload實體write僅 **0.0047–0.0122秒**，budget檢查與JSON編碼占較多。最後chunk commit **0.106–0.153秒**另列，沒有漏算。
+
+| 分層情境 | 非空層／沒有probe的母體筆數 | 三次最小／中位／最大（小時） |
+| --- | --- | --- |
+| 原p90 mask | 12／0 | 5.106／5.769／7.493 |
+| mask × 鄰居帶 | 27／103,613 | 4.046／4.489／6.409 |
+| mask × 鄰居帶 × 投票上界帶 | 55／146,578 | 4.219／4.706／6.621 |
+
+細層沒樣本時明確借父層最大值，**借值不等於實測覆蓋**；原`0000`四probe全在100–499鄰居帶，0–99帶共91,795筆沒有probe。上述為未乘餘裕、未加其他階段的查詢分量敏感度，非全量實測／上界，也不宣稱跨輪加速。**維持no-go、T_plan空值、K1−C1未定、test locked**。下一步先另立不看target的缺口補樣規格，再評估SQL投票／overlap與完整pool SHA成本；每日10%與Dashboard暫緩維持。見[方法、分項與限制](docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)及[三次實測報告](reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)。
+
+## Stage 12：V6 分層細化與 append 診斷工具通過（前步）
 
 已完成原 V5 mask 加上鄰居數／投票上界分帶，以及 budget 檢查、guard、JSON 編碼、payload 開檔／write、chunk commit 的互斥計時。**26 項相關測試通過**，涵蓋與 V5 實體 bytes 差分、成本加總、期限、四臂精確配對及真程序崩潰後恢復。細層沒有原樣本時，會明列母體缺口與父層借值，不把借值當成覆蓋。
 
-**本步真實複測尚未執行。** 下一步新開最多 30 分鐘窗口，保留原固定 48 筆／原模型／原科學 bytes，做三次成本複測；不另選樣、不新增主要 fit／validation／bootstrap。全量 no-go、test locked、K1−C1 未定、`T_plan` 空值；每日 10% 與 Dashboard 暫緩維持。見[方法與操作](docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)及[26 項驗收](reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)。
+本工具步驟完成時尚未真實複測，後續三次結果見上節；保留原固定48筆／模型／科學bytes，沒有另選樣。全量no-go、test locked、K1−C1未定、`T_plan`空值。見[方法與操作](docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)及[26項驗收](reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)。
 
 ## Stage 12：V5 成本覆蓋已補，評估仍不啟動全量（前步）
 
