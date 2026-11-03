@@ -1,0 +1,94 @@
+{
+  "created_utc": "2026-11-03T03:45:52.364109+00:00",
+  "started_utc": "2026-11-03T03:44:26.737055+00:00",
+  "elapsed_seconds": 85.63118110003415,
+  "tests_run": 185,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "modules": [
+    "tests.test_retailrocket_session_knn",
+    "tests.test_retailrocket_session_knn_entry",
+    "tests.test_retailrocket_session_knn_spec",
+    "tests.test_retailrocket_session_knn_validation",
+    "tests.test_retailrocket_session_knn_validation_entry",
+    "tests.test_retailrocket_session_knn_sql_v2",
+    "tests.test_retailrocket_session_knn_checkpoint_v2",
+    "tests.test_retailrocket_session_knn_cost_probe_v2",
+    "tests.test_retailrocket_session_knn_readback_v2",
+    "tests.test_run_retailrocket_session_knn_v2"
+  ],
+  "status": "synthetic_equivalence_and_fault_recovery_accepted",
+  "kind": "synthetic_engineering_acceptance_only",
+  "actual_process_faults": [
+    "os._exit(9) after query 3; 2 committed queries resumed",
+    "os._exit(9) after candidate commit; old candidate preserved, new worker fully replayed"
+  ],
+  "physical_power_loss_tested": false,
+  "real_primary_fits": 0,
+  "real_validation_effectiveness_runs": 0,
+  "real_cost_probe_started_by_tests": false,
+  "reserved_test": "locked",
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_probe_v2.py",
+      "bytes": 10668,
+      "sha256": "d756c37801ee1f8ccafe58a9379ccc1e85861298884265cfa9604bcad46b5ecb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "bytes": 12239,
+      "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_cost_probe_v2.py",
+      "bytes": 11469,
+      "sha256": "a4e761cea993fa12c7caed5e6686db9d83562cba2ff3ddc838d59e8293e5548a"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_readback_v2.py",
+      "bytes": 11117,
+      "sha256": "a0f42681e838238b48c635c2b4588dc0b850f07268645a5ee1fd209d79af3a03"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sql_v2.py",
+      "bytes": 19803,
+      "sha256": "fad5d88bfb484ec6e7b01745ea833923520c90094715931ee992e5e596d3fa76"
+    },
+    {
+      "path": "tests/test_run_retailrocket_session_knn_v2.py",
+      "bytes": 17057,
+      "sha256": "165c92c2506d18733a2869f36880ac270f7c93b2ac1f2942089464f925819340"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_readback_v2.json",
+      "bytes": 3310,
+      "sha256": "86b713d330091dfeb7e527102425369dc96704b312bf6604b1de1607953c9243"
+    }
+  ],
+  "local_test_log": {
+    "path": "shop-mysql-runtime/verification/knn-v2-acceptance-20261103/accepted_tests.log",
+    "bytes": 31824,
+    "sha256": "8d9e8e87d9031c7b85396cf0863bade7465f0e6b27a31e2b23ae6b253b8a2c61"
+  }
+}

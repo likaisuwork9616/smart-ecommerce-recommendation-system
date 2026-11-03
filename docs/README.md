@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：反讀成本與中斷保存規劃（最新，暫不另開驗收）
+## Stage 12：V2 實作、合成恢復驗收與成本探測（最新）
+
+[V2 方法、操作與界線](STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md) → [實作契約](contracts/retailrocket_session_knn_readback_v2.json) → [合成驗收](../reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json) → [成本探測與決策](../reports/stage12/retailrocket_session_knn_v2_cost_probe_20261103.json)。185 項相關測試全過，獨立重建約 14 分鐘；30 分鐘窗口內整窗分層未完成，未取得固定樣本計時，決定暫不全量。K1−C1 尚無正式結論，test locked。
+
+## Stage 12：反讀成本與中斷保存規劃（前輪）
 
 [成本、精確等價與恢復設計](STAGE12_RETAILROCKET_KNN_READBACK_COST_AND_RECOVERY_PLAN_20261030.md) → [既有日誌成本報告](../reports/stage12/retailrocket_session_knn_readback_cost_plan_20261030.json)。前段觀測 919 筆／6,567.71 秒，同速率全量 query 情境約 331 小時，非實測總工時；先準備獨立 V2、合成差分／中斷恢復與有界成本探測，通過後才決定全量驗收。本輪僅規劃，K1−C1 無正式結論，test locked。
 

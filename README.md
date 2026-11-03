@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 停止核對與成本／恢復規劃完成；暫不另開真實驗收 | 既有前段 919 筆／6,567.71 秒；同速率全量 query 情境約 331 小時，非實測總工時。先規劃獨立 V2 精確加速與分塊保存；K1−C1 未驗收，test locked |
+| Stage 12：session-kNN K1 | V2 合成驗收通過；成本門檻未過，暫不全量 | 185 項相關測試通過；30 分鐘有界探測完成獨立重建，但整窗分層到期未完成，尚無固定樣本計時。K1−C1 未驗收，test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,15 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：成本與中斷保存規劃完成，暫不另開真實驗收
+## Stage 12：V2 合成通過，成本探測到期，暫不啟動全量（最新）
+
+2026-11-03 完成 V2 獨立 SQL 精確驗算與保存機制，**185 項相關測試全數通過（102 項 V2＋83 項既有 K1，0 失敗／錯誤／略過）**。包含完整巢狀 V1 暴力差分、四臂全域與各組原 2,000 draws，以及真的強制退出子程序後從已提交邊界恢復；worker 只產生完成候選，必須由獨立 supervisor 觀察正常退出才接受。來源、V1 程式與原 partial 保留原狀。
+
+隨後一次 30 分鐘有界成本探測實際用時 **1,798.14 秒**，於臺北 12:16:13 保存期限停止與實際退出收據。完整獨立重建通過，該階段 **840.41 秒（約 14 分鐘）**；整窗分層執行 **784.72 秒後到期中斷**，尚未選出事前固定樣本、也未開始 query 探測計時。因此決定**暫不啟動全量**，不能外推完整工時或宣稱可在六小時內完成。
+
+抽樣程序樹加 supervisor RSS 峰值約 0.765 GiB，執行目錄約 0.445 GiB；SQLite OS 暫存未完整盤點，這些峰值不是完整資源上界。後續先檢查建置／分層與監控成本，再補固定樣本、逐筆配對／checkpoint、全規模全域／bootstrap／恢復及暫存量測。**K1−C1 仍無正式結論，test locked**；未新增主要 fit、validation 或 bootstrap。方法與完整界線見 [V2 說明](docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md)、[合成驗收](reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json)及[實際成本與 no-go 決策](reports/stage12/retailrocket_session_knn_v2_cost_probe_20261103.json)。
+
+## Stage 12：成本與中斷保存規劃（前輪）
 
 2026-10-30 解析既有日誌：從 4 筆到 923 筆的觀測差為 919 筆／6,567.713332 秒，平均每筆 7.146587 秒。若原 166,897 個 query 全程維持同速率，逐 query 階段約需 **331.32 小時（13.80 日）**；這是已觀測前段的條件外推，並非完整實測、工時保證或可續跑剩餘時間，且不含全域統計、bootstrap 與收尾。
 

@@ -1,0 +1,150 @@
+{
+  "created_utc": "2026-11-03T04:17:38.263452+00:00",
+  "status": "bounded_engineering_probe_stopped_no_full_readback",
+  "decision": "do_not_start_full_readback",
+  "reason": "Required phase and resource coverage evidence is incomplete; no total-time budget claim is possible.",
+  "kind": "engineering_cost_measurement_of_exposed_validation_only",
+  "scope": {
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "control_refits_or_rerankings": 0,
+    "new_primary_bootstrap_draws": 0,
+    "independent_model_reconstruction_completed": true,
+    "whole_validation_stratification_completed": false,
+    "engineering_query_predictions_with_complete_saved_timings": 0,
+    "engineering_query_predictions_actual_count": 0,
+    "full_four_arm_per_query_acceptance": false,
+    "global_and_2000_original_draws_accepted_on_real_data": false,
+    "final_selection": false,
+    "final_refit": false,
+    "reserved_test_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "supervisor": {
+    "actual_exit_observed_utc": "2026-11-03T04:16:13.246607+00:00",
+    "elapsed_seconds": 1798.140000000014,
+    "exit_code": 1,
+    "full_readback_started": false,
+    "namespace": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759",
+    "operation": "cost_probe_only",
+    "peak_sampled_execution_bytes": 477454896,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 821338112,
+    "reserved_test": "locked",
+    "stop_reason": "deadline"
+  },
+  "limits": {
+    "execution_bytes": 21474836480,
+    "minimum_available_bytes": 4294967296,
+    "minimum_free_bytes": 8589934592,
+    "rss_bytes": 8589934592,
+    "total_seconds": 1800
+  },
+  "source_files_bound": 440,
+  "source_bytes_bound": 11209697130,
+  "independent_reconstruction_audit": {
+    "basket_item_memberships": 1823388,
+    "distinct_session_item_memberships": 1587436,
+    "end_ms": 1438387200000,
+    "fit_id": "ceb483631be343e3646d1a367325e53a4a0e2c937405686095d700efbeb1c56a",
+    "maximum_posting_size": 1736,
+    "maximum_session_items": 389,
+    "positive_support_items": 198946,
+    "singleton_sessions": 998801,
+    "start_ms": 1430697600000,
+    "train_baskets": 1823018,
+    "train_sessions": 1180256
+  },
+  "phases_seconds": {
+    "build": 840.4063534999732,
+    "source_hash": 40.41897130000871,
+    "stratify": 784.7174429000006
+  },
+  "phase_completion": {
+    "source_hash": true,
+    "build": true,
+    "stratify": false,
+    "queries": false,
+    "final_source_hash": false
+  },
+  "phase_timer_interpretation": "Timers are written in finally, so elapsed time alone does not certify successful phase completion; use phase_completion and preserved receipts.",
+  "supervised_seconds_outside_explicit_phase_timers": 132.59723230003146,
+  "outside_phase_timer_explanation": "Includes create/writer source rehashes, context loading, startup and monitoring; included in total elapsed, not treated as zero.",
+  "selection_policy": "four_time_bands_x_four_posting_bands_extremes_v2",
+  "population_queries": null,
+  "nonempty_cells": null,
+  "cells": [],
+  "conditional_query_component_seconds": null,
+  "query_component_interpretation": "Sum of each stratum population times its maximum measured history+exact-prediction time. Different selection from V1 prefix; not an apples-to-apples speedup, confidence interval, full runtime or upper bound. Excludes paired readback, metric validation and checkpoint I/O.",
+  "required_missing_cost_evidence": [
+    "frozen_query_probe_timings_not_completed",
+    "whole_validation_stratification_not_completed",
+    "paired_row_verification_and_checkpoint_io",
+    "full_shape_joint_tail_stress",
+    "full_shape_global_ledger_replay",
+    "full_shape_2000_draw_replay",
+    "full_resume_hash_ledger_and_tail",
+    "SQLite_OS_temp_inventory_and_limit_coverage"
+  ],
+  "resource_limits_interpretation": "Sampled process-tree plus supervisor RSS; execution disk covers namespace only. SQLite OS sort/GROUP BY temp files not independently inventoried. Peaks are sampled lower bounds.",
+  "physical_power_loss_tested": false,
+  "source_final_rehash_completed": false,
+  "post_stop_read_only_preservation_audit_seconds": 68.21854019997409,
+  "post_stop_read_only_audit_completed": true,
+  "gate_verification": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/phase_build.json",
+      "bytes": 95,
+      "sha256": "eb0fadb360557fefd5f879b119a56dc20b540f572d6dee274322830cb6d16957"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/phase_source_hash.json",
+      "bytes": 75,
+      "sha256": "3684e2ea8a0eeb82f32ba7f6532c7eca43567dd16e5c96ed24b07f2426dba195"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/phase_stratify.json",
+      "bytes": 127,
+      "sha256": "dfab4cd0f0708c207af7e5e6b140b3582b0a0ed8a6f3c0375293107221ab8b5e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/post_stop_preservation_audit.json",
+      "bytes": 195,
+      "sha256": "5e1adf0c45ce4afb95e5686737c063745e357f19ed2145714364d1e7520fe270"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/request.json",
+      "bytes": 85827,
+      "sha256": "1e0f57998a7525c37b50beb535db666c0129d5635e4709d8c28a760c81171c30"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/stdout_stderr.log",
+      "bytes": 2081,
+      "sha256": "95c54fd370d13e2c49a19b8d8a8e41df78faf86a395394906e4c337e90da4654"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/stop_request.json",
+      "bytes": 73,
+      "sha256": "451d0545b64a3d1da137f00e92625ce4319fa79488b5aac17b90efd350a49d3f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/supervisor_completion.json",
+      "bytes": 425,
+      "sha256": "251a142b40f12a0ed60bef4615fa8ef383c0fc38069175faa0c5a7ef83fb825e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/worker_identity.json",
+      "bytes": 143,
+      "sha256": "14dde991f10d0287eb1bbb063dfa6baf119f96c15a373169974b85a779228ce8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v2-probe-ede701de4fac422c86f86bc91828b759/work/stages/reconstruction.json",
+      "bytes": 2178983,
+      "sha256": "3a1fefcedde026d41ec266622ccb80524cb7876f67a9a8b7cff7ef09eb78c76f"
+    }
+  ],
+  "public_report_excludes": "Visitor/query keys, targets, histories, recommendations, model contents and credentials are retained only in ignored local evidence."
+}

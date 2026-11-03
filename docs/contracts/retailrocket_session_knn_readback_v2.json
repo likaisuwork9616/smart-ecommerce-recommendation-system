@@ -1,0 +1,51 @@
+{
+  "protocol_id": "retailrocket_session_knn_readback_v2",
+  "primary_protocol": "retailrocket_session_knn_paired_v1",
+  "purpose": "Independently verify immutable existing exposed-validation output; no new primary experiment",
+  "primary_fits": 0,
+  "primary_rerankings": 0,
+  "control_refits_or_rerankings": 0,
+  "reserved_test_enabled": false,
+  "final_selection_enabled": false,
+  "final_refit_enabled": false,
+  "algorithm": {
+    "membership": "raw allowed-role baskets -> independent SQL train DISTINCT membership",
+    "neighbors": "complete SQL positive intersection GROUP BY, exact Fraction Jaccard, self key excluded",
+    "zero_overlap_complement": "all non-joined train sessions have zero intersection and cannot vote",
+    "neighbor_pool": "all eligible positive overlaps hashed in numeric visitor/start order",
+    "selection": "exact similarity descending, numeric visitor/start ascending, k=500 including boundary audit",
+    "votes": "SQL selected membership JOIN, exact Fraction sum, strict causal catalog, full zero-vote complement",
+    "ties": "score descending, original P0 count descending, numeric item ascending",
+    "prediction_schema": "identical to frozen V1; actual SQL work recorded separately"
+  },
+  "persistence": {
+    "chunk_queries": 64,
+    "chunk_seconds_at_safe_query_boundary": 120,
+    "ordinals": "zero based, strictly contiguous",
+    "commit": "payload flush/fsync/close + SHA, unique atomic manifest commit, chained previous SHA",
+    "latest": "hint only; contradictory ahead-of-chain hint rejects recovery",
+    "uncommitted_tail": "preserve and recompute",
+    "committed_corruption": "sticky integrity_failed; no automatic repair",
+    "database": "close and seal full independent SQLite SHA; query connections main read-only, TEMP writable",
+    "ledger_numbers": "Decimal lossless strings, float.hex binary64 delta, Fraction numerator/denominator",
+    "global_replay": "original query order; no chunk subtotal merging; visitor first-insertion order retained",
+    "bootstrap": "replay all original PCG64(42) 2000 draws; interruption redoes bootstrap",
+    "writer": "exclusive OS lock + PID/create_time/stable boot identity; uncertain identity fails closed",
+    "deadline": "absolute UTC plus cumulative total wall time including downtime; never reset on resume",
+    "completion": "worker candidate then independent same-boot supervisor normal-exit observation and final acceptance",
+    "power_loss": "logical fault and abrupt process-crash tests; physical power-loss durability is not claimed"
+  },
+  "cost_probe": {
+    "maximum_total_seconds": 1800,
+    "scope": "source hashing, full independent reconstruction, full-window target-blind stratification and selected exact predictions",
+    "selection": "four equal time bands x posting 0/1-100/101-1000/>1000; four workload extrema then fixed key-SHA fill, at most 64",
+    "targets_or_prediction_effectiveness_for_selection": false,
+    "rss_tree_plus_supervisor_bytes": 8589934592,
+    "execution_disk_bytes": 21474836480,
+    "minimum_available_memory_bytes": 4294967296,
+    "minimum_free_disk_bytes": 8589934592,
+    "full_readback_enabled": false,
+    "decision": "no-go while required engineering phases or joint-tail stress evidence remain absent",
+    "missing_phases_are_zero": false
+  }
+}

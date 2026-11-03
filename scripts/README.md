@@ -77,7 +77,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：一次真實 validation 已停止（最新）
+## Stage 12：V2 獨立反讀與成本入口（最新）
+
+[run_retailrocket_session_knn_v2.py](run_retailrocket_session_knn_v2.py) 的 `--probe` 在通過且 SHA 相同的合成驗收後，建立全新 namespace，最多 30 分鐘量來源核對、獨立 SQL 重建、全窗分層與最多 64 筆 query 的工程成本。只讀既有主要產物，不重訓或產生正式 K1 比較結論；沒有全量／final／test 開關。必要成本未量到即 no-go，詳見 [V2 操作與限制](../docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md)。
+
+獨立 [SQL 核心](retailrocket_session_knn_sql_v2.py)、[ledger 重播](retailrocket_session_knn_readback_v2.py)、[checkpoint](retailrocket_session_knn_checkpoint_v2.py) 與[分層探測](retailrocket_session_knn_cost_probe_v2.py) 各自分開。V1 partial 不續接；舊入口保持原狀。
+
+## Stage 12：一次真實 validation 已停止（前輪）
 
 單次入口已用，完整反讀未完成；不得重跑、續跑或刪除 partial 目錄。停止後只呼叫現有 `verify_prepared()`／`gates()` 核對來源、環境與 test locks，不執行研究。原 `--verify` 拒絕 partial 是預期行為，不能改 guard 使其通過。見[停止與保存](../docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md)。
 

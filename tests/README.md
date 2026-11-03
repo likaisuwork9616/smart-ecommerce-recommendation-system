@@ -10,7 +10,11 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：一次真實 validation 停止後核對（最新）
+## Stage 12：V2 合成等價與故障恢復（最新）
+
+[SQL 差分](test_retailrocket_session_knn_sql_v2.py)、[checkpoint](test_retailrocket_session_knn_checkpoint_v2.py)、[成本分層](test_retailrocket_session_knn_cost_probe_v2.py)、[完整四臂與恢復](test_retailrocket_session_knn_readback_v2.py)、[外部 supervisor](test_run_retailrocket_session_knn_v2.py) 為本輪新增測試。包含真正子程序 os._exit(9)、從已提交邊界恢復、candidate 後崩潰及新 worker 正常退出後才接受；另有來源／SHA／期限／資源／PID／模擬 reboot 等拒收案例。完整測試數及執行證據見 [V2 合成驗收報告](../reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json)。合成通過不代表真實 K1 效果或物理斷電耐久性。
+
+## Stage 12：一次真實 validation 停止後核對（前輪）
 
 本輪未重跑合成測試；啟動前與停止後各核 358 份來源、61 份準備產物與 locked gates。真實主要輸出已有 166,897 query／2,000 bootstrap，完整獨立反讀未完成，不能以列數或 SHA 核對當成研究驗收。下節 83 項是前輪準備紀錄。見[實際停止與保存](../reports/stage12/retailrocket_session_knn_v1_validation_attempt.json)。
 
