@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V5 完整重建成本完成；全量關閉 | 15 項前置測試通過；新獨立重建 248.676 秒，完整窗口 321.312 秒，fit_audit／support／method 同舊封存。聯合尾端與完整 ledger 工程成本待補；K1−C1 未正式驗收、test locked |
+| Stage 12：session-kNN K1 | V5 完整重建及聯合尾端量測完成；全量關閉 | 166,897 筆結構名冊／12 個非空聯合層，48 筆實際四臂核對通過；逐筆分量情境約 4.77 小時（非全量實測），完整 ledger 工程成本待補；K1−C1 未正式驗收、test locked |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V5 新版完整獨立重建成本已量測（最新）
+## Stage 12：V5 聯合工作量尾端已量測（最新）
+
+**8 項合成測試通過**後，新窗口在 **746.391 秒**正常退出 0，初末 **489 份來源綁定一致**。完整 **166,897 筆結構名冊**耗時 454.289 秒，依同一 query 的四維工作量分成 12 個非空聯合層，各凍結 4 筆、共 **48 筆**；選樣未用 targets 或推薦效果。之後才抽七路原 bytes，48 筆四臂／精確指標核對與 checkpoint 在 **13.606 秒**完成，實體 ledger **2,115,696 bytes**。
+
+各層母體數乘樣本最大 verify＋append（另列 chunk commit）的情境為 **17,176.067 秒，約 4.77 小時**；這不是完整工時實測或上界，還沒加其他階段或乘規劃餘裕。逐筆 append 亦可能含每秒 budget 保存，後續會另量這類週期成本，保留本次原觀測。**全量不跑、預留測試 locked、K1−C1 無正式結論**；接著補完整形狀真實 payload ledger 的建置／回放／恢復工程成本，再做整體評估。見[聯合尾端方法與限制](docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md)、[8 項驗收](reports/stage12/retailrocket_session_knn_v5_joint_acceptance_20261103.json)及[實測報告](reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json)。
+
+## Stage 12：V5 新版完整獨立重建成本已量測（前步）
 
 2026-11-03 先通過 **15 項合成／真程序監控測試**，再於新窗口完整重建獨立 SQL 模型。總窗口 **321.312 秒、正常退出 0**，初末 **482 份來源綁定一致**；完整重建階段 **248.676 秒**，核對原 support、sessions、postings、兩份 train lineage、fit_audit 及 SQLite integrity，重建出的 fit_audit／support／method 與舊封存完整相同。
 

@@ -4,6 +4,21 @@
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## Stage 12 第 13 輪：V5 聯合工作量尾端名冊與固定配對成本
+
+| 工作 | 狀態 | 實際結果與界線 |
+| --- | --- | --- |
+| 前置合成驗收 | 8 項全過 | 同一筆真正 joint corner、平手、role-first、EOF／中斷、固定樣本接 V4 四臂與實體 ledger；入口整段 1.684 秒 |
+| 有界工程窗口 | 正常退出 0 | 臺北 14:53:39.691468→15:06:06.076286，746.391 秒；489 份來源綁定初末一致，3 個記錄身分停止 |
+| 完整結構名冊 | 完成，非全量排名 | 166,897 EOF，454.289 秒；完整正交集鄰居數、largest-500 size 投票上界、因果候選與巢狀 scalar slots，未用 target／效果選樣 |
+| 聯合選樣 | 48 筆已事前凍結 | 全人口 p90 建 16 個 masks，12 個非空；每層 4 筆。與前 64 probes 重疊 2 筆，不能把 48 當隨機樣本或母體上界 |
+| 原 bytes／四臂配對 | 通過 | 七路來源 index／抽取 162.509 秒；ordinal 與結構名冊相同；48 筆精確指標、原四臂及 CP 核對 13.606 秒 |
+| 實際工作與 payload | 完成，限所選樣本 | 最大 SQL overlap groups 7,695、selected-vote rows 15,111；48 筆／1 chunk／2,115,696 bytes，commit 0.127 秒另列 |
+| 規劃情境 | 不等於全量工時 | Σ每層母體數×sample max verify＋append（不含 chunk commit）＝17,176.067 秒／4.771 小時；未乘兩倍餘裕、未加其他必要階段。每秒 budget fsync 仍可能在 append 內，後續分項，不任意丟棄觀測 |
+| 剩餘與 gates | 全量關閉 | 完整 shape ledger 工程成本、週期 budget 保存分項與整體評估待補；0 新主要 fit／validation／bootstrap／final／refit／test，T_plan 空值、K1−C1 未定、test locked |
+
+來源完整名冊只有結構與身分核對，真實獨立排名限 48 筆。完整名冊 SHA、原 bytes ordinal、CP chain／queries seal、實體 payload 總 SHA 與成本摘要在退出後再核；這些唯讀查核另計，不回填工程窗口。見[聯合尾端方法](STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md)、[8 項驗收](../reports/stage12/retailrocket_session_knn_v5_joint_acceptance_20261103.json)及[實測](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json)。
+
 ## Stage 12 第 12 輪：V5 新版完整獨立重建成本
 
 | 工作 | 狀態 | 實際結果與界線 |
@@ -184,7 +199,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | V5 新版完整獨立重建成本完成 | outer 248.676 秒／窗口 321.312 秒，模型 receipt 同原封存，482 來源初末一致；聯合尾端與完整 ledger 工程成本待補，全量關閉、K1−C1 無正式結論、test locked |
+| Stage 12：session-kNN K1 | V5 完整重建及聯合尾端實測完成 | 全窗 166,897 結構／48 筆四臂通過；逐筆分量情境 4.771 小時、非全量實測；ledger 工程成本與 budget 分項待補，全量關閉、K1−C1 未定、test locked |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
@@ -198,7 +213,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | Stage 5 | 2018年5–9月缺 H60 觀察完成、入庫／評分版本與新標籤角色證據，可啟用新驗證窗為 0 | 依[新時間窗交接清單](templates/review_window_handoff/README.md)取得證據；不再對同三個開發月挑改動 |
 | Stage 6 | 離線研究交付與 UCI v1 封存完成；小組支援、歷史可得／完整性／身分與業務證據仍限制營運 | 依[交付與適用說明](STAGE6_RFM_RESEARCH_HANDOFF.md)保存 v1，來源或規則變更另立版本；Olist 接續仍按交接清單待資料，Retailrocket 推薦資料已另行建置驗收，P0真實開發與共現配對規格已完成，共現實作、成本、真實入口與配對validation也已完成，研究交付與證據保存亦已完成，後續新模型另立規格 |
 | Stage 7 | 延遲模型適用程度尚未確認 | 先固定每日10%預算改善延遲辨識，確認適用程度後再做 Dashboard 視覺化 |
-| Stage 8–13 | D1 三臂交付完成；K1 新版已降逐筆成本、完成完整獨立重建計時，聯合尾端與完整 ledger 工程成本仍待補；validation 已曝光 | 接著補聯合尾端、真實 payload 完整筆數下的 ledger／global／恢復成本，再評估全量；代理與固定子集不能當完整驗收。923 不續跑，原 partial／三臂證據保留，final／refit／test 未啟動、預留測試 locked |
+| Stage 8–13 | D1 三臂交付完成；K1 完整重建與聯合尾端成本已有實測，仍是已曝光 validation；完整 shape 工程 ledger／global／恢復與週期保存分項待補 | 接著補上述成本並整體評估；固定樣本及 source-backed 代理不能當完整獨立驗收。全量先不跑，923／原 partial 不續接，final／refit／test 未啟動、預留測試 locked |
 
 ## Stage 11：D1 候選與比較研究歷程
 

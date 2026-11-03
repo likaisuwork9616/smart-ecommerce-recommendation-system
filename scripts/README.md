@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V5 聯合尾端成本 | [結構分層與成本彙總](retailrocket_session_knn_joint_cost_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) | 依完整 validation 的工作量結構凍結樣本，在 12 個非空分層實測 48 筆配對。[聯合尾端成本報告](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json) |
 | K1 V5 完整獨立重建成本 | [重建與逐檔核對](retailrocket_session_knn_rebuild_cost_v5.py)、[外部監督窗口](retailrocket_session_knn_cost_window_v5.py)、[方法說明](../docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md) | 只在全新目錄從已綁定的原始來源建立獨立 SQL 模型。實測已完成，耗時與範圍可直接查閱[成本報告](../reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json)。 |
 | K1 V4 來源定位與逐筆大小量測 | [七路來源索引](retailrocket_session_knn_sources_v4.py)、[逐筆大小與前綴掃描](retailrocket_session_knn_payload_v4.py)、[定位成本對照](retailrocket_session_knn_source_cost_v4.py) | 28 項合成測試通過。工程配對限於凍結的 64 筆 validation 子集；六個固定位置另量原始來源的讀取成本。預留測試維持鎖定。 |
 | K1 V4 所選配對成本核心 | [精確 SQL](retailrocket_session_knn_sql_v4.py)、[指標檢查](retailrocket_session_knn_checks_v4.py)、[配對／恢復](retailrocket_session_knn_pair_v4.py)、[說明](../docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md) | 只允許最多64個凍結工程樣本；39項等價／故障通過。full global helper僅限人工fixture，無真實全量／test CLI；既有成本直接讀報告，不重跑 |
@@ -81,7 +82,13 @@
 
 以下各節依階段由新到舊排列，標「最新」者為該階段最近一輪。節內的「本輪」「前輪」沿用當輪撰寫時的用語，指該節對應的研究輪次；目前狀態以[專案進度](../docs/PROJECT_PROGRESS.md)為準。
 
-## Stage 12：V5 完整獨立重建成本（最新）
+## Stage 12：V5 聯合尾端成本（最新）
+
+`freeze_joint_roster` 以 166,897 筆 validation 查詢的工作量結構凍結名冊。實際配對限於 12 個非空分層的 48 筆樣本。`summarize_joint_cost` 以各層母體筆數乘以該層樣本最慢的逐筆耗時，得到僅涵蓋查詢部分的情境值 17,176.067 秒（4.771 小時）。此值未乘兩倍餘裕，checkpoint 提交、準備、全域聚合與恢復另計。整個採樣與量測窗口實耗 746.391 秒，退出碼 0。
+
+全量反讀關閉，K1−C1 尚無正式結論，預留測試維持鎖定。[方法與限制](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) · [8 項合成驗收](../reports/stage12/retailrocket_session_knn_v5_joint_acceptance_20261103.json) · [聯合尾端成本實測](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json)
+
+## Stage 12：V5 完整獨立重建成本（前輪）
 
 `run_rebuild_cost` 沿用凍結的 `reconstruct` 與 `build_index`。它從購物籃獨立重建訓練成員關係，逐檔核對商品支援數、工作階段、倒排索引、兩份訓練沿革與 `fit_audit`，再檢查並封存新資料庫。`run_window` 監督這次執行，實測前後各核對 482 份綁定檔案的 SHA。完整重建階段 248.676 秒已包含在 321.312 秒的監督窗口中；歷史 840.406 秒的計時範圍不同。
 

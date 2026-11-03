@@ -1,0 +1,49 @@
+{
+  "created_utc": "2026-11-03T06:53:37.624601+00:00",
+  "status": "v5_joint_tail_synthetic_accepted",
+  "kind": "synthetic_target_blind_joint_selection_and_genuine_bounded_v4_pairing",
+  "tests": {
+    "run": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.6837707000086084,
+    "modules": [
+      "tests.test_retailrocket_session_knn_joint_cost_v5"
+    ]
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_joint_cost_v5.py",
+      "bytes": 18105,
+      "sha256": "b032c5528b3516aca670f241ec9f3ff5d49300fa727c03e13a9af0801acce938"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_joint_cost_v5.py",
+      "bytes": 12031,
+      "sha256": "d20314184328cfa4304fb8ac0f97afdef9a6851593c29854d4acf75117bc1e43"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/v5-joint-synthetic-acceptance-20261103/tests.log",
+      "bytes": 1825,
+      "sha256": "2f7b3d73566b148d8e1c3fc49d4750eaef34eda3d28f4ef194e0048b1064b5db"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_rebuild_acceptance_20261103.json",
+      "bytes": 1769,
+      "sha256": "7d768c928ef42ea124a09dd6feda40bc4d7fe965d87a176bec4421c4e1d71e09"
+    }
+  ],
+  "scope": {
+    "new_primary_fits": 0,
+    "full_readback": false,
+    "real_query_rankings": 0,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  }
+}

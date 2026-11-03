@@ -10,7 +10,17 @@
 
 Stage 4在[完成歷史代表性稽核](../docs/STAGE4_COMPLETED_HISTORY_REPRESENTATIVENESS.md)時曾跑全專案867項（165.394秒）；其後各輪只跑當輪相關測試，測數與耗時記在下列各節及當輪報告，不能合稱完整測試。測試數與獨立對帳數都不是模型效能；[交接清單與驗收範本](../docs/templates/daily_data_handoff/README.md)只檢查文件與空白格式，範本案例不能當成真實資料已驗收。
 
-## Stage 12：V5 完整獨立重建與監督窗口（最新）
+## Stage 12：V5 聯合尾端選樣與配對（最新）
+
+[聯合尾端測試](test_retailrocket_session_knn_joint_cost_v5.py) **8 項全部通過**。合成資料驗證選樣只依工作量結構、先按角色分流、缺列或順序錯誤時拒絕凍結，以及只有凍結名冊內的樣本才進入 V4 配對與 checkpoint 提交。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m unittest tests.test_retailrocket_session_knn_joint_cost_v5 -v
+```
+
+真實成本另以 166,897 筆查詢的結構分層，從 12 個非空分層實測 48 筆配對。窗口 746.391 秒，正常退出。查詢部分的情境推算為 4.771 小時，尚未乘兩倍餘裕，全量反讀維持關閉。K1−C1 尚無正式結論，預留測試鎖定。[8 項合成驗收收據](../reports/stage12/retailrocket_session_knn_v5_joint_acceptance_20261103.json) · [方法說明](../docs/STAGE12_RETAILROCKET_KNN_JOINT_TAIL_COST_V5_20261103.md) · [實測報告](../reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json)
+
+## Stage 12：V5 完整獨立重建與監督窗口（前輪）
 
 本輪 **15 項合成驗收全部通過**，無失敗、錯誤或跳過。[重建測試 7 項](test_retailrocket_session_knn_rebuild_cost_v5.py)用小型資料逐列比對 V2 建出的資料表，並檢查來源變更、對帳失敗與中斷後的保存。[監督窗口測試 8 項](test_retailrocket_session_knn_cost_window_v5.py)涵蓋正常退出、失敗、截止時終止程序樹，以及父程序先退出後清理已追蹤的子程序。
 
