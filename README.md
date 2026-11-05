@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 兩格補樣規格已固定 | 預定每格 4 筆，共 8 筆，實際選樣 0 筆。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 八筆補測工具驗收完成 | 兩格各 4 筆的工具已通過 27 項驗收。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜100–499 鄰居帶的兩個缺樣細層（最新）
 
-兩個最大缺口合計 38,333 筆。補樣規格固定 **每格 4 筆**，排除歷史 144 個已驗身分後，以事前固定的雜湊順序取樣。新 8 筆將在同一有界窗口各核對兩次，屆時逐位元組比對兩份 ledger。 [本輪說明](docs/STAGE12_KNN_100_499_GAP_V8_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v8_gap_sampling_specification_20261105.json)
+兩個細層已固定每格 4 筆配額。**27 項合成與回歸測試通過**，包含既有身分排除、兩格邊界與八筆實體 frame 的逐列核對。下一步啟動 30 分鐘上限窗口，將同一批選樣驗證兩次。 [本輪說明](docs/STAGE12_KNN_100_499_GAP_V8_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v8_gap_acceptance_20261105.json)
 
 ## Stage 12｜低鄰居補測與投票比較（前輪）
 

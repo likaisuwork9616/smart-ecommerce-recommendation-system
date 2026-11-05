@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V8 工具通過 27 項驗收，涵蓋 100–499 鄰居帶兩格配額、歷史排除、七路抽取與 ledger 等價。[驗收收據](../reports/stage12/retailrocket_session_knn_v8_gap_acceptance_20261105.json)
+
 Stage 12 V7 分兩步驗收。低鄰居帶補樣工具通過 36 項合成／回歸測試；SQL 投票診斷、候選等價、故障恢復與配對決策通過 14 項測試。兩階段的實際固定樣本結果見[本輪實驗記錄](../docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)。[36 項收據](../reports/stage12/retailrocket_session_knn_v7_gap_acceptance_20261105.json) · [14 項收據](../reports/stage12/retailrocket_session_knn_v7_vote_acceptance_20261105.json)
 
 前輪 Stage 12 V6 細分分層／append 診斷：**26 項相關測試全過，48.158 秒**（非全專案測試），含 V6 新工具、V5 budget 觀測、V4 四臂配對；檢查實體 bytes、互斥成本守恆、未覆蓋細層、期限與真程序退出後恢復。執行 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_refined_cost_v6 --acceptance`，見[收據](../reports/stage12/retailrocket_session_knn_v6_refined_acceptance_20261103.json)及[方法](../docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md)。

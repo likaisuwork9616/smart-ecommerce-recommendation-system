@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V8 兩個最大細層補測 | [有界入口](run_retailrocket_session_knn_gap_v8.py) | 固定兩格各 4 筆，兩次原版精確驗證，逐列比較科學 bytes。[方法與結果](../docs/STAGE12_KNN_100_499_GAP_V8_20261105.md) |
 | K1 V7 投票診斷與配對 | [有界入口](run_retailrocket_session_knn_vote_v7.py) | 使用原 48 筆診斷並擇一候選。六對 AB／BA 達預定門檻才可進入新 34 筆比較。查看[本輪結果](../docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)。 |
 | K1 V7 低鄰居補測 | [有界入口](run_retailrocket_session_knn_gap_v7.py) | 先合成驗收，再獨立選出 17 格共 34 筆並精確核對兩次。已執行的結果見[本輪記錄](../docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)。 |
 | K1 V6 原48筆分層／append成本複測 | [驗收與有界入口](run_retailrocket_session_knn_refined_cost_v6.py)、[分層](retailrocket_session_knn_refined_cost_v6.py)、[append分項](retailrocket_session_knn_detailed_cost_v6.py) | 26項驗收及三次原48筆實測均已完成；237.703秒正常退出，532來源／科學bytes同值。查看請直接讀[實測](../reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)，不為查看重跑；無全量／test入口。[方法與操作](../docs/STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) |

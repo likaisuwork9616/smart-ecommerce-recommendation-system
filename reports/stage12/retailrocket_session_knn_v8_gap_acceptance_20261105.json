@@ -1,0 +1,56 @@
+{
+  "status": "v8_gap_tools_synthetic_accepted",
+  "created_utc": "2026-11-05T06:13:35.068195+00:00",
+  "tests_run": 27,
+  "seconds": 2.5446773000003304,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    "tests.test_retailrocket_session_knn_gap_v8",
+    "tests.test_retailrocket_session_knn_gap_v7"
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v8.py",
+      "bytes": 9155,
+      "sha256": "34a85e847b8b0759d2eea0076fcd004c5feaba5cac4fe6718fd92932e4b04e62"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v8.py",
+      "bytes": 17051,
+      "sha256": "28449dc9beab2ab8b85d591117d6aee5c5823f39f000223c3459c981ec4660fa"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_gap_v8.py",
+      "bytes": 11268,
+      "sha256": "1467e5f95fa13c0965a985ea72feeb63d631e2c43c823f7e5446240d23f18655"
+    }
+  ],
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v8_gap_sampling_specification_20261105.json",
+    "bytes": 3133,
+    "sha256": "d048cdedf6a6e4439c002338232e92929a4a4fe60c968084e50cd6820e62324e"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v8_gap_inventory_20261105.json",
+    "bytes": 7750,
+    "sha256": "2ed30f7d398bf194d750aea2daaa6a1c84f3f5adfaf7025055a8f4ab1ea73106"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v8-gap-tests-212d0e1d31dd4206bf0baf62b9979364/tests.log",
+    "bytes": 5020,
+    "sha256": "fb99ae0154e478c8a42941acb4d660032ca086edd471a00427cdc474b3e2264b"
+  },
+  "actual_new_keys_selected": 0,
+  "actual_new_query_verifications": 0,
+  "reserved_test": "locked",
+  "T_plan": null
+}
