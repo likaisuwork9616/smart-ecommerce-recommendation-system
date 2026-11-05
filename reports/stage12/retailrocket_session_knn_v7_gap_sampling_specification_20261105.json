@@ -1,0 +1,205 @@
+{
+  "status": "sampling_specification_only",
+  "scope": "validation engineering cost, original V6 grid and separate original 48 control",
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json",
+      "bytes": 41903,
+      "sha256": "0ea3a61737f2d507a6bf0465bb489294c41ee7904a82359b7e32ee79cddbe66a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json",
+      "bytes": 40143,
+      "sha256": "519db003a27000a786c4f782ee748e3c088567d46612513051c186c80ca52512"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json",
+      "bytes": 215082,
+      "sha256": "ab427e16c8eb126358f8e02b0092789e5104eb4be0466e5d022e82c9a4dd4685"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v3-cost-9cc9cd10d94349f0bbf8f3ab470eda31/frozen_probes.json",
+      "bytes": 33212,
+      "sha256": "14c80bd3f4d0e20cf978f2a7afaefabdabee03c09ef2406bbd9c7ec63c6515a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "bytes": 30667,
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/joint_roster.jsonl",
+      "bytes": 80745083,
+      "sha256": "7b69e50bb68e135223c86d90f34f00bdffcbf7f1ec14680c8303038fa7223ec6"
+    }
+  ],
+  "actual_inventory": {
+    "population": 166897,
+    "grid_cells": 55,
+    "currently_populated_sample_cells": 19,
+    "currently_unrepresented_population": 146578,
+    "historical_64_and_48_intersection": 2,
+    "distinct_historical_keys": 110,
+    "low_neighbor_cells": 17,
+    "low_neighbor_population": 102630,
+    "low_neighbor_historical_exclusions": 29,
+    "low_neighbor_eligible": 102601
+  },
+  "quotas": [
+    {
+      "cell": "0000/n0/v0",
+      "population": 6078,
+      "historical_exclusions": 13,
+      "eligible": 6065,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n1/v1",
+      "population": 20977,
+      "historical_exclusions": 0,
+      "eligible": 20977,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n1/v2",
+      "population": 1152,
+      "historical_exclusions": 0,
+      "eligible": 1152,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n1/v3",
+      "population": 15,
+      "historical_exclusions": 0,
+      "eligible": 15,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n2/v1",
+      "population": 23492,
+      "historical_exclusions": 3,
+      "eligible": 23489,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n2/v2",
+      "population": 35994,
+      "historical_exclusions": 2,
+      "eligible": 35992,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n2/v3",
+      "population": 4050,
+      "historical_exclusions": 3,
+      "eligible": 4047,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0000/n2/v4",
+      "population": 37,
+      "historical_exclusions": 0,
+      "eligible": 37,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n0/v0",
+      "population": 904,
+      "historical_exclusions": 3,
+      "eligible": 901,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n1/v1",
+      "population": 2529,
+      "historical_exclusions": 0,
+      "eligible": 2529,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n1/v2",
+      "population": 126,
+      "historical_exclusions": 0,
+      "eligible": 126,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n2/v1",
+      "population": 2960,
+      "historical_exclusions": 1,
+      "eligible": 2959,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n2/v2",
+      "population": 3810,
+      "historical_exclusions": 0,
+      "eligible": 3810,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n2/v3",
+      "population": 428,
+      "historical_exclusions": 0,
+      "eligible": 428,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0010/n2/v4",
+      "population": 2,
+      "historical_exclusions": 0,
+      "eligible": 2,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0100/n2/v4",
+      "population": 63,
+      "historical_exclusions": 3,
+      "eligible": 60,
+      "planned_new_queries": 2
+    },
+    {
+      "cell": "0110/n2/v4",
+      "population": 13,
+      "historical_exclusions": 1,
+      "eligible": 12,
+      "planned_new_queries": 2
+    }
+  ],
+  "selection": {
+    "unit": "validation query key",
+    "baseline": "original 48 retained separately",
+    "excluded": "union of historical 64 and 48 keys",
+    "eligibility": "zero original V6 probes in a populated cell with eligible_neighbors <= 99",
+    "quota": 2,
+    "planned_unique_queries": 34,
+    "order": "lexicographic SHA256(ASCII prefix including terminating NUL, concatenated with 32 decoded key_sha256 bytes), then ascending original_ordinal",
+    "prefix_with_terminator": "k1-gap-v7-20261105\u0000",
+    "delivery_order": "ascending original_ordinal after selection",
+    "shortfall": "stop, no replacement or redistribution"
+  },
+  "conditional_after_all_34_verified": {
+    "v6_plus_new_cells_with_sample": 36,
+    "v6_plus_new_unrepresented_population": 43948,
+    "distinct_historically_verified_queries": 144
+  },
+  "proposed_gap_window": {
+    "new_sample_queries": 34,
+    "repeat_fresh_namespaces": 2,
+    "original_48_reruns_in_gap_window": 0,
+    "absolute_wall_budget_seconds": 1800,
+    "historical_v6_initial_hash_seconds": 88.8192525000195,
+    "historical_v6_final_hash_seconds": 75.97285270004068,
+    "historical_v5_source_index_and_extract_seconds": 162.5085226999945
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_query_verifications": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}

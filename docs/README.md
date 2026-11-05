@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12：V6 原48筆三次複測與細分缺口（最新）
+## Stage 12｜0–99 鄰居帶補樣規格（最新）
+
+已核對 17 個缺口細層的容量，排定 34 筆，實際選樣 0 筆。[選法、配額與停止條件](STAGE12_KNN_GAP_SAMPLING_V7_20261105.md)
+
+## Stage 12：V6 原48筆三次複測與細分缺口（前步）
 
 237.703秒正常退出，532份來源初末一致，三次科學bytes全同。固定樣本成本主要在排名；55個細層中146,578筆所屬層沒有probe，借父值不是實測覆蓋。原12層情境5.106–7.493小時，仍未乘餘裕／加其他階段，維持全量no-go、T_plan空值、K1−C1未定、test locked。[分層、拆帳與限制](STAGE12_RETAILROCKET_KNN_REFINED_COST_V6_20261103.md) · [三次實測](../reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)
 

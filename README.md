@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V6 細分分層與原48筆三次複測完成；維持 no-go | 26項測試通過，三次科學bytes全同；55細層中146,578筆所屬層無probe，原12層情境5.106–7.493小時（非全量實測）；排名為樣本主要成本，全量獨立驗收未啟動、K1−C1未定、test locked |
+| Stage 12：session-kNN K1 | V7 低鄰居帶補樣規格已訂定 | 17 個細層共 102,630 筆，排除歷史樣本後可選 102,601 筆。預定每層兩筆、共 34 筆，實際選樣 0 筆。全量驗收關閉、預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12：V6 分層細化與原固定48筆三次複測完成（最新）
+## Stage 12｜0–99 鄰居帶補樣規格（最新）
+
+原 48 筆在低鄰居帶的 17 個細層都沒有樣本。11 月 5 日核對完整 166,897 筆結構名冊後，規格排定 **每格兩筆，共 34 筆**。0、1–9、10–99 鄰居帶各配 4、10、20 筆，從排除歷史已驗身分後的 102,601 筆中，以事前固定的雜湊順序選出。這一步實際選樣與重算均為 0 筆。
+
+目前有樣本的細層仍為 19／55。未來若 34 筆皆通過獨立核對，才可報為 36／55。補測預估窗口 7–12 分鐘，上限 30 分鐘。下一步評估既有 SQL 投票的成本分項與公平比較方法。[補樣規格](docs/STAGE12_KNN_GAP_SAMPLING_V7_20261105.md) · [容量與配額收據](reports/stage12/retailrocket_session_knn_v7_gap_sampling_specification_20261105.json)
+
+## Stage 12：V6 分層細化與原固定48筆三次複測完成（前步）
 
 先通過26項相關測試並推送工具後，新工程窗口 **237.703秒、正常退出0**，初末 **532份來源一致**。三次各48筆四臂精確核對與checkpoint的科學bytes都同原封存，144次工程重算、**0新unique keys／主要fit／validation／bootstrap**。
 
