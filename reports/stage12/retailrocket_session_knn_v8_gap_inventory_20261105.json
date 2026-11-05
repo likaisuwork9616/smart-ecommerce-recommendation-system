@@ -1,0 +1,277 @@
+{
+  "status": "v8_gap_inventory_verified",
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v7_gap_sampling_specification_20261105.json",
+      "bytes": 6208,
+      "sha256": "9d05624afc8b0450b95a6562fff0ef7840b4d8f9f6dbe53732491f81c5074709"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v7_gap_cost_20261105.json",
+      "bytes": 78701,
+      "sha256": "3ef776b4d05d43c17aaccb914acaece14373ae4d3d8550200acae86270f08539"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v3_cost_diagnostic_20261103.json",
+      "bytes": 41903,
+      "sha256": "0ea3a61737f2d507a6bf0465bb489294c41ee7904a82359b7e32ee79cddbe66a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_joint_cost_20261103.json",
+      "bytes": 40143,
+      "sha256": "519db003a27000a786c4f782ee748e3c088567d46612513051c186c80ca52512"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json",
+      "bytes": 215082,
+      "sha256": "ab427e16c8eb126358f8e02b0092789e5104eb4be0466e5d022e82c9a4dd4685"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/joint_roster.jsonl",
+      "bytes": 80745083,
+      "sha256": "7b69e50bb68e135223c86d90f34f00bdffcbf7f1ec14680c8303038fa7223ec6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/retailrocket-knn-v3-cost-9cc9cd10d94349f0bbf8f3ab470eda31/frozen_probes.json",
+      "bytes": 33212,
+      "sha256": "14c80bd3f4d0e20cf978f2a7afaefabdabee03c09ef2406bbd9c7ec63c6515a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "bytes": 30667,
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-gap-6748d737b16242a49dbd4976b3ed5bd0/frozen_probes.json",
+      "bytes": 17139,
+      "sha256": "f6b16b86ca9158615ddfbb25ad88abc228d5c7d60e794af0b9f51f305f8d84ff"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-gap-6748d737b16242a49dbd4976b3ed5bd0/selection_seal.json",
+      "bytes": 575,
+      "sha256": "13a2d09a30958c1a868c7f932b1bbcda43d7aeb9c3958db6983b78511fe747ff"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-gap-6748d737b16242a49dbd4976b3ed5bd0/repeat_0/proof.json",
+      "bytes": 180,
+      "sha256": "43ed533b4014ba30faba74ba224200e5b50b7b0a9735eacfc4e277ec4308feec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-gap-6748d737b16242a49dbd4976b3ed5bd0/repeat_1/proof.json",
+      "bytes": 180,
+      "sha256": "43ed533b4014ba30faba74ba224200e5b50b7b0a9735eacfc4e277ec4308feec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-gap-6748d737b16242a49dbd4976b3ed5bd0/supervisor_completion.json",
+      "bytes": 449,
+      "sha256": "e5aa57ca05a4cc957d103560ba83437b6aad42f8a12ae384118a02b7d025719f"
+    }
+  ],
+  "scope": "validation structural inventory for the two largest still-unrepresented V6 neighbor-vote grid cells",
+  "coverage_definition": "Only the original V6 48 probes and the completed V7 34 probes provide comparable cell coverage. All 144 historical verified keys are excluded from future new selection.",
+  "coverage_before": {
+    "population": 166897,
+    "grid_cells": 55,
+    "covered_cells": 36,
+    "uncovered_cells": 19,
+    "unrepresented_population": 43948,
+    "distinct_historical_keys": 144
+  },
+  "historical_sets": {
+    "V3": 64,
+    "V5_reused_in_V6": 48,
+    "V7": 34,
+    "V3_intersection_V5": 2,
+    "V7_intersection_prior": 0
+  },
+  "remaining_cells_ranked": [
+    {
+      "rank": 1,
+      "cell": "0000/n3/v3",
+      "population": 29147
+    },
+    {
+      "rank": 2,
+      "cell": "0000/n3/v2",
+      "population": 9186
+    },
+    {
+      "rank": 3,
+      "cell": "1101/n5/v5",
+      "population": 2345
+    },
+    {
+      "rank": 4,
+      "cell": "0010/n3/v2",
+      "population": 1081
+    },
+    {
+      "rank": 5,
+      "cell": "1111/n4/v4",
+      "population": 572
+    },
+    {
+      "rank": 6,
+      "cell": "1111/n5/v4",
+      "population": 399
+    },
+    {
+      "rank": 7,
+      "cell": "0001/n4/v3",
+      "population": 395
+    },
+    {
+      "rank": 8,
+      "cell": "1101/n4/v5",
+      "population": 290
+    },
+    {
+      "rank": 9,
+      "cell": "1001/n5/v3",
+      "population": 288
+    },
+    {
+      "rank": 10,
+      "cell": "0100/n3/v5",
+      "population": 71
+    },
+    {
+      "rank": 11,
+      "cell": "1011/n5/v3",
+      "population": 60
+    },
+    {
+      "rank": 12,
+      "cell": "0101/n4/v5",
+      "population": 26
+    },
+    {
+      "rank": 13,
+      "cell": "0110/n3/v5",
+      "population": 25
+    },
+    {
+      "rank": 14,
+      "cell": "1001/n5/v4",
+      "population": 23
+    },
+    {
+      "rank": 15,
+      "cell": "1111/n4/v5",
+      "population": 23
+    },
+    {
+      "rank": 16,
+      "cell": "0101/n3/v4",
+      "population": 7
+    },
+    {
+      "rank": 17,
+      "cell": "0001/n3/v3",
+      "population": 4
+    },
+    {
+      "rank": 18,
+      "cell": "0001/n3/v4",
+      "population": 4
+    },
+    {
+      "rank": 19,
+      "cell": "1011/n5/v4",
+      "population": 2
+    }
+  ],
+  "top_two_cells": [
+    {
+      "cell": "0000/n3/v3",
+      "population": 29147,
+      "historical_exclusions": 4,
+      "eligible": 29143,
+      "historical_by_cohort": {
+        "34": 0,
+        "48": 0,
+        "64": 4
+      },
+      "structural_population_work": {
+        "eligible_neighbors": {
+          "minimum": 100,
+          "p25": 155,
+          "p50": 211,
+          "p75": 294,
+          "maximum": 499
+        },
+        "vote_memberships_upper": {
+          "minimum": 500,
+          "p25": 684,
+          "p50": 923,
+          "p75": 1268,
+          "maximum": 1998
+        },
+        "posting_work": {
+          "minimum": 100,
+          "p25": 159,
+          "p50": 218,
+          "p75": 303,
+          "maximum": 689
+        }
+      }
+    },
+    {
+      "cell": "0000/n3/v2",
+      "population": 9186,
+      "historical_exclusions": 4,
+      "eligible": 9182,
+      "historical_by_cohort": {
+        "34": 0,
+        "48": 0,
+        "64": 4
+      },
+      "structural_population_work": {
+        "eligible_neighbors": {
+          "minimum": 100,
+          "p25": 113,
+          "p50": 131,
+          "p75": 159,
+          "maximum": 448
+        },
+        "vote_memberships_upper": {
+          "minimum": 105,
+          "p25": 268,
+          "p50": 360,
+          "p75": 427,
+          "maximum": 499
+        },
+        "posting_work": {
+          "minimum": 100,
+          "p25": 114,
+          "p50": 133,
+          "p75": 162,
+          "maximum": 448
+        }
+      }
+    }
+  ],
+  "two_cell_totals": {
+    "population": 38333,
+    "historical_exclusions": 8,
+    "eligible": 38325,
+    "share_of_current_unrepresented_population": 0.8722353690725403
+  },
+  "structural_quantile_method": "Full-cell population, sorted integers, nearest rank ceil(q * N), no timing or target data.",
+  "conditional_if_both_cells_gain_verified_probes": {
+    "covered_cells": 38,
+    "uncovered_cells": 17,
+    "unrepresented_population": 5615
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_verifications": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "new_scientific_acceptance": false,
+    "T_plan": null,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    }
+  }
+}
