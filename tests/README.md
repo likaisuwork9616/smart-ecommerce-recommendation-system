@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V10 通過 23 項合成與回歸測試，包含兩個都超過 500 鄰居的細層、切點平手、歷史排除與逐列 ledger 核對。[驗收收據](../reports/stage12/retailrocket_session_knn_v10_gap_acceptance_20261105.json)
+
 Stage 12 V9 工具通過 39 項合成與回歸驗收，涵蓋 500 鄰居切點、結構上界、實際會員列數與歷史排除。[驗收收據](../reports/stage12/retailrocket_session_knn_v9_gap_acceptance_20261105.json)
 
 Stage 12 V8 工具通過 27 項驗收，涵蓋 100–499 鄰居帶兩格配額、歷史排除、七路抽取與 ledger 等價。[驗收收據](../reports/stage12/retailrocket_session_knn_v8_gap_acceptance_20261105.json)

@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V10 兩個超過 500 鄰居的細層 | [有界入口](run_retailrocket_session_knn_gap_v10.py) | 兩格各 4 筆、各核對兩次，分項記錄完整池、500 鄰居、平手與實際投票列數。[方法與結果](../docs/STAGE12_KNN_TWO_CAPPED_CELLS_V10_20261105.md) |
 | K1 V9 上限兩側的補測 | [有界入口](run_retailrocket_session_knn_gap_v9.py) | 分別核對高鄰居格的前 500 位與低鄰居格的全數入選，再比較兩份 ledger。[方法與結果](../docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) |
 | K1 V8 兩個最大細層補測 | [有界入口](run_retailrocket_session_knn_gap_v8.py) | 固定兩格各 4 筆，兩次原版精確驗證，逐列比較科學 bytes。[方法與結果](../docs/STAGE12_KNN_100_499_GAP_V8_20261105.md) |
 | K1 V7 投票診斷與配對 | [有界入口](run_retailrocket_session_knn_vote_v7.py) | 使用原 48 筆診斷並擇一候選。六對 AB／BA 達預定門檻才可進入新 34 筆比較。查看[本輪結果](../docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)。 |

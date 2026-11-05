@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 雙高鄰居帶補樣規格已固定 | 971 筆母體中可選 970 筆，規劃兩格各 4 筆，現在選樣 0 筆。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 雙高鄰居補樣工具驗收完成 | 23 項合成與回歸測試通過，本步新增排名 0 筆。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜兩個超過 500 鄰居的缺樣細層（最新）
 
-已固定兩格各 **4 個新查詢**，排除五組歷史名單後以事前雜湊挑選，先封存名單再讀七路資料。兩格都核對完整鄰居池、前 500 名及平手。實際會員列數與結構上界分開記錄。 [方法與結果](docs/STAGE12_KNN_TWO_CAPPED_CELLS_V10_20261105.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v10_gap_sampling_specification_20261105.json)
+兩格各 4 筆的有界工具已通過 **23 項驗收**，涵蓋完整鄰居池、前 500 名切點、投票上界與精確會員列數。接著啟動原版排名的兩次獨立核對。 [方法與結果](docs/STAGE12_KNN_TWO_CAPPED_CELLS_V10_20261105.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v10_gap_acceptance_20261105.json)
 
 ## Stage 12｜500 鄰居上限兩側的缺口補測（前輪）
 

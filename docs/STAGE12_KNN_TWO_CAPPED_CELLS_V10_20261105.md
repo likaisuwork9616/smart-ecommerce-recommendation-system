@@ -23,3 +23,9 @@
 4. 同一批八筆分開保存並跑兩次，核對原四臂輸出、精確指標、EOF、CP 鏈、每一列實體 bytes 與串接 SHA。兩次共用同一個 1,800 秒絕對期限，沿用 8 GiB RSS／20 GiB 新目錄上限及可用記憶體 4 GiB／磁碟 8 GiB 下限。完成條件包含來源初末一致、外部觀察退出 0 與退出後稽核。
 
 實測與稽核預估 5–10 分鐘，規格階段新增選樣與排名均為 0 筆。若 8 筆全數通過，才可將有樣本細層記為 42／55、無樣本細層母體記為 1,218 筆、歷史不同已驗查詢記為 168 筆。[事前配額、選法與停止條件](../reports/stage12/retailrocket_session_knn_v10_gap_sampling_specification_20261105.json)
+
+## 工具驗收與操作
+
+**23 項合成／回歸測試通過**，耗時 7.121 秒。其中 11 項為本輪新增，涵蓋兩種鄰居帶的切點平手、五份名單排除、固定雜湊已知答案、真實 SQL 執行的合成案例、會員列數嚴格低於或等於上界、因果加總，以及兩份八筆 ledger 的保存與成本重算。本階段新增實際選樣與排名均為 0 筆。[23 項驗收收據](../reports/stage12/retailrocket_session_knn_v10_gap_acceptance_20261105.json)
+
+從專案根目錄使用 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v10`。參數 `--acceptance` 驗收工具，`--measure` 啟動受監督實測，`--publish <原窗口目錄>` 復核已保存結果。公開報告採獨立版本，發布後入口會拒絕再次開新窗口。[有界入口](../scripts/run_retailrocket_session_knn_gap_v10.py)
