@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 投票工具驗收完成 | 投票工具 14 項合成驗收通過，34 筆補測已完成。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 原 48 筆投票診斷完成 | 原 48 筆六次核對與原封存 bytes 相同，依實測選定「每次取回 128 列會員資料」。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜低鄰居補測與投票比較（最新）
 
-投票工具 14 項合成驗收通過，34 筆補測已完成。原 48 筆的診斷與配對結果分開記錄。 [本輪實驗記錄](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v7_vote_acceptance_20261105.json)
+原 48 筆六次核對與原封存 bytes 相同，依實測選定「每次取回 128 列會員資料」。下一步依事前門檻用六對 AB／BA 比較。 [本輪實驗記錄](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v7_vote_profile_20261105.json)
 
 ## Stage 12｜SQL 投票改善評估（前步）
 

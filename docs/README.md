@@ -13,7 +13,7 @@
 
 ## Stage 12｜34 筆補測與 SQL 投票實驗（最新）
 
-投票工具 14 項合成驗收通過，34 筆補測已完成。[本輪實驗與收據](STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)
+原 48 筆六次核對與原封存 bytes 相同，依實測選定「每次取回 128 列會員資料」。[本輪實驗與收據](STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)
 
 ## Stage 12｜SQL 投票成本改善評估（前步）
 

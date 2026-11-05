@@ -1,0 +1,759 @@
+{
+  "stage": "profile",
+  "namespace": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889",
+  "supervisor": {
+    "T_plan": null,
+    "actual_exit_observed_utc": "2026-11-05T06:01:35.583879+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "kind": "engineering_cost_v5_exit_observation",
+    "operation": "joint_tail",
+    "peak_sampled_execution_bytes": 13518831,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 200601600,
+    "reserved_test": "locked",
+    "seconds": 111.14100000000326,
+    "stop_reason": null,
+    "supervisor_error": null,
+    "tracked_processes": 3,
+    "tracked_processes_alive_after_cleanup": 0
+  },
+  "environment": {
+    "byteorder": "little",
+    "implementation": "CPython",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "python": "3.12.10"
+  },
+  "sqlite_version": "3.49.1",
+  "sources_bound": 545,
+  "hash_checks": {
+    "initial": {
+      "count": 545,
+      "seconds": 31.872562900000048
+    },
+    "final": {
+      "count": 545,
+      "seconds": 31.185653799999272
+    }
+  },
+  "all_scientific_bytes_match_reference": true,
+  "reference": {
+    "records": 48,
+    "actual_committed_bytes": 2115696,
+    "actual_committed_payload_sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+  },
+  "runs": {
+    "diagnosis_0_baseline": {
+      "primary_seconds": 1.9469239999780257,
+      "verification_seconds": 1.7374490999827685,
+      "append_excluding_commit_seconds": 0.1366141999969841,
+      "all_commit_seconds": 0.07286069999827305,
+      "rank_seconds": 1.5635419000100228,
+      "vote_seconds": 0.6601969999974244,
+      "setup_seconds": 3.168071299998701,
+      "tail_seconds": 0.17145800000071176,
+      "mode": "baseline",
+      "entry_seconds": 7.673952200002532
+    },
+    "diagnosis_1_batch_fetch": {
+      "primary_seconds": 1.8754746000013256,
+      "verification_seconds": 1.633090600003925,
+      "append_excluding_commit_seconds": 0.1274459999985993,
+      "all_commit_seconds": 0.11493799999880139,
+      "rank_seconds": 1.4648496999943745,
+      "vote_seconds": 0.6084721000079298,
+      "setup_seconds": 3.130649500002619,
+      "tail_seconds": 0.21985320000021602,
+      "mode": "batch_fetch",
+      "entry_seconds": 7.6450054999986605
+    },
+    "diagnosis_2_profile": {
+      "primary_seconds": 1.867277200002718,
+      "verification_seconds": 1.662500700007513,
+      "append_excluding_commit_seconds": 0.13136739999390556,
+      "all_commit_seconds": 0.07340910000129952,
+      "rank_seconds": 1.4789482000014686,
+      "vote_seconds": 0.620344800001476,
+      "setup_seconds": 4.182035399997403,
+      "tail_seconds": 0.18133279999892693,
+      "mode": "profile",
+      "entry_seconds": 8.561395900000207
+    },
+    "diagnosis_3_profile": {
+      "primary_seconds": 1.95640020000792,
+      "verification_seconds": 1.6874311999963538,
+      "append_excluding_commit_seconds": 0.1358426000115287,
+      "all_commit_seconds": 0.1331264000000374,
+      "rank_seconds": 1.5090372999875399,
+      "vote_seconds": 0.6201394000090659,
+      "setup_seconds": 3.132835400003387,
+      "tail_seconds": 0.22497780000048806,
+      "mode": "profile",
+      "entry_seconds": 7.6255040999967605
+    },
+    "diagnosis_4_batch_fetch": {
+      "primary_seconds": 1.9551338000019314,
+      "verification_seconds": 1.7560447000141721,
+      "append_excluding_commit_seconds": 0.12934739999036537,
+      "all_commit_seconds": 0.06974169999739388,
+      "rank_seconds": 1.569986800011975,
+      "vote_seconds": 0.6494374999820138,
+      "setup_seconds": 3.238252700000885,
+      "tail_seconds": 0.1627368999979808,
+      "mode": "batch_fetch",
+      "entry_seconds": 7.8404499999996915
+    },
+    "diagnosis_5_baseline": {
+      "primary_seconds": 1.8588347999902908,
+      "verification_seconds": 1.6364459999967949,
+      "append_excluding_commit_seconds": 0.13314219999301713,
+      "all_commit_seconds": 0.08924660000047879,
+      "rank_seconds": 1.4690348999902199,
+      "vote_seconds": 0.6202592000045115,
+      "setup_seconds": 3.2250953000002482,
+      "tail_seconds": 0.1722818999987794,
+      "mode": "baseline",
+      "entry_seconds": 7.646125499999471
+    }
+  },
+  "original_distinct_sample_size": 48,
+  "repeat_query_checks": 288,
+  "new_unique_keys": 0,
+  "new_primary_fit_validation_bootstrap": 0,
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null,
+  "profile_parts_seconds": {
+    "diagnosis_2_profile": {
+      "accumulate": 0.2019073000374192,
+      "check": 0.015845600006286986,
+      "cursor_execute": 0.001186600020446349,
+      "cursor_fetch": 0.29212840006221086,
+      "other": 0.0015758998633828014,
+      "temp_insert": 0.09486930000639404,
+      "weights": 0.012831700005335733
+    },
+    "diagnosis_3_profile": {
+      "accumulate": 0.20646300001317286,
+      "check": 0.013567699996201554,
+      "cursor_execute": 0.0011823999993794132,
+      "cursor_fetch": 0.2927627000135544,
+      "other": 0.0016463000210933387,
+      "temp_insert": 0.09233519996269024,
+      "weights": 0.012182100002974039
+    }
+  },
+  "profile_operation_counts": {
+    "diagnosis_2_profile": {
+      "selected_rows": 23934,
+      "membership_rows": 136381,
+      "additions": 136381,
+      "fetch_batches": 1091,
+      "fraction_queries": 0,
+      "max_scale_bits": 378
+    },
+    "diagnosis_3_profile": {
+      "selected_rows": 23934,
+      "membership_rows": 136381,
+      "additions": 136381,
+      "fetch_batches": 1091,
+      "fraction_queries": 0,
+      "max_scale_bits": 378
+    }
+  },
+  "selected_candidate": "batch_fetch",
+  "actionable_seconds_across_profiles": {
+    "batch_insert": 0.18720449996908428,
+    "batch_fetch": 0.587260100095591,
+    "rank_counts": 0.4377836000530806
+  },
+  "mode_median_vote_seconds": {
+    "baseline": 0.640228100000968,
+    "batch_fetch": 0.6289547999949718,
+    "profile": 0.6202421000052709
+  },
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/entry.json",
+      "bytes": 79,
+      "sha256": "4281628ef6a67abded7d73215c815b3720b61e8cfb4b7cced10af121a534b274"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/measured.json",
+      "bytes": 60218,
+      "sha256": "be696d4aa50615ef6c4e475600b2a594682997f55b404261cadba665c23ea87e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/observations.json",
+      "bytes": 21588,
+      "sha256": "c8748dfbba27fb3a0ea57ef94f56766991891c19b5af1f2e79dca239e8f573df"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "4b09500da1ac97e30859a7f8dde2ba118aa615ddefbc7daba6974e9830865376"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "43cc24d93db4e120ee762112e655769bc3ddc77a9b1c0829a8d18057aceee55c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "36d7347e32047d10eaf9e9d8e7100600feea22251d94c61e8cc138f845ad64ac"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/payloads/c7467de3fede4e23b79226d0df8a5e48.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "4b06fd3f07b8485f779b73a0f68c172ead357627e7bbd4aba279df616bbf1dca"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "a58bba76d60adf157734d1374479a299150513037a928870767d0b5fdbf9b66b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/sessions/032be4b2fa694d79a48057d105fe8fe6.json",
+      "bytes": 214,
+      "sha256": "6f40beabf9f0241a80f7bcf9d8134d2e924804ae6f87c561866b17a4bbe14cf0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/sessions/032be4b2fa694d79a48057d105fe8fe6.released.json",
+      "bytes": 288,
+      "sha256": "cee69387e55ef07da74d7fdbbe4d1a445330940e26e3418b0030cd306c6ba6b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "2ec36a58ffd03fee79b2a2736db482dfe103de0ca518f1b22ecec58f6bde42ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "5e54404adc549488ac10dbb75a99ff0e34e356aff41ee9d0610e73162d7d7710"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "cee69387e55ef07da74d7fdbbe4d1a445330940e26e3418b0030cd306c6ba6b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_0_baseline_started.json",
+      "bytes": 51,
+      "sha256": "ca268fb232c79eeb82a7b2317b8124c82e0d2a43749d0fe4aa2420b0ab15ba7c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/entry.json",
+      "bytes": 86,
+      "sha256": "1a27a1cc6be80b0e0533231ad9c3a17777e8aa5c2a8fcd4eaf7fc24fc2cad448"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/measured.json",
+      "bytes": 60240,
+      "sha256": "e09ff10e192af9db1d010ffa06b6dea524b4456f157b1ace26d8589420de41ab"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/observations.json",
+      "bytes": 21593,
+      "sha256": "2c83ed990bd6fe7cfc31fa0b09609b00549c417b21d288cb12301b70046bfe5b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "fe946d1a247d50c57c0d52a34e5aa5e7f2148c82169558b4692086dd405fb894"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "80c0caf9d605bc02113f3e585b51cba87dcc733952e7473432c87fcbc3fd5f87"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "adf6b15ccdd9d6c266ca18991b320220acd0dc4617cb5814093082a60f8c0664"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/payloads/d476e66a59904213a233eae5bed5c178.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "c42ba1d394cb90dc686bc78209d03b3465412ade05ec9b400e45eb2246f21c56"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "1c9f45e84b3308f9896131b4d569b088da109bf6d9b4472e7c4edac7d18cf448"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/sessions/d6720ca4a70247088fa44faaf2c04490.json",
+      "bytes": 214,
+      "sha256": "00e7667de6fc5cad3bcf9600bd6b3a6605774e75f87936686880c454caf6c74e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/sessions/d6720ca4a70247088fa44faaf2c04490.released.json",
+      "bytes": 288,
+      "sha256": "5a87343f3c1cfe4f0df7cee95f2bdff22786b96d24bf50b8fb17e11502ba8bb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "a9bcc37f5dafadc7af9267139993955eb5f240452348107fa6c7051e2d5813f9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "15459f7fb19478d7c05ecd938661cd10383dfda2e311f9a9f989a4d6c6259705"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "5a87343f3c1cfe4f0df7cee95f2bdff22786b96d24bf50b8fb17e11502ba8bb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_1_batch_fetch_started.json",
+      "bytes": 57,
+      "sha256": "2cbd217883224588890a5b9b867be9466017096739eb2d96ff195403e314c744"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/entry.json",
+      "bytes": 77,
+      "sha256": "c3597fe627053813f13a94daee645813879807988bc15b55a9fea9eb04fcf3ae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/measured.json",
+      "bytes": 60247,
+      "sha256": "04a42fa0d3daa4208040b992f1b676c38c8a29fb8ccca174bcf88b78a3f752cf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/observations.json",
+      "bytes": 21574,
+      "sha256": "780860438731afc324e56a03dea5456a28c65bfd33bca27882e1d290912625a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/profile.json",
+      "bytes": 19576,
+      "sha256": "01ffad2516d6706bc68258c43585a22cf10bf5864cb650623feae175a80f5ea7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "9ecb8957f6291e89b19a93f745186667e331e6cb5790d0724e51b158bcc56175"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "47be3487b22ce1c565cb06e32a3a0bf633198f29285beb10b367680912a9d404"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "bd27aacf8f853c5525943285c5bd635f5d99181cfc325bddcfbafc45d29f8dc3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/payloads/73cb7ebda6764d4ba46a563241ded701.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "0877a2aef215dfce850609ccab4baf50eed01290a7526a3e82997c75c3aaa7aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "2a9ff7f8c02051ec1dbe3d66e5622be083881106362d2c95e84531357b27b99a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/sessions/0c57c99e5b774e0db8743b9b42934752.json",
+      "bytes": 214,
+      "sha256": "cf09a65680e73435d939809986ea5c8077ba8d170446bb334a7489be48935490"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/sessions/0c57c99e5b774e0db8743b9b42934752.released.json",
+      "bytes": 288,
+      "sha256": "ca559c04c668f56ca5fb19af0471d6236cfa043b071a46429719f3b9bd59e1f8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "fee63fda8aa0eb173b51764fed76527b41c1e1e12a9db788df1cbbfb72fbc461"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "ee5ff5b82e51d31c559d68994e4e98f5f9c764029e5025ef4fba6f15fbd586e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "ca559c04c668f56ca5fb19af0471d6236cfa043b071a46429719f3b9bd59e1f8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_2_profile_started.json",
+      "bytes": 49,
+      "sha256": "478af3e02e0bcbde25bc463431511776045da40e0f95f7d3bfce72548a998e38"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/entry.json",
+      "bytes": 78,
+      "sha256": "3c07a028eda80f616d927a79962df9760ffe6be0bcb9889e7198c200358bc8aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/measured.json",
+      "bytes": 60239,
+      "sha256": "55ec72824e4b392be428a50966337943599a986ce4873626d9d36ab0bd4d3425"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/observations.json",
+      "bytes": 21577,
+      "sha256": "77b2192910038ad75c34deb93160e3dda691cb81d81c200e47e6ad45cebfedbb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/profile.json",
+      "bytes": 19558,
+      "sha256": "ae44017c9db6355e5f4ad973e726c9509e4c27b1906bb5681150446cfdcc725f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "eb20c5d93d8c04d0bc614094309802d3baac206bd994a0174bcb9f7485a815d1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "adf9f2ace428e0a957c379ae76ebd8ffe42b0b0857d662959b24791adcae220d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "0413ec9577ded210b70e0ff41e5cc3457e8bc449270a5fa24230bd9a4b47daee"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/payloads/2c0d9af49fd84ae680b49d378424f9c6.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "79f8d1431abbf373030656273a5d3acdffe01b17d2cfa5f24387462c40443df4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "22e8915d50deab3e5b3d9940614752bb43faf673d23e353a86fb07b290b44389"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/sessions/25eef295cecd484b90a9ff846353e168.json",
+      "bytes": 214,
+      "sha256": "1042f1a4a2b8fda0875491e4492963a7e9e57e58194530956b8003ae04fed444"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/sessions/25eef295cecd484b90a9ff846353e168.released.json",
+      "bytes": 288,
+      "sha256": "9e23adf7e9cd2936618c40bb259ec83f0e186c867998f034cee3e1b2b3717669"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "d251ea05a3482a8256a5a6cf77f0ae5e7630d715a37ec72fa44db7c39044f11f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "4ae5f4e80164c993e5ab31f28cd04186c25f8d2029ca701fcb1db0fcdc832eb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "9e23adf7e9cd2936618c40bb259ec83f0e186c867998f034cee3e1b2b3717669"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_3_profile_started.json",
+      "bytes": 49,
+      "sha256": "7092b5d90a163606eaaaf8cb90aa997886c6844d79d8801fe0b8c4b2b6bcd5ae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/entry.json",
+      "bytes": 86,
+      "sha256": "c7bfaac70a407dd9231a32770ad3e35cf61f24230a615002d9f0dd3f7bc8fe63"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/measured.json",
+      "bytes": 60218,
+      "sha256": "5e8cc7f0b655ff1113b90821bafe0f2e277d1cb9dd658419366c7a7e74965cda"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/observations.json",
+      "bytes": 21582,
+      "sha256": "b01d8fcdd211eadfbe476c30083273af908c10dce87aee53c5731d9a04c46bdd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "826c8c1426bb93db8cf1984bdfaa56d4ae356059846428e8a0fdf9398e22d10b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "098840a5c124218532925de5e53ce0c42f90aea4d2768e22809ca99d0fa0921e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "b06b03a512105730b1365dc26cef2acf5af5c03079fc799eab866ea1fc0839c1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/payloads/ca4b1cc39ae8436e823bec1f8cfeae62.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "e864def6dd99f8fb344e4d5cd5d478d518a83b3239c306b2a542e795f65c7be0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "17c1b456cbe6ed04ea23445f037be64991360eebac9d2306824de62456f7c1b1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/sessions/7a6c48e1d6e54b0a87ab042faebc56c7.json",
+      "bytes": 214,
+      "sha256": "b982fa55d05fd4fbc3a06f8f5fa3e2dd11f4326177779a19e3001d0a4c35c9e3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/sessions/7a6c48e1d6e54b0a87ab042faebc56c7.released.json",
+      "bytes": 288,
+      "sha256": "8516d28062f625e061ba6e8035426d0886f7eefd39f39657d6f75967426e8dbc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "9742ed2a600b8c17254073416d8d616e60a56d4116eb52942b788e147307437d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "208d735ef4276bdd7c6d3083d72682b56d7381b273348a7d9b590834c8df6687"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "8516d28062f625e061ba6e8035426d0886f7eefd39f39657d6f75967426e8dbc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_4_batch_fetch_started.json",
+      "bytes": 57,
+      "sha256": "c66a276631113972934fc83891485d27c2e600fb0b29672757fbf0e645382945"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/entry.json",
+      "bytes": 79,
+      "sha256": "56de4735b328a158a2a964825901f6673b14ce8938499539c2aa588d70bfe60d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/measured.json",
+      "bytes": 60219,
+      "sha256": "317bf52e68a39f894263983f414671e021890305a57b2cd3962d3dc1236eda85"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/observations.json",
+      "bytes": 21570,
+      "sha256": "50793bc5a295ec905576f7921c19b41a3c69c1b83993ba8f51f81f6884b4a898"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "b6f4845a280cd66ea3957346fc77dde1ebb07fd44b6b48b82e71ce7915705ad5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "09d7d49cbf276287d46863b42300c2f947eaf890b50da1c04edb810d18715fbf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "ce700db4e9f08290b169a1b640f0a88123d0a25f977531adf04e6813d62d3b96"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/payloads/783f73a3c8b7494aa7526c6bd5427a2b.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "0572d4d0d01c2ec5c5143e8d42841ee717c228e0321486828d4a6bf7490f3575"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "b950fd8d625f0d769e3a2a4dd62e201edb2d354a0e55d0518573ba8ad1512be0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/sessions/a158af8e094e4e18977e977ffacf5523.json",
+      "bytes": 214,
+      "sha256": "eba955215371b6e76244bc895f94e45813924c1be1797e2787be94f000f8959b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/sessions/a158af8e094e4e18977e977ffacf5523.released.json",
+      "bytes": 288,
+      "sha256": "1093d7d6c69298bd417fa6c6a200380c0db1da9eb92e809470aa509652a28d76"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "99d1377c54891368383acbaab4a5da0709676fca3b3d84f039a243418e07379f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "69b1be029bd7940581509fe500788939fdea6abf298673207343f6619be527db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "1093d7d6c69298bd417fa6c6a200380c0db1da9eb92e809470aa509652a28d76"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/diagnosis_5_baseline_started.json",
+      "bytes": 51,
+      "sha256": "dc6878f670f7045acd4f09b8357e038f91e99d4787d1a7339ea703ff5e721e6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/done.json",
+      "bytes": 48,
+      "sha256": "1c21ac3a26856d6d5cfa41deb9d317cb841070a20c4c8f05a61480cc9a9be24b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/final_hash.json",
+      "bytes": 43,
+      "sha256": "9aa198949d40a689d17512f98d011c9edf9998d0b0e1eed3743a561753d845d6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/initial_hash.json",
+      "bytes": 43,
+      "sha256": "b1f6c4e260afb1fbf334259a53996e9e352d84e9757b9bb3cdaabfe340b1dc08"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/request.json",
+      "bytes": 105282,
+      "sha256": "85a32f4cfd4c3401f2a38f0451eb3f24fd12d866f2bde945499b2b56a6bee03c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/supervisor_completion.json",
+      "bytes": 449,
+      "sha256": "2c0049afd2d73546c0be73969fbad1bbde9a9f311f87a85e166671f274939b03"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/tracked_process_identities.json",
+      "bytes": 263,
+      "sha256": "9d2f44c982110d3bc6b69226c7dd5a8336072d7043bcbdaeec0173275ef2ad12"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v7-vote-profile-9a52496171694d7caa8607ace3df1889/worker_identity.json",
+      "bytes": 68,
+      "sha256": "8f337d8560e4b6993e20e1738e9179d029dbcf5543589b010dbbc429098359a6"
+    }
+  ]
+}
