@@ -6,6 +6,7 @@
 | --- | --- |
 | 補樣工具 | 36 項合成／回歸測試通過，8.726 秒。正式選樣與排名到此步均為 0 筆 |
 | 低鄰居補測完成 | 兩次各 34 筆，科學 ledger 各 216,045 bytes，SHA 完全相同。 |
+| 投票工具驗收完成 | 14 項測試通過，12.180 秒。 |
 
 補樣器先按封存 salt 取各格最小兩筆，再用完整排序獨立重算；選樣封存後才抽取七路原始列。測試涵蓋歷史 keys 排除、最小格與短缺、ordinal／SHA 不符、兩次四臂精確核對、保存、期限與恢復。[工具入口](../scripts/run_retailrocket_session_knn_gap_v7.py) · [36 項驗收](../reports/stage12/retailrocket_session_knn_v7_gap_acceptance_20261105.json)
 
@@ -34,3 +35,13 @@ rank 內含於 verify。append 含直接的週期 budget 寫入，chunk 提交�
 這些小時數仍有 43,948 筆借用父層成本，也尚待納入其他階段與規劃餘裕。全量工時 T_plan 待估，K1−C1 待正式驗收。[原 48 的三次成本](../reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json)
 
 [本階段聚合報告](../reports/stage12/retailrocket_session_knn_v7_gap_cost_20261105.json)
+
+## 投票工具驗收完成
+
+14 項測試通過，12.180 秒。涵蓋原 V4 精確輸出、500 鄰居平手、嚴格時間條件、大整數與 Fraction 分支、真程序崩潰後恢復，以及六對 AB／BA 的採用條件。候選只供有界工程比較。
+
+診斷窗口使用相同 48 筆，依序為原版、未開分項的批次取列版、診斷版、診斷版、未開分項的批次取列版、原版。兩次診斷分項相加後，在 TEMP 插入、游標執行／取列、Python 累加／筆數核對三類中取最大者。平手依序選插入、取列、計數。比較順序與採用門檻見[事前規格](STAGE12_KNN_SQL_VOTE_ASSESSMENT_V7_20261105.md)。
+
+使用 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_vote_v7` 搭配 `--profile` 診斷、`--compare48` 比較原 48 筆。僅當原 48 符合採用條件才有 `--compare34`。每個實測窗口上限 30 分鐘。
+
+[本階段聚合報告](../reports/stage12/retailrocket_session_knn_v7_vote_acceptance_20261105.json)
