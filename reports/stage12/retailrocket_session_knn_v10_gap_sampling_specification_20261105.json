@@ -1,0 +1,64 @@
+{
+  "status": "v10_target_two_specification_frozen",
+  "scope": "original frozen V4 validation engineering cost for the two largest remaining fine cells, V6 detailed same-row timing",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v10_gap_inventory_20261105.json",
+    "bytes": 12412,
+    "sha256": "a008ea8af088dbcce7b581e160b5e03c0c6992164cb19b88468eccd17d4c766a"
+  },
+  "quotas": [
+    {
+      "cell": "1111/n4/v4",
+      "population": 572,
+      "historical_exclusions": 0,
+      "eligible": 572,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "1111/n5/v4",
+      "population": 399,
+      "historical_exclusions": 1,
+      "eligible": 398,
+      "planned_new_queries": 4
+    }
+  ],
+  "selection": {
+    "quota": 4,
+    "planned_unique_queries": 8,
+    "prefix_with_terminator": "k1-gap-v10-20261105\u0000",
+    "excluded": "Union of 64,48,34,8,8 historical samples: 160 distinct keys, first two overlap by 2, subsequent 3 cohorts each disjoint from predecessors",
+    "order": "ascending raw SHA256(prefix including NUL as ASCII + bytes.fromhex(key_sha256)) per cell, tie by ascending original_ordinal, first 4 per cell; sort union by original_ordinal",
+    "inputs": "Frozen validation structural roster, exact V6 cell rules and previous exclusions only; independently sort all eligible rows and seal identities before seven-source extraction",
+    "failure": "stop on shortfall, mismatch, duplicate, missing/changed source; no replacement"
+  },
+  "measurement": {
+    "queries_per_repeat": 8,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 16,
+    "ranking": "original V4 exact ranker with V6 detailed checkpoint cost",
+    "workload": "Both cells: complete pool count and hash; min(eligible,500)=500 exact selected neighbors; exact similarities/order and cutoff ties; actual membership rows bounded by structural largest-500 sizes, allow equality; causal additions bounded by actual returned rows. Cross-check selected count, membership sizes and tie counts against independent predictions and immutable scientific outputs.",
+    "timing": "same-row verification plus append excluding commit and direct budget publication; separately retain raw verification, nested rank stages, append, direct budget, all commits, setup and tail",
+    "sources": "seven frozen validation sources after selection seal; readonly immutable reconstruction and four-arm verification; compare every scientific frame and concatenated SHA in two fresh directories",
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "publication": "verified sources before/after, observed normal worker exit, no live tracked identities, post-exit independent recomputation of roster, bounds, ledgers and timing"
+  },
+  "conditional_after_all_8_verified": {
+    "v6_plus_new_cells_with_sample": 42,
+    "v6_plus_new_unrepresented_population": 1218,
+    "distinct_historically_verified_queries": 168
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
