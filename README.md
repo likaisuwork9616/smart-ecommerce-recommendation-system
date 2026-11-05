@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 原 48 筆投票診斷完成 | 原 48 筆六次核對與原封存 bytes 相同，依實測選定「每次取回 128 列會員資料」。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 48 筆候選公平比較完成 | 48 筆六對 AB／BA 有 2 對候選較快，主要時間改善中位數 -0.36%。原 48 未達採用門檻，依規格結束候選試驗。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,9 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜低鄰居補測與投票比較（最新）
 
-原 48 筆六次核對與原封存 bytes 相同，依實測選定「每次取回 128 列會員資料」。下一步依事前門檻用六對 AB／BA 比較。 [本輪實驗記錄](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v7_vote_profile_20261105.json)
+**34 筆低鄰居查詢通過兩次精確核對，有樣本的細層從 19／55 增到 36／55。** 兩份 ledger 各 216,045 bytes，逐位元組一致。其餘 19 個細層包含 43,948 筆查詢，其中 38,333 筆集中在 100–499 鄰居帶的兩格。
+
+投票診斷選出的候選每次取回 128 列。在原 48 筆的六對 AB／BA 比較中，候選只有兩對較快，主要耗時的成對中位數慢 0.36%，14 次輸出均與原封存相同。依事前門檻保留原版，34 筆保留原版補測結果。全量 K1 驗收關閉，預留測試鎖定。[各階段結果與完整六對數值](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [補測報告](reports/stage12/retailrocket_session_knn_v7_gap_cost_20261105.json) · [配對報告](reports/stage12/retailrocket_session_knn_v7_vote_compare48_20261105.json)
 
 ## Stage 12｜SQL 投票改善評估（前步）
 
