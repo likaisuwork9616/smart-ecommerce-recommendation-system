@@ -1,0 +1,138 @@
+{
+  "status": "existing_measurements_and_static_query_plan_review",
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v6_refined_cost_20261103.json",
+      "bytes": 215082,
+      "sha256": "ab427e16c8eb126358f8e02b0092789e5104eb4be0466e5d022e82c9a4dd4685"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json",
+      "bytes": 24412,
+      "sha256": "fe8cb1e394ee6eb2488563590cb5b12fa21a4398e4ef9893906641d14895c073"
+    },
+    {
+      "bytes": 10877,
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "bytes": 475103232,
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/independent.sqlite",
+      "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+    },
+    {
+      "bytes": 30667,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "bytes": 103419,
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/request.json",
+      "sha256": "a4a2a91bc3706cb23b98af4a451a2ef022b6341ea18c7365549e6eda3a44edc8"
+    },
+    {
+      "bytes": 60017,
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/repeat_0/measurements.json",
+      "sha256": "00ec64307c614d7ae809e8cc3c139c2057682b3eb6f74d6d264217ce131cb2c7"
+    },
+    {
+      "bytes": 60049,
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/repeat_1/measurements.json",
+      "sha256": "43e1cf294bb2687eb8226e29536110a041212f98d776ab9b84ef149a1e70b6f8"
+    },
+    {
+      "bytes": 60033,
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/repeat_2/measurements.json",
+      "sha256": "a10780004fd6688f189221c51ddca18097d3a169f9a1b1065017c63f2068c0c5"
+    }
+  ],
+  "static_inspection": {
+    "sqlite_version": "3.49.1",
+    "database_mode": "ro, immutable; empty in-memory TEMP; EXPLAIN QUERY PLAN only",
+    "database_sha_before_and_after_matches_frozen": true,
+    "actual_membership_rows_executed": 0,
+    "plans": {
+      "votes": {
+        "sql_from_frozen_method": "SELECT chosen.r,membership.i FROM temp.k1_v4_selected AS chosen CROSS JOIN main.m AS membership ON membership.v=chosen.v AND membership.s=chosen.s",
+        "plan": [
+          "SCAN chosen",
+          "SEARCH membership USING COVERING INDEX sqlite_autoindex_m_1 (v=? AND s=?)"
+        ]
+      },
+      "overlaps": {
+        "sql_from_frozen_method": "SELECT membership.v,membership.s,COUNT(*),sizes.n FROM temp.k1_v4_history AS query CROSS JOIN main.m AS membership INDEXED BY k1_v2_posting ON membership.i=query.i LEFT JOIN main.k1_v2_sizes AS sizes ON sizes.v=membership.v AND sizes.s=membership.s GROUP BY membership.v,membership.s",
+        "plan": [
+          "SCAN query",
+          "SEARCH membership USING COVERING INDEX k1_v2_posting (i=?)",
+          "SEARCH sizes USING PRIMARY KEY (v=? AND s=?) LEFT-JOIN",
+          "USE TEMP B-TREE FOR GROUP BY"
+        ]
+      }
+    }
+  },
+  "original_48": {
+    "unique_queries": 48,
+    "queries_with_eligible_neighbors_0_to_99": 0,
+    "repeats": [
+      {
+        "repeat": 1,
+        "sql_selected_rows_inserted": 23934,
+        "sql_vote_membership_rows_returned": 136381,
+        "exact_vote_additions": 136381,
+        "integer_vote_additions": 136381,
+        "fraction_vote_additions": 0,
+        "neighbor_pool_rows_hashed": 51725,
+        "maximum_vote_scale_bits": 378,
+        "combined_vote_seconds": 1.5527453999966383,
+        "rank_seconds": 3.6369914000388235,
+        "verification_seconds": 4.055532700382173,
+        "combined_vote_share_of_rank": 0.42693128171269895,
+        "combined_vote_share_of_verification": 0.3828708864436762
+      },
+      {
+        "repeat": 2,
+        "sql_selected_rows_inserted": 23934,
+        "sql_vote_membership_rows_returned": 136381,
+        "exact_vote_additions": 136381,
+        "integer_vote_additions": 136381,
+        "fraction_vote_additions": 0,
+        "neighbor_pool_rows_hashed": 51725,
+        "maximum_vote_scale_bits": 378,
+        "combined_vote_seconds": 1.4854743999894708,
+        "rank_seconds": 3.5511548998765647,
+        "verification_seconds": 3.9338204998639412,
+        "combined_vote_share_of_rank": 0.41830740755383683,
+        "combined_vote_share_of_verification": 0.37761621305314996
+      },
+      {
+        "repeat": 3,
+        "sql_selected_rows_inserted": 23934,
+        "sql_vote_membership_rows_returned": 136381,
+        "exact_vote_additions": 136381,
+        "integer_vote_additions": 136381,
+        "fraction_vote_additions": 0,
+        "neighbor_pool_rows_hashed": 51725,
+        "maximum_vote_scale_bits": 378,
+        "combined_vote_seconds": 1.6132275003474206,
+        "rank_seconds": 3.44567300012568,
+        "verification_seconds": 3.8647256002295762,
+        "combined_vote_share_of_rank": 0.46818937847223996,
+        "combined_vote_share_of_verification": 0.41742355531052194
+      }
+    ],
+    "reference_payload_bytes": 2115696,
+    "reference_payload_sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+  },
+  "interpretation": "Combined stage includes weight preparation, TEMP selected inserts, SQLite fetch/row conversion, causal filtering, exact addition and membership-count checks. Candidate effects require a future paired measurement.",
+  "this_step": {
+    "candidate_code_changes": 0,
+    "new_model_predictions": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
