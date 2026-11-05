@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V7 補樣入口通過合成驗收 | 36 項相關測試通過，正式 34 筆補測待執行。預留測試鎖定 |
+| Stage 12：session-kNN K1 | 低鄰居補測完成 | 34 個新 keys 已通過兩次精確核對，有樣本細層 36／55，仍有 43,948 筆所屬層缺樣。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜低鄰居補測與投票比較（最新）
 
-34 筆補測工具已通過 **36 項**合成／回歸測試。選法、七路來源與兩次四臂核對均有驗收，實際新增查詢到本階段為 0 筆。下一階段執行兩次同樣本核對。[本輪方法與進度](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [工具驗收](reports/stage12/retailrocket_session_knn_v7_gap_acceptance_20261105.json)
+34 個新 keys 已通過兩次精確核對，有樣本細層 36／55，仍有 43,948 筆所屬層缺樣。兩次各 34 筆，科學 ledger 各 216,045 bytes，SHA 完全相同。 下一步用原 48 筆診斷 SQL 投票。 [本輪實驗記錄](docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v7_gap_cost_20261105.json)
 
 ## Stage 12｜SQL 投票改善評估（前步）
 
