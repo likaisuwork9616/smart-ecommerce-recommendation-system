@@ -1,0 +1,64 @@
+{
+  "status": "v11_target_two_specification_frozen",
+  "scope": "bounded original V4 validation engineering cost on the largest two unresolved n4 cells; frozen V6 checkpoint and timing",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v11_gap_inventory_20261105.json",
+    "bytes": 14544,
+    "sha256": "02e4355dd846fe09249c6c12786a6ac50ac0b94207329243b8ad3ce4e6e782a2"
+  },
+  "quotas": [
+    {
+      "cell": "0001/n4/v3",
+      "population": 395,
+      "historical_exclusions": 0,
+      "eligible": 395,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "1101/n4/v5",
+      "population": 290,
+      "historical_exclusions": 4,
+      "eligible": 286,
+      "planned_new_queries": 4
+    }
+  ],
+  "selection": {
+    "quota": 4,
+    "planned_unique_queries": 8,
+    "prefix_with_terminator": "k1-gap-v11-20261105\u0000",
+    "exclusion": "Union of 64,48,34,8,8,8 historic cohorts with 168 distinct keys. Intersection of the first two cohorts is 2, every later cohort is disjoint from its predecessors.",
+    "order": "Within each target cell retain four smallest raw SHA256(ASCII prefix including NUL + 32 bytes decoded from key_sha256); break ties by original_ordinal. Sort union by original_ordinal.",
+    "inputs": "Only pinned structural validation roster, cell eligibility and historical exclusion identities. No selection based on timing, predictions, targets, or guaranteed inclusion of an exact-500 query.",
+    "failure": "Stop on changed source, cell/identity/count mismatch, duplicate or shortfall; no replacement, reseeding or redistribution."
+  },
+  "measurement": {
+    "queries_per_repeat": 8,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 16,
+    "ranking": "frozen original V4, four arms with V6 timings",
+    "selection_seal": "Independently sort all eligible identities and match full selected rows before reading seven aligned source records.",
+    "workload": "In BOTH cells check full eligible neighbor pool identity/count, ordered top 500 with exact similarities and cutoff tie order; actual membership rows <= structural vote upper, causal additions <= actual rows, and per-rank sizes checked. At exactly 500: all eligible selected, exact upper, full reconstructed pool digest, boundary present and zero excluded cutoff ties. Report actually sampled exact-500 count separately.",
+    "science_and_control": "Two fresh namespaces, identical original keys and ordinals, model provenance and gates, immutable model, full source/metrics/checkpoint verification; compare physical frames, concatenated SHA and full count after supervisor normal exit. Private rows retained only under ignored paths.",
+    "timing": "Per-cell maximum within each repeat of verification + append excluding nested commit and direct budget write on the same row. Retain raw timers, rank subphases, commits, setup and tail separately.",
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592
+  },
+  "conditional_after_all_8_verified": {
+    "v6_plus_new_cells_with_sample": 44,
+    "v6_plus_new_unrepresented_population": 533,
+    "distinct_historically_verified_queries": 176
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
