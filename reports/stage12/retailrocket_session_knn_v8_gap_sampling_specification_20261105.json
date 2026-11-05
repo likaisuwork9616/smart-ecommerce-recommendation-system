@@ -1,0 +1,78 @@
+{
+  "status": "v8_target_two_specification_frozen",
+  "scope": "bounded validation engineering cost on original V4 ranking; V6 timing and checkpoint",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v8_gap_inventory_20261105.json",
+    "bytes": 7750,
+    "sha256": "2ed30f7d398bf194d750aea2daaa6a1c84f3f5adfaf7025055a8f4ab1ea73106"
+  },
+  "quotas": [
+    {
+      "cell": "0000/n3/v3",
+      "population": 29147,
+      "historical_exclusions": 4,
+      "eligible": 29143,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "0000/n3/v2",
+      "population": 9186,
+      "historical_exclusions": 4,
+      "eligible": 9182,
+      "planned_new_queries": 4
+    }
+  ],
+  "selection": {
+    "quota": 4,
+    "planned_unique_queries": 8,
+    "prefix_with_terminator": "k1-gap-v8-20261105\u0000",
+    "exclusion": "Union of V3 64, V5/V6 48 and V7 34, with 144 distinct keys required",
+    "order": "per eligible cell, sort raw SHA256(prefix_with_terminator ASCII bytes + bytes.fromhex(key_sha256)), then ascending original_ordinal; take first four, deliver union sorted by original_ordinal",
+    "selection_inputs": "frozen validation structural roster, two registered cell labels, historical exclusions only",
+    "shortfall_or_changed_source": "stop, no redistribution, replacement, or change of salt"
+  },
+  "measurement": {
+    "queries_per_repeat": 8,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 16,
+    "ranking": "frozen exact V4",
+    "store": "V6 detailed same-row costs",
+    "inputs": "seven aligned validation sources after selection seal",
+    "checks": [
+      "independent full-sort membership/order before source extraction",
+      "four-arm independent computations and source EOF",
+      "two fresh checkpoint chains with all 8 original identities in order",
+      "pairwise physical frame bytes, total bytes and concatenated SHA identical",
+      "query budget pieces conserve each append",
+      "source hashes at entry and exit plus independent observer of normal exit"
+    ],
+    "primary_timing": "verification_seconds + append_without_commit_seconds - direct query budget publication seconds on the same row; take max within each cell for sensitivity scenarios",
+    "separate_costs": [
+      "setup",
+      "rank stages (nested)",
+      "direct budget",
+      "all chunk commits including final flush",
+      "tail / EOF / seal"
+    ],
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592
+  },
+  "conditional_after_all_8_verified": {
+    "v6_plus_new_cells_with_sample": 38,
+    "v6_plus_new_unrepresented_population": 5615,
+    "distinct_historically_verified_queries": 152
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
