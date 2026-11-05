@@ -1,0 +1,52 @@
+{
+  "status": "v7_gap_tools_synthetic_accepted",
+  "tests_run": 36,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 8.725544699998864,
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v7.py",
+      "bytes": 11919,
+      "sha256": "90dbdc026acf55a5953092e1c804939454e7eb17e0a259562a7799f9a5fa9949"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v7.py",
+      "bytes": 21777,
+      "sha256": "543cc2d6c8edda77e7e6f61d96b5b1f66f834bbd21e3fb5e63256bf0750ba9fd"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_gap_v7.py",
+      "bytes": 16172,
+      "sha256": "bf498c42ec510c1129d744eb0e9afb59069377ee12ab34b21b558ccd3dfd0d15"
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v7_gap_sampling_specification_20261105.json",
+    "bytes": 6208,
+    "sha256": "9d05624afc8b0450b95a6562fff0ef7840b4d8f9f6dbe53732491f81c5074709"
+  },
+  "suites": [
+    "tests.test_retailrocket_session_knn_gap_v7",
+    "tests.test_retailrocket_session_knn_detailed_cost_v6",
+    "tests.test_retailrocket_session_knn_sources_v4"
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/v7-gap-acceptance-46a8b81dcf344609a997bcdf74c63269/unittest.log",
+    "bytes": 6558,
+    "sha256": "96ec00b956db8ad92c6552a26e23f586c965ac562b1882e89af747533caf58d3"
+  },
+  "actual_new_keys_selected": 0,
+  "actual_new_query_verifications": 0,
+  "full_readback_started": false,
+  "reserved_test": "locked",
+  "T_plan": null
+}

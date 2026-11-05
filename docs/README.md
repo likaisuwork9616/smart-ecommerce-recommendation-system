@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜SQL 投票成本改善評估（最新）
+## Stage 12｜34 筆補測與 SQL 投票實驗（最新）
+
+補樣器已通過 36 項合成／回歸測試，各小階段的進度與聚合收據集中於[本輪方法與結果](STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md)。
+
+## Stage 12｜SQL 投票成本改善評估（前步）
 
 原 48 筆投票階段已有索引，耗時涵蓋取列與精確加總。候選須通過同一組 48 筆的完整 bytes 與成對計時，再與低鄰居帶分開評估。[查詢計畫、診斷分項與採用條件](STAGE12_KNN_SQL_VOTE_ASSESSMENT_V7_20261105.md)
 
