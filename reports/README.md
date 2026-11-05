@@ -1,6 +1,6 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測、V4 配對優化、真實來源與子集恢復成本，以及 V5 完整獨立重建、聯合尾端、工程帳本建置與重播、預算保存觀測及全量成本決策、V6 分層細化／append 診斷與原固定樣本三次複測，以及 V7 補樣規格與 SQL 投票評估與有界實驗收據，以及 V8 的 100–499 鄰居帶與 V9 的上限兩側補測（41 份 JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測、V4 配對優化、真實來源與子集恢復成本，以及 V5 完整獨立重建、聯合尾端、工程帳本建置與重播、預算保存觀測及全量成本決策、V6 分層細化／append 診斷與原固定樣本三次複測，以及 V7 補樣規格與 SQL 投票評估與有界實驗收據，以及 V8 的 100–499 鄰居帶與 V9 的上限兩側補測（42 份 JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
@@ -8,7 +8,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| Stage 12 最新：500 鄰居上限兩側的補測 | [本輪記錄](../docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) · [兩格盤點完成](stage12/retailrocket_session_knn_v9_gap_inventory_20261105.json) |
+| Stage 12 最新：500 鄰居上限兩側的補測 | [本輪記錄](../docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) · [兩格補樣規格已固定](stage12/retailrocket_session_knn_v9_gap_sampling_specification_20261105.json) |
 | Stage 12 前輪：100–499 鄰居帶補測 | [本輪記錄](../docs/STAGE12_KNN_100_499_GAP_V8_20261105.md) · [兩個最大缺口補測完成](stage12/retailrocket_session_knn_v8_gap_cost_20261105.json) |
 | Stage 12 前輪：34 筆補測與 SQL 投票實驗 | [本輪實驗記錄](../docs/STAGE12_KNN_GAP_AND_VOTE_RESULTS_20261105.md) · [48 筆候選公平比較完成](stage12/retailrocket_session_knn_v7_vote_compare48_20261105.json) |
 | Stage 12 前輪：SQL 投票成本評估 | 原 48 筆每輪 136,381 會員列，投票整段 1.485–1.613 秒。封存 DB 已用涵蓋所需欄位的索引。[報告與計畫](stage12/retailrocket_session_knn_v7_sql_vote_assessment_20261105.json) |

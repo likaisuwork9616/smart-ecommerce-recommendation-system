@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 兩格盤點完成 | 剩餘最大的兩格合計 3,426 筆，排除 7 個早期已驗身分，可選 3,419 筆，本步實際選樣 0 筆。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 兩格補樣規格已固定 | 兩格各取 4 個新身分，同 8 筆核對兩次；規格階段新增排名 0 筆。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜500 鄰居上限兩側的缺口補測（最新）
 
-重新核對 166,897 筆名冊，剩餘 5,615 筆中，有 2,345 筆落在 `1101/n5/v5`，1,081 筆落在 `0010/n3/v2`。兩格合計占剩餘缺口 61.0%。高鄰居格實際有 1,005–4,990 位合格鄰居，排名最多選 500 位；低鄰居格的合格鄰居全數入選。 [方法與進度](docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v9_gap_inventory_20261105.json)
+補樣規格已固定 **每格 4 筆、共 8 個新查詢**。先獨立排序封存名單，再讀七路來源。高鄰居格驗 500 位入選鄰居及切點平手，實際會員列數可低於結構上界；低鄰居格驗所有合格鄰居均入選及會員列數相等。 [方法與進度](docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) · [本階段報告](reports/stage12/retailrocket_session_knn_v9_gap_sampling_specification_20261105.json)
 
 ## Stage 12｜100–499 鄰居帶的兩個缺樣細層（前輪）
 

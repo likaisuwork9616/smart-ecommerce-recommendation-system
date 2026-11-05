@@ -1,0 +1,67 @@
+{
+  "status": "v9_target_two_specification_frozen",
+  "scope": "bounded validation engineering cost for the two largest remaining cells, using frozen V4 ranking and V6 accounting",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v9_gap_inventory_20261105.json",
+    "bytes": 10461,
+    "sha256": "7d31de96902afb262fa7385c451874529d78665c1154e4b83b0f6f3c5d271727"
+  },
+  "quotas": [
+    {
+      "cell": "1101/n5/v5",
+      "population": 2345,
+      "historical_exclusions": 7,
+      "eligible": 2338,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "0010/n3/v2",
+      "population": 1081,
+      "historical_exclusions": 0,
+      "eligible": 1081,
+      "planned_new_queries": 4
+    }
+  ],
+  "selection": {
+    "quota": 4,
+    "planned_unique_queries": 8,
+    "prefix_with_terminator": "k1-gap-v9-20261105\u0000",
+    "exclusion": "Union of historical 64, 48, 34 and 8 cohorts = 152 distinct keys, only intersection is 2 in the first two cohorts",
+    "order": "Per eligible cell, ascending raw SHA-256 of the ASCII prefix including terminating NUL followed by decoded 32 key-hash bytes, then ascending original ordinal. Deliver combined subset sorted by original ordinal.",
+    "allowed_inputs": "Bound structural roster, frozen cells and historical excluded identities only. Full independent sort and seal before paired source extraction.",
+    "on_mismatch": "Stop on changed source, shortfall or identity mismatch. No replacement or redistribution."
+  },
+  "measurement": {
+    "queries_per_repeat": 8,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 16,
+    "sources": "Seven aligned source byte streams; independent V4 ranker, precise four arms and V6 checkpoint",
+    "work_checks": {
+      "both_cells": "Complete eligible pool count and SHA; min(eligible_neighbors,500) selected in exact score and tie order. Source comparison, causal catalog, per-selected membership sizes, exact vote/metric/delta bits, EOF and full checkpoint chain.",
+      "1101/n5/v5": "1,000–4,999 eligible, 500 selected. Actual membership rows at most vote_memberships_upper. Validate cutoff ties and preserve equal-upper cases as valid.",
+      "0010/n3/v2": "100–499 eligible, all selected. Actual membership rows equal vote_memberships_upper. No 500th-neighbor boundary."
+    },
+    "timing": "Per-cell maximum of verification plus append excluding commit and same-row direct budget publication, plus raw enclosing and partitioned times. Setup, tail, all commits and budget shown separately.",
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "publish_when": "Two freshly reconstructed ledgers identical frame by frame; source and method pins reverified; externally observed normal exit and independent post-exit audit."
+  },
+  "conditional_after_all_8_verified": {
+    "v6_plus_new_cells_with_sample": 40,
+    "v6_plus_new_unrepresented_population": 2189,
+    "distinct_historically_verified_queries": 160
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
