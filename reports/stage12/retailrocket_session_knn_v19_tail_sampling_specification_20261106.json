@@ -1,0 +1,156 @@
+{
+  "status": "v19_tail_specification_frozen",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v19_tail_inventory_20261106.json",
+    "bytes": 272154,
+    "sha256": "5cb923a3df6243e3d5003d67ecbd86f8b94dce74d05dd748d0216770b24d9309"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_cost_20261106.json",
+      "bytes": 363452,
+      "sha256": "f31441399d5ed5bcc749c98c46bb76257fa6180f1212ac7cc799e5365b2bdab2"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_sampling_specification_20261106.json",
+      "bytes": 8193,
+      "sha256": "d6d83ce51f25da8beadcffdd6d11f8fa512b54d201f81104917477778c849392"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/frozen_probes.json",
+      "bytes": 5444,
+      "sha256": "12a1fdc0ae275315eb1e120d1badbb2b3b238de4a70c9287c0f40290555460bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "bytes": 30667,
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/repeat_0/verified_subset/run.json",
+      "bytes": 28528,
+      "sha256": "feb40b97550172cad767516894cae7ebfcbcda172ad99a14547576d650aab335"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v6-refined-01daca25bdbf485cbc94e59631afa6cc/repeat_0/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    }
+  ],
+  "scope": "Prospective engineering reinforcement of the strictly greater-than-1945 neighbor tail in the already covered 1101/n5/v4 validation cell. Three deliberately sampled segments and the unchanged V6/V18 n5 anchor; no SQL candidate, primary fit, full validation or reserved test.",
+  "target_cell": "1101/n5/v4",
+  "target_population": {
+    "population": 4221,
+    "historical_exclusions": 7,
+    "eligible": 4214,
+    "existing_comparable_queries": 5
+  },
+  "target_tail": {
+    "population": 888,
+    "historical_exclusions": 1,
+    "eligible": 887,
+    "lower_exclusive": 1945,
+    "existing_comparable_queries": 0
+  },
+  "quotas": [
+    {
+      "segment": "n1946_2499",
+      "lower_inclusive": 1946,
+      "upper_inclusive": 2499,
+      "population": 593,
+      "historical_exclusions": 0,
+      "eligible": 593,
+      "planned_new_queries": 2
+    },
+    {
+      "segment": "n2500_2999",
+      "lower_inclusive": 2500,
+      "upper_inclusive": 2999,
+      "population": 202,
+      "historical_exclusions": 1,
+      "eligible": 201,
+      "planned_new_queries": 2
+    },
+    {
+      "segment": "n3000_4999",
+      "lower_inclusive": 3000,
+      "upper_inclusive": 4999,
+      "population": 93,
+      "historical_exclusions": 0,
+      "eligible": 93,
+      "planned_new_queries": 2
+    }
+  ],
+  "selection": {
+    "quota_by_segment": {
+      "n1946_2499": 2,
+      "n2500_2999": 2,
+      "n3000_4999": 2
+    },
+    "planned_new_queries": 6,
+    "planned_anchor_queries": 1,
+    "planned_unique_queries": 7,
+    "prefix_with_terminator": "k1-tail-v19-20261106\u0000",
+    "strategy": "segment_max_then_hash",
+    "history": "Exclude all226 historical identities, the old218 union plus V18 eight new queries. V18 two anchors overlap exactly the original V6 identities and must not be counted twice.",
+    "anchor": "Reuse only the original V6 n5 anchor also present as an anchor in the V18 sealed selection. It has 1945 eligible neighbors, is outside the new tail, and is never counted as a new identity.",
+    "hash": "SHA256(ASCII prefix including its final NUL concatenated with bytes.fromhex(key_sha256)), ascending raw digest; remaining tie by original_ordinal.",
+    "order": "Within each segment first select the eligible identity with maximum eligible_neighbors; ties use frozen hash then original_ordinal. From the remaining eligible identities select the lowest frozen hash, tie by original_ordinal. Tag reasons segment_max/hash. Add the fixed anchor tagged anchor, then sort all seven by original_ordinal for every round.",
+    "inputs": "Frozen structural workload and historical identity membership only. No target, prediction, measured timing or outcome may influence selection.",
+    "seal": "Verify complete roster EOF/count/bytes/SHA and exact structural identities, ordinals, full-cell/tail/segment capacities and all226 historical identities. Independently classify literal bands, fully sort each eligible segment, and independently resolve both selection reasons plus the unchanged anchor before aligned ranking inputs are read.",
+    "failure": "Any missing or altered history, changed anchor, invalid band, capacity/quota mismatch, fewer than2 eligible in any segment, duplicate, source drift or seal discrepancy stops. No quota transfer, replacement, alternate seed or extra samples."
+  },
+  "measurement": {
+    "fresh_repeats": 3,
+    "queries_per_repeat": 7,
+    "expected_engineering_checks": 21,
+    "execution": "Strictly sequential rounds 0,1,2 of the same seven identities in original ordinal order, with fresh immutable SQLite connections and checkpoints. Retain all rounds; no warmup exclusion or timing-driven rerun. Stop the observer and close the previous verifier before starting the next.",
+    "ranking": "Unchanged original V4 exact four-arm verifier and V6 append detail. Validate full neighbor pool SHA, exact rank and tie ordering, top500 frontier and member sizes, actual vote count and causal additions; each actual vote count must equal selected membership sizes and be at most the structural upper bound.",
+    "payload": "All three seven-row scientific ledgers must be byte-identical. The sole anchor must match the original V6 n5 identity reused in V18 and its entire scientific payload including expected, precise and delta_hex.",
+    "timing": "Use V17 row_cost identities: core=verification+append_without_commit_or_budget. Rank contains vote and is inside verification. Report setup, tail, all commits and direct budget separately without summing nested costs.",
+    "analysis": "Six intentionally selected tail queries are separated from the old below-tail anchor. Report all three selection segments separately and per-identity three-round min/median/max/range plus the same-identity fastest/slowest core pair decomposition. The maximum-neighbor and fixed-hash observations are deliberately selected; do not publish population-weighted runtime estimates for the tail, whole n5 cell or all55 cells.",
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "deadline_scope": "One original supervisor deadline includes source hashing, structural selection, seven-source extraction, all three seven-query rounds, resource collection and final source hashing.",
+    "stop": "Any source, method, selection, payload, ledger, timing, required telemetry, resource, original-deadline or normal-exit failure stops publication and sample credit; preserve partial evidence.",
+    "publication": "Post-exit independently reconstruct selection, raw timing decomposition, every repeat ledger, workload, telemetry time ordering and source digests. Check all three rounds, not only the first two."
+  },
+  "telemetry": {
+    "interval_seconds": 0.2,
+    "process_name_prefix": "ollama",
+    "scope": "One read-only background sampler per verifier entry, including setup, query/append and tail. Take initial and final samples, retain actual monotonic and UTC observation times and observer acquisition duration. Sampling and scheduling overhead remains part of the measured environment.",
+    "system_fields": "Total system CPU interval utilization, available/total RAM, cumulative disk read/write bytes and times when accessible. CPU is all-system load including benchmark and other processes, not background-only load.",
+    "process_fields": "Current worker cumulative CPU times and RSS; Ollama processes identified by case-insensitive executable name prefix only, with PID/create_time identity, CPU times and RSS. Never read prompts, command lines, credentials or infer token generation speed.",
+    "cpu_denominator": "System CPU percent is normalized over logical CPUs; process CPU delta may exceed 100 percent when expressed relative to one logical CPU and must be labeled separately. First system CPU observation has no prior interval and is excluded from CPU summaries.",
+    "missing": "Do not replace unavailable metrics or missed processes with zero. Retain errors/status. Require ordered bracketing snapshots and at least two valid CPU intervals plus finite memory observations per repeat; report actual gaps rather than fabricate regular timestamps. Optional inaccessible disk/process metrics limit conclusions explicitly.",
+    "alignment": "Analyze load at whole-repeat level only. A 200ms target interval and its scheduling gaps cannot identify per-query or per-SQL-statement causes; do not interpolate or assert that Ollama caused a slow query.",
+    "ollama_policy": "No Ollama inference, model load/unload, service stop, configuration edit or other background workload intervention; heavy experiment work stays sequential."
+  },
+  "conditional_after_all_verified": {
+    "covered_cells": 55,
+    "uncovered_cells": 0,
+    "unrepresented_population": 0,
+    "distinct_historically_verified_queries": 232,
+    "distinct_comparable_queries": 170,
+    "target_cell_distinct_queries": {
+      "1101/n5/v4": 11
+    },
+    "target_tail_distinct_queries": 6,
+    "new_distinct_queries": 6,
+    "reused_anchor_queries": 1,
+    "new_engineering_checks": 21
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
