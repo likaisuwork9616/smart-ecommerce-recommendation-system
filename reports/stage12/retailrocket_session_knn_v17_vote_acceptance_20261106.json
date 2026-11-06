@@ -1,0 +1,93 @@
+{
+  "status": "v17_vote_methods_synthetic_accepted",
+  "tests_run": 24,
+  "created_utc": "2026-11-06T02:44:16.761381+00:00",
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 21.09072059999926,
+  "suites": [
+    "tests.test_retailrocket_session_knn_vote_v17",
+    "tests.test_retailrocket_session_knn_vote_v7",
+    "tests.test_retailrocket_session_knn_vote_comparison_v7"
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "sqlite_version": "3.49.1",
+  "methods": [
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v7.py",
+      "bytes": 21777,
+      "sha256": "543cc2d6c8edda77e7e6f61d96b5b1f66f834bbd21e3fb5e63256bf0750ba9fd"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v7.py",
+      "bytes": 11919,
+      "sha256": "90dbdc026acf55a5953092e1c804939454e7eb17e0a259562a7799f9a5fa9949"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_vote_v7.py",
+      "bytes": 15759,
+      "sha256": "841aa72abf8d331facb4049aaa11b8d7e94142c1418ba10e13670ea182ae7b5f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v7.py",
+      "bytes": 21936,
+      "sha256": "99cd2eca90b19cda349700916247ca5178a7d58d820342d4c002233db924f025"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_vote_v7.py",
+      "bytes": 12223,
+      "sha256": "b049b79ce1bbbf94c7799a51b5bded9f1145c9120d508d896f2c8ecb349f97f2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_vote_comparison_v7.py",
+      "bytes": 3048,
+      "sha256": "f6629aa39c53ef0b3b4035f3762486ec1a55c9156318693f0dcf2700e9dc2b73"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v17.py",
+      "bytes": 34713,
+      "sha256": "9a192bbf773baef28505eb46d6a9a2c5eb1ff9f76e6178ebb0cc8c96a42d48a9"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_vote_v17.py",
+      "bytes": 25727,
+      "sha256": "6873ccfc0f7bb624aa599b26c313bb2a05bb93dc72ef4f66b730a05b28aba0e6"
+    }
+  ],
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_sql_specification_20261106.json",
+    "bytes": 9922,
+    "sha256": "4a950ab8db4ca93c2977ba1799fbe511ecbe7760a524c603709cff8af5d999db"
+  },
+  "rollup": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json",
+    "bytes": 1945334,
+    "sha256": "555eceb1d2cb1dc8158fedf20a0cf6fbf2ac24afb7ede50be6daf7766c37d126"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json",
+    "bytes": 173526,
+    "sha256": "28b382de0644665a071e85e93072381ba285c60c9f172f90639de7b66a968c26"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v17-vote-tests-a11ef3d0de324e018a762033134b2729/tests.log",
+    "bytes": 4874,
+    "sha256": "4ca64602719f1a933b5977ba1a7d0dd19e5753a88f28e9f0ea9a997382b5a593"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "new_keys_selected": 0,
+  "real_query_measurement_started": false,
+  "full_readback_started": false,
+  "reserved_test": "locked",
+  "T_plan": null
+}

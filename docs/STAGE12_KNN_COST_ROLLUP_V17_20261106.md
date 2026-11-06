@@ -177,3 +177,20 @@
 每組共用原 1,800 秒絕對期限與既有記憶體／磁碟限制。任一來源、規格、方法、輸出、計時、期限或退出檢查失敗即停止發布。初末與退出後核對來源、保存內容及原期限；比較 34 的入口還須從保存的 48 筆計時重建通過結論。
 
 機器背景負載可能變動，OS 檔案快取也會受來源驗證與前序執行影響。每次入口外另存非阻塞系統 CPU／記憶體觀測；CPU 值描述兩次觀測間的平均背景，第一筆受初始化時點影響。它不計入主要計時，也不能單憑快照歸因於某個程序或推算 Ollama 減速百分比。重實測循序執行，其他服務維持原設定。[封存候選與完整規格](../reports/stage12/retailrocket_session_knn_v17_cost_sql_specification_20261106.json)
+
+## 候選工具驗收與操作
+
+正式驗收 **24 項全數通過，21.091 秒**，包含 V17 新增 10 項及既有 V7 的 14 項。既有測試核對四臂輸出、因果邊界、499／500／501 位鄰居、大整數／Fraction、期限與中斷恢復。新測試重開 48／34 筆各 14 份合成 checkpoint，核對原 proof、暖機排除、不可覆寫發布、資源快照位置及來源／期限／計時錯誤的拒絕。
+
+另用同長度內容變更確認封存來源的 SHA 檢查，並將失敗結果的公開 runs 與 decision 一起改成看似通過，確認入口仍會從保存的原始計時與帳本拒絕偽造結果。
+
+實測前入口已繫結 **555 份來源**，包含原 546 份來源與新規格、彙整及方法驗收。工具階段新排名與候選實測均為 0。[候選驗收收據](../reports/stage12/retailrocket_session_knn_v17_vote_acceptance_20261106.json)
+
+從專案根目錄執行；驗收收據已存在時拒絕覆寫。原 48 筆未過門檻時，`--compare34` 會拒絕執行。各比較使用排他鎖，結果已發布後以 `--publish` 重新核對既有窗口，不開另一批替代結果。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_vote_v17 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_vote_v17 --compare48
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_vote_v17 --compare34
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_vote_v17 --publish <既有窗口目錄>
+```

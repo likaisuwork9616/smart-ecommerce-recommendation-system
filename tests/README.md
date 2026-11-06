@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V17 投票候選入口通過 24 項驗收（新增 10 項、既有 14 項），包含封存來源漂移、原始48筆保存證據對回、偽造通過摘要拒絕、14次合成checkpoint與期限／成本守恆。[驗收收據](../reports/stage12/retailrocket_session_knn_v17_vote_acceptance_20261106.json)
+
 Stage 12 V17 成本彙整通過 13 項合成驗收，涵蓋同列成本、分項內含、不同查詢與重測計數、人口加權、來源破壞與缺漏拒絕。[驗收收據](../reports/stage12/retailrocket_session_knn_v17_cost_acceptance_20261106.json)
 
 Stage 12 V16 通過 37 項合成與回歸驗收，含新增 21 項，涵蓋十一組歷史、4／4／2 完整容量、三格 SQL 投票與切點、成本拆帳及十筆／二十次保存驗證，並拒絕舊八筆紀錄。[驗收收據](../reports/stage12/retailrocket_session_knn_v16_gap_acceptance_20261106.json)

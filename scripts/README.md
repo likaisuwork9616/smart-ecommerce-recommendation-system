@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V17 投票記數候選 | [配對比較入口](run_retailrocket_session_knn_vote_v17.py) | rank_counts 與原 V4 六對 AB／BA；48 筆達門檻才比較既有 34 筆，沒有新選樣。[規格與結果](../docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) |
 | K1 V17 全細層成本彙整 | [唯讀彙整入口](run_retailrocket_session_knn_cost_rollup_v17.py) | 核對 11 組固定樣本，彙整 55 格的 156 個查詢、360 次成本觀測，分開同查詢波動與人口加權情境。[方法與結果](../docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) |
 | K1 V16 剩餘三格容量補測 | [有界入口](run_retailrocket_session_knn_gap_v16.py) | 十一組歷史排除，按容量固定 4／4／2 筆，各核對兩次。檢查全鄰居投票等式、前 500 位切點及十筆保存與原期限。[方法與結果](../docs/STAGE12_KNN_FINAL_GAPS_V16_20261106.md) |
 | K1 V15 500–999 與 100–499 鄰居帶 | [有界入口](run_retailrocket_session_knn_gap_v15.py) | 十組歷史排除、兩格各 4 筆，各核對兩次。檢查前 500 位切點、全鄰居投票等式與原期限。[方法與結果](../docs/STAGE12_KNN_N4_N3_VOTE_GAP_V15_20261106.md) |
