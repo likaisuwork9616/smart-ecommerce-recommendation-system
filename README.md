@@ -4,6 +4,10 @@ Smart E-Commerce Recommendation System
 
 以 Olist 電商資料練習資料建置、SQL、商業分析、延遲／評論預測與 RFM 顧客分析，再延伸至 Retailrocket 推薦系統、API 與前端。資料環境、SQL 與 EDA 初版已完成；延遲預測與評論低評分預測已整理成離線研究交付，正式適用仍待新資料；RFM 的 Olist v2／G2／G3 與 UCI v1 跨期描述已整理為離線研究交付，UCI v1 結果已封存；小組支援與營運限制保留。Retailrocket v1資料建置與P0一次真實train擬合、完整validation及獨立反讀已完成；共現 C1 已完成一次 train 擬合、完整 validation 與 P0 配對、2000次bootstrap及獨立反讀，C1／P0研究交付與證據保存亦完成；Stage 11 已完成一次真實 D1 train 擬合、完整三臂 validation／2,000 次主要 bootstrap 與獨立逐筆驗收，三臂研究交付、適用說明與證據保存亦完成；validation 已曝光、預留回溯測試仍 locked，API與前端尚未開始。
 
+## GitHub 提交身分整理（2026-11-06）
+
+已確認本專案屬於 `likaisuwork9616`，帳號 Email 為 `likaisu.work9616@gmail.com`。原 main 共 154 筆 commit，其中 119 筆作者／提交者誤用本機 Email，35 筆原本正確。已固定本專案未來 Git 身分並建立、驗證完整歷史備份；下一步在隔離副本統一身分，保留每筆原日期與內容，驗收後推送。歷史尚未改寫，綠格子尚未確認恢復。[盤點、備份與結果](docs/GIT_IDENTITY_REPAIR_20261106.md)
+
 ## 目前進度
 
 | 階段 | 狀態 | 現有成果 |
