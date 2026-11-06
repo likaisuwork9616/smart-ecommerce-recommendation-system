@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜高於 1,945 位鄰居的尾端補樣（最新）
+## Stage 12｜固定七筆的 SQL 與 append 波動診斷（最新）
+
+七筆與歷史證據核對一致；最大 append 差主要在預算檢查而非 payload 寫入。[盤點、規格與實測](STAGE12_KNN_DIAGNOSTICS_V20_20261106.md)
+
+## Stage 12｜高於 1,945 位鄰居的尾端補樣（前輪）
 
 6 筆新尾端與原對照循序三輪全通過，最高涵蓋 4,071 位鄰居；同查詢最大變幅主要在正重疊鄰居 SQL。[盤點、規格與實測](STAGE12_KNN_TAIL_V19_20261106.md)
 
