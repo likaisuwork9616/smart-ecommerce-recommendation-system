@@ -26,7 +26,19 @@ GitHub 已登入帳號為 `likaisuwork9616`，個人資料 Email 為 `likaisu.wo
 | --- | --- |
 | 帳號／Email 與歷史盤點 | 完成：119 筆需修正、35 筆原本正確 |
 | 本機未來身分與完整備份 | 完成，備份驗證通過 |
-| 歷史改寫與逐筆驗收 | 尚未執行 |
+| 歷史改寫與逐筆驗收 | 完成：含盤點共 155 筆，119 筆作者及提交者修正，120 個 SHA 改變 |
 | 遠端強制推送與 GitHub 歸屬核對 | 尚未執行 |
 
-GitHub 貢獻圖需使用連結至帳號的作者 Email，並位於預設分支；符合條件後可能需要最多 24 小時更新。本輪還未完成歷史改寫，不能聲稱綠格子已恢復。[GitHub 官方說明](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions)
+GitHub 貢獻圖需使用連結至帳號的作者 Email，並位於預設分支；符合條件後可能需要最多 24 小時更新。歷史已完成本機改寫，GitHub 歸屬與綠格子仍待發布後核對。[GitHub 官方說明](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions)
+
+## 歷史改寫驗收
+
+隔離副本實際執行 `git-filter-repo --mailmap ... --preserve-commit-hashes --preserve-commit-encoding --prune-empty never --prune-degenerate never --replace-refs delete-no-add`。原本 119 筆舊身分全部改為 `LiKaiSu9616 <likaisu.work9616@gmail.com>`；原 35 筆正確身分保持相同，新增盤點提交也使用正確身分。
+
+含盤點共 **155 筆**，逐筆讀取原／新 Git commit 原始物件，只替換核准身分及必要的父 SHA 後逐位元組比較，**155／155 通過**。因此每筆 tree、訊息、日期／時區及父子拓樸均一致。120 個 SHA 改變，35 個未變；整理前後 head tree 同為 `f3724c7597960c084cc44598bd4a143b1f30c490`。
+
+重寫前 main `c775402d465e9b273586461494f5bb596e2d01e2` 對應新 main `168606f9efaa6a976afb9abc99e7fc4be3c0872b`。本次結果文件提交會再接在新 main 後；遠端發布採固定舊 SHA 的 force-with-lease。
+
+[完整驗收與 155 筆新舊 SHA 對照](../reports/maintenance/git_identity_rewrite_20261106.json)。歷史文件中的舊 commit 連結保留原記錄，可用對照查新 SHA；不改寫已封存研究產物。
+
+另已建立、驗證 `shop-mysql-runtime/verification/git-identity-repair-20261106/pre-rewrite-main.bundle`（含盤點提交）。需要還原時，可先在另一資料夾用 `git clone <此 bundle 的絕對路徑> <新資料夾>` 檢查原歷史，再決定是否恢復遠端；不要直接用備份覆蓋後續新工作。
