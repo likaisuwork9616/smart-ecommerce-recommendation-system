@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 兩格八筆雙次補測完成 | 八筆各核對兩次全數通過，覆蓋 48／55 格，剩餘 7 格、88 筆。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 兩格母體盤點完成 | 兩格母體 25／23 筆，歷史排除皆為 0，共可選 48 筆；覆蓋 48／55 格。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜雙鄰居帶與投票量缺口補測（最新）
+## Stage 12｜全數入選與前五百位的補測（最新）
+
+重新核對完整 166,897 筆 validation 名冊與 192 個歷史已驗身分。`0110/n3/v5`（25 筆）與 `1001/n5/v4`（23 筆）共 48 筆全部可選，占剩餘缺樣母體的 54.5%。第一格全數鄰居入選，第二格選前 500 位，後續分別核對投票等式與上界。盤點階段新選樣與排名均為 0 筆。 [方法與結果](docs/STAGE12_KNN_N3_N5_VOTE_GAP_V14_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v14_gap_inventory_20261106.json)
+
+## Stage 12｜雙鄰居帶與投票量缺口補測（前輪）
 
 **同一批 8 筆兩次全數通過**，兩份帳本各 350,227 bytes，逐列內容與 SHA-256 相同。`1011/n5/v3` 的四筆完整鄰居池合計 4,514 位，投票 2,217 列；`0101/n4/v5` 為 2,102 位，投票 37,904 列。兩格都各選入 2,000 位鄰居，已核對切點同分順序與投票上界。覆蓋增至 **48／55 格**，剩餘 **7 格、88 筆**。結果屬已曝光 validation 的工程驗算。 [方法與結果](docs/STAGE12_KNN_N5_N4_VOTE_GAP_V13_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v13_gap_cost_20261106.json)
 
