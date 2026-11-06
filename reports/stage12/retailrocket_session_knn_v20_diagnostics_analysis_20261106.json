@@ -1,0 +1,1169 @@
+{
+  "status": "v20_same_case_diagnostics_analyzed",
+  "source_report": {
+    "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_cost_20261106.json",
+    "bytes": 1790784,
+    "sha256": "a761203d62d049651718f985608d6e56d1686c34140d96523861ee91ffb33cd7"
+  },
+  "evidence_inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_cost_20261106.json",
+      "bytes": 1790784,
+      "sha256": "a761203d62d049651718f985608d6e56d1686c34140d96523861ee91ffb33cd7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v20-diagnostics-2ebb998bf61c4bfe80f6e34bcf0d8125/round_1/diagnostics.json",
+      "bytes": 14326,
+      "sha256": "2dc8e0c01320eb1548dbd35d4cf61e0c16cb7faf98382c4410ec93a3f41fecef"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v20-diagnostics-2ebb998bf61c4bfe80f6e34bcf0d8125/round_2/diagnostics.json",
+      "bytes": 14308,
+      "sha256": "d8262861e8e35b2dc87d43a17d92bdc4cac7773327995e76d16e0164f1ea4a25"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v20-diagnostics-2ebb998bf61c4bfe80f6e34bcf0d8125/round_5/diagnostics.json",
+      "bytes": 14340,
+      "sha256": "6e632a1abf5d05f3caf8096ee19df07d2fdaf59e527891db854a6d19395c9de4"
+    }
+  ],
+  "largest_within_case_variation": {
+    "R": {
+      "core": {
+        "structural_case": "n1946_2499/segment_max",
+        "eligible_neighbors": 2499,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.050517499999841675,
+          "median": 0.05830049999894982,
+          "maximum": 0.11228959999971266,
+          "range": 0.06177209999987099,
+          "mean": 0.07370253333283472
+        },
+        "same_observation_pair": {
+          "selected_by": "core",
+          "fast_round_index": 3,
+          "slow_round_index": 0,
+          "fast_mode_repeat_index": 1,
+          "slow_mode_repeat_index": 0,
+          "fast_seconds": 0.050517499999841675,
+          "slow_seconds": 0.11228959999971266,
+          "delta_seconds": {
+            "verification": 0.06142599999839149,
+            "rank": 0.060391200000594836,
+            "vote_sql_and_accumulation": 0.006696200000078534,
+            "checkpoint_append": 0.00034610000147949904,
+            "append_without_commit": 0.00034610000147949904,
+            "direct_budget": 0,
+            "append_without_commit_or_budget": 0.00034610000147949904,
+            "core": 0.06177209999987099,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": 0.03093540000008943
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": 0.00390979999974661,
+            "history_and_temp_setup": 1.3999997463542968e-06,
+            "neighbor_pool_sha": 0.017920300000696443,
+            "prediction_output": 0.00028949999978067353,
+            "sql_positive_overlaps": 0.03093540000008943,
+            "sql_selected_votes_and_accumulation": 0.006696200000078534,
+            "top_ten_and_zero_fill": 0.00036949999957869295
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 6.340000072668772e-05,
+            "budget_publication": 0,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 9.999894245993346e-08,
+            "frame_encode": 0.0002765000026556663,
+            "guards_and_key": -1.2000002243439667e-05,
+            "observer_and_outer_other": 9.000013960758224e-07,
+            "payload_open": 1.3899998521083035e-05,
+            "payload_write": 3.0000010156072676e-06,
+            "pending_and_trigger": 3.0000046535860747e-07
+          },
+          "diagnostic_component_deltas": null
+        }
+      },
+      "positive_overlap_inclusive": {
+        "structural_case": "n2500_2999/hash",
+        "eligible_neighbors": 2770,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.04236219999984314,
+          "median": 0.04898790000152076,
+          "maximum": 0.07776999999987311,
+          "range": 0.035407800000029965,
+          "mean": 0.056373366667079004
+        },
+        "same_observation_pair": {
+          "selected_by": "positive_overlap_inclusive",
+          "fast_round_index": 4,
+          "slow_round_index": 3,
+          "fast_mode_repeat_index": 2,
+          "slow_mode_repeat_index": 1,
+          "fast_seconds": 0.04236219999984314,
+          "slow_seconds": 0.07776999999987311,
+          "delta_seconds": {
+            "verification": 0.057732299999770476,
+            "rank": 0.05518600000141305,
+            "vote_sql_and_accumulation": 0.008285299998533446,
+            "checkpoint_append": 0.0005182000004424481,
+            "append_without_commit": 0.0005182000004424481,
+            "direct_budget": 0,
+            "append_without_commit_or_budget": 0.0005182000004424481,
+            "core": 0.058250500000212924,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": 0.035407800000029965
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": 0.0021178000006329967,
+            "history_and_temp_setup": 0.0015041000006021932,
+            "neighbor_pool_sha": 0.006366199999320088,
+            "prediction_output": 0.00030499999957100954,
+            "sql_positive_overlaps": 0.035407800000029965,
+            "sql_selected_votes_and_accumulation": 0.008285299998533446,
+            "top_ten_and_zero_fill": 0.0008938000009948155
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 5.3899999329587445e-05,
+            "budget_publication": 0,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 1.0000258043874055e-07,
+            "frame_encode": 0.00035910000042349566,
+            "guards_and_key": -9.100000170292333e-06,
+            "observer_and_outer_other": 1.5899999198154546e-05,
+            "payload_open": 3.0000046535860747e-07,
+            "payload_write": 9.750000026542693e-05,
+            "pending_and_trigger": 4.999983502784744e-07
+          },
+          "diagnostic_component_deltas": null
+        }
+      },
+      "append_without_commit_or_budget": {
+        "structural_case": "n3000_4999/hash",
+        "eligible_neighbors": 3156,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.009249200000340352,
+          "median": 0.010695699998905184,
+          "maximum": 0.01541199999883247,
+          "range": 0.006162799998492119,
+          "mean": 0.011785633332692669
+        },
+        "same_observation_pair": {
+          "selected_by": "append_without_commit_or_budget",
+          "fast_round_index": 0,
+          "slow_round_index": 3,
+          "fast_mode_repeat_index": 0,
+          "slow_mode_repeat_index": 1,
+          "fast_seconds": 0.009249200000340352,
+          "slow_seconds": 0.01541199999883247,
+          "delta_seconds": {
+            "verification": -0.0015227999992930563,
+            "rank": -0.00016870000035851263,
+            "vote_sql_and_accumulation": 2.5600000299164094e-05,
+            "checkpoint_append": 0.004107199998543365,
+            "append_without_commit": 0.004107199998543365,
+            "direct_budget": -0.002055599999948754,
+            "append_without_commit_or_budget": 0.006162799998492119,
+            "core": 0.004639999999199063,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": 0.00020729999960167333
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": 0.0016084999988379423,
+            "history_and_temp_setup": -0.00023629999850527383,
+            "neighbor_pool_sha": -0.0018132000004698057,
+            "prediction_output": 3.0500001230393536e-05,
+            "sql_positive_overlaps": 0.00020729999960167333,
+            "sql_selected_votes_and_accumulation": 2.5600000299164094e-05,
+            "top_ten_and_zero_fill": -1.3000008038943633e-06
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 0.004590099999404629,
+            "budget_publication": -0.002055599999948754,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 5.999991117278114e-07,
+            "frame_encode": 0.000665100000333041,
+            "guards_and_key": 0.0002234999992651865,
+            "observer_and_outer_other": 5.099998816149309e-06,
+            "payload_open": 0.0005929000017204089,
+            "payload_write": 8.369999886781443e-05,
+            "pending_and_trigger": 1.8000009731622413e-06
+          },
+          "diagnostic_component_deltas": null
+        }
+      }
+    },
+    "D": {
+      "core": {
+        "structural_case": "n2500_2999/hash",
+        "eligible_neighbors": 2770,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.0796494000023813,
+          "median": 0.08158600000024308,
+          "maximum": 0.12399220000042988,
+          "range": 0.044342799998048577,
+          "mean": 0.09507586666768475
+        },
+        "same_observation_pair": {
+          "selected_by": "core",
+          "fast_round_index": 5,
+          "slow_round_index": 1,
+          "fast_mode_repeat_index": 2,
+          "slow_mode_repeat_index": 0,
+          "fast_seconds": 0.0796494000023813,
+          "slow_seconds": 0.12399220000042988,
+          "delta_seconds": {
+            "verification": 0.034450099998139194,
+            "rank": 0.03240370000094117,
+            "vote_sql_and_accumulation": 0.005087300000013784,
+            "checkpoint_append": 0.009892699999909382,
+            "append_without_commit": 0.009892699999909382,
+            "direct_budget": 0,
+            "append_without_commit_or_budget": 0.009892699999909382,
+            "core": 0.044342799998048577,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": 0.015446100002009189
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": 0.003626200001235702,
+            "history_and_temp_setup": 0.0009012999998958549,
+            "neighbor_pool_sha": 0.007698499997786712,
+            "prediction_output": -1.730000258248765e-05,
+            "sql_positive_overlaps": 0.015446100002009189,
+            "sql_selected_votes_and_accumulation": 0.005087300000013784,
+            "top_ten_and_zero_fill": -0.00033909999910974875
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 0.009790599999178085,
+            "budget_publication": 0,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 9.999894245993346e-08,
+            "frame_encode": 0.0001080999991245335,
+            "guards_and_key": -1.4299999747890979e-05,
+            "observer_and_outer_other": 4.200001058052294e-06,
+            "payload_open": 3.0000046535860747e-07,
+            "payload_write": 3.2999996619764715e-06,
+            "pending_and_trigger": 4.000012268079445e-07
+          },
+          "diagnostic_component_deltas": {
+            "sql_parts": {
+              "execute": {
+                "wall_seconds": 0.0057778,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0057778
+              },
+              "fetch_including_eof": {
+                "wall_seconds": 0.0016392000000000004,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.0172642
+              },
+              "python_watch_proxy_other": {
+                "wall_seconds": 0.008029100002009185,
+                "thread_cpu_seconds": 0.03125,
+                "wall_minus_thread_cpu_seconds": -0.023220899997990815
+              }
+            },
+            "rank_phases": {
+              "history_and_temp_setup": {
+                "wall_seconds": 0.0009012999998958549,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0009012999998958549
+              },
+              "sql_positive_overlaps": {
+                "wall_seconds": 0.015446100002009189,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.00017889999799081124
+              },
+              "neighbor_pool_sha": {
+                "wall_seconds": 0.007698499997786712,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.007926500002213288
+              },
+              "exact_neighbor_selection": {
+                "wall_seconds": 0.003626200001235702,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.019251200001235702
+              },
+              "sql_selected_votes_and_accumulation": {
+                "wall_seconds": 0.005087300000013784,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.005087300000013784
+              },
+              "top_ten_and_zero_fill": {
+                "wall_seconds": -0.00033909999910974875,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -0.00033909999910974875
+              },
+              "prediction_output": {
+                "wall_seconds": -1.730000258248765e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -1.730000258248765e-05
+              }
+            },
+            "append_phases": {
+              "budget_check": {
+                "wall_seconds": 0.009790599999178085,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.009790599999178085
+              },
+              "guards_and_key": {
+                "wall_seconds": -1.4299999747890979e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -1.4299999747890979e-05
+              },
+              "frame_encode": {
+                "wall_seconds": 0.0001080999991245335,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0001080999991245335
+              },
+              "payload_open": {
+                "wall_seconds": 3.0000046535860747e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.0000046535860747e-07
+              },
+              "payload_write": {
+                "wall_seconds": 3.2999996619764715e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.2999996619764715e-06
+              },
+              "pending_and_trigger": {
+                "wall_seconds": 4.000012268079445e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 4.000012268079445e-07
+              },
+              "nested_flush": {
+                "wall_seconds": 9.999894245993346e-08,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 9.999894245993346e-08
+              },
+              "unpartitioned": {
+                "wall_seconds": 5.000001692678779e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 5.000001692678779e-07
+              }
+            },
+            "append_budget_check_parts": {
+              "read_text_utf8": {
+                "wall_seconds": 1.699999999999998e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.699999999999998e-05
+              },
+              "json_parse": {
+                "wall_seconds": 1.6999999999999939e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.6999999999999939e-06
+              },
+              "budget_publication_with_observer": {
+                "wall_seconds": 0.0,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0
+              },
+              "deadline_accounting_proxy_other": {
+                "wall_seconds": 3.769999999999997e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.769999999999997e-05
+              },
+              "writer_context_and_observer_other": {
+                "wall_seconds": 0.009734199999178085,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.009734199999178085
+              }
+            },
+            "sql_positive_overlap_total": {
+              "wall_seconds": 0.015446100002009189,
+              "thread_cpu_seconds": 0.015625,
+              "wall_minus_thread_cpu_seconds": -0.00017889999799081124
+            },
+            "terminal_fetch_included": {
+              "wall_seconds": 3.3000000000000006e-06,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 3.3000000000000006e-06
+            },
+            "append_total": {
+              "wall_seconds": 0.009888999999020598,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 0.009888999999020598
+            },
+            "append_wrapper_total": {
+              "wall_seconds": 0.0098914,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 0.0098914
+            },
+            "append_wrapper_observer_other": {
+              "wall_seconds": 2.4000009794025983e-06,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 2.4000009794025983e-06
+            },
+            "all_append_budget_checks": {
+              "wall_seconds": 5.639999999999996e-05,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 5.639999999999996e-05
+            },
+            "append_original_outer_wall_seconds_delta": 0.009892699999909382,
+            "append_outer_unobserved_wall_seconds_delta": 1.2999999093818177e-06,
+            "original_direct_budget_seconds_delta": 0,
+            "append_outer_unobserved_thread_cpu_seconds_delta": null,
+            "direct_budget_publications_delta": 0,
+            "nested_commit_budget_publications_delta": 0
+          }
+        }
+      },
+      "positive_overlap_inclusive": {
+        "structural_case": "n2500_2999/hash",
+        "eligible_neighbors": 2770,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.043955899998763925,
+          "median": 0.044565800000782474,
+          "maximum": 0.059402000000773114,
+          "range": 0.015446100002009189,
+          "mean": 0.04930790000010651
+        },
+        "same_observation_pair": {
+          "selected_by": "positive_overlap_inclusive",
+          "fast_round_index": 5,
+          "slow_round_index": 1,
+          "fast_mode_repeat_index": 2,
+          "slow_mode_repeat_index": 0,
+          "fast_seconds": 0.043955899998763925,
+          "slow_seconds": 0.059402000000773114,
+          "delta_seconds": {
+            "verification": 0.034450099998139194,
+            "rank": 0.03240370000094117,
+            "vote_sql_and_accumulation": 0.005087300000013784,
+            "checkpoint_append": 0.009892699999909382,
+            "append_without_commit": 0.009892699999909382,
+            "direct_budget": 0,
+            "append_without_commit_or_budget": 0.009892699999909382,
+            "core": 0.044342799998048577,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": 0.015446100002009189
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": 0.003626200001235702,
+            "history_and_temp_setup": 0.0009012999998958549,
+            "neighbor_pool_sha": 0.007698499997786712,
+            "prediction_output": -1.730000258248765e-05,
+            "sql_positive_overlaps": 0.015446100002009189,
+            "sql_selected_votes_and_accumulation": 0.005087300000013784,
+            "top_ten_and_zero_fill": -0.00033909999910974875
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 0.009790599999178085,
+            "budget_publication": 0,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 9.999894245993346e-08,
+            "frame_encode": 0.0001080999991245335,
+            "guards_and_key": -1.4299999747890979e-05,
+            "observer_and_outer_other": 4.200001058052294e-06,
+            "payload_open": 3.0000046535860747e-07,
+            "payload_write": 3.2999996619764715e-06,
+            "pending_and_trigger": 4.000012268079445e-07
+          },
+          "diagnostic_component_deltas": {
+            "sql_parts": {
+              "execute": {
+                "wall_seconds": 0.0057778,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0057778
+              },
+              "fetch_including_eof": {
+                "wall_seconds": 0.0016392000000000004,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.0172642
+              },
+              "python_watch_proxy_other": {
+                "wall_seconds": 0.008029100002009185,
+                "thread_cpu_seconds": 0.03125,
+                "wall_minus_thread_cpu_seconds": -0.023220899997990815
+              }
+            },
+            "rank_phases": {
+              "history_and_temp_setup": {
+                "wall_seconds": 0.0009012999998958549,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0009012999998958549
+              },
+              "sql_positive_overlaps": {
+                "wall_seconds": 0.015446100002009189,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.00017889999799081124
+              },
+              "neighbor_pool_sha": {
+                "wall_seconds": 0.007698499997786712,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.007926500002213288
+              },
+              "exact_neighbor_selection": {
+                "wall_seconds": 0.003626200001235702,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.019251200001235702
+              },
+              "sql_selected_votes_and_accumulation": {
+                "wall_seconds": 0.005087300000013784,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.005087300000013784
+              },
+              "top_ten_and_zero_fill": {
+                "wall_seconds": -0.00033909999910974875,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -0.00033909999910974875
+              },
+              "prediction_output": {
+                "wall_seconds": -1.730000258248765e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -1.730000258248765e-05
+              }
+            },
+            "append_phases": {
+              "budget_check": {
+                "wall_seconds": 0.009790599999178085,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.009790599999178085
+              },
+              "guards_and_key": {
+                "wall_seconds": -1.4299999747890979e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -1.4299999747890979e-05
+              },
+              "frame_encode": {
+                "wall_seconds": 0.0001080999991245335,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0001080999991245335
+              },
+              "payload_open": {
+                "wall_seconds": 3.0000046535860747e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.0000046535860747e-07
+              },
+              "payload_write": {
+                "wall_seconds": 3.2999996619764715e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.2999996619764715e-06
+              },
+              "pending_and_trigger": {
+                "wall_seconds": 4.000012268079445e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 4.000012268079445e-07
+              },
+              "nested_flush": {
+                "wall_seconds": 9.999894245993346e-08,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 9.999894245993346e-08
+              },
+              "unpartitioned": {
+                "wall_seconds": 5.000001692678779e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 5.000001692678779e-07
+              }
+            },
+            "append_budget_check_parts": {
+              "read_text_utf8": {
+                "wall_seconds": 1.699999999999998e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.699999999999998e-05
+              },
+              "json_parse": {
+                "wall_seconds": 1.6999999999999939e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.6999999999999939e-06
+              },
+              "budget_publication_with_observer": {
+                "wall_seconds": 0.0,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0
+              },
+              "deadline_accounting_proxy_other": {
+                "wall_seconds": 3.769999999999997e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.769999999999997e-05
+              },
+              "writer_context_and_observer_other": {
+                "wall_seconds": 0.009734199999178085,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.009734199999178085
+              }
+            },
+            "sql_positive_overlap_total": {
+              "wall_seconds": 0.015446100002009189,
+              "thread_cpu_seconds": 0.015625,
+              "wall_minus_thread_cpu_seconds": -0.00017889999799081124
+            },
+            "terminal_fetch_included": {
+              "wall_seconds": 3.3000000000000006e-06,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 3.3000000000000006e-06
+            },
+            "append_total": {
+              "wall_seconds": 0.009888999999020598,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 0.009888999999020598
+            },
+            "append_wrapper_total": {
+              "wall_seconds": 0.0098914,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 0.0098914
+            },
+            "append_wrapper_observer_other": {
+              "wall_seconds": 2.4000009794025983e-06,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 2.4000009794025983e-06
+            },
+            "all_append_budget_checks": {
+              "wall_seconds": 5.639999999999996e-05,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 5.639999999999996e-05
+            },
+            "append_original_outer_wall_seconds_delta": 0.009892699999909382,
+            "append_outer_unobserved_wall_seconds_delta": 1.2999999093818177e-06,
+            "original_direct_budget_seconds_delta": 0,
+            "append_outer_unobserved_thread_cpu_seconds_delta": null,
+            "direct_budget_publications_delta": 0,
+            "nested_commit_budget_publications_delta": 0
+          }
+        }
+      },
+      "append_without_commit_or_budget": {
+        "structural_case": "n3000_4999/segment_max",
+        "eligible_neighbors": 4071,
+        "statistics_seconds": {
+          "count": 3,
+          "minimum": 0.007393399999273242,
+          "median": 0.015591600000334438,
+          "maximum": 0.024631899999803863,
+          "range": 0.01723850000053062,
+          "mean": 0.015872299999803847
+        },
+        "same_observation_pair": {
+          "selected_by": "append_without_commit_or_budget",
+          "fast_round_index": 5,
+          "slow_round_index": 1,
+          "fast_mode_repeat_index": 2,
+          "slow_mode_repeat_index": 0,
+          "fast_seconds": 0.007393399999273242,
+          "slow_seconds": 0.024631899999803863,
+          "delta_seconds": {
+            "verification": 0.0030073999987507705,
+            "rank": 0.0011330999986967072,
+            "vote_sql_and_accumulation": 0.003180799998517614,
+            "checkpoint_append": 0.01723850000053062,
+            "append_without_commit": 0.01723850000053062,
+            "direct_budget": 0,
+            "append_without_commit_or_budget": 0.01723850000053062,
+            "core": 0.02024589999928139,
+            "query_nested_commit": 0.0,
+            "positive_overlap_inclusive": -0.007409400001051836
+          },
+          "rank_stage_delta_seconds": {
+            "exact_neighbor_selection": -0.00036559999716700986,
+            "history_and_temp_setup": -1.4100000043981709e-05,
+            "neighbor_pool_sha": 0.004095399999641813,
+            "prediction_output": 0.0004186999994999496,
+            "sql_positive_overlaps": -0.007409400001051836,
+            "sql_selected_votes_and_accumulation": 0.003180799998517614,
+            "top_ten_and_zero_fill": 0.00023660000078962184
+          },
+          "append_exclusive_delta_seconds": {
+            "budget_check_other": 0.0012076000002707588,
+            "budget_publication": 0,
+            "chunk_commit": 0.0,
+            "flush_dispatch_other": 3.0000046535860747e-07,
+            "frame_encode": 0.00039769999966665637,
+            "guards_and_key": 0.015551299999060575,
+            "observer_and_outer_other": 1.9100001736660488e-05,
+            "payload_open": 2.2999993234407157e-06,
+            "payload_write": 4.3000000005122274e-05,
+            "pending_and_trigger": 1.720000000204891e-05
+          },
+          "diagnostic_component_deltas": {
+            "sql_parts": {
+              "execute": {
+                "wall_seconds": 0.00019500000000000073,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.00019500000000000073
+              },
+              "fetch_including_eof": {
+                "wall_seconds": -0.0082441,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.007380899999999999
+              },
+              "python_watch_proxy_other": {
+                "wall_seconds": 0.0006396999989481608,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.01498530000105184
+              }
+            },
+            "rank_phases": {
+              "history_and_temp_setup": {
+                "wall_seconds": -1.4100000043981709e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -1.4100000043981709e-05
+              },
+              "sql_positive_overlaps": {
+                "wall_seconds": -0.007409400001051836,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -0.007409400001051836
+              },
+              "neighbor_pool_sha": {
+                "wall_seconds": 0.004095399999641813,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.011529600000358187
+              },
+              "exact_neighbor_selection": {
+                "wall_seconds": -0.00036559999716700986,
+                "thread_cpu_seconds": -0.015625,
+                "wall_minus_thread_cpu_seconds": 0.01525940000283299
+              },
+              "sql_selected_votes_and_accumulation": {
+                "wall_seconds": 0.003180799998517614,
+                "thread_cpu_seconds": 0.015625,
+                "wall_minus_thread_cpu_seconds": -0.012444200001482386
+              },
+              "top_ten_and_zero_fill": {
+                "wall_seconds": 0.00023660000078962184,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.00023660000078962184
+              },
+              "prediction_output": {
+                "wall_seconds": 0.0004186999994999496,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0004186999994999496
+              }
+            },
+            "append_phases": {
+              "budget_check": {
+                "wall_seconds": 0.0012076000002707588,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0012076000002707588
+              },
+              "guards_and_key": {
+                "wall_seconds": 0.015551299999060575,
+                "thread_cpu_seconds": 0.03125,
+                "wall_minus_thread_cpu_seconds": -0.015698700000939425
+              },
+              "frame_encode": {
+                "wall_seconds": 0.00039769999966665637,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.00039769999966665637
+              },
+              "payload_open": {
+                "wall_seconds": 2.2999993234407157e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 2.2999993234407157e-06
+              },
+              "payload_write": {
+                "wall_seconds": 4.3000000005122274e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 4.3000000005122274e-05
+              },
+              "pending_and_trigger": {
+                "wall_seconds": 1.720000000204891e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.720000000204891e-05
+              },
+              "nested_flush": {
+                "wall_seconds": 3.0000046535860747e-07,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 3.0000046535860747e-07
+              },
+              "unpartitioned": {
+                "wall_seconds": 1.2000000424450263e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 1.2000000424450263e-06
+              }
+            },
+            "append_budget_check_parts": {
+              "read_text_utf8": {
+                "wall_seconds": 0.0010077999999999997,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0010077999999999997
+              },
+              "json_parse": {
+                "wall_seconds": -9.399999999999998e-06,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": -9.399999999999998e-06
+              },
+              "budget_publication_with_observer": {
+                "wall_seconds": 0.0,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.0
+              },
+              "deadline_accounting_proxy_other": {
+                "wall_seconds": 7.280000000000047e-05,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 7.280000000000047e-05
+              },
+              "writer_context_and_observer_other": {
+                "wall_seconds": 0.00013640000027075917,
+                "thread_cpu_seconds": 0.0,
+                "wall_minus_thread_cpu_seconds": 0.00013640000027075917
+              }
+            },
+            "sql_positive_overlap_total": {
+              "wall_seconds": -0.007409400001051836,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": -0.007409400001051836
+            },
+            "terminal_fetch_included": {
+              "wall_seconds": 1.3999999999999997e-06,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 1.3999999999999997e-06
+            },
+            "append_total": {
+              "wall_seconds": 0.017220599998836406,
+              "thread_cpu_seconds": 0.03125,
+              "wall_minus_thread_cpu_seconds": -0.014029400001163594
+            },
+            "append_wrapper_total": {
+              "wall_seconds": 0.0172346,
+              "thread_cpu_seconds": 0.03125,
+              "wall_minus_thread_cpu_seconds": -0.0140154
+            },
+            "append_wrapper_observer_other": {
+              "wall_seconds": 1.4000001163594518e-05,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 1.4000001163594518e-05
+            },
+            "all_append_budget_checks": {
+              "wall_seconds": 0.0010711999999999996,
+              "thread_cpu_seconds": 0.0,
+              "wall_minus_thread_cpu_seconds": 0.0010711999999999996
+            },
+            "append_original_outer_wall_seconds_delta": 0.01723850000053062,
+            "append_outer_unobserved_wall_seconds_delta": 3.900000530620944e-06,
+            "original_direct_budget_seconds_delta": 0,
+            "append_outer_unobserved_thread_cpu_seconds_delta": null,
+            "direct_budget_publications_delta": 0,
+            "nested_commit_budget_publications_delta": 0
+          }
+        }
+      }
+    }
+  },
+  "adjacent_reference_diagnostic_controls": [
+    {
+      "pair_index": 0,
+      "order": "RD",
+      "reference_round": 0,
+      "diagnostic_round": 1,
+      "mean_per_query_seconds": {
+        "core": {
+          "R_sum_seconds": 0.09373149999997363,
+          "D_sum_seconds": 0.09136541428623397,
+          "D_minus_R_sum_seconds": -0.0023660857137396568
+        },
+        "positive_overlap_inclusive": {
+          "R_sum_seconds": 0.03726038571455449,
+          "D_sum_seconds": 0.03971778571420665,
+          "D_minus_R_sum_seconds": 0.002457399999652158
+        },
+        "append_without_commit_or_budget": {
+          "R_sum_seconds": 0.003826128571485502,
+          "D_sum_seconds": 0.0075037857147565645,
+          "D_minus_R_sum_seconds": 0.0036776571432710625
+        }
+      }
+    },
+    {
+      "pair_index": 1,
+      "order": "DR",
+      "reference_round": 3,
+      "diagnostic_round": 2,
+      "mean_per_query_seconds": {
+        "core": {
+          "R_sum_seconds": 0.07887477142867283,
+          "D_sum_seconds": 0.07512151428636571,
+          "D_minus_R_sum_seconds": -0.0037532571423071204
+        },
+        "positive_overlap_inclusive": {
+          "R_sum_seconds": 0.03296577142828028,
+          "D_sum_seconds": 0.0348051285717312,
+          "D_minus_R_sum_seconds": 0.0018393571434509276
+        },
+        "append_without_commit_or_budget": {
+          "R_sum_seconds": 0.004233085714336734,
+          "D_sum_seconds": 0.004877957143565125,
+          "D_minus_R_sum_seconds": 0.0006448714292283901
+        }
+      }
+    },
+    {
+      "pair_index": 2,
+      "order": "RD",
+      "reference_round": 4,
+      "diagnostic_round": 5,
+      "mean_per_query_seconds": {
+        "core": {
+          "R_sum_seconds": 0.07053978571379307,
+          "D_sum_seconds": 0.06897328571488158,
+          "D_minus_R_sum_seconds": -0.0015664999989115
+        },
+        "positive_overlap_inclusive": {
+          "R_sum_seconds": 0.030485857142723814,
+          "D_sum_seconds": 0.035476142856818375,
+          "D_minus_R_sum_seconds": 0.00499028571409456
+        },
+        "append_without_commit_or_budget": {
+          "R_sum_seconds": 0.003654785713868997,
+          "D_sum_seconds": 0.0027231571431392304,
+          "D_minus_R_sum_seconds": -0.0009316285707297668
+        }
+      }
+    }
+  ],
+  "observed_thread_cpu_quantization": {
+    "overlap_phase": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 0,
+      "negative_wall_minus_thread_cpu": 11,
+      "distinct_positive_thread_cpu_ns": [
+        15625000,
+        31250000,
+        46875000,
+        62500000
+      ],
+      "gcd_of_observed_positive_thread_cpu_ns": 15625000,
+      "mean_wall_seconds": 0.03666635238091874,
+      "mean_thread_cpu_seconds": 0.03571428571428571
+    },
+    "overlap_execute": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 1,
+      "negative_wall_minus_thread_cpu": 8,
+      "distinct_positive_thread_cpu_ns": [
+        15625000,
+        31250000
+      ],
+      "gcd_of_observed_positive_thread_cpu_ns": 15625000,
+      "mean_wall_seconds": 0.01700994761904762,
+      "mean_thread_cpu_seconds": 0.015625
+    },
+    "overlap_fetch": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 12,
+      "negative_wall_minus_thread_cpu": 8,
+      "distinct_positive_thread_cpu_ns": [
+        15625000
+      ],
+      "gcd_of_observed_positive_thread_cpu_ns": 15625000,
+      "mean_wall_seconds": 0.008223604761904762,
+      "mean_thread_cpu_seconds": 0.006696428571428571
+    },
+    "budget_read_text": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 21,
+      "negative_wall_minus_thread_cpu": 0,
+      "distinct_positive_thread_cpu_ns": [],
+      "gcd_of_observed_positive_thread_cpu_ns": null,
+      "mean_wall_seconds": 0.0020130809523809523,
+      "mean_thread_cpu_seconds": 0.0
+    },
+    "budget_json_parse": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 21,
+      "negative_wall_minus_thread_cpu": 0,
+      "distinct_positive_thread_cpu_ns": [],
+      "gcd_of_observed_positive_thread_cpu_ns": null,
+      "mean_wall_seconds": 5.237619047619048e-05,
+      "mean_thread_cpu_seconds": 0.0
+    },
+    "append_budget_phase": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 20,
+      "negative_wall_minus_thread_cpu": 0,
+      "distinct_positive_thread_cpu_ns": [
+        15625000
+      ],
+      "gcd_of_observed_positive_thread_cpu_ns": 15625000,
+      "mean_wall_seconds": 0.005080233333241527,
+      "mean_thread_cpu_seconds": 0.000744047619047619
+    },
+    "append_guards_phase": {
+      "observations": 21,
+      "zero_recorded_thread_cpu": 20,
+      "negative_wall_minus_thread_cpu": 1,
+      "distinct_positive_thread_cpu_ns": [
+        31250000
+      ],
+      "gcd_of_observed_positive_thread_cpu_ns": 31250000,
+      "mean_wall_seconds": 0.000964695238335047,
+      "mean_thread_cpu_seconds": 0.001488095238095238
+    }
+  },
+  "load_context": [
+    {
+      "round_index": 0,
+      "mode": "R",
+      "samples": 22,
+      "verifier_seconds": 4.759029799999553,
+      "bracket_seconds": 5.474361200000203,
+      "collector_seconds": 0.9993779999949766,
+      "system_cpu_percent": {
+        "min": 9.7,
+        "mean": 20.849411514903412,
+        "max": 57.4
+      },
+      "minimum_available_memory_bytes": 16033890304,
+      "maximum_sample_gap_seconds": 0.9318136000001687,
+      "estimated_skipped_nominal_slots": 4,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.2854214296272489,
+        "max": 6.450720622890854
+      }
+    },
+    {
+      "round_index": 1,
+      "mode": "D",
+      "samples": 22,
+      "verifier_seconds": 4.8403417999998055,
+      "bracket_seconds": 4.852757599999677,
+      "collector_seconds": 0.2796301000016683,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 18.55774153442077,
+        "max": 48.2
+      },
+      "minimum_available_memory_bytes": 16199610368,
+      "maximum_sample_gap_seconds": 0.2506780000003346,
+      "estimated_skipped_nominal_slots": 0,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "round_index": 2,
+      "mode": "D",
+      "samples": 21,
+      "verifier_seconds": 4.474336100000073,
+      "bracket_seconds": 4.484315300000162,
+      "collector_seconds": 0.22160130000156641,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 16.911142815940394,
+        "max": 42.9
+      },
+      "minimum_available_memory_bytes": 16340697088,
+      "maximum_sample_gap_seconds": 0.24381159999938973,
+      "estimated_skipped_nominal_slots": 0,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "round_index": 3,
+      "mode": "R",
+      "samples": 23,
+      "verifier_seconds": 5.0484660000001895,
+      "bracket_seconds": 5.064191600000413,
+      "collector_seconds": 0.32052470000598987,
+      "system_cpu_percent": {
+        "min": 12.3,
+        "mean": 28.207309071790036,
+        "max": 58.9
+      },
+      "minimum_available_memory_bytes": 16307159040,
+      "maximum_sample_gap_seconds": 0.332092399999965,
+      "estimated_skipped_nominal_slots": 1,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "round_index": 4,
+      "mode": "R",
+      "samples": 18,
+      "verifier_seconds": 3.832544799999596,
+      "bracket_seconds": 3.8443235000013374,
+      "collector_seconds": 0.17535709999901883,
+      "system_cpu_percent": {
+        "min": 8.0,
+        "mean": 12.71457601577927,
+        "max": 14.1
+      },
+      "minimum_available_memory_bytes": 16446861312,
+      "maximum_sample_gap_seconds": 0.24689320000106818,
+      "estimated_skipped_nominal_slots": 0,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "round_index": 5,
+      "mode": "D",
+      "samples": 20,
+      "verifier_seconds": 4.266353600000002,
+      "bracket_seconds": 4.275927700000466,
+      "collector_seconds": 0.23268430000280205,
+      "system_cpu_percent": {
+        "min": 9.7,
+        "mean": 16.364726669727325,
+        "max": 31.0
+      },
+      "minimum_available_memory_bytes": 16479002624,
+      "maximum_sample_gap_seconds": 0.29115490000003774,
+      "estimated_skipped_nominal_slots": 0,
+      "ollama_named_process_count": 2,
+      "ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      }
+    }
+  ],
+  "coverage_before_and_after_reuse": {
+    "covered_cells": 55,
+    "uncovered_cells": 0,
+    "unrepresented_population": 0,
+    "distinct_historically_verified_queries": 232,
+    "distinct_comparable_queries": 170,
+    "target_cell_distinct_queries": {
+      "1101/n5/v4": 11
+    },
+    "target_tail_distinct_queries": 6
+  },
+  "scope": {
+    "new_keys": 0,
+    "reused_v19_keys": 7,
+    "fresh_rounds": 6,
+    "new_engineering_verifications": 42,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_bootstrap": 0,
+    "SQL_candidate_runs": 0,
+    "new_selection_performed": false,
+    "new_extraction_performed": false,
+    "full_validation_complete": false,
+    "full_readback_started": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null,
+  "interpretation": [
+    "Each selected fast/slow pair is one fixed query in one mode. Components in a pair come from the same two observations.",
+    "Observed CPU increments often occur in 15.625ms units despite the advertised clock resolution. Zero CPU increments do not prove no CPU work; signed wall-minus-CPU is not measured waiting time.",
+    "The largest diagnostic append range falls mainly in guards_and_key. The largest diagnostic core/overlap range is a different query whose budget-phase delta falls mostly outside check_budget itself.",
+    "Writer/context and guard residuals include file existence checks, validation, Python dispatch, observation and scheduling. They do not isolate a single system call or prove a storage/scheduler cause.",
+    "Adjacent D-minus-R differences combine observer work, machine-state and order effects. No deterministic observer correction, optimization speedup or causal attribution follows.",
+    "System telemetry describes whole verifier entries only; other-name Ollama runners, GPU and token throughput were not measured."
+  ]
+}
