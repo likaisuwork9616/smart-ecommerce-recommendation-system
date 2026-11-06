@@ -1,0 +1,53 @@
+{
+  "status": "v17_cost_rollup_synthetic_accepted",
+  "created_utc": "2026-11-06T02:30:06.203873+00:00",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.07900900000004185,
+  "suites": [
+    "tests.test_retailrocket_session_knn_cost_rollup_v17"
+  ],
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json",
+    "bytes": 173526,
+    "sha256": "28b382de0644665a071e85e93072381ba285c60c9f172f90639de7b66a968c26"
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_cost_rollup_v17.py",
+      "bytes": 24958,
+      "sha256": "333b9dc0b82a3beef74b8a10082dc69ccf2895bec947a7fa0a02f7d64c92cdee"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_cost_rollup_v17.py",
+      "bytes": 5368,
+      "sha256": "a54701be92a81f7cd26398fd5948d4c562e7df8ae3f7a4d670cbfe71242dda83"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_cost_rollup_v17.py",
+      "bytes": 18394,
+      "sha256": "b03b0235ff74b44cdd4e149a9ebeb95f840d861f3230ffbb1de82365214c6f8b"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v17-cost-tests-cba955d98bcd45e1aebd91b941134b45/tests.log",
+    "bytes": 2885,
+    "sha256": "d90c21837b5ab34021e512a7cb52e6dadac441cba4990e05adc818af41a5a8fa"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "new_selections": 0,
+  "new_rankings": 0,
+  "T_plan": null
+}

@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 55 格成本來源盤點完成 | 156 個不同查詢、360 次觀測、23 次執行；55 格皆有同口徑成本。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 55 格成本與波動彙整完成 | 13 項驗收通過；55 格、156 個查詢、360 次觀測，零父層借值。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜55 格成本彙整與 SQL 候選評估（最新）
 
-已核對 V6–V16 的 **156 個不同查詢、360 次成本觀測**，涵蓋全部 **55 格**。另 62 個較早 V3 身分不混入成本統計。293 份必要來源與 23 份帳本通過核對，本步新增排名與實測為 0。接續分開彙整驗證、投票、append 與同查詢重複量測波動。 [方法與結果](docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json)
+完整彙整 **55 格、156 個查詢、360 次觀測**，13 項合成驗收通過。核心成本的「同查詢重測中位數＋格內平均」人口加權情境為 **3,365.697 秒（0.935 小時）**；這是未含其他階段的敏感度情境，尚非全量工時。4 格只有一個不同查詢，29 格至多兩個，仍須保留樣本不足與時間波動。下一步依投票路徑證據封存單一候選及公平比較條件。 [方法與結果](docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json)
 
 ## Stage 12｜剩餘三格的容量補測（前輪）
 
