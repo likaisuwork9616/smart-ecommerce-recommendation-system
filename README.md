@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 投票候選配對評估完成 | 48 筆六對 5 勝，中位改善 +2.68%，未達採用門檻。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 兩格補強盤點完成 | 兩格可選 5,608／4,218 筆，既有可比較樣本各一筆。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -27,7 +27,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜55 格成本彙整與 SQL 候選評估（最新）
+## Stage 12｜兩個高成本細層的補樣與負載觀測（最新）
+
+兩格母體 **5,615／4,221 筆**，排除全部歷史身分後可選 **5,608／4,218 筆**。既有可比較樣本各只有一筆。本階段尚未選樣或執行排名，覆蓋維持 55／55；接著封存補樣及同步負載觀測規格。 [方法與結果](docs/STAGE12_KNN_REINFORCEMENT_V18_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v18_reinforcement_inventory_20261106.json)
+
+## Stage 12｜55 格成本彙整與 SQL 候選評估（前輪）
 
 55 格成本與波動已彙整完成。rank_counts 在原固定 **48 筆**的六對比較有 **5 對較快**，主要時間成對改善中位數 **+2.68%**；本組 48 筆未通過全部事前門檻，結束 rank_counts 候選。依規格沒有執行後續 34 筆比較，也沒有追加對次、換樣本或改挑另一候選。 這是已曝光 validation 的工程比較，完整 validation 驗收仍待完成，保留測試鎖定。 [方法與結果](docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json)
 

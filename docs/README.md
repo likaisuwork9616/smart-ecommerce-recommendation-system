@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜55 格成本彙整與 SQL 候選評估（最新）
+## Stage 12｜兩個高成本細層的補樣與負載觀測（最新）
+
+兩格可選 5,608／4,218 筆，既有可比較樣本各一筆。[盤點、規格與實測](STAGE12_KNN_REINFORCEMENT_V18_20261106.md)
+
+## Stage 12｜55 格成本彙整與 SQL 候選評估（前輪）
 
 48 筆六對 5 勝，中位改善 +2.68%，未達採用門檻。[盤點、規格與實測](STAGE12_KNN_COST_ROLLUP_V17_20261106.md)
 
