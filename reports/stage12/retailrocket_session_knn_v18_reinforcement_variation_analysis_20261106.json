@@ -1,0 +1,297 @@
+{
+  "status": "v18_reinforcement_variation_analyzed",
+  "source_report": {
+    "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_cost_20261106.json",
+    "bytes": 363452,
+    "sha256": "f31441399d5ed5bcc749c98c46bb76257fa6180f1212ac7cc799e5365b2bdab2"
+  },
+  "evidence_inputs": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/frozen_probes.json",
+      "bytes": 5444,
+      "sha256": "12a1fdc0ae275315eb1e120d1badbb2b3b238de4a70c9287c0f40290555460bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_0/measurements.json",
+      "bytes": 12742,
+      "sha256": "8c166c0317fb8048582cd68777d0ef80bbef0e5ebdcba4a147fa3535d5834c6e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_0/observations.json",
+      "bytes": 13975,
+      "sha256": "aec7e7ab7731862d2f4ca631086f23eb5e6b00fb5c24997d79ef320412b10ddc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_0/verifier_span.json",
+      "bytes": 206,
+      "sha256": "29276675d4ed86cb937efb4128287bbf9abbecb7396473b76ca54e205bb8219a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_0/telemetry_summary.json",
+      "bytes": 2163,
+      "sha256": "7b8ef5478a12e1e8dd261038213e98efa741eddfff2715e178ac84944cb2995a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_1/measurements.json",
+      "bytes": 12731,
+      "sha256": "05d33ee2d245a905b539a56c9766b6f41c8563cecfb6ef88a7fafddf453ef3bd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_1/observations.json",
+      "bytes": 13929,
+      "sha256": "e38a8d9f241aeda6e657e84f2f835a7ef1094d82754b1d36e0aa26016be840c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_1/verifier_span.json",
+      "bytes": 206,
+      "sha256": "fad48db6b52ffab452989d409da36dd7140c27faf2c474b48ac0c4526a6306b5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_1/telemetry_summary.json",
+      "bytes": 2157,
+      "sha256": "15e433065e4d62e206fd086e9fd5963b304549e84f79ba5005464783266015bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_2/measurements.json",
+      "bytes": 12736,
+      "sha256": "a5cb512e5db5f1a64200c55808858f81753011ee1596c3a2ecf38935126748a9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_2/observations.json",
+      "bytes": 13933,
+      "sha256": "ed544be513f3f85efbf23a95263a46fb6dc60f52f851fcc3b6dca88e43d9625f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_2/verifier_span.json",
+      "bytes": 206,
+      "sha256": "76880135076371f2d4966980826f2acc4f2b59203890b73626ad14dade69a590"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-9d69bed8d0534fdba09cba4b0cbb20d6/repeat_2/telemetry_summary.json",
+      "bytes": 2156,
+      "sha256": "7fb16222d22b5cfe241a8d394134bf723312eaa60b4101a815082f147e6c1d08"
+    }
+  ],
+  "cells": {
+    "1101/n4/v4": {
+      "new_queries": 4,
+      "anchor_queries": 1,
+      "observations": 15,
+      "same_query_max_range_pair": {
+        "sample_role": "new",
+        "fast_repeat": 2,
+        "slow_repeat": 0,
+        "fast_core_seconds": 0.028657599999860395,
+        "slow_core_seconds": 0.046436000000539934,
+        "delta_seconds": {
+          "verification": 0.017873500000860076,
+          "rank": 0.01749989999916579,
+          "vote_sql_and_accumulation": 0.00037169999995967373,
+          "checkpoint_append": -9.510000018053688e-05,
+          "append_without_commit": -9.510000018053688e-05,
+          "direct_budget": 0,
+          "append_without_commit_or_budget": -9.510000018053688e-05,
+          "core": 0.01777840000067954,
+          "query_nested_commit": 0.0
+        }
+      },
+      "same_pair_rank_stages_delta_seconds": {
+        "exact_neighbor_selection": 0.0007769999992888188,
+        "history_and_temp_setup": 3.04000004689442e-05,
+        "neighbor_pool_sha": 0.0020987000007153256,
+        "prediction_output": 0.013239600000815699,
+        "sql_positive_overlaps": 0.000948900000366848,
+        "sql_selected_votes_and_accumulation": 0.00037169999995967373,
+        "top_ten_and_zero_fill": -1.4100000043981709e-05
+      },
+      "same_pair_rank_outer_delta_seconds": 4.769999759446364e-05,
+      "new_core_mean_of_query_medians_seconds": 0.026919150000594527,
+      "anchor_core_query_median_seconds": 0.02417269999932614,
+      "all_five_core_mean_of_query_medians_seconds": 0.02636986000034085,
+      "between_identity_core_medians": {
+        "count": 5,
+        "sum": 0.13184930000170425,
+        "mean": 0.02636986000034085,
+        "minimum": 0.02114630000141915,
+        "median": 0.02417269999932614,
+        "maximum": 0.03269750000072236,
+        "range": 0.011551199999303208
+      },
+      "interpretation": "Same scientific work in all three rounds. Paired timer deltas identify where elapsed-time variation was observed; they do not establish OS, cache, storage, observer or external-process causation. Vote and rank are nested inside verification."
+    },
+    "1101/n5/v4": {
+      "new_queries": 4,
+      "anchor_queries": 1,
+      "observations": 15,
+      "same_query_max_range_pair": {
+        "sample_role": "new",
+        "fast_repeat": 0,
+        "slow_repeat": 1,
+        "fast_core_seconds": 0.03283550000014657,
+        "slow_core_seconds": 0.054572699998971075,
+        "delta_seconds": {
+          "verification": 0.021661099999619182,
+          "rank": 0.021193000002313056,
+          "vote_sql_and_accumulation": 0.002188899999964633,
+          "checkpoint_append": 7.609999920532573e-05,
+          "append_without_commit": 7.609999920532573e-05,
+          "direct_budget": 0,
+          "append_without_commit_or_budget": 7.609999920532573e-05,
+          "core": 0.021737199998824508,
+          "query_nested_commit": 0.0
+        }
+      },
+      "same_pair_rank_stages_delta_seconds": {
+        "exact_neighbor_selection": 0.0013710999992326833,
+        "history_and_temp_setup": 4.399998942972161e-06,
+        "neighbor_pool_sha": 0.013928399999713292,
+        "prediction_output": 0.00011039999844797421,
+        "sql_positive_overlaps": 0.003486800002065138,
+        "sql_selected_votes_and_accumulation": 0.002188899999964633,
+        "top_ten_and_zero_fill": 2.0000006770715117e-06
+      },
+      "same_pair_rank_outer_delta_seconds": 0.00010100000326929148,
+      "new_core_mean_of_query_medians_seconds": 0.038971925000168994,
+      "anchor_core_query_median_seconds": 0.04425919999812322,
+      "all_five_core_mean_of_query_medians_seconds": 0.04002937999975984,
+      "between_identity_core_medians": {
+        "count": 5,
+        "sum": 0.2001468999987992,
+        "mean": 0.04002937999975984,
+        "minimum": 0.02304849999745784,
+        "median": 0.04425919999812322,
+        "maximum": 0.048627699999997276,
+        "range": 0.025579200002539437
+      },
+      "interpretation": "Same scientific work in all three rounds. Paired timer deltas identify where elapsed-time variation was observed; they do not establish OS, cache, storage, observer or external-process causation. Vote and rank are nested inside verification."
+    }
+  },
+  "repeat_load_context": [
+    {
+      "repeat_index": 0,
+      "verifier_seconds": 5.104413500001101,
+      "bracket_seconds": 5.839810600000419,
+      "samples": 24,
+      "system_cpu_percent": {
+        "min": 8.3,
+        "mean": 15.569064940225102,
+        "max": 26.7
+      },
+      "available_memory_bytes": {
+        "min": 15192694784,
+        "mean": 15245661866.666666,
+        "max": 15274315776
+      },
+      "collector_total_seconds": 0.9671225999954913,
+      "maximum_sample_gap_seconds": 0.9653338999996777,
+      "estimated_skipped_nominal_200ms_slots": 4,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 245760,
+        "read_count": 26,
+        "read_time": 0,
+        "write_bytes": 6086144,
+        "write_count": 57,
+        "write_time": 0
+      }
+    },
+    {
+      "repeat_index": 1,
+      "verifier_seconds": 5.343697499998598,
+      "bracket_seconds": 5.354635199999393,
+      "samples": 25,
+      "system_cpu_percent": {
+        "min": 6.2,
+        "mean": 18.782104861223626,
+        "max": 36.4
+      },
+      "available_memory_bytes": {
+        "min": 15196581888,
+        "mean": 15229145415.68,
+        "max": 15243624448
+      },
+      "collector_total_seconds": 0.3312677999947482,
+      "maximum_sample_gap_seconds": 0.27336469999863766,
+      "estimated_skipped_nominal_200ms_slots": 0,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 114688,
+        "read_count": 5,
+        "read_time": 0,
+        "write_bytes": 1096192,
+        "write_count": 56,
+        "write_time": 0
+      }
+    },
+    {
+      "repeat_index": 2,
+      "verifier_seconds": 5.129122500000449,
+      "bracket_seconds": 5.142685099999653,
+      "samples": 24,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 16.911093844728804,
+        "max": 31.1
+      },
+      "available_memory_bytes": {
+        "min": 15186714624,
+        "mean": 15232369152,
+        "max": 15255859200
+      },
+      "collector_total_seconds": 0.2940584999978455,
+      "maximum_sample_gap_seconds": 0.2623351000002003,
+      "estimated_skipped_nominal_200ms_slots": 0,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 4096,
+        "read_count": 1,
+        "read_time": 0,
+        "write_bytes": 952832,
+        "write_count": 53,
+        "write_time": 0
+      }
+    }
+  ],
+  "limits": [
+    "Two reinforced cells only; no reaggregation of the complete 55-cell weighted cost scenario.",
+    "New identities and old anchors are separated; different machine windows are not optimization pairs.",
+    "Resource statistics span actual bracketing observations, including initial acquisition; collector costs are not additional disjoint costs to sum with the verifier.",
+    "The first-round long interval is retained as one valid CPU interval. Estimated skipped nominal sampling slots do not mean recorded intervals were deleted.",
+    "Only executable names beginning with ollama were observed; unmatched runner names, GPU utilization and inference token throughput were not measured.",
+    "Three repeat contexts cannot establish per-query load causation; no causal attribution or speedup percentage is claimed."
+  ],
+  "scope": {
+    "new_keys": 8,
+    "reused_anchor_keys": 2,
+    "queries_per_repeat": 10,
+    "fresh_repeats": 3,
+    "new_engineering_verifications": 30,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_bootstrap": 0,
+    "SQL_candidate_runs": 0,
+    "full_readback_started": false,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null
+}
