@@ -27,9 +27,9 @@ GitHub 已登入帳號為 `likaisuwork9616`，個人資料 Email 為 `likaisu.wo
 | 帳號／Email 與歷史盤點 | 完成：119 筆需修正、35 筆原本正確 |
 | 本機未來身分與完整備份 | 完成，備份驗證通過 |
 | 歷史改寫與逐筆驗收 | 完成：含盤點共 155 筆，119 筆作者及提交者修正，120 個 SHA 改變 |
-| 遠端強制推送與 GitHub 歸屬核對 | 尚未執行 |
+| 遠端強制推送與 GitHub 歸屬核對 | 完成：遠端 main 156 筆作者與提交者全部歸屬本人帳號 |
 
-GitHub 貢獻圖需使用連結至帳號的作者 Email，並位於預設分支；符合條件後可能需要最多 24 小時更新。歷史已完成本機改寫，GitHub 歸屬與綠格子仍待發布後核對。[GitHub 官方說明](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions)
+GitHub 貢獻圖需使用連結至帳號的作者 Email，並位於預設分支；符合條件後可能需要最多 24 小時更新。歷史改寫與 GitHub 帳號歸屬已確認；貢獻圖畫面是否刷新尚未確認。[GitHub 官方說明](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions)
 
 ## 歷史改寫驗收
 
@@ -42,3 +42,11 @@ GitHub 貢獻圖需使用連結至帳號的作者 Email，並位於預設分支�
 [完整驗收與 155 筆新舊 SHA 對照](../reports/maintenance/git_identity_rewrite_20261106.json)。歷史文件中的舊 commit 連結保留原記錄，可用對照查新 SHA；不改寫已封存研究產物。
 
 另已建立、驗證 `shop-mysql-runtime/verification/git-identity-repair-20261106/pre-rewrite-main.bundle`（含盤點提交）。需要還原時，可先在另一資料夾用 `git clone <此 bundle 的絕對路徑> <新資料夾>` 檢查原歷史，再決定是否恢復遠端；不要直接用備份覆蓋後續新工作。
+
+## GitHub 發布後核對
+
+已以指定舊 SHA 的 `--force-with-lease` 成功更新遠端 main 至 `3f4cb7521ba869cf89fe9f520299ac281d9c7916`。GitHub API 分兩頁取得當時 **156 筆** main 提交，逐一對回本機 SHA、姓名、Email 與日期：**全部作者及提交者 Email 均為 `likaisu.work9616@gmail.com`，GitHub 帳號歸屬均為 `likaisuwork9616`**。包含原 154 筆、盤點及改寫驗收兩筆維護提交；本頁發布確認會再新增一筆正常提交。
+
+遠端確認為本人擁有、非 fork、預設分支 `main`。先前未歸屬的歷史作者已完成修正，這不是只更改 Git 顯示用的 `.mailmap`。[GitHub 全清單核對收據](../reports/maintenance/git_identity_github_verification_20261106.json)
+
+**貢獻圖尚未目視確認刷新。** GitHub 可能需要最多 24 小時更新；請查看原作者日期（2026-06-20 至 2026-11-06），不會把所有歷史貢獻移到整理當天。如果 24 小時後仍缺，先核對受影響日期與本收據中的 commit，再向 GitHub Support 查詢重建狀態。不要為了刷新圖表再次反覆改寫歷史。

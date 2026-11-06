@@ -6,7 +6,7 @@ Smart E-Commerce Recommendation System
 
 ## GitHub 提交身分整理（2026-11-06）
 
-已確認 GitHub 帳號 `likaisuwork9616` 與 `likaisu.work9616@gmail.com` 相符。原 154 筆中 119 筆作者／提交者已統一到此身分；含盤點共 155 筆原始 commit 物件逐筆核對通過，檔案內容、訊息、日期及拓樸保留。120 個 SHA 改變，完整對照與兩份歷史備份已保存。本專案未來 Git 身分亦已固定；下一步核對遠端發布與帳號歸屬，尚不能聲稱綠格子已完成刷新。[整理與驗收](docs/GIT_IDENTITY_REPAIR_20261106.md)
+已完成歷史改寫與 main 強制推送。原 154 筆中的 **119 筆**作者／提交者已統一為 `LiKaiSu9616 <likaisu.work9616@gmail.com>`；155 筆原始物件逐筆驗收通過，內容、訊息及原日期保持一致。GitHub 發布後取得當時 **156 筆** main 提交，作者與提交者全部正確歸屬 `likaisuwork9616`；本確認文件再新增一筆正常提交。兩份完整備份、新舊 SHA 對照與本專案未來身分設定均已保存。**綠格子畫面尚未確認刷新，GitHub 可能需最多 24 小時更新**。[整理、驗收與還原說明](docs/GIT_IDENTITY_REPAIR_20261106.md)
 
 ## 目前進度
 
