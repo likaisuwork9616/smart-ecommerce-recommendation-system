@@ -36,3 +36,20 @@ V15 完成後，有樣本細層為 **52／55 格**，剩餘三格共 **10 筆**�
 發布須確認初末來源與方法指紋相同、四臂輸出精確一致、EOF 與 checkpoint 鏈完整，兩次帳本逐列相同且 bytes／串接 SHA-256 一致。外部監督須觀察正常退出，再獨立複核原期限、來源、固定名單、保存內容與覆蓋。任一驗證、資源或期限條件失敗，即停止並保存部分證據，該輪不發布成果或增加覆蓋。
 
 規格階段新選樣與排名均為 **0 筆**，目前仍為 **52／55 格、剩餘 3 格／10 筆**。只有十筆全部通過，才更新為 **55／55 格、剩餘 0 格／0 筆**，歷史不同已驗身分增至 218 個。這是細層皆有工程樣本，完整 validation 驗收仍未完成，保留測試鎖定。[封存規格](../reports/stage12/retailrocket_session_knn_v16_gap_sampling_specification_20261106.json)
+
+
+## 工具驗收與操作
+
+正式入口合成驗收 **37 項全數通過**，耗時 18.103 秒，包含 V16 新增 21 項與 V15 回歸 16 項。涵蓋十一組歷史、208 個身分排除、三格 4／4／2 容量與完整排序、三種投票分帶、全鄰居池 SHA-256、前 500 位切點、成本拆帳與異常停止。
+
+本輪十筆需要同步調整保存核對：兩份真實合成 checkpoint 的十列內容可通過，舊八列帳本被拒絕；完成紀錄必須為十個新身分、二十次工程核對，舊八筆／十六次或未完成階段都會拒絕。正式實測入口已繫結 663 份來源，十一組歷史核對通過，工具階段新選樣與真實排名均為 0 筆。[驗收收據](../reports/stage12/retailrocket_session_knn_v16_gap_acceptance_20261106.json)
+
+從專案根目錄執行，使用專案 `.venv`。測量入口持有排他鎖；方法、規格、盤點及來源均以 SHA-256 繫結，兩次共用原 1,800 秒絕對期限。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v16 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v16 --measure
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v16 --publish <原窗口目錄>
+```
+
+驗收收據已產出，驗收命令拒絕覆寫。補測成功發布後，使用發布命令核對原窗口。原始資料、模型、逐筆帳本與執行狀態留在 Git 忽略的本機目錄。[執行入口](../scripts/run_retailrocket_session_knn_gap_v16.py)

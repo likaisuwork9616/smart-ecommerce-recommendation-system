@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V16 剩餘三格容量補測 | [有界入口](run_retailrocket_session_knn_gap_v16.py) | 十一組歷史排除，按容量固定 4／4／2 筆，各核對兩次。檢查全鄰居投票等式、前 500 位切點及十筆保存與原期限。[方法與結果](../docs/STAGE12_KNN_FINAL_GAPS_V16_20261106.md) |
 | K1 V15 500–999 與 100–499 鄰居帶 | [有界入口](run_retailrocket_session_knn_gap_v15.py) | 十組歷史排除、兩格各 4 筆，各核對兩次。檢查前 500 位切點、全鄰居投票等式與原期限。[方法與結果](../docs/STAGE12_KNN_N4_N3_VOTE_GAP_V15_20261106.md) |
 | K1 V14 全數入選與前五百位 | [有界入口](run_retailrocket_session_knn_gap_v14.py) | 九組歷史排除、兩格各 4 筆，各核對兩次。檢查全鄰居投票等式、前 500 位切點與原期限。[方法與結果](../docs/STAGE12_KNN_N3_N5_VOTE_GAP_V14_20261106.md) |
 | K1 V13 雙鄰居帶與投票量缺口 | [有界入口](run_retailrocket_session_knn_gap_v13.py) | 八組歷史排除、兩格各 4 筆，各核對兩次。檢查前 500 位切點、投票上界與原期限。[方法與結果](../docs/STAGE12_KNN_N5_N4_VOTE_GAP_V13_20261106.md) |
