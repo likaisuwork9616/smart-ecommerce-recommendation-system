@@ -1,0 +1,221 @@
+{
+  "status": "v17_cost_sql_specification_frozen",
+  "created_utc": "2026-11-06T02:37:48.611198+00:00",
+  "candidate": "rank_counts",
+  "rollup": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json",
+    "bytes": 1945334,
+    "sha256": "555eceb1d2cb1dc8158fedf20a0cf6fbf2ac24afb7ede50be6daf7766c37d126"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json",
+    "bytes": 173526,
+    "sha256": "28b382de0644665a071e85e93072381ba285c60c9f172f90639de7b66a968c26"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json",
+      "bytes": 173526,
+      "sha256": "28b382de0644665a071e85e93072381ba285c60c9f172f90639de7b66a968c26"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json",
+      "bytes": 1945334,
+      "sha256": "555eceb1d2cb1dc8158fedf20a0cf6fbf2ac24afb7ede50be6daf7766c37d126"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v7_vote_profile_20261105.json",
+      "bytes": 37942,
+      "sha256": "3116770a2f0822b2565a1500e753e099b6469faa7a1d4d52500df0b715294b96"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v7_vote_compare48_20261105.json",
+      "bytes": 93211,
+      "sha256": "3ad77bdd276c3a492fca7cce2dad57accd535f3b5bd75cdbdb18ebccf277fa52"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v7_sql_vote_assessment_20261105.json",
+      "bytes": 6048,
+      "sha256": "1e48694b61abfbd6deb89fabe44cf5746417078b9d52cc52e9b0f65a1b924c92"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_vote_v7.py",
+      "bytes": 15759,
+      "sha256": "841aa72abf8d331facb4049aaa11b8d7e94142c1418ba10e13670ea182ae7b5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    }
+  ],
+  "selection_rationale": {
+    "full_grid": "All 55 cells now have baseline costs, with 156 different queries and 360 observations. Nested vote SQL and exact accumulation remain measurable work, but fine CPU components were profiled only in the old 48.",
+    "previous_fetchmany_result": {
+      "pairs": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "A_primary_seconds": 1.9902885999690625,
+          "B_primary_seconds": 1.992100500039669,
+          "primary_saving_seconds": -0.001811900070606498,
+          "primary_saving_percent": -0.09103705214583768,
+          "entry_saving_seconds": -0.22186339999825577
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "A_primary_seconds": 2.210438799989788,
+          "B_primary_seconds": 1.9420085000092513,
+          "primary_saving_seconds": 0.2684302999805368,
+          "primary_saving_percent": 12.143756252458875,
+          "entry_saving_seconds": -0.11849839999922551
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "A_primary_seconds": 2.0567221000164864,
+          "B_primary_seconds": 2.0696834000009403,
+          "primary_saving_seconds": -0.012961299984453944,
+          "primary_saving_percent": -0.6301920898477266,
+          "entry_saving_seconds": -0.7485673000010138
+        },
+        {
+          "pair": 4,
+          "order": "BA",
+          "A_primary_seconds": 2.9113558999888483,
+          "B_primary_seconds": 2.084225799975684,
+          "primary_saving_seconds": 0.8271301000131643,
+          "primary_saving_percent": 28.410477056973097,
+          "entry_saving_seconds": 1.0773255999993125
+        },
+        {
+          "pair": 5,
+          "order": "AB",
+          "A_primary_seconds": 1.8495138000107545,
+          "B_primary_seconds": 2.129497400022956,
+          "primary_saving_seconds": -0.27998360001220135,
+          "primary_saving_percent": -15.13822713896881,
+          "entry_saving_seconds": 0.2212612999974226
+        },
+        {
+          "pair": 6,
+          "order": "BA",
+          "A_primary_seconds": 2.107307199970819,
+          "B_primary_seconds": 2.2152185999875655,
+          "primary_saving_seconds": -0.10791140001674648,
+          "primary_saving_percent": -5.120819594705546,
+          "entry_saving_seconds": -0.45092619999923045
+        }
+      ],
+      "faster_pairs": 2,
+      "order_median_savings_seconds": {
+        "AB": -0.012961299984453944,
+        "BA": 0.2684302999805368
+      },
+      "median_saving_percent": -0.3606145709967821,
+      "primary_gate_passed": false,
+      "entry_median_seconds": {
+        "A": 8.749334950000048,
+        "B": 8.704467199999272
+      },
+      "entry_regressed": false,
+      "supports_candidate": false
+    },
+    "old_profile_two_runs_actionable_seconds": {
+      "batch_insert": 0.18720449996908428,
+      "batch_fetch": 0.587260100095591,
+      "rank_counts": 0.4377836000530806
+    },
+    "choice": "Among the existing exact candidates not already rejected in paired timing, select rank_counts for one bounded evaluation. It changes only Counter bookkeeping to a list indexed by the contiguous selected rank. Accumulation/check timings include operations this candidate does not change; they are not recoverable time or a speedup estimate.",
+    "unchanged": [
+      "SQL membership query and number of returned rows",
+      "per-row deadline watch and causal first-time filter",
+      "arbitrary-precision integer/Fraction vote sums",
+      "full eligible pool SHA and exact similarity/tie ordering",
+      "500-neighbor cutoff and each selected member-size check",
+      "all four original prediction references"
+    ],
+    "alternatives": {
+      "batch_fetch": "Retain the existing failed 128-row candidate; do not retune or rerun it in this experiment.",
+      "batch_insert": "Lower prior diagnosed exclusive time; not tested in this window.",
+      "duplicate_membership_index": "Current query plan already uses the existing covering primary-key index on (v,s,i).",
+      "SQL_SUM": "SQLite integer aggregation overflows at 64-bit range; the preserved vote weights can exceed 64 bits. No float or lossy aggregation."
+    }
+  },
+  "static_inspection": {
+    "sqlite_version": "3.49.1",
+    "database": {
+      "bytes": 475103232,
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/independent.sqlite",
+      "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+    },
+    "database_sha_before_after_verified": true,
+    "database_mode": "mode=ro, immutable; connection-local in-memory TEMP only",
+    "votes_sql": "SELECT chosen.r,membership.i FROM temp.k1_v4_selected AS chosen CROSS JOIN main.m AS membership ON membership.v=chosen.v AND membership.s=chosen.s",
+    "explain_query_plan": [
+      [
+        3,
+        0,
+        215,
+        "SCAN chosen"
+      ],
+      [
+        5,
+        0,
+        56,
+        "SEARCH membership USING COVERING INDEX sqlite_autoindex_m_1 (v=? AND s=?)"
+      ]
+    ],
+    "actual_recommendation_queries": 0,
+    "synthetic_int64_overflow": "integer overflow"
+  },
+  "protocol": {
+    "pairs": 6,
+    "warmup_runs": 2,
+    "minimum_wins": 5,
+    "minimum_median_saving_percent": 5,
+    "both_order_medians_positive": true,
+    "entry_median_must_not_regress": true,
+    "budget_seconds": 1800
+  },
+  "comparison": {
+    "sample": "The original fixed 48 identities and original order; no new keys or alternative samples.",
+    "runs": "Warm A baseline, warm B rank_counts; then six pairs AB, BA, AB, BA, AB, BA. Fresh connection and checkpoint namespace per run.",
+    "primary": "verification + append excluding nested commit + all chunk commits exactly once; keep direct budget writes. This differs from rollup core that excludes direct budget.",
+    "secondary": [
+      "vote SQL/accumulation",
+      "rank",
+      "append",
+      "setup",
+      "tail",
+      "whole entry",
+      "per-cell paired rows"
+    ],
+    "correctness": "Every run must reproduce the original reference records, bytes and payload SHA; logical work must be identical. Reopen all checkpoints and recompute timings and six-pair decision after normal exit.",
+    "cache": "Clear predictor metadata caches once at window start. The OS cache is naturally warmed by source hashing and prior runs; do not claim a cold-cache benchmark.",
+    "followup": "Only if original 48 passes all gates, run the same protocol on the already-fixed 34 low-neighbor queries. Otherwise stop the candidate. A passing 48 result alone is not a claim for all 55 cells.",
+    "failure": "Any source, method, identity, output, timer, resource, deadline or exit mismatch stops publication. No replacement seeds, timing exclusions, extra pairs or next candidate based on results."
+  },
+  "resources": {
+    "rss_bytes": 8589934592,
+    "execution_bytes": 21474836480,
+    "minimum_available_bytes": 4294967296,
+    "minimum_free_bytes": 8589934592,
+    "shared_deadline": "One original absolute 1800-second window per fixed cohort, including source checks and all runs.",
+    "monitoring": "System CPU and memory snapshots immediately outside each timed entry, nonblocking. Do not query model generation, modify other processes or attribute causal slowdowns to snapshots.",
+    "concurrency": "Run one bounded candidate window at a time. Other projects may remain active; results are conditional on observed machine conditions."
+  },
+  "this_step": {
+    "new_rankings": 0,
+    "new_candidate_timing_runs": 0,
+    "new_keys": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
