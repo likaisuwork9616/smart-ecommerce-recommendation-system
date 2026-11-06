@@ -45,3 +45,15 @@
 沿用 **1,800 秒**絕對窗口、程序樹 RSS 上限 8 GiB、執行目錄 20 GiB、可用記憶體至少 4 GiB、可用磁碟至少 8 GiB。來源、歷史、選樣、固定對照、排名、保存鏈、三輪位元組、計時、必要負載、資源或原期限任一失敗就停止發布，保留私人證據。
 
 只有三輪全部通過獨立退出後核對，`1101/n5/v4` 不同查詢才由 **5 增至 11**，其中本輪尾端新增 6 筆；全體可比較身分 **164→170**，歷史不同身分 **226→232**，格數覆蓋維持 **55／55**。對照與重測不增加新身分計數。本階段選樣與實測均為 0。[封存規格](../reports/stage12/retailrocket_session_knn_v19_tail_sampling_specification_20261106.json)
+
+## 工具驗收與操作
+
+合成驗收 **27 項通過**，耗時 **5.064 秒**，失敗、錯誤與跳過均為 0。核對 226 個歷史身分排除、1,945 門檻與三段邊界、合法最大值加剩餘雜湊選樣、七筆三輪帳本，以及沿用分項計時及負載紀錄；驗收收據綁定方法檔、封存規格與六道科學資料門檻。本階段真實新選樣與排名均為 0。[驗收收據](../reports/stage12/retailrocket_session_knn_v19_tail_acceptance_20261106.json)
+
+從專案根目錄執行；已有驗收或實測報告時拒絕覆寫，既有窗口須使用 `--publish` 重核，不另開較快結果。實測只有原排名方法，沒有啟用上輪未通過的 rank_counts 候選。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_tail_v19 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_tail_v19 --measure
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_tail_v19 --publish <既有窗口目錄>
+```

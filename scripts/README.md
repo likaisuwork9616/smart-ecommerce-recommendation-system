@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V19 高鄰居尾端補樣 | [有界入口](run_retailrocket_session_knn_tail_v19.py) | 三段各取最大鄰居數與固定雜湊樣本，六筆新查詢加原對照；七筆循序三輪及 200ms 目標負載觀測。[規格與結果](../docs/STAGE12_KNN_TAIL_V19_20261106.md) |
 | K1 V18 兩格補樣與負載 | [有界入口](run_retailrocket_session_knn_reinforcement_v18.py) | 兩格各四筆新查詢與一筆舊對照，同批十筆循序三輪；200ms 目標負載觀測與三帳本核對。[規格與結果](../docs/STAGE12_KNN_REINFORCEMENT_V18_20261106.md) |
 | K1 V17 投票記數候選 | [配對比較入口](run_retailrocket_session_knn_vote_v17.py) | rank_counts 與原 V4 六對 AB／BA；48 筆達門檻才比較既有 34 筆，沒有新選樣。[規格與結果](../docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) |
 | K1 V17 全細層成本彙整 | [唯讀彙整入口](run_retailrocket_session_knn_cost_rollup_v17.py) | 核對 11 組固定樣本，彙整 55 格的 156 個查詢、360 次成本觀測，分開同查詢波動與人口加權情境。[方法與結果](../docs/STAGE12_KNN_COST_ROLLUP_V17_20261106.md) |
