@@ -1,0 +1,94 @@
+{
+  "status": "v13_target_two_specification_frozen",
+  "scope": "Prospective validation engineering cost specification for the two largest remaining cells. Frozen V4 ranking and V6 timing. This specification step performs zero new selection or ranking.",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v13_gap_inventory_20261106.json",
+    "bytes": 18068,
+    "sha256": "a9286c9e4eaf9e661a9128cfebae8af0aa275c0d98e277c3b4963c1320f18f0e"
+  },
+  "quotas": [
+    {
+      "cell": "1011/n5/v3",
+      "population": 60,
+      "historical_exclusions": 0,
+      "eligible": 60,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "0101/n4/v5",
+      "population": 26,
+      "historical_exclusions": 0,
+      "eligible": 26,
+      "planned_new_queries": 4
+    }
+  ],
+  "selection": {
+    "quota": 4,
+    "planned_unique_queries": 8,
+    "prefix_with_terminator": "k1-gap-v13-20261106\u0000",
+    "exclusion": "Exclude the union of V3, V5 reused by V6, V7, V8, V9, V10, V11 and V12. Require the pinned cohort sizes, overlaps and 184 distinct historic keys from the inventory.",
+    "order": "In each eligible cell, hash ASCII prefix including its final NUL followed by the 32 raw bytes decoded from key_sha256. Take the four lowest raw SHA-256 digests in bytewise ascending order. On ties use original_ordinal ascending. Sort the eight by original_ordinal ascending.",
+    "inputs": "Only the pinned structural validation roster, its V6 cell definitions and the historic exclusion identities. Do not use targets, predictions or measured costs or times to choose queries.",
+    "selection_seal": "Verify full roster through EOF, count, SHA, identities, ordinals, cell membership and exact inventory capacities. Independently sort the full eligible list and match all eight rows before sealing or reading aligned ranking inputs.",
+    "failure": "Stop on changed source, duplicate, mismatch or fewer than four eligible in either cell. Preserve evidence. No alternate seeds, replacement queries or quota transfers."
+  },
+  "measurement": {
+    "queries_per_repeat": 8,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 16,
+    "ranking": "Two fresh V6 checkpoint namespaces. The same eight sealed queries from the seven aligned sources use the frozen original V4 four-arm ranking and V6 timers.",
+    "common_checks": "Verify original identity and ordinal, model provenance and six gates, the complete eligible-neighbor pool count and digest, exact similarities and tie order, min(500, eligible) selected neighbors and each member size. Verify returned vote rows equal the selected sizes summed and 0 <= causal additions <= returned vote rows.",
+    "workload_by_cell": {
+      "1011/n5/v3": {
+        "eligible_neighbor_band": [
+          1000,
+          4999
+        ],
+        "vote_upper_band": [
+          500,
+          1999
+        ],
+        "selected_neighbors": "First 500 by frozen rank. Verify exact 500th frontier and total/selected/excluded tie counts.",
+        "vote_rows": "At least 500 and at most vote_memberships_upper; equality is allowed."
+      },
+      "0101/n4/v5": {
+        "eligible_neighbor_band": [
+          500,
+          999
+        ],
+        "vote_upper_band": [
+          10000,
+          null
+        ],
+        "selected_neighbors": "First 500 by frozen rank. Verify exact 500th frontier and total/selected/excluded tie counts. At exactly 500, require the complete pool and zero excluded ties.",
+        "vote_rows": "At least 500 and at most vote_memberships_upper; at exactly 500 eligible neighbors require equality."
+      }
+    },
+    "timing": "Use the V6 per-row verification plus append cost excluding nested commit and direct budget write. Report maxima by cell within each repeat. Retain raw timers, rank subphases, commit, setup and tail separately.",
+    "absolute_wall_budget_seconds": 1800,
+    "deadline_scope": "One absolute supervisor deadline shared by selection, extraction, both repeats and supervised verification.",
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "publication": "Verify unchanged source and method digests before and after, exact four-arm outputs against independent validation references, complete EOF and checkpoint chain for each repeat. Compare deterministic ledger frames including byte totals and concatenated SHA across repeats. Require normal supervisor exit and independent post-exit count, integrity and original-deadline verification.",
+    "stop": "For any selection, identity, ranking, output, resource, deadline, checkpoint or exit failure, stop the run, retain partial evidence under ignored paths and withhold publication and coverage credit.",
+    "observed_boundary_population": "The pinned full roster has zero exactly-500 cases in both cells; all 86 queries exceed 500 eligible neighbors. Report sampled exactly-500 and above-500 counts separately."
+  },
+  "conditional_after_all_8_verified": {
+    "v6_plus_new_cells_with_sample": 48,
+    "uncovered_cells": 7,
+    "v6_plus_new_unrepresented_population": 88,
+    "distinct_historically_verified_queries": 192
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
