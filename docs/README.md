@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜固定七筆的 SQL 與 append 波動診斷（最新）
+## Stage 12｜保存前檔案檢查與身分驗證（最新）
+
+確認三個檔案存在檢查與身分格式驗證接點，沿用同批七筆。[盤點、規格與實測](STAGE12_KNN_GUARDS_V21_20261106.md)
+
+## Stage 12｜固定七筆的 SQL 與 append 波動診斷（前輪）
 
 同批七筆循序六輪共四十二次全通過；SQL 混合區段與 append 檢查波動已拆分，CPU 精度仍有限。[盤點、規格與實測](STAGE12_KNN_DIAGNOSTICS_V20_20261106.md)
 
