@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V12 高鄰居低投票與低鄰居高投票 | [有界入口](run_retailrocket_session_knn_gap_v12.py) | 每格 4 筆，各核對兩次。檢查原期限、前 500 位切點與全數入選的投票等式。[方法與驗收](../docs/STAGE12_KNN_N5_N3_GAP_SPEC_V12_20261105.md) |
 | K1 V11 同鄰居帶的兩種投票量 | [有界入口](run_retailrocket_session_knn_gap_v11.py) | 每格固定 4 筆，核對恰好 500 與超過 500 的切點、實際投票量及保存。[本輪結果](../docs/STAGE12_KNN_N4_VOTE_BANDS_V11_20261105.md) |
 | K1 V10 兩個超過 500 鄰居的細層 | [有界入口](run_retailrocket_session_knn_gap_v10.py) | 兩格各 4 筆、各核對兩次，分項記錄完整池、500 鄰居、平手與實際投票列數。[方法與結果](../docs/STAGE12_KNN_TWO_CAPPED_CELLS_V10_20261105.md) |
 | K1 V9 上限兩側的補測 | [有界入口](run_retailrocket_session_knn_gap_v9.py) | 分別核對高鄰居格的前 500 位與低鄰居格的全數入選，再比較兩份 ledger。[方法與結果](../docs/STAGE12_KNN_CAPPED_GAP_V9_20261105.md) |

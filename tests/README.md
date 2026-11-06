@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V12 通過 23 項合成／回歸測試，包含新增 12 項，涵蓋七組歷史排除、兩種鄰居界限、配額與排序、逐列保存、成本拆帳和異常停止。[驗收收據](../reports/stage12/retailrocket_session_knn_v12_gap_acceptance_20261106.json)
+
 Stage 12 V11 通過 22 項合成與回歸測試，涵蓋兩種投票量分帶、恰好 500 位鄰居的邊界與六組歷史名單排除。[驗收收據](../reports/stage12/retailrocket_session_knn_v11_gap_acceptance_20261105.json)
 
 Stage 12 V10 通過 23 項合成與回歸測試，包含兩個都超過 500 鄰居的細層、切點平手、歷史排除與逐列 ledger 核對。[驗收收據](../reports/stage12/retailrocket_session_knn_v10_gap_acceptance_20261105.json)

@@ -32,4 +32,18 @@ V11 完成後，55 個細層中有 44 格已有 V6 成本口徑的樣本。其�
 
 選樣、來源抽取、兩次執行與受監督的核對共用 **1,800 秒**的絕對期限。RSS 上限 8 GiB、執行目錄上限 20 GiB，可用記憶體與磁碟下限分別為 4 GiB 與 8 GiB。發布前須確認初末來源與方法指紋、四臂輸出、檔案結尾與 checkpoint 鏈，再逐列比對兩次保存內容、總位元組數及串接 SHA-256，並確認外部監督觀察到正常退出，退出後獨立複核筆數、完整性與原期限。超時、超出資源界限或任一項比對失敗，均停止並保留部分紀錄，該輪不發布成果或更新覆蓋。
 
-目前仍為 **44／55 格**已有樣本，缺樣的 **11 格涵蓋 533 筆**。本輪只封存規格，實際新選樣及排名均為 0 筆。若後續 8 筆全部通過，覆蓋才會增至 **46／55 格**，缺樣降為 **9 格、174 筆**，歷史已驗身分增至 184 個。[封存配額、排序與停止條件](../reports/stage12/retailrocket_session_knn_v12_gap_sampling_specification_20261105.json)
+規格封存時為 **44／55 格**已有樣本，缺樣的 **11 格涵蓋 533 筆**。該階段只封存規格，實際新選樣及排名均為 0 筆。若後續 8 筆全部通過，覆蓋才會增至 **46／55 格**，缺樣降為 **9 格、174 筆**，歷史已驗身分增至 184 個。[封存配額、排序與停止條件](../reports/stage12/retailrocket_session_knn_v12_gap_sampling_specification_20261105.json)
+
+## 工具驗收與操作
+
+2026 年 11 月 6 日完成正式合成驗收，**23 項全數通過**，耗時 11.970 秒，包含 V12 新增 12 項及 V11 回歸 11 項。驗收涵蓋七組歷史排除、固定雜湊排序、完整池與前 500 位切點、全數入選的投票等式、兩份保存內容、成本拆帳，以及期限、資源與退出異常的停止條件。工具階段新增真實選樣與排名均為 0 筆。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v12_gap_acceptance_20261106.json)
+
+從專案根目錄執行下列命令。工具會核對 11 月 5 日封存的規格與七組名單，兩次補測共用一批 8 筆。執行期間持有排他鎖。已完成窗口可用發布命令重新核對，成功發布後再次啟動補測會停止。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v12 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v12 --measure
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v12 --publish <原窗口目錄>
+```
+
+驗收命令已完成且已有收據，會拒絕覆寫。兩格的真實耗時仍待補測，現有覆蓋為 44／55 格，剩餘 11 格、533 筆。原始列、模型、逐筆帳本與執行狀態保存在 Git 忽略目錄。[執行入口](../scripts/run_retailrocket_session_knn_gap_v12.py)
