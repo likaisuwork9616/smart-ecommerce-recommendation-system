@@ -35,3 +35,17 @@ V13 完成後，55 個細層中有 48 格已有 V6 成本口徑的樣本。其�
 發布須核對初末來源與方法指紋、四臂輸出、EOF、checkpoint 鏈及兩份逐列內容、總 bytes 與串接 SHA-256，並確認外部監督觀察到正常退出，退出後獨立核對原期限、筆數與完整性。任一檢查、資源或期限條件失敗，即停止並保存部分紀錄，該輪不發布成果或增加覆蓋。
 
 規格階段的新選樣與排名均為 **0 筆**。當時覆蓋為 **48／55 格**，剩餘 **7 格、88 筆**。若後續八筆全數通過，覆蓋才會增至 **50／55 格**，剩餘 **5 格、40 筆**，歷史不同已驗身分增至 200 個。[封存配額、選法與停止條件](../reports/stage12/retailrocket_session_knn_v14_gap_sampling_specification_20261106.json)
+
+## 工具驗收與操作
+
+正式合成驗收 **28 項全數通過**，耗時 7.845 秒，包含 V14 新增 14 項與 V13 回歸 14 項。涵蓋九組歷史排除、192 個身分的固定容量、配額與排序、全數入選時的完整池 SHA-256 與投票等式、前 500 位切點與投票上界、雙 checkpoint 保存、成本拆帳，以及期限、資源與退出異常的停止條件。工具階段真實新選樣與排名均為 0 筆。[合成驗收收據](../reports/stage12/retailrocket_session_knn_v14_gap_acceptance_20261106.json)
+
+從專案根目錄執行，使用專案 `.venv` 的 Python。原規格、來源與驗收方法均以指紋繫結，測量入口持有排他鎖，兩次使用同一封存名單及原 1,800 秒期限。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v14 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v14 --measure
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_gap_v14 --publish <原窗口目錄>
+```
+
+驗收收據已產出，驗收命令會拒絕覆寫。補測成功發布後，使用發布命令核對原窗口。原始資料、模型與逐筆帳本保存於 Git 忽略的本機目錄。[執行入口](../scripts/run_retailrocket_session_knn_gap_v14.py)
