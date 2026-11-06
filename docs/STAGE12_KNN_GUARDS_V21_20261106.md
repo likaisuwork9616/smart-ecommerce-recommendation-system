@@ -152,3 +152,36 @@ D 正重疊最大差出現在 2,770 位鄰居案例，第 3→2 輪 **12.664 ms*
 已區分原三次 exists、原身分格式驗證，以及順序／初始化／觀測剩餘項。本輪這些細項短，前輪大幅 guard 波動未重現；原始 append 的大差亦須先分出直接預算保存。正重疊查詢仍有明顯且跨 execute／取列的耗時，下一步按封存規格評估先聚合再 join 的 SQL 候選。此時候選真實排名為 0，尚無 SQL 加速比例或採用決定。
 
 [六輪實測](../reports/stage12/retailrocket_session_knn_v21_guards_cost_20261106.json) · [同對分解分析](../reports/stage12/retailrocket_session_knn_v21_guards_analysis_20261106.json)
+
+## SQL 候選評估完成：先聚合，再 LEFT JOIN size
+
+候選只替換原正重疊 SQL：先將 history 命中的 posting 依 `(v,s)` 聚合，再 LEFT JOIN `k1_v2_sizes`。實際模型確認該表有 `(v,s)` 唯一主鍵，因此每組只對到一個 size；保留 LEFT JOIN，缺少 size 仍由原 V4 拒絕，不能改成 INNER JOIN 靜默刪掉錯誤資料。排名、完整鄰居池 SHA、500 位切點同分、精確分數、投票與因果商品篩選沿用原函式。
+
+**24／24 項合成驗收通過**，耗時 0.737 秒，失敗／錯誤／跳過為 0。包含新候選 10 項、原 V4 11 項、SQL 觀測 3 項。新候選比較完整巢狀預測及所有工作量，涵蓋 499／500／501 同分切點、大整數 ID、30 組固定種子人工案例、自我排除、空／未知／未來商品、分數 fallback、缺少／無效／過期 size、watch 中斷及唯讀檔案位元組。合成測試耗時不是效能證據。
+
+### 實際模型計畫
+
+使用原 475,103,232-byte 模型，連線為 `mode=ro&immutable=1`；TEMP history 固定為空且留在記憶體，建立後啟用 query_only。只對原式與候選各執行一次 EXPLAIN QUERY PLAN，沒有執行候選真實排名、讀入查詢身分或寫入模型。模型 SHA-256 在評估前後一致、目錄檔名未變；退出後再獨立核對所有來源與私人收據相符。
+
+| 步驟 | 原式 | 候選 |
+| --- | --- | --- |
+| history／posting | SCAN query → COVERING INDEX k1_v2_posting | 相同 |
+| group／size 順序 | 每筆 posting 查 size 主鍵 → TEMP B-TREE GROUP BY | TEMP B-TREE GROUP BY → SCAN hits → 查 size 主鍵 |
+| 額外結構 | 無 hits 子查詢 | CO-ROUTINE hits |
+| 保留的工作 | posting 掃描、聚合、回傳群組與 Python 處理 | 同樣保留；僅移動 size lookup |
+
+同批七筆原 R 的正重疊整段中位數平均 **31.962 ms**，核心中位數平均 **77.581 ms**。正重疊值得檢視，但該段仍混合 SQL、取列與 Python 工作，不能把全部時間當候選可節省部分。
+
+沿用封存工作量：posting 匹配 **21,072 次**、回傳正重疊群組 **19,391 個**。依計畫形狀推論，size lookup 的邏輯輸入可少 **1,681 次（7.977%）**。這只是原匹配數減群組數，不是候選實測 VM 步數、I/O、SQL 耗時或整體加速比例；子查詢成本可能抵銷節省。七筆包含六個刻意補強的已知尾端案例與一個固定對照，不能外推全部 55 格。
+
+既有 V17 投票候選 `rank_counts` 維持不採用：當時 6 對中 5 對較快，但主要指標節省中位數 **2.676%**，低於原門檻 **5%**。本輪正重疊改寫是另一個候選，不能借用其結果。
+
+### 評估決定與後續
+
+**合成語意與查詢計畫成立，暫不採用；尚無實測加速比例。** 這個改寫可列入低預期的小型配對試驗候選，不足以直接推進正式流程。若續作，先獨立封存原 48 筆公平比較：固定原／候選順序平衡、完整 payload 比對、主要成本與 SQL／append 分列、循序執行並同步負載，採用門檻先定，不沿用診斷 R/D 的差值。
+
+這一階段候選真實排名／效能執行皆為 **0**，實際模型 EXPLAIN 共 **2** 次；55／55 格、170 個可比較查詢與 232 個歷史身分不變。主要訓練、完整 validation、主要 bootstrap 與最終保留測試均未啟動。
+
+可用 `.venv/Scripts/python.exe -B -m scripts.assess_retailrocket_session_knn_overlap_candidate_v21` 重建此類一次性評估；本機已封存收據時會拒絕覆寫。候選模組未接入預設排名路徑，既有方法檔未修改。
+
+[候選語意、計畫與決策收據](../reports/stage12/retailrocket_session_knn_v21_guards_sql_assessment_20261106.json)

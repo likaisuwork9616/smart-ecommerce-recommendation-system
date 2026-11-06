@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 保存前細項六輪診斷完成 | 同批七筆四十二次全通過；三次檔案檢查與身分格式已分開，前輪大波動未重現。完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 保存前診斷與 SQL 候選評估完成 | 四十二次診斷全通過；SQL 候選二十四項驗收與兩份實際計畫確認，尚未採用。完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜保存前檔案檢查與身分驗證（最新）
 
-**42／42 核對通過**，1,279 份來源與全部保存位元組一致。三種 exists 各次 0.031–0.121 ms、身分格式 0.005–0.016 ms，不能回推前輪 15.551 ms 波動原因。一筆原始 append 差 102.240 ms，其中直接 budget 保存 98.504 ms；扣除後 3.736 ms。127 份負載快照 CPU 13.2–58.0%，未量到 Ollama token 影響。覆蓋仍 55／55 格；下一步評估 SQL 候選，尚無加速結論。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_cost_20261106.json)
+**同批 7 筆、六輪 42 次診斷全通過**。三種 exists 各次 0.031–0.121 ms、身分格式 0.005–0.016 ms；前輪大波動未重現。調整後 append 最大差所屬同對的原始差 102.240 ms 中，98.504 ms 是直接 budget 保存，扣除後 3.736 ms。SQL「先聚合再 join size」候選 **24／24 合成驗收通過**，兩份實際查詢計畫支持改寫；邏輯重複 size join 可少 1,681／21,072 次（7.977%），**不是加速比例，尚未採用**。候選真實效能測試為 0；覆蓋仍 55／55 格，保留測試鎖定。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_sql_assessment_20261106.json)
 
 ## Stage 12｜固定七筆的 SQL 與 append 波動診斷（前輪）
 

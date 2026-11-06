@@ -1,0 +1,420 @@
+{
+  "status": "v21_overlap_candidate_synthetic_and_plan_assessed_not_adopted",
+  "created_utc": "2026-11-06T07:18:13.885517+00:00",
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "sqlite_version": "3.49.1",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json",
+    "bytes": 55865,
+    "sha256": "865d998fd629941ba0266f24c18322560269ae3f601e1c09d79ec4d1faea6f73"
+  },
+  "diagnostic_cost": {
+    "path": "reports/stage12/retailrocket_session_knn_v21_guards_cost_20261106.json",
+    "bytes": 1908276,
+    "sha256": "0125a0634ddd85a4906e741789e4ae135b174bc5f7bd5906ce3886e18dca5ba7"
+  },
+  "diagnostic_analysis": {
+    "path": "reports/stage12/retailrocket_session_knn_v21_guards_analysis_20261106.json",
+    "bytes": 55163,
+    "sha256": "0b88e8e7a8d63f3db705436370308d13136432733f02b2327a6e3e13c525ca4a"
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 1264,
+      "sha256": "759ffc54e2ca5eefb4b476ef1e065b1028d625676a3b53c2409a357500cc5f77"
+    },
+    {
+      "path": "scripts/assess_retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 10348,
+      "sha256": "2431431c1506b7bae7c9e0c3bda7f08937016c1d6c88ca878c2d917d90c57371"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 6156,
+      "sha256": "7521363631159725d8608e8b80bca1c72a1e6acf1f2dcd56208f3eac088e51f6"
+    }
+  ],
+  "inputs_verified_before_after": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json",
+      "bytes": 55865,
+      "sha256": "865d998fd629941ba0266f24c18322560269ae3f601e1c09d79ec4d1faea6f73"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v21_guards_cost_20261106.json",
+      "bytes": 1908276,
+      "sha256": "0125a0634ddd85a4906e741789e4ae135b174bc5f7bd5906ce3886e18dca5ba7"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v21_guards_analysis_20261106.json",
+      "bytes": 55163,
+      "sha256": "0b88e8e7a8d63f3db705436370308d13136432733f02b2327a6e3e13c525ca4a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+      "bytes": 113040,
+      "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 1264,
+      "sha256": "759ffc54e2ca5eefb4b476ef1e065b1028d625676a3b53c2409a357500cc5f77"
+    },
+    {
+      "path": "scripts/assess_retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 10348,
+      "sha256": "2431431c1506b7bae7c9e0c3bda7f08937016c1d6c88ca878c2d917d90c57371"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 6156,
+      "sha256": "7521363631159725d8608e8b80bca1c72a1e6acf1f2dcd56208f3eac088e51f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v21-guards-93ecbfac45d74d54b8b061be7f5719c3/request.json",
+      "bytes": 260839,
+      "sha256": "0203a54c2bea2ff99b749b876420de80802de93550a9b4511bf4148deaf6c7ea"
+    },
+    {
+      "bytes": 475103232,
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/independent.sqlite",
+      "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+    },
+    {
+      "bytes": 10877,
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "bytes": 10909,
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "bytes": 20452,
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "bytes": 23934,
+      "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+      "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+    },
+    {
+      "bytes": 9598,
+      "path": "tests/test_retailrocket_session_knn_sql_v4.py",
+      "sha256": "e2a6956da3149c7bb077dec28b7d7823b9c356d2009e7f521d168093b337a86b"
+    },
+    {
+      "bytes": 11740,
+      "path": "tests/test_retailrocket_session_knn_diagnostics_sql_v20.py",
+      "sha256": "7b4e06308e503f59333958a7992c589d3dcddea231329fc82171ea545bffdbbc"
+    }
+  ],
+  "synthetic_acceptance": {
+    "tests_run": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.7373260000003938,
+    "suites": [
+      "tests.test_retailrocket_session_knn_overlap_candidate_v21",
+      "tests.test_retailrocket_session_knn_sql_v4",
+      "tests.test_retailrocket_session_knn_diagnostics_sql_v20"
+    ],
+    "log": {
+      "path": "shop-mysql-runtime/verification/knn-v21-overlap-assessment-6ab248703a6e44cb8c6781becc3e2c95/tests.log",
+      "bytes": 4386,
+      "sha256": "07dbd8f4747bbc86c52b3d6059fc16619696857a901a4aadd5f72bd5a8c43481"
+    },
+    "timing_is_performance_evidence": false
+  },
+  "actual_model": {
+    "bytes": 475103232,
+    "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/independent.sqlite",
+    "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+  },
+  "model_bytes_verified_before_after": true,
+  "model_directory_names_unchanged": true,
+  "actual_model_plan_only": true,
+  "history_for_plan": "empty in-memory TEMP table; no source identities loaded",
+  "schema": [
+    {
+      "type": "index",
+      "name": "k1_v2_posting",
+      "sql": "CREATE INDEX k1_v2_posting ON m(i,v,s)"
+    },
+    {
+      "type": "table",
+      "name": "k1_v2_sizes",
+      "sql": "CREATE TABLE k1_v2_sizes (v TEXT NOT NULL,s INTEGER NOT NULL,n INTEGER NOT NULL CHECK(n>0),PRIMARY KEY(v,s)) WITHOUT ROWID"
+    },
+    {
+      "type": "table",
+      "name": "m",
+      "sql": "CREATE TABLE m(v TEXT,s INTEGER,i TEXT,PRIMARY KEY(v,s,i))"
+    }
+  ],
+  "session_size_primary_key": [
+    "v",
+    "s"
+  ],
+  "plans": {
+    "original": [
+      {
+        "id": 8,
+        "parent": 0,
+        "auxiliary": 215,
+        "detail": "SCAN query"
+      },
+      {
+        "id": 10,
+        "parent": 0,
+        "auxiliary": 56,
+        "detail": "SEARCH membership USING COVERING INDEX k1_v2_posting (i=?)"
+      },
+      {
+        "id": 14,
+        "parent": 0,
+        "auxiliary": 45,
+        "detail": "SEARCH sizes USING PRIMARY KEY (v=? AND s=?) LEFT-JOIN"
+      },
+      {
+        "id": 24,
+        "parent": 0,
+        "auxiliary": 0,
+        "detail": "USE TEMP B-TREE FOR GROUP BY"
+      }
+    ],
+    "group_before_size_join": [
+      {
+        "id": 2,
+        "parent": 0,
+        "auxiliary": 0,
+        "detail": "CO-ROUTINE hits"
+      },
+      {
+        "id": 9,
+        "parent": 2,
+        "auxiliary": 215,
+        "detail": "SCAN query"
+      },
+      {
+        "id": 11,
+        "parent": 2,
+        "auxiliary": 56,
+        "detail": "SEARCH membership USING COVERING INDEX k1_v2_posting (i=?)"
+      },
+      {
+        "id": 15,
+        "parent": 2,
+        "auxiliary": 0,
+        "detail": "USE TEMP B-TREE FOR GROUP BY"
+      },
+      {
+        "id": 54,
+        "parent": 0,
+        "auxiliary": 82,
+        "detail": "SCAN hits"
+      },
+      {
+        "id": 57,
+        "parent": 0,
+        "auxiliary": 45,
+        "detail": "SEARCH sizes USING PRIMARY KEY (v=? AND s=?) LEFT-JOIN"
+      }
+    ]
+  },
+  "original_sql": "SELECT membership.v,membership.s,COUNT(*),sizes.n FROM temp.k1_v4_history AS query CROSS JOIN main.m AS membership INDEXED BY k1_v2_posting ON membership.i=query.i LEFT JOIN main.k1_v2_sizes AS sizes ON sizes.v=membership.v AND sizes.s=membership.s GROUP BY membership.v,membership.s",
+  "candidate_sql": "SELECT hits.v,hits.s,hits.n,sizes.n FROM (SELECT membership.v,membership.s,COUNT(*) AS n FROM temp.k1_v4_history AS query CROSS JOIN main.m AS membership INDEXED BY k1_v2_posting ON membership.i=query.i GROUP BY membership.v,membership.s) AS hits LEFT JOIN main.k1_v2_sizes AS sizes ON sizes.v=hits.v AND sizes.s=hits.s",
+  "logical_join_opportunity": {
+    "fixed_queries": 7,
+    "posting_matches": 21072,
+    "positive_groups": 19391,
+    "logical_repeated_size_joins_avoided": 1681,
+    "logical_join_input_reduction_percent": 7.9774107820804865,
+    "interpretation": "Derived from original sealed workload and plan shape; not measured candidate VM steps, reads, time or speedup."
+  },
+  "original_cost_context": {
+    "fixed_cases": [
+      {
+        "case": "n3000_4999/hash",
+        "eligible_neighbors": 3156,
+        "original_overlap_median_seconds": 0.028345700000500074,
+        "original_core_median_seconds": 0.08690019999994547
+      },
+      {
+        "case": "n3000_4999/segment_max",
+        "eligible_neighbors": 4071,
+        "original_overlap_median_seconds": 0.04875720000018191,
+        "original_core_median_seconds": 0.09932079999998678
+      },
+      {
+        "case": "n1946_2499/segment_max",
+        "eligible_neighbors": 2499,
+        "original_overlap_median_seconds": 0.03952639999988605,
+        "original_core_median_seconds": 0.08848390000093787
+      },
+      {
+        "case": "n2500_2999/hash",
+        "eligible_neighbors": 2770,
+        "original_overlap_median_seconds": 0.04356770000049437,
+        "original_core_median_seconds": 0.0889655999999377
+      },
+      {
+        "case": "n2500_2999/segment_max",
+        "eligible_neighbors": 2992,
+        "original_overlap_median_seconds": 0.029310799998711445,
+        "original_core_median_seconds": 0.08784670000204642
+      },
+      {
+        "case": "n1946_2499/hash",
+        "eligible_neighbors": 1958,
+        "original_overlap_median_seconds": 0.017614500000490807,
+        "original_core_median_seconds": 0.04500069999994594
+      },
+      {
+        "case": "anchor/anchor",
+        "eligible_neighbors": 1945,
+        "original_overlap_median_seconds": 0.01661469999999099,
+        "original_core_median_seconds": 0.04654769999797281
+      }
+    ],
+    "mean_of_per_query_overlap_medians_seconds": 0.03196242857146509,
+    "mean_of_per_query_core_medians_seconds": 0.07758080000011043
+  },
+  "prior_vote_candidate": {
+    "report": {
+      "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+      "bytes": 113040,
+      "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+    },
+    "name": "rank_counts",
+    "decision": {
+      "pairs": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "A_primary_seconds": 2.1804192999970837,
+          "B_primary_seconds": 2.1212986999889836,
+          "primary_saving_seconds": 0.059120600008100155,
+          "primary_saving_percent": 2.7114326133592392,
+          "entry_saving_seconds": 0.2743528000009974
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "A_primary_seconds": 2.3692828000239388,
+          "B_primary_seconds": 2.058507199986707,
+          "primary_saving_seconds": 0.3107756000372319,
+          "primary_saving_percent": 13.116863889531968,
+          "entry_saving_seconds": 1.0128069000002142
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "A_primary_seconds": 1.9884877999938908,
+          "B_primary_seconds": 1.9359730000142008,
+          "primary_saving_seconds": 0.05251479997969,
+          "primary_saving_percent": 2.6409415224901727,
+          "entry_saving_seconds": 0.44482919999791193
+        },
+        {
+          "pair": 4,
+          "order": "BA",
+          "A_primary_seconds": 1.9540436000061163,
+          "B_primary_seconds": 2.060927399988941,
+          "primary_saving_seconds": -0.10688379998282471,
+          "primary_saving_percent": -5.4698779486030995,
+          "entry_saving_seconds": 0.30094309999913094
+        },
+        {
+          "pair": 5,
+          "order": "AB",
+          "A_primary_seconds": 1.848127299996122,
+          "B_primary_seconds": 1.8298746999971627,
+          "primary_saving_seconds": 0.01825259999895934,
+          "primary_saving_percent": 0.9876267721924589,
+          "entry_saving_seconds": -0.05685120000089228
+        },
+        {
+          "pair": 6,
+          "order": "BA",
+          "A_primary_seconds": 2.184330100000807,
+          "B_primary_seconds": 1.8283867000136524,
+          "primary_saving_seconds": 0.3559433999871544,
+          "primary_saving_percent": 16.295311774855957,
+          "entry_saving_seconds": 0.9828467999996064
+        }
+      ],
+      "faster_pairs": 5,
+      "order_median_savings_seconds": {
+        "AB": 0.05251479997969,
+        "BA": 0.3107756000372319
+      },
+      "median_saving_percent": 2.676187067924706,
+      "primary_gate_passed": false,
+      "entry_median_seconds": {
+        "A": 8.614620899999863,
+        "B": 8.165510850000828
+      },
+      "entry_regressed": false,
+      "supports_candidate": false
+    },
+    "protocol": {
+      "pairs": 6,
+      "warmup_runs": 2,
+      "minimum_wins": 5,
+      "minimum_median_saving_percent": 5,
+      "both_order_medians_positive": true,
+      "entry_median_must_not_regress": true,
+      "budget_seconds": 1800
+    },
+    "rejection_unchanged": true
+  },
+  "decision": {
+    "semantic_acceptance": true,
+    "plan_hypothesis_supported": true,
+    "adopted": false,
+    "measured_speedup_percent": null,
+    "next_step": "At most a separately preregistered paired evaluation on the original 48 fixed cases, with order balance, original full payloads, stage costs and sequential load observation.",
+    "reason": "Grouping moves the unique size lookup after posting aggregation, but only the logical repeated matches are avoided. Posting access, grouping, returned rows and Python work remain. Co-routine overhead may offset savings; no runtime conclusion follows."
+  },
+  "scope": {
+    "candidate_real_rankings": 0,
+    "candidate_real_performance_runs": 0,
+    "actual_model_explain_plans": 2,
+    "new_keys": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "coverage": {
+    "covered_cells": 55,
+    "uncovered_cells": 0,
+    "unrepresented_population": 0,
+    "distinct_historically_verified_queries": 232,
+    "distinct_comparable_queries": 170,
+    "target_cell_distinct_queries": {
+      "1101/n5/v4": 11
+    },
+    "target_tail_distinct_queries": 6
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null,
+  "private_receipt": {
+    "path": "shop-mysql-runtime/verification/knn-v21-overlap-assessment-6ab248703a6e44cb8c6781becc3e2c95/assessment.json",
+    "bytes": 11595,
+    "sha256": "f45eaf280d940a9d7c112ba1b4adba8cdba2752f8ed184b50bfcac634bbf14b0"
+  }
+}
