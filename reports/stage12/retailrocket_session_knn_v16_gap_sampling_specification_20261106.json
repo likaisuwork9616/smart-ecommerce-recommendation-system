@@ -1,0 +1,118 @@
+{
+  "status": "v16_target_three_specification_frozen",
+  "scope": "Prospective engineering cost specification for all three remaining validation fine cells. Capacity-limited census of the eligible rows in these cells only; frozen V4 ranking and V6 timing. This step performs zero new selection or ranking.",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v16_gap_inventory_20261106.json",
+    "bytes": 25152,
+    "sha256": "c37d37550d865215d5887046e217e812cdc96a7ef883f2e2bc78f8f6e38f47c6"
+  },
+  "quotas": [
+    {
+      "cell": "0001/n3/v3",
+      "population": 4,
+      "historical_exclusions": 0,
+      "eligible": 4,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "0001/n3/v4",
+      "population": 4,
+      "historical_exclusions": 0,
+      "eligible": 4,
+      "planned_new_queries": 4
+    },
+    {
+      "cell": "1011/n5/v4",
+      "population": 2,
+      "historical_exclusions": 0,
+      "eligible": 2,
+      "planned_new_queries": 2
+    }
+  ],
+  "selection": {
+    "quota_by_cell": {
+      "0001/n3/v3": 4,
+      "0001/n3/v4": 4,
+      "1011/n5/v4": 2
+    },
+    "planned_unique_queries": 10,
+    "capacity_policy": "Freeze min(4, eligible) per cell after history exclusion. Verified capacities are 4, 4 and 2, so all eligible queries in the three cells are included. Do not oversample, duplicate identities, replace queries or transfer quotas.",
+    "prefix_with_terminator": "k1-gap-v16-20261106\u0000",
+    "exclusion": "Exclude the union of V3, V5 reused by V6, V7, V8, V9, V10, V11, V12, V13, V14 and V15. Require pinned cohort sizes, overlaps and 208 distinct historic keys.",
+    "order": "In each cell, hash the ASCII prefix including its final NUL followed by the 32 raw bytes decoded from key_sha256. Take the registered number of lowest raw SHA-256 digests in bytewise ascending order; tie by original_ordinal. Sort the combined ten by original_ordinal. All eligible queries are retained because each quota equals capacity.",
+    "inputs": "Only the pinned structural validation roster, its V6 cell definitions and the historic exclusion identities. Do not use targets, predictions or measured costs or times to choose queries.",
+    "selection_seal": "Verify the complete roster through EOF, count, SHA, identities, ordinals, cell membership and exact inventory capacities. Independently sort each full eligible list and match all ten rows before sealing or reading aligned ranking inputs.",
+    "failure": "Stop on changed source, duplicate identity, capacity or quota mismatch, or insufficient eligible queries. Preserve evidence. No alternate seeds, replacement queries, oversampling or quota transfers."
+  },
+  "measurement": {
+    "queries_per_repeat": 10,
+    "fresh_repeats": 2,
+    "expected_engineering_checks": 20,
+    "ranking": "Two fresh V6 checkpoint namespaces. The same ten sealed queries from the seven aligned sources use the frozen original V4 four-arm ranking and V6 timers.",
+    "common_checks": "Verify original identity and ordinal, model provenance and six gates, the complete eligible-neighbor pool count and digest, exact similarities and tie order, min(500, eligible) selected neighbors and each member size. Verify returned vote rows equal the selected sizes summed and 0 <= causal additions <= returned vote rows.",
+    "workload_by_cell": {
+      "0001/n3/v3": {
+        "eligible_neighbor_band": [
+          100,
+          499
+        ],
+        "vote_upper_band": [
+          500,
+          1999
+        ],
+        "selected_neighbors": "All eligible neighbors in frozen exact rank order. Reconstruct the complete pool digest. The 500th frontier is absent, with null boundary similarity and zero boundary tie counters.",
+        "vote_rows": "Exactly vote_memberships_upper."
+      },
+      "0001/n3/v4": {
+        "eligible_neighbor_band": [
+          100,
+          499
+        ],
+        "vote_upper_band": [
+          2000,
+          9999
+        ],
+        "selected_neighbors": "All eligible neighbors in frozen exact rank order. Reconstruct the complete pool digest. The 500th frontier is absent, with null boundary similarity and zero boundary tie counters.",
+        "vote_rows": "Exactly vote_memberships_upper."
+      },
+      "1011/n5/v4": {
+        "eligible_neighbor_band": [
+          1000,
+          4999
+        ],
+        "vote_upper_band": [
+          2000,
+          9999
+        ],
+        "selected_neighbors": "First 500 by frozen exact rank. Verify the 500th frontier and total, selected and excluded tie counts.",
+        "vote_rows": "At least 500 and at most vote_memberships_upper."
+      }
+    },
+    "timing": "Use the V6 per-row verification plus append cost excluding nested commit and direct budget write. Report maxima by cell within each repeat. Retain raw timers, rank subphases, commit, setup and tail separately.",
+    "absolute_wall_budget_seconds": 1800,
+    "deadline_scope": "One absolute supervisor deadline shared by selection, extraction, both repeats and supervised verification.",
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "publication": "Verify unchanged source and method digests before and after, exact four-arm outputs against independent validation references, complete EOF and checkpoint chain for each repeat. Compare deterministic ledger frames including byte totals and concatenated SHA across repeats. Require normal supervisor exit and independent post-exit count, integrity and original-deadline verification.",
+    "stop": "For any selection, identity, ranking, output, resource, deadline, checkpoint or exit failure, stop the run, retain partial evidence under ignored paths and withhold publication and coverage credit.",
+    "observed_boundary_population": "The pinned roster has eight below-500 cases in the first two cells and two above-500 cases in the third. No cases have exactly 500 eligible neighbors. Report under500, exact500 and over500 counts per cell."
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  },
+  "conditional_after_all_10_verified": {
+    "v6_plus_new_cells_with_sample": 55,
+    "uncovered_cells": 0,
+    "v6_plus_new_unrepresented_population": 0,
+    "distinct_historically_verified_queries": 218
+  }
+}

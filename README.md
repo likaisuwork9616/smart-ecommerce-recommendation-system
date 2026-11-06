@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 剩餘三格盤點完成 | 三格母體與可選容量均為 4／4／2，歷史排除皆為 0；覆蓋 52／55 格。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 三格容量配額封存 | 固定配額 4／4／2，共 10 筆；新選樣與排名 0 筆，覆蓋 52／55 格。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜剩餘三格的容量補測（最新）
 
-重掃完整 166,897 筆名冊，核對 86 份來源與十一組歷史的 208 個身分。剩餘三格 `0001/n3/v3`、`0001/n3/v4`、`1011/n5/v4` 的 **4／4／2 筆全部可選**。前兩格全鄰居入選，第三格從 1,287 位取前 500 位。盤點新增選樣與排名均為 0，覆蓋仍為 **52／55 格**。 [方法與結果](docs/STAGE12_KNN_FINAL_GAPS_V16_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v16_gap_inventory_20261106.json)
+按可選容量封存 **4／4／2 筆，共 10 筆**，涵蓋三格全部可選母體。固定排序、十一組歷史排除、同批兩次核對與 1,800 秒停止條件已寫入規格。第三格僅兩筆，按容量納入。工具與實測尚未完成，覆蓋維持 **52／55 格**。 [方法與結果](docs/STAGE12_KNN_FINAL_GAPS_V16_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v16_gap_sampling_specification_20261106.json)
 
 ## Stage 12｜500–999 與 100–499 鄰居帶的缺口補測（前輪）
 
