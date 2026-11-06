@@ -1,0 +1,466 @@
+{
+  "status": "v19_tail_variation_analyzed",
+  "source_report": {
+    "path": "reports/stage12/retailrocket_session_knn_v19_tail_cost_20261106.json",
+    "bytes": 496697,
+    "sha256": "0f5050833be7bee656bb667ea47b4382b7f55bfb5a14582c6c91d77c301d3184"
+  },
+  "evidence_inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_cost_20261106.json",
+      "bytes": 496697,
+      "sha256": "0f5050833be7bee656bb667ea47b4382b7f55bfb5a14582c6c91d77c301d3184"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/frozen_probes.json",
+      "bytes": 4289,
+      "sha256": "e8076aa2aeb6c24c3201392bbf2002e143cf5843fa43b96b8bb534a708c833c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/measurements.json",
+      "bytes": 9018,
+      "sha256": "9c97607288485f0f0a3eedd2184837bd86afe40d800e3373066a5951e83e1f35"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/observations.json",
+      "bytes": 10385,
+      "sha256": "f51122862c2faadb45df0fa0e84404cdd143bf2b1affa7aa3c102e67d2074f92"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verifier_span.json",
+      "bytes": 204,
+      "sha256": "5679739e4f2362d113f8c753fbde7d4217023cc9d2b2273a3d653111adfdeb28"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/telemetry_summary.json",
+      "bytes": 2158,
+      "sha256": "b55036f15207aee0134a3c2d8bc3a4a859f06bf4c0d00029ee93c9f260426ed6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/measurements.json",
+      "bytes": 9020,
+      "sha256": "8b1c2e9a3b86721e1e1090c9856482939aa3565cebda1183786eed8897c0b0ab"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/observations.json",
+      "bytes": 10343,
+      "sha256": "5dc241a05adabaa69ea03cfe97c8ee2e33e8ab827fccfa84780a6d335438bc61"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verifier_span.json",
+      "bytes": 204,
+      "sha256": "2eb1d0cf6b22163ee5e64e0d6bb8342fc2dbfea8d4d5940bccd9dc7f237e3c2a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/telemetry_summary.json",
+      "bytes": 2154,
+      "sha256": "5242bddb4028f8628a7df21da43b8b9049873972963a8574d582d3bfc219fdd1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/measurements.json",
+      "bytes": 9021,
+      "sha256": "0e84674247a1e39466a8ecae8fdfac88049b0803d5715d9faa2887a0d60e2611"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/observations.json",
+      "bytes": 10376,
+      "sha256": "6787d904e3d58e0d2df1c7683aed6f207280ab7cde69002c37b20c61551ec08a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verifier_span.json",
+      "bytes": 204,
+      "sha256": "f0505cbeaf68fac1a27a1eb01564b6176329feb4eaab78268742210b5694fa49"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/telemetry_summary.json",
+      "bytes": 2162,
+      "sha256": "f7e017f5f541e2dc111a325d4bf326f7956c314df88753460046e62112fd7faf"
+    }
+  ],
+  "target_cell": "1101/n5/v4",
+  "descriptive_sample_groups": {
+    "new": {
+      "distinct_queries": 6,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.0649908333333921,
+        "rank": 0.060311283333400446,
+        "vote_sql_and_accumulation": 0.012054716666549817,
+        "checkpoint_append": 0.006442016666672619,
+        "append_without_commit": 0.006442016666672619,
+        "direct_budget": 0.002690299999964433,
+        "append_without_commit_or_budget": 0.0036713500000284207,
+        "core": 0.06870551666664444,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 6,
+        "sum": 0.4122330999998667,
+        "mean": 0.06870551666664444,
+        "minimum": 0.040179999999509164,
+        "median": 0.07240755000020727,
+        "maximum": 0.08361799999966024,
+        "range": 0.04343800000015108
+      },
+      "within_identity_core_ranges": {
+        "count": 6,
+        "sum": 0.08848169999964739,
+        "mean": 0.014746949999941231,
+        "minimum": 0.0026014000000031956,
+        "median": 0.01372924999964198,
+        "maximum": 0.030678299999635783,
+        "range": 0.028076899999632587
+      }
+    },
+    "anchor": {
+      "distinct_queries": 1,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.050763199999892095,
+        "rank": 0.047202000000197586,
+        "vote_sql_and_accumulation": 0.01042840000036449,
+        "checkpoint_append": 0.001458100000036211,
+        "append_without_commit": 0.001458100000036211,
+        "direct_budget": 0.0,
+        "append_without_commit_or_budget": 0.001458100000036211,
+        "core": 0.052237699999750475,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 1,
+        "sum": 0.052237699999750475,
+        "mean": 0.052237699999750475,
+        "minimum": 0.052237699999750475,
+        "median": 0.052237699999750475,
+        "maximum": 0.052237699999750475,
+        "range": 0.0
+      },
+      "within_identity_core_ranges": {
+        "count": 1,
+        "sum": 0.013120399999934307,
+        "mean": 0.013120399999934307,
+        "minimum": 0.013120399999934307,
+        "median": 0.013120399999934307,
+        "maximum": 0.013120399999934307,
+        "range": 0.0
+      }
+    },
+    "n1946_2499": {
+      "distinct_queries": 2,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.05536759999995411,
+        "rank": 0.052135000000134823,
+        "vote_sql_and_accumulation": 0.013577899999972942,
+        "checkpoint_append": 0.0014333000001442997,
+        "append_without_commit": 0.0014333000001442997,
+        "direct_budget": 0.0,
+        "append_without_commit_or_budget": 0.0014333000001442997,
+        "core": 0.0567475499997272,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 2,
+        "sum": 0.1134950999994544,
+        "mean": 0.0567475499997272,
+        "minimum": 0.040179999999509164,
+        "median": 0.0567475499997272,
+        "maximum": 0.07331509999994523,
+        "range": 0.03313510000043607
+      },
+      "within_identity_core_ranges": {
+        "count": 2,
+        "sum": 0.024319599999671482,
+        "mean": 0.012159799999835741,
+        "minimum": 0.011620199999924807,
+        "median": 0.012159799999835741,
+        "maximum": 0.012699399999746674,
+        "range": 0.001079199999821867
+      }
+    },
+    "n2500_2999": {
+      "distinct_queries": 2,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.06531060000020261,
+        "rank": 0.06165030000011029,
+        "vote_sql_and_accumulation": 0.014281849999861151,
+        "checkpoint_append": 0.0013963999999759835,
+        "append_without_commit": 0.0013963999999759835,
+        "direct_budget": 0.0,
+        "append_without_commit_or_budget": 0.0013963999999759835,
+        "core": 0.06689035000022159,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 2,
+        "sum": 0.13378070000044318,
+        "mean": 0.06689035000022159,
+        "minimum": 0.062280699999973876,
+        "median": 0.06689035000022159,
+        "maximum": 0.0715000000004693,
+        "range": 0.009219300000495423
+      },
+      "within_identity_core_ranges": {
+        "count": 2,
+        "sum": 0.01736049999954048,
+        "mean": 0.00868024999977024,
+        "minimum": 0.0026014000000031956,
+        "median": 0.00868024999977024,
+        "maximum": 0.014759099999537284,
+        "range": 0.012157699999534088
+      }
+    },
+    "n3000_4999": {
+      "distinct_queries": 2,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.07429430000001958,
+        "rank": 0.06714854999995623,
+        "vote_sql_and_accumulation": 0.00830439999981536,
+        "checkpoint_append": 0.016496349999897575,
+        "append_without_commit": 0.016496349999897575,
+        "direct_budget": 0.0080708999998933,
+        "append_without_commit_or_budget": 0.00818434999996498,
+        "core": 0.08247864999998455,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 2,
+        "sum": 0.1649572999999691,
+        "mean": 0.08247864999998455,
+        "minimum": 0.08133930000030887,
+        "median": 0.08247864999998455,
+        "maximum": 0.08361799999966024,
+        "range": 0.0022786999993513746
+      },
+      "within_identity_core_ranges": {
+        "count": 2,
+        "sum": 0.04680160000043543,
+        "mean": 0.023400800000217714,
+        "minimum": 0.016123300000799645,
+        "median": 0.023400800000217714,
+        "maximum": 0.030678299999635783,
+        "range": 0.014554999998836138
+      }
+    },
+    "segment_max": {
+      "distinct_queries": 3,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.07248540000000503,
+        "rank": 0.06904703333339057,
+        "vote_sql_and_accumulation": 0.014311166666630015,
+        "checkpoint_append": 0.0035576666665898906,
+        "append_without_commit": 0.0035576666665898906,
+        "direct_budget": 0.0,
+        "append_without_commit_or_budget": 0.0035576666665898906,
+        "core": 0.0761443666666916,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 3,
+        "sum": 0.22843310000007477,
+        "mean": 0.0761443666666916,
+        "minimum": 0.0715000000004693,
+        "median": 0.07331509999994523,
+        "maximum": 0.08361799999966024,
+        "range": 0.012117999999190943
+      },
+      "within_identity_core_ranges": {
+        "count": 3,
+        "sum": 0.057057599999097874,
+        "mean": 0.019019199999699293,
+        "minimum": 0.011620199999924807,
+        "median": 0.014759099999537284,
+        "maximum": 0.030678299999635783,
+        "range": 0.019058099999710976
+      }
+    },
+    "hash": {
+      "distinct_queries": 3,
+      "mean_of_query_medians_seconds": {
+        "verification": 0.05749626666677917,
+        "rank": 0.05157553333341033,
+        "vote_sql_and_accumulation": 0.00979826666646962,
+        "checkpoint_append": 0.009326366666755348,
+        "append_without_commit": 0.009326366666755348,
+        "direct_budget": 0.005380599999928866,
+        "append_without_commit_or_budget": 0.003785033333466951,
+        "core": 0.0612666666665973,
+        "query_nested_commit": 0.0
+      },
+      "between_identity_core_medians": {
+        "count": 3,
+        "sum": 0.1837999999997919,
+        "mean": 0.0612666666665973,
+        "minimum": 0.040179999999509164,
+        "median": 0.062280699999973876,
+        "maximum": 0.08133930000030887,
+        "range": 0.0411593000007997
+      },
+      "within_identity_core_ranges": {
+        "count": 3,
+        "sum": 0.031424100000549515,
+        "mean": 0.010474700000183171,
+        "minimum": 0.0026014000000031956,
+        "median": 0.012699399999746674,
+        "maximum": 0.016123300000799645,
+        "range": 0.01352190000079645
+      }
+    }
+  },
+  "same_query_max_range_pair": {
+    "sample_role": "new",
+    "selection_segment": "n3000_4999",
+    "selection_reason": "segment_max",
+    "fast_repeat": 1,
+    "slow_repeat": 2,
+    "fast_core_seconds": 0.07396060000019133,
+    "slow_core_seconds": 0.10463889999982712,
+    "delta_seconds": {
+      "verification": 0.02437119999922288,
+      "rank": 0.024341999999705877,
+      "vote_sql_and_accumulation": 0.00040760000001682783,
+      "checkpoint_append": 0.006307100000412902,
+      "append_without_commit": 0.006307100000412902,
+      "direct_budget": 0,
+      "append_without_commit_or_budget": 0.006307100000412902,
+      "core": 0.030678299999635783,
+      "query_nested_commit": 0.0
+    }
+  },
+  "same_pair_rank_stages_delta_seconds": {
+    "exact_neighbor_selection": 0.0012679000001298846,
+    "history_and_temp_setup": 9.720000025481568e-05,
+    "neighbor_pool_sha": 0.00011619999986578478,
+    "prediction_output": -8.53000001370674e-05,
+    "sql_positive_overlaps": 0.022917400000096677,
+    "sql_selected_votes_and_accumulation": 0.00040760000001682783,
+    "top_ten_and_zero_fill": -3.000000106112566e-06
+  },
+  "same_pair_rank_outer_delta_seconds": -0.0003760000004149333,
+  "repeat_load_context": [
+    {
+      "repeat_index": 0,
+      "verifier_seconds": 3.8883300000002237,
+      "bracket_seconds": 4.414083300000129,
+      "samples": 18,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 12.75695254550351,
+        "max": 14.6
+      },
+      "available_memory_bytes": {
+        "min": 20138266624,
+        "mean": 20181576590.22222,
+        "max": 20212301824
+      },
+      "collector_total_seconds": 0.6742572000011933,
+      "maximum_sample_gap_seconds": 0.7528510000001916,
+      "estimated_skipped_nominal_200ms_slots": 3,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 278528,
+        "read_count": 13,
+        "read_time": 0,
+        "write_bytes": 3091968,
+        "write_count": 58,
+        "write_time": 0
+      }
+    },
+    {
+      "repeat_index": 1,
+      "verifier_seconds": 3.857150599999841,
+      "bracket_seconds": 3.872726000000057,
+      "samples": 18,
+      "system_cpu_percent": {
+        "min": 10.0,
+        "mean": 13.168424556759291,
+        "max": 17.5
+      },
+      "available_memory_bytes": {
+        "min": 20147073024,
+        "mean": 20174216305.77778,
+        "max": 20190564352
+      },
+      "collector_total_seconds": 0.14911430000029213,
+      "maximum_sample_gap_seconds": 0.243630899999971,
+      "estimated_skipped_nominal_200ms_slots": 0,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 28672,
+        "read_count": 2,
+        "read_time": 0,
+        "write_bytes": 1862144,
+        "write_count": 60,
+        "write_time": 0
+      }
+    },
+    {
+      "repeat_index": 2,
+      "verifier_seconds": 3.897249799999827,
+      "bracket_seconds": 3.910790000000361,
+      "samples": 18,
+      "system_cpu_percent": {
+        "min": 12.2,
+        "mean": 13.070386356720732,
+        "max": 15.2
+      },
+      "available_memory_bytes": {
+        "min": 20141117440,
+        "mean": 20166376789.333332,
+        "max": 20178919424
+      },
+      "collector_total_seconds": 0.1764125999998214,
+      "maximum_sample_gap_seconds": 0.2528039999997418,
+      "estimated_skipped_nominal_200ms_slots": 0,
+      "observed_ollama_named_processes": 2,
+      "matched_ollama_named_cpu_core_percent": {
+        "min": 0.0,
+        "mean": 0.0,
+        "max": 0.0
+      },
+      "disk_io_delta": {
+        "read_bytes": 155648,
+        "read_count": 7,
+        "read_time": 0,
+        "write_bytes": 765952,
+        "write_count": 45,
+        "write_time": 0
+      }
+    }
+  ],
+  "limits": [
+    "Three bands with two new queries each intentionally include eligible maxima; descriptive sample costs are not population estimates for the tail, cell or 55-cell universe.",
+    "New identities, historical anchor and selection reasons are separated. Different machine windows are not optimization pairs.",
+    "Same-query paired timer deltas locate observed elapsed-time variation; they do not establish OS, cache, storage, observer or external-process causation. Rank and vote are nested inside verification.",
+    "Resource statistics span actual bracketing observations, including initial acquisition; collector costs overlap verifier time and cannot be added as a disjoint cost.",
+    "The first-round long interval remains a valid CPU interval. Estimated skipped nominal sampling slots do not mean recorded intervals were deleted.",
+    "Only executable names beginning with ollama were observed; unmatched runner names, GPU utilization and inference token throughput were not measured.",
+    "Load sampling covers the three verifier entries, not source hashing or seven-source extraction. Three repeat contexts cannot establish per-query load causation or an Ollama slowdown percentage."
+  ],
+  "scope": {
+    "new_keys": 6,
+    "reused_anchor_keys": 1,
+    "queries_per_repeat": 7,
+    "fresh_repeats": 3,
+    "new_engineering_verifications": 21,
+    "new_primary_fits": 0,
+    "new_primary_validation_runs": 0,
+    "new_primary_bootstrap": 0,
+    "SQL_candidate_runs": 0,
+    "full_readback_started": false,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null
+}
