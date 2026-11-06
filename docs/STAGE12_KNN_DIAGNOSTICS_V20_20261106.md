@@ -29,3 +29,44 @@ V6 的 frame_encode 是外框序列化與 UTF-8 編碼；完整 expected／preci
 仍為 **55／55 格、170 個可比較查詢、232 個歷史身分**；`1101/n5/v4` 保持 11 個可比較查詢，其中高於 1,945 位鄰居的尾端為 6 筆。這輪所有重測皆為舊身分，不增加覆蓋。後續封存原方法與診斷方法交錯的循序窗口，核對全部七筆 V19 完整 payload，保留原對照與所有輪次，另觀察新增計時的擾動。
 
 [盤點收據](../reports/stage12/retailrocket_session_knn_v20_diagnostics_inventory_20261106.json)
+
+## 封存診斷規格
+
+沿用 V19 封存的完整七筆、原始順序、七路資料子集與固定對照。全部都是舊身分，**新增樣本為 0**；不再重選、遞補或重做抽取。每輪都使用新唯讀連線及新 checkpoint，來源檢查與準備沿原流程，R／D 口徑一致。
+
+原方法 **R** 保留 V4 排名／驗證及 V6 append 計時；診斷方法 **D** 透過本次呼叫專屬的函式命名空間與觀測代理，執行原操作與 SQL，加入分項 wall／thread CPU 計時。舊版封存方法檔不修改，科學輸出與保存協定不改動。
+
+| 固定配對 | 輪次與順序 | 每輪查詢數 |
+| --- | --- | ---: |
+| 1 | 第 1 輪 R → 第 2 輪 D | 7 |
+| 2 | 第 3 輪 D → 第 4 輪 R | 7 |
+| 3 | 第 5 輪 R → 第 6 輪 D | 7 |
+
+合計 **6 輪、42 次工程核對**，全部循序執行。R、D 各三次，保留所有輪次；不排除暖機、不清快取、不依結果換序或追加較快結果。三對相鄰 R／D 差值用來描述新增觀測可能造成的擾動，不當作 SQL 優化加速，也不把三對差值當成可固定扣除的觀測器成本。
+
+## 分項觀測
+
+| 區段 | 本輪拆分與解讀 |
+| --- | --- |
+| 正重疊鄰居 | 原 inclusive phase、原 SQL execute、lazy cursor 每次 next（含終止）、剩餘 Python／watch／代理處理；不預先 fetchall，SQL 與索引不改。execute／next 仍可能同時含 SQLite 工作與 Python 列轉換。 |
+| Append | 保留 V6 的 budget_check、guards_and_key、frame_encode、payload_open、payload_write、pending_and_trigger、nested_flush；加入同區段執行緒 CPU。 |
+| 預算檢查 | 僅在 active append 內細分 budget.json 的 read_text、JSON parse、原子保存與其他檢查；區分 check_budget 本體與外層 writer／context／observer 剩餘時間。 |
+| 未細分的範圍 | setup、尾端 fsync／commit 與 stage 保存沿用原 wall 計時與整輪負載，不假報細到每個系統呼叫。 |
+
+使用經過時間及**執行查詢之執行緒 CPU**，避免把背景負載觀測器的 CPU 混入查詢 CPU。保留時鐘資訊、量化與有號的 wall−CPU，不夾成零；此差值不能直接叫磁碟等待或 Ollama 干擾。原含括計時、內含／剩餘分項必須守恆，缺漏或非有限值拒絕發布。
+
+每筆先按模式彙整三次最小／中位／最大值及變幅；核心、正重疊鄰居與 append 各選其同查詢快慢對分解，不拼接不同項目的最大值。原新尾端／舊對照標籤僅描述 V19 來源，V20 一律為重測。不得作整格、尾端或 55 格母體工時估計。
+
+## 負載、驗收與停止條件
+
+六輪各沿用 V18 **200ms 目標間隔**的同一觀測器，首尾涵蓋驗證入口，記錄系統 CPU／RAM／可取得磁碟累積值、工作程序及名稱以 ollama 開頭之程序 CPU／RSS。保留實際採樣間隔與缺失狀態，首筆 CPU 排除，CPU 依實際區間加權；六輪不重疊。模式內 repeat_index 各為 0–2，另以 round_index 0–5 記錄完整先後，避免改動已驗收的觀測器。
+
+必要條件為每輪至少兩個有效 CPU 區間、有效記憶體紀錄及正確首尾 span；不將缺失填零。來源雜湊與 checkpoint 準備不屬於驗證入口負載區間。未量測其他名稱 runner、GPU 或 token 速度，不呼叫 Ollama 推論、不修改其設定。
+
+合成驗收須證明原／診斷的完整科學輸出、lazy SQL 操作、保存 bytes、錯誤與 fault 邊界一致，並驗證計時守恆、原 namespace 不受污染、固定六輪與全部七筆歷史 payload 比較。真實每輪都須逐筆對回 V19 的完整 expected／precise／delta_hex，且六份實體帳本與 V19 原帳本一致；只核原 anchor 不足以通過。
+
+沿用 **1,800 秒**窗口、程序樹 RSS 8 GiB、執行目錄 20 GiB、至少可用 RAM 4 GiB 與磁碟 8 GiB。來源、方法、樣本順序、科學輸出、負載、計時、期限或資源任一不符即停止，保留證據。只有正常退出、受監督程序結束、退出後重核全部通過才發布完成結果。
+
+全通過後只增加 **42 次工程核對**：覆蓋仍 **55／55**、可比較查詢 **170**、歷史身分 **232**，該格 **11**、尾端 **6**。主要訓練、完整 validation、主要 bootstrap、SQL 候選與保留測試本輪均為 0。規格封存時實測尚未開始。
+
+[封存規格](../reports/stage12/retailrocket_session_knn_v20_diagnostics_specification_20261106.json)

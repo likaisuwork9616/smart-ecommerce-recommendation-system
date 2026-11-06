@@ -13,7 +13,7 @@
 
 ## Stage 12｜固定七筆的 SQL 與 append 波動診斷（最新）
 
-七筆與歷史證據核對一致；最大 append 差主要在預算檢查而非 payload 寫入。[盤點、規格與實測](STAGE12_KNN_DIAGNOSTICS_V20_20261106.md)
+原方法與診斷方法按 R／D、D／R、R／D 循序配對，六輪共四十二次核對。[盤點、規格與實測](STAGE12_KNN_DIAGNOSTICS_V20_20261106.md)
 
 ## Stage 12｜高於 1,945 位鄰居的尾端補樣（前輪）
 

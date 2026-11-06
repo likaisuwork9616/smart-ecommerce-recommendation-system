@@ -1,0 +1,715 @@
+{
+  "status": "v20_diagnostics_specification_frozen",
+  "created_utc": "2026-11-06T05:38:49.334075+00:00",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_inventory_20261106.json",
+    "bytes": 53427,
+    "sha256": "8baf50dea1810067f75adf0e3d9270134b8e6b92501f2610986ef085bbe7632f"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_acceptance_20261106.json",
+      "bytes": 1988,
+      "sha256": "911aebc8cd311b2a066c1da1532cf45caa3e406f5e1d67902b981aa0d0ef06d5"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_cost_20261106.json",
+      "bytes": 496697,
+      "sha256": "0f5050833be7bee656bb667ea47b4382b7f55bfb5a14582c6c91d77c301d3184"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_sampling_specification_20261106.json",
+      "bytes": 10274,
+      "sha256": "65a2022c6481006664af0b19b4d6c79a6dd7a3cb0263d258f9a68d2239fe2d4b"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_variation_analysis_20261106.json",
+      "bytes": 17665,
+      "sha256": "109e87f28886ccaa4e6ac64aa7a3c642058c12542dc7495c261c619e462826d2"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_cost_v5.py",
+      "bytes": 6650,
+      "sha256": "5ce501da8c2eeb7f4b3c7ea38d724b43246ace98ac4eb0038003293071bea0ff"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_detailed_cost_v6.py",
+      "bytes": 6853,
+      "sha256": "b611b644218c821b89cd56d4188aeca2931cd8d5c4bd09cfb5d61167ed03c260"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_tail_v19.py",
+      "bytes": 24246,
+      "sha256": "94320d86156a9d8ca14c9293d2ff46feee02df1a79b04fe2b040d53d4cc0827a"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_tail_v19.py",
+      "bytes": 35539,
+      "sha256": "b4d549892dd13a5d1083b275d613a96acbe95c36e314bd516ef9b412e36e8022"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/cost_summary.json",
+      "bytes": 207550,
+      "sha256": "45dfeb2b654d7a176a03d428e7d1fcd234c2e4c09762523b3095907eb7abf05c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/done.json",
+      "bytes": 90,
+      "sha256": "405ea4437c5e015f055d73ec0c920d0e8f34b1f4f61a3550d8e203aa4f99cd16"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/final_frozen_source_hash_receipt.json",
+      "bytes": 47,
+      "sha256": "38c232b11fc2aef0ca5c62d5ca200a240112e2b5d3f529ff903f329d071c9ae4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/final_frozen_source_hash_started.json",
+      "bytes": 78,
+      "sha256": "e79aa2dda3337cec19f8b960caf11f7e1cbf9739a74304a2fb9dc54fd275254a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/freeze_tail_selection_receipt.json",
+      "bytes": 47,
+      "sha256": "2f4eeb2e97bed157210df16fe73bda42f4444c8a1153fae49aa34d0261295c1b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/freeze_tail_selection_started.json",
+      "bytes": 75,
+      "sha256": "8042f5774a28cefdf4b956bb3e450f07a20ead12562afb20e456424cbf554b33"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/frozen_probes.json",
+      "bytes": 4289,
+      "sha256": "e8076aa2aeb6c24c3201392bbf2002e143cf5843fa43b96b8bb534a708c833c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/initial_frozen_source_hash_receipt.json",
+      "bytes": 47,
+      "sha256": "cf6b0f49cf730be58d438d9c636e3ad5caff74bd35eb6f4173f757aee74fb64a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/initial_frozen_source_hash_started.json",
+      "bytes": 80,
+      "sha256": "28be384bcf164a4b8fafcc65cf5090cb855ae305e8aaf12c9983dca19f67afa0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/post_exit_audit.json",
+      "bytes": 307,
+      "sha256": "9d16e566c986d059ba1318424d5b4f1945df378e6089bab50e852aa45bc9f110"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/C1/queries.jsonl",
+      "bytes": 14429,
+      "sha256": "75e407a4e8c0539a749c99d7120c26a15218838a8a6f0ab466ca0f8e3da68961"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/D1/queries.jsonl",
+      "bytes": 19545,
+      "sha256": "25875dbf0eca67ac6fa1d92975222df036bf33c7dd33bae36b46439fdc001a37"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/P0/item_counts.csv",
+      "bytes": 1784882,
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/P0/query_metrics.csv",
+      "bytes": 705,
+      "sha256": "e535ab4381aa53ce13d68c53b49a68d37664ff0d21bfe2ce50e2b0db4e6f34b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/P0/query_slices.csv",
+      "bytes": 674,
+      "sha256": "b6e8e7d4a2d4547997ad3cf6d81be1dadc1b185635a069944afe3398b94c16c5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/P0/ranked_queries.csv",
+      "bytes": 2069,
+      "sha256": "c0b47e27ab157315ee399c87c0a197fe1ec5e3b880ae2249cfd911287c6d90e8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/configuration.json",
+      "bytes": 24828,
+      "sha256": "98ed8a12c9b456e1cd2c25dbd48108b95337d20c693e99f04309801663f19ef8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/dataset/catalog.csv",
+      "bytes": 4874693,
+      "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/dataset/queries.csv",
+      "bytes": 1225,
+      "sha256": "7636c6d31b459eb5ec3ec5459366d1eaea1a351b3777eb6c8db4c76153bca2f7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/ordinals.json",
+      "bytes": 642,
+      "sha256": "f0d662256ec49b96894aae5acf948f7547ee65a650b72e3e311d0e36bf807f87"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs/primary/queries.jsonl",
+      "bytes": 311998,
+      "sha256": "0d4aabe9e4f2939ed14eadb3d9f4ae753329d1c7dbff38e2e838f743ecff33a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/measurements.json",
+      "bytes": 9018,
+      "sha256": "9c97607288485f0f0a3eedd2184837bd86afe40d800e3373066a5951e83e1f35"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/observations.json",
+      "bytes": 10385,
+      "sha256": "f51122862c2faadb45df0fa0e84404cdd143bf2b1affa7aa3c102e67d2074f92"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/proof.json",
+      "bytes": 179,
+      "sha256": "15ee19ba588f8b092f47afba92b2cc7399b4f85c77d550c48f179188dba33cb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/telemetry_records.json",
+      "bytes": 18476,
+      "sha256": "2dd080b7c7a3e4bfc2cedd0054bc4a093d4980b746de8aeb6445909ed52d3881"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/telemetry_summary.json",
+      "bytes": 2158,
+      "sha256": "b55036f15207aee0134a3c2d8bc3a4a859f06bf4c0d00029ee93c9f260426ed6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "76fe8b5f21d388c8338977d1bb1cd9b20434959427b61f6fac2a3e306645a3b0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/chunks/00000000.json",
+      "bytes": 422,
+      "sha256": "3557d7d45799ea7a2fcf383f4a64e6cedc0bed3b9f903fd38f243e92c5f1c756"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/latest.json",
+      "bytes": 245,
+      "sha256": "b86e6b2529d549aa306f9db6db693dd697a0c4b6327bc0ef05b36fdf847e7661"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/payloads/37629773c7ba4182a3198c9507157a40.jsonl",
+      "bytes": 316274,
+      "sha256": "63ad49356918d0ca94726f2037b2e878edcc2ba6b492baac86132383e072eff1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/run.json",
+      "bytes": 28930,
+      "sha256": "fe7669fb55e0d29a9336f113db3ca98602cb29ab1e6a0f8440b7325a78895ad8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "32c3f0096f47c3605031aeac1e1745c6b8e7d3d631559a43cdc9fdd14e5710ee"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/sessions/785050e8667940538105feade82ea079.json",
+      "bytes": 214,
+      "sha256": "5f77e4e70acef00dacbccf902b5a014c393162c6d5fe5d8f11bcc8d0e0eaaf4e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/sessions/785050e8667940538105feade82ea079.released.json",
+      "bytes": 288,
+      "sha256": "01bde600ee3f1dd106075145a44011206189521e36994ce6d36faddbe23c0ea2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/stages/queries.json",
+      "bytes": 329,
+      "sha256": "3f7b9a12e9c75053e65d7071bbcbeaebc95603df9e1fee17bed6e1e0c280cf55"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "8960e65328a6b52edb29abf14f8686ea84f7fa457cb2f569e826e69005f235a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "01bde600ee3f1dd106075145a44011206189521e36994ce6d36faddbe23c0ea2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/verifier_span.json",
+      "bytes": 204,
+      "sha256": "5679739e4f2362d113f8c753fbde7d4217023cc9d2b2273a3d653111adfdeb28"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_0/workload.json",
+      "bytes": 3137,
+      "sha256": "5fbb3ec8b16f97ac8862bb0b57f4fc4024557ec490af041d143e83840d7cf3b5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/measurements.json",
+      "bytes": 9020,
+      "sha256": "8b1c2e9a3b86721e1e1090c9856482939aa3565cebda1183786eed8897c0b0ab"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/observations.json",
+      "bytes": 10343,
+      "sha256": "5dc241a05adabaa69ea03cfe97c8ee2e33e8ab827fccfa84780a6d335438bc61"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/proof.json",
+      "bytes": 179,
+      "sha256": "15ee19ba588f8b092f47afba92b2cc7399b4f85c77d550c48f179188dba33cb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/telemetry_records.json",
+      "bytes": 18481,
+      "sha256": "cc29d31ede74ac4cbe06489e722eb2afe61e551bdb50c9512f67a499d9e2589a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/telemetry_summary.json",
+      "bytes": 2154,
+      "sha256": "5242bddb4028f8628a7df21da43b8b9049873972963a8574d582d3bfc219fdd1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "bf04d71ea9b5f84074155616bd36e52f068e612427df203d1296d30797d7821d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/chunks/00000000.json",
+      "bytes": 422,
+      "sha256": "c7c6be2e619cf2e0ccc077b9ce8c69354767e5e0c558196d431218dfd79d867d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/latest.json",
+      "bytes": 245,
+      "sha256": "35c07ffd24483e25432cc7343d430cc59ce314efbe22fdb9be52944862087d79"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/payloads/7b67201bc27445e5bb5f9c535b666c8c.jsonl",
+      "bytes": 316274,
+      "sha256": "63ad49356918d0ca94726f2037b2e878edcc2ba6b492baac86132383e072eff1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/run.json",
+      "bytes": 28930,
+      "sha256": "b9372f843b242e357b81c4142da42d73ac36ef93a2ea8fb5c2df7919268449ce"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "714a78a7c172a86d2a7ff5557f3ee3cd7cc3427782834a0baa6c229dbf501fbe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/sessions/4e97ed1d0c1a41048fbeff0d68d66ddd.json",
+      "bytes": 214,
+      "sha256": "dfde16caff89d8cab804fdd2c0da4210ea443f847908e7872d211aa7dff7232f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/sessions/4e97ed1d0c1a41048fbeff0d68d66ddd.released.json",
+      "bytes": 288,
+      "sha256": "aaf7f69fd032fdf2a36b78bbc2a1b685a08254f8ff356f3c67179977a2376410"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/stages/queries.json",
+      "bytes": 329,
+      "sha256": "88448f3f9d58b696f571e0a95328b774898086076776f15ae5d95ee7f758d5a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "9fc7fadd76369f775a916a39f5d28c06b858e7e7bd558520236fd0b775881619"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "aaf7f69fd032fdf2a36b78bbc2a1b685a08254f8ff356f3c67179977a2376410"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/verifier_span.json",
+      "bytes": 204,
+      "sha256": "2eb1d0cf6b22163ee5e64e0d6bb8342fc2dbfea8d4d5940bccd9dc7f237e3c2a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_1/workload.json",
+      "bytes": 3137,
+      "sha256": "5fbb3ec8b16f97ac8862bb0b57f4fc4024557ec490af041d143e83840d7cf3b5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/measurements.json",
+      "bytes": 9021,
+      "sha256": "0e84674247a1e39466a8ecae8fdfac88049b0803d5715d9faa2887a0d60e2611"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/observations.json",
+      "bytes": 10376,
+      "sha256": "6787d904e3d58e0d2df1c7683aed6f207280ab7cde69002c37b20c61551ec08a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/proof.json",
+      "bytes": 179,
+      "sha256": "15ee19ba588f8b092f47afba92b2cc7399b4f85c77d550c48f179188dba33cb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/telemetry_records.json",
+      "bytes": 18498,
+      "sha256": "1a9490680a2893f28b5b7fe670a0b816c38d240735db645226ebac2108c9ac3a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/telemetry_summary.json",
+      "bytes": 2162,
+      "sha256": "f7e017f5f541e2dc111a325d4bf326f7956c314df88753460046e62112fd7faf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/budget.json",
+      "bytes": 196,
+      "sha256": "372e987f77f3de43f46b8d4a7725ccddc34e9d442fbba83d9e91dd2d9af0a7a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/chunks/00000000.json",
+      "bytes": 422,
+      "sha256": "e1d77103de4391607b21b0b5c8563826f648c1ad76beb6b92a845cc6686b4fe8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/latest.json",
+      "bytes": 245,
+      "sha256": "f3c5014a641cab899e144c73dfb511f17be07ab623138e24d7234966d243b336"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/payloads/e36b997095ac4f45a28e716f18dc3623.jsonl",
+      "bytes": 316274,
+      "sha256": "63ad49356918d0ca94726f2037b2e878edcc2ba6b492baac86132383e072eff1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/run.json",
+      "bytes": 28930,
+      "sha256": "463588e354c05647973903b539df1750a400e01a2b68d5b5bfd800eb7d7a47b9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "b4ed4d12e48ae7578e84690961e5a2bc2ea9418505d8fcb9a43ed2b9d376a216"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/sessions/a79dba0b55504ba3949b714d69197ba9.json",
+      "bytes": 214,
+      "sha256": "83aa9854e7a4e2f984156b16ab24092f20da332cfe5b92fa22fc46ae29ceb603"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/sessions/a79dba0b55504ba3949b714d69197ba9.released.json",
+      "bytes": 288,
+      "sha256": "d8f0b19f82088423ed412ba3476da7840279dc40b46c3de654de2468f5c28b73"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/stages/queries.json",
+      "bytes": 329,
+      "sha256": "fe2c72e54f163d2ea47c0cce2ea746fd573f78c541c59642aa04519d609ff5a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "31d24987c56c2d2793404ca776bc61c888ecf8f1e16d0255f09cd0d369dd46a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "d8f0b19f82088423ed412ba3476da7840279dc40b46c3de654de2468f5c28b73"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/verifier_span.json",
+      "bytes": 204,
+      "sha256": "f0505cbeaf68fac1a27a1eb01564b6176329feb4eaab78268742210b5694fa49"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/repeat_2/workload.json",
+      "bytes": 3137,
+      "sha256": "5fbb3ec8b16f97ac8862bb0b57f4fc4024557ec490af041d143e83840d7cf3b5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/request.json",
+      "bytes": 199398,
+      "sha256": "4559538485f3dd6d96eb0547a1f83e3156e008ac19310e5acf4b78b4cac21198"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/selection_seal.json",
+      "bytes": 780,
+      "sha256": "55e55701fcc789b40040dc39f9505c462a69516a92cb9d123fbf40f4cced58a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/seven_source_extract_receipt.json",
+      "bytes": 47,
+      "sha256": "9f87dd8d192698b000b5597f5a2be46c3d5ae232be938acca9a4ccd506e2852a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/seven_source_extract_started.json",
+      "bytes": 74,
+      "sha256": "340432729775bc408e56b541bbfd701cd07e6728ff484825eb3c68ae6220730e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/manifest.json",
+      "bytes": 4216,
+      "sha256": "d1e9451641f3c9d68a52077aa70c5e2047cea78405bff5d9f3c5a5b2893d2295"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/offsets.jsonl",
+      "bytes": 1946331,
+      "sha256": "465298a998e1d8ac07dd1d136961e2d07eb10b94467943b8b3a4cd547ca71ecd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/c1.jsonl",
+      "bytes": 14429,
+      "sha256": "75e407a4e8c0539a749c99d7120c26a15218838a8a6f0ab466ca0f8e3da68961"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/d1.jsonl",
+      "bytes": 19545,
+      "sha256": "25875dbf0eca67ac6fa1d92975222df036bf33c7dd33bae36b46439fdc001a37"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/dataset.csv",
+      "bytes": 1225,
+      "sha256": "7636c6d31b459eb5ec3ec5459366d1eaea1a351b3777eb6c8db4c76153bca2f7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/k1.jsonl",
+      "bytes": 311998,
+      "sha256": "0d4aabe9e4f2939ed14eadb3d9f4ae753329d1c7dbff38e2e838f743ecff33a8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/p0_metrics.csv",
+      "bytes": 705,
+      "sha256": "e535ab4381aa53ce13d68c53b49a68d37664ff0d21bfe2ce50e2b0db4e6f34b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/p0_rank.csv",
+      "bytes": 2069,
+      "sha256": "c0b47e27ab157315ee399c87c0a197fe1ec5e3b880ae2249cfd911287c6d90e8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/samples/p0_slices.csv",
+      "bytes": 674,
+      "sha256": "b6e8e7d4a2d4547997ad3cf6d81be1dadc1b185635a069944afe3398b94c16c5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/source_index/seal.json",
+      "bytes": 127,
+      "sha256": "69348d426a1fa382e7e1324cceb0ce9173e67560aaf22dbfd23d9c545e89dfd2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/subset_binding.json",
+      "bytes": 28329,
+      "sha256": "1a416b65041ea8dd07aec18dd34ee75512ad8ee9803352d2eb6450eaef08e13b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/supervisor_completion.json",
+      "bytes": 448,
+      "sha256": "ab4f6f9247e88474423bae1e114c7cc09b4eae806bd2543791ba9e6c660d5c56"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_0_receipt.json",
+      "bytes": 47,
+      "sha256": "7a46917028a684af25073e3aca52a1b67ac4e16b43780cba83b5d81dad7b84db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_0_started.json",
+      "bytes": 67,
+      "sha256": "b71c56a6b4e139009b5e857414c1acea8f7469951f78c98f8cc9420cabb43d4f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_1_receipt.json",
+      "bytes": 47,
+      "sha256": "c5d7868859efb8797e786923c9d14d75d5563fabaa2c09b6064e117a780f89b7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_1_started.json",
+      "bytes": 67,
+      "sha256": "0d78079bf773c41cc80c72903a7cf2b6cf46860b6149381ea483fc19e94c2c85"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_2_receipt.json",
+      "bytes": 47,
+      "sha256": "1d92b229bc3d17bf785b493410d7a69247ba9b544bb0d3ffc8d8a9df279d333b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tail_repeat_2_started.json",
+      "bytes": 67,
+      "sha256": "63d85141144bd01e49a6c31af0d5e0a8ec37cdbb3d44362b584b0195c0f734ce"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/tracked_process_identities.json",
+      "bytes": 261,
+      "sha256": "53926ee691c78801d5eb4262b4f28fee65f4943b4da89f19f84c894f127d4eb0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/v19_subset_binding.json",
+      "bytes": 28538,
+      "sha256": "46a19ceeca1bfbd67fc9fe924e85dbe6436ab38d9ff3894a5e3e383d75f7619d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/worker_identity.json",
+      "bytes": 69,
+      "sha256": "c76cd181f813b1e885e311d8d708e223eafde64fb28797e1e02dfbf57fc18edc"
+    }
+  ],
+  "target_cell": "1101/n5/v4",
+  "scope": "Same seven exposed validation engineering identities, original ranking and checkpoint protocol; diagnose observed elapsed-time variation and observer perturbation, not a SQL optimization trial.",
+  "selection": {
+    "source": {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/frozen_probes.json",
+      "bytes": 4289,
+      "sha256": "e8076aa2aeb6c24c3201392bbf2002e143cf5843fa43b96b8bb534a708c833c7"
+    },
+    "parent_report": {
+      "path": "reports/stage12/retailrocket_session_knn_v19_tail_cost_20261106.json",
+      "bytes": 496697,
+      "sha256": "0f5050833be7bee656bb667ea47b4382b7f55bfb5a14582c6c91d77c301d3184"
+    },
+    "parent_binding": {
+      "path": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/v19_subset_binding.json",
+      "bytes": 28538,
+      "sha256": "46a19ceeca1bfbd67fc9fe924e85dbe6436ab38d9ff3894a5e3e383d75f7619d"
+    },
+    "extracted_inputs": "shop-mysql-runtime/verification/knn-v19-tail-2d0d3d342c344f05bed3c45abde5fabd/raw_selected_inputs",
+    "identities": 7,
+    "new_keys": 0,
+    "V19_tail_cases": 6,
+    "original_V6_V18_anchor": 1,
+    "order": "Exact V19 frozen-probe list and original ordinals; no reselection, reordering, substitution or new extraction.",
+    "scientific_reference": "Every round must match all seven V19 complete expected/precise/delta_hex payloads, workload and physical ledger bytes, not only the anchor."
+  },
+  "schedule": [
+    "R",
+    "D",
+    "D",
+    "R",
+    "R",
+    "D"
+  ],
+  "measurement": {
+    "fresh_rounds": 6,
+    "queries_per_round": 7,
+    "engineering_checks": 42,
+    "rounds_per_mode": 3,
+    "paired_schedule": [
+      [
+        "R",
+        "D"
+      ],
+      [
+        "D",
+        "R"
+      ],
+      [
+        "R",
+        "D"
+      ]
+    ],
+    "R": "Frozen V4 verify_selected and predict plus V6 DetailedTimedStore; original stage wall timers and V18 telemetry.",
+    "D": "Invocation-local namespaces and observational proxies around original V4/V6/V2 function bytecode; SQL text, lazy cursor iteration, original result and write/fault ordering unchanged.",
+    "window_seconds": 1800,
+    "limits": {
+      "rss_bytes": 8589934592,
+      "execution_bytes": 21474836480,
+      "minimum_available_bytes": 4294967296,
+      "minimum_free_bytes": 8589934592
+    },
+    "execution": "One supervised window, fresh read-only connection and fresh checkpoint each round, all six sequential in frozen order. No warmup exclusion, cache flushing, model reload, parallel ranking, repeated replacement run or outcome-dependent extra rounds.",
+    "baseline_cost": "Keep original verification/rank/vote/append/commit/budget timers. Core is per-observation verification plus append excluding nested commit and direct budget publication; nested terms are never added twice."
+  },
+  "diagnostic_timers": {
+    "clock": "perf_counter wall time plus thread_time CPU for the executing worker thread, not whole-process CPU. Record advertised clock metadata; retain quantization and signed wall-minus-CPU, never clamp or interpret as a measured I/O wait.",
+    "positive_overlap": "Original inclusive V4 phase, exact overlap execute call, lazy cursor __next__ calls including terminal exhaustion, remaining Python/watch/proxy/other time. SQLite execute and next include engine work and Python row conversion; neither is a pure engine timer. Do not prefetch or add EXPLAIN/PRAGMA into the timed rank.",
+    "append": "Original V6 phases budget_check, guards_and_key, frame_encode, payload_open, payload_write, pending_and_trigger and nested_flush; add matching thread CPU and observer/outer residual. Frame serialization/UTF8 is distinct from complete scientific payload construction in verify.",
+    "budget_check": "For checks inside the active append, split budget.json read_text, JSON parse with original nonfinite rejection, atomic budget publication and remaining clock/identity/deadline/observer work. Separate original budget_check enclosing residual from check_budget body; do not attribute all budget_check_other to disk.",
+    "scope": "Fine diagnostics only cover original positive-overlap phase and active per-query append. Setup, tail fsync/commit and stages retain original wall accounting and whole-entry telemetry; no new fine fsync or system-call attribution.",
+    "conservation": "Validate finite nonnegative measured durations, original identity/row/EOF/write counts and same-observation inclusive/exclusive accounting. Keep raw signed wall-minus-CPU because clocks/CPU accounting have resolution limits. Fail incomplete observations; never fill missing fields with zero."
+  },
+  "telemetry": {
+    "interval_seconds": 0.2,
+    "process_name_prefix": "ollama",
+    "scope": "One read-only background sampler per verifier entry, including setup, query/append and tail. Take initial and final samples, retain actual monotonic and UTC observation times and observer acquisition duration. Sampling and scheduling overhead remains part of the measured environment.",
+    "system_fields": "Total system CPU interval utilization, available/total RAM, cumulative disk read/write bytes and times when accessible. CPU is all-system load including benchmark and other processes, not background-only load.",
+    "process_fields": "Current worker cumulative CPU times and RSS; Ollama processes identified by case-insensitive executable name prefix only, with PID/create_time identity, CPU times and RSS. Never read prompts, command lines, credentials or infer token generation speed.",
+    "cpu_denominator": "System CPU percent is normalized over logical CPUs; process CPU delta may exceed 100 percent when expressed relative to one logical CPU and must be labeled separately. First system CPU observation has no prior interval and is excluded from CPU summaries.",
+    "missing": "Do not replace unavailable metrics or missed processes with zero. Retain errors/status. Require ordered bracketing snapshots and at least two valid CPU intervals plus finite memory observations per repeat; report actual gaps rather than fabricate regular timestamps. Optional inaccessible disk/process metrics limit conclusions explicitly.",
+    "alignment": "Analyze load at whole-repeat level only. A 200ms target interval and its scheduling gaps cannot identify per-query or per-SQL-statement causes; do not interpolate or assert that Ollama caused a slow query.",
+    "ollama_policy": "No Ollama inference, model load/unload, service stop, configuration edit or other background workload intervention; heavy experiment work stays sequential."
+  },
+  "analysis": {
+    "per_case": "Report R and D separately for each frozen structural case/role, each with three observations, minima/medians/maxima/ranges. These deliberately selected cases do not estimate population cost.",
+    "same_query_pairs": "For core, positive-overlap and append, identify the same-query fastest and slowest observations within each mode; use exactly that pair to decompose subparts. Never sum independently chosen component maxima.",
+    "observer_comparison": "Three adjacent R/D pairs use the same identities and order, with fixed alternating mode order. Report absolute D-minus-R differences and both directions; no significance claim or deterministic observer-overhead correction from three pairs.",
+    "causality": "Wall/CPU and telemetry can locate observed differences, not identify scheduler, cache, storage, another application or Ollama as the cause. No SQL speedup or Ollama token slowdown percentage.",
+    "coverage": "Seven reused identities add 42 engineering checks only. Keep 55 covered cells, 170 comparable queries, 232 historical identities, 11 target-cell and 6 tail queries unchanged."
+  },
+  "stop_conditions": [
+    "Any changed source, method acceptance, frozen sample/order or original scientific gate.",
+    "Any prediction/full scientific payload/workload/ledger difference against V19 or among rounds.",
+    "Unexpected mode order, missing round, diagnostics count/phase mismatch, invalid or unconserved timing.",
+    "Missing required bracketing telemetry, overlapping rounds, expired original deadline or resource limit.",
+    "Non-normal supervisor exit or still-live tracked process; preserve evidence and do not publish successful results."
+  ],
+  "conditional_after_all_verified": {
+    "covered_cells": 55,
+    "uncovered_cells": 0,
+    "unrepresented_population": 0,
+    "distinct_historically_verified_queries": 232,
+    "distinct_comparable_queries": 170,
+    "target_cell_distinct_queries": {
+      "1101/n5/v4": 11
+    },
+    "target_tail_distinct_queries": 6,
+    "new_distinct_queries": 0,
+    "reused_queries": 7,
+    "reused_anchor_queries": 1,
+    "new_engineering_checks": 42
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "SQL_candidate_runs": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
