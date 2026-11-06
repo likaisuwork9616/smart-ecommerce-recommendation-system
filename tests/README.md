@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V15 通過 30 項合成／回歸驗收，包含 16 項新增檢查，涵蓋十組歷史、499／500 位鄰居邊界、投票等式與上界、雙 checkpoint、成本拆帳與異常停止。[驗收收據](../reports/stage12/retailrocket_session_knn_v15_gap_acceptance_20261106.json)
+
 Stage 12 V14 通過 28 項合成／回歸驗收，包含 14 項新增檢查，涵蓋九組歷史、完整鄰居池與投票等式、前 500 位切點、雙 checkpoint、成本拆帳與異常停止。[驗收收據](../reports/stage12/retailrocket_session_knn_v14_gap_acceptance_20261106.json)
 
 Stage 12 V13 通過 26 項合成／回歸驗收，包含 14 項新增檢查，涵蓋八組歷史、前 500 位切點、投票上界、恰有 500 位的邊界、保存、成本與異常停止。[驗收收據](../reports/stage12/retailrocket_session_knn_v13_gap_acceptance_20261106.json)
