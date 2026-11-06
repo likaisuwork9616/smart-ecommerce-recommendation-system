@@ -50,3 +50,105 @@ V20 最大診斷 append 差為 **17.239 ms**，其中 guards_and_key **15.551 ms
 操作：先以 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_guards_v21 --acceptance` 完成一次驗收，再用同模組 `--measure` 執行唯一窗口。已完成的窗口只可 `--publish <原 namespace>` 重稽核，不能另開窗口挑結果。原始身分、模型與完整負載紀錄保留 Git 忽略路徑。
 
 [工具驗收收據](../reports/stage12/retailrocket_session_knn_v21_guards_acceptance_20261106.json)
+
+## 六輪實測與獨立核對
+
+同批七筆以 **R／D／D／R／R／D** 循序完成，**42／42 工程核對通過**。受監督窗口 116.484 秒，正常退出、受監督程序全部結束；1,279 份來源在窗口前後及退出後一致。六輪完整 payload、工作量與實體帳本全部等同 V19，各帳本 316,274 bytes、SHA-256 `63ad49356918d0ca94726f2037b2e878edcc2ba6b492baac86132383e072eff1`。
+
+另以獨立程式檢查 159 份私人證據、六份實體帳本、21 筆 SQL／預算／guard 分解；共 63 次 direct exists、21 次身分格式驗證，順序與次數一致。固定查詢中位數、同對差與 CPU 加權負載重算相符，沒有換樣本或追加較快窗口。
+
+覆蓋仍 55／55 格、170 個可比較查詢、232 個歷史身分；該格 11 筆、尾端 6 筆。新增主要訓練、完整 validation、主要 bootstrap 及保留測試均為 0。本輪只屬已曝光 validation 工程診斷。
+
+## 新拆分的檔案檢查與身分格式
+
+下表為 D 的 21 筆觀測，單位 ms。均只包住原呼叫；其前後 Python 分派與觀測器工作仍列剩餘項。
+
+| 原操作 | wall 最小 | wall 平均 | wall 最大 |
+| --- | ---: | ---: | ---: |
+| acceptance.json 存在檢查 | 0.0549 | 0.0725 | 0.1142 |
+| candidate.json 存在檢查 | 0.0360 | 0.0493 | 0.1212 |
+| stages/global.json 存在檢查 | 0.0309 | 0.0391 | 0.0890 |
+| 原 _key 身分格式驗證 | 0.0053 | 0.0068 | 0.0157 |
+
+本輪沒有重現 V20 的 guards_and_key 約 15.551 ms 同對差；不能把本輪短耗時當成前輪成因已排除。Path.exists 包含 Python／作業系統／檔案系統與可能排程時間，不是純磁碟時間。身分格式驗證不含後續 ordinal、前一筆 key 比較或首次 reconstruction 查核，這些保留在其餘項。
+
+## 同查詢波動與 append 預算保存
+
+各模式、各指標分別挑同一查詢的最大快慢差，輪次從 1 起算。不同列不可相加。
+
+| 模式 | 指標 | 鄰居數 | 快→慢輪 | 差 ms |
+| --- | --- | ---: | --- | ---: |
+| R | 核心 | 2,499 | 5→1 | 44.263 |
+| R | 正重疊整段 | 2,499 | 5→1 | 19.079 |
+| R | append 扣 commit／budget | 4,071 | 4→5 | 5.617 |
+| D | 核心 | 4,071 | 6→2 | 24.178 |
+| D | 正重疊整段 | 2,770 | 3→2 | 12.664 |
+| D | append 扣 commit／budget | 3,156 | 6→2 | 3.736 |
+
+D 最大調整後 append 差出現在 3,156 位鄰居案例，第 6→2 輪。**原始 append +102.240 ms，其中原直接 budget 保存 +98.504 ms，扣 commit／budget 後 +3.736 ms**。不可將原始差全算成檔案檢查，也不能忽略已分列的預算保存。其餘差分解為：
+
+| 同一對原分項 | wall 差 ms |
+| --- | ---: |
+| budget_check_other | +1.0864 |
+| budget_publication | +98.5038 |
+| chunk_commit | +0.0000 |
+| flush_dispatch_other | +0.0025 |
+| frame_encode | +1.0958 |
+| guards_and_key | +0.6931 |
+| observer_and_outer_other | +0.0117 |
+| payload_open | +0.7613 |
+| payload_write | +0.0762 |
+| pending_and_trigger | +0.0087 |
+
+其中 guards_and_key +0.6931 ms 進一步拆為：
+
+| 同對 guard 細項 | wall 差 ms |
+| --- | ---: |
+| candidate_exists | +0.0682 |
+| global_exists | +0.0271 |
+| identity_format | +0.0084 |
+| order_reconstruction_dispatch_other | +0.5894 |
+
+兩個 query-stage exists 合計僅 +0.0953 ms、身分格式 +0.0084 ms，其餘 +0.5894 ms；acceptance exists 同對為 −0.0379 ms。budget read_text 同對 +1.1279 ms，位於 budget_check_other；不能與內含的預算保存重複加總。這些定位仍不足以識別排程或檔案系統的單一原因。
+
+D 正重疊最大差出現在 2,770 位鄰居案例，第 3→2 輪 **12.664 ms**；同對原 execute **+0.735 ms**、取列（含 EOF）**+9.611 ms**、Python／watch／代理其餘 **+2.318 ms**。取列也包含 SQLite stepping 與 DB-API 轉換，不能當純 SQL 或純 I/O。
+
+## 固定對照與觀測成本
+
+下表先對每筆取各模式三輪中位數，再對七筆等權平均，單位 ms。核心在每筆每輪先算 verification＋append 扣 commit／直接 budget；rank 和 vote 已內含於 verification。各欄中位數不必來自同輪，不能相加。
+
+| 模式 | 核心 | verification | rank | vote | append 扣 commit／budget |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| R | 77.581 | 73.642 | 68.030 | 13.731 | 4.211 |
+| D | 79.184 | 75.088 | 68.792 | 10.761 | 4.035 |
+
+相鄰配對以下改用當輪七筆算術平均。D−R 包含觀測器、順序及當時機器狀態，不能當優化比例或固定觀測成本修正。
+
+| 配對 | 核心 D−R ms | 正重疊 D−R ms | append D−R ms |
+| --- | ---: | ---: | ---: |
+| 1：RD | +1.757 | +8.489 | -0.041 |
+| 2：DR | +2.495 | +7.801 | +0.302 |
+| 3：RD | +1.183 | +6.834 | -0.732 |
+
+## 計時限制與同步系統負載
+
+正重疊非零執行緒 CPU 仍呈 **15.625 ms** 增量，21 筆中 10 筆 wall−CPU 為負。candidate／global exists 與身分格式各 21 筆 CPU 全記為零；acceptance exists 有 1 筆記為 15.625 ms、超出其 wall。原有號值保留。短段「記為零」不等於沒有運算，wall−CPU 不能當等待或 I/O 比例。
+
+| 輪次／模式 | 快照 | 驗證入口秒 | CPU 範圍／加權平均 | 最低可用 GiB | 最大採樣間隔 ms |
+| --- | ---: | ---: | --- | ---: | ---: |
+| 1／R | 22 | 4.721 | 14.3–58.0%／25.96% | 20.203 | 845.065 |
+| 2／D | 22 | 4.885 | 13.3–49.2%／24.19% | 20.167 | 317.117 |
+| 3／D | 21 | 4.465 | 14.2–34.8%／24.14% | 20.229 | 259.852 |
+| 4／R | 21 | 4.419 | 13.2–37.5%／20.87% | 20.388 | 257.397 |
+| 5／R | 20 | 4.272 | 13.3–30.0%／16.82% | 20.405 | 272.192 |
+| 6／D | 21 | 4.613 | 14.4–26.6%／19.75% | 20.381 | 283.796 |
+
+六輪共 127 份負載快照，CPU **13.2–58.0%**、最低可用記憶體 **20.167 GiB**。第 1／2 輪按 200ms 名目間隔估算跳過 3／1 槽，其餘為 0；首尾包覆與六輪不重疊核對通過。負載只涵蓋驗證入口，不涵蓋前後模型雜湊或準備。
+
+每輪觀測到兩個 ollama 名稱程序，匹配區間 CPU 增量皆記為零；沒有觀測其他名稱 runner、GPU 或 token 速度，因此仍不能量化 Ollama 減速或宣稱沒有影響。全程未改動 Ollama 服務或模型。
+
+## 診斷結論
+
+已區分原三次 exists、原身分格式驗證，以及順序／初始化／觀測剩餘項。本輪這些細項短，前輪大幅 guard 波動未重現；原始 append 的大差亦須先分出直接預算保存。正重疊查詢仍有明顯且跨 execute／取列的耗時，下一步按封存規格評估先聚合再 join 的 SQL 候選。此時候選真實排名為 0，尚無 SQL 加速比例或採用決定。
+
+[六輪實測](../reports/stage12/retailrocket_session_knn_v21_guards_cost_20261106.json) · [同對分解分析](../reports/stage12/retailrocket_session_knn_v21_guards_analysis_20261106.json)
