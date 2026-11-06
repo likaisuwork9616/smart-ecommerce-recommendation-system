@@ -20,3 +20,23 @@ V20 最大診斷 append 差為 **17.239 ms**，其中 guards_and_key **15.551 ms
 覆蓋維持 **55／55 格、170 個可比較查詢、232 個歷史身分**；該格 11 筆、尾端 6 筆。本階段新增身分、排名與 SQL 候選執行均為 0。
 
 [盤點收據](../reports/stage12/retailrocket_session_knn_v21_guards_inventory_20261106.json)
+
+## 固定細項診斷規格
+
+沿用同一批七筆、原始順序與 V19 既有子集。R 保留原 V4／V6；D 保留 V20 的 SQL／預算觀測，再加入 direct append 檔案與身分檢查。固定 **R→D、D→R、R→D**，共六輪、42 次核對，全部循序；不清快取、不排除暖機、不換樣本或追加較快結果。
+
+新觀測用每次呼叫專屬的 store/path view 執行原 V6／V2 bytecode，量測原 acceptance.json、candidate.json、stages/global.json 三個 exists 呼叫，以及原 _key 格式驗證。保持原短路順序、回傳與例外，不增加檔案查核、不快取結果、不移除安全檢查。第一次 reconstruction 讀取、ordinal／先後 key 比較、Python 分派及觀測成本保留在剩餘項，不能把剩餘項當成純身分驗證。
+
+保留原分項 wall／執行緒 CPU、writer 內含 acceptance 的巢狀關係；存在檢查與 key 子項不得超出其原外層時間。CPU 量化與有號 wall−CPU 原樣保留，不能當等待量。公開僅顯示用途標籤，私人證據保留完整紀錄。
+
+六輪每輪都對回全部七筆 V19 完整科學 payload、工作量與實體位元組；新樣本仍為 0。沿用 200ms 目標負載觀測、原 1,800 秒窗口與資源限制，首尾涵蓋各驗證入口且六輪不重疊。失敗就保留證據並停止發布，不重開較快窗口。
+
+## 診斷後的 SQL 候選評估
+
+完成診斷後再獨立評估「posting 先聚合，再 LEFT JOIN session size」的具體改寫。先看既有成本與原／候選 EXPLAIN QUERY PLAN；實際模型只做計畫檢查，不執行候選真實排名。若提出候選，使用人工資料比較完整預測與工作量，涵蓋自我排除、空結果、未知／未來商品、切點同分及缺少 size 的拒絕行為。
+
+查詢計畫或合成語意通過都不能當作加速證據。這一階段給出是否值得另立配對效能試驗的判斷；沒有候選真實計時就不採用、不報加速比例。先前 V17 投票候選未達門檻的結論保留。
+
+全通過後覆蓋仍 **55／55 格、170 個可比較查詢、232 個歷史身分**；該格 11、尾端 6。本階段尚未實測，完整 validation／主要訓練／主要 bootstrap／保留測試均不啟動。
+
+[封存規格](../reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json)
