@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 固定七筆診斷規格封存 | 原方法與診斷方法按 R／D、D／R、R／D 循序配對，六輪共四十二次核對。完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 固定七筆診斷工具驗收完成 | 診斷工具 35 項驗收通過，尚未執行真實六輪窗口。完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜固定七筆的 SQL 與 append 波動診斷（最新）
 
-已封存 **R→D、D→R、R→D** 三對循序規格，同批 **7 筆、6 輪、42 次核對**。診斷拆分正重疊鄰居 execute／逐列取回，以及 append 預算檔讀取／JSON 解析，保留原方法對照並同步記錄負載。全部七筆皆須對回 V19 完整結果；新增身分為 **0**，本階段尚未實測。 [方法與結果](docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v20_diagnostics_specification_20261106.json)
+合成驗收 **35 項通過**，耗時 **11.211 秒**。已驗證原／診斷結果與保存一致、計時分解及固定七筆六輪規則；新增觀測仍保留其開銷。本階段真實排名為 **0**，下一步依封存順序執行唯一窗口，全部七筆逐輪對回 V19。 [方法與結果](docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v20_diagnostics_acceptance_20261106.json)
 
 ## Stage 12｜高於 1,945 位鄰居的尾端補樣（前輪）
 

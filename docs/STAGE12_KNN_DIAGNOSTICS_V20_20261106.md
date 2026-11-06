@@ -70,3 +70,19 @@ V6 的 frame_encode 是外框序列化與 UTF-8 編碼；完整 expected／preci
 全通過後只增加 **42 次工程核對**：覆蓋仍 **55／55**、可比較查詢 **170**、歷史身分 **232**，該格 **11**、尾端 **6**。主要訓練、完整 validation、主要 bootstrap、SQL 候選與保留測試本輪均為 0。規格封存時實測尚未開始。
 
 [封存規格](../reports/stage12/retailrocket_session_knn_v20_diagnostics_specification_20261106.json)
+
+## 工具驗收與操作
+
+合成驗收 **35 項通過**，耗時 **11.211 秒**，失敗、錯誤、跳過均為 0。驗收綁定本輪 4 個方法／測試檔、封存規格與六道科學資料門檻；原 V4、V6、V18、V19 方法檔未修改。原／診斷的小型資料結果、完整保存 bytes、錯誤邊界、時鐘分解、同批七筆與六輪規則完成核對。此階段真實排名仍為 0。
+
+診斷以本次呼叫專屬的 globals 執行原函式 bytecode，不修改全域函式。新增函式配置、逐列代理與觀測紀錄本身仍有成本，保留在同一筆原總計時中；D append 的原 V6 事件、外層診斷 wrapper 與 V4 外層剩餘時間分開，沒有實測到的外層 CPU 明示未量測。
+
+從專案根目錄執行。已有驗收或實測報告時拒絕覆寫；既有窗口用 `--publish` 重核，不能藉重開窗口替換較慢結果。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_diagnostics_v20 --acceptance
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_diagnostics_v20 --measure
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_diagnostics_v20 --publish <既有窗口目錄>
+```
+
+[工具驗收收據](../reports/stage12/retailrocket_session_knn_v20_diagnostics_acceptance_20261106.json)

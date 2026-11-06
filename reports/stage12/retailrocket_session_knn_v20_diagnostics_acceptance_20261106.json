@@ -1,0 +1,67 @@
+{
+  "status": "v20_diagnostics_tools_synthetic_accepted",
+  "created_utc": "2026-11-06T06:27:52.395856+00:00",
+  "tests_run": 35,
+  "seconds": 11.210902299999361,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    "tests.test_retailrocket_session_knn_diagnostics_v20",
+    "tests.test_retailrocket_session_knn_diagnostics_sql_v20",
+    "tests.test_retailrocket_session_knn_detailed_cost_v6",
+    "tests.test_retailrocket_session_knn_reinforcement_v18"
+  ],
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 23934,
+      "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 49326,
+      "sha256": "53f0d04f872494f2d2ea6b75cf27674b34fa1349eeb20fe04939e11be97723f9"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 25296,
+      "sha256": "1408e036dbb9039a4474eac786840b37725e334d8cba9eeaebc6a3fdb3c03be8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_sql_v20.py",
+      "bytes": 11740,
+      "sha256": "7b4e06308e503f59333958a7992c589d3dcddea231329fc82171ea545bffdbbc"
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_inventory_20261106.json",
+    "bytes": 53427,
+    "sha256": "8baf50dea1810067f75adf0e3d9270134b8e6b92501f2610986ef085bbe7632f"
+  },
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_specification_20261106.json",
+    "bytes": 38259,
+    "sha256": "f89067c5f7b13d8adf75d7dd140393401cf6de7ae78b15dc4961d14945b181bb"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v20-diagnostics-tests-f93531be5bc64c728ed12cc1c45cb7a1/tests.log",
+    "bytes": 7861,
+    "sha256": "be621febe6e6586d05794be961bf8c66e0a2046988941114dd6474f4a74e9902"
+  },
+  "actual_new_keys_selected": 0,
+  "actual_new_query_verifications": 0,
+  "reserved_test": "locked",
+  "T_plan": null
+}
