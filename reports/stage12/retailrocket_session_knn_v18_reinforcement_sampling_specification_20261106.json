@@ -1,0 +1,116 @@
+{
+  "status": "v18_reinforcement_specification_frozen",
+  "scope": "Prospective engineering cost reinforcement of two already-covered validation fine cells. Frozen V4 ranking and V6 timers with repeat-level resource observations. No SQL candidate, primary fit, full validation or reserved test execution.",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_inventory_20261106.json",
+    "bytes": 105546,
+    "sha256": "f404f269b9a8644203ab3328ca814b7fc29b8fd141ad4d1b9be7b2f97c379fc0"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_cost_inventory_20261106.json",
+      "bytes": 173526,
+      "sha256": "28b382de0644665a071e85e93072381ba285c60c9f172f90639de7b66a968c26"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json",
+      "bytes": 1945334,
+      "sha256": "555eceb1d2cb1dc8158fedf20a0cf6fbf2ac24afb7ede50be6daf7766c37d126"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-cost-rollup-ab4a83f92de243a4a9624890277d909c/normalized_rows.json",
+      "bytes": 195578,
+      "sha256": "ef1058653976ccf6a9d8cf970835ec1d63cb271cf6e02ab0553b4588d8435232"
+    }
+  ],
+  "quotas": [
+    {
+      "cell": "1101/n4/v4",
+      "population": 5615,
+      "historical_exclusions": 7,
+      "eligible": 5608,
+      "planned_new_queries": 4,
+      "planned_anchor_queries": 1
+    },
+    {
+      "cell": "1101/n5/v4",
+      "population": 4221,
+      "historical_exclusions": 3,
+      "eligible": 4218,
+      "planned_new_queries": 4,
+      "planned_anchor_queries": 1
+    }
+  ],
+  "selection": {
+    "quota_by_cell": {
+      "1101/n4/v4": 4,
+      "1101/n5/v4": 4
+    },
+    "anchor_quota_by_cell": {
+      "1101/n4/v4": 1,
+      "1101/n5/v4": 1
+    },
+    "planned_new_queries": 8,
+    "planned_unique_queries": 10,
+    "prefix_with_terminator": "k1-reinforcement-v18-20261106\u0000",
+    "history": "Exclude all 218 distinct historical identities in V3, V6 original48, V7 and V8 through V16 from new selections. The V3/V6 overlap is two; all later cohorts are disjoint.",
+    "anchor": "Retain the unique original48 V6 identity in each target fine cell as an explicitly old anchor. Anchors are not new queries and do not increase cell coverage.",
+    "order": "For each cell select four eligible identities with lowest SHA256(prefix including terminating NUL plus bytes.fromhex(key_sha256)); tie by original_ordinal. Merge with the two anchors and sort by original_ordinal. Use exactly the same ten identities and order in every repeat.",
+    "inputs": "Only frozen structural rows and historic identities; no targets, predictions or measured timings may influence selection.",
+    "seal": "Validate complete roster EOF/count/bytes/SHA, identities, ordinals, bands, historic membership and frozen capacities. Independently fully sort all eligible rows and verify anchor identities before reading ranking inputs.",
+    "failure": "Stop on any drift, missing anchor, insufficient capacity, duplicate or changed identity. No resampling, alternate seed, quota transfer or replacement."
+  },
+  "measurement": {
+    "fresh_repeats": 3,
+    "queries_per_repeat": 10,
+    "expected_engineering_checks": 30,
+    "execution": "Strictly sequential repeats 0,1,2 with fresh immutable SQLite connections and checkpoints. Retain all repeats; no warmup exclusion or reruns chosen by observed cost. Stop the observer and close the preceding verifier before the next starts.",
+    "ranking": "Unchanged original V4 exact four-arm verifier and V6 append detail. Validate full neighbor pool SHA, exact rank and tie ordering, top500 frontier and member sizes, actual vote count and causal additions; each actual vote count must equal selected membership sizes and be at most the structural upper bound.",
+    "payload": "All three committed ledgers must be byte-identical. Recheck both anchors against the existing V6 scientific payloads independently of the changed subset ordinals.",
+    "timing": "Use V17 row_cost identities: core=verification+append_without_commit_or_budget. Rank contains vote and is inside verification. Report setup, tail, all commits and direct budget separately without summing nested costs.",
+    "analysis": "For each identity report three-repeat min/median/max/range and the same-identity core-fastest/core-slowest verify/append/vote differences. Aggregate new samples and anchors separately; all-five descriptive cell costs use equal weight per identity after within-identity medians. Compare old V6 anchor costs separately, without interpreting different machine windows as an optimization speedup.",
+    "absolute_wall_budget_seconds": 1800,
+    "rss_limit_bytes": 8589934592,
+    "execution_directory_limit_bytes": 21474836480,
+    "available_memory_floor_bytes": 4294967296,
+    "available_disk_floor_bytes": 8589934592,
+    "deadline_scope": "One original supervisor deadline includes source hashing, selection, seven-source extraction, all three repeats, resource collection and final source hashing.",
+    "stop": "Any source, method, selection, payload, ledger, timing, required telemetry, resource, original-deadline or normal-exit failure stops publication and sample credit; preserve partial evidence.",
+    "publication": "Post-exit independently reconstruct selection, raw timing decomposition, every repeat ledger, workload, telemetry time ordering and source digests. Check all three rounds, not only the first two."
+  },
+  "telemetry": {
+    "interval_seconds": 0.2,
+    "process_name_prefix": "ollama",
+    "scope": "One read-only background sampler per verifier entry, including setup, query/append and tail. Take initial and final samples, retain actual monotonic and UTC observation times and observer acquisition duration. Sampling and scheduling overhead remains part of the measured environment.",
+    "system_fields": "Total system CPU interval utilization, available/total RAM, cumulative disk read/write bytes and times when accessible. CPU is all-system load including benchmark and other processes, not background-only load.",
+    "process_fields": "Current worker cumulative CPU times and RSS; Ollama processes identified by case-insensitive executable name prefix only, with PID/create_time identity, CPU times and RSS. Never read prompts, command lines, credentials or infer token generation speed.",
+    "cpu_denominator": "System CPU percent is normalized over logical CPUs; process CPU delta may exceed 100 percent when expressed relative to one logical CPU and must be labeled separately. First system CPU observation has no prior interval and is excluded from CPU summaries.",
+    "missing": "Do not replace unavailable metrics or missed processes with zero. Retain errors/status. Require ordered bracketing snapshots and at least two valid CPU intervals plus finite memory observations per repeat; report actual gaps rather than fabricate regular timestamps. Optional inaccessible disk/process metrics limit conclusions explicitly.",
+    "alignment": "Analyze load at whole-repeat level only. A 200ms target interval and its scheduling gaps cannot identify per-query or per-SQL-statement causes; do not interpolate or assert that Ollama caused a slow query.",
+    "ollama_policy": "No Ollama inference, model load/unload, service stop, configuration edit or other background workload intervention; heavy experiment work stays sequential."
+  },
+  "conditional_after_all_verified": {
+    "covered_cells": 55,
+    "uncovered_cells": 0,
+    "unrepresented_population": 0,
+    "distinct_historically_verified_queries": 226,
+    "distinct_comparable_queries": 164,
+    "target_cell_distinct_queries": {
+      "1101/n4/v4": 5,
+      "1101/n5/v4": 5
+    },
+    "new_distinct_queries": 8,
+    "reused_anchor_queries": 2,
+    "new_engineering_checks": 30
+  },
+  "this_step": {
+    "new_keys_selected": 0,
+    "new_engineering_query_checks": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "T_plan": null
+  }
+}
