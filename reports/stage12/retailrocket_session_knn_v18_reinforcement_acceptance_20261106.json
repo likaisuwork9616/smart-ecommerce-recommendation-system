@@ -1,0 +1,65 @@
+{
+  "status": "v18_reinforcement_tools_synthetic_accepted",
+  "created_utc": "2026-11-06T03:11:43.633348+00:00",
+  "tests_run": 38,
+  "seconds": 12.942829499999789,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    "tests.test_retailrocket_session_knn_reinforcement_v18",
+    "tests.test_retailrocket_session_knn_gap_v16"
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 34754,
+      "sha256": "e5ea19d1b7a282e5d70fd146ac0ed66d4b6a64a1db085ed3bf20360964260d99"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_rollup_v17.py",
+      "bytes": 24958,
+      "sha256": "333b9dc0b82a3beef74b8a10082dc69ccf2895bec947a7fa0a02f7d64c92cdee"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 35590,
+      "sha256": "043a6441e3b8825df01d98f88b7e5e2ec6fec2f6ff1938fa74f8fe1f8b1dd90b"
+    }
+  ],
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_sampling_specification_20261106.json",
+    "bytes": 8193,
+    "sha256": "d6d83ce51f25da8beadcffdd6d11f8fa512b54d201f81104917477778c849392"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v18_reinforcement_inventory_20261106.json",
+    "bytes": 105546,
+    "sha256": "f404f269b9a8644203ab3328ca814b7fc29b8fd141ad4d1b9be7b2f97c379fc0"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v18-reinforcement-tests-a78830e2b5fe426fa654911d3f2fe6f8/tests.log",
+    "bytes": 8234,
+    "sha256": "69b447436590cd6a66a0c363b2c051de41b9fc90f32feae51c4a495e7b38d13b"
+  },
+  "actual_new_keys_selected": 0,
+  "actual_new_query_verifications": 0,
+  "reserved_test": "locked",
+  "T_plan": null
+}

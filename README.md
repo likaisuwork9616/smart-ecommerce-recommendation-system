@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 兩格補強規格封存 | 固定八筆新樣本加兩筆舊對照，三輪循序核對並記錄負載。全量驗收關閉，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 補樣與負載工具驗收完成 | 補樣與負載工具 38 項驗收通過，尚未執行真實排名。全量驗收關閉，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜兩個高成本細層的補樣與負載觀測（最新）
 
-已封存 **各 4 筆新查詢＋各 1 筆舊對照**，同批 10 筆循序重測 3 次，負載目標每 200 毫秒記錄。新樣本排除全部 218 個歷史身分；只在三輪及退出後核對全部通過後，才將兩格樣本各由 1 增至 5。覆蓋維持 55／55。本階段尚未選樣或實測。 [方法與結果](docs/STAGE12_KNN_REINFORCEMENT_V18_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v18_reinforcement_sampling_specification_20261106.json)
+已完成 **38 項合成驗收**，耗時 **12.943 秒**。工具綁定封存的八筆新查詢與兩筆舊對照選法、三輪循序規則及負載觀測；本階段尚未選取真實新樣本或執行排名，下一步執行唯一實測窗口。 [方法與結果](docs/STAGE12_KNN_REINFORCEMENT_V18_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v18_reinforcement_acceptance_20261106.json)
 
 ## Stage 12｜55 格成本彙整與 SQL 候選評估（前輪）
 
