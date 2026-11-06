@@ -19,7 +19,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 保存前檢查診斷規格封存 | 固定六輪拆分三個檔案檢查與身分格式驗證，診斷後另評 SQL 改寫。完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 保存前檢查工具已驗收 | 45 項合成驗收全通過；同批七筆六輪實測待啟動。完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -29,7 +29,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜保存前檔案檢查與身分驗證（最新）
 
-已封存同批 **7 筆、六輪 42 次**循序診斷，拆開三個原 exists 呼叫與 _key，保持原方法與短路行為。診斷後再檢查 posting 先聚合的 SQL 候選計畫及人工語意案例；本階段未實測，也沒有加速或採用結論。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json)
+**45／45 項合成驗收通過**，耗時 17.540 秒，失敗／錯誤／跳過均為 0。 保存位元組、原檔案檢查次數及失敗順序一致。下一步按封存規格循序執行六輪，這一階段尚無真實效能結果。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_acceptance_20261106.json)
 
 ## Stage 12｜固定七筆的 SQL 與 append 波動診斷（前輪）
 

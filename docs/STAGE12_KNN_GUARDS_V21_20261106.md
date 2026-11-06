@@ -40,3 +40,13 @@ V20 最大診斷 append 差為 **17.239 ms**，其中 guards_and_key **15.551 ms
 全通過後覆蓋仍 **55／55 格、170 個可比較查詢、232 個歷史身分**；該格 11、尾端 6。本階段尚未實測，完整 validation／主要訓練／主要 bootstrap／保留測試均不啟動。
 
 [封存規格](../reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json)
+
+## 工具驗收
+
+**45／45 項合成驗收通過**，耗時 17.540 秒，失敗／錯誤／跳過均為 0。 新增的 10 項驗收涵蓋原完整預測與工作量、保存位元組、巢狀 commit、預算／期限／寫入故障、檔案短路及例外、缺少 writer、身分錯誤，以及有號 CPU 與巢狀成本守恆。其餘 35 項沿用既有 V20、V6 與負載測試。
+
+三個新工具／測試檔獨立版本化；原 V4／V6／V20 檔案保持封存。實際檔案呼叫 trace 與原流程一致，候選存在時不再查 global；acceptance 存在時不查後續檔案或身分。
+
+操作：先以 `.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_guards_v21 --acceptance` 完成一次驗收，再用同模組 `--measure` 執行唯一窗口。已完成的窗口只可 `--publish <原 namespace>` 重稽核，不能另開窗口挑結果。原始身分、模型與完整負載紀錄保留 Git 忽略路徑。
+
+[工具驗收收據](../reports/stage12/retailrocket_session_knn_v21_guards_acceptance_20261106.json)

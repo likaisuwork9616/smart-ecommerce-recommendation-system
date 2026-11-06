@@ -1,0 +1,63 @@
+{
+  "status": "v21_guards_tools_synthetic_accepted",
+  "created_utc": "2026-11-06T07:06:16.337387+00:00",
+  "tests_run": 45,
+  "seconds": 17.540099299998474,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    "tests.test_retailrocket_session_knn_guards_v21",
+    "tests.test_retailrocket_session_knn_diagnostics_v20",
+    "tests.test_retailrocket_session_knn_diagnostics_sql_v20",
+    "tests.test_retailrocket_session_knn_detailed_cost_v6",
+    "tests.test_retailrocket_session_knn_reinforcement_v18"
+  ],
+  "method_files": [
+    {
+      "path": "scripts/retailrocket_session_knn_guards_v21.py",
+      "bytes": 6367,
+      "sha256": "0c44ba75e6c849ae92829a9aa3828e061b1f0b20e2e4a6bd26bfb53fccb97c4b"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_guards_v21.py",
+      "bytes": 48656,
+      "sha256": "e780c4b383fce70138a6ee9e4d822dbc53e8f65f301689e0e9c1e1ba2250abe3"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_guards_v21.py",
+      "bytes": 8416,
+      "sha256": "ac2e729585d940ded1038bf4d72e975f86673f30a68be1256a24ad8a13c5398a"
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v21_guards_inventory_20261106.json",
+    "bytes": 350603,
+    "sha256": "2d7428c13a58256711bee5199e3d8000bc787d9a91cc637cffb5ec137d2345a3"
+  },
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v21_guards_specification_20261106.json",
+    "bytes": 55865,
+    "sha256": "865d998fd629941ba0266f24c18322560269ae3f601e1c09d79ec4d1faea6f73"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v21-guards-tests-297c22650e974e2eb8a79a272fe8dc9b/tests.log",
+    "bytes": 9801,
+    "sha256": "f5677503eae6fd246a74ae6aa3790155c74bd0634e6541eb46daece35008f999"
+  },
+  "actual_new_keys_selected": 0,
+  "actual_new_query_verifications": 0,
+  "reserved_test": "locked",
+  "T_plan": null
+}
