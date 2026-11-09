@@ -1,0 +1,131 @@
+{
+  "status": "v22_overlap_specification_frozen",
+  "created_utc": "2026-11-09T00:50:44.853815+00:00",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_inventory_20261109.json",
+    "bytes": 132452,
+    "sha256": "9a055e1e7a074166447426d7c84be38c541d818ee75cf379ad3b9107e8cc6b92"
+  },
+  "candidate": "group_before_size_join",
+  "candidate_method": {
+    "path": "scripts/retailrocket_session_knn_overlap_candidate_v21.py",
+    "bytes": 1264,
+    "sha256": "759ffc54e2ca5eefb4b476ef1e065b1028d625676a3b53c2409a357500cc5f77"
+  },
+  "protocol": {
+    "pairs": 6,
+    "warmup_runs": 2,
+    "minimum_wins": 5,
+    "minimum_median_saving_percent": 5,
+    "both_order_medians_positive": true,
+    "entry_median_must_not_regress": true,
+    "budget_seconds": 1800
+  },
+  "schedule": [
+    {
+      "label": "warm_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "warm_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_1_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "pair_1_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_2_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_2_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "pair_3_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "pair_3_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_4_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_4_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "pair_5_A",
+      "mode": "baseline"
+    },
+    {
+      "label": "pair_5_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_6_B",
+      "mode": "group_before_size_join"
+    },
+    {
+      "label": "pair_6_A",
+      "mode": "baseline"
+    }
+  ],
+  "scope": {
+    "stage": "compare48",
+    "distinct_queries": 48,
+    "runs": 14,
+    "warmup_query_checks": 96,
+    "paired_query_checks": 576,
+    "total_query_checks": 672,
+    "new_keys": 0,
+    "compare34_enabled": false,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "primary": "sum verification + append excluding nested commits + all commits including final flush; direct budget publication retained; original V7/V17 definition",
+  "secondary": [
+    "original positive-overlap phase",
+    "vote phase",
+    "rank stages",
+    "V6 append/budget/commit",
+    "complete entry including setup/tail/proof"
+  ],
+  "fairness": {
+    "same_original_48_and_order": true,
+    "same_model_inputs_binding_and_checkpoint": true,
+    "warmups_excluded_from_decision": true,
+    "pairs_orders": [
+      "AB",
+      "BA",
+      "AB",
+      "BA",
+      "AB",
+      "BA"
+    ],
+    "no_sql_profiling_or_guard_proxies": true,
+    "same_connection_adapter_for_A_B": true,
+    "baseline_sql": "original V4 exact overlap SQL",
+    "candidate_sql": "V21 sealed group-before-size-join SQL only",
+    "cache_policy": "clear verifier Python caches once before warm_A; no OS/DB cache flushing; all fixed runs retained",
+    "sequential": true,
+    "retries_or_extra_pairs": false
+  },
+  "telemetry": {
+    "interval_seconds": 0.2,
+    "process_name_prefix": "ollama",
+    "coverage": "one continuous sampler around each complete run entry; start/end brackets and non-overlap checked",
+    "purpose": "context only; no causal correction, no inference calls or GPU/token observation"
+  },
+  "stopping": "Any source mismatch, output/workload/physical frame mismatch, deadline/resource breach or failed run withholds success and stops; failed window preserved and never silently restarted. Decision failure ends this candidate without 34 or alternative testing.",
+  "interpretation": "Exposed validation engineering comparison. Separate from primary fit, full validation, primary bootstrap and locked reserved test. No population projection from fixed48.",
+  "original_methods_immutable": true
+}
