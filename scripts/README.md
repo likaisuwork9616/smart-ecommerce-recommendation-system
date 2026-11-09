@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V25 受監督來源診斷與獨立發布 | [整合入口](run_retailrocket_session_knn_sources_v25.py) | 32 項合成驗收及原 48 筆十四次循序實測已完成，672 次核對通過；worker 與獨立 publisher 共用 1,800 秒期限。查看[本輪結果](../docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)；`--release <原 namespace>` 只重稽核既有窗口，`--measure` 遇既有 request 拒絕重測。 |
 | K1 V20 固定七筆診斷 | [有界入口](run_retailrocket_session_knn_diagnostics_v20.py) | 沿用七筆，以 R／D、D／R、R／D 六輪循序拆分 SQL、append 與預算檢查，同步記錄負載。[規格與結果](../docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md) |
 | K1 V19 高鄰居尾端補樣 | [有界入口](run_retailrocket_session_knn_tail_v19.py) | 三段各取最大鄰居數與固定雜湊樣本，六筆新查詢加原對照；七筆循序三輪及 200ms 目標負載觀測。[規格與結果](../docs/STAGE12_KNN_TAIL_V19_20261106.md) |
 | K1 V18 兩格補樣與負載 | [有界入口](run_retailrocket_session_knn_reinforcement_v18.py) | 兩格各四筆新查詢與一筆舊對照，同批十筆循序三輪；200ms 目標負載觀測與三帳本核對。[規格與結果](../docs/STAGE12_KNN_REINFORCEMENT_V18_20261106.md) |

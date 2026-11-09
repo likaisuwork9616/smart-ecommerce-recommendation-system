@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 受監督與獨立發布入口已驗收 | 32 項合成驗收全通過，單一監督期限涵蓋 worker 與 publisher；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 整合入口與原四十八筆診斷完成 | 原 48 筆十四次循序執行、672 次工程核對通過，監督窗口 316.156 秒，獨立發布與退出後重稽核完成；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜來源與初始化診斷整合實測（最新）
 
-受監督實測與獨立 publisher 整合完成，**32／32 項合成驗收通過**。人工 14 份 48 筆帳本重算、失敗停止、發布後指紋及實際子程序逾時清理均通過。下一步依單一 1,800 秒期限循序實測原 48 筆；尚無本輪真實耗時或加速結論。 [本輪規格與結果](docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)
+**32／32 項入口驗收及原 48 筆 14 次循序實測完成，672 次核對全通過**。單一受監督窗口 316.156 秒；獨立 publisher 重新讀取並驗證原結果，所有追蹤程序已退出。四次完整來源核對合計 160.580 秒（窗口 50.79%）；正式 D 單次 binding 驗證中位數 2.576 秒，context／catalog 為 2.956／1.027 秒。負載同步記錄；R／D 差異不是 SQL 加速，無 Ollama token 速度結論。覆蓋維持 55／55 格、170 筆可比較查詢、232 個歷史身分。 [本輪規格與結果](docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)
 
 ## Stage 12｜來源驗證與初始化分項診斷（前輪）
 
