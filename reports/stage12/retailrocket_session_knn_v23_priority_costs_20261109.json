@@ -1,0 +1,2418 @@
+{
+  "status": "v23_rejected_candidates_and_costs_reconciled",
+  "created_utc": "2026-11-09T01:22:13.885162+00:00",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v23_priority_inventory_20261109.json",
+    "bytes": 173088,
+    "sha256": "7cbc1fc4dbb33587674e1386d2ecd2010ecf67317b905976bf377f92a4bcc4de"
+  },
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_priority_v23.py",
+      "bytes": 6126,
+      "sha256": "4c0c365efe97504bc149b6576cc6ba54a49515e45d6d6106242308599672e09a"
+    },
+    {
+      "path": "scripts/summarize_retailrocket_session_knn_priority_v23.py",
+      "bytes": 9404,
+      "sha256": "5aa4d5bbc9973e8902e2b7d804cbba2dd3141b370a2adbadfc746f4c1a66e1de"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_priority_v23.py",
+      "bytes": 5065,
+      "sha256": "75e3eaa1be3a49613748014b2d7cc5743876d4933e72ff1ba43dfbdb36b1d9f0"
+    }
+  ],
+  "synthetic_acceptance": {
+    "tests_run": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 5.313146200000119,
+    "suites": [
+      "tests.test_retailrocket_session_knn_priority_v23",
+      "tests.test_retailrocket_session_knn_detailed_cost_v6",
+      "tests.test_retailrocket_session_knn_vote_comparison_v7"
+    ],
+    "log": {
+      "path": "shop-mysql-runtime/verification/knn-v23-priority-audit-75a9be15a50f45939496538cf3d4beb5/tests.log",
+      "bytes": 3174,
+      "sha256": "42842de5bbe26544ca68e130fae89aa3a73b7c000fdf96ba3bc5ce3b1e364530"
+    }
+  },
+  "comparisons": {
+    "V17": {
+      "decision": {
+        "pairs": [
+          {
+            "pair": 1,
+            "order": "AB",
+            "A_primary_seconds": 2.1804192999970837,
+            "B_primary_seconds": 2.1212986999889836,
+            "primary_saving_seconds": 0.059120600008100155,
+            "primary_saving_percent": 2.7114326133592392,
+            "entry_saving_seconds": 0.2743528000009974
+          },
+          {
+            "pair": 2,
+            "order": "BA",
+            "A_primary_seconds": 2.3692828000239388,
+            "B_primary_seconds": 2.058507199986707,
+            "primary_saving_seconds": 0.3107756000372319,
+            "primary_saving_percent": 13.116863889531968,
+            "entry_saving_seconds": 1.0128069000002142
+          },
+          {
+            "pair": 3,
+            "order": "AB",
+            "A_primary_seconds": 1.9884877999938908,
+            "B_primary_seconds": 1.9359730000142008,
+            "primary_saving_seconds": 0.05251479997969,
+            "primary_saving_percent": 2.6409415224901727,
+            "entry_saving_seconds": 0.44482919999791193
+          },
+          {
+            "pair": 4,
+            "order": "BA",
+            "A_primary_seconds": 1.9540436000061163,
+            "B_primary_seconds": 2.060927399988941,
+            "primary_saving_seconds": -0.10688379998282471,
+            "primary_saving_percent": -5.4698779486030995,
+            "entry_saving_seconds": 0.30094309999913094
+          },
+          {
+            "pair": 5,
+            "order": "AB",
+            "A_primary_seconds": 1.848127299996122,
+            "B_primary_seconds": 1.8298746999971627,
+            "primary_saving_seconds": 0.01825259999895934,
+            "primary_saving_percent": 0.9876267721924589,
+            "entry_saving_seconds": -0.05685120000089228
+          },
+          {
+            "pair": 6,
+            "order": "BA",
+            "A_primary_seconds": 2.184330100000807,
+            "B_primary_seconds": 1.8283867000136524,
+            "primary_saving_seconds": 0.3559433999871544,
+            "primary_saving_percent": 16.295311774855957,
+            "entry_saving_seconds": 0.9828467999996064
+          }
+        ],
+        "faster_pairs": 5,
+        "order_median_savings_seconds": {
+          "AB": 0.05251479997969,
+          "BA": 0.3107756000372319
+        },
+        "median_saving_percent": 2.676187067924706,
+        "primary_gate_passed": false,
+        "entry_median_seconds": {
+          "A": 8.614620899999863,
+          "B": 8.165510850000828
+        },
+        "entry_regressed": false,
+        "supports_candidate": false
+      },
+      "window_seconds": 185.09300000000076,
+      "window_exclusive_seconds": {
+        "initial_source_hash_seconds": 34.281223500000124,
+        "final_source_hash_seconds": 31.291335199999594,
+        "all_14_entry_seconds": 117.57063760000165,
+        "window_other_seconds": 1.9498036999993928
+      },
+      "window_exclusive_percent": {
+        "initial_source_hash_seconds": 18.52108048386486,
+        "final_source_hash_seconds": 16.905736683720868,
+        "all_14_entry_seconds": 63.519764442740225,
+        "window_other_seconds": 1.0534183896740477
+      },
+      "paired_mode_medians": {
+        "baseline": {
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.891553450000174,
+            "primary_seconds": 2.0844535499954873,
+            "tail_without_commit_seconds": 0.09381835000021965,
+            "entry_other_seconds": 2.6992160000036165
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 45.1724843252183,
+            "primary_seconds": 23.460540187271086,
+            "tail_without_commit_seconds": 0.9907442088014682,
+            "entry_other_seconds": 30.338731827620244
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.878218549997655,
+            "append_excluding_commit_seconds": 0.13757224999790196,
+            "all_commit_seconds": 0.08128614999895944
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03182730000025913,
+            "append_without_commit_or_budget_seconds": 0.1080469499956962
+          },
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07143749999522697,
+            "history_and_temp_setup": 0.005749099997956364,
+            "neighbor_pool_sha": 0.2971736500012412,
+            "prediction_output": 0.03584344999944733,
+            "sql_positive_overlaps": 0.5018782499955705,
+            "sql_selected_votes_and_accumulation": 0.6968999999953667,
+            "top_ten_and_zero_fill": 0.05420994999985851
+          },
+          "all_budget_seconds_median": 0.08861640000213811
+        },
+        "rank_counts": {
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.4783589999997275,
+            "primary_seconds": 1.9972401000004538,
+            "tail_without_commit_seconds": 0.08290265000050567,
+            "entry_other_seconds": 2.6068711500138306
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 43.01976493706357,
+            "primary_seconds": 23.824757176900242,
+            "tail_without_commit_seconds": 0.9790536734214829,
+            "entry_other_seconds": 31.599857758756784
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.7927997999986474,
+            "append_excluding_commit_seconds": 0.12897494999833725,
+            "all_commit_seconds": 0.0719352499991146
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.02468575000148121,
+            "append_without_commit_or_budget_seconds": 0.10148215000208438
+          },
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06458454999665264,
+            "history_and_temp_setup": 0.005404349998570979,
+            "neighbor_pool_sha": 0.30455485000493354,
+            "prediction_output": 0.034524950001468824,
+            "sql_positive_overlaps": 0.4698187499998312,
+            "sql_selected_votes_and_accumulation": 0.6351432500005103,
+            "top_ten_and_zero_fill": 0.057595700002821104
+          },
+          "all_budget_seconds_median": 0.08450749999883556
+        }
+      },
+      "post_exit_wall_seconds": null,
+      "interpretation": "Every raw entry conserves setup + primary + tail excluding final commit + entry other. Primary includes all commits once and direct append budget publication. Rank and budget subparts are nested. Group medians need not conserve each other. Window includes warmups; post-exit wall is not recorded.",
+      "candidate": "rank_counts",
+      "report": {
+        "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+        "bytes": 113040,
+        "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+      },
+      "runs": {
+        "warm_A": {
+          "costs": {
+            "primary_seconds": 1.8908889000085765,
+            "verification_seconds": 1.6532824000096298,
+            "append_excluding_commit_seconds": 0.11413739999807149,
+            "all_commit_seconds": 0.12346910000087519,
+            "rank_seconds": 1.4759015000036015,
+            "vote_seconds": 0.6381159000047774,
+            "setup_seconds": 3.1434420999994472,
+            "tail_seconds": 0.23621929999899294,
+            "entry_seconds": 7.617526199999702,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.1434420999994472,
+            "primary_seconds": 1.8908889000085765,
+            "tail_without_commit_seconds": 0.11275019999811775,
+            "entry_other_seconds": 2.4704449999935605
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 41.26591779887242,
+            "primary_seconds": 24.82287359915678,
+            "tail_without_commit_seconds": 1.4801419389686137,
+            "entry_other_seconds": 32.431066663002184
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.6532824000096298,
+            "append_excluding_commit_seconds": 0.11413739999807149,
+            "all_commit_seconds": 0.12346910000087519
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.023928299999170122,
+            "append_without_commit_or_budget_seconds": 0.09020909999890137
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.005823199999213102
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.0163286999995762
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.04264509999848087
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.023928299999170122
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.04139790000044741
+            }
+          },
+          "all_observed_budget_seconds": 0.1301231999968877,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.12346910000087519,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06170189999465947,
+            "history_and_temp_setup": 0.0043578000004345085,
+            "neighbor_pool_sha": 0.2648832999984734,
+            "prediction_output": 0.020455400002902024,
+            "sql_positive_overlaps": 0.42709190000095987,
+            "sql_selected_votes_and_accumulation": 0.6381159000047774,
+            "top_ten_and_zero_fill": 0.053365300000223215
+          },
+          "verification_outside_rank_seconds": 0.17738090000602824,
+          "rank_unpartitioned_seconds": 0.00593000000117172
+        },
+        "warm_B": {
+          "costs": {
+            "primary_seconds": 1.836986700000125,
+            "verification_seconds": 1.649671800003489,
+            "append_excluding_commit_seconds": 0.12333079999734764,
+            "all_commit_seconds": 0.06398409999928845,
+            "rank_seconds": 1.4681194000058895,
+            "vote_seconds": 0.6224188999876787,
+            "setup_seconds": 3.2110279999997147,
+            "tail_seconds": 0.17110060000049998,
+            "entry_seconds": 7.573941200000263,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.2110279999997147,
+            "primary_seconds": 1.836986700000125,
+            "tail_without_commit_seconds": 0.10711650000121153,
+            "entry_other_seconds": 2.418809999999212
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 42.39573446912425,
+            "primary_seconds": 24.254039627348323,
+            "tail_without_commit_seconds": 1.414276889305766,
+            "entry_other_seconds": 31.935949014221656
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.649671800003489,
+            "append_excluding_commit_seconds": 0.12333079999734764,
+            "all_commit_seconds": 0.06398409999928845
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.029467999998814776,
+            "append_without_commit_or_budget_seconds": 0.09386279999853286
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006047700000635814
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007041599999865866
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.033946300001844065
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.029467999998814776
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.013582499999756692
+            }
+          },
+          "all_observed_budget_seconds": 0.09008610000091721,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.06398409999928845,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.05496410001069307,
+            "history_and_temp_setup": 0.0048151999944821,
+            "neighbor_pool_sha": 0.2637603000002855,
+            "prediction_output": 0.02542030000950035,
+            "sql_positive_overlaps": 0.4408549000017956,
+            "sql_selected_votes_and_accumulation": 0.6224188999876787,
+            "top_ten_and_zero_fill": 0.04974419999780366
+          },
+          "verification_outside_rank_seconds": 0.18155239999759942,
+          "rank_unpartitioned_seconds": 0.006141500003650435
+        },
+        "pair_1_A": {
+          "costs": {
+            "primary_seconds": 2.1804192999970837,
+            "verification_seconds": 1.9701650999995763,
+            "append_excluding_commit_seconds": 0.14322879999781435,
+            "all_commit_seconds": 0.06702539999969304,
+            "rank_seconds": 1.7646044999946753,
+            "vote_seconds": 0.7491597000062029,
+            "setup_seconds": 4.237110800000664,
+            "tail_seconds": 0.16170549999878858,
+            "entry_seconds": 9.220655799999804,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.237110800000664,
+            "primary_seconds": 2.1804192999970837,
+            "tail_without_commit_seconds": 0.09468009999909555,
+            "entry_other_seconds": 2.7084456000029604
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 45.95238008993627,
+            "primary_seconds": 23.647117377455192,
+            "tail_without_commit_seconds": 1.026826096242499,
+            "entry_other_seconds": 29.373676436366036
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9701650999995763,
+            "append_excluding_commit_seconds": 0.14322879999781435,
+            "all_commit_seconds": 0.06702539999969304
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.032647400001224014,
+            "append_without_commit_or_budget_seconds": 0.11058139999659033
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006054900000890484
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007144999999582069
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.0230360000005021
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.032647400001224014
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.016248599999016733
+            }
+          },
+          "all_observed_budget_seconds": 0.0851319000012154,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.06702539999969304,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06980099999054801,
+            "history_and_temp_setup": 0.005890599994017975,
+            "neighbor_pool_sha": 0.30652220000592934,
+            "prediction_output": 0.03764910000063537,
+            "sql_positive_overlaps": 0.5253451999979006,
+            "sql_selected_votes_and_accumulation": 0.7491597000062029,
+            "top_ten_and_zero_fill": 0.062162600001101964
+          },
+          "verification_outside_rank_seconds": 0.20556060000490106,
+          "rank_unpartitioned_seconds": 0.00807409999833908
+        },
+        "pair_1_B": {
+          "costs": {
+            "primary_seconds": 2.1212986999889836,
+            "verification_seconds": 1.9281253999924957,
+            "append_excluding_commit_seconds": 0.12980469999638444,
+            "all_commit_seconds": 0.06336860000010347,
+            "rank_seconds": 1.7205724000014015,
+            "vote_seconds": 0.7051266999951622,
+            "setup_seconds": 3.966751599999043,
+            "tail_seconds": 0.1472938000006252,
+            "entry_seconds": 8.946302999998807,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.966751599999043,
+            "primary_seconds": 2.1212986999889836,
+            "tail_without_commit_seconds": 0.08392520000052173,
+            "entry_other_seconds": 2.7743275000102585
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.339562386826955,
+            "primary_seconds": 23.71145600578548,
+            "tail_without_commit_seconds": 0.9380992349636819,
+            "entry_other_seconds": 31.010882372423875
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9281253999924957,
+            "append_excluding_commit_seconds": 0.12980469999638444,
+            "all_commit_seconds": 0.06336860000010347
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.022364700002071913,
+            "append_without_commit_or_budget_seconds": 0.10743999999431253
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.005300799999531591
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.013583899999503046
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.05261340000288328
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.022364700002071913
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.018393300000752788
+            }
+          },
+          "all_observed_budget_seconds": 0.11225610000474262,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.06336860000010347,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06501170000956336,
+            "history_and_temp_setup": 0.005756100003054598,
+            "neighbor_pool_sha": 0.30985179999152024,
+            "prediction_output": 0.03835869999602437,
+            "sql_positive_overlaps": 0.5286145999980363,
+            "sql_selected_votes_and_accumulation": 0.7051266999951622,
+            "top_ten_and_zero_fill": 0.060867400008646655
+          },
+          "verification_outside_rank_seconds": 0.2075529999910941,
+          "rank_unpartitioned_seconds": 0.006985399999393849
+        },
+        "pair_2_B": {
+          "costs": {
+            "primary_seconds": 2.058507199986707,
+            "verification_seconds": 1.853609099991445,
+            "append_excluding_commit_seconds": 0.13297729999612784,
+            "all_commit_seconds": 0.07192079999913403,
+            "rank_seconds": 1.6535661000070832,
+            "vote_seconds": 0.6908791999958339,
+            "setup_seconds": 4.300489999999627,
+            "tail_seconds": 0.16243029999895953,
+            "entry_seconds": 9.167164599999523,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.300489999999627,
+            "primary_seconds": 2.058507199986707,
+            "tail_without_commit_seconds": 0.0905094999998255,
+            "entry_other_seconds": 2.7176579000133643
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 46.9118881098726,
+            "primary_seconds": 22.455222413992804,
+            "tail_without_commit_seconds": 0.9873227322636947,
+            "entry_other_seconds": 29.645566743870898
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.853609099991445,
+            "append_excluding_commit_seconds": 0.13297729999612784,
+            "all_commit_seconds": 0.07192079999913403
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.027006800000890507,
+            "append_without_commit_or_budget_seconds": 0.10597049999523733
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.005493499998920015
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.006458899999415735
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.022976100000960287
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.027006800000890507
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.013214499998866813
+            }
+          },
+          "all_observed_budget_seconds": 0.07514979999905336,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07192079999913403,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06484279999494902,
+            "history_and_temp_setup": 0.005993300002955948,
+            "neighbor_pool_sha": 0.29998810001052334,
+            "prediction_output": 0.03489900000204216,
+            "sql_positive_overlaps": 0.49335069999142434,
+            "sql_selected_votes_and_accumulation": 0.6908791999958339,
+            "top_ten_and_zero_fill": 0.05672980000599637
+          },
+          "verification_outside_rank_seconds": 0.2000429999843618,
+          "rank_unpartitioned_seconds": 0.00688320000335807
+        },
+        "pair_2_A": {
+          "costs": {
+            "primary_seconds": 2.3692828000239388,
+            "verification_seconds": 2.1015589000162436,
+            "append_excluding_commit_seconds": 0.1736678000070242,
+            "all_commit_seconds": 0.094056100000671,
+            "rank_seconds": 1.8801512999925762,
+            "vote_seconds": 0.7615843999974459,
+            "setup_seconds": 4.848895399998582,
+            "tail_seconds": 0.18830639999941923,
+            "entry_seconds": 10.179971499999738,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.848895399998582,
+            "primary_seconds": 2.3692828000239388,
+            "tail_without_commit_seconds": 0.09425029999874823,
+            "entry_other_seconds": 2.8675429999784683
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 47.63171881177376,
+            "primary_seconds": 23.273962997086976,
+            "tail_without_commit_seconds": 0.9258405094626313,
+            "entry_other_seconds": 28.168477681676634
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 2.1015589000162436,
+            "append_excluding_commit_seconds": 0.1736678000070242,
+            "all_commit_seconds": 0.094056100000671
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.06007320000207983,
+            "append_without_commit_or_budget_seconds": 0.11359460000494437
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.0063853000010567484
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007663799999136245
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02427729999908479
+            },
+            "query_append": {
+              "writes": 3,
+              "seconds": 0.06007320000207983
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.014452199999141158
+            }
+          },
+          "all_observed_budget_seconds": 0.11285180000049877,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.094056100000671,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.08278950000021723,
+            "history_and_temp_setup": 0.0064739000063127605,
+            "neighbor_pool_sha": 0.3649012999940169,
+            "prediction_output": 0.04065910000099393,
+            "sql_positive_overlaps": 0.5616839000067557,
+            "sql_selected_votes_and_accumulation": 0.7615843999974459,
+            "top_ten_and_zero_fill": 0.05464390000452113
+          },
+          "verification_outside_rank_seconds": 0.22140760002366733,
+          "rank_unpartitioned_seconds": 0.0074152999823127175
+        },
+        "pair_3_A": {
+          "costs": {
+            "primary_seconds": 1.9884877999938908,
+            "verification_seconds": 1.7862719999957335,
+            "append_excluding_commit_seconds": 0.13191569999798958,
+            "all_commit_seconds": 0.07030010000016773,
+            "rank_seconds": 1.6018019000002823,
+            "vote_seconds": 0.6665548999953899,
+            "setup_seconds": 3.8356167000001733,
+            "tail_seconds": 0.14937520000057702,
+            "entry_seconds": 8.593165999998746,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.8356167000001733,
+            "primary_seconds": 1.9884877999938908,
+            "tail_without_commit_seconds": 0.07907510000040929,
+            "entry_other_seconds": 2.6899864000042726
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.6356639683294,
+            "primary_seconds": 23.140339660541656,
+            "tail_without_commit_seconds": 0.9202091522544873,
+            "entry_other_seconds": 31.30378721887445
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.7862719999957335,
+            "append_excluding_commit_seconds": 0.13191569999798958,
+            "all_commit_seconds": 0.07030010000016773
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.031007199999294244,
+            "append_without_commit_or_budget_seconds": 0.10090849999869533
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006040500000381144
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.006637100001171348
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02308899999661662
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.031007199999294244
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.012766899999405723
+            }
+          },
+          "all_observed_budget_seconds": 0.07954069999686908,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07030010000016773,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07362590001139324,
+            "history_and_temp_setup": 0.0056076000018947525,
+            "neighbor_pool_sha": 0.28782509999655304,
+            "prediction_output": 0.03167340000254626,
+            "sql_positive_overlaps": 0.4784112999932404,
+            "sql_selected_votes_and_accumulation": 0.6665548999953899,
+            "top_ten_and_zero_fill": 0.051250500002424815
+          },
+          "verification_outside_rank_seconds": 0.18447009999545116,
+          "rank_unpartitioned_seconds": 0.006853199996839976
+        },
+        "pair_3_B": {
+          "costs": {
+            "primary_seconds": 1.9359730000142008,
+            "verification_seconds": 1.7319905000058498,
+            "append_excluding_commit_seconds": 0.13001840000833909,
+            "all_commit_seconds": 0.07396410000001197,
+            "rank_seconds": 1.5451665999989928,
+            "vote_seconds": 0.6167584999966493,
+            "setup_seconds": 3.410174900000129,
+            "tail_seconds": 0.15306689999852097,
+            "entry_seconds": 8.148336800000834,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.410174900000129,
+            "primary_seconds": 1.9359730000142008,
+            "tail_without_commit_seconds": 0.079102799998509,
+            "entry_other_seconds": 2.723086099987995
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 41.85117753109788,
+            "primary_seconds": 23.7591185481435,
+            "tail_without_commit_seconds": 0.970784614579271,
+            "entry_other_seconds": 33.41891930617935
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.7319905000058498,
+            "append_excluding_commit_seconds": 0.13001840000833909,
+            "all_commit_seconds": 0.07396410000001197
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03008129999943776,
+            "append_without_commit_or_budget_seconds": 0.09993710000890133
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.0066377000002830755
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.006869900000310736
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.022656900000583846
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.03008129999943776
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.012999500000660191
+            }
+          },
+          "all_observed_budget_seconds": 0.07924530000127561,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07396410000001197,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06616500000018277,
+            "history_and_temp_setup": 0.005325199994331342,
+            "neighbor_pool_sha": 0.30912159999934374,
+            "prediction_output": 0.03721680000126071,
+            "sql_positive_overlaps": 0.44569590000537573,
+            "sql_selected_votes_and_accumulation": 0.6167584999966493,
+            "top_ten_and_zero_fill": 0.05846159999964584
+          },
+          "verification_outside_rank_seconds": 0.186823900006857,
+          "rank_unpartitioned_seconds": 0.006422000002203276
+        },
+        "pair_4_B": {
+          "costs": {
+            "primary_seconds": 2.060927399988941,
+            "verification_seconds": 1.8787173999935476,
+            "append_excluding_commit_seconds": 0.12129779999486345,
+            "all_commit_seconds": 0.06091220000052999,
+            "rank_seconds": 1.6733184000022447,
+            "vote_seconds": 0.6535280000043713,
+            "setup_seconds": 3.546543099999326,
+            "tail_seconds": 0.14004219999878842,
+            "entry_seconds": 8.182684900000822,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.546543099999326,
+            "primary_seconds": 2.060927399988941,
+            "tail_without_commit_seconds": 0.07912999999825843,
+            "entry_other_seconds": 2.496084400014297
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 43.34204656956752,
+            "primary_seconds": 25.186444610481505,
+            "tail_without_commit_seconds": 0.9670420035146468,
+            "entry_other_seconds": 30.504466816436327
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.8787173999935476,
+            "append_excluding_commit_seconds": 0.12129779999486345,
+            "all_commit_seconds": 0.06091220000052999
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.018270599999596016,
+            "append_without_commit_or_budget_seconds": 0.10302719999526744
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006752599998435471
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.006940400000530644
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.022239199997784453
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.018270599999596016
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.012979099998119636
+            }
+          },
+          "all_observed_budget_seconds": 0.06718189999446622,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.06091220000052999,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06432629999835626,
+            "history_and_temp_setup": 0.005483500002810615,
+            "neighbor_pool_sha": 0.3260565999971732,
+            "prediction_output": 0.03415090000089549,
+            "sql_positive_overlaps": 0.5239456000035716,
+            "sql_selected_votes_and_accumulation": 0.6535280000043713,
+            "top_ten_and_zero_fill": 0.05896979999852192
+          },
+          "verification_outside_rank_seconds": 0.20539899999130284,
+          "rank_unpartitioned_seconds": 0.0068576999965443974
+        },
+        "pair_4_A": {
+          "costs": {
+            "primary_seconds": 1.9540436000061163,
+            "verification_seconds": 1.719028100002106,
+            "append_excluding_commit_seconds": 0.15636750000521715,
+            "all_commit_seconds": 0.07864799999879324,
+            "rank_seconds": 1.5291632000007667,
+            "vote_seconds": 0.6370321999984299,
+            "setup_seconds": 3.7370240000000194,
+            "tail_seconds": 0.15963799999917683,
+            "entry_seconds": 8.483627999999953,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.7370240000000194,
+            "primary_seconds": 1.9540436000061163,
+            "tail_without_commit_seconds": 0.08099000000038359,
+            "entry_other_seconds": 2.711570399993434
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.049833396750074,
+            "primary_seconds": 23.033112720243356,
+            "tail_without_commit_seconds": 0.9546623213604373,
+            "entry_other_seconds": 31.962391561646136
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.719028100002106,
+            "append_excluding_commit_seconds": 0.15636750000521715,
+            "all_commit_seconds": 0.07864799999879324
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.04205980000006093,
+            "append_without_commit_or_budget_seconds": 0.11430770000515622
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.005273400000078254
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007463600000846782
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.023470100002668914
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.04205980000006093
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.013833999999405933
+            }
+          },
+          "all_observed_budget_seconds": 0.09210090000306081,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07864799999879324,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.05476280000038969,
+            "history_and_temp_setup": 0.005263099999865517,
+            "neighbor_pool_sha": 0.2706181000012293,
+            "prediction_output": 0.034097899999324,
+            "sql_positive_overlaps": 0.4671104999979434,
+            "sql_selected_votes_and_accumulation": 0.6370321999984299,
+            "top_ten_and_zero_fill": 0.05377599999519589
+          },
+          "verification_outside_rank_seconds": 0.18986490000133927,
+          "rank_unpartitioned_seconds": 0.006502600008388981
+        },
+        "pair_5_A": {
+          "costs": {
+            "primary_seconds": 1.848127299996122,
+            "verification_seconds": 1.6135958999948343,
+            "append_excluding_commit_seconds": 0.10823200000231736,
+            "all_commit_seconds": 0.12629939999897033,
+            "rank_seconds": 1.4389816999937466,
+            "vote_seconds": 0.6141800999866973,
+            "setup_seconds": 3.1686362999989797,
+            "tail_seconds": 0.2196858000006614,
+            "entry_seconds": 7.555551800000103,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.1686362999989797,
+            "primary_seconds": 1.848127299996122,
+            "tail_without_commit_seconds": 0.09338640000169107,
+            "entry_other_seconds": 2.44540180000331
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 41.937854227919345,
+            "primary_seconds": 24.460520540618845,
+            "tail_without_commit_seconds": 1.2359970849738573,
+            "entry_other_seconds": 32.36562814648795
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.6135958999948343,
+            "append_excluding_commit_seconds": 0.10823200000231736,
+            "all_commit_seconds": 0.12629939999897033
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.015079099997819867,
+            "append_without_commit_or_budget_seconds": 0.0931529000044975
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.016925900001297123
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007941600000776816
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02687299999706738
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.015079099997819867
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.04019679999873915
+            }
+          },
+          "all_observed_budget_seconds": 0.10701639999570034,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.12629939999897033,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.05077040000469424,
+            "history_and_temp_setup": 0.004816699993170914,
+            "neighbor_pool_sha": 0.24671070000476902,
+            "prediction_output": 0.03172399999857589,
+            "sql_positive_overlaps": 0.43375970000124653,
+            "sql_selected_votes_and_accumulation": 0.6141800999866973,
+            "top_ten_and_zero_fill": 0.05110090000562195
+          },
+          "verification_outside_rank_seconds": 0.17461420000108774,
+          "rank_unpartitioned_seconds": 0.005919199998970726
+        },
+        "pair_5_B": {
+          "costs": {
+            "primary_seconds": 1.8298746999971627,
+            "verification_seconds": 1.6297797999977774,
+            "append_excluding_commit_seconds": 0.12814520000029006,
+            "all_commit_seconds": 0.07194969999909517,
+            "rank_seconds": 1.4536092000034841,
+            "vote_seconds": 0.5820325000113371,
+            "setup_seconds": 3.2503045000012207,
+            "tail_seconds": 0.1538297999995848,
+            "entry_seconds": 7.612403000000995,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.2503045000012207,
+            "primary_seconds": 1.8298746999971627,
+            "tail_without_commit_seconds": 0.08188010000048962,
+            "entry_other_seconds": 2.450343700002122
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 42.69748330455962,
+            "primary_seconds": 24.038069187836264,
+            "tail_without_commit_seconds": 1.0756143625144243,
+            "entry_other_seconds": 32.18883314508969
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.6297797999977774,
+            "append_excluding_commit_seconds": 0.12814520000029006,
+            "all_commit_seconds": 0.07194969999909517
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.030699499999172986,
+            "append_without_commit_or_budget_seconds": 0.09744570000111707
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.00576819999878353
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007046199998512748
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.0231257999985246
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.030699499999172986
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.02313000000140164
+            }
+          },
+          "all_observed_budget_seconds": 0.0897696999963955,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07194969999909517,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.054824399992867257,
+            "history_and_temp_setup": 0.0047752999926160555,
+            "neighbor_pool_sha": 0.2777590999940003,
+            "prediction_output": 0.03158210000219697,
+            "sql_positive_overlaps": 0.44628680000823806,
+            "sql_selected_votes_and_accumulation": 0.5820325000113371,
+            "top_ten_and_zero_fill": 0.05044159999852127
+          },
+          "verification_outside_rank_seconds": 0.1761705999942933,
+          "rank_unpartitioned_seconds": 0.005907400003707153
+        },
+        "pair_6_B": {
+          "costs": {
+            "primary_seconds": 1.8283867000136524,
+            "verification_seconds": 1.6382406000102492,
+            "append_excluding_commit_seconds": 0.11307440000382485,
+            "all_commit_seconds": 0.07707169999957841,
+            "rank_seconds": 1.4650097000048845,
+            "vote_seconds": 0.596897599996737,
+            "setup_seconds": 3.1934793000000354,
+            "tail_seconds": 0.2319934999995894,
+            "entry_seconds": 7.6532290000013745,
+            "mode": "rank_counts"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.1934793000000354,
+            "primary_seconds": 1.8283867000136524,
+            "tail_without_commit_seconds": 0.154921800000011,
+            "entry_other_seconds": 2.4764411999876756
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 41.72721474817311,
+            "primary_seconds": 23.890395805656986,
+            "tail_without_commit_seconds": 2.024267142665967,
+            "entry_other_seconds": 32.35812230350393
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.6382406000102492,
+            "append_excluding_commit_seconds": 0.11307440000382485,
+            "all_commit_seconds": 0.07707169999957841
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.020898000000670436,
+            "append_without_commit_or_budget_seconds": 0.09217640000315441
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.01814329999979236
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007669900000109919
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.05036809999910474
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.020898000000670436
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.014310900000054971
+            }
+          },
+          "all_observed_budget_seconds": 0.11139019999973243,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07707169999957841,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06228640000153973,
+            "history_and_temp_setup": 0.004770200004713843,
+            "neighbor_pool_sha": 0.2819041000020661,
+            "prediction_output": 0.03211620000365656,
+            "sql_positive_overlaps": 0.43227619999197486,
+            "sql_selected_votes_and_accumulation": 0.596897599996737,
+            "top_ten_and_zero_fill": 0.04874849999760045
+          },
+          "verification_outside_rank_seconds": 0.17323090000536467,
+          "rank_unpartitioned_seconds": 0.006010500006595976
+        },
+        "pair_6_A": {
+          "costs": {
+            "primary_seconds": 2.184330100000807,
+            "verification_seconds": 1.9794360000050801,
+            "append_excluding_commit_seconds": 0.12096979999660107,
+            "all_commit_seconds": 0.08392429999912565,
+            "rank_seconds": 1.7752040999985184,
+            "vote_seconds": 0.7272450999953435,
+            "setup_seconds": 3.947490200000175,
+            "tail_seconds": 0.19034490000012738,
+            "entry_seconds": 8.636075800000981,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.947490200000175,
+            "primary_seconds": 2.184330100000807,
+            "tail_without_commit_seconds": 0.10642060000100173,
+            "entry_other_seconds": 2.3978348999989976
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 45.709304682107195,
+            "primary_seconds": 25.293086241792352,
+            "tail_without_commit_seconds": 1.232279596260487,
+            "entry_other_seconds": 27.765329479839966
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9794360000050801,
+            "append_excluding_commit_seconds": 0.12096979999660107,
+            "all_commit_seconds": 0.08392429999912565
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.015457300001799013,
+            "append_without_commit_or_budget_seconds": 0.10551249999480206
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.0053210000005492475
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007777599999826634
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02631130000190751
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.015457300001799013
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.015079800001331023
+            }
+          },
+          "all_observed_budget_seconds": 0.06994700000541343,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08392429999912565,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07307399999990594,
+            "history_and_temp_setup": 0.0064799000010680174,
+            "neighbor_pool_sha": 0.3234803000013926,
+            "prediction_output": 0.03758899999957066,
+            "sql_positive_overlaps": 0.5420814999924914,
+            "sql_selected_votes_and_accumulation": 0.7272450999953435,
+            "top_ten_and_zero_fill": 0.05787290000625944
+          },
+          "verification_outside_rank_seconds": 0.20423190000656177,
+          "rank_unpartitioned_seconds": 0.007381400002486771
+        }
+      },
+      "source_closure_count": 555,
+      "source_closure_bytes": 12262857127,
+      "binding_source_count": 15,
+      "binding_source_bytes": 484117454,
+      "reference_payload_bytes": 2115696,
+      "baseline_contract": "Native original V4; before/after resource snapshots",
+      "source_verification_structure": {
+        "basis": "Inferred from sealed source control flow, not a runtime count of source reads",
+        "measured_window_closure_passes": 2,
+        "publisher_closure_passes_without_wall_timer": 2,
+        "entry_binding_passes_per_fresh_run": 2,
+        "entry_binding_passes_all_14_runs": 28,
+        "publisher_binding_passes_from_14_store_opens": 14,
+        "window_closure_logical_hash_bytes": 24525714254,
+        "publisher_closure_logical_hash_bytes": 24525714254,
+        "entry_binding_logical_hash_bytes": 13555288712,
+        "publisher_binding_logical_hash_bytes": 6777644356,
+        "caution": "Repeated logical byte coverage is not unique bytes, physical disk I/O or measured per-pass latency. Create validates input at setup; writer rechecks after lock. Publisher independently reopens ledgers. These boundaries must be preserved or replaced with an explicitly validated equivalent."
+      }
+    },
+    "V22": {
+      "decision": {
+        "pairs": [
+          {
+            "pair": 1,
+            "order": "AB",
+            "A_primary_seconds": 1.9261964999986958,
+            "B_primary_seconds": 2.1671199000015804,
+            "primary_saving_seconds": -0.2409234000028846,
+            "primary_saving_percent": -12.507727015548399,
+            "entry_saving_seconds": -0.2786054000002878
+          },
+          {
+            "pair": 2,
+            "order": "BA",
+            "A_primary_seconds": 2.314336299999468,
+            "B_primary_seconds": 2.7235808999989786,
+            "primary_saving_seconds": -0.4092445999995107,
+            "primary_saving_percent": -17.68302212602398,
+            "entry_saving_seconds": 0.42276769999989483
+          },
+          {
+            "pair": 3,
+            "order": "AB",
+            "A_primary_seconds": 2.1683068000015737,
+            "B_primary_seconds": 2.2448720000024878,
+            "primary_saving_seconds": -0.07656520000091405,
+            "primary_saving_percent": -3.5311054690627026,
+            "entry_saving_seconds": 1.2491344999998546
+          },
+          {
+            "pair": 4,
+            "order": "BA",
+            "A_primary_seconds": 2.5514994000000115,
+            "B_primary_seconds": 1.9313127000013992,
+            "primary_saving_seconds": 0.6201866999986123,
+            "primary_saving_percent": 24.306754687013036,
+            "entry_saving_seconds": 0.34714699999949516
+          },
+          {
+            "pair": 5,
+            "order": "AB",
+            "A_primary_seconds": 2.062535900002331,
+            "B_primary_seconds": 2.1315388000039093,
+            "primary_saving_seconds": -0.06900290000157838,
+            "primary_saving_percent": -3.3455369189695268,
+            "entry_saving_seconds": -0.37443830000029266
+          },
+          {
+            "pair": 6,
+            "order": "BA",
+            "A_primary_seconds": 2.017189999998209,
+            "B_primary_seconds": 2.173037000000477,
+            "primary_saving_seconds": -0.15584700000226803,
+            "primary_saving_percent": -7.725945498560196,
+            "entry_saving_seconds": 0.8494401999996626
+          }
+        ],
+        "faster_pairs": 1,
+        "order_median_savings_seconds": {
+          "AB": -0.07656520000091405,
+          "BA": -0.15584700000226803
+        },
+        "median_saving_percent": -5.628525483811449,
+        "primary_gate_passed": false,
+        "entry_median_seconds": {
+          "A": 9.620471049999878,
+          "B": 9.021258400000079
+        },
+        "entry_regressed": false,
+        "supports_candidate": false
+      },
+      "window_seconds": 215.75,
+      "window_exclusive_seconds": {
+        "initial_source_hash_seconds": 51.171252000000095,
+        "final_source_hash_seconds": 33.77881320000006,
+        "all_14_entry_seconds": 127.47661379999954,
+        "window_other_seconds": 3.3233210000003055
+      },
+      "window_exclusive_percent": {
+        "initial_source_hash_seconds": 23.717845654692976,
+        "final_source_hash_seconds": 15.656460347624593,
+        "all_14_entry_seconds": 59.085336639628984,
+        "window_other_seconds": 1.540357358053444
+      },
+      "paired_mode_medians": {
+        "baseline": {
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.30601015000002,
+            "primary_seconds": 2.1154213500019523,
+            "tail_without_commit_seconds": 0.10421014999997169,
+            "entry_other_seconds": 2.8068002499992417
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.797056203269506,
+            "primary_seconds": 23.540306496757665,
+            "tail_without_commit_seconds": 1.14373102801529,
+            "entry_other_seconds": 30.53282130988297
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.896246750000273,
+            "append_excluding_commit_seconds": 0.1385564500003511,
+            "all_commit_seconds": 0.09086580000007416
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03293135000012626,
+            "append_without_commit_or_budget_seconds": 0.10942795000028127
+          },
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.061767200000304,
+            "history_and_temp_setup": 0.005929350001679268,
+            "neighbor_pool_sha": 0.287558500000614,
+            "prediction_output": 0.036112799999955314,
+            "sql_positive_overlaps": 0.5158157500000016,
+            "sql_selected_votes_and_accumulation": 0.7285602999979801,
+            "top_ten_and_zero_fill": 0.05499045000146907
+          },
+          "all_budget_seconds_median": 0.09746634999964954
+        },
+        "group_before_size_join": {
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.8346314499999608,
+            "primary_seconds": 2.1700784500010286,
+            "tail_without_commit_seconds": 0.10085725000044476,
+            "entry_other_seconds": 2.7421326499975294
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 43.612765562275456,
+            "primary_seconds": 24.57222608198566,
+            "tail_without_commit_seconds": 1.1212582375071656,
+            "entry_other_seconds": 30.86365767439513
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.954433500001187,
+            "append_excluding_commit_seconds": 0.13248015000067426,
+            "all_commit_seconds": 0.09042075000002114
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03142724999997881,
+            "append_without_commit_or_budget_seconds": 0.10294605000035517
+          },
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07198989999915284,
+            "history_and_temp_setup": 0.006899400000293099,
+            "neighbor_pool_sha": 0.30445270000109304,
+            "prediction_output": 0.0380619499999284,
+            "sql_positive_overlaps": 0.464293699999871,
+            "sql_selected_votes_and_accumulation": 0.7905235499995342,
+            "top_ten_and_zero_fill": 0.06226215000083357
+          },
+          "all_budget_seconds_median": 0.09962784999970609
+        }
+      },
+      "post_exit_wall_seconds": null,
+      "interpretation": "Every raw entry conserves setup + primary + tail excluding final commit + entry other. Primary includes all commits once and direct append budget publication. Rank and budget subparts are nested. Group medians need not conserve each other. Window includes warmups; post-exit wall is not recorded.",
+      "candidate": "group_before_size_join",
+      "report": {
+        "path": "reports/stage12/retailrocket_session_knn_v22_overlap_compare48_20261109.json",
+        "bytes": 169661,
+        "sha256": "3571c95230493a105c7523912e2b69f3049ac19ed847aca1398802d8473cb3d7"
+      },
+      "runs": {
+        "warm_A": {
+          "costs": {
+            "primary_seconds": 2.131022199999734,
+            "verification_seconds": 1.881166700000449,
+            "append_excluding_commit_seconds": 0.16476959999954488,
+            "all_commit_seconds": 0.08508589999973992,
+            "rank_seconds": 1.6885415999990983,
+            "vote_seconds": 0.7238973999988048,
+            "setup_seconds": 3.6788862999997036,
+            "tail_seconds": 0.23844680000001972,
+            "entry_seconds": 8.682006100000308,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.6788862999997036,
+            "primary_seconds": 2.131022199999734,
+            "tail_without_commit_seconds": 0.1533609000002798,
+            "entry_other_seconds": 2.7187367000005906
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 42.373689417237024,
+            "primary_seconds": 24.54527416192046,
+            "tail_without_commit_seconds": 1.7664223940164516,
+            "entry_other_seconds": 31.31461402682606
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.881166700000449,
+            "append_excluding_commit_seconds": 0.16476959999954488,
+            "all_commit_seconds": 0.08508589999973992
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.04767969999966226,
+            "append_without_commit_or_budget_seconds": 0.11708989999988262
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.007676199999878008
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007879100000081962
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.03599880000047051
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.04767969999966226
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.014071799999783252
+            }
+          },
+          "all_observed_budget_seconds": 0.113305599999876,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08508589999973992,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06644610000284956,
+            "history_and_temp_setup": 0.006947200000013254,
+            "neighbor_pool_sha": 0.29613139999764826,
+            "prediction_output": 0.027705499998319283,
+            "sql_positive_overlaps": 0.5063341000004584,
+            "sql_selected_votes_and_accumulation": 0.7238973999988048,
+            "top_ten_and_zero_fill": 0.054033500001878565
+          },
+          "verification_outside_rank_seconds": 0.1926251000013508,
+          "rank_unpartitioned_seconds": 0.007046399999126152
+        },
+        "warm_B": {
+          "costs": {
+            "primary_seconds": 1.9344102999975803,
+            "verification_seconds": 1.7183511999983239,
+            "append_excluding_commit_seconds": 0.13121239999918544,
+            "all_commit_seconds": 0.084846700000071,
+            "rank_seconds": 1.5437007000027734,
+            "vote_seconds": 0.7007788000028086,
+            "setup_seconds": 3.9730703000000176,
+            "tail_seconds": 0.16759030000002895,
+            "entry_seconds": 8.808046199999808,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.9730703000000176,
+            "primary_seconds": 1.9344102999975803,
+            "tail_without_commit_seconds": 0.08274359999995795,
+            "entry_other_seconds": 2.817822000002252
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 45.107282702492,
+            "primary_seconds": 21.961854605140722,
+            "tail_without_commit_seconds": 0.9394092415178267,
+            "entry_other_seconds": 31.991453450849445
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.7183511999983239,
+            "append_excluding_commit_seconds": 0.13121239999918544,
+            "all_commit_seconds": 0.084846700000071
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.0325023999998848,
+            "append_without_commit_or_budget_seconds": 0.09870999999930063
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006924799999978859
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.008361299999705807
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.028216999999585823
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.0325023999998848
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.026009300000623625
+            }
+          },
+          "all_observed_budget_seconds": 0.10201479999977892,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.084846700000071,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.0605359999999564,
+            "history_and_temp_setup": 0.005053299999417504,
+            "neighbor_pool_sha": 0.284278599998288,
+            "prediction_output": 0.03259740000203237,
+            "sql_positive_overlaps": 0.40384810000205107,
+            "sql_selected_votes_and_accumulation": 0.7007788000028086,
+            "top_ten_and_zero_fill": 0.04965839999704258
+          },
+          "verification_outside_rank_seconds": 0.1746504999955505,
+          "rank_unpartitioned_seconds": 0.0069501000011769065
+        },
+        "pair_1_A": {
+          "costs": {
+            "primary_seconds": 1.9261964999986958,
+            "verification_seconds": 1.707443200000398,
+            "append_excluding_commit_seconds": 0.1293476999981067,
+            "all_commit_seconds": 0.08940560000019104,
+            "rank_seconds": 1.5369762999980594,
+            "vote_seconds": 0.649948099996891,
+            "setup_seconds": 3.733430100000078,
+            "tail_seconds": 0.18644170000015947,
+            "entry_seconds": 8.344788199999584,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.733430100000078,
+            "primary_seconds": 1.9261964999986958,
+            "tail_without_commit_seconds": 0.09703609999996843,
+            "entry_other_seconds": 2.5881255000008423
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.739662775386726,
+            "primary_seconds": 23.082628987501344,
+            "tail_without_commit_seconds": 1.1628347859083261,
+            "entry_other_seconds": 31.014873451203606
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.707443200000398,
+            "append_excluding_commit_seconds": 0.1293476999981067,
+            "all_commit_seconds": 0.08940560000019104
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.04229159999977128,
+            "append_without_commit_or_budget_seconds": 0.08705609999833541
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.007410300000174175
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007850100000268867
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02499850000049264
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.04229159999977128
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.013877899999897636
+            }
+          },
+          "all_observed_budget_seconds": 0.0964284000006046,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08940560000019104,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06222050000133095,
+            "history_and_temp_setup": 0.0052911999996467785,
+            "neighbor_pool_sha": 0.26452870000093753,
+            "prediction_output": 0.03152610000142886,
+            "sql_positive_overlaps": 0.46903689999862763,
+            "sql_selected_votes_and_accumulation": 0.649948099996891,
+            "top_ten_and_zero_fill": 0.04786940000121831
+          },
+          "verification_outside_rank_seconds": 0.17046690000233866,
+          "rank_unpartitioned_seconds": 0.006555399997978384
+        },
+        "pair_1_B": {
+          "costs": {
+            "primary_seconds": 2.1671199000015804,
+            "verification_seconds": 1.9324443000018618,
+            "append_excluding_commit_seconds": 0.13521659999969415,
+            "all_commit_seconds": 0.09945900000002439,
+            "rank_seconds": 1.7118326000017987,
+            "vote_seconds": 0.7897213999995074,
+            "setup_seconds": 3.8059751999999207,
+            "tail_seconds": 0.19119210000008025,
+            "entry_seconds": 8.623393599999872,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.8059751999999207,
+            "primary_seconds": 2.1671199000015804,
+            "tail_without_commit_seconds": 0.09173310000005586,
+            "entry_other_seconds": 2.558565399998315
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.135468894751334,
+            "primary_seconds": 25.13070840233493,
+            "tail_without_commit_seconds": 1.063770300361301,
+            "entry_other_seconds": 29.67005240255244
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9324443000018618,
+            "append_excluding_commit_seconds": 0.13521659999969415,
+            "all_commit_seconds": 0.09945900000002439
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03000640000027488,
+            "append_without_commit_or_budget_seconds": 0.10521019999941927
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.0073232999998253945
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.0075888000001214095
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.0362422999996852
+            },
+            "query_append": {
+              "writes": 3,
+              "seconds": 0.03000640000027488
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.012458999999580556
+            }
+          },
+          "all_observed_budget_seconds": 0.09361979999948744,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.09945900000002439,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06231880000086676,
+            "history_and_temp_setup": 0.014809499999046238,
+            "neighbor_pool_sha": 0.2858992999986185,
+            "prediction_output": 0.03752319999875908,
+            "sql_positive_overlaps": 0.4578048000007584,
+            "sql_selected_votes_and_accumulation": 0.7897213999995074,
+            "top_ten_and_zero_fill": 0.05677790000072491
+          },
+          "verification_outside_rank_seconds": 0.22061170000006314,
+          "rank_unpartitioned_seconds": 0.006977700003517384
+        },
+        "pair_2_B": {
+          "costs": {
+            "primary_seconds": 2.7235808999989786,
+            "verification_seconds": 2.4462659000009808,
+            "append_excluding_commit_seconds": 0.18618419999802427,
+            "all_commit_seconds": 0.09113079999997353,
+            "rank_seconds": 2.228740500001095,
+            "vote_seconds": 1.0851209999977982,
+            "setup_seconds": 3.746731600000203,
+            "tail_seconds": 0.19636840000021039,
+            "entry_seconds": 9.221110299999964,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.746731600000203,
+            "primary_seconds": 2.7235808999989786,
+            "tail_without_commit_seconds": 0.10523760000023685,
+            "entry_other_seconds": 2.6455602000005456
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 40.632109128986535,
+            "primary_seconds": 29.536366135854475,
+            "tail_without_commit_seconds": 1.1412682049821838,
+            "entry_other_seconds": 28.690256530176804
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 2.4462659000009808,
+            "append_excluding_commit_seconds": 0.18618419999802427,
+            "all_commit_seconds": 0.09113079999997353
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03732049999962328,
+            "append_without_commit_or_budget_seconds": 0.148863699998401
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.00649459999976898
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.01658769999994547
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02390419999983351
+            },
+            "query_append": {
+              "writes": 3,
+              "seconds": 0.03732049999962328
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.011990299999524723
+            }
+          },
+          "all_observed_budget_seconds": 0.09629729999869596,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.09113079999997353,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.08330070000056367,
+            "history_and_temp_setup": 0.007015399999090732,
+            "neighbor_pool_sha": 0.3784259999988535,
+            "prediction_output": 0.04462439999815615,
+            "sql_positive_overlaps": 0.5426878000012039,
+            "sql_selected_votes_and_accumulation": 1.0851209999977982,
+            "top_ten_and_zero_fill": 0.07851170000185448
+          },
+          "verification_outside_rank_seconds": 0.21752539999988585,
+          "rank_unpartitioned_seconds": 0.0090535000035743
+        },
+        "pair_2_A": {
+          "costs": {
+            "primary_seconds": 2.314336299999468,
+            "verification_seconds": 2.03031460000102,
+            "append_excluding_commit_seconds": 0.18545319999839194,
+            "all_commit_seconds": 0.09856850000005579,
+            "rank_seconds": 1.8333440000001247,
+            "vote_seconds": 0.7834250999994765,
+            "setup_seconds": 4.325708399999712,
+            "tail_seconds": 0.21081520000007004,
+            "entry_seconds": 9.643877999999859,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.325708399999712,
+            "primary_seconds": 2.314336299999468,
+            "tail_without_commit_seconds": 0.11224670000001424,
+            "entry_other_seconds": 2.8915866000006645
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.85444963115228,
+            "primary_seconds": 23.99798400601399,
+            "tail_without_commit_seconds": 1.1639166318779217,
+            "entry_other_seconds": 29.983649730955815
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 2.03031460000102,
+            "append_excluding_commit_seconds": 0.18545319999839194,
+            "all_commit_seconds": 0.09856850000005579
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03164020000031087,
+            "append_without_commit_or_budget_seconds": 0.15381299999808107
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.019134599999688362
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.006895499999700405
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.027882299999419047
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.03164020000031087
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.012951699999575794
+            }
+          },
+          "all_observed_budget_seconds": 0.09850429999869448,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.09856850000005579,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07072119999884308,
+            "history_and_temp_setup": 0.0058461000025999965,
+            "neighbor_pool_sha": 0.313364800000727,
+            "prediction_output": 0.03745199999957549,
+            "sql_positive_overlaps": 0.5624730999984422,
+            "sql_selected_votes_and_accumulation": 0.7834250999994765,
+            "top_ten_and_zero_fill": 0.05349260000139111
+          },
+          "verification_outside_rank_seconds": 0.1969706000008955,
+          "rank_unpartitioned_seconds": 0.006569099999069294
+        },
+        "pair_3_A": {
+          "costs": {
+            "primary_seconds": 2.1683068000015737,
+            "verification_seconds": 1.955507499999385,
+            "append_excluding_commit_seconds": 0.1348137000022689,
+            "all_commit_seconds": 0.07798559999991994,
+            "rank_seconds": 1.7588923999987855,
+            "vote_seconds": 0.7377791999979308,
+            "setup_seconds": 4.921777699999893,
+            "tail_seconds": 0.16748580000012225,
+            "entry_seconds": 10.308282699999836,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.921777699999893,
+            "primary_seconds": 2.1683068000015737,
+            "tail_without_commit_seconds": 0.08950020000020231,
+            "entry_other_seconds": 3.128697999998167
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 47.745854893948255,
+            "primary_seconds": 21.034607442436638,
+            "tail_without_commit_seconds": 0.8682357925651741,
+            "entry_other_seconds": 30.351301871049934
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.955507499999385,
+            "append_excluding_commit_seconds": 0.1348137000022689,
+            "all_commit_seconds": 0.07798559999991994
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.024034500000198022,
+            "append_without_commit_or_budget_seconds": 0.11077920000207087
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.005223099999966507
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007877799999732815
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02334419999988313
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.024034500000198022
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.020461400000385765
+            }
+          },
+          "all_observed_budget_seconds": 0.08094100000016624,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.07798559999991994,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.061313899999277055,
+            "history_and_temp_setup": 0.006279499999436666,
+            "neighbor_pool_sha": 0.2958329000007325,
+            "prediction_output": 0.03932269999995697,
+            "sql_positive_overlaps": 0.5482401000003847,
+            "sql_selected_votes_and_accumulation": 0.7377791999979308,
+            "top_ten_and_zero_fill": 0.062121700002080615
+          },
+          "verification_outside_rank_seconds": 0.19661510000059934,
+          "rank_unpartitioned_seconds": 0.00800239999898622
+        },
+        "pair_3_B": {
+          "costs": {
+            "primary_seconds": 2.2448720000024878,
+            "verification_seconds": 2.0254176000007647,
+            "append_excluding_commit_seconds": 0.12974370000165436,
+            "all_commit_seconds": 0.08971070000006875,
+            "rank_seconds": 1.81901679999919,
+            "vote_seconds": 0.8263716999999815,
+            "setup_seconds": 3.8632877000000008,
+            "tail_seconds": 0.18695329999991372,
+            "entry_seconds": 9.059148199999981,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.8632877000000008,
+            "primary_seconds": 2.2448720000024878,
+            "tail_without_commit_seconds": 0.09724259999984497,
+            "entry_other_seconds": 2.853745899997648
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 42.64515398920186,
+            "primary_seconds": 24.780166417881237,
+            "tail_without_commit_seconds": 1.0734188011169215,
+            "entry_other_seconds": 31.501260791799986
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 2.0254176000007647,
+            "append_excluding_commit_seconds": 0.12974370000165436,
+            "all_commit_seconds": 0.08971070000006875
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.02906180000036329,
+            "append_without_commit_or_budget_seconds": 0.10068190000129107
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006326600000193139
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.017061099999864382
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.026013700000021345
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.02906180000036329
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.028401600000051985
+            }
+          },
+          "all_observed_budget_seconds": 0.10686480000049414,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08971070000006875,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07139829999869107,
+            "history_and_temp_setup": 0.006783400001495465,
+            "neighbor_pool_sha": 0.3153833000014856,
+            "prediction_output": 0.03860070000109772,
+            "sql_positive_overlaps": 0.47733609999932014,
+            "sql_selected_votes_and_accumulation": 0.8263716999999815,
+            "top_ten_and_zero_fill": 0.07255189999932554
+          },
+          "verification_outside_rank_seconds": 0.20640080000157468,
+          "rank_unpartitioned_seconds": 0.010591399997792905
+        },
+        "pair_4_B": {
+          "costs": {
+            "primary_seconds": 1.9313127000013992,
+            "verification_seconds": 1.6835347000001093,
+            "append_excluding_commit_seconds": 0.1399734000015087,
+            "all_commit_seconds": 0.1078045999997812,
+            "rank_seconds": 1.5004369000012048,
+            "vote_seconds": 0.6597339000031752,
+            "setup_seconds": 4.331500799999958,
+            "tail_seconds": 0.20975640000006024,
+            "entry_seconds": 9.249917100000403,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.331500799999958,
+            "primary_seconds": 1.9313127000013992,
+            "tail_without_commit_seconds": 0.10195180000027904,
+            "entry_other_seconds": 2.8851517999987664
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 46.82745535092168,
+            "primary_seconds": 20.879243339395064,
+            "tail_without_commit_seconds": 1.1021914996435438,
+            "entry_other_seconds": 31.191109810039713
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.6835347000001093,
+            "append_excluding_commit_seconds": 0.1399734000015087,
+            "all_commit_seconds": 0.1078045999997812
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.032848099999682745,
+            "append_without_commit_or_budget_seconds": 0.10712530000182596
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.007004200000210403
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007108400000106485
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.0287663999997676
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.032848099999682745
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.02752000000054977
+            }
+          },
+          "all_observed_budget_seconds": 0.103247100000317,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.1078045999997812,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06446039999809727,
+            "history_and_temp_setup": 0.005709999996724946,
+            "neighbor_pool_sha": 0.250961599999755,
+            "prediction_output": 0.0474077999997462,
+            "sql_positive_overlaps": 0.4141223000010541,
+            "sql_selected_votes_and_accumulation": 0.6597339000031752,
+            "top_ten_and_zero_fill": 0.05126109999855544
+          },
+          "verification_outside_rank_seconds": 0.18309779999890452,
+          "rank_unpartitioned_seconds": 0.006779800004096614
+        },
+        "pair_4_A": {
+          "costs": {
+            "primary_seconds": 2.5514994000000115,
+            "verification_seconds": 2.2504502000001594,
+            "append_excluding_commit_seconds": 0.18249129999958313,
+            "all_commit_seconds": 0.118557900000269,
+            "rank_seconds": 2.0200545999973656,
+            "vote_seconds": 0.8616941000009319,
+            "setup_seconds": 4.286311900000328,
+            "tail_seconds": 0.22648909999998068,
+            "entry_seconds": 9.597064099999898,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.286311900000328,
+            "primary_seconds": 2.5514994000000115,
+            "tail_without_commit_seconds": 0.10793119999971168,
+            "entry_other_seconds": 2.6513215999998465
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.662741181445,
+            "primary_seconds": 26.586249434345643,
+            "tail_without_commit_seconds": 1.1246272701222537,
+            "entry_other_seconds": 27.626382114087107
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 2.2504502000001594,
+            "append_excluding_commit_seconds": 0.18249129999958313,
+            "all_commit_seconds": 0.118557900000269
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.04962900000055015,
+            "append_without_commit_or_budget_seconds": 0.13286229999903298
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006807500000377331
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007255500000155735
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.02412629999935234
+            },
+            "query_append": {
+              "writes": 3,
+              "seconds": 0.04962900000055015
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.03806040000017674
+            }
+          },
+          "all_observed_budget_seconds": 0.1258787000006123,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.118557900000269,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.08403630000020712,
+            "history_and_temp_setup": 0.018449599998348276,
+            "neighbor_pool_sha": 0.3761240999997426,
+            "prediction_output": 0.03837509999948452,
+            "sql_positive_overlaps": 0.557984200001556,
+            "sql_selected_votes_and_accumulation": 0.8616941000009319,
+            "top_ten_and_zero_fill": 0.07283469999993031
+          },
+          "verification_outside_rank_seconds": 0.2303956000027938,
+          "rank_unpartitioned_seconds": 0.010556499997164792
+        },
+        "pair_5_A": {
+          "costs": {
+            "primary_seconds": 2.062535900002331,
+            "verification_seconds": 1.8369860000011613,
+            "append_excluding_commit_seconds": 0.13322390000121231,
+            "all_commit_seconds": 0.09232599999995728,
+            "rank_seconds": 1.6454502000001412,
+            "vote_seconds": 0.7193413999980294,
+            "setup_seconds": 3.4874410999996144,
+            "tail_seconds": 0.19451690000005328,
+            "entry_seconds": 8.37418179999986,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.4874410999996144,
+            "primary_seconds": 2.062535900002331,
+            "tail_without_commit_seconds": 0.10219090000009601,
+            "entry_other_seconds": 2.722013899997819
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 41.645156306490414,
+            "primary_seconds": 24.62970053984695,
+            "tail_without_commit_seconds": 1.2203090694794532,
+            "entry_other_seconds": 32.50483408418317
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.8369860000011613,
+            "append_excluding_commit_seconds": 0.13322390000121231,
+            "all_commit_seconds": 0.09232599999995728
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.02761160000000018,
+            "append_without_commit_or_budget_seconds": 0.10561230000121213
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006415100000140228
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.00851730000022144
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.031324600000061764
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.02761160000000018
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.019714999999905558
+            }
+          },
+          "all_observed_budget_seconds": 0.09358360000032917,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.09232599999995728,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.06113050000021758,
+            "history_and_temp_setup": 0.005978700000923709,
+            "neighbor_pool_sha": 0.2784052000001793,
+            "prediction_output": 0.03398280000010345,
+            "sql_positive_overlaps": 0.48339139999961844,
+            "sql_selected_votes_and_accumulation": 0.7193413999980294,
+            "top_ten_and_zero_fill": 0.05648830000154703
+          },
+          "verification_outside_rank_seconds": 0.1915358000010201,
+          "rank_unpartitioned_seconds": 0.006731899999522284
+        },
+        "pair_5_B": {
+          "costs": {
+            "primary_seconds": 2.1315388000039093,
+            "verification_seconds": 1.9244495000016286,
+            "append_excluding_commit_seconds": 0.12373550000256728,
+            "all_commit_seconds": 0.08335379999971337,
+            "rank_seconds": 1.7320020999991357,
+            "vote_seconds": 0.7717887999992854,
+            "setup_seconds": 3.776233200000206,
+            "tail_seconds": 0.18311650000032387,
+            "entry_seconds": 8.748620100000153,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.776233200000206,
+            "primary_seconds": 2.1315388000039093,
+            "tail_without_commit_seconds": 0.0997627000006105,
+            "entry_other_seconds": 2.741085399995427
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 43.16375790509112,
+            "primary_seconds": 24.364285746090083,
+            "tail_without_commit_seconds": 1.1403249753707874,
+            "entry_other_seconds": 31.331631373448015
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9244495000016286,
+            "append_excluding_commit_seconds": 0.12373550000256728,
+            "all_commit_seconds": 0.08335379999971337
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03307909999966796,
+            "append_without_commit_or_budget_seconds": 0.09065640000289932
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.016161900000042806
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007166300000335468
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.024904000000333326
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.03307909999966796
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.02164710000033665
+            }
+          },
+          "all_observed_budget_seconds": 0.10295840000071621,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08335379999971337,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.0747521999996934,
+            "history_and_temp_setup": 0.013671300002442877,
+            "neighbor_pool_sha": 0.29352210000070045,
+            "prediction_output": 0.037152200000491575,
+            "sql_positive_overlaps": 0.46749759999875096,
+            "sql_selected_votes_and_accumulation": 0.7717887999992854,
+            "top_ten_and_zero_fill": 0.06451830000059999
+          },
+          "verification_outside_rank_seconds": 0.19244740000249294,
+          "rank_unpartitioned_seconds": 0.009099599997171026
+        },
+        "pair_6_B": {
+          "costs": {
+            "primary_seconds": 2.173037000000477,
+            "verification_seconds": 1.9764227000005121,
+            "append_excluding_commit_seconds": 0.11212669999986247,
+            "all_commit_seconds": 0.08448760000010225,
+            "rank_seconds": 1.7913479999983792,
+            "vote_seconds": 0.791325699999561,
+            "setup_seconds": 3.958231500000238,
+            "tail_seconds": 0.19340779999993174,
+            "entry_seconds": 8.983368600000176,
+            "mode": "group_before_size_join"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 3.958231500000238,
+            "primary_seconds": 2.173037000000477,
+            "tail_without_commit_seconds": 0.10892019999982949,
+            "entry_other_seconds": 2.7431798999996317
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 44.0617732194598,
+            "primary_seconds": 24.189556242860103,
+            "tail_without_commit_seconds": 1.212464998929548,
+            "entry_other_seconds": 30.53620553875055
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.9764227000005121,
+            "append_excluding_commit_seconds": 0.11212669999986247,
+            "all_commit_seconds": 0.08448760000010225
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.014974499999880209,
+            "append_without_commit_or_budget_seconds": 0.09715219999998226
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.006660999999894557
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.007991599999968457
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.035185700000056386
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.014974499999880209
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.017176699999708944
+            }
+          },
+          "all_observed_budget_seconds": 0.08198949999950855,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08448760000010225,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.07258149999961461,
+            "history_and_temp_setup": 0.005315500000051543,
+            "neighbor_pool_sha": 0.35745709999855535,
+            "prediction_output": 0.03512769999997545,
+            "sql_positive_overlaps": 0.4610898000009911,
+            "sql_selected_votes_and_accumulation": 0.791325699999561,
+            "top_ten_and_zero_fill": 0.06000600000106715
+          },
+          "verification_outside_rank_seconds": 0.18507470000213289,
+          "rank_unpartitioned_seconds": 0.00844469999856301
+        },
+        "pair_6_A": {
+          "costs": {
+            "primary_seconds": 2.017189999998209,
+            "verification_seconds": 1.7885483999998542,
+            "append_excluding_commit_seconds": 0.14229919999843332,
+            "all_commit_seconds": 0.08634239999992133,
+            "rank_seconds": 1.6053200999981527,
+            "vote_seconds": 0.6860139000004892,
+            "setup_seconds": 4.689307000000099,
+            "tail_seconds": 0.1925717999997687,
+            "entry_seconds": 9.832808799999839,
+            "mode": "baseline"
+          },
+          "entry_exclusive_seconds": {
+            "setup_seconds": 4.689307000000099,
+            "primary_seconds": 2.017189999998209,
+            "tail_without_commit_seconds": 0.10622939999984737,
+            "entry_other_seconds": 3.0200824000016837
+          },
+          "entry_exclusive_percent": {
+            "setup_seconds": 47.6904117163366,
+            "primary_seconds": 20.51489092311285,
+            "tail_without_commit_seconds": 1.0803566118345465,
+            "entry_other_seconds": 30.71434074871601
+          },
+          "primary_parts_seconds": {
+            "verification_seconds": 1.7885483999998542,
+            "append_excluding_commit_seconds": 0.14229919999843332,
+            "all_commit_seconds": 0.08634239999992133
+          },
+          "append_parts_seconds": {
+            "direct_budget_seconds": 0.03422249999994165,
+            "append_without_commit_or_budget_seconds": 0.10807669999849168
+          },
+          "all_budget_by_context": {
+            "store_setup": {
+              "writes": 1,
+              "seconds": 0.007034499999917898
+            },
+            "writer_setup": {
+              "writes": 1,
+              "seconds": 0.009084799999982351
+            },
+            "stage": {
+              "writes": 4,
+              "seconds": 0.0320411999996395
+            },
+            "query_append": {
+              "writes": 2,
+              "seconds": 0.03422249999994165
+            },
+            "chunk_commit": {
+              "writes": 2,
+              "seconds": 0.0226556000002347
+            }
+          },
+          "all_observed_budget_seconds": 0.1050385999997161,
+          "query_nested_commit_seconds": 0.0,
+          "tail_commit_seconds": 0.08634239999992133,
+          "rank_stages_seconds": {
+            "exact_neighbor_selection": 0.057931399998324196,
+            "history_and_temp_setup": 0.0058800000024348265,
+            "neighbor_pool_sha": 0.2792841000004955,
+            "prediction_output": 0.034773600000335136,
+            "sql_positive_overlaps": 0.48302899999953297,
+            "sql_selected_votes_and_accumulation": 0.6860139000004892,
+            "top_ten_and_zero_fill": 0.05151370000112365
+          },
+          "verification_outside_rank_seconds": 0.18322830000170143,
+          "rank_unpartitioned_seconds": 0.006894399995417189
+        }
+      },
+      "source_closure_count": 580,
+      "source_closure_bytes": 12265783628,
+      "binding_source_count": 15,
+      "binding_source_bytes": 484117454,
+      "reference_payload_bytes": 2115696,
+      "baseline_contract": "Symmetric A/B SQL adapters; continuous telemetry across each complete entry",
+      "source_verification_structure": {
+        "basis": "Inferred from sealed source control flow, not a runtime count of source reads",
+        "measured_window_closure_passes": 2,
+        "publisher_closure_passes_without_wall_timer": 2,
+        "entry_binding_passes_per_fresh_run": 2,
+        "entry_binding_passes_all_14_runs": 28,
+        "publisher_binding_passes_from_14_store_opens": 14,
+        "window_closure_logical_hash_bytes": 24531567256,
+        "publisher_closure_logical_hash_bytes": 24531567256,
+        "entry_binding_logical_hash_bytes": 13555288712,
+        "publisher_binding_logical_hash_bytes": 6777644356,
+        "caution": "Repeated logical byte coverage is not unique bytes, physical disk I/O or measured per-pass latency. Create validates input at setup; writer rechecks after lock. Publisher independently reopens ledgers. These boundaries must be preserved or replaced with an explicitly validated equivalent."
+      }
+    }
+  },
+  "all_28_historical_ledgers_and_1344_payloads_match_reference": true,
+  "new_query_verifications": 0,
+  "new_candidate_runs": 0,
+  "large_model_or_raw_data_rehashed": false,
+  "interpretation": "Recomputed original known-validation engineering observations. Every window and mode is separate. Do not pool candidate effects across V17/V22, project these batch costs to full validation, interpret source descriptors as physical I/O, or treat inferred pass counts as newly instrumented timings.",
+  "scope": {
+    "historical_distinct_queries": 48,
+    "historical_query_observations": 1344,
+    "new_query_verifications": 0,
+    "new_candidate_runs": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null
+}
