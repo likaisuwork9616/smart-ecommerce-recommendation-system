@@ -1,0 +1,363 @@
+{
+  "status": "v26_saved_evidence_repeated_cost_inventory_complete",
+  "created_utc": "2026-11-09T02:40:01.520236+00:00",
+  "parent_report": {
+    "path": "reports/stage12/retailrocket_session_knn_v25_sources_cost_20261109.json",
+    "bytes": 290562,
+    "sha256": "0a34acbc3e1195f9789c27f0a2c7eda4596309b1159ee476e31cbc4ffd21a3fc"
+  },
+  "parent_analysis": {
+    "path": "reports/stage12/retailrocket_session_knn_v25_sources_analysis_20261109.json",
+    "bytes": 21417,
+    "sha256": "ea37bdfc9de26a91720dd6ffdb835d4f84dc3609e93e0ab139b686bb7ffee3d6"
+  },
+  "parent_release": {
+    "path": "reports/stage12/retailrocket_session_knn_v25_sources_release_20261109.json",
+    "bytes": 372,
+    "sha256": "a866924c62cf58762419a434f7282e0ba1f1b8f430301327061eadf6b95d91a5"
+  },
+  "evidence_audit": {
+    "saved_files": 314,
+    "saved_bytes": 33969572,
+    "current_raw_sources_rehashed": false,
+    "current_model_loaded": false,
+    "new_predictions": 0
+  },
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+      "bytes": 24728,
+      "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+    }
+  ],
+  "inventory_method": {
+    "path": "scripts/inventory_retailrocket_session_knn_reuse_v26.py",
+    "bytes": 12256,
+    "sha256": "d220a6947102457aea3c995d7df8f816fdcba3865d6da104646bf719d2e82335"
+  },
+  "cohort": {
+    "model_root": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model",
+    "old_run": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+    "probes": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+    "reference": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/selected_ledger_proof.json",
+    "selected_root": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs"
+  },
+  "schedule": [
+    {
+      "label": "warm_R",
+      "mode": "R"
+    },
+    {
+      "label": "warm_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_1_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_1_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_2_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_2_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_3_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_3_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_4_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_4_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_5_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_5_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_6_D",
+      "mode": "D"
+    },
+    {
+      "label": "pair_6_R",
+      "mode": "R"
+    }
+  ],
+  "closure": {
+    "unique_path_identities": 596,
+    "single_pass_logical_bytes": 12266733048,
+    "four_boundary_observations": [
+      {
+        "boundary": "worker_initial_hash",
+        "descriptors": 596,
+        "logical_bytes": 12266733048,
+        "wall_seconds": 55.8083546
+      },
+      {
+        "boundary": "worker_final_hash",
+        "descriptors": 596,
+        "logical_bytes": 12266733048,
+        "wall_seconds": 33.7853863
+      },
+      {
+        "boundary": "publisher.initial_hash",
+        "descriptors": 596,
+        "logical_bytes": 12266733048,
+        "wall_seconds": 35.5534574
+      },
+      {
+        "boundary": "publisher.final_hash",
+        "descriptors": 596,
+        "logical_bytes": 12266733048,
+        "wall_seconds": 35.4332755
+      }
+    ],
+    "total_wall_seconds": 160.5804738,
+    "window_percent": 50.79153133263327,
+    "duplicate_content_groups": 36,
+    "duplicate_content_paths": 109,
+    "extra_paths_with_same_content": 73,
+    "same_content_extra_logical_bytes_per_pass": 597058652,
+    "same_content_descriptor_wall_seconds_four_passes": 15.8758396,
+    "interpretation": "Different lexical paths retain different identities. Equal bytes/hash neither prove a common physical file nor authorize removing a check."
+  },
+  "observed_binding_boundaries": {
+    "independent_publisher_open": {
+      "verification_calls": 14,
+      "descriptor_calls": 210,
+      "logical_bytes": 6777644356,
+      "wall_seconds": {
+        "count": 14,
+        "minimum": 1.1687322,
+        "median": 1.2006234,
+        "maximum": 1.3989736,
+        "total": 17.2077605
+      }
+    },
+    "D_before_creation": {
+      "verification_calls": 7,
+      "descriptor_calls": 105,
+      "logical_bytes": 3388822178,
+      "wall_seconds": {
+        "count": 7,
+        "minimum": 1.2065886,
+        "median": 1.2707701,
+        "maximum": 1.4338927,
+        "total": 9.0277887
+      }
+    },
+    "D_after_writer_lock": {
+      "verification_calls": 7,
+      "descriptor_calls": 105,
+      "logical_bytes": 3388822178,
+      "wall_seconds": {
+        "count": 7,
+        "minimum": 1.1887822,
+        "median": 1.2465827,
+        "maximum": 1.3459248,
+        "total": 8.8215195
+      }
+    }
+  },
+  "observed_descriptor_coverage": {
+    "calls": 2804,
+    "unique_path_identities": 596,
+    "repeated_calls": 2208,
+    "logical_bytes": 62622220904,
+    "interpretation": "Instrumented closure and D/publisher binding descriptors only. Contract/reference-gate reads and native R binding costs are not timed here."
+  },
+  "structural_unobserved": {
+    "native_R_runs": 7,
+    "native_R_binding_verifications": 14,
+    "native_R_descriptor_calls": 210,
+    "native_R_logical_bytes": 6777644356,
+    "native_R_source_wall_seconds": null,
+    "native_R_context_load_calls": 7,
+    "native_R_catalog_prepare_calls": 7,
+    "contract_evaluations_in_one_successful_measure": 5,
+    "note": "Frozen call-flow inference, not observed counts/timing. source_contract and reference-gate verification also repeat; their wall is not independently observed. Additional --release re-audits are excluded."
+  },
+  "initialization": {
+    "dependencies": [
+      {
+        "bytes": 1784882,
+        "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/item_counts.csv",
+        "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+      },
+      {
+        "bytes": 4874693,
+        "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/dataset/catalog.csv",
+        "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e"
+      },
+      {
+        "bytes": 24829,
+        "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/configuration.json",
+        "sha256": "f3d5b9d6c6711594fb6efeea3f322ae11a77e487ad9888504fda42a73f2b474d"
+      },
+      {
+        "bytes": 2179030,
+        "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/reconstruction.json",
+        "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+      }
+    ],
+    "per_D_run": [
+      {
+        "label": "warm_D",
+        "warmup": true,
+        "context_load_seconds": 2.8968247,
+        "catalog_prepare_seconds": 1.0317985,
+        "setup_other_seconds": 0.1322229
+      },
+      {
+        "label": "pair_1_D",
+        "warmup": false,
+        "context_load_seconds": 2.8077095,
+        "catalog_prepare_seconds": 1.1556606,
+        "setup_other_seconds": 0.1244339
+      },
+      {
+        "label": "pair_2_D",
+        "warmup": false,
+        "context_load_seconds": 2.9661993,
+        "catalog_prepare_seconds": 1.0270145,
+        "setup_other_seconds": 0.0814394
+      },
+      {
+        "label": "pair_3_D",
+        "warmup": false,
+        "context_load_seconds": 2.9454182,
+        "catalog_prepare_seconds": 1.0270063,
+        "setup_other_seconds": 0.0906423
+      },
+      {
+        "label": "pair_4_D",
+        "warmup": false,
+        "context_load_seconds": 3.1744964,
+        "catalog_prepare_seconds": 0.9178949,
+        "setup_other_seconds": 0.0824585
+      },
+      {
+        "label": "pair_5_D",
+        "warmup": false,
+        "context_load_seconds": 3.0583937,
+        "catalog_prepare_seconds": 1.0402661,
+        "setup_other_seconds": 0.0838819
+      },
+      {
+        "label": "pair_6_D",
+        "warmup": false,
+        "context_load_seconds": 2.9424047,
+        "catalog_prepare_seconds": 0.8795665,
+        "setup_other_seconds": 0.1026238
+      }
+    ],
+    "formal_D": {
+      "context_load_seconds": {
+        "count": 6,
+        "minimum": 2.8077095,
+        "median": 2.95580875,
+        "maximum": 3.1744964,
+        "total": 17.8946218
+      },
+      "catalog_prepare_seconds": {
+        "count": 6,
+        "minimum": 0.8795665,
+        "median": 1.0270104,
+        "maximum": 1.1556606,
+        "total": 6.0474089
+      },
+      "setup_other_seconds": {
+        "count": 6,
+        "minimum": 0.0814394,
+        "median": 0.0872621,
+        "maximum": 0.1244339,
+        "total": 0.5654798
+      }
+    },
+    "observed_D_build_calls": 7,
+    "structural_all14_build_calls": 14,
+    "code_findings": [
+      "load_context parses item_counts and catalog; checks support inclusion/counts, duplicate IDs, canonical numbers and train clocks.",
+      "prepare_catalog copies and validates all counts/catalog, creates MappingProxyType maps and immutable first_times/fallback tuples.",
+      "verify_selected sorts catalog.values again after prepare_catalog; second sort is inside setup_other with other work, not independently timed.",
+      "Original payload/control streams, SQL connection/TEMP state and checkpoint writer state are per-run and must not enter a reusable context."
+    ],
+    "validation_fields": {
+      "train_window_ms": [
+        1430697600000,
+        1438387200000
+      ],
+      "catalog_schema": [
+        "itemid",
+        "first_view_ms"
+      ]
+    },
+    "interpretation": "Each D phase is measured; native R count is inferred. No measured cache saving or sorting-only cost is available."
+  },
+  "preserved_boundaries": [
+    "worker full closure before and after all runs",
+    "source path/size/SHA256 identity at create",
+    "forced full source check after each writer lock",
+    "independent publisher full closure before/after audit and all14 original opens",
+    "normal exits/deadline/resources/immutable outputs and full payload/workload verification"
+  ],
+  "scope": {
+    "new_predictions": 0,
+    "new_performance_windows": 0,
+    "new_model_fit": 0,
+    "new_full_validation": 0,
+    "new_bootstrap": 0,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "T_plan": null
+}
