@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 原四十八筆公平比較完成 | 672 次核對全通過；六對中 1 對主要時間較快，中位節省 -5.629%，未達門檻並結束候選；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | SQL 結案與成本盤點完成 | 637 份證據核對一致，兩輪共用原四十八筆，準備重算互斥成本；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜原四十八筆正重疊 SQL 公平比較（最新）
+## Stage 12｜SQL 候選結案與工程優先順序（最新）
+
+已核對 **637 份證據、63,941,600 bytes**；兩個候選共用原 48 筆、模型與採用門檻。兩輪控制與負載觀測有差異，後續分開重算窗口、入口、排名與保存成本，並避免尾端 commit 重複列帳。本輪尚未新增實測或排定優先順序。 [本輪規格與結果](docs/STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md)
+
+## Stage 12｜原四十八筆正重疊 SQL 公平比較（前輪）
 
 原 **48 筆、14 次循序執行，共 672／672 核對通過**，完整結果與保存位元組一致。正式六對有 **1 對較快**，主要成本成對節省中位數 **-5.629%**；**未通過事前門檻，結束這個候選**。正重疊整段成對節省中位數 +4.030%，屬內含次要指標。同步負載 582 份快照，未量測 Ollama token 影響。覆蓋仍 55／55 格，保留測試鎖定。 [本輪規格與結果](docs/STAGE12_KNN_OVERLAP_COMPARE_V22_20261109.md)
 

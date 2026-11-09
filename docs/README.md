@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜原四十八筆正重疊 SQL 公平比較（最新）
+## Stage 12｜SQL 候選結案與工程優先順序（最新）
+
+637 份證據核對一致，兩輪共用原四十八筆，準備重算互斥成本 [本輪規格與結果](STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md)
+
+## Stage 12｜原四十八筆正重疊 SQL 公平比較（前輪）
 
 672 次核對全通過；六對中 1 對主要時間較快，中位節省 -5.629%，未達門檻並結束候選 [本輪規格與結果](STAGE12_KNN_OVERLAP_COMPARE_V22_20261109.md)
 

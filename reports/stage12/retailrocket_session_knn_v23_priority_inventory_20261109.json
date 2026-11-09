@@ -1,0 +1,3283 @@
+{
+  "status": "v23_engineering_priority_inventory_verified",
+  "created_utc": "2026-11-09T01:17:24.198869+00:00",
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "comparisons": {
+    "V17": {
+      "report": {
+        "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+        "bytes": 113040,
+        "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+      },
+      "namespace": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9",
+      "cohort": {
+        "model_root": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model",
+        "selected_root": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs",
+        "old_run": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+        "probes": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+        "reference": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/selected_ledger_proof.json"
+      },
+      "source_closure_count": 555,
+      "source_closure_bytes": 12262857127,
+      "binding_source_count": 15,
+      "binding_source_bytes": 484117454,
+      "candidate": "rank_counts",
+      "query_checks": 672,
+      "protocol": {
+        "pairs": 6,
+        "warmup_runs": 2,
+        "minimum_wins": 5,
+        "minimum_median_saving_percent": 5,
+        "both_order_medians_positive": true,
+        "entry_median_must_not_regress": true,
+        "budget_seconds": 1800
+      }
+    },
+    "V22": {
+      "report": {
+        "path": "reports/stage12/retailrocket_session_knn_v22_overlap_compare48_20261109.json",
+        "bytes": 169661,
+        "sha256": "3571c95230493a105c7523912e2b69f3049ac19ed847aca1398802d8473cb3d7"
+      },
+      "namespace": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa",
+      "cohort": {
+        "model_root": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model",
+        "selected_root": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs",
+        "old_run": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+        "probes": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+        "reference": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/selected_ledger_proof.json"
+      },
+      "source_closure_count": 580,
+      "source_closure_bytes": 12265783628,
+      "binding_source_count": 15,
+      "binding_source_bytes": 484117454,
+      "candidate": "group_before_size_join",
+      "query_checks": 672,
+      "protocol": {
+        "pairs": 6,
+        "warmup_runs": 2,
+        "minimum_wins": 5,
+        "minimum_median_saving_percent": 5,
+        "both_order_medians_positive": true,
+        "entry_median_must_not_regress": true,
+        "budget_seconds": 1800
+      }
+    }
+  },
+  "verified_inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+      "bytes": 113040,
+      "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v20_diagnostics_analysis_20261106.json",
+      "bytes": 48663,
+      "sha256": "4816df810edf54c35ff402c4b421296b078b9469b69024aa138a6f7c1b7ed092"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v21_guards_analysis_20261106.json",
+      "bytes": 55163,
+      "sha256": "0b88e8e7a8d63f3db705436370308d13136432733f02b2327a6e3e13c525ca4a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v22_overlap_analysis_20261109.json",
+      "bytes": 39708,
+      "sha256": "2d88a160dda8500a4969cd9a9169bf3ff4a7af98b78eea03daeb54b07d530772"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v22_overlap_compare48_20261109.json",
+      "bytes": 169661,
+      "sha256": "3571c95230493a105c7523912e2b69f3049ac19ed847aca1398802d8473cb3d7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_cost_v5.py",
+      "bytes": 6650,
+      "sha256": "5ce501da8c2eeb7f4b3c7ea38d724b43246ace98ac4eb0038003293071bea0ff"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_detailed_cost_v6.py",
+      "bytes": 6853,
+      "sha256": "b611b644218c821b89cd56d4188aeca2931cd8d5c4bd09cfb5d61167ed03c260"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v7.py",
+      "bytes": 11919,
+      "sha256": "90dbdc026acf55a5953092e1c804939454e7eb17e0a259562a7799f9a5fa9949"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_overlap_v22.py",
+      "bytes": 31730,
+      "sha256": "c13b69535b5d06328a328ab37b2930a114c5c4ae6a99daa5ea2015f7da6fb5c8"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "bytes": 12239,
+      "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v17.py",
+      "bytes": 34713,
+      "sha256": "9a192bbf773baef28505eb46d6a9a2c5eb1ff9f76e6178ebb0cc8c96a42d48a9"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v7.py",
+      "bytes": 21936,
+      "sha256": "99cd2eca90b19cda349700916247ca5178a7d58d820342d4c002233db924f025"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/done.json",
+      "bytes": 86,
+      "sha256": "928ded014e6c3977f721d289510602c4cc9e3ff9404c70c1d4364e54cd7c475e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/final_hash.json",
+      "bytes": 43,
+      "sha256": "d9ad4eea34c194e6c05c9fd6675d14078d8f42e18638b3881b8afd5c0995b0c4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/initial_hash.json",
+      "bytes": 43,
+      "sha256": "f7075f09582820695767bfaa9e31894356c944f3929125c56fe464c399f94f26"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/entry.json",
+      "bytes": 67,
+      "sha256": "f8bad1ca66482e02754f7bdc98b5dcfd3d9faca92e81a112a03d39137ccd933a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/measured.json",
+      "bytes": 60163,
+      "sha256": "0a54cbcba9a9094a437e80039f52fe74c07ab05b82e764e34e8ea788781880e4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/observations.json",
+      "bytes": 21550,
+      "sha256": "2bb8cc00d5dfb27aff4589f754c0d91ea3f169a0ecbf2e5fead9e885069ffa65"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "1af6e8d9906d5b0c67a71148ec7ca99465d2721331ed03adfa02d5e55ca9a386"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "7c63924fc3a2b9dc22fcdb0cfead13edc36c1f66926d7efc7b0b6fec28d4fced"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "16b7e060fcd0782dd0a4667539947d2ef6403b1d519b4dc0345d7caf5ae305fa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/payloads/78d519fc022a4ad5b8d98a4d4be603b7.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "04b4827434cb4d65559b66e48db56cccc997f6e7a177a44bec1fd9cda0749a75"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "d753d12f20697fb066f7e544ab9a14bad9d0b67a22dcad383df70d8cbabeefd0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/sessions/9983a86e80d844aca445527ef790c2d4.json",
+      "bytes": 215,
+      "sha256": "abf993281cefa627e7304cbcc5fefe961ac0e21ae4d6b257b6c5468059e15a93"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/sessions/9983a86e80d844aca445527ef790c2d4.released.json",
+      "bytes": 289,
+      "sha256": "319a2b3769470ebab3dc730bdc3adcfa4baa8b2b321e663605f78d9293b250e4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "0cab43a4c1eaf5b3b883926e3f6668eeacf3f3e2cac7de38c6579e0aff237078"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "054ab6e5cf9f8b9775c5922ababb6077a742f3094b1d316d5d254b7d5143d208"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "319a2b3769470ebab3dc730bdc3adcfa4baa8b2b321e663605f78d9293b250e4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A_resources_after.json",
+      "bytes": 236,
+      "sha256": "e757c6ee64df0a3df3ac463ee2b7f3944a52b43e6ab16b75065ab339720388b4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "1a69df01f3788e7cb3becb58fa565a96594d2f176432db5d4e08eea8f639d3ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_A_started.json",
+      "bytes": 39,
+      "sha256": "ace2016e028f647038f1c530e50c2492f04caf5d62c109c8b010f8cd705b6c1d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/entry.json",
+      "bytes": 70,
+      "sha256": "71b0431fe71fc46bc3048377660994328175dda6187cedf6b8f3d5a013f924ae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/measured.json",
+      "bytes": 60193,
+      "sha256": "17057fd378db784a18947b4e9650d7ace68a88fb74d67a615f7a098440766726"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/observations.json",
+      "bytes": 21556,
+      "sha256": "a79a418540f47fd9caee659dde9f62a85e6033d99d6d237648c583fa8db7ccbb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "1d564d6dd24ee9d739d8a1030d03c9c909427fad9573a2f01c928b3f64b6f0cb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "fbd87d15ee6d8340b1c3466582ead78b26dd5a2454a7b7e310272d25b7b70b3c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "ca7985e5d9f26497bd94659140fad2a4171a229c9acdd6afdb7bed84c3964715"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/payloads/484a69ee05264fc195d464e5543475e1.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "388d9a2677eee766a7804bf00c869d1fc4c08dfd31777776211fb081cfd697e4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "7e486ecf7c5419786ee0bc99628aa0fb055d1a2fe8b5c5d69fc2f7cc5b41a954"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/sessions/4b04457c695b4af1bba123ed7d247cf7.json",
+      "bytes": 215,
+      "sha256": "24aebc5ae68802f50652e1c770edc4c2c764a08fcf0744c4f1bdec3901b64a8a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/sessions/4b04457c695b4af1bba123ed7d247cf7.released.json",
+      "bytes": 289,
+      "sha256": "fbcb9ba0e85368378cced21c260c5d83f711c2d11ba67c32990ded9936e6d316"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "30e8f875bf88d6de32f2bdaedf98117455395cba22846f8a1255303042c2cc2c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "510777f22a6afe970918abc9552ae0dcefceda3a641a50c789bea00e327267f3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "fbcb9ba0e85368378cced21c260c5d83f711c2d11ba67c32990ded9936e6d316"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "f209ae599fe64ab1dacf9f3144555fb9df69ec4dddc842d579fdf5297286c91f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B_resources_before.json",
+      "bytes": 236,
+      "sha256": "9d784eb8b0d870cfe2175ca34b00f3f461d8be839bceb6beee0ccbe1c84a411b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_1_B_started.json",
+      "bytes": 42,
+      "sha256": "774ad8ab850bb764693fd0fbc5d9efae3f51a281a09167e0080585434c4782e3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/entry.json",
+      "bytes": 68,
+      "sha256": "d75f748fdf6618283213b89c38d083346e3710559567caccb7d58d9b90e1647d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/measured.json",
+      "bytes": 60162,
+      "sha256": "8facb03e3bcd8f06142ae68c526773eede885f24df7af45ae10e452159d83e8b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/observations.json",
+      "bytes": 21642,
+      "sha256": "da03443efc79331a7c70aae6215b5dac0b79c46a5c2d0792c3b57d36b132281d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "730afaa278031ea6c41c31b69ad82c7a6a646a09b48ae64bf94762d6f551fd80"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "ac9a22c47d18bebb1b17c3e2ef3f654b27566869ade3f4cb76c0ac1cd29dedec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "5624a79f12098a5c74cb00c634583faa514adb912854e0a866ef7534bc8025bd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/payloads/b233a27fc24240ec95cce7a9c2886710.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "ce867d37d15792c66c33b3cde11aa4c727b87968fb25ecfb3ffd4ebf25d71649"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ec1045b59d73d4ed58b4845329a3b2de7f24a33e78042188c5e6f2d5de27d2db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/sessions/e5213164cef64267bb2401fe94b897d8.json",
+      "bytes": 215,
+      "sha256": "3a8f6d2149cea4bb7cc9ba0a0d804623583f4713ff372cbc7c0a8c050cb6bf60"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/sessions/e5213164cef64267bb2401fe94b897d8.released.json",
+      "bytes": 289,
+      "sha256": "6c2697773d66ad9365fd755ad122049259a4ba1958d167b8dcfa3641813f7d99"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "95dc9ea0d4494bfd0b435776436034321b690fe5f737e865bbcc6fd19741c5fe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "1d3515c3ce367124bc5b2a8c22ac1bdf0191eddc40c50cad16283de264bc10f7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "6c2697773d66ad9365fd755ad122049259a4ba1958d167b8dcfa3641813f7d99"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "bbd25a423ed5076f415dae9d283afab08bb2a0ecf56d176e600d9d5f88b1df26"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "e572f5dda08c88fa18231683a0f0e62e6485b65cad36922ebaac98f62f7d784a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_A_started.json",
+      "bytes": 39,
+      "sha256": "6fe6392dd8689f417bea0051a37c4dafa194c15c9e03b11edb7ba38a8398454d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/entry.json",
+      "bytes": 70,
+      "sha256": "54ca94c2d1ca78f441b8853513b242d64329fc5785c54b9ea512e9d4b99bbe85"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/measured.json",
+      "bytes": 60193,
+      "sha256": "c6880bd1acc9ecde2837ea1d9453a5bb7c430feb0e66ea69b68242f14af3c19d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/observations.json",
+      "bytes": 21549,
+      "sha256": "098813f36a884f2dc9f78b611f55c7499960ec50fc0afaeecd05d2e8d172d1c2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "f4d0de55ba1dbbd857a8f1460de2b5474daa135ccac06808975d06422e27be37"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "91a5a7a7e755166f0db71b75696b7005dd2c8880e04a78257809dbfbff480fab"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "ee740faed2ff13e73aacb4f2bbf0fc85eff5273123fcb9acb6414021458b6f7a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/payloads/ad52925794684f95b084f2ad63572b0d.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "7bcb6f336a6b979dc6c3e9687f9b7604b7252e1070025354a375ac0a69c13e42"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "37edb77541e58e2150a99f77fe2cd70d53deb9378e9d4de4057cb45a9af33d94"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/sessions/2f668255baa24f08aeaa062d9d3c5d07.json",
+      "bytes": 215,
+      "sha256": "c3055e819ecfcfc021b5390612527f96704100c51d06d63365f9c7be2fd65cb0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/sessions/2f668255baa24f08aeaa062d9d3c5d07.released.json",
+      "bytes": 289,
+      "sha256": "5bdebc7244cb9beed0ce0d9deadd334fcd85a7654f5fd4b1258ccdc0ccc7dfc4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "44d946634e69675a7dda1a3a742d96bd01169b04779fd3896c127626ae3417a9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "4f11df729dea6a872aafa66892e8ea94d68c223258f9e51a4353ba8a2070c2c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "5bdebc7244cb9beed0ce0d9deadd334fcd85a7654f5fd4b1258ccdc0ccc7dfc4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "76bf5488dbdcbbfb156873aa3235ce9056f3d8aa905a1937dcdb7459fdbca7d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "797d17f11d5b92885120e5e7cc8b03cb69340953fa7ddb0c7df4d8148f5e4add"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_2_B_started.json",
+      "bytes": 42,
+      "sha256": "75629f9bd6fc85ddd6d17fd73bf8ab958f6a114d8aa4bada501f9f7fdade83ea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/entry.json",
+      "bytes": 67,
+      "sha256": "56564d6bf676231582fc7c2d604694294f4f1b48fea44abd70f5e00a2a54af42"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/measured.json",
+      "bytes": 60233,
+      "sha256": "828a636a01b67c0a600ec32b5ee3afe88196ee56406e443c92b32bc38c23d7dc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/observations.json",
+      "bytes": 21548,
+      "sha256": "381a2165ffc266b7a1dd90d2093698730db022a8cddd7939f8cbe3defe5a7c4f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "1e94f9f978aa6941d007060d5940a23f3208734fd99755bfe1fddff4cd812937"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "d066c597218a7930a0ad03b129fff071842afaf2b81e79463bb2efacb524ba79"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "3fae868b4e6c7609f16bf70575834cf3ae48cdbde36237c2485cb376d8e49f83"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/payloads/a651efce5fa64f239b805048c5bd1782.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "28fd866361a8e9bf21ef0365d80391f92e5b27a966392678a73ba2b3dc01012f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "f8175ea8d708217f1f4be97a5cf74be43e3c351e85620621c9360212cd787937"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/sessions/8135e962e0ad42b7bd0085c4539b0154.json",
+      "bytes": 215,
+      "sha256": "37afee85a39bb8593d57ba2adc2b6cea30f1f49a931b144a7cd305560ca7985f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/sessions/8135e962e0ad42b7bd0085c4539b0154.released.json",
+      "bytes": 289,
+      "sha256": "b72a72a42a0bd002e16ad15e24d8594ec787b4b6e0748f65148edbf11198c3c0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "bcfe98c6b68aa2b552836475caa721a2c51e37dc39c4bf83c6d6bfd33c46f50b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "6c0d875be169574ba77b6d0d4cb4876f78b95a148759f65edb99c59d4679ff52"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "b72a72a42a0bd002e16ad15e24d8594ec787b4b6e0748f65148edbf11198c3c0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "1631a305f5022e797555d82a2893461a43fe6c67b5f606b920d4270611d58aac"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "0fb971d43c785d187712b13a51af0ed8c5fcb5e400d508317f239f3c8ed1ebc3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_A_started.json",
+      "bytes": 39,
+      "sha256": "74886b3302f317518e5dfd809edf8a126dec0a89070b85c3188a492632c40679"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/entry.json",
+      "bytes": 70,
+      "sha256": "9771c96d5325242d321f1be7c733cefdd66ba158412a0f13e5911fcd39acfdaa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/measured.json",
+      "bytes": 60196,
+      "sha256": "1ee0ddbc27047e739285b64c62755f36029465abedb853b3bbc2e923b7435f93"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/observations.json",
+      "bytes": 21556,
+      "sha256": "e61b6f36c1fe73fb47bb4b97256835fdc0527da76eef9b0fe19988b99d7ccfb8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "e5ff8acb8997c6545646e0d804e137f4f437e496b7004ea9710a6fcfd7c422c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "00de7a13c9a826f02eccbcab0ba92ab605259d74a1c97d0f708c9e766f3f977c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "c4c1ce2afb044b376e22dfd3b8c96eb0212f5d23edc005a31549e179aaae0912"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/payloads/8162f015040d46fda90933be631d9533.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "6006106c3d03d7d4d90c70d0237ac251669c3b204641b12b2bcec7e296515359"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "c1f4d5a60c1dfcf1ef9aafead6b0c11e1465d822bfa4df67046b459dc8fa00bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/sessions/60167a4235754248a6c33aad5fe2c1bf.json",
+      "bytes": 215,
+      "sha256": "94da50cd9c2f21ef81463237e95778411cbc460f2d3f2310b0db267cee9b6c4e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/sessions/60167a4235754248a6c33aad5fe2c1bf.released.json",
+      "bytes": 289,
+      "sha256": "0e2115eeee384cf12a938d05c6330f3774b707be4e933ed399ddbe8592887287"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "5c64bc8f29e23a18f34cb8829d6a793dc3a7028ab56276aee3fd16ba7142dfcc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "4ed5f5b8b1112d7aff6c6175dc1a4acd843f84b8fc1c282abc2205313b199cfa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "0e2115eeee384cf12a938d05c6330f3774b707be4e933ed399ddbe8592887287"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "131dacb1c263219dde38fbd1a1c760ffa9ca54f90cd962f67ff089f178f9af6b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "4649b876e858e10dfc826b91fa34d21216bcb5b386c574590bb78e36565177d2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_3_B_started.json",
+      "bytes": 42,
+      "sha256": "36bae9224a4527309e63bf108912eefa13d3b72b0eee88db730a4ceaf3dbaf1a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/entry.json",
+      "bytes": 67,
+      "sha256": "0390a695ec99b74a53ba56e6a61527c3c995b742e2bc0d6b259c4957a20cb091"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/measured.json",
+      "bytes": 60200,
+      "sha256": "60d428a5593a981fd848502266f62a881aee46a8a4c8972f394b5548947ff3cf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/observations.json",
+      "bytes": 21544,
+      "sha256": "f6021d03b80dfa3c54d428cfdacaab69748dbaa65a30b0c762e7ed08f82546b0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "8df217aacb9588bf2363e9a5588f57c923540e521d0b6873b144d0d3f26599da"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "454005018ea404d6536aead163b38b5391aa284c31f8f3e98418c3c2cc6b3847"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "2556860d65259eb4c90e6d9ae7dfe4ccabfc87af0617a11626cd662a546f4055"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/payloads/974c9532cb1f4d97b7dc834468035e83.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "db8bbe03f5bb17de8c9d1b1cf74cda460e851880f72c7038429801a16f6fb1fd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "20277475618ab39a6bdbbe2cf86b441b915910e4a20c1a729b4ab95ba1ac3a25"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/sessions/16c005f750db4cc2bb992bcf637078e9.json",
+      "bytes": 215,
+      "sha256": "efe664ec4fc06c73d8ed0451fd13e94f0a6c6367bb632ccbe61aa84259d460bf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/sessions/16c005f750db4cc2bb992bcf637078e9.released.json",
+      "bytes": 289,
+      "sha256": "e979227cfaa6e7aeb17daf669f281556e1180178a651aaeec0a2f97115e7033d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "1d4294b99447fd7baa66991721ded5371b321712d57d54546402e8161b671e3b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "54109b5041b8b5d0dd9fc8ff286aab1736387614bc4f77d7b839eb27f8188bee"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "e979227cfaa6e7aeb17daf669f281556e1180178a651aaeec0a2f97115e7033d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "37902e54d139a570f3cb26452f8be4e41d4bbe71cbf20f0a5fee3f723dcec2d5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "3b09d9ab5d455135b178b6a770e05652c64dbc08ef51e17f1b2a638e98116a23"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_A_started.json",
+      "bytes": 39,
+      "sha256": "d0d036f2dd7359e59aca5bb112aa549b9d691da1fc831fffac1430362e990c4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/entry.json",
+      "bytes": 70,
+      "sha256": "4404d383c3d25d6b50d2f1923b288a2167f7139c800158a143092453fcc2b559"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/measured.json",
+      "bytes": 60204,
+      "sha256": "96f891d108c291df6fe019079a6abd1c6f3c79f7b07f9a20bb7cf9347f122a2d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/observations.json",
+      "bytes": 21544,
+      "sha256": "9505874c64a051e2d2ade46ce95ed4d67e30fc05539c2b0553e18b3ee1bdfcb0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "5796da627999458ee1de4c176f468d2c7b2891535ee75bee9eb3f8a2c2a66968"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "b1f13901ff6018c5ae91d4c7ab7e65390c8c4b02db1578d7c4b9aa1cb016b9fc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "398a3c86269c4e31d0dff4940657d06c2b142ab032a6d3d39153d8c2c6d6cecc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/payloads/052faca5b155495eb8f72997408219b6.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "130d6cf8512e2bd306a60a3ee271319277f3a4e8d434ca3816bec5ddabbc52c1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "285d448d1056257fb1b3ed357b766db7485b90164bef0dadcfee555212124dc3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/sessions/903146aedef34859927e6cc38db326b7.json",
+      "bytes": 215,
+      "sha256": "4266bde4a4c9b0f0adc34aa5abeddf56c36c6307ec18040b9fa894ff472fd5f3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/sessions/903146aedef34859927e6cc38db326b7.released.json",
+      "bytes": 289,
+      "sha256": "0e48bf6eac12a76df21e2ee53cc8863ebcc5e1de675f98b0d6233a8646ee1c5f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "f348f41b47dd659f71e64ab2384abc7d809ab419e36ddc4c508a63cdbe4e9cb0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "18e400d981d1e3bcafab3a236728b5c713b49442d7f5703519f2c9c8cee75a51"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "0e48bf6eac12a76df21e2ee53cc8863ebcc5e1de675f98b0d6233a8646ee1c5f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "e5a2f0a62dc68e7e99286cfc8ffe930440ca9b0bd6de833305dcc8be600d44d0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "71b1ed89698d15800a6f54bb8312a8efe436c962f1e4398bf5f0e747c2f7b45f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_4_B_started.json",
+      "bytes": 42,
+      "sha256": "8489dfc9ae2bc87cebf3def94e2fe3b67afe38954b5cb25050f50d965e4e2cb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/entry.json",
+      "bytes": 67,
+      "sha256": "2d998466e2948842363e156ed8920225db6e1e049c6dfdbbe514f2dd2c283671"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/measured.json",
+      "bytes": 60234,
+      "sha256": "1b89a929ccbbce8611aeff945fb2c3ed17cae7bc4f7867e508f58e721352c244"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/observations.json",
+      "bytes": 21548,
+      "sha256": "aa77b28c2626d55d298b5d8b6d726a7fdd0ea643e4e928be5d4235dc1ba10545"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "be5686e411a25f23bc296ae9ef61414e7a752897aa702048c8202c4491d0a612"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "ac820fea1065555049e05a0858657216fe6d54fd94adc6409c9e82cf470adba0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "90474b17526afaafe6121caba55a9064294d84a7b377e07dca9a238834b1dbd5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/payloads/ef626b1d83cf46c1ad9df0f7798b4917.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "0f5fbb24a9d2407d09edce90034367974c098cc255c8293ab5406cae0caf6c37"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "a730b15d3096bb76691a5b0b463f259368d48a7cb636e1915b02e843e574558c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/sessions/8bfe70eca8204f9f9bde43626a97d6a6.json",
+      "bytes": 215,
+      "sha256": "8960ec37f6faceab955ca9ec88af48407d2bd67d78a649bd655a864569df59f8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/sessions/8bfe70eca8204f9f9bde43626a97d6a6.released.json",
+      "bytes": 289,
+      "sha256": "c97806501c6fa153c8e174f2ba23822b15b0194ba0ba40ad5edbaae389885990"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "86c21373f673ab4e75f70506d3c66ce62b575245b3d5b1a8cd27a975c284e5af"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "57c4afbdfa0aa61d6c9787181533c88fcd6e759bae717582f9d6f5df15b6f3ec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "c97806501c6fa153c8e174f2ba23822b15b0194ba0ba40ad5edbaae389885990"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "3984757b21fe1171e07d469d7daba23f3d86757fc3e28f667af94e417815c395"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "fb8a55cc98eb6d3281b8e066a28d140cd62f7fccdf09dfc2d93e82fbb4697912"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_A_started.json",
+      "bytes": 39,
+      "sha256": "cf7b6b7b37810d5f81aad3e61c5d8e2a3708144bdba2a94f28c4c5ef76c26626"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/entry.json",
+      "bytes": 70,
+      "sha256": "03d47959681347a06b7298915e72812f5117202fd0c2f74763becb1c92f9c8ff"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/measured.json",
+      "bytes": 60221,
+      "sha256": "629a1fe894e368b103abf04ee92ce4f783300702652668a1bf1af1f3e57e58f6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/observations.json",
+      "bytes": 21560,
+      "sha256": "d3e9cb163c18749c7e5b9df322a669994fa87983f2ae44a2a7a647eba58b493a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "678cc152564111ab4280555776d6dd185100cec2bde260958003ae6142ac4a86"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "70c0b202eae2ec003dacd68d43876675967379b280137ad325a08af4e2833fd8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "3b50f9a412c96f95a0d32df6150bd174639eb714bbf7248d71a55af959d22c54"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/payloads/5e7254dcd891451f98c681c4a3feeca5.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "06164bc77750014a807926f6d71105715e2cf05722b61695e287274b7802bd4e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "a106bc85deaa036fb6301b39bd823b7fb8e889e48a513d14a298b67c94c4d50d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/sessions/765c45ba2c98424987c79a86f35595b9.json",
+      "bytes": 215,
+      "sha256": "c9fcca2d89100a8fa4ac9dbd636b43bdd286f9d48fe887ceb47dda6744f87f89"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/sessions/765c45ba2c98424987c79a86f35595b9.released.json",
+      "bytes": 289,
+      "sha256": "cc7fb2f31d54831db43a549663952534005798865364afa2741f81c65703d81d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "320a9ffac172339e102b35bc9644e7aa9b36a42fc50d51de3d3c918c98af0b84"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "8b1bfe2e6a7c697daa51273391b28149e3b51e4a3bdfe0346fd42433de4be34d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "cc7fb2f31d54831db43a549663952534005798865364afa2741f81c65703d81d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "48679a69ab494ad6710892a1e87d149e43f7310a487adbfdccdfb176ec528171"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "83f7a62dc01f065b0f6952a8f49e90dbc1326d6eeab3c3a14e640aa8c165f095"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_5_B_started.json",
+      "bytes": 42,
+      "sha256": "fc6443f35c8b95ea1a282a65187ad2a2bfc760b2a965c50f296450083f21d952"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/entry.json",
+      "bytes": 67,
+      "sha256": "fa76267b8d70722949dfbd87a02c64295db7da4fde3b22bcfd016fc90cebec39"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/measured.json",
+      "bytes": 60192,
+      "sha256": "f2d8780383098b41f67f371d31b50e0f1bc5f699080b148780b765a239a89451"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/observations.json",
+      "bytes": 21560,
+      "sha256": "f6a31bb5240534a04be10a8c057fa754b0732982d2b683d9d5c1fa9eef59d0c8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "7bcb2d7f94a32533c3f8b4bf60aca4ebc1fbcf6b3c09df21781c89b7d6272fb6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "a5a7265bd44f4eeab63d33cb5160badb1b11410bd0d410c47ca0b79ab4a0dd4c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "6c8b881b0d0f8b67f266e1e3c40461db7155f6d85b33c47683c0200454d65c27"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/payloads/c4c761442caa4819ac44f25751c5078b.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "70ca57582c71dc942363e96f7bd7f69e001e7002802cde21b6c0af60b7237d5b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "9f8ceaa851f3804a9b0a73e10734a4cfe8d3d2b2b3b426f188434fc20d22859d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/sessions/dcd2974ac55f4d96a3c13b7988b3508e.json",
+      "bytes": 215,
+      "sha256": "3485810624f6461e8189c36ff48de729a679cab2613130cf1d844365d2842a43"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/sessions/dcd2974ac55f4d96a3c13b7988b3508e.released.json",
+      "bytes": 289,
+      "sha256": "100515ad37f9f0531e15c87feeea5734dd07c9e7f964d38e350f3de7e12d5743"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "7468a31305069eb8e8b13d2581fd1c93986082671b46eaa84d84c8779a4c4284"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "6d76be7ecdf73dfbc0138600383e0bf62c920265eded28b3c119ed878276ff95"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "100515ad37f9f0531e15c87feeea5734dd07c9e7f964d38e350f3de7e12d5743"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "f6fc3bf29eeba493fd548eaf9d4058827a8211f7c1bda17d1aec5f616ca7f1a4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "27e714a8b6fff4beb21a8252c364fda875dfa01c6205a1c95bc9bf6ca3de4f56"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_A_started.json",
+      "bytes": 39,
+      "sha256": "e4bf368afba285e639bd912c5eb1485830dff7b948d5d85074b503ecddb6538c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/entry.json",
+      "bytes": 71,
+      "sha256": "2fd01ae66f4da39295585b3af3ac2dce9f09368872de60ccf226f3474962c759"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/measured.json",
+      "bytes": 60242,
+      "sha256": "70333f07cd284b6eb0ed66e61660d5d5a7509fc9411e8c95a6e609a0fe273150"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/observations.json",
+      "bytes": 21537,
+      "sha256": "74227fb5b18c4476c2ab3911edf3a4977a3de7fe1127b37b7748feb4e036d605"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "2e82f74810824928b90e006fd9f1226568fe6718ed7e30d185da4ebd0dcbb26a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "7b417b101a14d9fd4de4f3129b73fa5a561fbd23c7e83c3c17be7a3ae4a44d5f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "709b87f18d5d853c513f1713742b0050bd56a03c45e1f48efc4f483f182a666d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/payloads/7fb29c130c9142b19ab11c9ff7ea384e.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "8ea23f2d8efeeecd279e6ab4f907ef4c07c0990b3b83a08c3c5ecb0a63cfcecb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "30026e51053f2c19f5f64ea817d2b97b500a843727be6ee630f79210a95964a4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/sessions/285d8ea866fd43d28f47d0b166343b4d.json",
+      "bytes": 215,
+      "sha256": "f862661a0d4c7251db57ac870566b82877c118ed91c5278c1a4ce798bba3863e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/sessions/285d8ea866fd43d28f47d0b166343b4d.released.json",
+      "bytes": 289,
+      "sha256": "f0e2f4ee7a830b877323a36c0a8178bae622011020716fa19a29facd8b1f4c70"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "73494d9d2b9a0ef5b0616061132d75bf5c27caf3de3df2af35129b91ca64d0b8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "ea0f0fe07807273f9710c93666cea9456f46b075de22eb28ebf39efbc94bdfe1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "f0e2f4ee7a830b877323a36c0a8178bae622011020716fa19a29facd8b1f4c70"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "09499c861cc98e70f1c55c9e731578221b41dded06db7e89fb266de225340969"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "68bac04de8ad56ef22d1eb7f94ecb29b1aab598a8a355f846b5204b140fdd6b2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/pair_6_B_started.json",
+      "bytes": 42,
+      "sha256": "0f8b236e219156bfe88b62aea318c9377a0670793494a92ed8a8dbc97b54362b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/post_exit_audit.json",
+      "bytes": 273,
+      "sha256": "731f95a4770cbc104da61d6b0c1516ac4a40b1f97685cef083af26810a8e5c6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/request.json",
+      "bytes": 108184,
+      "sha256": "259531ecd651278328c939c65d563ceb3a4c2b3b06a07fbd2b5ec387fd5a9cda"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/supervisor_completion.json",
+      "bytes": 449,
+      "sha256": "99aaf8cdde9d7f4e93a224c7653bb5b590ec428f13ccd08564cdc01f3b091322"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/tracked_process_identities.json",
+      "bytes": 265,
+      "sha256": "17377c9f476225c5039500a1195e9abb2a093a5b2938b679caaa6ea77d5cd05b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/entry.json",
+      "bytes": 65,
+      "sha256": "457aa74c47f4a863f92338315700819d70a5396644dfde20415369b6796cc1c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/measured.json",
+      "bytes": 60219,
+      "sha256": "3b25e02aa946cca6e15c5bb8e29c68ea68841ffb280cc721fe01e738403eedb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/observations.json",
+      "bytes": 21545,
+      "sha256": "23951fcfd57165664079a8786d705e1ba7cb81ec3c55404fde3bfed8734a34dc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/budget.json",
+      "bytes": 199,
+      "sha256": "ea6abeecdb8a22c0d7b3c52e7f989e51de8baa057b4b18f98550ad42e3547388"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "d554eb77ba0e66cf1aee7bec499dff28f61bf48742939a2c74fcfdee44bf93a6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "a15e0fa79ae63ab21bfd7236974dec730c4bc97c2d9922985b5f4057f3a303a3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/payloads/c101c9a2b1024fda944b1030fc9fa5f8.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "c3266a9117e24693bfb36a4b2fbee39180bc22dc24bdf71336ce4613cf721598"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ec4a2fc82ffcae6d737b5884252d48ccb39c9fa41562431eb544977e4508a72c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/sessions/19892bfa9c214b5a9e9c09d0a6a19bd6.json",
+      "bytes": 215,
+      "sha256": "dd1c3d05ab3beb2748b77e1386d1726416b0f56cd573d3c3ff19fa0975984b95"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/sessions/19892bfa9c214b5a9e9c09d0a6a19bd6.released.json",
+      "bytes": 289,
+      "sha256": "3a283685e7119e624943b53f0d28c6bc2fe9de7f6ab6e490f00628b13c7d8218"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "a634a4bb1a2b9ea1433f7c6da0a1daf8eae7589209364f31a97ce36e5eceddbb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "3bd00611b9ac3a708034448a231fe407047255ab62bbe944ce76d3c5f146f1fe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "3a283685e7119e624943b53f0d28c6bc2fe9de7f6ab6e490f00628b13c7d8218"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A_resources_after.json",
+      "bytes": 236,
+      "sha256": "59953f0b386d712e42de4ac00edc86b29f74003b49adbba9704680ae2d6708f7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "956e4d5bf4c01573ea7adaf2b53f5d8a09fe7917742df4b43aa3a15804b97e1e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_A_started.json",
+      "bytes": 37,
+      "sha256": "e15696b3ca00cbf021f6203beb6b3ee2f66859848fbd9fd9dbb6782303b47eb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/entry.json",
+      "bytes": 68,
+      "sha256": "9dc6eaca2442740e39926b38e858eaa6800f5ce841b223efd0758432ed3e9ff5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/measured.json",
+      "bytes": 60245,
+      "sha256": "4b747f8446298c38ebf9de4bfea6e3a131d380c4f4f531af84a6c171d4694801"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/observations.json",
+      "bytes": 21554,
+      "sha256": "52e2215931321830eda0d00ce85c21d3ffc424c4621c12c3661e51b83bd0ce40"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "3adb99ee5e523694ec5ab53e0c273571feb988f27d1b0d521c680f5ed7c6a7de"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "d2794dea326c0521a24bba10ca82ff7789f51f6132b59a0a552c9d5b53766a91"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "b65b519ec40b8186db4bf13258e67ce26abd37933d6489d0c8071e0d4d9d018a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/payloads/efc74ba91eba4abd9102d9d9502c620a.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "8f0773368efa7804d1cdeb0491f51ca8a94edc6ee244acdf92205430e779b039"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "bb1035efd4c7af1a9d386c30667f88dee88f8472c39a2da5e012e48dfc4e2485"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/sessions/c9a5e16e73fb49e0add425bb9f20ce85.json",
+      "bytes": 215,
+      "sha256": "e08de5acaf62329daa6584e701a750b6ab167ac6920e0302e97d59cfd1a29592"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/sessions/c9a5e16e73fb49e0add425bb9f20ce85.released.json",
+      "bytes": 289,
+      "sha256": "04e85b057a9022c034578ecd2aa270775852bab00338e026dd13dffb31b8e040"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "53b54beae98524b7c1ee9ffa5776177a4a57b78cad421e1fcb409e08778a5266"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "8928ce44744b2242b6763dbda0a501ffd9b735884b32ed75d5943d38355f49fd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B/verified_subset/writer_owner.json",
+      "bytes": 289,
+      "sha256": "04e85b057a9022c034578ecd2aa270775852bab00338e026dd13dffb31b8e040"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B_resources_after.json",
+      "bytes": 236,
+      "sha256": "15fa30467843779a5ef04c16ba8c89d68f95d176dd1b935b2e82deeafb73ae83"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B_resources_before.json",
+      "bytes": 236,
+      "sha256": "92e52dbd85b73efc191ccca0784e74fdc5fc142263f6b863db422337040fd838"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/warm_B_started.json",
+      "bytes": 40,
+      "sha256": "c9e56a50a506fa7198efe787a77e613f67e0aa4ee2582362a59671628ff8e806"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v17-vote-compare48-19183f0b5ac549f3ae4d54eac3f8f0e9/worker_identity.json",
+      "bytes": 69,
+      "sha256": "bf0045ffdcd13891a2e937dc51449fd8f27b5cb1f556f06d3aec14b41ca9de8e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/done.json",
+      "bytes": 97,
+      "sha256": "66b7bff2223528d25084935afed28cb4db004b927b6fe0c11517c16b38e0513a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/final_hash.json",
+      "bytes": 42,
+      "sha256": "b8f9784b40d074bdf4c7b7ae23709f657540973589aa55510f4b19ddd248e95f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/initial_hash.json",
+      "bytes": 43,
+      "sha256": "e2734be681989645a51dbaefa427d1fc7dfc56163498b0bcd1fcc3dcaea53fbe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/entry.json",
+      "bytes": 67,
+      "sha256": "225e51a5963065ca85f9f66dcc536bb2ac8f52222561c5e5755c6bcdc94bf237"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "febb71d57d47a191a8211454bf42ba74bfe83586ce0c83720bf8f66073a82bb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/measured.json",
+      "bytes": 60235,
+      "sha256": "ae26ac5f68209aaecbcf71dba926edad31f0d3ce3b9c4bdcf454dd744c7d5dd7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/observations.json",
+      "bytes": 21575,
+      "sha256": "c3dd4fd9cf29267b845cdd36a7c670a6623c7205f2c787dde1c3ff4c214744c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/telemetry_records.json",
+      "bytes": 39161,
+      "sha256": "cb67050a281b0e0b114f355892550426690726a1f032156476deaa49f4e0f810"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/telemetry_summary.json",
+      "bytes": 2174,
+      "sha256": "3338bdcc9e0c9e62621ee309f942664fb5f9095503c80212df7c4eef62d6e326"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "ee96b1bb43b89af1f32795758e164c03091fb72271ab3ee35cd9d1fb6e69c81c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "d1b08de6865a101cc447c7922ca8f9a86df7d8117b94f3f342a508b40a39c082"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "8681b74c31a9639c5af997df41795acf626ec8cc4590df10e380585c617f9880"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/payloads/382fa6adb4834e78affd57a946c92460.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "fef8e10920259c2ce181e7ef514402f21c74300390cd7acfcdf5e3073dbaa716"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "051759f9dbbb7021e1e9d99ac1b1dc60692af2cdc727979ab10abc1499219139"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/sessions/751f3dc418cf4d87ade9abc011c5e2ec.json",
+      "bytes": 214,
+      "sha256": "1861e964b8fd6b7362e45fc3be16443ebd233a6de9d8bb73366993e2fe08dc77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/sessions/751f3dc418cf4d87ade9abc011c5e2ec.released.json",
+      "bytes": 288,
+      "sha256": "681820582ff2759979601016eea0be761a3a83b7b0eb94a0ddf47ad4a29ab817"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "495b0421d053fdae93704c190203ced2daeb425f8722a67622d70ddd20260a77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "e774df4a0a76068b2d3b5a8fcd9fac486855960699e02d96e39ecd558451a956"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "681820582ff2759979601016eea0be761a3a83b7b0eb94a0ddf47ad4a29ab817"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "01a4ad74837a1f3f863f473fd278f5bba19dbbcf0ac81b908a280b08df62895b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "824e9b448bc1e471fd78dcb5190317d00af86ebd1faa9fa0b8675d579d37ecb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_started.json",
+      "bytes": 39,
+      "sha256": "ace2016e028f647038f1c530e50c2492f04caf5d62c109c8b010f8cd705b6c1d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/entry.json",
+      "bytes": 81,
+      "sha256": "c26cf642c2b06e000995c14e01c9e2f229148dd5b7e22d98de6012b68e50d83d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "53ae6e7d1ad895feca0a7299b02aa88b810cf038bd2f05bdaa3d10a3f0124e87"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/measured.json",
+      "bytes": 60208,
+      "sha256": "8044ac1d2b70bfb587296f43d4f236b6f146244dcaf8caf2b4f12a5abe6668ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/observations.json",
+      "bytes": 21634,
+      "sha256": "f4ec63ae7fbdce595816d31d23ab306297b2f6b7358585bd04dfe245ed5d755e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/telemetry_records.json",
+      "bytes": 40200,
+      "sha256": "2aacf83d7bd8c40f40f34053ed351a6f347cf3c87528f61cfc6d034b45b7c4bd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/telemetry_summary.json",
+      "bytes": 2172,
+      "sha256": "155260e83e1beb7298c54d0f1bf7260875cfbca7ff1dd30eb0884a1c6716b497"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "a3e1984fb4ca0db3acc593c7908f95ba6e87727824a391db026f777c1652c4d7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "e29b4298b4ad25de8ba91647ca602a2dd784554bf9387b0b183438017d75de6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7835fd9c2fb6543761e4c88b473388f325ba289b5c9d5e3af339925872109c6c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/payloads/f03466aa6da94bccb1fb862cd0456d5d.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "02df64dfd6bddad691f13da40403edca5dd48fd6bff77a16436c3473d1062389"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "3fb430db6b06dc5d8995113732a18f7e3277f46cb9a264feec538c5871eb151d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/sessions/95e83c5d29824a058f594915bc819957.json",
+      "bytes": 214,
+      "sha256": "560d0ceddedab996478478bdb0c85647935fa36fcc64f68a0c0f48026b60586e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/sessions/95e83c5d29824a058f594915bc819957.released.json",
+      "bytes": 288,
+      "sha256": "89cf5522b8c070e0fab49c502d2bfcf3f20712ef565e93b3fb80522391d99eaf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "77897bfaf59d18bf3f495b9ebdd33be87c34717c4e1dfdd53ca818d62621becd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "4387c44979fc9595319dd63da0b241a03871b9e780e1639d044530313844b1a6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "89cf5522b8c070e0fab49c502d2bfcf3f20712ef565e93b3fb80522391d99eaf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "1672067924c9b6fbdb29d3401584a5b29ad439cedb1e3ea98bda6b92e35920bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "df72150aa9e6622563db1597398c4816b629694704d65a01a3082f4ae17c74af"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_started.json",
+      "bytes": 53,
+      "sha256": "963903e3302946e12838345768896a4e10edcd00ab4b5f74f2c67aa65fe8993d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/entry.json",
+      "bytes": 67,
+      "sha256": "5822bc40e92c7ba1c145aa75e70fd6a5786e6494ab22fb18e63b40658086fd01"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "5d8e27c00ba03768b172d138ce67e15948ead6ef6afe835547d3070dfbe4c734"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/measured.json",
+      "bytes": 60176,
+      "sha256": "89ecbb1ce47bb7e6c5f0acd828d935ec5822efa1e6270b0dd038451bf904884f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/observations.json",
+      "bytes": 21548,
+      "sha256": "c1d7e06b1e237501cd046ec30b1b07309ebff7072a85cc322c8f065dc44c58e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/telemetry_records.json",
+      "bytes": 45386,
+      "sha256": "c24ae4506cb8dc4f5bff11e925b328c73449ee94251a4ff26312005f1d856fb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/telemetry_summary.json",
+      "bytes": 2174,
+      "sha256": "0a8185ca7eba6bc5895af83e644e35cf8f8878fefb038b2c3f8620e82c2f4d31"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "7afdd77a18827e5b284676f901e842003b73e81e16cec6ff7250fb498d41c44e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "411dd6f2c070e7e83639c87680f7bd828d895a749b2b3ad229d6ad6936e31da5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "950bff5fac535e898b4dcc1f2dc27d329788460c1d9b7631a78cb91cfc57fd4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/payloads/25f092b3b87145d78f56b0eae2d67a87.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "6c8108ea9fd24895c589723a3a2d26163eb772ac1c41da268cf090ca7334014e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "b33cc9001897f301c56da92ed610b0caabc4c8316cd28391bd43fd7199609142"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/sessions/0726ff6e77fb4d63bf3af5e6404a1a6c.json",
+      "bytes": 214,
+      "sha256": "fcc308b0a31da62f2a54132be91af3857e67455fa171fb0c28a5b237863ce705"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/sessions/0726ff6e77fb4d63bf3af5e6404a1a6c.released.json",
+      "bytes": 288,
+      "sha256": "667a40c2dc63938edf824b4e376ca81c095804b1a0cb1b51006ac14870a635be"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "3198d7e434ae6077d0072bfe30c8ea4174a93a4b404b0c18e7534c0c085bf025"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "9c013707f9b595d0e426ab4d80cc83e0be40c92c3533784cb658cfa360403dbc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "667a40c2dc63938edf824b4e376ca81c095804b1a0cb1b51006ac14870a635be"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "4c6cf5b56b21dfa8c5f402b96f147510826c17dabbe44b3c8755c203d4f0ca13"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "e771e42f602120489eb78a34be83f0763f25c9839745ec21c18e6ab07b3eaf9e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_started.json",
+      "bytes": 39,
+      "sha256": "6fe6392dd8689f417bea0051a37c4dafa194c15c9e03b11edb7ba38a8398454d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/entry.json",
+      "bytes": 81,
+      "sha256": "57397aed3c7923370ad6666963d54464e9ff877f2d4d9b24412decfff6f82b7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "4d818f65aefe9dac23a69d3b8316c3ab0be9b7bc22a0e1914704c6c6550f85fe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/measured.json",
+      "bytes": 60161,
+      "sha256": "490bcf3363a3cfef143aaf3749b890fdcbbc572d6d705bbea1dc47192eb6aed7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/observations.json",
+      "bytes": 21605,
+      "sha256": "ae324fea92132a061e2535b0ac3531af269ec41081692dcc577916fb5547735c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/telemetry_records.json",
+      "bytes": 44367,
+      "sha256": "bcad43cc27c286fa07e0b121b2f6984f698d7e22fd7936b6466afb5b23e29155"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/telemetry_summary.json",
+      "bytes": 2171,
+      "sha256": "a05eed01627ad893ff23fdfe26af489978c28c55c26ceefb85b76e46e2b46b82"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "4270df569b1a4987189d5dd1b97e5b2c30db387986739278c3ac959cd73f9852"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "e1ab3297f0500c5a520c90a0f8e0383859a202ea444123c2efeffe562ca72de3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7b35b5a38fd034b026d92084f83b4dd3d99115f2ac4fce85921cd0d489b479b0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/payloads/dcafe6e365ee40c1be5d5793589ca925.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "ed528aa715fd421c01541440e7fef8d96030edca7f2bcbd603e1096ae66dbc53"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ad1a222b8d369195c4b2b05ec3b958b8b3da1bb9c9bf2f1cecc647dfbde0cb8e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/sessions/c7c10300bc6f4195a898caecf4a70665.json",
+      "bytes": 214,
+      "sha256": "e7e838ee31e052ab82934f81563aabb2212751dd6f9642390509afd6611fb64a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/sessions/c7c10300bc6f4195a898caecf4a70665.released.json",
+      "bytes": 288,
+      "sha256": "1ddfe62151cf3e412131089ad0706769225cc3150250e5ebf5e2fdc802ee804e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "1c5480eb3c650dfadfc19bf46f9e00669fb735dd45f278db8c477e11f98ff1df"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "dff21457da19139a8e2dd878e1dc640b35cf531a0d8e3fb33f50263d6b2fe38c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "1ddfe62151cf3e412131089ad0706769225cc3150250e5ebf5e2fdc802ee804e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "3cd93caf01fc73f068733d815d9140bb6328eb801333c1161fff4584e0eb14f2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "7cbd8d1d2960bc7dc875f0d9ffe402c838d30a5a7cded4bf3e52a343faecdb76"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_started.json",
+      "bytes": 53,
+      "sha256": "e25850aaf7f9ba73b7d3d89ade935a115e2ca91adef23181910ba9c7dec7bd72"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/entry.json",
+      "bytes": 68,
+      "sha256": "e2ca880cd083a06f9ec4974414196e38ca4bc7a98137a28c3788f571e6de7177"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "c23dfb1585fd68ee5f7b8ac06546cbc407c1f62f0cee4fd3dc6014225f6773a6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/measured.json",
+      "bytes": 60205,
+      "sha256": "857dcefacafe8292c872fa579730ed070fd0c7f4c720bea78236c3045df7b8a2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/observations.json",
+      "bytes": 21527,
+      "sha256": "c94eae20aa4b972d56ce73ca503a077eb2e2e73f088e144ccba51bc8ab46d34e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/telemetry_records.json",
+      "bytes": 48498,
+      "sha256": "f9e2bb80feacedc22f485c98303dec9dc461e49fbf1e4ebf6b31308afb3546fb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/telemetry_summary.json",
+      "bytes": 2168,
+      "sha256": "63d4eca5d5a9fb8f19f4429f0bb2eb5d83e9d571b6681af042113661d2b09470"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/budget.json",
+      "bytes": 202,
+      "sha256": "049fe8fce3e97facd0abe4d637b2f3af7ed85c319144b2c78011af254b47581a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "0407ca6f1a32876d25f121471f77f01cfa2af7466aef296679ce47d4895eb9aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "30057e553402bc779d14515b0c1dc08b81fc06d2896d738f6ae430dbaab7bbe5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/payloads/e037a85efc7f4684b0d2268102f7785c.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "834259a2ddf8a6de30c7a428baa61b4784b709c227ee52f673f03a12d7c4cec3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "73c92c474db98caee5e920bf13a8325c6fd7b4be38f7ede0a7c6193a11ee0ed3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/sessions/87422d4c05ce43a2a0257308218c9594.json",
+      "bytes": 214,
+      "sha256": "672bfdccd63df5c531dc9aab855afa752fde9fd67df7cbc0350e9c602c779325"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/sessions/87422d4c05ce43a2a0257308218c9594.released.json",
+      "bytes": 288,
+      "sha256": "024d03d444361c10ba70303f5f0c12522a6aa087dc57ec24a9ab0d865d500acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "e7e148dcbdd7db32b5d20106c3ce2a2386e32b15270392bb1496f4ff606bbeea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "5a8dcf9d0007ddce4b9282cce648f76a9db486cf18fa30963b4b1698fa152ad7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "024d03d444361c10ba70303f5f0c12522a6aa087dc57ec24a9ab0d865d500acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "179e8b3d4bd95b6c0ca0122dd96cbade8d7b73a726590f883eaa165c095bb705"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "4809cc1e5120132b779355226b062322d6e5cbea32e278323978125043a2a965"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_started.json",
+      "bytes": 39,
+      "sha256": "74886b3302f317518e5dfd809edf8a126dec0a89070b85c3188a492632c40679"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/entry.json",
+      "bytes": 81,
+      "sha256": "999503e6670633749de38003cc754282ffc283cf65353054336be85fe7e09228"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "781a3e20a2cd5a7e53f783ee15b367e1721971c44a99fbbf463bdf7f2434071e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/measured.json",
+      "bytes": 60206,
+      "sha256": "4e2b93fce1618f51f89839fb480e999cec319f0e2e6c8dd92747154d589447e1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/observations.json",
+      "bytes": 21542,
+      "sha256": "d97fb4c79b26dd4ff0be082e0e99bba72e11b35a327e24f98fbdf9dbafa58068"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/telemetry_records.json",
+      "bytes": 42293,
+      "sha256": "81083a7b0de5139f8ba7345d108d262574321f80d3add1bb82db4efdd2615986"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/telemetry_summary.json",
+      "bytes": 2163,
+      "sha256": "25c4b8472b71d62d1d7439902585b7ef1389feaf2231b755c9a00a8c9cb6d378"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "62d464640447aa10af246933f3c87cefc375a9e574a02879de729560e567317e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "26f1700302475fcd5e12438e3586483829b5196bad7e179f9ac56d5704b27ad2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "1ac271a0c7dc46b67884a1fe6fd6c8eedfe0f452b2dfc3af2fc12166e2ce2acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/payloads/b717a485cca94e23addcc0ce7ec15721.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "bb2d3575c10eb64e48346dbde33cfcc286a3db49eeabbc0563dd42f6030b6a33"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "27a83a2b4ef98e68211fce9411d2d7b9f3fe1fa81e8b0ec38ae1271d8580241d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/sessions/eeec87987f004bfa88aa1de251d4e4fe.json",
+      "bytes": 214,
+      "sha256": "930ccdf22be34a2fa49cd80d27d42b9b048c3a451651af497d44010b41af4083"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/sessions/eeec87987f004bfa88aa1de251d4e4fe.released.json",
+      "bytes": 288,
+      "sha256": "a69ca6de69998647df98d10b73498cac11334cc36a322ae4e1a8370addc9449c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "d77753766fb6b5073ad4d0423ec19ab3e654da0debbd2ddc57afad5618e73c01"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "2250e72609e7eb1789aa0fceb511b55f1d6d27c4a75ac21239830cf30102149a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "a69ca6de69998647df98d10b73498cac11334cc36a322ae4e1a8370addc9449c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "195ce155ef427c2bcc7d043ae528817102331b50d68765ce92ead31b6b8641db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "075ac9a771839ecad0cb7eb0925aedb2c457869dedbb932e2a1098cdf6b2fdc8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_started.json",
+      "bytes": 53,
+      "sha256": "fdcbde3f04bd7d3912bac945bef53094aa9b9331b83bc8df4cf15c5e4f72facc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/entry.json",
+      "bytes": 67,
+      "sha256": "3730eb03707dc31418d4791e3e9316ba71efaab22e1d177c123b8a71548be0aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "dfe5002d19ffef3b27c9217a3be19c04635d0f23e1d96d0d2204116a6d5ce5c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/measured.json",
+      "bytes": 60171,
+      "sha256": "ceebe50934aaadac4b20e6bea0190450fa1f075437b060fdc1c17fdc0cc8b24c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/observations.json",
+      "bytes": 21627,
+      "sha256": "6900187cb2a684496c014ef1dfb9d1670e36dcede67844d3b931a0c86ca6c592"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/telemetry_records.json",
+      "bytes": 44412,
+      "sha256": "4e6330dd78f824571b709148288ad64ff08e972e94a01794534af1317c7978c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/telemetry_summary.json",
+      "bytes": 2169,
+      "sha256": "4a331451d85b0211db7d5b297482aab6abf5d4bec44960e489a8fa814796e820"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/budget.json",
+      "bytes": 199,
+      "sha256": "3b135119274220fb93588c0ef4855180e1a43b6bbdbe21da895d986da2899857"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "29e2f40aa750940c5a5a6dda3a0f6108d6f9191adf0ca318d6e60cabb6ba5179"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "efd4a3e2fe8a8742e4b4328473839c25588e832deb7a59d4949cc9109540e0f5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/payloads/71c048cfe7cd4367b7b983991da1cecf.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "d22199576f3ee16ee8d9bd3751d133ffc3a3da03314ec9a6c1da4fa150e19160"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "4df96e23bf0f1d988310cabf0dd534757ef90f410672f0e68a40eab4a9ce0bfb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/sessions/760998968e2346f1b93cdaabf5b5b761.json",
+      "bytes": 214,
+      "sha256": "64e8001712b3b541cc5288c4f52463b042aea927153dad56f8ca48cea39f6977"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/sessions/760998968e2346f1b93cdaabf5b5b761.released.json",
+      "bytes": 288,
+      "sha256": "487c256646d75135b6379645d63b64ab62b3e9e27b53b278273f9cdcefb485bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "78e1bec0109fc701d07c6df3c0b81f3076971df9586b8c3324e9bd6c6af7ad89"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "3b5353b4aa7c79bf1e0a856cb57368e55b11377b51f27eb78e98d9f0fe4deb78"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "487c256646d75135b6379645d63b64ab62b3e9e27b53b278273f9cdcefb485bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "d71232e5a4c92a7cf9b12d18d0586346c973b9efe4a22d159d05d76d63094ceb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "cf000c728bbf1b0540a4fc88074206f9cdd6e33d74e2cf3d4c9457a8d138a4d2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_started.json",
+      "bytes": 39,
+      "sha256": "d0d036f2dd7359e59aca5bb112aa549b9d691da1fc831fffac1430362e990c4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/entry.json",
+      "bytes": 81,
+      "sha256": "3660aeac755b008e93c92a1218c3035fb12ac1808a6cadcd6f944048cd8c8c4d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "612e1c4250a7ae60b035966f005624cac0d61e44884fba890ab3958a17e1b455"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/measured.json",
+      "bytes": 60200,
+      "sha256": "0fe3da77ecfca5caa55899a61de96c112c80d5415ca6d8df7473242c553d2bbd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/observations.json",
+      "bytes": 21547,
+      "sha256": "45c85435ca2efe7830738f69a07ac8730b614452440477d703b1028e7f4509db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/telemetry_records.json",
+      "bytes": 43367,
+      "sha256": "2bd048d8cc7eb5cb45e9b98183da97884df1308dd2485c3e335e66cba16dd2b1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/telemetry_summary.json",
+      "bytes": 2168,
+      "sha256": "279970de3a1db2af12769ab2a75ab4218bf4275ee9c849d6dac791b4c466050d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "37b9b81a569fdf8f34939cd5392b3a76996df5ca8b81c1dd46caa5978a44be7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "ff38a10ba7fc463303e40a9088054cb0a19087b6f3eac0ac2fb1c17ee006ceb3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "2098937a3930c8d0b84c41f8a23cf58b4170d5e8524d532ac9e365c187243532"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/payloads/20e098430cf24026992ab0f967e87c9a.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "df6111fa52b6afdc6fd1201f13845a975297c3c7e2cd085949e47221b2520f0e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ce974e6576cf40dbff9fa5ebe481f0f8dbff6923c780f9d3f128f115c8448089"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/sessions/57d60498e0d1443c8dde086c7db5664f.json",
+      "bytes": 214,
+      "sha256": "6019fb43620a8ed33aed80f57e848bc6a2a2c2c1909924449c99b50d6c6337d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/sessions/57d60498e0d1443c8dde086c7db5664f.released.json",
+      "bytes": 288,
+      "sha256": "eb3fa2dcfb991534a3f11504297ad6c503aa1b7d52b2d063205442338b9b4d04"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "b9ffd02ff281198f8878389ecba756304f3a3b2589cf51c1166b87aeac3850c1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "986f84369293095b9ea1cb32d7c7a24fd488955d54dfb8cfecaa9c483b0b937c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "eb3fa2dcfb991534a3f11504297ad6c503aa1b7d52b2d063205442338b9b4d04"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "fe07ed40303bdd48423f0980e50f92893cf3282d6c97003954fa450c3f5297c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "966b611b4d05c63e99842996d5fe21028e62cbcb8e32ba0ff13db5171f6640bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_started.json",
+      "bytes": 53,
+      "sha256": "7fa94340848adaf7cccac4ea42e49f8a8b6e06646a9c25f4b4590cdcbfa60775"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/entry.json",
+      "bytes": 66,
+      "sha256": "835a95992367fb152487d00610f0406055d6f673a3e607ed8a627176c038937b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "12fc22be332728b3c88d9ffcce1ecadf360613654ff302ae3e0807cca3973300"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/measured.json",
+      "bytes": 60201,
+      "sha256": "b404fd6cacb3f6355b9a4cf55f18c54e107bbba4681716c9e27e237ce98ff6b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/observations.json",
+      "bytes": 21547,
+      "sha256": "92e7cef535e554472a39d6c89c6adae3c630124a2ca0cc96a2c5c0a7e622e5b4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/telemetry_records.json",
+      "bytes": 40251,
+      "sha256": "7f95c467e54520f0f5e786ec7d9ab7af703d3d3650225867b0c72da4eb32aa78"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/telemetry_summary.json",
+      "bytes": 2163,
+      "sha256": "f54b80762861ffffd6dadce5401b7772b94ea87c3ab127bf86e22b7ec53ddc45"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "826743bc4ec2b80b50a3c1440f317e0bbca1d79cd6b0e818867ca6d869a0dd08"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "f868d8ea420d99a2b0c0e66866357d9d9a284ff9751ca8695642d0f4a5f8fcf5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "488ea63b8a479546ac18f841c2e45710d55c1fcc415f51b326ccd57f96f3bf08"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/payloads/cf05f5a9dfb34904a2a48782828689e4.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "3c7443391af2dab1c55c9f403b83e517044945fac9915d3f2058f3a209f30142"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "8bf37244cd0cc7df5569b3c159b8d0a699cc819f3b11525a4a380ada25914f52"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/sessions/a24c731ec848459f8ddcdae9712d1bae.json",
+      "bytes": 214,
+      "sha256": "c4eabfd8b16f690665c911a9e6dddf3e71fa7e58a086a194065758002d1b512a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/sessions/a24c731ec848459f8ddcdae9712d1bae.released.json",
+      "bytes": 288,
+      "sha256": "3c85d41be63849c3ea9b5907960c1d0daa4ed7fa25ed427989d7b629e8dc6ca7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "397ab1a4af13aca1f20b79e2cb39421a7118b2d139a8e1429cb8eb228bf55297"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "55d0f79e828e4e43428f73bbd27480fe4a6af05d3489d3c808a2bf7d5da9b5dc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "3c85d41be63849c3ea9b5907960c1d0daa4ed7fa25ed427989d7b629e8dc6ca7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "cc9780c1617d612e60f77721ae3f36a81b32ded05b93d49e7dd989480e788c39"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "6494ddd51b868b7b6a89c0089534c360fbf4cd590fff44bc60ceb6389fa10fe7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_started.json",
+      "bytes": 39,
+      "sha256": "cf7b6b7b37810d5f81aad3e61c5d8e2a3708144bdba2a94f28c4c5ef76c26626"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/entry.json",
+      "bytes": 81,
+      "sha256": "9b29c36874757d5f9eaab1d2fc2c1f784524f562c59e4e2bc899ea9987567223"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "d2d009201e707647c5f0387e7b286f5475543ee529dd0f90d136dfd7b3d43138"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/measured.json",
+      "bytes": 60211,
+      "sha256": "ae7b79f45c285c3ca8f47b4e48213cb7c6ac6f92519754c063b003291b963a02"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/observations.json",
+      "bytes": 21558,
+      "sha256": "afafd6b86c883883a03b4e46c3a10028e5009608fb5b8171e992689ef55f9aae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/telemetry_records.json",
+      "bytes": 41315,
+      "sha256": "5b27fb2a57a5565085c07d4ed10cfedc39d95586e6a05e51b85086dd340573d9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/telemetry_summary.json",
+      "bytes": 2155,
+      "sha256": "a8b39acc3bba2011cb700acedd6ec18ad4d9c4a1580627f6bb58ba14034fc252"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "872f5922affed900f083599a0189454169d9fbcd8ae94f5693f1401d37995a7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "a7b0222293e2a0d3d6a07f15b94bdee7ad28ebd7970b2c951ecc38fe5a81c353"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "22e66ec73564ae8389f00ed3dcda441ae753e8051ef3e2080a4cc84e17e5f4ac"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/payloads/59acc93a30f647bbb0ad1cb1cc46a8f3.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "2658fbc9b4448e2ec461f11264ba064de7afec506b8b50c946ec670e3474fd35"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "71204c8ded66214d61dc87bae1d05ad5c065d6e0800cfe02b29040fc70c74c23"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/sessions/66922038b5da41f7b9e0c7d0b63eb87a.json",
+      "bytes": 214,
+      "sha256": "341a1693ad015dc670f9121188aa02b99c0854ec1dca2e08f53622fb1878c52d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/sessions/66922038b5da41f7b9e0c7d0b63eb87a.released.json",
+      "bytes": 288,
+      "sha256": "d4d0367d3b99c207e6a949967831c68dcf34873d6425f909d6b5bf886ff54d9d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "268e011a57642c7950323a536707987b720ce744621e2f426ea013d420fb74e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "91ed190426d2ce8e3aaa2ccf4b000cb99d8b1ba39cd47b938c67933e4f44b296"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "d4d0367d3b99c207e6a949967831c68dcf34873d6425f909d6b5bf886ff54d9d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "5621db3831a388c0e74daae9a951d0e17fb3545266495b239c3e656d62c78e13"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "b3a180bc7277acaafaae47539c5caf1c3b9c95970507a54fe03f071d777deaa4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_started.json",
+      "bytes": 53,
+      "sha256": "ab3d6732187281484077f1fdc2d0b0300a228a0cf9f0f123e52eb45ec71e3973"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/entry.json",
+      "bytes": 67,
+      "sha256": "403eb0489035a71eb45713c1f188b1432ca7af60c28ffd44530abc49a7b43878"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "4ca01100c4d6b3cf851898e933b2d4ed1139040208ba68240661a40ee3f5581d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/measured.json",
+      "bytes": 60202,
+      "sha256": "4f8e037c8e45a7fb2c7afcf189195866c8add990e709ff281afc005fbe4e4120"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/observations.json",
+      "bytes": 21542,
+      "sha256": "d84948bfff1a80586ecc75f42c8d82bb7c83b2c3a974ab8aa42eb77e941d905f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/telemetry_records.json",
+      "bytes": 46457,
+      "sha256": "cff118dc4c9a96429222172e7c3183bce17fbe6164a231a056fab69eeacd4f79"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/telemetry_summary.json",
+      "bytes": 2165,
+      "sha256": "08667cbb7b50268a8f3bbccd5f9ae4c5dde22709c4d9f025984841bb45bff74b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "1c6cfc6ba95091a4c838df559e3a20082e50e20d5af74c378920ab216ed13366"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "8a4c9c66283ca6a41af114c188dd4df630da468fe262f1d2ffd4767b29b09189"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "eb55aa00d8266032c25374b3f7b72c365c6adb80c866aceb242546c6d267f221"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/payloads/4cd2283574934b22bacbd299f74676d3.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "f0ae3543c46fb362ecdd739072dfaadd943ce9a7fb48ff8e63b8bdf5c63d536f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "dbf61b7dcd48a12e84bc3ffa835424dbd60c34d7b85edd59d42b36def192dbf4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/sessions/9060a45010ef4fd8bdc8fbb5a14c9b88.json",
+      "bytes": 214,
+      "sha256": "13122d52b140b84ee9a42c2882860f0e5b1cff75986194d0973f49da97b22033"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/sessions/9060a45010ef4fd8bdc8fbb5a14c9b88.released.json",
+      "bytes": 288,
+      "sha256": "b9e2b6be66beaadedacf992a48836d91f4b1d883b9038b52e7b2c33811056077"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "67baf4dcdd5446634508a616efbc9d1c1915de9f489f99fff063f9c0037bfe93"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "779cdb5e40824261985b11ee1f977efc5e305bca895d6d3b6b9a0262e362cc5e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "b9e2b6be66beaadedacf992a48836d91f4b1d883b9038b52e7b2c33811056077"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "71c5d01a3753d6001f4c8144bc4274fae9bc9f958182d69ea96062c4284d3333"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "68c0cb4b09d658090c9dae037ebf93318623b642cceb0d3911ccf32a7d4c2878"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_started.json",
+      "bytes": 39,
+      "sha256": "e4bf368afba285e639bd912c5eb1485830dff7b948d5d85074b503ecddb6538c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/entry.json",
+      "bytes": 81,
+      "sha256": "893457ed96379697e077abab36d0b7c4d55c5236f5ed37e5b012a0e28440c7d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "6913ce220c04973f7257948cf51a5f5be580ec98a89288332fce7a69ef262be6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/measured.json",
+      "bytes": 60191,
+      "sha256": "6851e98b5435a52b5c9451875a42d24d26a45c03e4842d84644cb5751d9f2c2b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/observations.json",
+      "bytes": 21553,
+      "sha256": "d82d3c2b786ea890f2bcaad692537a4d3aeee1af1e2b2e20ef0a06291aec42c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/telemetry_records.json",
+      "bytes": 42349,
+      "sha256": "750295c9bced2ef838270e328fcab5cc03e6e892580bf391cef3f70b1388ebbb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/telemetry_summary.json",
+      "bytes": 2170,
+      "sha256": "dbc023561f853574a3b672abffba48fddabdf0b73a6d304b2a55335db282133c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "79f87f77e0ddb4144ea1c59a7ac731d143d182720ae47f85adb5660e260257bf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "03fa269ed753724be638122d36dca9dcf1548d565057d0475231c082a661a429"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "abf31dc893bf76cbd9daf4aec867f59191998df740d53722f824d5416ebe53e3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/payloads/5d2366ff646848bfbeb8afabb05b17a5.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "bcff184a6a15e1c6580b58109e7313f46c84732bfeb17156ea7f94a67bb940d5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "f9e5aca738b0b140e7dfa2b88e4ff197106f9d9da9d47caedfb693d9b9acc6a7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/sessions/249708a9c0574de9b4b73de04f07a03a.json",
+      "bytes": 214,
+      "sha256": "32dfa69a92dafb12523c5e6b71f27519a590841c2bb196f0dd76ac12ef7bbbc2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/sessions/249708a9c0574de9b4b73de04f07a03a.released.json",
+      "bytes": 288,
+      "sha256": "90690fdef1397e37fe5d3f0014d834fdd0396c7aab25052413c93f3fbf00bfa7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "82d64249939b0aa6060bb017744da0b201d888346abc36577f4bbf66d90a6182"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "63bb648dc37b50c6596d5bcfa6b25f5bbc95390f5ee1506f4f9c2037a8a7075c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "90690fdef1397e37fe5d3f0014d834fdd0396c7aab25052413c93f3fbf00bfa7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "2a0b7e18c855e7a19214a2eaf112653d92b71aa13c57a073fadc07e0896af459"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "5d672c8dd45b0109201d83a2633b846e88e3b47a2d97248c9029197f80f6be20"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_started.json",
+      "bytes": 53,
+      "sha256": "82acd0a0ee53b6bc10439e772e61547e15211b780de6f8305fa9b555a8a1eb58"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/post_exit_audit.json",
+      "bytes": 273,
+      "sha256": "731f95a4770cbc104da61d6b0c1516ac4a40b1f97685cef083af26810a8e5c6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/request.json",
+      "bytes": 112317,
+      "sha256": "792e951d991525f0d9024435c8a53b74b9a275f0fc28caa13e004b70ac7927c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/supervisor_completion.json",
+      "bytes": 437,
+      "sha256": "85eb3c4ff90a39940840c8fc63979c0853238de6d5f5b4c751608759f9595fda"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/tracked_process_identities.json",
+      "bytes": 262,
+      "sha256": "1c2f97bef4f9d073687d0d8c0904bcc90096181ae278f49225dd58636ae8e810"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/entry.json",
+      "bytes": 65,
+      "sha256": "1cb5d00e41817f89af1663cecb71e4d6c1d4b0f013189a8d6f6eaf1259527921"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/entry_span.json",
+      "bytes": 239,
+      "sha256": "926150b8156b514497b855815ca6d1f37fbbc5682efcc1820cddcf9622033859"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/measured.json",
+      "bytes": 60218,
+      "sha256": "85fc30d6ae857444867c71823909d12e54a57a2d0c03ab50a6c30bd8107a5489"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/observations.json",
+      "bytes": 21541,
+      "sha256": "fbde84d74a9e2ba4f084b2fd5fded073cbcd37485474f90300a8b539ef440eb8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/telemetry_records.json",
+      "bytes": 41165,
+      "sha256": "e200ac197ff95a362504356d2921b0d37cce4d24a948fd1c90682715ba618489"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/telemetry_summary.json",
+      "bytes": 2158,
+      "sha256": "94803af449f2859b93857da388c9a24cc573740beb38f7162bd09915b5026720"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "fc2ae83bfbdac0049fcca982a7874fe3284905b1d881cd81016c9d7115ba9c99"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "9acafb8d1f69392b2b222ef15de2fcea2b7d9d700184945ffff545392ec7f92b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "6a2b97c168adfe5af0ad243d961527127e638c44fee35a257bea63fe33222554"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/payloads/e509a6e7ce414b83a3f6c806e997872e.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "f8326a2fb3a01e883f8a2bc0d20e8c8371fe1ffe5a30c1f26b9c4a8e6323b6bf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "e55057473ca558bb1ea21699f24bf8d1c3dc2945ae7604a3bc370980db737d5d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/sessions/d00055767a384f5b9e0a9b0d710b95ac.json",
+      "bytes": 214,
+      "sha256": "31194d6bdebbe51ce2eefa5f3ca3aa1c621d949fe73e67993c3d06b1ee40a844"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/sessions/d00055767a384f5b9e0a9b0d710b95ac.released.json",
+      "bytes": 288,
+      "sha256": "22551d10137f32bf270c85b1c9a25adf699bea80aa33f2741273b08e051c841c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "aac4baa88fe307cec175ba581230fb46a28b88b5d3c8988a5b1474803a7ad704"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "571cd01c5612482db0e96b0cc885df9159bcda1658d89d4a20451d4a59f2e668"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "22551d10137f32bf270c85b1c9a25adf699bea80aa33f2741273b08e051c841c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_resources_after.json",
+      "bytes": 236,
+      "sha256": "e8479ccb573c21e48ec695be8a60a31baaffcadbc251aaddc7f627f7dc6913a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "1e6e76f79f5331632d05c0eed9a919b23e64451bed308e9978fc4a991eb5fb4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_started.json",
+      "bytes": 37,
+      "sha256": "e15696b3ca00cbf021f6203beb6b3ee2f66859848fbd9fd9dbb6782303b47eb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/entry.json",
+      "bytes": 79,
+      "sha256": "6835db68f37dda07176d7d0872bccd8ff90b821709499d409b0c01cf55e4071c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/entry_span.json",
+      "bytes": 253,
+      "sha256": "d6ad69dc81a96b953363f028d58c694f350d51271f2519f84094e5dcd09d193e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/measured.json",
+      "bytes": 60235,
+      "sha256": "5629a0e6aad898925272c92ef5ba99540ac7fe0c204560e777a301fe6867cc7f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/observations.json",
+      "bytes": 21531,
+      "sha256": "ff7ad5ee80a6553256867920722c7c02a93eeb2bb5fa26f4eacdd506291653a7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/telemetry_records.json",
+      "bytes": 41212,
+      "sha256": "17219c8e521533967edd6b442e87bdc1396030eb740d868f8780d85e3b47387d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/telemetry_summary.json",
+      "bytes": 2160,
+      "sha256": "ba68e0ecb22c811191c83c8bca4076b6f68ce14972bddf7bf5f971c8482e171b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "b492be548056fec27c593b4d0f285fc1da422ad67f51c0c1e8baae78e029d6ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "521ce173d5e9dab7582acedf72c998cfff0fe0b8e4d263adad57ea92abcc548c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7130248324f0f93c64c2c524d23f3b7de8d7a8ee2f7bbfc316912105f4674a42"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/payloads/47c663e91a4541a6b35a30da4b5e617a.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "a5f5ebe09090df4ab5991ded56dcd72c9fcbe405994c1c8e63f40641d1242827"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "8734188a26061dc119e70701f45b2f3121cce1a93be6d65a99e16380f89daeeb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/sessions/7dbc22024709444f9ba5b8208c2e05a5.json",
+      "bytes": 214,
+      "sha256": "544047120440405cd06feda32a6a1044cfad26c31d9a99c9916f6a415982fa77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/sessions/7dbc22024709444f9ba5b8208c2e05a5.released.json",
+      "bytes": 288,
+      "sha256": "727ef7ddcfb212cad74bc5ff380a0e1f01dc3deaa6e6fface0e660629f66594a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "85c3a3df67f16c2889a1ba23939cce4a0eb457302becbbc550ccdf07891d03d6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "cf2a659eb4c09cb52c54dbbf9027385653cd0e8ee87527f1f1694b8b8d627b38"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "727ef7ddcfb212cad74bc5ff380a0e1f01dc3deaa6e6fface0e660629f66594a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "522cb8f46b729ca97b7751971acf8a16d9216475421199dee80e5ab2f7873967"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_resources_before.json",
+      "bytes": 236,
+      "sha256": "2c58198f56b0f45d98ac66b31784dd4c54682a22bbd1a86e7437d917529f5b43"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_started.json",
+      "bytes": 51,
+      "sha256": "8964f6c75301ab30042cd63bc59d752bbd9ae3b35c190d252d1e05136293843a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/worker_identity.json",
+      "bytes": 69,
+      "sha256": "0ae21abf6bcfdfe8f4c7a1c63cc2963f65247aa9ad68e3d70199616b27ce51e2"
+    },
+    {
+      "bytes": 30667,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "bytes": 175,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/selected_ledger_proof.json",
+      "sha256": "9218404f8438e40981cd04b5430f4e7e02adff1546e11c7815a9a836b9c3a353"
+    },
+    {
+      "bytes": 28517,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+      "sha256": "a4c5adeb91cfcb2e50d43293a81563c7b9ebc6862476d3f0d881c77197a411c1"
+    }
+  ],
+  "verified_input_count": 637,
+  "verified_input_bytes": 63941600,
+  "same_fixed48_roster_order_model_and_input_binding": true,
+  "same_primary_protocol": true,
+  "interpretation_limits": [
+    "Compare each candidate against its own within-window A; do not pool V17/V22 timings. V22 uses symmetric connection adapters and continuous telemetry; V17 has a native A and before/after snapshots.",
+    "Only saved reports, private small evidence and method bytes are reverified in this inventory. Original model/raw-data hashes are inherited descriptors, not re-read or newly certified.",
+    "Recompute 28 historical runs including four warmups; no new candidate ranking, fit or final test.",
+    "Window source hashing, full entry, nested primary/rank/append and unmeasured post-exit time must be reported separately."
+  ],
+  "scope": {
+    "historical_distinct_queries": 48,
+    "historical_query_observations": 1344,
+    "new_query_verifications": 0,
+    "new_candidate_runs": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  }
+}
