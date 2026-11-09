@@ -1,0 +1,89 @@
+{
+  "status": "v29_schema_snapshot_design_sealed_not_implemented",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v29_serialization_specification_20261109.json",
+    "bytes": 338322,
+    "sha256": "221f63bbfa21078eedec62f9218dbb294443e4a03698e3a7bb19eb5923659cfd"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v29_serialization_inventory_20261109.json",
+      "bytes": 12856,
+      "sha256": "aba7cc73547491e5a46e167e646f73c263ade9adc302857561214464e8db0b49"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_specification_20261109.json",
+      "bytes": 238128,
+      "sha256": "d20cb80317b2a1eef358a51f421ae671f2f1f5895112b6f6b912050c61549557"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 13168,
+      "sha256": "f6bbda1a8b4abeb17f93704d4ebf9de07f3c3c246ad9d950e3425efa78672fc9"
+    },
+    {
+      "path": "scripts/inventory_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 11941,
+      "sha256": "a040c680d8d488a3c5befc80ef78c56fda6bfe4ac84ff6179da5df064a826134"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 3748,
+      "sha256": "153aecfa2502c58de9081c8bbfbd194da940b2840bcc2cdb2530c0035c1181ad"
+    },
+    {
+      "bytes": 15646,
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/tests.log",
+      "bytes": 2988,
+      "sha256": "b2f5c907334d61680cd21c13e58668aa022f57542e6638195d622b78df86ed63"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/rows.json",
+      "bytes": 6883,
+      "sha256": "178be7274c1642e8efdbe40ebe607025586627d7600d91e0a658051f7f1b88e5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/plan.json",
+      "bytes": 1408,
+      "sha256": "855602b45530ec4a2f4bf845e2abf8f4978648a4206e13315c6c9746141dd0a4"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_cost_20261109.json",
+      "bytes": 343065,
+      "sha256": "caab1b73f9591551673ce910698c95f336d691e3b616623292c6526438c15068"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_analysis_20261109.json",
+      "bytes": 11108,
+      "sha256": "4c28ceaf1fe5b006c3721745c9f05a9dd96a3aa0cdc273a1158e68bf47adc83a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_release_20261109.json",
+      "bytes": 376,
+      "sha256": "6c530edf497a46c2f61aec021156ac6605e8f33fb85482fd30d63cb975cad0e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v28-c1-24cc5e711e5f474c971759e4439f6c7f/request.json",
+      "bytes": 270311,
+      "sha256": "76a693c746c18ffc2dd01998afb542570df2324eb1ceb89e2e81cbb9019f8cec"
+    },
+    {
+      "bytes": 28517,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+      "sha256": "a4c5adeb91cfcb2e50d43293a81563c7b9ebc6862476d3f0d881c77197a411c1"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v26_reuse_specification_20261109.json",
+      "bytes": 158209,
+      "sha256": "5d3bad04dcdead2d86201636f11194de00d18a3ddab57d6bf6607b7e27206f8d"
+    }
+  ],
+  "new_candidate_required_cases": 32,
+  "inherited_case_count": 38,
+  "candidate_tests_run": 0,
+  "real_runs": 0
+}

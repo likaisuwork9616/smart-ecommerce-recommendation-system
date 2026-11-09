@@ -6,7 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| K1 V29 序列化成本盤點 | [已存事件與隔離重播](inventory_retailrocket_session_knn_serialization_v29.py) | `--inventory` 分列 V28 實測與原 canonical 的受控分項重播；不呼叫排名／SQL／append。已有盤點用 `--audit` 核對；見[盤點與規格](../docs/STAGE12_KNN_SERIALIZATION_V29_20261109.md)。 |
+| K1 V29 序列化成本與候選 | [已存事件與隔離重播](inventory_retailrocket_session_knn_serialization_v29.py)、[規格封存／核對](freeze_retailrocket_session_knn_serialization_v29.py) | 盤點完成；C1-S1 版本化完整快照指紋與 32 個新增驗收情境已封存，尚未實作候選。現有產物用各入口 `--audit`；沒有候選 measure 選項。[盤點與規格](../docs/STAGE12_KNN_SERIALIZATION_V29_20261109.md) |
 | K1 V28 C1 原 48 筆比較 | [受監督真實入口](run_retailrocket_session_knn_compare_v28.py)、[獨立發布與門檻](retailrocket_session_knn_compare_v28.py) | 81 項整合驗收及唯一真實窗口已完成，672 次核對通過；六對完整入口全部較慢，維持不採用。查看既有報告或 `--release <原 namespace>` 重稽核；`--measure` 拒絕已有 request 重測。[規格與結果](../docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md) |
 | K1 V27 C1 唯讀初始化 | [核心與原方法接合](retailrocket_session_knn_reuse_v27.py)、[合成驗收／重稽核](accept_retailrocket_session_knn_reuse_v27.py) | 73 項合成測試與 38 封存情境通過，人工 48 筆十四帳本及獨立程序發布驗證完成；`--acceptance` 已完成，只讀重核對用 `--audit`。沒有真實 measure CLI；見[實作與驗收](../docs/STAGE12_KNN_C1_CONTEXT_V27_20261109.md)。 |
 | K1 V26 重複成本與候選規格 | [已存證據盤點](inventory_retailrocket_session_knn_reuse_v26.py)、[封存／稽核入口](freeze_retailrocket_session_knn_reuse_v26.py) | `--inventory` 只盤點 V25 證據；封存入口 `--specification`／`--audit` 固定兩候選及 38 個待執行驗收情境。已有產物拒絕覆寫，沒有 measure／排名選項；見[盤點與候選規格](../docs/STAGE12_KNN_REPEATED_COST_V26_20261109.md)。 |
