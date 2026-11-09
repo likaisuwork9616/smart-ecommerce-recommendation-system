@@ -48,6 +48,10 @@ def process_identity():
 def verified_buffer(root,record,watch=lambda:None):
     """Read no more than the expected bytes plus one; parse this exact hashed buffer."""
     from scripts.retailrocket_session_knn_checkpoint_v2 import _inside
+    if (set(record)!={'path','bytes','sha256'} or type(record['bytes']) is not int or record['bytes']<0
+            or type(record['sha256']) is not str or len(record['sha256'])!=64
+            or any(c not in '0123456789abcdef' for c in record['sha256'])):
+        raise ValueError('Canonical bounded source descriptor required')
     path=_inside(root,record['path']);blocks=[];remaining=record['bytes']+1
     with path.open('rb') as stream:
         while remaining:
@@ -109,6 +113,7 @@ class WorkerContext:
 
     def invalidate(self):
         self.poisoned=True;self.prepared=None;self.active=None
+        self.expected_config=None;self.expected_model=None;self.expected_digest=None;self.key=None;self.owner=None
 
     def _identity(self,store,config,model,namespace,request,observer,watch):
         with observer.span('cache.identity'):
@@ -125,6 +130,12 @@ class WorkerContext:
             if store._token in self.used or store.recover()['records']:
                 raise ValueError('Fresh one-use writer required; resume cannot reuse context')
             if canonical(store.binding)!=canonical(self.contract['binding']):raise ValueError('Source binding changed')
+            sources=self.contract.get('sources',store.binding['sources'])
+            bound={record['path']:record for record in sources}
+            if len(bound)!=len(sources) or any(bound.get(record['path'])!=record for record in store.binding['sources']):
+                raise ValueError('Original binding must be an exact subset of the source closure')
+            if any(bound.get(record['path'])!=record for record in self.contract['dependencies'].values()):
+                raise ValueError('Initialization dependency is outside its exact source binding')
             current=(pair.verify_selected,pair.core.load_context,pair.sql.prepare_catalog,
                      raw.positive_table,raw.read_rows,parser.read_rows,parser.num)
             if current!=ORIGINALS:raise ValueError('Original semantic function changed')
@@ -132,7 +143,7 @@ class WorkerContext:
                 verified_buffer(self.method_root,record,watch)
             from scripts.run_retailrocket_session_knn_v2 import environment
             if environment()!=self.contract['environment']:raise ValueError('Accepted environment changed')
-            key=digest(dict(binding=store.binding,dependencies=self.contract['dependencies'],methods=self.contract['methods'],
+            key=digest(dict(binding=store.binding,sources=sources,dependencies=self.contract['dependencies'],methods=self.contract['methods'],
                 environment=self.contract['environment'],namespace=namespace,request=request,owner=list(process_identity()),
                 source_root=str(self.source_root.resolve()),method_root=str(self.method_root.resolve()),
                 config=config,model=model))
@@ -177,7 +188,10 @@ class WorkerContext:
             self.calls.append(dict(cold=cold,hit=not cold,
                 buffer_logical_bytes=sum(x['bytes'] for x in self.contract['dependencies'].values()) if cold else 0,
                 context_source_logical_bytes=sum(self.contract['dependencies'][n]['bytes'] for n in ('counts','catalog')) if cold else 0,
+                method_logical_bytes=sum(x['bytes'] for x in self.contract['methods']),
+                method_verifications=len(self.contract['methods']),snapshot_digest=self.expected_digest,
                 catalog_rows=len(self.prepared.first),count_rows=len(self.prepared.counts)))
+            with observer.span('cache.use',**self.calls[-1]):pass
             return self.prepared.counts,self.prepared.first
         except BaseException:
             self.invalidate();raise
@@ -193,7 +207,8 @@ class WorkerContext:
             try:
                 watch()
                 if self.active is None:raise ValueError('No active context')
-                _,config,model=self.active
+                store,config,model=self.active
+                if store._guard is None or process_identity()!=self.owner:raise ValueError('Borrower left original writer/process scope')
                 if (canonical(config)!=self.expected_config or canonical(model)!=self.expected_model
                         or self._snapshot_digest()!=self.expected_digest):raise ValueError('Snapshot/caller changed during verifier')
                 self.active=None
