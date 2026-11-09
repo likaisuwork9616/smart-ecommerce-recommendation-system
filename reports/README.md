@@ -1,6 +1,6 @@
 # 報告與圖表索引
 
-`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測、V4 配對優化、真實來源與子集恢復成本，以及 V5 完整獨立重建、聯合尾端、工程帳本建置與重播、預算保存觀測及全量成本決策、V6 分層細化／append 診斷與原固定樣本三次複測，以及 V7 補樣規格與 SQL 投票評估與有界實驗收據，以及 V8 的 100–499 鄰居帶與 V9 的上限兩側補測和 V10 的雙高鄰居帶及 V11 的同鄰居帶投票量補測，以及 V12 的缺口盤點、事前規格、工具驗收與兩次實測，以及 V13 的雙鄰居帶補樣與 V14 的鄰居上限兩側補樣與 V15 的兩格剩餘缺口補測與 V16 的剩餘三格容量補測與 V17 的全細層成本彙整及 SQL 候選評估與 V18 的高成本細層補樣及負載觀測與 V19 的高鄰居尾端補樣與 V20 的固定樣本波動診斷與 V21 的保存前檢查診斷與 V22 正重疊 SQL 公平比較與 V23 工程優先順序與 V24 來源／初始化診斷（109 份 JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
+`stage4/`保存延遲研究的聚合結果與規格（79份JSON），`stage5/`保存評論低評分預測的盤點、契約、合成驗證、開發回測與只讀診斷（29份），`stage6/`保存RFM盤點、資料集、G2／G3、公開來源、UCI 跨期與研究交付封存收據（36份）；`stage8/`保存Retailrocket來源與推薦契約、資料建置及逐格驗收（5份JSON）；`stage9/`保存熱門baseline／完整候選規格、實作、真實開發及驗收（6份JSON）；`stage10/`保存共現／P0規格、實作／成本／入口、真實配對驗收與研究交付保存收據（7份JSON）；`stage11/`保存候選、D1比較規格、實作／合成／成本與真實入口，以及一次真實三臂validation與獨立驗收、研究交付保存收據（8份JSON）；`stage12/`保存新時間可取得性、候選／比較規格、K1 實作／成本、validation 入口合成驗收／凍結、單次執行停止保存、另授權反讀事後狀態核對、成本／恢復規劃、V2 合成／有界成本探測及 V3 監控診斷／分段成本實測、V4 配對優化、真實來源與子集恢復成本，以及 V5 完整獨立重建、聯合尾端、工程帳本建置與重播、預算保存觀測及全量成本決策、V6 分層細化／append 診斷與原固定樣本三次複測，以及 V7 補樣規格與 SQL 投票評估與有界實驗收據，以及 V8 的 100–499 鄰居帶與 V9 的上限兩側補測和 V10 的雙高鄰居帶及 V11 的同鄰居帶投票量補測，以及 V12 的缺口盤點、事前規格、工具驗收與兩次實測，以及 V13 的雙鄰居帶補樣與 V14 的鄰居上限兩側補樣與 V15 的兩格剩餘缺口補測與 V16 的剩餘三格容量補測與 V17 的全細層成本彙整及 SQL 候選評估與 V18 的高成本細層補樣及負載觀測與 V19 的高鄰居尾端補樣與 V20 的固定樣本波動診斷與 V21 的保存前檢查診斷與 V22 正重疊 SQL 公平比較與 V23 工程優先順序與 V24 來源／初始化診斷與 V25 整合實測（110 份 JSON）；`images/`保存Stage 3 EDA及較早Stage 4圖表（21張）。先讀[專案首頁](../README.md)及[文件導覽](../docs/README.md)，需要重現時再查[腳本導覽](../scripts/README.md)。檔案日期或大小不代表方案優劣。
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
@@ -8,7 +8,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| Stage 12 最新：V24 來源與初始化診斷 | [本輪記錄](../docs/STAGE12_KNN_SOURCE_SETUP_V24_20261109.md) · [來源與初始化觀測核心已驗收](stage12/retailrocket_session_knn_v24_sources_acceptance_20261109.json) |
+| Stage 12 最新：V25 來源診斷整合實測 | [本輪記錄](../docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md) · [來源診斷整合規格封存](stage12/retailrocket_session_knn_v25_sources_specification_20261109.json) |
+| Stage 12 前輪：V24 來源與初始化診斷 | [本輪記錄](../docs/STAGE12_KNN_SOURCE_SETUP_V24_20261109.md) · [來源與初始化觀測核心已驗收](stage12/retailrocket_session_knn_v24_sources_acceptance_20261109.json) |
 | Stage 12 前輪：V23 工程優先順序 | [本輪記錄](../docs/STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md) · [SQL 候選結案與工程排序完成](stage12/retailrocket_session_knn_v23_priority_decisions_20261109.json) |
 | Stage 12 前輪：V22 正重疊 SQL 公平比較 | [本輪記錄](../docs/STAGE12_KNN_OVERLAP_COMPARE_V22_20261109.md) · [原四十八筆公平比較完成](stage12/retailrocket_session_knn_v22_overlap_compare48_20261109.json) |
 | Stage 12 前輪：V21 保存前檢查診斷 | [本輪記錄](../docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [保存前診斷與 SQL 候選評估完成](stage12/retailrocket_session_knn_v21_guards_sql_assessment_20261106.json) |

@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜來源驗證與初始化分項診斷（最新）
+## Stage 12｜來源與初始化診斷整合實測（最新）
+
+固定原四十八筆與單一監督期限，獨立 publisher 納入同一資源窗口 [本輪規格與結果](STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)
+
+## Stage 12｜來源驗證與初始化分項診斷（前輪）
 
 22 項合成測試全通過；原四十八筆真實窗口未啟動，整體入口待整合驗收 [本輪規格與結果](STAGE12_KNN_SOURCE_SETUP_V24_20261109.md)
 
