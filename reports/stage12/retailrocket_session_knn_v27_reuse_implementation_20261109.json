@@ -1,0 +1,37 @@
+{
+  "status": "v27_C1_implemented_focused_checks_passed_full_acceptance_pending",
+  "created_utc": "2026-11-09T03:06:52.092656+00:00",
+  "parent_specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v26_reuse_specification_20261109.json",
+    "bytes": 158209,
+    "sha256": "5d3bad04dcdead2d86201636f11194de00d18a3ddab57d6bf6607b7e27206f8d"
+  },
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "bytes": 14218,
+      "sha256": "432abfacc4de75afb722e2826ff5dbd39b5e72dd2bb16bed648dec4cbf29f0e8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_reuse_v27.py",
+      "bytes": 10122,
+      "sha256": "d8dc1f33462175df8955d8d1685c6dca6445ef5d48bbef79d3319c813b272d8c"
+    }
+  ],
+  "focused_checks": {
+    "command": ".venv/Scripts/python.exe -B -m unittest tests.test_retailrocket_session_knn_reuse_v27 -v",
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "reported_unittest_seconds": 3.621,
+    "evidence": "Completed local test command; formal combined log pending next stage."
+  },
+  "scope": {
+    "real_runs": 0,
+    "new_fit_validation_bootstrap": 0,
+    "reserved_test": "locked"
+  },
+  "full_38_case_acceptance": "pending",
+  "measured_speedup": null
+}
