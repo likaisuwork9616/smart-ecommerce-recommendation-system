@@ -6,7 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| K1 V28 C1 原 48 筆比較 | [受監督真實入口](run_retailrocket_session_knn_compare_v28.py)、[獨立發布與門檻](retailrocket_session_knn_compare_v28.py) | 規格及 81 項整合驗收完成；`--measure` 只開一個原 48 筆 RC／CR 窗口，已有 request 拒絕重測；完成後 `--release <原 namespace>` 只重稽核。[規格與結果](../docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md) |
+| K1 V28 C1 原 48 筆比較 | [受監督真實入口](run_retailrocket_session_knn_compare_v28.py)、[獨立發布與門檻](retailrocket_session_knn_compare_v28.py) | 81 項整合驗收及唯一真實窗口已完成，672 次核對通過；六對完整入口全部較慢，維持不採用。查看既有報告或 `--release <原 namespace>` 重稽核；`--measure` 拒絕已有 request 重測。[規格與結果](../docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md) |
 | K1 V27 C1 唯讀初始化 | [核心與原方法接合](retailrocket_session_knn_reuse_v27.py)、[合成驗收／重稽核](accept_retailrocket_session_knn_reuse_v27.py) | 73 項合成測試與 38 封存情境通過，人工 48 筆十四帳本及獨立程序發布驗證完成；`--acceptance` 已完成，只讀重核對用 `--audit`。沒有真實 measure CLI；見[實作與驗收](../docs/STAGE12_KNN_C1_CONTEXT_V27_20261109.md)。 |
 | K1 V26 重複成本與候選規格 | [已存證據盤點](inventory_retailrocket_session_knn_reuse_v26.py)、[封存／稽核入口](freeze_retailrocket_session_knn_reuse_v26.py) | `--inventory` 只盤點 V25 證據；封存入口 `--specification`／`--audit` 固定兩候選及 38 個待執行驗收情境。已有產物拒絕覆寫，沒有 measure／排名選項；見[盤點與候選規格](../docs/STAGE12_KNN_REPEATED_COST_V26_20261109.md)。 |
 | K1 V25 受監督來源診斷與獨立發布 | [整合入口](run_retailrocket_session_knn_sources_v25.py) | 32 項合成驗收及原 48 筆十四次循序實測已完成，672 次核對通過；worker 與獨立 publisher 共用 1,800 秒期限。查看[本輪結果](../docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)；`--release <原 namespace>` 只重稽核既有窗口，`--measure` 遇既有 request 拒絕重測。 |

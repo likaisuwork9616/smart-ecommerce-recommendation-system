@@ -1,0 +1,344 @@
+{
+  "status": "v28_original48_post_exit_costs_and_full_frames_reconciled",
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_cost_20261109.json",
+      "bytes": 343065,
+      "sha256": "caab1b73f9591551673ce910698c95f336d691e3b616623292c6526438c15068"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_release_20261109.json",
+      "bytes": 376,
+      "sha256": "6c530edf497a46c2f61aec021156ac6605e8f33fb85482fd30d63cb975cad0e7"
+    }
+  ],
+  "method": {
+    "path": "shop-mysql-runtime/verification/analyze_knn_v28_20261109.py",
+    "bytes": 5527,
+    "sha256": "37826f10eb2ee08714767a1bbbdd888c0fddfa4e02411e64e31fc920092b37ce"
+  },
+  "real_saved_runs": 14,
+  "checks": 672,
+  "frame_rows_compared": 672,
+  "run_event_trees_recomputed": 14,
+  "decision": {
+    "adopted": false,
+    "all7_entry_seconds": {
+      "C": 66.53341930000079,
+      "R": 54.68068260000018
+    },
+    "faster_pairs": 0,
+    "gates": {
+      "both_orders_positive": false,
+      "cold_inclusive_seven_C_less_than_R": false,
+      "five_positive_pairs": false,
+      "median_entry_saving_at_least_five_percent": false,
+      "primary_regression_at_most_five_percent": true
+    },
+    "interpretation": "Engineering original48 screening only; all source/scientific/safety validation must already have passed. Historical V25 RD is not the reference.",
+    "median_entry_saving_percent": -10.847971285854499,
+    "median_primary_regression_percent": -2.821319142291358,
+    "order_median_saving_seconds": {
+      "CR": -0.6922394000002896,
+      "RC": -1.0357362999998259
+    },
+    "pairs": [
+      {
+        "C_entry_seconds": 9.388166100000035,
+        "R_entry_seconds": 8.352429800000209,
+        "entry_saving_percent": -12.400419097204503,
+        "entry_saving_seconds": -1.0357362999998259,
+        "order": "RC",
+        "pair": 1,
+        "primary_regression_percent": -5.980089439202687
+      },
+      {
+        "C_entry_seconds": 8.192921800000022,
+        "R_entry_seconds": 7.7847224000001916,
+        "entry_saving_percent": -5.243596097913785,
+        "entry_saving_seconds": -0.40819939999983035,
+        "order": "CR",
+        "pair": 2,
+        "primary_regression_percent": -5.953722991555259
+      },
+      {
+        "C_entry_seconds": 8.434111600000051,
+        "R_entry_seconds": 7.716795100000127,
+        "entry_saving_percent": -9.295523474504495,
+        "entry_saving_seconds": -0.7173164999999244,
+        "order": "RC",
+        "pair": 3,
+        "primary_regression_percent": 0.3110847069725431
+      },
+      {
+        "C_entry_seconds": 8.855652600000212,
+        "R_entry_seconds": 7.660706499999833,
+        "entry_saving_percent": -15.598379862228184,
+        "entry_saving_seconds": -1.1949461000003794,
+        "order": "CR",
+        "pair": 4,
+        "primary_regression_percent": 29.456025983146503
+      },
+      {
+        "C_entry_seconds": 9.049122800000077,
+        "R_entry_seconds": 7.900388099999873,
+        "entry_saving_percent": -14.540231257755845,
+        "entry_saving_seconds": -1.1487347000002046,
+        "order": "RC",
+        "pair": 5,
+        "primary_regression_percent": -8.06618839369929
+      },
+      {
+        "C_entry_seconds": 8.312310600000274,
+        "R_entry_seconds": 7.620071199999984,
+        "entry_saving_percent": -9.08442167837344,
+        "entry_saving_seconds": -0.6922394000002896,
+        "order": "CR",
+        "pair": 6,
+        "primary_regression_percent": 0.6459051709754408
+      }
+    ]
+  },
+  "formal_modes": {
+    "R": {
+      "cost_seconds": {
+        "all_commit_seconds": {
+          "min": 0.0652512999999999,
+          "median": 0.07811395000021548,
+          "max": 0.16306189999977505,
+          "sum": 0.5573113000004923
+        },
+        "append_excluding_commit_seconds": {
+          "min": 0.11264239999627534,
+          "median": 0.12882925000076284,
+          "max": 0.1487979999997151,
+          "sum": 0.7748530999956529
+        },
+        "entry_seconds": {
+          "min": 7.620071199999984,
+          "median": 7.750758750000159,
+          "max": 8.352429800000209,
+          "sum": 47.03511310000022
+        },
+        "primary_seconds": {
+          "min": 1.845950299994911,
+          "median": 1.9106570999983887,
+          "max": 2.0386567999985346,
+          "sum": 11.58788309998954
+        },
+        "rank_seconds": {
+          "min": 1.4695516999995561,
+          "median": 1.5079881499991643,
+          "max": 1.6490997999999308,
+          "sum": 9.23942199999783
+        },
+        "setup_seconds": {
+          "min": 3.0981415999999626,
+          "median": 3.244011750000027,
+          "max": 3.713943200000358,
+          "sum": 19.756225900000118
+        },
+        "tail_seconds": {
+          "min": 0.15177170000015394,
+          "median": 0.19389234999994187,
+          "max": 0.27463729999999487,
+          "sum": 1.1787204999995993
+        },
+        "verification_seconds": {
+          "min": 1.6336172999986047,
+          "median": 1.67089999999871,
+          "max": 1.8213797999987946,
+          "sum": 10.255718699993395
+        },
+        "vote_seconds": {
+          "min": 0.6327858999966338,
+          "median": 0.6599151000004895,
+          "max": 0.7374558000005891,
+          "sum": 4.084100699998089
+        }
+      },
+      "phase_seconds": {
+        "binding.verify_sources": {
+          "min": 2.1819785,
+          "median": 2.20067135,
+          "max": 2.2403191,
+          "sum": 13.2279045
+        },
+        "context.load_context": {
+          "min": 2.2475352,
+          "median": 2.3675767,
+          "max": 2.793619,
+          "sum": 14.4811616
+        },
+        "context.prepare_catalog": {
+          "min": 0.7767171,
+          "median": 0.79923255,
+          "max": 0.8443524,
+          "sum": 4.8115594
+        },
+        "cache.identity": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        },
+        "cache.pre_use_digest": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        },
+        "cache.final_guard": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        }
+      }
+    },
+    "C": {
+      "cost_seconds": {
+        "all_commit_seconds": {
+          "min": 0.06846889999997074,
+          "median": 0.08759084999996958,
+          "max": 0.11014260000001741,
+          "sum": 0.5279999999997926
+        },
+        "append_excluding_commit_seconds": {
+          "min": 0.10895919999984471,
+          "median": 0.11948240000083388,
+          "max": 0.15038839999806441,
+          "sum": 0.7513764999980594
+        },
+        "entry_seconds": {
+          "min": 8.192921800000022,
+          "median": 8.644882100000132,
+          "max": 9.388166100000035,
+          "sum": 52.23228550000067
+        },
+        "primary_seconds": {
+          "min": 1.8437797999972645,
+          "median": 1.8663358000012522,
+          "max": 2.3896938999973827,
+          "sum": 11.7471831999992
+        },
+        "rank_seconds": {
+          "min": 1.453373899998951,
+          "median": 1.496736899999405,
+          "max": 1.9713661000000684,
+          "sum": 9.459386299995003
+        },
+        "setup_seconds": {
+          "min": 1.9568320999997013,
+          "median": 2.044330999999829,
+          "max": 2.385466499999893,
+          "sum": 12.65939329999901
+        },
+        "tail_seconds": {
+          "min": 0.16906999999991967,
+          "median": 0.1884008500001073,
+          "max": 0.23807940000006056,
+          "sum": 1.1641699000001609
+        },
+        "verification_seconds": {
+          "min": 1.6246779999974024,
+          "median": 1.6600471500009917,
+          "max": 2.1572040999994897,
+          "sum": 10.467806700001347
+        },
+        "vote_seconds": {
+          "min": 0.6312347999987651,
+          "median": 0.6464650000004895,
+          "max": 0.898010899999008,
+          "sum": 4.1447528999992755
+        }
+      },
+      "phase_seconds": {
+        "binding.verify_sources": {
+          "min": 2.1938364,
+          "median": 2.2285475,
+          "max": 2.7551449,
+          "sum": 14.3190609
+        },
+        "context.load_context": {
+          "min": 1.8895736,
+          "median": 1.9762504,
+          "max": 2.315696,
+          "sum": 12.2344029
+        },
+        "context.prepare_catalog": {
+          "min": 0.0001314,
+          "median": 0.00016524999999999998,
+          "max": 0.0001761,
+          "sum": 0.0009552
+        },
+        "cache.identity": {
+          "min": 0.3443145,
+          "median": 0.41620275,
+          "max": 0.5863261,
+          "sum": 2.6640445
+        },
+        "cache.pre_use_digest": {
+          "min": 1.5437535,
+          "median": 1.5581328,
+          "max": 1.7278741,
+          "sum": 9.5605519
+        },
+        "cache.final_guard": {
+          "min": 1.7954892,
+          "median": 1.8912459,
+          "max": 1.9410572,
+          "sum": 11.2662978
+        }
+      }
+    }
+  },
+  "C_nonoverlapping_guard_seconds": {
+    "min": 3.6835572,
+    "median": 3.8655814499999996,
+    "max": 4.2552574,
+    "sum": 23.4908942
+  },
+  "worker_process_parts_seconds": {
+    "worker_initial_hash": 58.5678978,
+    "worker_final_hash": 30.4071967,
+    "all14_entry_seconds": 121.21410190000097,
+    "other_worker_process_seconds": 2.9411513999990007
+  },
+  "publisher_callback_parts_seconds": {
+    "publisher.initial_hash": 32.409919,
+    "publisher.final_hash": 32.9466802,
+    "publisher.independent_context": 4.9635585,
+    "publisher.open_and_proof": 16.7280743,
+    "publisher.result_write": 0.0097051,
+    "other_callback_seconds": 1.6107799999999912
+  },
+  "publisher_callback_seconds": 88.6687171,
+  "publisher_process_other_seconds": 1.865728499999804,
+  "whole_supervised_window_parts_seconds": {
+    "worker": 213.13034779999998,
+    "publisher": 90.5344455999998,
+    "other_pipeline_and_supervisor": 1.5232066000003215
+  },
+  "telemetry": {
+    "samples": 939,
+    "entry_samples": 532,
+    "publisher_samples": 407,
+    "system_cpu_percent_min": 0.0,
+    "system_cpu_percent_max": 57.9,
+    "system_cpu_percent_duration_weighted_mean": 16.101325377491587,
+    "available_memory_min_bytes": 21224759296,
+    "maximum_sampling_gap_seconds": 0.9721565999998347,
+    "missing_periodic_intervals": 39
+  },
+  "interpretation": "Inclusive phases nest. Guard sum uses disjoint identity/pre-use/final scopes. Formal medians exclude warmups, all7 decision sums include them. No whole-window speedup is inferred from one mixed RC window.",
+  "scope": {
+    "real_runs": 14,
+    "engineering_checks": 672,
+    "new_keys": 0,
+    "new_real_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "T_plan": null
+}
