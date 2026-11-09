@@ -1,0 +1,80 @@
+{
+  "status": "v24_source_setup_core_tools_synthetic_accepted",
+  "created_utc": "2026-11-09T01:46:59.565264+00:00",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v24_sources_specification_20261109.json",
+    "bytes": 143497,
+    "sha256": "74dcbb7ba8eb40319fb353ae76dc797376469c0a6c53552e22d56c8c4c8b7c4d"
+  },
+  "tests_run": 22,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 6.829855099999804,
+  "suites": [
+    "tests.test_retailrocket_session_knn_sources_v24",
+    "tests.test_retailrocket_session_knn_detailed_cost_v6",
+    "tests.test_retailrocket_session_knn_priority_v23"
+  ],
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_sources_v24.py",
+      "bytes": 5510,
+      "sha256": "5b23a447bb915413bcd820d74945ff5ce26387dd8c353f87e8b610aaec9ec6da"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sources_v24.py",
+      "bytes": 20214,
+      "sha256": "cb5cad86ade0050c1dbda89af70d958c2bf7f5e0c9a3a3bb6230b06e4e8502ca"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v24-source-tools-94aaa506e1594c85aac9d0d82e2ad80c/tests.log",
+    "bytes": 4591,
+    "sha256": "5e219feb9f75ea21d9713c33c9771a64bec368b0f8597dc69451e0c8ff6d0ca1"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "accepted_scope": [
+    "private event tree and public aggregate",
+    "original descriptor/binding call observers",
+    "store create/open/writer acquisition and lifecycle",
+    "original context/catalog and setup verifier envelope",
+    "fixed48 run adapter over original V22 bytecode",
+    "independent publisher callable envelope"
+  ],
+  "pending_scope": [
+    "integrated supervised real worker/publisher entry, including absolute deadline and resource envelope",
+    "real original48 RD/DR schedule and continuous load observation",
+    "real observation overhead and phase durations"
+  ],
+  "scope": {
+    "actual_real_runs_authorized_this_round": 0,
+    "new_rankings": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "real_rankings": 0,
+  "real_benchmark_windows": 0,
+  "original_large_model_or_data_rehashed": false,
+  "T_plan": null,
+  "interpretation": "Artificial fixtures only. The synthetic48 adapter fixture exercises checkpoint/run/publisher control flow; the separate multi-arm fixture compares original complete prediction bytes and workload. No synthetic throughput, wall measurement or call count is a real-data performance result."
+}

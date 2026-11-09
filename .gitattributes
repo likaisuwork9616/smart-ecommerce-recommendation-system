@@ -415,3 +415,10 @@ reports/stage12/retailrocket_session_knn_v1_validation_acceptance.json -text
 # Preserve the stopped K1 attempt receipt without marking it scientifically accepted.
 docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md text eol=lf
 reports/stage12/retailrocket_session_knn_v1_validation_attempt.json -text
+
+# Preserve V24 source/setup observer method and sealed receipt bytes.
+scripts/retailrocket_session_knn_sources_v24.py text eol=lf
+scripts/accept_retailrocket_session_knn_sources_v24.py text eol=lf
+tests/test_retailrocket_session_knn_sources_v24.py text eol=lf
+reports/stage12/retailrocket_session_knn_v24_sources_specification_20261109.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+reports/stage12/retailrocket_session_knn_v24_sources_acceptance_20261109.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
