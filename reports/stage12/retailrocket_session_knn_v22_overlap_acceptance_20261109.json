@@ -1,0 +1,119 @@
+{
+  "status": "v22_overlap_methods_synthetic_accepted",
+  "tests_run": 39,
+  "created_utc": "2026-11-09T00:56:05.783017+00:00",
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 9.610038499999973,
+  "suites": [
+    "tests.test_retailrocket_session_knn_overlap_v22",
+    "tests.test_retailrocket_session_knn_overlap_candidate_v21",
+    "tests.test_retailrocket_session_knn_vote_comparison_v7",
+    "tests.test_retailrocket_session_knn_reinforcement_v18"
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "sqlite_version": "3.49.1",
+  "methods": [
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v7.py",
+      "bytes": 21777,
+      "sha256": "543cc2d6c8edda77e7e6f61d96b5b1f66f834bbd21e3fb5e63256bf0750ba9fd"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v7.py",
+      "bytes": 11919,
+      "sha256": "90dbdc026acf55a5953092e1c804939454e7eb17e0a259562a7799f9a5fa9949"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_vote_v7.py",
+      "bytes": 15759,
+      "sha256": "841aa72abf8d331facb4049aaa11b8d7e94142c1418ba10e13670ea182ae7b5f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v7.py",
+      "bytes": 21936,
+      "sha256": "99cd2eca90b19cda349700916247ca5178a7d58d820342d4c002233db924f025"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_vote_v7.py",
+      "bytes": 12223,
+      "sha256": "b049b79ce1bbbf94c7799a51b5bded9f1145c9120d508d896f2c8ecb349f97f2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_vote_comparison_v7.py",
+      "bytes": 3048,
+      "sha256": "f6629aa39c53ef0b3b4035f3762486ec1a55c9156318693f0dcf2700e9dc2b73"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_overlap_v22.py",
+      "bytes": 1261,
+      "sha256": "3cd430e401f6e6271b688f4ba27a0cd07ce109b3c318db0ea9eea83dd717926d"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_overlap_v22.py",
+      "bytes": 31730,
+      "sha256": "c13b69535b5d06328a328ab37b2930a114c5c4ae6a99daa5ea2015f7da6fb5c8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_overlap_v22.py",
+      "bytes": 8629,
+      "sha256": "6b17fc4c94da660dd9f8b8771cf34f55ad9f4edba3714523b1d47d4b41be5db4"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_tail_v19.py",
+      "bytes": 35539,
+      "sha256": "b4d549892dd13a5d1083b275d613a96acbe95c36e314bd516ef9b412e36e8022"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_guards_v21.py",
+      "bytes": 48656,
+      "sha256": "e780c4b383fce70138a6ee9e4d822dbc53e8f65f301689e0e9c1e1ba2250abe3"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 6156,
+      "sha256": "7521363631159725d8608e8b80bca1c72a1e6acf1f2dcd56208f3eac088e51f6"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 35590,
+      "sha256": "043a6441e3b8825df01d98f88b7e5e2ec6fec2f6ff1938fa74f8fe1f8b1dd90b"
+    }
+  ],
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_specification_20261109.json",
+    "bytes": 4055,
+    "sha256": "cc32eb0469619db62c2a5092808f6c149f32672b517702bc59d4e695c9f70f22"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_inventory_20261109.json",
+    "bytes": 132452,
+    "sha256": "9a055e1e7a074166447426d7c84be38c541d818ee75cf379ad3b9107e8cc6b92"
+  },
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v22-overlap-tests-fc2fd9f008f54c45a7492964ed41f92e/tests.log",
+    "bytes": 8028,
+    "sha256": "ee22c51292a7a3be710d1aaacfc88328cd3181abf774bc166bf5978627219e35"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "new_keys_selected": 0,
+  "real_query_measurement_started": false,
+  "full_readback_started": false,
+  "reserved_test": "locked",
+  "T_plan": null
+}

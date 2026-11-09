@@ -26,3 +26,13 @@
 目前只有規格，尚無本候選真實加速比例。V17 投票候選未通過的結論維持。
 
 [盤點](../reports/stage12/retailrocket_session_knn_v22_overlap_inventory_20261109.json) · [封存規格](../reports/stage12/retailrocket_session_knn_v22_overlap_specification_20261109.json)
+
+## 工具驗收
+
+**39／39 項合成驗收通過**，耗時 9.610 秒，失敗／錯誤／跳過皆 0。包含 V22 的來源／門檻／完整四臂 payload、14 份帳本逐列位元組與重稽核、暖機排除、故障／期限／負載錯置的拒絕；以及 V21 候選語意、既有配對判斷與負載驗收。所有數值均為人工測試，尚未實測真實 48 筆。
+
+連續採樣沿用原 V18 sampler；每個 run 使用其合法 slot 0，外層另以固定 label／mode 識別 14 個 run，發布時核對其身分、首尾包覆與相鄰不重疊。A／B 相同觀測方式，成本不以負載比例校正。
+
+操作：`.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_overlap_v22 --acceptance` 驗收後，以 `--compare48` 執行唯一窗口。已有 request 會拒絕重開；已完成窗口以 `--publish <原 namespace>` 重稽核。沒有 compare34 入口。
+
+[合成驗收收據](../reports/stage12/retailrocket_session_knn_v22_overlap_acceptance_20261109.json)

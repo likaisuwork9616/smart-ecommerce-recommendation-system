@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 原四十八筆公平比較規格封存 | 原樣本與 569 份來源固定，六對門檻封存，尚未實測；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 原四十八筆比較工具已驗收 | 39 項合成驗收全通過，循序實測待啟動；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜原四十八筆正重疊 SQL 公平比較（最新）
 
-原 **48 筆**固定，A／B 各一次暖機後執行 **六對 AB／BA**，共 672 次工程核對。唯一候選為先聚合再 join size；主要成本包含原 budget／commit，至少五對較快且中位改善達 5% 等全部門檻才通過。工具與實測尚未啟動，沒有本輪加速比例。 [本輪規格與結果](docs/STAGE12_KNN_OVERLAP_COMPARE_V22_20261109.md)
+**39／39 項合成驗收通過**；完整 payload、14 份人工帳本、暖機排除、失敗保存及負載核對均通過。原 48 筆、六對順序與門檻保持封存；下一步循序執行唯一真實窗口，尚無本輪實測加速比例。 [本輪規格與結果](docs/STAGE12_KNN_OVERLAP_COMPARE_V22_20261109.md)
 
 ## Stage 12｜保存前檔案檢查與身分驗證（前輪）
 
