@@ -13,7 +13,7 @@
 
 ## Stage 12｜來源與初始化診斷整合實測（最新）
 
-固定原四十八筆與單一監督期限，獨立 publisher 納入同一資源窗口 [本輪規格與結果](STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)
+32 項合成驗收全通過，單一監督期限涵蓋 worker 與 publisher [本輪規格與結果](STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md)
 
 ## Stage 12｜來源驗證與初始化分項診斷（前輪）
 

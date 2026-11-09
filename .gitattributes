@@ -422,3 +422,8 @@ scripts/accept_retailrocket_session_knn_sources_v24.py text eol=lf
 tests/test_retailrocket_session_knn_sources_v24.py text eol=lf
 reports/stage12/retailrocket_session_knn_v24_sources_specification_20261109.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 reports/stage12/retailrocket_session_knn_v24_sources_acceptance_20261109.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V25 integrated entry methods and all sealed/public receipt bytes.
+scripts/run_retailrocket_session_knn_sources_v25.py text eol=lf
+tests/test_retailrocket_session_knn_sources_v25.py text eol=lf
+reports/stage12/retailrocket_session_knn_v25_sources_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

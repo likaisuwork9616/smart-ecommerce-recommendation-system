@@ -1,0 +1,50 @@
+{
+  "status": "v25_sources_integrated_tools_synthetic_accepted",
+  "created_utc": "2026-11-09T02:07:02.503433+00:00",
+  "tests_run": 32,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 24.297637000000577,
+  "suites": [
+    "tests.test_retailrocket_session_knn_sources_v25",
+    "tests.test_retailrocket_session_knn_sources_v24",
+    "tests.test_retailrocket_session_knn_detailed_cost_v6",
+    "tests.test_retailrocket_session_knn_priority_v23"
+  ],
+  "methods": [
+    {
+      "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+      "bytes": 24728,
+      "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sources_v25.py",
+      "bytes": 13034,
+      "sha256": "46fe912faec7e1474582581daf24af15e627b5ccb32d93fa4ccfc39c73713802"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v25-sources-tests-12af2db9544846bcbf803d5cecc0c5e5/tests.log",
+    "bytes": 6662,
+    "sha256": "6403757af0d3d29ac14d0835ad8187fead772ec38b8a8a4b66f564ed28f3d2a0"
+  },
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v25_sources_specification_20261109.json",
+    "bytes": 143919,
+    "sha256": "eafa94e7f5ff58cb6f3e6eb9f431bcf84da9553404a1bdbbf5a8d3f8191fdfa1"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "real_rankings": 0,
+  "real_windows": 0
+}
