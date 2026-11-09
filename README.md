@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | SQL 候選結案與工程排序完成 | 兩候選結案；先補來源驗證與初始化計時，再評估準備複用，保存成本排後；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 原四十八筆來源與初始化診斷規格封存 | 17 份證據一致，觀測邊界與故障條件封存，工具待驗收；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜SQL 候選結案與工程優先順序（最新）
+## Stage 12｜來源驗證與初始化分項診斷（最新）
+
+已封存原 **48 筆**的來源驗證、checkpoint 建立／上鎖重驗、context／catalog 準備及獨立 publisher 分項規格。核對 17 份小型證據，原呼叫次數、驗證與失敗順序保留。這輪完成觀測核心及合成驗收，尚未實測；實際受監督入口整合另行驗收。 [本輪規格與結果](docs/STAGE12_KNN_SOURCE_SETUP_V24_20261109.md)
+
+## Stage 12｜SQL 候選結案與工程優先順序（前輪）
 
 兩個候選維持結案：V17 六對中位節省 **+2.676%**、V22 **−5.629%**。重核 28 份帳本、1,344 筆既有結果，16 項核對測試通過。窗口前後雜湊占 **35.43%／39.37%**；原 A 正式六次加權入口中，setup 約 **45%**、其餘約 **30%**，全 context budget 約 **1%**。**工程優先：先補來源驗證／初始化分項計時，再評估準備資料複用與來源快照；保存／預算波動排後。** 本輪沒有新 SQL 實測或加速承諾，完整 validation 仍未完成。 [本輪規格與結果](docs/STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md)
 

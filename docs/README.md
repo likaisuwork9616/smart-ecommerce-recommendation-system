@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜SQL 候選結案與工程優先順序（最新）
+## Stage 12｜來源驗證與初始化分項診斷（最新）
+
+17 份證據一致，觀測邊界與故障條件封存，工具待驗收 [本輪規格與結果](STAGE12_KNN_SOURCE_SETUP_V24_20261109.md)
+
+## Stage 12｜SQL 候選結案與工程優先順序（前輪）
 
 兩候選結案；先補來源驗證與初始化計時，再評估準備複用，保存成本排後 [本輪規格與結果](STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md)
 
