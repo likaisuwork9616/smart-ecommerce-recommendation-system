@@ -8,7 +8,8 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
-| Stage 12 最新：V27 C1 唯讀初始化 | [實作與驗收](../docs/STAGE12_KNN_C1_CONTEXT_V27_20261109.md) · [C1 實作與完整合成驗收完成](stage12/retailrocket_session_knn_v27_reuse_acceptance_20261109.json) |
+| Stage 12 最新：V28 C1 原四十八筆比較 | [實作與驗收](../docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md) · [C1 真實比較入口規格已封存](stage12/retailrocket_session_knn_v28_compare_specification_20261109.json) |
+| Stage 12 前輪：V27 C1 唯讀初始化 | [實作與驗收](../docs/STAGE12_KNN_C1_CONTEXT_V27_20261109.md) · [C1 實作與完整合成驗收完成](stage12/retailrocket_session_knn_v27_reuse_acceptance_20261109.json) |
 | Stage 12 前輪：V26 重複成本候選 | [盤點與規格](../docs/STAGE12_KNN_REPEATED_COST_V26_20261109.md) · [重複成本盤點與兩候選規格已封存](stage12/retailrocket_session_knn_v26_reuse_specification_20261109.json) |
 | Stage 12 前輪：V25 來源診斷整合實測 | [本輪記錄](../docs/STAGE12_KNN_SOURCE_ENTRY_V25_20261109.md) · [整合入口與原四十八筆診斷完成](stage12/retailrocket_session_knn_v25_sources_cost_20261109.json) |
 | Stage 12 前輪：V24 來源與初始化診斷 | [本輪記錄](../docs/STAGE12_KNN_SOURCE_SETUP_V24_20261109.md) · [來源與初始化觀測核心已驗收](stage12/retailrocket_session_knn_v24_sources_acceptance_20261109.json) |

@@ -440,3 +440,9 @@ scripts/accept_retailrocket_session_knn_reuse_v27.py text eol=lf
 scripts/retailrocket_session_knn_reuse_audit_v27.py text eol=lf
 tests/test_retailrocket_session_knn_reuse_acceptance_v27.py text eol=lf
 reports/stage12/retailrocket_session_knn_v27_reuse_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V28 real entry, comparison methods and sealed/public receipt bytes.
+scripts/retailrocket_session_knn_compare_v28.py text eol=lf
+scripts/run_retailrocket_session_knn_compare_v28.py text eol=lf
+tests/test_retailrocket_session_knn_compare_v28.py text eol=lf
+reports/stage12/retailrocket_session_knn_v28_compare_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

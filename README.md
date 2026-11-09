@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | C1 實作與完整合成驗收完成 | 73 項測試全通過、38 封存情境全覆蓋，人工 48 筆十四帳本及新程序發布通過；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | C1 真實比較入口規格已封存 | 固定原 48 筆、十四次 RC／CR、原來源與單一監督／獨立發布條件；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜C1 唯讀初始化重用（最新）
+## Stage 12｜C1 原四十八筆公平比較（最新）
+
+**C1 原 48 筆真實比較入口規格已封存**。固定 R／C 暖機與六對 RC／CR、十四份帳本；原來源身分、鎖定後完整核對、單一期限及獨立發布重建驗證全保留。先完成整合驗收並推送，再啟動唯一真實窗口；目前尚無本輪實測或加速結論。 [本輪實作與驗收](docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md)
+
+## Stage 12｜C1 唯讀初始化重用（前輪）
 
 **C1 唯讀初始化重用實作與合成驗收完成，73／73 項測試通過**，V26 封存 38 情境均對應成功測試。人工 48 筆十四份帳本、672 次保存核對全通過，一次 cold build／六次 hit；worker 退出後由新 publisher 重新建立 context，保留完整來源、鎖定後重驗及十四次 open 驗證。原方法未改，真實 C1 窗口為 0、沒有加速結論；下一步封存並驗收真實比較入口。 [本輪實作與驗收](docs/STAGE12_KNN_C1_CONTEXT_V27_20261109.md)
 
