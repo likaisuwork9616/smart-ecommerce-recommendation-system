@@ -1,0 +1,3908 @@
+{
+  "status": "v22_overlap_compare48_measured",
+  "stage": "compare48",
+  "created_utc": "2026-11-09T00:57:08.715601+00:00",
+  "namespace": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_specification_20261109.json",
+    "bytes": 4055,
+    "sha256": "cc32eb0469619db62c2a5092808f6c149f32672b517702bc59d4e695c9f70f22"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_inventory_20261109.json",
+    "bytes": 132452,
+    "sha256": "9a055e1e7a074166447426d7c84be38c541d818ee75cf379ad3b9107e8cc6b92"
+  },
+  "acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v22_overlap_acceptance_20261109.json",
+    "bytes": 4286,
+    "sha256": "040616796bfe9ab9172e35b5229f95817cbc4422607a123836950b7b7d733e89"
+  },
+  "anchor": {
+    "path": "reports/stage12/retailrocket_session_knn_v17_vote_compare48_20261106.json",
+    "bytes": 113040,
+    "sha256": "802586edbd45caf9725d9bfdbe65ee33b09f0de5fe10b4fe1e7eb68c8c3ea5ab"
+  },
+  "candidate": "group_before_size_join",
+  "supervisor": {
+    "T_plan": null,
+    "actual_exit_observed_utc": "2026-11-09T01:00:44.472835+00:00",
+    "exit_code": 0,
+    "full_readback_started": false,
+    "kind": "engineering_cost_v5_exit_observation",
+    "operation": "joint_tail",
+    "peak_sampled_execution_bytes": 31959166,
+    "peak_sampled_tree_and_supervisor_rss_bytes": 207241216,
+    "reserved_test": "locked",
+    "seconds": 215.75,
+    "stop_reason": null,
+    "supervisor_error": null,
+    "tracked_processes": 3,
+    "tracked_processes_alive_after_cleanup": 0
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "sqlite_version": "3.49.1",
+  "sources_bound": 580,
+  "sources_reverified_before_after_and_post_exit": true,
+  "hash_checks": {
+    "initial": {
+      "count": 580,
+      "seconds": 51.171252000000095
+    },
+    "final": {
+      "count": 580,
+      "seconds": 33.77881320000006
+    }
+  },
+  "all_scientific_bytes_match_reference": true,
+  "reference": {
+    "records": 48,
+    "actual_committed_bytes": 2115696,
+    "actual_committed_payload_sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+  },
+  "runs": {
+    "warm_A": {
+      "primary_seconds": 2.131022199999734,
+      "verification_seconds": 1.881166700000449,
+      "append_excluding_commit_seconds": 0.16476959999954488,
+      "all_commit_seconds": 0.08508589999973992,
+      "rank_seconds": 1.6885415999990983,
+      "vote_seconds": 0.7238973999988048,
+      "setup_seconds": 3.6788862999997036,
+      "tail_seconds": 0.23844680000001972,
+      "positive_overlap_seconds": 0.5063341000004584,
+      "direct_budget_seconds": 0.04767969999966226,
+      "append_without_commit_or_budget_seconds": 0.11708989999988262,
+      "mode": "baseline",
+      "entry_seconds": 8.682006100000308
+    },
+    "warm_B": {
+      "primary_seconds": 1.9344102999975803,
+      "verification_seconds": 1.7183511999983239,
+      "append_excluding_commit_seconds": 0.13121239999918544,
+      "all_commit_seconds": 0.084846700000071,
+      "rank_seconds": 1.5437007000027734,
+      "vote_seconds": 0.7007788000028086,
+      "setup_seconds": 3.9730703000000176,
+      "tail_seconds": 0.16759030000002895,
+      "positive_overlap_seconds": 0.40384810000205107,
+      "direct_budget_seconds": 0.0325023999998848,
+      "append_without_commit_or_budget_seconds": 0.09870999999930063,
+      "mode": "group_before_size_join",
+      "entry_seconds": 8.808046199999808
+    },
+    "pair_1_A": {
+      "primary_seconds": 1.9261964999986958,
+      "verification_seconds": 1.707443200000398,
+      "append_excluding_commit_seconds": 0.1293476999981067,
+      "all_commit_seconds": 0.08940560000019104,
+      "rank_seconds": 1.5369762999980594,
+      "vote_seconds": 0.649948099996891,
+      "setup_seconds": 3.733430100000078,
+      "tail_seconds": 0.18644170000015947,
+      "positive_overlap_seconds": 0.46903689999862763,
+      "direct_budget_seconds": 0.04229159999977128,
+      "append_without_commit_or_budget_seconds": 0.08705609999833541,
+      "mode": "baseline",
+      "entry_seconds": 8.344788199999584
+    },
+    "pair_1_B": {
+      "primary_seconds": 2.1671199000015804,
+      "verification_seconds": 1.9324443000018618,
+      "append_excluding_commit_seconds": 0.13521659999969415,
+      "all_commit_seconds": 0.09945900000002439,
+      "rank_seconds": 1.7118326000017987,
+      "vote_seconds": 0.7897213999995074,
+      "setup_seconds": 3.8059751999999207,
+      "tail_seconds": 0.19119210000008025,
+      "positive_overlap_seconds": 0.4578048000007584,
+      "direct_budget_seconds": 0.03000640000027488,
+      "append_without_commit_or_budget_seconds": 0.10521019999941927,
+      "mode": "group_before_size_join",
+      "entry_seconds": 8.623393599999872
+    },
+    "pair_2_B": {
+      "primary_seconds": 2.7235808999989786,
+      "verification_seconds": 2.4462659000009808,
+      "append_excluding_commit_seconds": 0.18618419999802427,
+      "all_commit_seconds": 0.09113079999997353,
+      "rank_seconds": 2.228740500001095,
+      "vote_seconds": 1.0851209999977982,
+      "setup_seconds": 3.746731600000203,
+      "tail_seconds": 0.19636840000021039,
+      "positive_overlap_seconds": 0.5426878000012039,
+      "direct_budget_seconds": 0.03732049999962328,
+      "append_without_commit_or_budget_seconds": 0.148863699998401,
+      "mode": "group_before_size_join",
+      "entry_seconds": 9.221110299999964
+    },
+    "pair_2_A": {
+      "primary_seconds": 2.314336299999468,
+      "verification_seconds": 2.03031460000102,
+      "append_excluding_commit_seconds": 0.18545319999839194,
+      "all_commit_seconds": 0.09856850000005579,
+      "rank_seconds": 1.8333440000001247,
+      "vote_seconds": 0.7834250999994765,
+      "setup_seconds": 4.325708399999712,
+      "tail_seconds": 0.21081520000007004,
+      "positive_overlap_seconds": 0.5624730999984422,
+      "direct_budget_seconds": 0.03164020000031087,
+      "append_without_commit_or_budget_seconds": 0.15381299999808107,
+      "mode": "baseline",
+      "entry_seconds": 9.643877999999859
+    },
+    "pair_3_A": {
+      "primary_seconds": 2.1683068000015737,
+      "verification_seconds": 1.955507499999385,
+      "append_excluding_commit_seconds": 0.1348137000022689,
+      "all_commit_seconds": 0.07798559999991994,
+      "rank_seconds": 1.7588923999987855,
+      "vote_seconds": 0.7377791999979308,
+      "setup_seconds": 4.921777699999893,
+      "tail_seconds": 0.16748580000012225,
+      "positive_overlap_seconds": 0.5482401000003847,
+      "direct_budget_seconds": 0.024034500000198022,
+      "append_without_commit_or_budget_seconds": 0.11077920000207087,
+      "mode": "baseline",
+      "entry_seconds": 10.308282699999836
+    },
+    "pair_3_B": {
+      "primary_seconds": 2.2448720000024878,
+      "verification_seconds": 2.0254176000007647,
+      "append_excluding_commit_seconds": 0.12974370000165436,
+      "all_commit_seconds": 0.08971070000006875,
+      "rank_seconds": 1.81901679999919,
+      "vote_seconds": 0.8263716999999815,
+      "setup_seconds": 3.8632877000000008,
+      "tail_seconds": 0.18695329999991372,
+      "positive_overlap_seconds": 0.47733609999932014,
+      "direct_budget_seconds": 0.02906180000036329,
+      "append_without_commit_or_budget_seconds": 0.10068190000129107,
+      "mode": "group_before_size_join",
+      "entry_seconds": 9.059148199999981
+    },
+    "pair_4_B": {
+      "primary_seconds": 1.9313127000013992,
+      "verification_seconds": 1.6835347000001093,
+      "append_excluding_commit_seconds": 0.1399734000015087,
+      "all_commit_seconds": 0.1078045999997812,
+      "rank_seconds": 1.5004369000012048,
+      "vote_seconds": 0.6597339000031752,
+      "setup_seconds": 4.331500799999958,
+      "tail_seconds": 0.20975640000006024,
+      "positive_overlap_seconds": 0.4141223000010541,
+      "direct_budget_seconds": 0.032848099999682745,
+      "append_without_commit_or_budget_seconds": 0.10712530000182596,
+      "mode": "group_before_size_join",
+      "entry_seconds": 9.249917100000403
+    },
+    "pair_4_A": {
+      "primary_seconds": 2.5514994000000115,
+      "verification_seconds": 2.2504502000001594,
+      "append_excluding_commit_seconds": 0.18249129999958313,
+      "all_commit_seconds": 0.118557900000269,
+      "rank_seconds": 2.0200545999973656,
+      "vote_seconds": 0.8616941000009319,
+      "setup_seconds": 4.286311900000328,
+      "tail_seconds": 0.22648909999998068,
+      "positive_overlap_seconds": 0.557984200001556,
+      "direct_budget_seconds": 0.04962900000055015,
+      "append_without_commit_or_budget_seconds": 0.13286229999903298,
+      "mode": "baseline",
+      "entry_seconds": 9.597064099999898
+    },
+    "pair_5_A": {
+      "primary_seconds": 2.062535900002331,
+      "verification_seconds": 1.8369860000011613,
+      "append_excluding_commit_seconds": 0.13322390000121231,
+      "all_commit_seconds": 0.09232599999995728,
+      "rank_seconds": 1.6454502000001412,
+      "vote_seconds": 0.7193413999980294,
+      "setup_seconds": 3.4874410999996144,
+      "tail_seconds": 0.19451690000005328,
+      "positive_overlap_seconds": 0.48339139999961844,
+      "direct_budget_seconds": 0.02761160000000018,
+      "append_without_commit_or_budget_seconds": 0.10561230000121213,
+      "mode": "baseline",
+      "entry_seconds": 8.37418179999986
+    },
+    "pair_5_B": {
+      "primary_seconds": 2.1315388000039093,
+      "verification_seconds": 1.9244495000016286,
+      "append_excluding_commit_seconds": 0.12373550000256728,
+      "all_commit_seconds": 0.08335379999971337,
+      "rank_seconds": 1.7320020999991357,
+      "vote_seconds": 0.7717887999992854,
+      "setup_seconds": 3.776233200000206,
+      "tail_seconds": 0.18311650000032387,
+      "positive_overlap_seconds": 0.46749759999875096,
+      "direct_budget_seconds": 0.03307909999966796,
+      "append_without_commit_or_budget_seconds": 0.09065640000289932,
+      "mode": "group_before_size_join",
+      "entry_seconds": 8.748620100000153
+    },
+    "pair_6_B": {
+      "primary_seconds": 2.173037000000477,
+      "verification_seconds": 1.9764227000005121,
+      "append_excluding_commit_seconds": 0.11212669999986247,
+      "all_commit_seconds": 0.08448760000010225,
+      "rank_seconds": 1.7913479999983792,
+      "vote_seconds": 0.791325699999561,
+      "setup_seconds": 3.958231500000238,
+      "tail_seconds": 0.19340779999993174,
+      "positive_overlap_seconds": 0.4610898000009911,
+      "direct_budget_seconds": 0.014974499999880209,
+      "append_without_commit_or_budget_seconds": 0.09715219999998226,
+      "mode": "group_before_size_join",
+      "entry_seconds": 8.983368600000176
+    },
+    "pair_6_A": {
+      "primary_seconds": 2.017189999998209,
+      "verification_seconds": 1.7885483999998542,
+      "append_excluding_commit_seconds": 0.14229919999843332,
+      "all_commit_seconds": 0.08634239999992133,
+      "rank_seconds": 1.6053200999981527,
+      "vote_seconds": 0.6860139000004892,
+      "setup_seconds": 4.689307000000099,
+      "tail_seconds": 0.1925717999997687,
+      "positive_overlap_seconds": 0.48302899999953297,
+      "direct_budget_seconds": 0.03422249999994165,
+      "append_without_commit_or_budget_seconds": 0.10807669999849168,
+      "mode": "baseline",
+      "entry_seconds": 9.832808799999839
+    }
+  },
+  "decision": {
+    "pairs": [
+      {
+        "pair": 1,
+        "order": "AB",
+        "A_primary_seconds": 1.9261964999986958,
+        "B_primary_seconds": 2.1671199000015804,
+        "primary_saving_seconds": -0.2409234000028846,
+        "primary_saving_percent": -12.507727015548399,
+        "entry_saving_seconds": -0.2786054000002878
+      },
+      {
+        "pair": 2,
+        "order": "BA",
+        "A_primary_seconds": 2.314336299999468,
+        "B_primary_seconds": 2.7235808999989786,
+        "primary_saving_seconds": -0.4092445999995107,
+        "primary_saving_percent": -17.68302212602398,
+        "entry_saving_seconds": 0.42276769999989483
+      },
+      {
+        "pair": 3,
+        "order": "AB",
+        "A_primary_seconds": 2.1683068000015737,
+        "B_primary_seconds": 2.2448720000024878,
+        "primary_saving_seconds": -0.07656520000091405,
+        "primary_saving_percent": -3.5311054690627026,
+        "entry_saving_seconds": 1.2491344999998546
+      },
+      {
+        "pair": 4,
+        "order": "BA",
+        "A_primary_seconds": 2.5514994000000115,
+        "B_primary_seconds": 1.9313127000013992,
+        "primary_saving_seconds": 0.6201866999986123,
+        "primary_saving_percent": 24.306754687013036,
+        "entry_saving_seconds": 0.34714699999949516
+      },
+      {
+        "pair": 5,
+        "order": "AB",
+        "A_primary_seconds": 2.062535900002331,
+        "B_primary_seconds": 2.1315388000039093,
+        "primary_saving_seconds": -0.06900290000157838,
+        "primary_saving_percent": -3.3455369189695268,
+        "entry_saving_seconds": -0.37443830000029266
+      },
+      {
+        "pair": 6,
+        "order": "BA",
+        "A_primary_seconds": 2.017189999998209,
+        "B_primary_seconds": 2.173037000000477,
+        "primary_saving_seconds": -0.15584700000226803,
+        "primary_saving_percent": -7.725945498560196,
+        "entry_saving_seconds": 0.8494401999996626
+      }
+    ],
+    "faster_pairs": 1,
+    "order_median_savings_seconds": {
+      "AB": -0.07656520000091405,
+      "BA": -0.15584700000226803
+    },
+    "median_saving_percent": -5.628525483811449,
+    "primary_gate_passed": false,
+    "entry_median_seconds": {
+      "A": 9.620471049999878,
+      "B": 9.021258400000079
+    },
+    "entry_regressed": false,
+    "supports_candidate": false
+  },
+  "protocol": {
+    "pairs": 6,
+    "warmup_runs": 2,
+    "minimum_wins": 5,
+    "minimum_median_saving_percent": 5,
+    "both_order_medians_positive": true,
+    "entry_median_must_not_regress": true,
+    "budget_seconds": 1800
+  },
+  "cell_paired_rows_excluding_commit": {
+    "0000/n0/v0": {
+      "population": 6078,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n1/v1": {
+      "population": 20977,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n1/v2": {
+      "population": 1152,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n1/v3": {
+      "population": 15,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n2/v1": {
+      "population": 23492,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n2/v2": {
+      "population": 35994,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n2/v3": {
+      "population": 4050,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n2/v4": {
+      "population": 37,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n3/v2": {
+      "population": 9186,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n3/v3": {
+      "population": 29147,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0000/n3/v4": {
+      "population": 1537,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.07863559999987046,
+      "worst_B_seconds": 0.06355130000019926,
+      "worst_saving_seconds": -0.022359200000209967,
+      "median_saving_seconds": 0.0015445999999883497
+    },
+    "0001/n3/v3": {
+      "population": 4,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0001/n3/v4": {
+      "population": 4,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0001/n4/v3": {
+      "population": 395,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0001/n4/v4": {
+      "population": 158,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.036942399999588815,
+      "worst_B_seconds": 0.0444152000000031,
+      "worst_saving_seconds": -0.022051700000247365,
+      "median_saving_seconds": -0.0025481500001660606
+    },
+    "0010/n0/v0": {
+      "population": 904,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n1/v1": {
+      "population": 2529,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n1/v2": {
+      "population": 126,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n2/v1": {
+      "population": 2960,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n2/v2": {
+      "population": 3810,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n2/v3": {
+      "population": 428,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n2/v4": {
+      "population": 2,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n3/v2": {
+      "population": 1081,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0010/n3/v3": {
+      "population": 3027,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.036423199999717326,
+      "worst_B_seconds": 0.041582500000004075,
+      "worst_saving_seconds": -0.01942589999998745,
+      "median_saving_seconds": 0.0028060000001914887
+    },
+    "0010/n3/v4": {
+      "population": 164,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.04167199999983495,
+      "worst_B_seconds": 0.043524600000182545,
+      "worst_saving_seconds": -0.02109520000021803,
+      "median_saving_seconds": 0.00360105000004296
+    },
+    "0011/n4/v3": {
+      "population": 36,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.05065569999987929,
+      "worst_B_seconds": 0.04199719999996887,
+      "worst_saving_seconds": -0.01264179999998305,
+      "median_saving_seconds": -0.0012144999998326966
+    },
+    "0011/n4/v4": {
+      "population": 14,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.03512960000034582,
+      "worst_B_seconds": 0.0516419999999016,
+      "worst_saving_seconds": -0.02894109999988359,
+      "median_saving_seconds": -0.005378799999562034
+    },
+    "0100/n2/v4": {
+      "population": 63,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0100/n3/v4": {
+      "population": 1991,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.044506700000511046,
+      "worst_B_seconds": 0.04877329999999347,
+      "worst_saving_seconds": -0.024067000000286498,
+      "median_saving_seconds": 0.0008480999999846972
+    },
+    "0100/n3/v5": {
+      "population": 71,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0101/n3/v4": {
+      "population": 7,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0101/n4/v4": {
+      "population": 487,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.07083800000009433,
+      "worst_B_seconds": 0.06543929999998,
+      "worst_saving_seconds": -0.023352900000190857,
+      "median_saving_seconds": 0.0010417999999390304
+    },
+    "0101/n4/v5": {
+      "population": 26,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0110/n2/v4": {
+      "population": 13,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0110/n3/v4": {
+      "population": 166,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.04902230000061536,
+      "worst_B_seconds": 0.07192450000047756,
+      "worst_saving_seconds": -0.03710040000032677,
+      "median_saving_seconds": -0.003976250000050641
+    },
+    "0110/n3/v5": {
+      "population": 25,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "0111/n4/v4": {
+      "population": 48,
+      "measured_queries": 3,
+      "worst_A_seconds": 0.05054539999991903,
+      "worst_B_seconds": 0.06834209999988161,
+      "worst_saving_seconds": -0.03126689999999144,
+      "median_saving_seconds": 0.0003139500001907436
+    },
+    "0111/n4/v5": {
+      "population": 2,
+      "measured_queries": 1,
+      "worst_A_seconds": 0.07065990000000966,
+      "worst_B_seconds": 0.24360650000016904,
+      "worst_saving_seconds": -0.18914370000038616,
+      "median_saving_seconds": -0.017884749999666383
+    },
+    "1001/n4/v3": {
+      "population": 1577,
+      "measured_queries": 1,
+      "worst_A_seconds": 0.03870310000002064,
+      "worst_B_seconds": 0.03329570000005333,
+      "worst_saving_seconds": -0.0048467000001437555,
+      "median_saving_seconds": 0.001953649999904883
+    },
+    "1001/n4/v4": {
+      "population": 747,
+      "measured_queries": 3,
+      "worst_A_seconds": 0.036721399999805726,
+      "worst_B_seconds": 0.04381539999985762,
+      "worst_saving_seconds": -0.02375869999968927,
+      "median_saving_seconds": 0.0013318500000423228
+    },
+    "1001/n5/v3": {
+      "population": 288,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1001/n5/v4": {
+      "population": 23,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1011/n4/v3": {
+      "population": 150,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.03923050000003059,
+      "worst_B_seconds": 0.042419299999892246,
+      "worst_saving_seconds": -0.022056899999824964,
+      "median_saving_seconds": 0.0013599500005057052
+    },
+    "1011/n4/v4": {
+      "population": 49,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.03826260000005277,
+      "worst_B_seconds": 0.045594899999741756,
+      "worst_saving_seconds": -0.024932699999681063,
+      "median_saving_seconds": -0.0008477500002754823
+    },
+    "1011/n5/v3": {
+      "population": 60,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1011/n5/v4": {
+      "population": 2,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1101/n4/v4": {
+      "population": 5615,
+      "measured_queries": 1,
+      "worst_A_seconds": 0.047027300000081595,
+      "worst_B_seconds": 0.03694060000043464,
+      "worst_saving_seconds": -0.011514599999827624,
+      "median_saving_seconds": -0.0026281000002654764
+    },
+    "1101/n4/v5": {
+      "population": 290,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1101/n5/v4": {
+      "population": 4221,
+      "measured_queries": 1,
+      "worst_A_seconds": 0.047225600000274426,
+      "worst_B_seconds": 0.06452450000006138,
+      "worst_saving_seconds": -0.019230200000038167,
+      "median_saving_seconds": -0.00872445000004518
+    },
+    "1101/n5/v5": {
+      "population": 2345,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1101/n6/v5": {
+      "population": 225,
+      "measured_queries": 2,
+      "worst_A_seconds": 0.30458790000011504,
+      "worst_B_seconds": 0.27609750000010536,
+      "worst_saving_seconds": -0.10740790000045308,
+      "median_saving_seconds": 0.00041035000003830646
+    },
+    "1111/n4/v4": {
+      "population": 572,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1111/n4/v5": {
+      "population": 23,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1111/n5/v4": {
+      "population": 399,
+      "measured_queries": 0,
+      "worst_A_seconds": null,
+      "worst_B_seconds": null,
+      "worst_saving_seconds": null,
+      "median_saving_seconds": null
+    },
+    "1111/n5/v5": {
+      "population": 105,
+      "measured_queries": 4,
+      "worst_A_seconds": 0.11026739999988422,
+      "worst_B_seconds": 0.12317110000003595,
+      "worst_saving_seconds": -0.034996099999716535,
+      "median_saving_seconds": 0.004230749999805994
+    }
+  },
+  "system_resource_snapshots": {
+    "warm_A": {
+      "before": {
+        "cpu_percent_nonblocking": 27.9,
+        "memory_available_bytes": 18009559040,
+        "memory_percent": 47.4,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16210694144,
+        "observer_process_rss_bytes": 54542336,
+        "utc": "2026-11-09T00:58:00.584078+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 22.7,
+        "memory_available_bytes": 18073788416,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16146464768,
+        "observer_process_rss_bytes": 81072128,
+        "utc": "2026-11-09T00:58:10.006086+00:00"
+      }
+    },
+    "warm_B": {
+      "before": {
+        "cpu_percent_nonblocking": 12.5,
+        "memory_available_bytes": 18075525120,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16144728064,
+        "observer_process_rss_bytes": 81072128,
+        "utc": "2026-11-09T00:58:10.028476+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 21.5,
+        "memory_available_bytes": 18047488000,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16172765184,
+        "observer_process_rss_bytes": 102039552,
+        "utc": "2026-11-09T00:58:18.929495+00:00"
+      }
+    },
+    "pair_1_A": {
+      "before": {
+        "cpu_percent_nonblocking": 4.2,
+        "memory_available_bytes": 18047463424,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16172789760,
+        "observer_process_rss_bytes": 102039552,
+        "utc": "2026-11-09T00:58:18.962962+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 20.6,
+        "memory_available_bytes": 18145001472,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16075251712,
+        "observer_process_rss_bytes": 109113344,
+        "utc": "2026-11-09T00:58:27.375669+00:00"
+      }
+    },
+    "pair_1_B": {
+      "before": {
+        "cpu_percent_nonblocking": 31.2,
+        "memory_available_bytes": 18151387136,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16068866048,
+        "observer_process_rss_bytes": 109113344,
+        "utc": "2026-11-09T00:58:27.406877+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 24.0,
+        "memory_available_bytes": 18146607104,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16073646080,
+        "observer_process_rss_bytes": 111214592,
+        "utc": "2026-11-09T00:58:36.097166+00:00"
+      }
+    },
+    "pair_2_B": {
+      "before": {
+        "cpu_percent_nonblocking": 31.2,
+        "memory_available_bytes": 18146553856,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16073699328,
+        "observer_process_rss_bytes": 111214592,
+        "utc": "2026-11-09T00:58:36.128438+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 29.7,
+        "memory_available_bytes": 18040201216,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16180051968,
+        "observer_process_rss_bytes": 110166016,
+        "utc": "2026-11-09T00:58:45.434429+00:00"
+      }
+    },
+    "pair_2_A": {
+      "before": {
+        "cpu_percent_nonblocking": 50.0,
+        "memory_available_bytes": 18042953728,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16177299456,
+        "observer_process_rss_bytes": 110166016,
+        "utc": "2026-11-09T00:58:45.462159+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 25.8,
+        "memory_available_bytes": 18070048768,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16150204416,
+        "observer_process_rss_bytes": 111079424,
+        "utc": "2026-11-09T00:58:55.169811+00:00"
+      }
+    },
+    "pair_3_A": {
+      "before": {
+        "cpu_percent_nonblocking": 25.0,
+        "memory_available_bytes": 18070073344,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16150179840,
+        "observer_process_rss_bytes": 111079424,
+        "utc": "2026-11-09T00:58:55.185432+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 31.9,
+        "memory_available_bytes": 18121814016,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16098439168,
+        "observer_process_rss_bytes": 111243264,
+        "utc": "2026-11-09T00:59:05.605665+00:00"
+      }
+    },
+    "pair_3_B": {
+      "before": {
+        "cpu_percent_nonblocking": 24.0,
+        "memory_available_bytes": 18122133504,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16098119680,
+        "observer_process_rss_bytes": 111243264,
+        "utc": "2026-11-09T00:59:05.660210+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 28.7,
+        "memory_available_bytes": 18058182656,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16162070528,
+        "observer_process_rss_bytes": 111579136,
+        "utc": "2026-11-09T00:59:14.795198+00:00"
+      }
+    },
+    "pair_4_B": {
+      "before": {
+        "cpu_percent_nonblocking": 81.2,
+        "memory_available_bytes": 18058158080,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16162095104,
+        "observer_process_rss_bytes": 111591424,
+        "utc": "2026-11-09T00:59:14.827370+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 28.7,
+        "memory_available_bytes": 18148192256,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16072060928,
+        "observer_process_rss_bytes": 111878144,
+        "utc": "2026-11-09T00:59:24.136039+00:00"
+      }
+    },
+    "pair_4_A": {
+      "before": {
+        "cpu_percent_nonblocking": 6.2,
+        "memory_available_bytes": 18148925440,
+        "memory_percent": 47.0,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16071327744,
+        "observer_process_rss_bytes": 111878144,
+        "utc": "2026-11-09T00:59:24.167252+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 35.4,
+        "memory_available_bytes": 17934454784,
+        "memory_percent": 47.6,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16285798400,
+        "observer_process_rss_bytes": 111718400,
+        "utc": "2026-11-09T00:59:33.845504+00:00"
+      }
+    },
+    "pair_5_A": {
+      "before": {
+        "cpu_percent_nonblocking": 68.8,
+        "memory_available_bytes": 17920000000,
+        "memory_percent": 47.6,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16300253184,
+        "observer_process_rss_bytes": 111722496,
+        "utc": "2026-11-09T00:59:33.873268+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 17.6,
+        "memory_available_bytes": 18002456576,
+        "memory_percent": 47.4,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16217796608,
+        "observer_process_rss_bytes": 111972352,
+        "utc": "2026-11-09T00:59:42.308578+00:00"
+      }
+    },
+    "pair_5_B": {
+      "before": {
+        "cpu_percent_nonblocking": 37.5,
+        "memory_available_bytes": 18003054592,
+        "memory_percent": 47.4,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16217198592,
+        "observer_process_rss_bytes": 111972352,
+        "utc": "2026-11-09T00:59:42.339827+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 27.8,
+        "memory_available_bytes": 18061479936,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16158773248,
+        "observer_process_rss_bytes": 111808512,
+        "utc": "2026-11-09T00:59:51.145634+00:00"
+      }
+    },
+    "pair_6_B": {
+      "before": {
+        "cpu_percent_nonblocking": 23.5,
+        "memory_available_bytes": 18061426688,
+        "memory_percent": 47.2,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16158826496,
+        "observer_process_rss_bytes": 111808512,
+        "utc": "2026-11-09T00:59:51.176888+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 23.0,
+        "memory_available_bytes": 18041233408,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16179019776,
+        "observer_process_rss_bytes": 112238592,
+        "utc": "2026-11-09T01:00:00.231148+00:00"
+      }
+    },
+    "pair_6_A": {
+      "before": {
+        "cpu_percent_nonblocking": 6.2,
+        "memory_available_bytes": 18041196544,
+        "memory_percent": 47.3,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16179056640,
+        "observer_process_rss_bytes": 112254976,
+        "utc": "2026-11-09T01:00:00.262421+00:00"
+      },
+      "after": {
+        "cpu_percent_nonblocking": 25.5,
+        "memory_available_bytes": 18155339776,
+        "memory_percent": 46.9,
+        "memory_total_bytes": 34220253184,
+        "memory_used_bytes": 16064913408,
+        "observer_process_rss_bytes": 112271360,
+        "utc": "2026-11-09T01:00:10.174390+00:00"
+      }
+    }
+  },
+  "continuous_load": {
+    "warm_A": {
+      "repeat_index": 0,
+      "samples": 40,
+      "duration_seconds": 9.364177599999948,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 22.511617943898482,
+        "max": 62.5
+      },
+      "available_memory_bytes": {
+        "min": 18009567232,
+        "mean": 18065667891.2,
+        "max": 18118361088
+      },
+      "collector_seconds": {
+        "min": 0.007955799999763258,
+        "mean": 0.029436172499981695,
+        "max": 0.6753257999998823
+      },
+      "total_collector_seconds": 1.1774468999992678,
+      "disk_io_delta": {
+        "read_bytes": 2900480,
+        "read_count": 104,
+        "read_time": 0,
+        "write_bytes": 10572288,
+        "write_count": 1222,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 39,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 40
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 58.33720303446923,
+          "mean": 95.44351230587563,
+          "max": 105.38197847885445
+        },
+        "rss_bytes": {
+          "min": 55238656,
+          "mean": 92020121.6,
+          "max": 148664320
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 9.364177599999948,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 9.364177599999948,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 40
+      },
+      "coverage": {
+        "max_gap_seconds": 0.8834014999997635,
+        "intervals": 39,
+        "missing_periodic_intervals": 4
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "warm_B": {
+      "repeat_index": 0,
+      "samples": 40,
+      "duration_seconds": 8.835896300000059,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 5.6,
+        "mean": 21.583377476940168,
+        "max": 42.2
+      },
+      "available_memory_bytes": {
+        "min": 17998831616,
+        "mean": 18038854758.4,
+        "max": 18082234368
+      },
+      "collector_seconds": {
+        "min": 0.007888599999660073,
+        "mean": 0.010784789999956957,
+        "max": 0.042883200000233046
+      },
+      "total_collector_seconds": 0.43139159999827825,
+      "disk_io_delta": {
+        "read_bytes": 3592192,
+        "read_count": 247,
+        "read_time": 0,
+        "write_bytes": 6432768,
+        "write_count": 435,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 39,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 40
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 42.87146927732248,
+          "mean": 93.54597110878208,
+          "max": 107.63994455773273
+        },
+        "rss_bytes": {
+          "min": 80621568,
+          "mean": 103760793.6,
+          "max": 150134784
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 8.835896300000059,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 8.835896300000059,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 40
+      },
+      "coverage": {
+        "max_gap_seconds": 0.28515779999997903,
+        "intervals": 39,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_1_A": {
+      "repeat_index": 0,
+      "samples": 38,
+      "duration_seconds": 8.363555099999758,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 11.6,
+        "mean": 20.700873596205934,
+        "max": 42.2
+      },
+      "available_memory_bytes": {
+        "min": 18028244992,
+        "mean": 18071069103.157894,
+        "max": 18145009664
+      },
+      "collector_seconds": {
+        "min": 0.0077912000001560955,
+        "mean": 0.011199152631625589,
+        "max": 0.044387400000232446
+      },
+      "total_collector_seconds": 0.4255678000017724,
+      "disk_io_delta": {
+        "read_bytes": 1675264,
+        "read_count": 66,
+        "read_time": 0,
+        "write_bytes": 4004352,
+        "write_count": 234,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 37,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 38
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 50.443138649316275,
+          "mean": 95.09263590551619,
+          "max": 107.17156687465052
+        },
+        "rss_bytes": {
+          "min": 101339136,
+          "mean": 119161802.10526316,
+          "max": 150257664
+        },
+        "valid_cpu_intervals": 37,
+        "valid_cpu_duration_seconds": 8.363555099999758,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 37,
+        "valid_cpu_duration_seconds": 8.363555099999758,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 38
+      },
+      "coverage": {
+        "max_gap_seconds": 0.25808420000021215,
+        "intervals": 37,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_1_B": {
+      "repeat_index": 0,
+      "samples": 39,
+      "duration_seconds": 8.641785600000276,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 10.0,
+        "mean": 23.968164901011775,
+        "max": 65.3
+      },
+      "available_memory_bytes": {
+        "min": 18071957504,
+        "mean": 18133576992.820515,
+        "max": 18162667520
+      },
+      "collector_seconds": {
+        "min": 0.007883499999934429,
+        "mean": 0.012752753846155266,
+        "max": 0.054940500000157044
+      },
+      "total_collector_seconds": 0.49735740000005535,
+      "disk_io_delta": {
+        "read_bytes": 1458176,
+        "read_count": 56,
+        "read_time": 0,
+        "write_bytes": 4676096,
+        "write_count": 325,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 38,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 39
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 47.71489808529176,
+          "mean": 96.00880401383408,
+          "max": 106.77983012727691
+        },
+        "rss_bytes": {
+          "min": 108814336,
+          "mean": 124602525.53846154,
+          "max": 150458368
+        },
+        "valid_cpu_intervals": 38,
+        "valid_cpu_duration_seconds": 8.641785600000276,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 38,
+        "valid_cpu_duration_seconds": 8.641785600000276,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 39
+      },
+      "coverage": {
+        "max_gap_seconds": 0.3150637000003371,
+        "intervals": 38,
+        "missing_periodic_intervals": 1
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_2_B": {
+      "repeat_index": 0,
+      "samples": 43,
+      "duration_seconds": 9.247204699999656,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 12.4,
+        "mean": 29.7610429387359,
+        "max": 88.3
+      },
+      "available_memory_bytes": {
+        "min": 17972924416,
+        "mean": 18114361677.395348,
+        "max": 18177126400
+      },
+      "collector_seconds": {
+        "min": 0.0077277000000322005,
+        "mean": 0.011090365116287589,
+        "max": 0.020737299999836978
+      },
+      "total_collector_seconds": 0.47688570000036634,
+      "disk_io_delta": {
+        "read_bytes": 8279552,
+        "read_count": 339,
+        "read_time": 0,
+        "write_bytes": 5257216,
+        "write_count": 371,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 42,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 43
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 28.13581540755226,
+          "mean": 94.4542192301672,
+          "max": 107.7217724143506
+        },
+        "rss_bytes": {
+          "min": 110944256,
+          "mean": 127659841.48837209,
+          "max": 150507520
+        },
+        "valid_cpu_intervals": 42,
+        "valid_cpu_duration_seconds": 9.247204699999656,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 42,
+        "valid_cpu_duration_seconds": 9.247204699999656,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 43
+      },
+      "coverage": {
+        "max_gap_seconds": 0.24515729999984615,
+        "intervals": 42,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_2_A": {
+      "repeat_index": 0,
+      "samples": 44,
+      "duration_seconds": 9.661272800000006,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 6.1,
+        "mean": 25.781849014761185,
+        "max": 43.8
+      },
+      "available_memory_bytes": {
+        "min": 17827495936,
+        "mean": 18044264354.909092,
+        "max": 18121469952
+      },
+      "collector_seconds": {
+        "min": 0.007765599999856931,
+        "mean": 0.013767911363598532,
+        "max": 0.06132739999975456
+      },
+      "total_collector_seconds": 0.6057880999983354,
+      "disk_io_delta": {
+        "read_bytes": 326141440,
+        "read_count": 496,
+        "read_time": 136,
+        "write_bytes": 6626304,
+        "write_count": 363,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 43,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 44
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 45.10746402240128,
+          "mean": 95.74307848961675,
+          "max": 108.48946558621996
+        },
+        "rss_bytes": {
+          "min": 110186496,
+          "mean": 125794955.63636364,
+          "max": 150695936
+        },
+        "valid_cpu_intervals": 43,
+        "valid_cpu_duration_seconds": 9.661272800000006,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 43,
+        "valid_cpu_duration_seconds": 9.661272800000006,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 44
+      },
+      "coverage": {
+        "max_gap_seconds": 0.3173420000002807,
+        "intervals": 43,
+        "missing_periodic_intervals": 1
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_3_A": {
+      "repeat_index": 0,
+      "samples": 47,
+      "duration_seconds": 10.337986399999863,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 31.999324481604656,
+        "max": 57.5
+      },
+      "available_memory_bytes": {
+        "min": 18067128320,
+        "mean": 18114140377.87234,
+        "max": 18151763968
+      },
+      "collector_seconds": {
+        "min": 0.00813129999960438,
+        "mean": 0.014318863829827179,
+        "max": 0.03020779999997103
+      },
+      "total_collector_seconds": 0.6729866000018774,
+      "disk_io_delta": {
+        "read_bytes": 516096,
+        "read_count": 22,
+        "read_time": 0,
+        "write_bytes": 7510528,
+        "write_count": 429,
+        "write_time": 1
+      },
+      "disk_valid_intervals": 46,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 47
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 43.39076496422766,
+          "mean": 95.21921986664763,
+          "max": 108.44199220940898
+        },
+        "rss_bytes": {
+          "min": 111099904,
+          "mean": 124830567.4893617,
+          "max": 152256512
+        },
+        "valid_cpu_intervals": 46,
+        "valid_cpu_duration_seconds": 10.337986399999863,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 46,
+        "valid_cpu_duration_seconds": 10.337986399999863,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 47
+      },
+      "coverage": {
+        "max_gap_seconds": 0.269922299999962,
+        "intervals": 46,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_3_B": {
+      "repeat_index": 0,
+      "samples": 41,
+      "duration_seconds": 9.076697600000443,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 13.3,
+        "mean": 28.73327965338737,
+        "max": 76.0
+      },
+      "available_memory_bytes": {
+        "min": 18024624128,
+        "mean": 18091454364.09756,
+        "max": 18131779584
+      },
+      "collector_seconds": {
+        "min": 0.00803089999999429,
+        "mean": 0.01280477317070064,
+        "max": 0.04498729999977513
+      },
+      "total_collector_seconds": 0.5249956999987262,
+      "disk_io_delta": {
+        "read_bytes": 275968,
+        "read_count": 22,
+        "read_time": 0,
+        "write_bytes": 6102016,
+        "write_count": 468,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 40,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 41
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 49.1733482475597,
+          "mean": 96.4006997434791,
+          "max": 104.52968956772344
+        },
+        "rss_bytes": {
+          "min": 111005696,
+          "mean": 126415147.70731707,
+          "max": 151568384
+        },
+        "valid_cpu_intervals": 40,
+        "valid_cpu_duration_seconds": 9.076697600000443,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 40,
+        "valid_cpu_duration_seconds": 9.076697600000443,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 41
+      },
+      "coverage": {
+        "max_gap_seconds": 0.3225203000001784,
+        "intervals": 40,
+        "missing_periodic_intervals": 1
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_4_B": {
+      "repeat_index": 0,
+      "samples": 42,
+      "duration_seconds": 9.267856799999663,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 10.7,
+        "mean": 28.679437951606772,
+        "max": 79.6
+      },
+      "available_memory_bytes": {
+        "min": 18004803584,
+        "mean": 18089081027.04762,
+        "max": 18148159488
+      },
+      "collector_seconds": {
+        "min": 0.007894699999724253,
+        "mean": 0.011997895238101549,
+        "max": 0.029931999999917025
+      },
+      "total_collector_seconds": 0.503911600000265,
+      "disk_io_delta": {
+        "read_bytes": 6764544,
+        "read_count": 126,
+        "read_time": 0,
+        "write_bytes": 6269440,
+        "write_count": 393,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 41,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 42
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 50.25493899800347,
+          "mean": 95.92967599586048,
+          "max": 108.36889639276569
+        },
+        "rss_bytes": {
+          "min": 111157248,
+          "mean": 125670643.8095238,
+          "max": 151572480
+        },
+        "valid_cpu_intervals": 41,
+        "valid_cpu_duration_seconds": 9.267856799999663,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 41,
+        "valid_cpu_duration_seconds": 9.267856799999663,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 42
+      },
+      "coverage": {
+        "max_gap_seconds": 0.292642099999739,
+        "intervals": 41,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_4_A": {
+      "repeat_index": 0,
+      "samples": 43,
+      "duration_seconds": 9.612748699999884,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 12.5,
+        "mean": 35.20235273600805,
+        "max": 76.7
+      },
+      "available_memory_bytes": {
+        "min": 17869459456,
+        "mean": 18071877774.88372,
+        "max": 18179252224
+      },
+      "collector_seconds": {
+        "min": 0.008028900000226713,
+        "mean": 0.013832679069764708,
+        "max": 0.041231299999708426
+      },
+      "total_collector_seconds": 0.5948051999998825,
+      "disk_io_delta": {
+        "read_bytes": 1571840,
+        "read_count": 70,
+        "read_time": 0,
+        "write_bytes": 4567040,
+        "write_count": 212,
+        "write_time": 1
+      },
+      "disk_valid_intervals": 42,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 43
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 58.351009799229466,
+          "mean": 96.22637903766393,
+          "max": 112.12944582035274
+        },
+        "rss_bytes": {
+          "min": 111386624,
+          "mean": 127792532.8372093,
+          "max": 150900736
+        },
+        "valid_cpu_intervals": 42,
+        "valid_cpu_duration_seconds": 9.612748699999884,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 42,
+        "valid_cpu_duration_seconds": 9.612748699999884,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 43
+      },
+      "coverage": {
+        "max_gap_seconds": 0.2922875999997814,
+        "intervals": 42,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_5_A": {
+      "repeat_index": 0,
+      "samples": 39,
+      "duration_seconds": 8.39109660000031,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 11.9,
+        "mean": 17.5569484481921,
+        "max": 42.5
+      },
+      "available_memory_bytes": {
+        "min": 17918267392,
+        "mean": 17964464180.51282,
+        "max": 18002821120
+      },
+      "collector_seconds": {
+        "min": 0.007818200000201614,
+        "mean": 0.009817576923127583,
+        "max": 0.02703380000002653
+      },
+      "total_collector_seconds": 0.38288550000197574,
+      "disk_io_delta": {
+        "read_bytes": 324096,
+        "read_count": 27,
+        "read_time": 0,
+        "write_bytes": 4848128,
+        "write_count": 293,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 38,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 39
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 64.1431771501832,
+          "mean": 96.08398501811673,
+          "max": 105.12064822956827
+        },
+        "rss_bytes": {
+          "min": 111169536,
+          "mean": 125917026.46153846,
+          "max": 151240704
+        },
+        "valid_cpu_intervals": 38,
+        "valid_cpu_duration_seconds": 8.39109660000031,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 38,
+        "valid_cpu_duration_seconds": 8.39109660000031,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 39
+      },
+      "coverage": {
+        "max_gap_seconds": 0.2469450999997207,
+        "intervals": 38,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_5_B": {
+      "repeat_index": 0,
+      "samples": 40,
+      "duration_seconds": 8.76671529999976,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 12.4,
+        "mean": 27.835140381482983,
+        "max": 51.7
+      },
+      "available_memory_bytes": {
+        "min": 18003120128,
+        "mean": 18054834790.4,
+        "max": 18076725248
+      },
+      "collector_seconds": {
+        "min": 0.007838900000024296,
+        "mean": 0.010791955000036069,
+        "max": 0.02203030000009676
+      },
+      "total_collector_seconds": 0.43167820000144275,
+      "disk_io_delta": {
+        "read_bytes": 757760,
+        "read_count": 36,
+        "read_time": 0,
+        "write_bytes": 3924992,
+        "write_count": 199,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 39,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 40
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 64.57601854455655,
+          "mean": 96.42294417842258,
+          "max": 104.75918461467461
+        },
+        "rss_bytes": {
+          "min": 111357952,
+          "mean": 126558822.4,
+          "max": 151195648
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 8.76671529999976,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 39,
+        "valid_cpu_duration_seconds": 8.76671529999976,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 40
+      },
+      "coverage": {
+        "max_gap_seconds": 0.3156045000000631,
+        "intervals": 39,
+        "missing_periodic_intervals": 1
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_6_B": {
+      "repeat_index": 0,
+      "samples": 41,
+      "duration_seconds": 9.000279500000033,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 9.8,
+        "mean": 23.01095209654294,
+        "max": 46.3
+      },
+      "available_memory_bytes": {
+        "min": 17997234176,
+        "mean": 18061422092.487804,
+        "max": 18097823744
+      },
+      "collector_seconds": {
+        "min": 0.007811999999830732,
+        "mean": 0.012246890243892356,
+        "max": 0.03194519999988188
+      },
+      "total_collector_seconds": 0.5021224999995866,
+      "disk_io_delta": {
+        "read_bytes": 11219456,
+        "read_count": 703,
+        "read_time": 0,
+        "write_bytes": 4711936,
+        "write_count": 183,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 40,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 41
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 31.694997768585175,
+          "mean": 96.177568707727,
+          "max": 105.40344729427568
+        },
+        "rss_bytes": {
+          "min": 111828992,
+          "mean": 126737033.36585365,
+          "max": 152236032
+        },
+        "valid_cpu_intervals": 40,
+        "valid_cpu_duration_seconds": 9.000279500000033,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 40,
+        "valid_cpu_duration_seconds": 9.000279500000033,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 41
+      },
+      "coverage": {
+        "max_gap_seconds": 0.30066549999992276,
+        "intervals": 40,
+        "missing_periodic_intervals": 1
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    },
+    "pair_6_A": {
+      "repeat_index": 0,
+      "samples": 45,
+      "duration_seconds": 9.848835899999813,
+      "nominal_interval_seconds": 0.2,
+      "system_cpu_percent": {
+        "min": 8.9,
+        "mean": 25.507993463470324,
+        "max": 49.1
+      },
+      "available_memory_bytes": {
+        "min": 18037088256,
+        "mean": 18090973775.644444,
+        "max": 18155302912
+      },
+      "collector_seconds": {
+        "min": 0.007799200000135897,
+        "mean": 0.012600179999996424,
+        "max": 0.04770009999992908
+      },
+      "total_collector_seconds": 0.567008099999839,
+      "disk_io_delta": {
+        "read_bytes": 529408,
+        "read_count": 26,
+        "read_time": 0,
+        "write_bytes": 5058048,
+        "write_count": 203,
+        "write_time": 0
+      },
+      "disk_valid_intervals": 44,
+      "disk_unavailable_or_reset_intervals": 0,
+      "disk_status_counts": {
+        "ok": 45
+      },
+      "worker": {
+        "status": "observed",
+        "observed_processes": 1,
+        "cpu_core_percent": {
+          "min": 36.37981598913926,
+          "mean": 96.61674838140192,
+          "max": 107.8207849489607
+        },
+        "rss_bytes": {
+          "min": 111804416,
+          "mean": 125700414.57777777,
+          "max": 152829952
+        },
+        "valid_cpu_intervals": 44,
+        "valid_cpu_duration_seconds": 9.848835899999813,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama": {
+        "status": "observed",
+        "observed_processes": 2,
+        "cpu_core_percent": {
+          "min": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "rss_bytes": {
+          "min": 102780928,
+          "mean": 102780928,
+          "max": 102780928
+        },
+        "valid_cpu_intervals": 44,
+        "valid_cpu_duration_seconds": 9.848835899999813,
+        "unavailable_observations": 0,
+        "discontinuous_cpu_intervals": 0,
+        "partial_cpu_intervals": 0
+      },
+      "ollama_scan_status_counts": {
+        "ok": 45
+      },
+      "coverage": {
+        "max_gap_seconds": 0.280405200000132,
+        "intervals": 44,
+        "missing_periodic_intervals": 0
+      },
+      "interpretation": "Whole-verifier context only. System CPU is interval utilization across logical CPUs including this benchmark; process cpu_core_percent is relative to one logical CPU and may exceed 100. The first CPU observation is excluded. Cumulative disk deltas cover only adjacent valid samples. PID/create_time changes, unavailable processes and counter resets are never bridged or filled with zero. Nominal 200ms polling includes acquisition and scheduling gaps; missing-periodic counts estimate skipped nominal slots. No per-query interpolation, process-specific slowdown causality, Ollama token speed or optimization claim follows. Observer work remains part of this measured environment."
+    }
+  },
+  "resource_interpretation": "Identical continuous 200ms target telemetry brackets every complete run; global run label/mode is separate from the frozen sampler slot zero. Start/end/non-overlap validated. Observer work can overlap timers. No CPU causation or Ollama GPU/token slowdown claim.",
+  "cost_interpretation": "Fair-comparison primary = verification + append excluding nested commit + all chunk commits, including final flush commit. Rank is nested in verification. Setup/tail/entry are separate overlapping diagnostics. This differs from the V22 cell rollup per-query cost excluding direct budget publication.",
+  "original_distinct_sample_size": 48,
+  "repeat_query_checks": 672,
+  "warmup_query_checks": 96,
+  "paired_query_checks": 576,
+  "new_unique_keys": 0,
+  "new_primary_fit_validation_bootstrap": 0,
+  "full_validation_complete": false,
+  "full_readback_started": false,
+  "reserved_test": "locked",
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null,
+  "evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/done.json",
+      "bytes": 97,
+      "sha256": "66b7bff2223528d25084935afed28cb4db004b927b6fe0c11517c16b38e0513a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/final_hash.json",
+      "bytes": 42,
+      "sha256": "b8f9784b40d074bdf4c7b7ae23709f657540973589aa55510f4b19ddd248e95f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/initial_hash.json",
+      "bytes": 43,
+      "sha256": "e2734be681989645a51dbaefa427d1fc7dfc56163498b0bcd1fcc3dcaea53fbe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/entry.json",
+      "bytes": 67,
+      "sha256": "225e51a5963065ca85f9f66dcc536bb2ac8f52222561c5e5755c6bcdc94bf237"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "febb71d57d47a191a8211454bf42ba74bfe83586ce0c83720bf8f66073a82bb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/measured.json",
+      "bytes": 60235,
+      "sha256": "ae26ac5f68209aaecbcf71dba926edad31f0d3ce3b9c4bdcf454dd744c7d5dd7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/observations.json",
+      "bytes": 21575,
+      "sha256": "c3dd4fd9cf29267b845cdd36a7c670a6623c7205f2c787dde1c3ff4c214744c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/telemetry_records.json",
+      "bytes": 39161,
+      "sha256": "cb67050a281b0e0b114f355892550426690726a1f032156476deaa49f4e0f810"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/telemetry_summary.json",
+      "bytes": 2174,
+      "sha256": "3338bdcc9e0c9e62621ee309f942664fb5f9095503c80212df7c4eef62d6e326"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "ee96b1bb43b89af1f32795758e164c03091fb72271ab3ee35cd9d1fb6e69c81c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "d1b08de6865a101cc447c7922ca8f9a86df7d8117b94f3f342a508b40a39c082"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "8681b74c31a9639c5af997df41795acf626ec8cc4590df10e380585c617f9880"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/payloads/382fa6adb4834e78affd57a946c92460.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "fef8e10920259c2ce181e7ef514402f21c74300390cd7acfcdf5e3073dbaa716"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "051759f9dbbb7021e1e9d99ac1b1dc60692af2cdc727979ab10abc1499219139"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/sessions/751f3dc418cf4d87ade9abc011c5e2ec.json",
+      "bytes": 214,
+      "sha256": "1861e964b8fd6b7362e45fc3be16443ebd233a6de9d8bb73366993e2fe08dc77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/sessions/751f3dc418cf4d87ade9abc011c5e2ec.released.json",
+      "bytes": 288,
+      "sha256": "681820582ff2759979601016eea0be761a3a83b7b0eb94a0ddf47ad4a29ab817"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "495b0421d053fdae93704c190203ced2daeb425f8722a67622d70ddd20260a77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "e774df4a0a76068b2d3b5a8fcd9fac486855960699e02d96e39ecd558451a956"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "681820582ff2759979601016eea0be761a3a83b7b0eb94a0ddf47ad4a29ab817"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "01a4ad74837a1f3f863f473fd278f5bba19dbbcf0ac81b908a280b08df62895b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "824e9b448bc1e471fd78dcb5190317d00af86ebd1faa9fa0b8675d579d37ecb4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_A_started.json",
+      "bytes": 39,
+      "sha256": "ace2016e028f647038f1c530e50c2492f04caf5d62c109c8b010f8cd705b6c1d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/entry.json",
+      "bytes": 81,
+      "sha256": "c26cf642c2b06e000995c14e01c9e2f229148dd5b7e22d98de6012b68e50d83d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "53ae6e7d1ad895feca0a7299b02aa88b810cf038bd2f05bdaa3d10a3f0124e87"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/measured.json",
+      "bytes": 60208,
+      "sha256": "8044ac1d2b70bfb587296f43d4f236b6f146244dcaf8caf2b4f12a5abe6668ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/observations.json",
+      "bytes": 21634,
+      "sha256": "f4ec63ae7fbdce595816d31d23ab306297b2f6b7358585bd04dfe245ed5d755e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/telemetry_records.json",
+      "bytes": 40200,
+      "sha256": "2aacf83d7bd8c40f40f34053ed351a6f347cf3c87528f61cfc6d034b45b7c4bd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/telemetry_summary.json",
+      "bytes": 2172,
+      "sha256": "155260e83e1beb7298c54d0f1bf7260875cfbca7ff1dd30eb0884a1c6716b497"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "a3e1984fb4ca0db3acc593c7908f95ba6e87727824a391db026f777c1652c4d7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "e29b4298b4ad25de8ba91647ca602a2dd784554bf9387b0b183438017d75de6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7835fd9c2fb6543761e4c88b473388f325ba289b5c9d5e3af339925872109c6c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/payloads/f03466aa6da94bccb1fb862cd0456d5d.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "02df64dfd6bddad691f13da40403edca5dd48fd6bff77a16436c3473d1062389"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "3fb430db6b06dc5d8995113732a18f7e3277f46cb9a264feec538c5871eb151d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/sessions/95e83c5d29824a058f594915bc819957.json",
+      "bytes": 214,
+      "sha256": "560d0ceddedab996478478bdb0c85647935fa36fcc64f68a0c0f48026b60586e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/sessions/95e83c5d29824a058f594915bc819957.released.json",
+      "bytes": 288,
+      "sha256": "89cf5522b8c070e0fab49c502d2bfcf3f20712ef565e93b3fb80522391d99eaf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "77897bfaf59d18bf3f495b9ebdd33be87c34717c4e1dfdd53ca818d62621becd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "4387c44979fc9595319dd63da0b241a03871b9e780e1639d044530313844b1a6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "89cf5522b8c070e0fab49c502d2bfcf3f20712ef565e93b3fb80522391d99eaf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "1672067924c9b6fbdb29d3401584a5b29ad439cedb1e3ea98bda6b92e35920bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "df72150aa9e6622563db1597398c4816b629694704d65a01a3082f4ae17c74af"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_1_B_started.json",
+      "bytes": 53,
+      "sha256": "963903e3302946e12838345768896a4e10edcd00ab4b5f74f2c67aa65fe8993d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/entry.json",
+      "bytes": 67,
+      "sha256": "5822bc40e92c7ba1c145aa75e70fd6a5786e6494ab22fb18e63b40658086fd01"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "5d8e27c00ba03768b172d138ce67e15948ead6ef6afe835547d3070dfbe4c734"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/measured.json",
+      "bytes": 60176,
+      "sha256": "89ecbb1ce47bb7e6c5f0acd828d935ec5822efa1e6270b0dd038451bf904884f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/observations.json",
+      "bytes": 21548,
+      "sha256": "c1d7e06b1e237501cd046ec30b1b07309ebff7072a85cc322c8f065dc44c58e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/telemetry_records.json",
+      "bytes": 45386,
+      "sha256": "c24ae4506cb8dc4f5bff11e925b328c73449ee94251a4ff26312005f1d856fb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/telemetry_summary.json",
+      "bytes": 2174,
+      "sha256": "0a8185ca7eba6bc5895af83e644e35cf8f8878fefb038b2c3f8620e82c2f4d31"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "7afdd77a18827e5b284676f901e842003b73e81e16cec6ff7250fb498d41c44e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "411dd6f2c070e7e83639c87680f7bd828d895a749b2b3ad229d6ad6936e31da5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "950bff5fac535e898b4dcc1f2dc27d329788460c1d9b7631a78cb91cfc57fd4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/payloads/25f092b3b87145d78f56b0eae2d67a87.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "6c8108ea9fd24895c589723a3a2d26163eb772ac1c41da268cf090ca7334014e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "b33cc9001897f301c56da92ed610b0caabc4c8316cd28391bd43fd7199609142"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/sessions/0726ff6e77fb4d63bf3af5e6404a1a6c.json",
+      "bytes": 214,
+      "sha256": "fcc308b0a31da62f2a54132be91af3857e67455fa171fb0c28a5b237863ce705"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/sessions/0726ff6e77fb4d63bf3af5e6404a1a6c.released.json",
+      "bytes": 288,
+      "sha256": "667a40c2dc63938edf824b4e376ca81c095804b1a0cb1b51006ac14870a635be"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "3198d7e434ae6077d0072bfe30c8ea4174a93a4b404b0c18e7534c0c085bf025"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "9c013707f9b595d0e426ab4d80cc83e0be40c92c3533784cb658cfa360403dbc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "667a40c2dc63938edf824b4e376ca81c095804b1a0cb1b51006ac14870a635be"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "4c6cf5b56b21dfa8c5f402b96f147510826c17dabbe44b3c8755c203d4f0ca13"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "e771e42f602120489eb78a34be83f0763f25c9839745ec21c18e6ab07b3eaf9e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_A_started.json",
+      "bytes": 39,
+      "sha256": "6fe6392dd8689f417bea0051a37c4dafa194c15c9e03b11edb7ba38a8398454d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/entry.json",
+      "bytes": 81,
+      "sha256": "57397aed3c7923370ad6666963d54464e9ff877f2d4d9b24412decfff6f82b7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "4d818f65aefe9dac23a69d3b8316c3ab0be9b7bc22a0e1914704c6c6550f85fe"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/measured.json",
+      "bytes": 60161,
+      "sha256": "490bcf3363a3cfef143aaf3749b890fdcbbc572d6d705bbea1dc47192eb6aed7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/observations.json",
+      "bytes": 21605,
+      "sha256": "ae324fea92132a061e2535b0ac3531af269ec41081692dcc577916fb5547735c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/telemetry_records.json",
+      "bytes": 44367,
+      "sha256": "bcad43cc27c286fa07e0b121b2f6984f698d7e22fd7936b6466afb5b23e29155"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/telemetry_summary.json",
+      "bytes": 2171,
+      "sha256": "a05eed01627ad893ff23fdfe26af489978c28c55c26ceefb85b76e46e2b46b82"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "4270df569b1a4987189d5dd1b97e5b2c30db387986739278c3ac959cd73f9852"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "e1ab3297f0500c5a520c90a0f8e0383859a202ea444123c2efeffe562ca72de3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7b35b5a38fd034b026d92084f83b4dd3d99115f2ac4fce85921cd0d489b479b0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/payloads/dcafe6e365ee40c1be5d5793589ca925.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "ed528aa715fd421c01541440e7fef8d96030edca7f2bcbd603e1096ae66dbc53"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ad1a222b8d369195c4b2b05ec3b958b8b3da1bb9c9bf2f1cecc647dfbde0cb8e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/sessions/c7c10300bc6f4195a898caecf4a70665.json",
+      "bytes": 214,
+      "sha256": "e7e838ee31e052ab82934f81563aabb2212751dd6f9642390509afd6611fb64a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/sessions/c7c10300bc6f4195a898caecf4a70665.released.json",
+      "bytes": 288,
+      "sha256": "1ddfe62151cf3e412131089ad0706769225cc3150250e5ebf5e2fdc802ee804e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "1c5480eb3c650dfadfc19bf46f9e00669fb735dd45f278db8c477e11f98ff1df"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "dff21457da19139a8e2dd878e1dc640b35cf531a0d8e3fb33f50263d6b2fe38c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "1ddfe62151cf3e412131089ad0706769225cc3150250e5ebf5e2fdc802ee804e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "3cd93caf01fc73f068733d815d9140bb6328eb801333c1161fff4584e0eb14f2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "7cbd8d1d2960bc7dc875f0d9ffe402c838d30a5a7cded4bf3e52a343faecdb76"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_2_B_started.json",
+      "bytes": 53,
+      "sha256": "e25850aaf7f9ba73b7d3d89ade935a115e2ca91adef23181910ba9c7dec7bd72"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/entry.json",
+      "bytes": 68,
+      "sha256": "e2ca880cd083a06f9ec4974414196e38ca4bc7a98137a28c3788f571e6de7177"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "c23dfb1585fd68ee5f7b8ac06546cbc407c1f62f0cee4fd3dc6014225f6773a6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/measured.json",
+      "bytes": 60205,
+      "sha256": "857dcefacafe8292c872fa579730ed070fd0c7f4c720bea78236c3045df7b8a2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/observations.json",
+      "bytes": 21527,
+      "sha256": "c94eae20aa4b972d56ce73ca503a077eb2e2e73f088e144ccba51bc8ab46d34e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/telemetry_records.json",
+      "bytes": 48498,
+      "sha256": "f9e2bb80feacedc22f485c98303dec9dc461e49fbf1e4ebf6b31308afb3546fb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/telemetry_summary.json",
+      "bytes": 2168,
+      "sha256": "63d4eca5d5a9fb8f19f4429f0bb2eb5d83e9d571b6681af042113661d2b09470"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/budget.json",
+      "bytes": 202,
+      "sha256": "049fe8fce3e97facd0abe4d637b2f3af7ed85c319144b2c78011af254b47581a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "0407ca6f1a32876d25f121471f77f01cfa2af7466aef296679ce47d4895eb9aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "30057e553402bc779d14515b0c1dc08b81fc06d2896d738f6ae430dbaab7bbe5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/payloads/e037a85efc7f4684b0d2268102f7785c.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "834259a2ddf8a6de30c7a428baa61b4784b709c227ee52f673f03a12d7c4cec3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "73c92c474db98caee5e920bf13a8325c6fd7b4be38f7ede0a7c6193a11ee0ed3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/sessions/87422d4c05ce43a2a0257308218c9594.json",
+      "bytes": 214,
+      "sha256": "672bfdccd63df5c531dc9aab855afa752fde9fd67df7cbc0350e9c602c779325"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/sessions/87422d4c05ce43a2a0257308218c9594.released.json",
+      "bytes": 288,
+      "sha256": "024d03d444361c10ba70303f5f0c12522a6aa087dc57ec24a9ab0d865d500acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "e7e148dcbdd7db32b5d20106c3ce2a2386e32b15270392bb1496f4ff606bbeea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "5a8dcf9d0007ddce4b9282cce648f76a9db486cf18fa30963b4b1698fa152ad7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "024d03d444361c10ba70303f5f0c12522a6aa087dc57ec24a9ab0d865d500acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "179e8b3d4bd95b6c0ca0122dd96cbade8d7b73a726590f883eaa165c095bb705"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "4809cc1e5120132b779355226b062322d6e5cbea32e278323978125043a2a965"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_A_started.json",
+      "bytes": 39,
+      "sha256": "74886b3302f317518e5dfd809edf8a126dec0a89070b85c3188a492632c40679"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/entry.json",
+      "bytes": 81,
+      "sha256": "999503e6670633749de38003cc754282ffc283cf65353054336be85fe7e09228"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "781a3e20a2cd5a7e53f783ee15b367e1721971c44a99fbbf463bdf7f2434071e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/measured.json",
+      "bytes": 60206,
+      "sha256": "4e2b93fce1618f51f89839fb480e999cec319f0e2e6c8dd92747154d589447e1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/observations.json",
+      "bytes": 21542,
+      "sha256": "d97fb4c79b26dd4ff0be082e0e99bba72e11b35a327e24f98fbdf9dbafa58068"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/telemetry_records.json",
+      "bytes": 42293,
+      "sha256": "81083a7b0de5139f8ba7345d108d262574321f80d3add1bb82db4efdd2615986"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/telemetry_summary.json",
+      "bytes": 2163,
+      "sha256": "25c4b8472b71d62d1d7439902585b7ef1389feaf2231b755c9a00a8c9cb6d378"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "62d464640447aa10af246933f3c87cefc375a9e574a02879de729560e567317e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "26f1700302475fcd5e12438e3586483829b5196bad7e179f9ac56d5704b27ad2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "1ac271a0c7dc46b67884a1fe6fd6c8eedfe0f452b2dfc3af2fc12166e2ce2acd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/payloads/b717a485cca94e23addcc0ce7ec15721.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "bb2d3575c10eb64e48346dbde33cfcc286a3db49eeabbc0563dd42f6030b6a33"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "27a83a2b4ef98e68211fce9411d2d7b9f3fe1fa81e8b0ec38ae1271d8580241d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/sessions/eeec87987f004bfa88aa1de251d4e4fe.json",
+      "bytes": 214,
+      "sha256": "930ccdf22be34a2fa49cd80d27d42b9b048c3a451651af497d44010b41af4083"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/sessions/eeec87987f004bfa88aa1de251d4e4fe.released.json",
+      "bytes": 288,
+      "sha256": "a69ca6de69998647df98d10b73498cac11334cc36a322ae4e1a8370addc9449c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "d77753766fb6b5073ad4d0423ec19ab3e654da0debbd2ddc57afad5618e73c01"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "2250e72609e7eb1789aa0fceb511b55f1d6d27c4a75ac21239830cf30102149a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "a69ca6de69998647df98d10b73498cac11334cc36a322ae4e1a8370addc9449c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "195ce155ef427c2bcc7d043ae528817102331b50d68765ce92ead31b6b8641db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "075ac9a771839ecad0cb7eb0925aedb2c457869dedbb932e2a1098cdf6b2fdc8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_3_B_started.json",
+      "bytes": 53,
+      "sha256": "fdcbde3f04bd7d3912bac945bef53094aa9b9331b83bc8df4cf15c5e4f72facc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/entry.json",
+      "bytes": 67,
+      "sha256": "3730eb03707dc31418d4791e3e9316ba71efaab22e1d177c123b8a71548be0aa"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "dfe5002d19ffef3b27c9217a3be19c04635d0f23e1d96d0d2204116a6d5ce5c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/measured.json",
+      "bytes": 60171,
+      "sha256": "ceebe50934aaadac4b20e6bea0190450fa1f075437b060fdc1c17fdc0cc8b24c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/observations.json",
+      "bytes": 21627,
+      "sha256": "6900187cb2a684496c014ef1dfb9d1670e36dcede67844d3b931a0c86ca6c592"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/telemetry_records.json",
+      "bytes": 44412,
+      "sha256": "4e6330dd78f824571b709148288ad64ff08e972e94a01794534af1317c7978c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/telemetry_summary.json",
+      "bytes": 2169,
+      "sha256": "4a331451d85b0211db7d5b297482aab6abf5d4bec44960e489a8fa814796e820"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/budget.json",
+      "bytes": 199,
+      "sha256": "3b135119274220fb93588c0ef4855180e1a43b6bbdbe21da895d986da2899857"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "29e2f40aa750940c5a5a6dda3a0f6108d6f9191adf0ca318d6e60cabb6ba5179"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "efd4a3e2fe8a8742e4b4328473839c25588e832deb7a59d4949cc9109540e0f5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/payloads/71c048cfe7cd4367b7b983991da1cecf.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "d22199576f3ee16ee8d9bd3751d133ffc3a3da03314ec9a6c1da4fa150e19160"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "4df96e23bf0f1d988310cabf0dd534757ef90f410672f0e68a40eab4a9ce0bfb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/sessions/760998968e2346f1b93cdaabf5b5b761.json",
+      "bytes": 214,
+      "sha256": "64e8001712b3b541cc5288c4f52463b042aea927153dad56f8ca48cea39f6977"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/sessions/760998968e2346f1b93cdaabf5b5b761.released.json",
+      "bytes": 288,
+      "sha256": "487c256646d75135b6379645d63b64ab62b3e9e27b53b278273f9cdcefb485bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "78e1bec0109fc701d07c6df3c0b81f3076971df9586b8c3324e9bd6c6af7ad89"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "3b5353b4aa7c79bf1e0a856cb57368e55b11377b51f27eb78e98d9f0fe4deb78"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "487c256646d75135b6379645d63b64ab62b3e9e27b53b278273f9cdcefb485bc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "d71232e5a4c92a7cf9b12d18d0586346c973b9efe4a22d159d05d76d63094ceb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "cf000c728bbf1b0540a4fc88074206f9cdd6e33d74e2cf3d4c9457a8d138a4d2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_A_started.json",
+      "bytes": 39,
+      "sha256": "d0d036f2dd7359e59aca5bb112aa549b9d691da1fc831fffac1430362e990c4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/entry.json",
+      "bytes": 81,
+      "sha256": "3660aeac755b008e93c92a1218c3035fb12ac1808a6cadcd6f944048cd8c8c4d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "612e1c4250a7ae60b035966f005624cac0d61e44884fba890ab3958a17e1b455"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/measured.json",
+      "bytes": 60200,
+      "sha256": "0fe3da77ecfca5caa55899a61de96c112c80d5415ca6d8df7473242c553d2bbd"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/observations.json",
+      "bytes": 21547,
+      "sha256": "45c85435ca2efe7830738f69a07ac8730b614452440477d703b1028e7f4509db"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/telemetry_records.json",
+      "bytes": 43367,
+      "sha256": "2bd048d8cc7eb5cb45e9b98183da97884df1308dd2485c3e335e66cba16dd2b1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/telemetry_summary.json",
+      "bytes": 2168,
+      "sha256": "279970de3a1db2af12769ab2a75ab4218bf4275ee9c849d6dac791b4c466050d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "37b9b81a569fdf8f34939cd5392b3a76996df5ca8b81c1dd46caa5978a44be7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "ff38a10ba7fc463303e40a9088054cb0a19087b6f3eac0ac2fb1c17ee006ceb3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "2098937a3930c8d0b84c41f8a23cf58b4170d5e8524d532ac9e365c187243532"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/payloads/20e098430cf24026992ab0f967e87c9a.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "df6111fa52b6afdc6fd1201f13845a975297c3c7e2cd085949e47221b2520f0e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "ce974e6576cf40dbff9fa5ebe481f0f8dbff6923c780f9d3f128f115c8448089"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/sessions/57d60498e0d1443c8dde086c7db5664f.json",
+      "bytes": 214,
+      "sha256": "6019fb43620a8ed33aed80f57e848bc6a2a2c2c1909924449c99b50d6c6337d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/sessions/57d60498e0d1443c8dde086c7db5664f.released.json",
+      "bytes": 288,
+      "sha256": "eb3fa2dcfb991534a3f11504297ad6c503aa1b7d52b2d063205442338b9b4d04"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "b9ffd02ff281198f8878389ecba756304f3a3b2589cf51c1166b87aeac3850c1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "986f84369293095b9ea1cb32d7c7a24fd488955d54dfb8cfecaa9c483b0b937c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "eb3fa2dcfb991534a3f11504297ad6c503aa1b7d52b2d063205442338b9b4d04"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "fe07ed40303bdd48423f0980e50f92893cf3282d6c97003954fa450c3f5297c6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "966b611b4d05c63e99842996d5fe21028e62cbcb8e32ba0ff13db5171f6640bb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_4_B_started.json",
+      "bytes": 53,
+      "sha256": "7fa94340848adaf7cccac4ea42e49f8a8b6e06646a9c25f4b4590cdcbfa60775"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/entry.json",
+      "bytes": 66,
+      "sha256": "835a95992367fb152487d00610f0406055d6f673a3e607ed8a627176c038937b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "12fc22be332728b3c88d9ffcce1ecadf360613654ff302ae3e0807cca3973300"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/measured.json",
+      "bytes": 60201,
+      "sha256": "b404fd6cacb3f6355b9a4cf55f18c54e107bbba4681716c9e27e237ce98ff6b3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/observations.json",
+      "bytes": 21547,
+      "sha256": "92e7cef535e554472a39d6c89c6adae3c630124a2ca0cc96a2c5c0a7e622e5b4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/telemetry_records.json",
+      "bytes": 40251,
+      "sha256": "7f95c467e54520f0f5e786ec7d9ab7af703d3d3650225867b0c72da4eb32aa78"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/telemetry_summary.json",
+      "bytes": 2163,
+      "sha256": "f54b80762861ffffd6dadce5401b7772b94ea87c3ab127bf86e22b7ec53ddc45"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "826743bc4ec2b80b50a3c1440f317e0bbca1d79cd6b0e818867ca6d869a0dd08"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "f868d8ea420d99a2b0c0e66866357d9d9a284ff9751ca8695642d0f4a5f8fcf5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "488ea63b8a479546ac18f841c2e45710d55c1fcc415f51b326ccd57f96f3bf08"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/payloads/cf05f5a9dfb34904a2a48782828689e4.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "3c7443391af2dab1c55c9f403b83e517044945fac9915d3f2058f3a209f30142"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "8bf37244cd0cc7df5569b3c159b8d0a699cc819f3b11525a4a380ada25914f52"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/sessions/a24c731ec848459f8ddcdae9712d1bae.json",
+      "bytes": 214,
+      "sha256": "c4eabfd8b16f690665c911a9e6dddf3e71fa7e58a086a194065758002d1b512a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/sessions/a24c731ec848459f8ddcdae9712d1bae.released.json",
+      "bytes": 288,
+      "sha256": "3c85d41be63849c3ea9b5907960c1d0daa4ed7fa25ed427989d7b629e8dc6ca7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "397ab1a4af13aca1f20b79e2cb39421a7118b2d139a8e1429cb8eb228bf55297"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "55d0f79e828e4e43428f73bbd27480fe4a6af05d3489d3c808a2bf7d5da9b5dc"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "3c85d41be63849c3ea9b5907960c1d0daa4ed7fa25ed427989d7b629e8dc6ca7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "cc9780c1617d612e60f77721ae3f36a81b32ded05b93d49e7dd989480e788c39"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_resources_before.json",
+      "bytes": 237,
+      "sha256": "6494ddd51b868b7b6a89c0089534c360fbf4cd590fff44bc60ceb6389fa10fe7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_A_started.json",
+      "bytes": 39,
+      "sha256": "cf7b6b7b37810d5f81aad3e61c5d8e2a3708144bdba2a94f28c4c5ef76c26626"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/entry.json",
+      "bytes": 81,
+      "sha256": "9b29c36874757d5f9eaab1d2fc2c1f784524f562c59e4e2bc899ea9987567223"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "d2d009201e707647c5f0387e7b286f5475543ee529dd0f90d136dfd7b3d43138"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/measured.json",
+      "bytes": 60211,
+      "sha256": "ae7b79f45c285c3ca8f47b4e48213cb7c6ac6f92519754c063b003291b963a02"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/observations.json",
+      "bytes": 21558,
+      "sha256": "afafd6b86c883883a03b4e46c3a10028e5009608fb5b8171e992689ef55f9aae"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/telemetry_records.json",
+      "bytes": 41315,
+      "sha256": "5b27fb2a57a5565085c07d4ed10cfedc39d95586e6a05e51b85086dd340573d9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/telemetry_summary.json",
+      "bytes": 2155,
+      "sha256": "a8b39acc3bba2011cb700acedd6ec18ad4d9c4a1580627f6bb58ba14034fc252"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "872f5922affed900f083599a0189454169d9fbcd8ae94f5693f1401d37995a7e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "a7b0222293e2a0d3d6a07f15b94bdee7ad28ebd7970b2c951ecc38fe5a81c353"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "22e66ec73564ae8389f00ed3dcda441ae753e8051ef3e2080a4cc84e17e5f4ac"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/payloads/59acc93a30f647bbb0ad1cb1cc46a8f3.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "2658fbc9b4448e2ec461f11264ba064de7afec506b8b50c946ec670e3474fd35"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "71204c8ded66214d61dc87bae1d05ad5c065d6e0800cfe02b29040fc70c74c23"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/sessions/66922038b5da41f7b9e0c7d0b63eb87a.json",
+      "bytes": 214,
+      "sha256": "341a1693ad015dc670f9121188aa02b99c0854ec1dca2e08f53622fb1878c52d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/sessions/66922038b5da41f7b9e0c7d0b63eb87a.released.json",
+      "bytes": 288,
+      "sha256": "d4d0367d3b99c207e6a949967831c68dcf34873d6425f909d6b5bf886ff54d9d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "268e011a57642c7950323a536707987b720ce744621e2f426ea013d420fb74e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "91ed190426d2ce8e3aaa2ccf4b000cb99d8b1ba39cd47b938c67933e4f44b296"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "d4d0367d3b99c207e6a949967831c68dcf34873d6425f909d6b5bf886ff54d9d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "5621db3831a388c0e74daae9a951d0e17fb3545266495b239c3e656d62c78e13"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "b3a180bc7277acaafaae47539c5caf1c3b9c95970507a54fe03f071d777deaa4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_5_B_started.json",
+      "bytes": 53,
+      "sha256": "ab3d6732187281484077f1fdc2d0b0300a228a0cf9f0f123e52eb45ec71e3973"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/entry.json",
+      "bytes": 67,
+      "sha256": "403eb0489035a71eb45713c1f188b1432ca7af60c28ffd44530abc49a7b43878"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/entry_span.json",
+      "bytes": 241,
+      "sha256": "4ca01100c4d6b3cf851898e933b2d4ed1139040208ba68240661a40ee3f5581d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/measured.json",
+      "bytes": 60202,
+      "sha256": "4f8e037c8e45a7fb2c7afcf189195866c8add990e709ff281afc005fbe4e4120"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/observations.json",
+      "bytes": 21542,
+      "sha256": "d84948bfff1a80586ecc75f42c8d82bb7c83b2c3a974ab8aa42eb77e941d905f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/telemetry_records.json",
+      "bytes": 46457,
+      "sha256": "cff118dc4c9a96429222172e7c3183bce17fbe6164a231a056fab69eeacd4f79"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/telemetry_summary.json",
+      "bytes": 2165,
+      "sha256": "08667cbb7b50268a8f3bbccd5f9ae4c5dde22709c4d9f025984841bb45bff74b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "1c6cfc6ba95091a4c838df559e3a20082e50e20d5af74c378920ab216ed13366"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "8a4c9c66283ca6a41af114c188dd4df630da468fe262f1d2ffd4767b29b09189"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "eb55aa00d8266032c25374b3f7b72c365c6adb80c866aceb242546c6d267f221"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/payloads/4cd2283574934b22bacbd299f74676d3.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "f0ae3543c46fb362ecdd739072dfaadd943ce9a7fb48ff8e63b8bdf5c63d536f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "dbf61b7dcd48a12e84bc3ffa835424dbd60c34d7b85edd59d42b36def192dbf4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/sessions/9060a45010ef4fd8bdc8fbb5a14c9b88.json",
+      "bytes": 214,
+      "sha256": "13122d52b140b84ee9a42c2882860f0e5b1cff75986194d0973f49da97b22033"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/sessions/9060a45010ef4fd8bdc8fbb5a14c9b88.released.json",
+      "bytes": 288,
+      "sha256": "b9e2b6be66beaadedacf992a48836d91f4b1d883b9038b52e7b2c33811056077"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "67baf4dcdd5446634508a616efbc9d1c1915de9f489f99fff063f9c0037bfe93"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "779cdb5e40824261985b11ee1f977efc5e305bca895d6d3b6b9a0262e362cc5e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "b9e2b6be66beaadedacf992a48836d91f4b1d883b9038b52e7b2c33811056077"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_resources_after.json",
+      "bytes": 237,
+      "sha256": "71c5d01a3753d6001f4c8144bc4274fae9bc9f958182d69ea96062c4284d3333"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "68c0cb4b09d658090c9dae037ebf93318623b642cceb0d3911ccf32a7d4c2878"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_A_started.json",
+      "bytes": 39,
+      "sha256": "e4bf368afba285e639bd912c5eb1485830dff7b948d5d85074b503ecddb6538c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/entry.json",
+      "bytes": 81,
+      "sha256": "893457ed96379697e077abab36d0b7c4d55c5236f5ed37e5b012a0e28440c7d3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/entry_span.json",
+      "bytes": 255,
+      "sha256": "6913ce220c04973f7257948cf51a5f5be580ec98a89288332fce7a69ef262be6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/measured.json",
+      "bytes": 60191,
+      "sha256": "6851e98b5435a52b5c9451875a42d24d26a45c03e4842d84644cb5751d9f2c2b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/observations.json",
+      "bytes": 21553,
+      "sha256": "d82d3c2b786ea890f2bcaad692537a4d3aeee1af1e2b2e20ef0a06291aec42c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/telemetry_records.json",
+      "bytes": 42349,
+      "sha256": "750295c9bced2ef838270e328fcab5cc03e6e892580bf391cef3f70b1388ebbb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/telemetry_summary.json",
+      "bytes": 2170,
+      "sha256": "dbc023561f853574a3b672abffba48fddabdf0b73a6d304b2a55335db282133c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "79f87f77e0ddb4144ea1c59a7ac731d143d182720ae47f85adb5660e260257bf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "03fa269ed753724be638122d36dca9dcf1548d565057d0475231c082a661a429"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "abf31dc893bf76cbd9daf4aec867f59191998df740d53722f824d5416ebe53e3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/payloads/5d2366ff646848bfbeb8afabb05b17a5.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "bcff184a6a15e1c6580b58109e7313f46c84732bfeb17156ea7f94a67bb940d5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "f9e5aca738b0b140e7dfa2b88e4ff197106f9d9da9d47caedfb693d9b9acc6a7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/sessions/249708a9c0574de9b4b73de04f07a03a.json",
+      "bytes": 214,
+      "sha256": "32dfa69a92dafb12523c5e6b71f27519a590841c2bb196f0dd76ac12ef7bbbc2"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/sessions/249708a9c0574de9b4b73de04f07a03a.released.json",
+      "bytes": 288,
+      "sha256": "90690fdef1397e37fe5d3f0014d834fdd0396c7aab25052413c93f3fbf00bfa7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "82d64249939b0aa6060bb017744da0b201d888346abc36577f4bbf66d90a6182"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "63bb648dc37b50c6596d5bcfa6b25f5bbc95390f5ee1506f4f9c2037a8a7075c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "90690fdef1397e37fe5d3f0014d834fdd0396c7aab25052413c93f3fbf00bfa7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "2a0b7e18c855e7a19214a2eaf112653d92b71aa13c57a073fadc07e0896af459"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_resources_before.json",
+      "bytes": 237,
+      "sha256": "5d672c8dd45b0109201d83a2633b846e88e3b47a2d97248c9029197f80f6be20"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/pair_6_B_started.json",
+      "bytes": 53,
+      "sha256": "82acd0a0ee53b6bc10439e772e61547e15211b780de6f8305fa9b555a8a1eb58"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/post_exit_audit.json",
+      "bytes": 273,
+      "sha256": "731f95a4770cbc104da61d6b0c1516ac4a40b1f97685cef083af26810a8e5c6d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/request.json",
+      "bytes": 112317,
+      "sha256": "792e951d991525f0d9024435c8a53b74b9a275f0fc28caa13e004b70ac7927c7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/stdout_stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/supervisor_completion.json",
+      "bytes": 437,
+      "sha256": "85eb3c4ff90a39940840c8fc63979c0853238de6d5f5b4c751608759f9595fda"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/tracked_process_identities.json",
+      "bytes": 262,
+      "sha256": "1c2f97bef4f9d073687d0d8c0904bcc90096181ae278f49225dd58636ae8e810"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/entry.json",
+      "bytes": 65,
+      "sha256": "1cb5d00e41817f89af1663cecb71e4d6c1d4b0f013189a8d6f6eaf1259527921"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/entry_span.json",
+      "bytes": 239,
+      "sha256": "926150b8156b514497b855815ca6d1f37fbbc5682efcc1820cddcf9622033859"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/measured.json",
+      "bytes": 60218,
+      "sha256": "85fc30d6ae857444867c71823909d12e54a57a2d0c03ab50a6c30bd8107a5489"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/observations.json",
+      "bytes": 21541,
+      "sha256": "fbde84d74a9e2ba4f084b2fd5fded073cbcd37485474f90300a8b539ef440eb8"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/telemetry_records.json",
+      "bytes": 41165,
+      "sha256": "e200ac197ff95a362504356d2921b0d37cce4d24a948fd1c90682715ba618489"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/telemetry_summary.json",
+      "bytes": 2158,
+      "sha256": "94803af449f2859b93857da388c9a24cc573740beb38f7162bd09915b5026720"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/budget.json",
+      "bytes": 201,
+      "sha256": "fc2ae83bfbdac0049fcca982a7874fe3284905b1d881cd81016c9d7115ba9c99"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "9acafb8d1f69392b2b222ef15de2fcea2b7d9d700184945ffff545392ec7f92b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "6a2b97c168adfe5af0ad243d961527127e638c44fee35a257bea63fe33222554"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/payloads/e509a6e7ce414b83a3f6c806e997872e.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "f8326a2fb3a01e883f8a2bc0d20e8c8371fe1ffe5a30c1f26b9c4a8e6323b6bf"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "e55057473ca558bb1ea21699f24bf8d1c3dc2945ae7604a3bc370980db737d5d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/sessions/d00055767a384f5b9e0a9b0d710b95ac.json",
+      "bytes": 214,
+      "sha256": "31194d6bdebbe51ce2eefa5f3ca3aa1c621d949fe73e67993c3d06b1ee40a844"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/sessions/d00055767a384f5b9e0a9b0d710b95ac.released.json",
+      "bytes": 288,
+      "sha256": "22551d10137f32bf270c85b1c9a25adf699bea80aa33f2741273b08e051c841c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "aac4baa88fe307cec175ba581230fb46a28b88b5d3c8988a5b1474803a7ad704"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "571cd01c5612482db0e96b0cc885df9159bcda1658d89d4a20451d4a59f2e668"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "22551d10137f32bf270c85b1c9a25adf699bea80aa33f2741273b08e051c841c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_resources_after.json",
+      "bytes": 236,
+      "sha256": "e8479ccb573c21e48ec695be8a60a31baaffcadbc251aaddc7f627f7dc6913a0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_resources_before.json",
+      "bytes": 236,
+      "sha256": "1e6e76f79f5331632d05c0eed9a919b23e64451bed308e9978fc4a991eb5fb4a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_A_started.json",
+      "bytes": 37,
+      "sha256": "e15696b3ca00cbf021f6203beb6b3ee2f66859848fbd9fd9dbb6782303b47eb9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/entry.json",
+      "bytes": 79,
+      "sha256": "6835db68f37dda07176d7d0872bccd8ff90b821709499d409b0c01cf55e4071c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/entry_span.json",
+      "bytes": 253,
+      "sha256": "d6ad69dc81a96b953363f028d58c694f350d51271f2519f84094e5dcd09d193e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/measured.json",
+      "bytes": 60235,
+      "sha256": "5629a0e6aad898925272c92ef5ba99540ac7fe0c204560e777a301fe6867cc7f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/observations.json",
+      "bytes": 21531,
+      "sha256": "ff7ad5ee80a6553256867920722c7c02a93eeb2bb5fa26f4eacdd506291653a7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/profile.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/proof.json",
+      "bytes": 181,
+      "sha256": "ee851289f0c8c1c8086b8a92716d20cf1b5b385abdfb2ddd6f6dad67d0471942"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/telemetry_records.json",
+      "bytes": 41212,
+      "sha256": "17219c8e521533967edd6b442e87bdc1396030eb740d868f8780d85e3b47387d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/telemetry_summary.json",
+      "bytes": 2160,
+      "sha256": "ba68e0ecb22c811191c83c8bca4076b6f68ce14972bddf7bf5f971c8482e171b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/budget.json",
+      "bytes": 200,
+      "sha256": "b492be548056fec27c593b4d0f285fc1da422ad67f51c0c1e8baae78e029d6ad"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/chunks/00000000.json",
+      "bytes": 425,
+      "sha256": "521ce173d5e9dab7582acedf72c998cfff0fe0b8e4d263adad57ea92abcc548c"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/latest.json",
+      "bytes": 246,
+      "sha256": "7130248324f0f93c64c2c524d23f3b7de8d7a8ee2f7bbfc316912105f4674a42"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/payloads/47c663e91a4541a6b35a30da4b5e617a.jsonl",
+      "bytes": 2115696,
+      "sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/run.json",
+      "bytes": 28517,
+      "sha256": "a5f5ebe09090df4ab5991ded56dcd72c9fcbe405994c1c8e63f40641d1242827"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/run_identity.json",
+      "bytes": 110,
+      "sha256": "8734188a26061dc119e70701f45b2f3121cce1a93be6d65a99e16380f89daeeb"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/sessions/7dbc22024709444f9ba5b8208c2e05a5.json",
+      "bytes": 214,
+      "sha256": "544047120440405cd06feda32a6a1044cfad26c31d9a99c9916f6a415982fa77"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/sessions/7dbc22024709444f9ba5b8208c2e05a5.released.json",
+      "bytes": 288,
+      "sha256": "727ef7ddcfb212cad74bc5ff380a0e1f01dc3deaa6e6fface0e660629f66594a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/stages/queries.json",
+      "bytes": 331,
+      "sha256": "85c3a3df67f16c2889a1ba23939cce4a0eb457302becbbc550ccdf07891d03d6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/stages/reconstruction.json",
+      "bytes": 607,
+      "sha256": "cf2a659eb4c09cb52c54dbbf9027385653cd0e8ee87527f1f1694b8b8d627b38"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B/verified_subset/writer_owner.json",
+      "bytes": 288,
+      "sha256": "727ef7ddcfb212cad74bc5ff380a0e1f01dc3deaa6e6fface0e660629f66594a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_resources_after.json",
+      "bytes": 237,
+      "sha256": "522cb8f46b729ca97b7751971acf8a16d9216475421199dee80e5ab2f7873967"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_resources_before.json",
+      "bytes": 236,
+      "sha256": "2c58198f56b0f45d98ac66b31784dd4c54682a22bbd1a86e7437d917529f5b43"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/warm_B_started.json",
+      "bytes": 51,
+      "sha256": "8964f6c75301ab30042cd63bc59d752bbd9ae3b35c190d252d1e05136293843a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v22-overlap-compare48-773df6546387442192c5c51156ea4dfa/worker_identity.json",
+      "bytes": 69,
+      "sha256": "0ae21abf6bcfdfe8f4c7a1c63cc2963f65247aa9ad68e3d70199616b27ce51e2"
+    }
+  ]
+}
