@@ -1,0 +1,94 @@
+{
+  "status": "v26_candidate_design_sealed_not_implemented",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v26_reuse_specification_20261109.json",
+    "bytes": 158209,
+    "sha256": "5d3bad04dcdead2d86201636f11194de00d18a3ddab57d6bf6607b7e27206f8d"
+  },
+  "evidence": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v26_reuse_inventory_20261109.json",
+      "bytes": 12167,
+      "sha256": "e8d1901e59b34fa59d6cb0a6b7de00c79537c7131804ab914b0d69e2dd9e32d3"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v25_sources_cost_20261109.json",
+      "bytes": 290562,
+      "sha256": "0a34acbc3e1195f9789c27f0a2c7eda4596309b1159ee476e31cbc4ffd21a3fc"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v25_sources_analysis_20261109.json",
+      "bytes": 21417,
+      "sha256": "ea37bdfc9de26a91720dd6ffdb835d4f84dc3609e93e0ab139b686bb7ffee3d6"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v25_sources_release_20261109.json",
+      "bytes": 372,
+      "sha256": "a866924c62cf58762419a434f7282e0ba1f1b8f430301327061eadf6b95d91a5"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_reuse_v26.py",
+      "bytes": 16554,
+      "sha256": "c96590f067d58e58f43c4ed8eae96a44a9d98bf61ed1e1cd4358d65ddf92bbbf"
+    },
+    {
+      "path": "scripts/inventory_retailrocket_session_knn_reuse_v26.py",
+      "bytes": 12256,
+      "sha256": "d220a6947102457aea3c995d7df8f816fdcba3865d6da104646bf719d2e82335"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v25-sources-9ff1455383aa4a748260dac3d2fec20c/request.json",
+      "bytes": 115004,
+      "sha256": "88c4873de0f622e73641d77d60212fd9bab3d669751f7f1ffd956146034396d7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+      "bytes": 24728,
+      "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    }
+  ],
+  "required_future_cases": 38,
+  "current_candidate_tests_run": 0,
+  "current_real_runs": 0,
+  "raw_source_rehash": false
+}

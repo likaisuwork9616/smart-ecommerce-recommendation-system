@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 重複來源與初始化成本盤點完成 | 核對 314 份已存證據，區分 2804 次觀測核對及未觀測成本；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 重複成本盤點與兩候選規格已封存 | 314 份證據盤點完成，兩候選與 38 項未來驗收條件已封存；尚未實作／實測；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜來源與初始化重複成本候選（最新）
 
-**來源與初始化重複成本盤點完成**：核對 V25 的 314 份已存證據；596 個來源身分有 2,804 次已觀測核對，36 組內容相同的檔案仍保留路徑身分。六次正式 D 載入／準備中位數 2.956／1.027 秒，第二次排序無獨立成本證據。下一步封存不可變初始化重用與 first_times 重排候選；本輪尚未實作或新增實測。 [本輪盤點與規格](docs/STAGE12_KNN_REPEATED_COST_V26_20261109.md)
+**來源與初始化重複成本盤點及兩項改善候選規格封存完成**。已核對 314 份 V25 證據；優先 C1 同 worker 唯讀初始化重用，C2 單獨移除 first_times 重排。每次來源身分、鎖定後完整核對、四次 closure 與獨立 publisher 十四次 open 驗證全保留。封存 38 項待執行驗收及冷啟動計入的公平比較門檻；本輪候選實作、候選測試及真實窗口均為 0，沒有加速結論。 [本輪盤點與規格](docs/STAGE12_KNN_REPEATED_COST_V26_20261109.md)
 
 ## Stage 12｜來源與初始化診斷整合實測（前輪）
 
