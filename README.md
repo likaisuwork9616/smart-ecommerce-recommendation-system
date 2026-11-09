@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | C1 原四十八筆公平比較完成 | 原 48 筆十四次／672 核對通過，完整入口 0／6 對較快、節省中位數 -10.848%，未採用；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | C1 序列化成本盤點完成 | 18 項核對通過，56 次序列化／22 次 digest 流程核對及三輪隔離分項重播完成；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜C1 原四十八筆公平比較（最新）
+## Stage 12｜C1 序列化成本與候選規格（最新）
+
+**C1 序列化成本盤點完成**。原 guard 事件與隔離重播分列；18 項核對通過，七次 C1 的固定流程為 56 次 canonical、22 次 digest，快照共編碼 15 次。重播快照 typed 樹／JSON 與釋放／SHA 中位數為 0.949／0.445／0.045 秒，優先制定完整 schema 快照指紋候選；未重跑排名、SQL 或 append，尚無改善加速比例。 [本輪盤點與規格](docs/STAGE12_KNN_SERIALIZATION_V29_20261109.md)
+
+## Stage 12｜C1 原四十八筆公平比較（前輪）
 
 **C1 未通過原 48 筆工程採用門檻，維持不採用**。十四份帳本、672 次工程核對及獨立發布／退出後重稽核全通過，但六對完整入口全部較慢，耗時增加的配對中位數 **10.848%**。含 cold warmup 的七次入口 R／C 合計 **54.681／66.533 秒**；C1 身分／內容 guard 每次合計中位數 3.866 秒。來源與鎖定檢查保留，單一窗口 305.188 秒。下一步先盤點 guard 重複序列化成本，再制定獨立候選；這是已曝光 validation 工程結果，完整 validation 與保留測試尚未啟動。 [本輪實作與驗收](docs/STAGE12_KNN_C1_COMPARE_V28_20261109.md)
 

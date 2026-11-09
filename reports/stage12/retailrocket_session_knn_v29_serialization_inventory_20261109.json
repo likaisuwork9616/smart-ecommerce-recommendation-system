@@ -1,0 +1,456 @@
+{
+  "status": "v29_C1_serialization_inventory_and_isolated_replay_complete",
+  "created_utc": "2026-11-09T06:12:58.098003+00:00",
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_cost_20261109.json",
+      "bytes": 343065,
+      "sha256": "caab1b73f9591551673ce910698c95f336d691e3b616623292c6526438c15068"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_analysis_20261109.json",
+      "bytes": 11108,
+      "sha256": "4c28ceaf1fe5b006c3721745c9f05a9dd96a3aa0cdc273a1158e68bf47adc83a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v28_compare_release_20261109.json",
+      "bytes": 376,
+      "sha256": "6c530edf497a46c2f61aec021156ac6605e8f33fb85482fd30d63cb975cad0e7"
+    }
+  ],
+  "methods": [
+    {
+      "path": "scripts/inventory_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 11941,
+      "sha256": "a040c680d8d488a3c5befc80ef78c56fda6bfe4ac84ff6179da5df064a826134"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 3748,
+      "sha256": "153aecfa2502c58de9081c8bbfbd194da940b2840bcc2cdb2530c0035c1181ad"
+    }
+  ],
+  "original_method": {
+    "bytes": 15646,
+    "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+    "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+  },
+  "saved_evidence": {
+    "files": 329,
+    "bytes": 35746578
+  },
+  "plan": {
+    "status": "serialization_replay_plan_fixed_in_method",
+    "warmups": 1,
+    "recorded_cycles": 3,
+    "roles": [
+      "binding",
+      "config",
+      "model",
+      "identity_key",
+      "snapshot"
+    ],
+    "budget_seconds": 180,
+    "maximum_dependency_bytes": 16777216,
+    "maximum_rss_bytes": 2147483648,
+    "maximum_canonical_bytes": 100663296,
+    "order": "same five roles each cycle; all cycles retained",
+    "phases": [
+      "typed_tree_ns",
+      "json_and_tree_release_ns",
+      "utf8_and_text_release_ns",
+      "sha256_ns",
+      "comparison_ns"
+    ],
+    "interpretation": "Isolated replay over the original fixed context. Not a new original48 window, C1 guard measurement, candidate comparison or speedup estimate."
+  },
+  "tests": {
+    "run": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log": {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/tests.log",
+      "bytes": 2988,
+      "sha256": "b2f5c907334d61680cd21c13e58668aa022f57542e6638195d622b78df86ed63"
+    }
+  },
+  "original_guard_observations": [
+    {
+      "label": "warm_C",
+      "warmup": true,
+      "seconds": {
+        "cache.identity": 0.4643468,
+        "cache.pre_use_digest": 1.4258818,
+        "cache.final_guard": 1.7586104
+      },
+      "nonoverlapping_guard_seconds": 3.648839
+    },
+    {
+      "label": "pair_1_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.5863261,
+        "cache.pre_use_digest": 1.7278741,
+        "cache.final_guard": 1.9410572
+      },
+      "nonoverlapping_guard_seconds": 4.2552574
+    },
+    {
+      "label": "pair_2_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.3443145,
+        "cache.pre_use_digest": 1.5437535,
+        "cache.final_guard": 1.7954892
+      },
+      "nonoverlapping_guard_seconds": 3.6835572
+    },
+    {
+      "label": "pair_3_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.4201786,
+        "cache.pre_use_digest": 1.5635226,
+        "cache.final_guard": 1.8980911
+      },
+      "nonoverlapping_guard_seconds": 3.8817923
+    },
+    {
+      "label": "pair_4_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.383703,
+        "cache.pre_use_digest": 1.551081,
+        "cache.final_guard": 1.911575
+      },
+      "nonoverlapping_guard_seconds": 3.846359
+    },
+    {
+      "label": "pair_5_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.5172954,
+        "cache.pre_use_digest": 1.6215777,
+        "cache.final_guard": 1.8356846
+      },
+      "nonoverlapping_guard_seconds": 3.9745577
+    },
+    {
+      "label": "pair_6_C",
+      "warmup": false,
+      "seconds": {
+        "cache.identity": 0.4122269,
+        "cache.pre_use_digest": 1.552743,
+        "cache.final_guard": 1.8844007
+      },
+      "nonoverlapping_guard_seconds": 3.8493706
+    }
+  ],
+  "formal_original_guard_seconds": {
+    "cache.identity": {
+      "min": 0.3443145,
+      "median": 0.41620275,
+      "max": 0.5863261,
+      "sum": 2.6640445
+    },
+    "cache.pre_use_digest": {
+      "min": 1.5437535,
+      "median": 1.5581328,
+      "max": 1.7278741,
+      "sum": 9.5605519
+    },
+    "cache.final_guard": {
+      "min": 1.7954892,
+      "median": 1.8912459,
+      "max": 1.9410572,
+      "sum": 11.2662978
+    }
+  },
+  "formal_original_guard_sum_seconds": {
+    "min": 3.6835572,
+    "median": 3.8655814499999996,
+    "max": 4.2552574,
+    "sum": 23.4908942
+  },
+  "code_flow_counts": {
+    "cold": {
+      "binding": 2,
+      "identity_key": 1,
+      "config": 4,
+      "model": 4,
+      "snapshot": 3
+    },
+    "each_hit": {
+      "binding": 2,
+      "identity_key": 1,
+      "config": 1,
+      "model": 1,
+      "snapshot": 2
+    },
+    "all7": {
+      "binding": 14,
+      "identity_key": 7,
+      "config": 10,
+      "model": 10,
+      "snapshot": 15
+    },
+    "all7_canonical_calls": 56,
+    "all7_digest_calls": 22,
+    "interpretation": "Frozen code-flow counts, checked on artificial C1 calls; not newly observed function counts in V28."
+  },
+  "roles": {
+    "binding": {
+      "canonical_bytes": 40301,
+      "phase_seconds": {
+        "typed_tree_ns": {
+          "min": 0.0006054,
+          "median": 0.0006209,
+          "max": 0.000653,
+          "sum": 0.0018793
+        },
+        "json_and_tree_release_ns": {
+          "min": 0.0006361,
+          "median": 0.0006604,
+          "max": 0.0010456,
+          "sum": 0.0023421
+        },
+        "utf8_and_text_release_ns": {
+          "min": 4e-06,
+          "median": 4.2e-06,
+          "max": 4.8e-06,
+          "sum": 1.3e-05
+        },
+        "sha256_ns": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        },
+        "comparison_ns": {
+          "min": 5e-06,
+          "median": 5.1e-06,
+          "max": 1.05e-05,
+          "sum": 2.06e-05
+        },
+        "canonical_ns": {
+          "min": 0.0012457,
+          "median": 0.0013174,
+          "max": 0.0016713,
+          "sum": 0.0042344
+        }
+      }
+    },
+    "config": {
+      "canonical_bytes": 36375,
+      "phase_seconds": {
+        "typed_tree_ns": {
+          "min": 0.0005189,
+          "median": 0.0005232,
+          "max": 0.0011908,
+          "sum": 0.0022329000000000003
+        },
+        "json_and_tree_release_ns": {
+          "min": 0.0006101,
+          "median": 0.0006262,
+          "max": 0.0009044,
+          "sum": 0.0021407
+        },
+        "utf8_and_text_release_ns": {
+          "min": 2.5e-06,
+          "median": 3.2e-06,
+          "max": 5.1e-06,
+          "sum": 1.08e-05
+        },
+        "sha256_ns": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        },
+        "comparison_ns": {
+          "min": 3e-06,
+          "median": 3.2e-06,
+          "max": 3.7e-06,
+          "sum": 9.9e-06
+        },
+        "canonical_ns": {
+          "min": 0.0011384,
+          "median": 0.0011476,
+          "max": 0.0020984,
+          "sum": 0.0043844
+        }
+      }
+    },
+    "model": {
+      "canonical_bytes": 4566194,
+      "phase_seconds": {
+        "typed_tree_ns": {
+          "min": 0.1650786,
+          "median": 0.1790723,
+          "max": 0.2003067,
+          "sum": 0.5444576
+        },
+        "json_and_tree_release_ns": {
+          "min": 0.1087307,
+          "median": 0.1109362,
+          "max": 0.1300878,
+          "sum": 0.3497547
+        },
+        "utf8_and_text_release_ns": {
+          "min": 0.0010887,
+          "median": 0.0013052,
+          "max": 0.0022059,
+          "sum": 0.004599799999999999
+        },
+        "sha256_ns": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "sum": 0.0
+        },
+        "comparison_ns": {
+          "min": 0.00045,
+          "median": 0.0004518,
+          "max": 0.0007673,
+          "sum": 0.0016691
+        },
+        "canonical_ns": {
+          "min": 0.2751145,
+          "median": 0.2910972,
+          "max": 0.3326004,
+          "sum": 0.8988121
+        }
+      }
+    },
+    "identity_key": {
+      "canonical_bytes": 5285468,
+      "phase_seconds": {
+        "typed_tree_ns": {
+          "min": 0.2411746,
+          "median": 0.2806648,
+          "max": 0.3137336,
+          "sum": 0.835573
+        },
+        "json_and_tree_release_ns": {
+          "min": 0.1230845,
+          "median": 0.1274691,
+          "max": 0.1306463,
+          "sum": 0.3811999
+        },
+        "utf8_and_text_release_ns": {
+          "min": 0.0043627,
+          "median": 0.0045401,
+          "max": 0.005177,
+          "sum": 0.0140798
+        },
+        "sha256_ns": {
+          "min": 0.0102812,
+          "median": 0.0104981,
+          "max": 0.0104997,
+          "sum": 0.031279
+        },
+        "comparison_ns": {
+          "min": 6e-07,
+          "median": 6e-07,
+          "max": 1e-06,
+          "sum": 2.2e-06
+        },
+        "canonical_ns": {
+          "min": 0.3686218,
+          "median": 0.4158512,
+          "max": 0.4463797,
+          "sum": 1.2308527
+        }
+      }
+    },
+    "snapshot": {
+      "canonical_bytes": 22302590,
+      "phase_seconds": {
+        "typed_tree_ns": {
+          "min": 0.9342768,
+          "median": 0.9494707,
+          "max": 1.0236052,
+          "sum": 2.9073527
+        },
+        "json_and_tree_release_ns": {
+          "min": 0.435261,
+          "median": 0.4449459,
+          "max": 0.5017084,
+          "sum": 1.3819153000000002
+        },
+        "utf8_and_text_release_ns": {
+          "min": 0.0065211,
+          "median": 0.006892,
+          "max": 0.0098762,
+          "sum": 0.0232893
+        },
+        "sha256_ns": {
+          "min": 0.0448497,
+          "median": 0.0449869,
+          "max": 0.0492588,
+          "sum": 0.1390954
+        },
+        "comparison_ns": {
+          "min": 1.3e-06,
+          "median": 1.3e-06,
+          "max": 1.4e-06,
+          "sum": 4e-06
+        },
+        "canonical_ns": {
+          "min": 1.3857438,
+          "median": 1.3946079,
+          "max": 1.5322056,
+          "sum": 4.3125573
+        }
+      }
+    }
+  },
+  "all7_structural_canonical_bytes": 418127030,
+  "snapshot_rows": {
+    "catalog": 234795,
+    "counts": 198946
+  },
+  "replay": {
+    "seconds": 11.092559400000027,
+    "peak_sampled_rss_bytes": 187662336,
+    "original_snapshot_sha_matched": true,
+    "samples": 20,
+    "recorded_samples": 15,
+    "raw_rows": {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/rows.json",
+      "bytes": 6883,
+      "sha256": "178be7274c1642e8efdbe40ebe607025586627d7600d91e0a658051f7f1b88e5"
+    },
+    "plan_receipt": {
+      "path": "shop-mysql-runtime/verification/knn-v29-serialization-f23a71b1333a4ad5a91f04b9365b4f53/plan.json",
+      "bytes": 1408,
+      "sha256": "855602b45530ec4a2f4bf845e2abf8f4978648a4206e13315c6c9746141dd0a4"
+    }
+  },
+  "identity_key_note": "Historical key payload reconstructed from frozen request/config/model and private exited worker identity; original key digest was not saved. Snapshot digest is directly matched to saved C1.",
+  "scope": {
+    "real_original48_runs": 0,
+    "rank_sql_append_calls": 0,
+    "new_fit_validation_bootstrap": 0,
+    "reserved_test": "locked",
+    "full_validation_complete": false,
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "interpretation": "Replay phase clocks and object retention perturb timing; JSON phase includes typed-tree release, UTF8 phase includes text release. Golden verification and checks add overhead. Do not apportion V28 seconds or claim candidate gains from this replay.",
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "measured_speedup": null,
+  "T_plan": null
+}
