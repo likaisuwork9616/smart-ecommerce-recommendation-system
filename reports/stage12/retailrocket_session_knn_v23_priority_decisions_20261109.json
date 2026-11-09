@@ -1,0 +1,295 @@
+{
+  "status": "v23_engineering_priority_decided",
+  "created_utc": "2026-11-09T01:25:43.381441+00:00",
+  "cost_evidence": {
+    "path": "reports/stage12/retailrocket_session_knn_v23_priority_costs_20261109.json",
+    "bytes": 102233,
+    "sha256": "74fcccef7a1f048d3fc39eaaa2b1eb7e70d2282c84a1229645b5dbba16dfdf7f"
+  },
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v23_priority_inventory_20261109.json",
+    "bytes": 173088,
+    "sha256": "7cbc1fc4dbb33587674e1386d2ecd2010ecf67317b905976bf377f92a4bcc4de"
+  },
+  "baseline_context": {
+    "V17": {
+      "scope": "six original-A paired runs only; warmups and B excluded; windows separate",
+      "entry_sum_seconds": 52.669048899999325,
+      "mean_entry_seconds": 8.778174816666555,
+      "exclusive_mean_seconds": {
+        "setup_seconds": 3.962462233333099,
+        "primary_seconds": 2.0874484833363263,
+        "tail_without_commit_seconds": 0.09146708333355491,
+        "entry_other_seconds": 2.6367970166635737
+      },
+      "exclusive_weighted_percent": {
+        "setup_seconds": 45.13993302810315,
+        "primary_seconds": 23.779983048104974,
+        "tail_without_commit_seconds": 1.0419829320315228,
+        "entry_other_seconds": 30.038100991760352
+      },
+      "direct_append_budget_mean_seconds": 0.032720666667046316,
+      "all_budget_contexts_mean_seconds": 0.0910981166671263,
+      "commit_all_mean_seconds": 0.0867088833329035,
+      "window_hash_seconds": 65.57255869999972,
+      "window_hash_percent": 35.426817167585725
+    },
+    "V22": {
+      "scope": "six original-A paired runs only; warmups and B excluded; windows separate",
+      "entry_sum_seconds": 56.101003599998876,
+      "mean_entry_seconds": 9.35016726666648,
+      "exclusive_mean_seconds": {
+        "setup_seconds": 4.240662699999954,
+        "primary_seconds": 2.173344150000048,
+        "tail_without_commit_seconds": 0.10252241666664001,
+        "entry_other_seconds": 2.833637999999837
+      },
+      "exclusive_weighted_percent": {
+        "setup_seconds": 45.35386992613486,
+        "primary_seconds": 23.243906638419833,
+        "tail_without_commit_seconds": 1.096476819533853,
+        "entry_other_seconds": 30.305746615911456
+      },
+      "direct_append_budget_mean_seconds": 0.03490490000012869,
+      "all_budget_contexts_mean_seconds": 0.10006243333335381,
+      "commit_all_mean_seconds": 0.09386433333338573,
+      "window_hash_seconds": 84.95006520000015,
+      "window_hash_percent": 39.37430600231757
+    }
+  },
+  "decision_basis": "Engineering judgment from measured batch costs, unresolved timing boundaries and correctness risk; not a new benchmark.",
+  "priorities": [
+    {
+      "priority": 1,
+      "work": "封存來源驗證與初始化分項診斷規格，再驗收觀測工具",
+      "state": "recommended_next_not_implemented",
+      "evidence": [
+        "Window initial/final closure hashing is measured at 35.43% and 39.37% of the two fixed48 windows.",
+        "Setup and entry-other are large observed regions but do not isolate hash/context/IO latency.",
+        "Publisher wall duration and individual source-check calls lack separate timers."
+      ],
+      "deliverable": [
+        "A separate preregistration on the same original48; no new SQL rewrite or removal of source checks.",
+        "Wall boundaries and exact call traces for closure verification, CheckpointStore.create, post-lock writer recheck, load_context/catalog, verifier, tail, ledger proof/output and independent publisher.",
+        "Separate unique descriptors from actual repeated call counts and logical bytes; retain scoped setup/primary/entry/window/post-exit definitions."
+      ],
+      "acceptance": [
+        "Same original48 order, immutable scientific outputs and physical bytes.",
+        "Every child timer stays within its parent; tail commit counted once; observer overhead reported.",
+        "Hash failures, same-size source changes, change between initial check and writer lock, lock/recovery faults, and publisher mismatches still reject.",
+        "One supervised sequential scope with source before/after checks; no retry selection or automatic candidate adoption."
+      ],
+      "expected_speedup_percent": null,
+      "reason": "Measure the large mixed regions before choosing a correctness-sensitive change."
+    },
+    {
+      "priority": 2,
+      "work": "依分項結果評估準備資料複用與來源快照設計",
+      "state": "conditional_on_priority1",
+      "deliverable": [
+        "Evaluate reuse of immutable catalog/context keyed by all source fingerprints, fit/config identities and causal filtering rules.",
+        "If repeated source verification dominates, design a provably stable snapshot or locked input lifetime; preserve before/after and independent publication protection, with explicit handling of renamed/replaced/modified inputs."
+      ],
+      "acceptance": [
+        "Demonstrate the same causal candidates, scores and complete payload for unknown/empty/future inputs and context version changes.",
+        "Fresh processes, lock transitions, source mutation and source replacement cannot inherit a stale verification result.",
+        "Preregister separate full-entry and primary comparisons; a source-time saving must not be reported as a ranking improvement."
+      ],
+      "expected_speedup_percent": null,
+      "reason": "The current bytes and setup/residual times provide opportunity evidence, not a measured speedup or permission to skip hashes."
+    },
+    {
+      "priority": 3,
+      "work": "保存與預算查核排在來源／準備之後，保留尾端異常追蹤",
+      "state": "lower_priority_monitor",
+      "evidence": [
+        "Across the original-A paired runs direct budget publication is a small measured nested component.",
+        "V21 single-case append swing is dominated by a direct budget publication; V20 guard swing did not recur in V21."
+      ],
+      "deliverable": [
+        "Keep direct budget, nested commit, final commit, context publication and payload encoding/write costs distinct.",
+        "Only reopen this work if new phase measurements show repeated, material end-to-end cost."
+      ],
+      "acceptance": [
+        "Absolute/cumulative deadlines, writer immutability, fault ordering, checksum/ledger recovery and atomic publication semantics remain validated.",
+        "Do not remove acceptance/candidate/global guards, lengthen persistence intervals or drop durability merely to reduce a small timer."
+      ],
+      "expected_speedup_percent": null
+    },
+    {
+      "priority": 4,
+      "work": "維持兩個 SQL 候選結案，完整驗收另立計畫",
+      "state": "closed_candidates_no_additional_runs",
+      "deliverable": [
+        "Retain original V4 ranking. No automatic 34-query comparison, extra pairs, lower thresholds or new candidate selection from these results.",
+        "When larger engineering bottlenecks are understood, separately scope full validation acceptance/recovery/resource windows."
+      ],
+      "acceptance": [
+        "Fixed48 and seven-case tail diagnostics remain exposed validation engineering evidence.",
+        "Do not extrapolate the batch window shares to 166897 validation queries or create a T_plan without a new justified specification.",
+        "Primary fits, full validation, bootstrap and reserved-test actions require their own authorized scope."
+      ],
+      "expected_speedup_percent": null
+    }
+  ],
+  "recommended_next_priority": 1,
+  "candidate_decisions": {
+    "V17": {
+      "pairs": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "A_primary_seconds": 2.1804192999970837,
+          "B_primary_seconds": 2.1212986999889836,
+          "primary_saving_seconds": 0.059120600008100155,
+          "primary_saving_percent": 2.7114326133592392,
+          "entry_saving_seconds": 0.2743528000009974
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "A_primary_seconds": 2.3692828000239388,
+          "B_primary_seconds": 2.058507199986707,
+          "primary_saving_seconds": 0.3107756000372319,
+          "primary_saving_percent": 13.116863889531968,
+          "entry_saving_seconds": 1.0128069000002142
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "A_primary_seconds": 1.9884877999938908,
+          "B_primary_seconds": 1.9359730000142008,
+          "primary_saving_seconds": 0.05251479997969,
+          "primary_saving_percent": 2.6409415224901727,
+          "entry_saving_seconds": 0.44482919999791193
+        },
+        {
+          "pair": 4,
+          "order": "BA",
+          "A_primary_seconds": 1.9540436000061163,
+          "B_primary_seconds": 2.060927399988941,
+          "primary_saving_seconds": -0.10688379998282471,
+          "primary_saving_percent": -5.4698779486030995,
+          "entry_saving_seconds": 0.30094309999913094
+        },
+        {
+          "pair": 5,
+          "order": "AB",
+          "A_primary_seconds": 1.848127299996122,
+          "B_primary_seconds": 1.8298746999971627,
+          "primary_saving_seconds": 0.01825259999895934,
+          "primary_saving_percent": 0.9876267721924589,
+          "entry_saving_seconds": -0.05685120000089228
+        },
+        {
+          "pair": 6,
+          "order": "BA",
+          "A_primary_seconds": 2.184330100000807,
+          "B_primary_seconds": 1.8283867000136524,
+          "primary_saving_seconds": 0.3559433999871544,
+          "primary_saving_percent": 16.295311774855957,
+          "entry_saving_seconds": 0.9828467999996064
+        }
+      ],
+      "faster_pairs": 5,
+      "order_median_savings_seconds": {
+        "AB": 0.05251479997969,
+        "BA": 0.3107756000372319
+      },
+      "median_saving_percent": 2.676187067924706,
+      "primary_gate_passed": false,
+      "entry_median_seconds": {
+        "A": 8.614620899999863,
+        "B": 8.165510850000828
+      },
+      "entry_regressed": false,
+      "supports_candidate": false
+    },
+    "V22": {
+      "pairs": [
+        {
+          "pair": 1,
+          "order": "AB",
+          "A_primary_seconds": 1.9261964999986958,
+          "B_primary_seconds": 2.1671199000015804,
+          "primary_saving_seconds": -0.2409234000028846,
+          "primary_saving_percent": -12.507727015548399,
+          "entry_saving_seconds": -0.2786054000002878
+        },
+        {
+          "pair": 2,
+          "order": "BA",
+          "A_primary_seconds": 2.314336299999468,
+          "B_primary_seconds": 2.7235808999989786,
+          "primary_saving_seconds": -0.4092445999995107,
+          "primary_saving_percent": -17.68302212602398,
+          "entry_saving_seconds": 0.42276769999989483
+        },
+        {
+          "pair": 3,
+          "order": "AB",
+          "A_primary_seconds": 2.1683068000015737,
+          "B_primary_seconds": 2.2448720000024878,
+          "primary_saving_seconds": -0.07656520000091405,
+          "primary_saving_percent": -3.5311054690627026,
+          "entry_saving_seconds": 1.2491344999998546
+        },
+        {
+          "pair": 4,
+          "order": "BA",
+          "A_primary_seconds": 2.5514994000000115,
+          "B_primary_seconds": 1.9313127000013992,
+          "primary_saving_seconds": 0.6201866999986123,
+          "primary_saving_percent": 24.306754687013036,
+          "entry_saving_seconds": 0.34714699999949516
+        },
+        {
+          "pair": 5,
+          "order": "AB",
+          "A_primary_seconds": 2.062535900002331,
+          "B_primary_seconds": 2.1315388000039093,
+          "primary_saving_seconds": -0.06900290000157838,
+          "primary_saving_percent": -3.3455369189695268,
+          "entry_saving_seconds": -0.37443830000029266
+        },
+        {
+          "pair": 6,
+          "order": "BA",
+          "A_primary_seconds": 2.017189999998209,
+          "B_primary_seconds": 2.173037000000477,
+          "primary_saving_seconds": -0.15584700000226803,
+          "primary_saving_percent": -7.725945498560196,
+          "entry_saving_seconds": 0.8494401999996626
+        }
+      ],
+      "faster_pairs": 1,
+      "order_median_savings_seconds": {
+        "AB": -0.07656520000091405,
+        "BA": -0.15584700000226803
+      },
+      "median_saving_percent": -5.628525483811449,
+      "primary_gate_passed": false,
+      "entry_median_seconds": {
+        "A": 9.620471049999878,
+        "B": 9.021258400000079
+      },
+      "entry_regressed": false,
+      "supports_candidate": false
+    }
+  },
+  "scope": {
+    "new_rankings": 0,
+    "new_benchmark_windows": 0,
+    "new_primary_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "T_plan": null
+}
