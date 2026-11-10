@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V37 cold 所有權驗證 | [盤點／判定／核對](freeze_retailrocket_session_knn_ownership_v37.py) | 13份來源／22個錨點與18項原行為測試通過；caller／callback未封閉，6→4條件未滿足。可行性判定待封存；現用`--audit`，沒有measure開關。[說明](../docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md) |
 | K1 V36 cold canonical 候選 | [盤點／封存／核對](freeze_retailrocket_session_knn_canonical_v36.py) | 6個原guard反例通過；安全候選24個待驗要求已封存，cold保留6次，盲重用減為4次有ABA風險不放行。沒有candidate／measure開關，現用`--audit`。[盤點與規格](../docs/STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md) |
 | K1 V35 cold／validation 診斷 | [觀測器](retailrocket_session_knn_diagnostics_v35.py)、[封存／驗收／循序入口](run_retailrocket_session_knn_diagnostics_v35.py) | 固定4fresh cold＋8codec calls，零query；原方法／source locks保留，分項及watch不外推。規格與49項完整驗收、原context唯一循序診斷完成；4cold／8codec、query0，分項與觀測擾動全保存。現用`--release <本輪namespace>`重稽核，`--measure`拒絕重試。[方法與規格](../docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |
 | K1 V34 通用入口與直接來源 | [通用helper](retailrocket_session_knn_entry_v34.py)、[驗收與核對](accept_retailrocket_session_knn_entry_v34.py) | 35項通過，真頂層CLI含buffered log與停止後完整seal；AST直接來源85，原1937／26只追加，不套用任意append例外。現用`--audit`。[方法與結果](../docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |

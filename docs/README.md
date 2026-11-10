@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜cold canonical bytes 重用候選（最新）
+## Stage 12｜cold 初始化不可變所有權（最新）
+
+13份來源／22個錨點與18項原行為測試通過；caller仍可變，尚不能依所有權6→4，原時點late／final與來源／鎖後／獨立發布不改。可行性判定待封存。[盤點與驗證](STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
+
+## Stage 12｜cold canonical bytes 重用候選（前輪）
 
 cold canonical安全候選與24個待驗要求已封存；保留late完整核對與6次canonical，直接6→4未放行，實作／測速皆0 [盤點與候選規格](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
 

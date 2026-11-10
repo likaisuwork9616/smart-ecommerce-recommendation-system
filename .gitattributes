@@ -493,3 +493,8 @@ reports/stage12/retailrocket_session_knn_v35_diagnostics_*.json -text whitespace
 scripts/freeze_retailrocket_session_knn_canonical_v36.py text eol=lf
 tests/test_retailrocket_session_knn_canonical_v36.py text eol=lf
 reports/stage12/retailrocket_session_knn_v36_canonical_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve cold ownership audit and original API counterexample evidence.
+scripts/freeze_retailrocket_session_knn_ownership_v37.py text eol=lf
+tests/test_retailrocket_session_knn_ownership_v37.py text eol=lf
+reports/stage12/retailrocket_session_knn_v37_ownership_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
