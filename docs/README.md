@@ -13,7 +13,7 @@
 
 ## Stage 12｜通用入口與 cold／validation 診斷（最新）
 
-cold／validation獨立診斷規格已封存；固定4fresh cold與8個codec calls，原1937／26／15只追加、零SQL query；完整入口驗收待完成 [入口修正與成本診斷](STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md)
+cold／validation診斷49項完整驗收通過，人工4fresh cold／8codec及獨立發布通過；已禁止SQL，真實context replay尚未開始 [入口修正與成本診斷](STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md)
 
 ## Stage 12｜C1-S1 原48筆公平比較（前輪）
 

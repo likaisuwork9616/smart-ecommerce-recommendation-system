@@ -6,7 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
-| K1 V35 cold／validation 診斷 | [觀測器](retailrocket_session_knn_diagnostics_v35.py)、[封存／驗收／循序入口](run_retailrocket_session_knn_diagnostics_v35.py) | 固定4fresh cold＋8codec calls，零query；原方法／source locks保留，分項及watch不外推。規格已封存，完整入口驗收待完成；未執行真實context。[方法與規格](../docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |
+| K1 V35 cold／validation 診斷 | [觀測器](retailrocket_session_knn_diagnostics_v35.py)、[封存／驗收／循序入口](run_retailrocket_session_knn_diagnostics_v35.py) | 固定4fresh cold＋8codec calls，零query；原方法／source locks保留，分項及watch不外推。規格與49項完整入口驗收完成，尚未執行真實context；提交後才開唯一`--measure`，已有request禁止重試。[方法與規格](../docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |
 | K1 V34 通用入口與直接來源 | [通用helper](retailrocket_session_knn_entry_v34.py)、[驗收與核對](accept_retailrocket_session_knn_entry_v34.py) | 35項通過，真頂層CLI含buffered log與停止後完整seal；AST直接來源85，原1937／26只追加，不套用任意append例外。現用`--audit`。[方法與結果](../docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |
 | K1 V33 停態成本分析 | [原分析與精確祖先來源接合](analyze_retailrocket_session_knn_compare_v33.py) | 12項輕量驗收與原48筆保存成本／17棵事件樹／15個負載context重算完成。priority helper由原來源中的固定祖先報告間接綁定，不宣稱原window直接核該檔；其餘7個直接依賴維持。現用`--audit`，不重跑query。[說明](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) |
 | K1 V32 停態發布補正 | [嚴格單次補正與核對](release_retailrocket_session_knn_v32.py) | 52項驗收通過；只對已停止的本輪V31唯一window與精確450-byte診斷做補正。`--recover`已完成原窗口發布、不重跑query；現用`--audit`重稽核。原V31 `--release`仍保留嚴格拒絕，沒有改舊方法。[說明](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) |

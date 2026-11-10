@@ -31,7 +31,7 @@
 
 ## 第二階段：cold／validation 診斷規格封存
 
-僅針對原四個context輸入與不變S1表示做獨立觀測，不重跑原48筆、不執行SQL query或fit，也不修改先前不採用結論。規格、來源與時序已封存；觀測器22項小型語義測試通過，完整受監督入口另待正式驗收後才能實測。
+僅針對原四個context輸入與不變S1表示做獨立觀測，不重跑原48筆、不執行SQL query或fit，也不修改先前不採用結論。規格、來源與時序已封存；觀測器22項小型語義測試通過，完整受監督入口其後亦完成49項正式驗收，見下節；真實context仍待最後階段。
 
 | 固定設計 | 內容與界線 |
 | --- | --- |
@@ -51,3 +51,20 @@
 原V31背景：cold_build 6.111406秒，原load 2.844051秒、prepare 0.828289秒、cold預期指紋1.219879秒，cold exclusive其餘1.219187秒。這些是已保存的舊scope，不能把新replay分項百分比套回去推算舊成本。OS檔案快取不清空；fresh是pool／store生命週期，不宣稱OS cold。
 
 [診斷規格](../reports/stage12/retailrocket_session_knn_v35_diagnostics_specification_20261110.json)與[規格seal](../reports/stage12/retailrocket_session_knn_v35_diagnostics_seal_20261110.json)保存完整source plan、固定順序、零query範圍與環境。完整入口驗收及真實context replay仍待後續階段；保留測試鎖定，T_plan空。
+
+## 第三階段：完整診斷入口合成驗收完成
+
+正式49／49項通過，失敗／錯誤／跳過均0，包括22項觀測器語義、12項新完整入口、15項通用入口回歸。前後方法SHA與封存plan核對一致；收據時長71.878秒，僅為人工工具驗收時間。
+
+| 完整人工窗口 | 實際結果 |
+| --- | --- |
+| 頂層入口 | 真正走CLI與contract，stdout／stderr捕捉、先完整來源hash再charged input_setup、外部release不改已關閉window |
+| Cold | 4個全新空store，load／prepare／finish、12個診斷指紋＋4個原codec參考核對；原source create與post-lock兩檢查不省略 |
+| Validation | 8次B／D呼叫、完整preimage proof及獨立setup，watch總次數及每欄1024取樣位置重算一致 |
+| 獨立發布 | worker退出後publisher自己重建context與原指紋，原4次open確認空帳本；原始事件樹與負載重算，五份輸出與停態完整日誌封存 |
+| 禁止查詢 | 人工bridge直接禁止sqlite3.connect；沒有SQL query、fit或新排名，空checkpoint records為0 |
+| 故障拒絕 | 缺direct source／錯scheme／scope／順序、非正常停止、原始結果／成本樹／負載／log改動、late file、發布收據被改皆拒絕 |
+
+V35的直接來源另明列140個舊專案Python seeds及V33 analyzer／test兩個字串載入目標，避免只以AST漏掉unittest動態載入。原1937／26／15仍不變，封存plan直接來源168，methods168；不是回填舊V31的驗證範圍。
+
+本階段真實context replay仍未開始，沒有新增實測分項或加速比例。完整[入口驗收收據](../reports/stage12/retailrocket_session_knn_v35_diagnostics_acceptance_20261110.json)綁方法、測試log與人工窗口final seal；另有[22項core驗收](../reports/stage12/retailrocket_session_knn_v35_diagnostics_core_acceptance_20261110.json)。提交不變收據後才開唯一真實context診斷窗口。
