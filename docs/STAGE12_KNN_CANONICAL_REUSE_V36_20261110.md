@@ -32,3 +32,28 @@
 原2092 sources／168 methods、內含原1937／26及15 binding描述符皆只保留／追加。身分key、鎖後完整來源核對、所有final live內容檢查、15次snapshot檢查與獨立publisher／停態日誌封存都不能移除。這輪沒有改舊方法、沒有候選測速，先前C1-S1不採用、55／55細層、170／232查詢與保留測試鎖定不變。
 
 [成本與原guard反例盤點收據](../reports/stage12/retailrocket_session_knn_v36_canonical_inventory_20261110.json)保存原方法／事件／測試log與成功ID。下一階段封存完整安全候選與未解除的工程前提。
+
+## 第二階段：保留時點的安全候選規格封存
+
+候選`C1-S1-cold-canonical-source-anchor-v1`只完成設計，沒有實作或候選驗收。已封存24個新增待驗要求，另外繼承原C1-S1／V34／V35的身分、來源、內容、科學bytes及停態發布條件。
+
+1. 原early順序與short-circuit行為不變：config live/source兩次完整canonical，再model兩次。
+2. 將已比對通過、來自exact verified buffers解析結果的不可變canonical bytes作固定權威，不保留可變alias、不從變更後caller更新baseline。
+3. 原load_context與prepare bytecode不改。
+4. **在原after-prepare位置仍完整canonical live config／model，與固定來源bytes比對；在cache.use、borrow返回或任何query body前完成。**任何差異即poison，清prepared／key／expected／owner／active，不重試。
+5. 原每次final live config／model canonical、snapshot與owner核對不變；同worker一cold六hits、15個live snapshot與22個digest仍保留。
+6. future method／request／事件／receipt／publisher綁定新policy，mixed policy拒絕；所有舊來源與methods只追加，不回填舊報告。
+
+安全路徑cold canonical仍6次、七次generic canonical仍41次。直接6→4明確未由本規格放行：必須另證涵蓋callee／watch／observer／外部alias的封閉不可變所有權，或另外制定同late時點完整canonical-equivalent typed內容比較。後者是新演算法，不能混稱純bytes重用。
+
+24項待驗要求涵蓋來源基準、early／late／ABA邊界、bool／int／float hex／signed zero／tuple等完整型別、late unsupported值借出前拒絕、失敗poison、全部來源鎖後及publisher、完整時間會計與不隱藏預載。六個已通過測試只證明原guard反例，**不是這24項候選驗收已通過**。
+
+未來有明確實作指示後仍須使用新檔、合成驗收與不可變方法收據；真實比較入口另封，再對同批原48筆新鮮對照。此輪新實作／候選測試／真實context replay／query均0，沒有可量測加速，T_plan仍空。
+
+[安全候選規格](../reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json) · [封存seal](../reports/stage12/retailrocket_session_knn_v36_canonical_seal_20261110.json)
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.freeze_retailrocket_session_knn_canonical_v36 --audit
+```
+
+`--audit`只核既有事件、原guard測試log、方法與封存內容，不重跑測試或context；已有盤點／規格拒絕覆寫，沒有candidate／measure開關。

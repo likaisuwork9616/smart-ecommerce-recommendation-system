@@ -13,7 +13,7 @@
 
 ## Stage 12｜cold canonical bytes 重用候選（最新）
 
-cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選 [盤點與候選規格](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
+cold canonical安全候選與24個待驗要求已封存；保留late完整核對與6次canonical，直接6→4未放行，實作／測速皆0 [盤點與候選規格](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
 
 ## Stage 12｜通用入口與 cold／validation 診斷（前輪）
 
