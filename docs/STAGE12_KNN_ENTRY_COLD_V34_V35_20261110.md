@@ -28,3 +28,26 @@
 ```
 
 `--acceptance`已完成，已有不可變收據會拒絕覆寫；`--audit`只核既有人工窗口與直接來源，不重跑查詢。通用helper沒有真實measure入口；後續cold／validation診斷會另外封存規格、驗收觀測器後再循序執行。
+
+## 第二階段：cold／validation 診斷規格封存
+
+僅針對原四個context輸入與不變S1表示做獨立觀測，不重跑原48筆、不執行SQL query或fit，也不修改先前不採用結論。規格、來源與時序已封存；觀測器22項小型語義測試通過，完整受監督入口另待正式驗收後才能實測。
+
+| 固定設計 | 內容與界線 |
+| --- | --- |
+| 輸入 | 原counts／catalog／config／model共8,863,434 bytes，完整path／bytes／SHA不變；原1937來源、26methods與15binding只追加，沒有縮小原邊界 |
+| Cold循序重播 | 1次warmup＋3次記錄，共4個fresh pool，各一個原ReuseStore，expected_queries=0、required_stages空；每次原create＋鎖後全binding核對、load／prepare／finish，3個完整診斷指紋及1個原codec參考核對 |
+| Cold分項 | 四個verified buffers、config／model JSON、4個比較canonical與2個保留canonical、buffer views、原load／prepare總成本、兩個mapping view與FrozenCatalog constructor、cold預期指紋；原prepare bytecode不改，view不冒稱資料copy |
+| Validation獨立setup | 另列重建與完整preimage bytes等價證明，不藏在正式call預載裡；這不是新的C1-S1比較或SQL候選 |
+| 配對呼叫 | 1個warmup pair＋3個記錄pair，原B與觀測D順序BD、BD、DB、BD，共8calls；每call有相同外層replay.codec.call，包含Counter／clone／report開銷 |
+| Validation分項 | exact schema、first／counts遍歷驗證與row copy、兩個sort、first_times／fallback驗證與copy、最後watch；新gross spans包含觀測器，不能直接分攤原V31的2.049408秒 |
+| Watch取樣 | 原每一次watch均保留；只每1024次計時並保存逐欄counter及取樣位置，樣本含計時開銷；不外推總watch、不從gross遍歷扣除、不當加速比例 |
+| 守恆 | 每棵原始事件樹重算inclusive／exclusive，父子層不能重複加總；另量孤立256組timer reads，只作校驗、不修正原耗時 |
+| 監督與獨立發布 | 同V5 1800秒與原資源限制，一worker循序；worker／publisher前後四次完整來源SHA；publisher自己重建preimage／digest，原4次open確認空帳本與binding，再以V34停態封存完整日誌 |
+| 不重試 | 唯一knn-v35-diagnostics namespace；已存在request禁止自動再測，完成後release只核既有結果。所有warmup與記錄值都保存，不挑快樣本 |
+
+此診斷的直接Python來源 **168個**，spec plan合併來源 **1969個**、methods **168個**；正式activation還會追加本輪驗收與人工證據。這是新診斷的身分範圍，不回填原V31。
+
+原V31背景：cold_build 6.111406秒，原load 2.844051秒、prepare 0.828289秒、cold預期指紋1.219879秒，cold exclusive其餘1.219187秒。這些是已保存的舊scope，不能把新replay分項百分比套回去推算舊成本。OS檔案快取不清空；fresh是pool／store生命週期，不宣稱OS cold。
+
+[診斷規格](../reports/stage12/retailrocket_session_knn_v35_diagnostics_specification_20261110.json)與[規格seal](../reports/stage12/retailrocket_session_knn_v35_diagnostics_seal_20261110.json)保存完整source plan、固定順序、零query範圍與環境。完整入口驗收及真實context replay仍待後續階段；保留測試鎖定，T_plan空。

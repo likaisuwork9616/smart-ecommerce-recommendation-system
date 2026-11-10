@@ -1,0 +1,27 @@
+{
+  "status": "v35_observer_core_synthetic_accepted",
+  "tests_run": 22,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v35.py",
+      "bytes": 10697,
+      "sha256": "dd8dbb9c837d84592ed1d4ace230bfdc0cb022db11230b4373db59c5d8dcd622"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_v35.py",
+      "bytes": 7500,
+      "sha256": "ea81a225c36f860848524a8da74388188c4cec235ec980c1a6593f4f50dc2cf0"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v35-core-504c02fdc5a943f7a752c8bb6906eb2f/tests.log",
+    "bytes": 3812,
+    "sha256": "a3e8d5526781000ea6d1f6311178cecd92fe1a918d05f22ac8014fee5b32643c"
+  },
+  "seconds": 2.9538417999992816,
+  "real_query_runs": 0,
+  "interpretation": "Small synthetic schema, byte/watch equivalence, original locks/identity and one-cold-six-hit15 checks. Not a real context run or performance comparison."
+}
