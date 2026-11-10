@@ -2,7 +2,7 @@
 
 ## 第一階段：真實入口規格封存
 
-本輪沿用已通過167項合成驗收的C1-S1專用完整快照指紋，新增獨立版本的真實比較入口。規格已封存；入口合成驗收與真實比較尚待後續階段，沒有本輪加速比例。
+本輪沿用已通過167項合成驗收的C1-S1專用完整快照指紋，新增獨立版本的真實比較入口。第一階段規格封存後，入口合成驗收亦已完成；真實比較尚待第三階段，沒有本輪加速比例。
 
 | 封存項目 | 固定內容 |
 | --- | --- |
@@ -23,3 +23,18 @@
 入口為`scripts/run_retailrocket_session_knn_compare_v31.py`。先使用`--acceptance`完成合成驗收；通過並提交後，`--measure`只允許唯一真實窗口。測後用`--release <本輪namespace>`重新稽核既有結果，不重跑查詢。分析入口`analyze_retailrocket_session_knn_compare_v31.py --analysis`彙整保存成本，已有分析改用`--audit`。
 
 [規格](../reports/stage12/retailrocket_session_knn_v31_compare_specification_20261110.json)與[封存收據](../reports/stage12/retailrocket_session_knn_v31_compare_seal_20261110.json)綁定原1261／15來源、原17個method、V29規格與V30成功驗收收據SHA。原始資料、模型與執行狀態留在Git忽略路徑。
+
+## 第二階段：真實入口合成驗收完成
+
+正式 **178／178 項測試通過**，失敗／錯誤／跳過均為0，收據計時 179.658 秒。包括新入口11項與V30所選167項新舊回歸；父版70個要求仍逐項對應成功的新S1測試。178是執行次數，V29仍刻意重跑原ContextTests 12項。
+
+| 核對項目 | 實際結果 |
+| --- | --- |
+| 新入口contract | 8項通過：原1261／15、17舊method完整保留並增至26、完整metadata與scheme、原門檻、新namespace、已有request拒絕重試 |
+| 新入口受監督人工窗口 | 3項通過：直接執行新entry worker/publisher，14全新帳本、48筆×14＝672次完整payload核對 |
+| 新S1及舊版回歸 | 167項通過，包括V30新增68項、V28／V27原套件及V29診斷回歸 |
+| 獨立程序與來源 | worker正常退出後publisher另起新程序，完整閉包前後核對與14次open；人工窗口來源49個、binding25個，與真實1261／15分開列示 |
+| 快照與會計 | worker15次live指紋、publisher獨立1次、一個cold六個hit；R無candidate cache，兩臂原fine observer深度一致 |
+| 故障拒絕 | 原始payload／成本／事件／負載／收據修改、未停止程序、worker或publisher失敗、既有request及scheme混用均受新舊測試核對 |
+
+這是人工資料上的入口驗收，**本階段真實比較次數仍為0，沒有本輪加速比例**。方法、封存規格、測試log與人工證據描述符均已保存於[入口驗收收據](../reports/stage12/retailrocket_session_knn_v31_compare_acceptance_20261110.json)。下一步在提交不變方法與收據後，才以同批原48筆開唯一循序真實窗口。
