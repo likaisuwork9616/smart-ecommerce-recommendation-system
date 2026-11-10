@@ -2,7 +2,7 @@
 
 ## 第一階段：原編碼語義與時點盤點
 
-本輪制定新演算法規格，沒有實作 comparator。目標是在原 after-prepare 位置完整檢查 live config／model，避免那兩次重新產生整份 JSON／UTF-8 canonical output；不是刪掉兩個內容 guard。現在執行中的程式仍是 6 次 canonical，沒有 6→4 採用或效能結論。
+本輪制定新演算法規格，沒有實作 comparator。目標是在原 after-prepare 位置完整檢查 live config／model，避免那兩次重新產生整份 JSON／UTF-8 canonical output；不是刪掉兩個內容 guard。既有 C1-S1 程式仍是 6 次 canonical，沒有 6→4 採用或效能結論。
 
 候選選擇 V36 的固定來源基準：early 比對成功的 verified source canonical bytes 才是權威。若初始化中持續變成 B，原 late baseline 可以吸收 B，本候選會在借出前拒絕；這是刻意加強的拒絕規則，不能稱為所有舊行為完全等價。
 
@@ -34,10 +34,72 @@ Exact MappingProxyType 可能包住自訂 mapping。未來實作要保留原 key
 
 目前只讀核對既有來源與封存證據，沒有再雜湊約 12GB closure，沒有真實 context replay、SQL query、fit 或原 48 筆重跑。完整 validation 未完成，保留測試 locked；55／55 細層與 170 可比較／232 歷史查詢不變。
 
-第二階段會封存具體 immutable reference 格式、32 項待驗要求與獨立發布／成本規則。
+第二階段已封存下方具體 immutable reference 格式、32 項待驗要求與獨立發布／成本規則。
 
 ```powershell
 .venv/Scripts/python.exe -B -m scripts.freeze_retailrocket_session_knn_typed_v38 --audit
 ```
 
 已有盤點拒絕覆寫；audit 只核既有來源與測試證據，不重跑測試／context。此入口沒有 candidate 或 measure 開關。
+
+## 第二階段：具體候選規格封存
+
+候選識別為 `C1-S1-cold-late-typed-source-anchor-v1`，reference scheme 為 `K1-C1-LATE-TYPED-REFERENCE-v1`。**目前只封存規格，未實作、未做候選驗收，也未採用。**前述 37 項是原程式語義依據，不是下列 32 個未來要求已通過。
+
+### 固定來源 reference
+
+原四次 early 完整比對全部成功後，保留 source config／model 的 typed canonical bytes。由這兩份 exact bytes decode，驗完整 grammar，再新建只含 tuple、exact str／bool 葉節點的遞迴 reference，不保留 caller 或 decoded list 的別名。這會新增 JSON decode、grammar／freeze 與暫時兩份物件圖的記憶體成本；全部在 cold 內計費，不預載、不跨 worker。
+
+| Token | 嚴格格式 |
+| --- | --- |
+| none | tag，arity 1 |
+| bool | tag＋exact bool，arity 2 |
+| int | tag＋原 `str(int)` 字串；int→str roundtrip 必須完全相同，沿用當前 interpreter 位數限制 |
+| float | tag＋finite hex；fromhex→hex roundtrip 完全相同，含負零 |
+| str | tag＋原字串；strict UTF-8 可編碼，不正規化 |
+| list／tuple | 不同 tag＋child token tuples，保存全部位置 |
+| map | tag＋排序後的 `(key, child)` tuples；key 必須 exact str、strict UTF-8、嚴格遞增且不重複 |
+
+原 configuration.json 檔案描述符，與 reconstruction.json 全檔描述符及其 `receipt` selector 都獨立綁定。未來還須另記 early 第 2／4 次成功的 **source typed canonical bytes** 長度／SHA、原 canonical 方法身分及 reference scheme；不能把原始 JSON 檔 bytes、或 V35 只捕捉到的 late bytes，當成本輪新量到的 early bytes。此輪沒有填入未實測的 canonical 輸出數字。
+
+### Late 完整比較
+
+在原 prepare span exit 後、原 late 位置，先完整查 config，成功才完整查 model。以原 exact type dispatch、scalar conversion、map key 讀取協定和序列順序走訪 live root，對照 immutable reference；不重建整棵 typed tree，也不產生完整 JSON／UTF-8 canonical output。Strict UTF-8 domain 驗證仍是實際工作，不能說成零成本。
+
+一般 mismatch 不得漏掉剩餘 live entries／elements；硬錯誤則立即拒絕並 poison。只在所有比較成功後保存固定 source expected bytes、owner／key，接回原 snapshot／pre-use／borrow；不得把變更後 caller 更新成新基準，也不在不等時 fallback 到舊 late baseline。
+
+這段邊界不新增 watch／span／observer clock／使用者 callback，包括 comparator entry 與 config／model 之間。採綁定的被動 timer 與本地純量 metadata，檢查完成後記錄證據；既有其他位置的 hooks／watch 全保留。Proxy 自訂 backing 原有的資料讀取 hooks 也不能被偷偷改寫；其 mutation／reentry 必須通過差分驗收。沒有並行或連續 heap 監測承諾。
+
+### 計數與完整成本
+
+| 項目 | 目前程式 | 候選規格預期，尚未執行 |
+| --- | ---: | ---: |
+| cold canonical | 6 | 4 |
+| cold 完整 typed comparison | 0 | 2 |
+| cold 完整內容觀察合計 | 6 | 6 |
+| 一 cold／六 hits generic canonical | 41 | 39 |
+| 同七次完整 typed comparison | 0 | 2 |
+| 同七次 live snapshot／digest | 15／22 | 15／22 |
+
+四次 canonical 加兩次完整 typed 檢查，不是四次總 guard。Reference decode／grammar／freeze、live walk／sort／int／hex／UTF-8、保持／釋放、RSS／GC 與觀測成本都納入同一完整入口；可能抵消省下的輸出成本，不預告加速比例。
+
+### 32 項未來驗收要求
+
+| 組別，各 4 項 | 涵蓋內容 |
+| --- | --- |
+| 權威來源 | early 成功 bytes、遞迴不可變 reference、cold 計費、變造／mixed policy 拒絕 |
+| 純量 | exact type、float.hex／signed zero／極值、整數與 interpreter 界線、Unicode／UTF-8 |
+| 容器 | list／tuple 與順序重複、dict／proxy 原讀取協定、完整巢狀欄位、禁止淺層／摘要捷徑 |
+| 失敗 | unsupported／subclass／nonstr key、mismatch 後完整 root、cycle／共享無環／深度／surrogate、所有錯誤 poison 清理 |
+| 時點 | 持續變更借出前拒絕、跨 late ABA、還原的離散界線、watch／observer 及重入策略 |
+| 原保護 | 全部身分 key／來源方法只追加、15 binding 的 create／鎖後、全部 final／15 snapshot、科學 bytes／SQL／獨立發布／停態日誌 |
+| 整合 | policy 全鏈綁定、reference 身分與兩次完成證據、單 worker 一 cold 六 hits、成功與失敗釋放 |
+| 成本 | 4＋2 完整核對、39／2／15／22 預期計數、全部新成本入帳、先差分合成驗收再另封循序原 48 筆比較 |
+
+完整要求 ID 見[候選規格](../reports/stage12/retailrocket_session_knn_v38_typed_specification_20261110.json)。未來須用未修改的原 canonical 作差分 oracle，涵蓋相等、不等、拒絕、產生的巢狀圖及明確邊界。若新演算法拒絕原本有效的邊界值，也必須先釐清，不能默認驗收通過。
+
+獨立 publisher 要重新讀 verified raw config／model，以原 canonical 重建 source bytes／reference 權威，不能相信 worker 序列化的 reference。核對 policy、原檔與 canonical 身分、一個 cold build／兩個 roots、cold 兩次 late 完成／hit 零次、被動時序與完整 phase counts，再保留原科學結果、來源、store 和停態日誌核對。
+
+所有舊方法與報告未改。既有 2092 sources／168 methods（內含原 1937／26 與 15 binding）及四個初始化依賴由繼承規格完整保留；未來實作只追加方法與 policy。候選實作／候選測試／真實 context／query／fit 均 0，T_plan 空值，沒有加速比例；Stage 4 每日 10% 預算及 Dashboard 暫緩不變。
+
+[不可覆寫 seal](../reports/stage12/retailrocket_session_knn_v38_typed_seal_20261110.json) 已保存規格與盤點的 exact 長度／SHA。現用上方 `--audit`核對，不要重跑 inventory／specification。下一步可依新檔實作，再把 32 項與繼承要求逐案映射到差分／整合驗收；實測入口與原 48 筆公平比較仍須另封。

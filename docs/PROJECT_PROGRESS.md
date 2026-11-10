@@ -9,6 +9,7 @@
 | 工作 | 實際結果 |
 | --- | --- |
 | 原語義盤點完成 | 37項原行為測試同輪循序全通、1.564秒：新19項typed oracle＋12所有權＋6時點。釐清固定來源加強拒絕、型別／UTF8／alias／proxy及late無新增callback；尚未實作或驗收候選 |
+| 完整規格已封存 | 新typed source-anchor規格與32項待驗要求封存；原late完整檢查、固定來源reference、4 canonical＋2 typed及全部新成本入帳，身分／鎖後／final／獨立發布不變。候選實作／測試均0，既有程式仍6次，無新效能結果 |
 
 [本輪語義盤點](STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 

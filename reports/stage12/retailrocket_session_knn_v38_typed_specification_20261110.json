@@ -1,0 +1,495 @@
+{
+  "status": "v38_full_late_typed_comparator_specification_frozen_not_implemented",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v38_typed_inventory_20261110.json",
+    "bytes": 20074,
+    "sha256": "2f6365e4b8da091a3e5d26128ad1de340dc09fc8614283ff875e42730a511a79"
+  },
+  "inherited": {
+    "records": [
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json",
+        "bytes": 18991,
+        "sha256": "7e90246f4f1fa8550b937f6ceb83834dbb53812b1d1c646c5149295069c9acbb"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_decision_20261110.json",
+        "bytes": 7317,
+        "sha256": "f6f9c6d6918700c20997ea4ce76f6a3b64a996d75792894dc39dc73887744529"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_seal_20261110.json",
+        "bytes": 573,
+        "sha256": "f7fe437ea0103ffaabb80035a1e0c5e1abe052fe307a8a695d73117bdc86841a"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json",
+        "bytes": 1120366,
+        "sha256": "4cc83800221321946c444e6729f157dbffbf07552a63b64c3c04f3030fdd6e58"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_seal_20261110.json",
+        "bytes": 605,
+        "sha256": "c5a23341907e2d299d45a3c15ee8bd29dc2152e61a2ffc626a6993cf60cf3a49"
+      }
+    ],
+    "source_audit": [
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_v2.py",
+          "bytes": 12239,
+          "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+        },
+        "anchors": [
+          {
+            "name": "read",
+            "start_line": 39,
+            "end_line": 40,
+            "bytes": 78,
+            "sha256": "da444c519d54be02359f167369073830c46866ff31cb93110a3dea0b1a4b4606"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+          "bytes": 24728,
+          "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+        },
+        "anchors": [
+          {
+            "name": "inputs",
+            "start_line": 146,
+            "end_line": 157,
+            "bytes": 881,
+            "sha256": "6b350f867e4cf9e586645d1af6026ce1846bd2d4fca2344fcca0e043f973d094"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_diagnostics_v35.py",
+          "bytes": 42988,
+          "sha256": "814e2ebe87e87f6dfd2b1247cd8d23e3042dc2baa08e6f02e02a823947646ddf"
+        },
+        "anchors": [
+          {
+            "name": "inputs",
+            "start_line": 204,
+            "end_line": 208,
+            "bytes": 457,
+            "sha256": "a8597dc4fc62b070237f7fce39f58f9e1b53b1cc79ec25702c7bb3c9fe7f3d6c"
+          },
+          {
+            "name": "run_cold_cycle",
+            "start_line": 240,
+            "end_line": 261,
+            "bytes": 1728,
+            "sha256": "6ca908899d25785a509ad4a85420d71df8d016596bdc912a9840e701dc576880"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+          "bytes": 15598,
+          "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+        },
+        "anchors": [
+          {
+            "name": "run_worker",
+            "start_line": 128,
+            "end_line": 142,
+            "bytes": 905,
+            "sha256": "17c9b9d94d75194ac360e104b5fc675280fcb611fbdac814555fe497d333885c"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_compare_v31.py",
+          "bytes": 12511,
+          "sha256": "174be03746a1bfd0f2816ab4de3d440d398c29a00895b54db57213ba1332c833"
+        },
+        "anchors": [
+          {
+            "name": "worker",
+            "start_line": 132,
+            "end_line": 134,
+            "bytes": 170,
+            "sha256": "52cbc7e27d9f74e19ff80ef39474bf426a4aaacaba549f2f0757748d245cbc1b"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_snapshot_adapter_v30.py",
+          "bytes": 12376,
+          "sha256": "5281ac90a1cbb647519f3e55611db7542dd328fe5ed27fb3ba2283621de50909"
+        },
+        "anchors": [
+          {
+            "name": "context_contract",
+            "start_line": 25,
+            "end_line": 27,
+            "bytes": 122,
+            "sha256": "a3ee4284cf5761be0eaffdbd0b19721a29cdb5ac3ff0e6aab5942234f76119e0"
+          },
+          {
+            "name": "WorkerContext.load",
+            "start_line": 42,
+            "end_line": 52,
+            "bytes": 727,
+            "sha256": "e0ca4ea076d6ff7ea5302ba21c0ccc6245cd3cd997c5fc786513503c9cf8bb5d"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_diagnostics_v35.py",
+          "bytes": 10697,
+          "sha256": "dd8dbb9c837d84592ed1d4ace230bfdc0cb022db11230b4373db59c5d8dcd622"
+        },
+        "anchors": [
+          {
+            "name": "WorkerContext.load",
+            "start_line": 179,
+            "end_line": 192,
+            "bytes": 912,
+            "sha256": "4270f9922984857d6dc57a1358c5014b7a87b3fedb943540421e9635ecda1f2e"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_pair_v4.py",
+          "bytes": 15376,
+          "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+        },
+        "anchors": [
+          {
+            "name": "verify_selected",
+            "start_line": 44,
+            "end_line": 239,
+            "bytes": 13011,
+            "sha256": "1069cfcfcdfec6344fea8da9389afa78544815856a0ba555cd28b07765d6c6a0"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+          "bytes": 15646,
+          "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+        },
+        "anchors": [
+          {
+            "name": "canonical",
+            "start_line": 23,
+            "end_line": 38,
+            "bytes": 894,
+            "sha256": "69ffb43e23120e17e014fef17aed3fa696eef9cf2d5a965bc6c54ef8195db841"
+          },
+          {
+            "name": "WorkerContext.__init__",
+            "start_line": 105,
+            "end_line": 110,
+            "bytes": 412,
+            "sha256": "0552dbae135c1b2b2589d63906b7375f74c71af69154a58fe17aeb5c4c356690"
+          },
+          {
+            "name": "WorkerContext._identity",
+            "start_line": 118,
+            "end_line": 151,
+            "bytes": 2922,
+            "sha256": "14a8e20f08ca315849e545e74fc9f234a9448acea410c0374d6959e39ddd072e"
+          },
+          {
+            "name": "WorkerContext.load",
+            "start_line": 160,
+            "end_line": 197,
+            "bytes": 3179,
+            "sha256": "e6e944c07707ad6bd313010c58ee4ef10720865193223ab99e842400eb335c1f"
+          },
+          {
+            "name": "WorkerContext.finish",
+            "start_line": 205,
+            "end_line": 216,
+            "bytes": 731,
+            "sha256": "919994318a02015809a4d7c5ae792d5585d7df3063cb12a27dbb7bcaf2629073"
+          },
+          {
+            "name": "make_verifier",
+            "start_line": 229,
+            "end_line": 250,
+            "bytes": 1440,
+            "sha256": "57cb67000fb4b778e8aafd396054e065974babaa673dba19d7c3d5d6447796e0"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_readback_v2.py",
+          "bytes": 16792,
+          "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+        },
+        "anchors": [
+          {
+            "name": "load_context",
+            "start_line": 61,
+            "end_line": 72,
+            "bytes": 722,
+            "sha256": "7ec4d81fe70d8525ac8f97ca021bfebec051426ae393a210fd7067c753c801b7"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_sql_v2.py",
+          "bytes": 10909,
+          "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+        },
+        "anchors": [
+          {
+            "name": "FrozenCatalog",
+            "start_line": 35,
+            "end_line": 49,
+            "bytes": 513,
+            "sha256": "5eb932f7826898e1da08fe313c298f8f42164145d454d66ea2601b61a2efb155"
+          },
+          {
+            "name": "prepare_catalog",
+            "start_line": 52,
+            "end_line": 71,
+            "bytes": 838,
+            "sha256": "d59195c41519d18a899eafaa65d2ddcdc8b16593716fa7662929fc261b9918cc"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_sources_v24.py",
+          "bytes": 12112,
+          "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+        },
+        "anchors": [
+          {
+            "name": "Observation.__init__",
+            "start_line": 20,
+            "end_line": 21,
+            "bytes": 107,
+            "sha256": "4b3fa6d29ffffec989d60f332d00c893243388668db6dccd4463f0441af1df9a"
+          },
+          {
+            "name": "Observation.span",
+            "start_line": 23,
+            "end_line": 40,
+            "bytes": 754,
+            "sha256": "dc1fabebbcd4b274e98c99ea9f3f59651fd4a2f9f4aec429e456dd63396a91bd"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_monitor_v3.py",
+          "bytes": 5935,
+          "sha256": "6683cdd0fea3db236e4afd63b4104b1683a3b6557393461e2c40ad9455a837e3"
+        },
+        "anchors": [
+          {
+            "name": "ThrottledWatch",
+            "start_line": 21,
+            "end_line": 79,
+            "bytes": 2593,
+            "sha256": "3a72693c4faa9adc1eb40bfa1fafd6e408ec34624e23416ec711c4d5d063172f"
+          }
+        ]
+      }
+    ],
+    "preserved_counts": {
+      "current_sources": 2092,
+      "current_methods": 168,
+      "original_sources": 1937,
+      "original_methods": 26,
+      "original_binding": 15,
+      "initialization_dependencies": 4
+    },
+    "limitation": "Re-audit sealed local code/event/test evidence; no new full 12GB source closure hash, real context or query replay."
+  },
+  "methods": [
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_typed_v38.py",
+      "bytes": 20973,
+      "sha256": "85f8c42558b2738549f9bee96af64738bc55016e668aaf5a22d28b23db2f1334"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_typed_contract_v38.py",
+      "bytes": 9593,
+      "sha256": "304ace4fc62c20b43d663aced276a8e1718c263f4973f4f05806f411878de560"
+    }
+  ],
+  "verification_log": {
+    "path": "shop-mysql-runtime/verification/knn-v38-oracle-265262399c2f4f45b90e7e603d121a53/tests.log",
+    "bytes": 8323,
+    "sha256": "4c1de72200bddc12486b0cb8cec90256a790c94eaa94484664e21c0df1bb37f8"
+  },
+  "candidate": {
+    "id": "C1-S1-cold-late-typed-source-anchor-v1",
+    "status": "design_only_not_accepted",
+    "semantic_target": "For a stable live graph in the original canonical domain, compare_full(live, frozen_reference) is true exactly when original canonical(live) equals the validated source canonical bytes. Original-or-stronger rejection timing is required; arbitrary concurrent mutation detection is not claimed.",
+    "baseline": "V36 validated source anchor. Persistent initialization changes are rejected before borrow, rather than adopted into the old late baseline. This deliberate strengthening must be reported separately from encoding equivalence.",
+    "reference": "After all four successful original early live/source canonical comparisons, retain the config/model source canonical bytes. Decode these exact bytes, validate the original typed JSON grammar, and build a new tuple-only recursive token tree containing exact immutable str/bool leaves. No live/source dict/list alias survives in the reference. Decode/grammar/freeze/retention costs are charged.",
+    "reference_validation": "Require exact tag/arity and JSON list shapes; none has arity1, others arity2. bool payload is exact bool; int payload is a str whose int/str roundtrip is canonical under current interpreter limits; float payload is a finite fromhex value whose hex roundtrip is exact including signed zero; str and map keys are exact UTF8-encodable str. Sequence children validate recursively; map pairs have arity2 with strictly sorted unique keys. Reject malformed/duplicate/out-of-order reference tokens; bind original source-byte length/SHA and reference scheme in evidence. These are checks of the supplied authority, not a new source serialization.",
+    "authority_bindings": {
+      "raw_configuration": {
+        "bytes": 24829,
+        "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/configuration.json",
+        "sha256": "f3d5b9d6c6711594fb6efeea3f322ae11a77e487ad9888504fda42a73f2b474d"
+      },
+      "raw_reconstruction": {
+        "bytes": 2179030,
+        "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/reconstruction.json",
+        "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+      },
+      "model_selector": "receipt",
+      "canonical_algorithm": {
+        "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+        "bytes": 15646,
+        "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+      },
+      "reference_scheme": "K1-C1-LATE-TYPED-REFERENCE-v1",
+      "future_evidence": "Separately bind each original raw JSON descriptor and each successful early source typed-canonical byte length/SHA (config call2/model call4), plus canonical algorithm identity and reference scheme. Do not relabel raw JSON bytes or V35 late bytes as newly observed early bytes."
+    },
+    "grammar": {
+      "none": [
+        "none"
+      ],
+      "boolean": [
+        "bool",
+        "exact bool"
+      ],
+      "integer": [
+        "int",
+        "str(int)"
+      ],
+      "floating": [
+        "float",
+        "finite float.hex()"
+      ],
+      "string": [
+        "str",
+        "exact Unicode str"
+      ],
+      "sequence": [
+        "list or tuple tag",
+        "tuple of child tokens"
+      ],
+      "mapping": [
+        "map",
+        "tuple of sorted (exact str key, child token) pairs"
+      ]
+    },
+    "traversal": "Walk every live node of the selected config/model root using original exact type dispatch, original sorted str map keys, scalar conversion and complete sequence order. Validate all live children including extra map entries/sequence elements after any value/shape/length mismatch; no zip truncation or boolean short-circuit may skip a live tail. A hard unsupported/unencodable/cycle error may immediately raise and poison; full traversal on ordinary inequality is not a demand to continue after an error. Accumulate equality without Python container equality, digest/identity-only shortcuts, rebuilding the whole typed tree or emitting JSON/UTF8 canonical output. Detect cycles only on active ancestry, and traverse repeated acyclic aliases for each occurrence without memoized equality.",
+    "domain_validation": "Preserve finite float checks, arbitrary int conversion limits, exact string/key types, no Unicode normalization and strict UTF8 encodability including lone-surrogate rejection. Cycle/depth/resource failures reject and poison; low-level exception text/class is not the scientific contract. Any newly rejected oracle-valid boundary case blocks candidate acceptance until explicitly resolved.",
+    "mapping_protocol": "Use the original all(type(k) is str for k in live), then sorted(live), then live[k] in that sorted order. Do not add len(live), items(), equality or other custom-backing protocol calls. Existing proxy-backed data hooks are not new instrumentation hooks; their mutation/reentry behavior needs explicit differential acceptance, and exact proxy type alone proves neither stable backing nor readonly capability. Dynamic protocol behavior remains an admission gate until the required equivalence tests pass.",
+    "timing": [
+      "unchanged complete identity/source/method/post-lock checks",
+      "unchanged verified four buffers and config/model source parsing",
+      "original four ordered short-circuit live/source canonical calls; retain source bytes only after equality",
+      "build and validate immutable source reference inside cold scope before original initialization",
+      "unchanged original load_context and prepare_catalog, including observer span exit",
+      "at original late boundary complete config typed validation/comparison, reject/poison if mismatch",
+      "then complete model typed validation/comparison, reject/poison if mismatch",
+      "only on success publish source expected bytes/owner/key and perform unchanged snapshot/pre-use/borrow",
+      "every original final live config/model canonical and complete snapshot validation unchanged"
+    ],
+    "callback_policy": "No new watch/span/observer-clock/user callback from original prepare-span exit through both late checks and successful expected-byte publication, including no hook at comparator entry or between config/model. Keep all existing hooks/watch calls elsewhere. Use bound passive timers/local primitive metadata and attach evidence after checks without inserting a callback before the old observation point. Reentry during comparison rejects before state publication. Cooperative sampling requires a separate mutation/reentry and timing specification.",
+    "failure": "Any reference build, original initialization or late comparison failure poisons and clears prepared/reference/expected bytes/key/owner/active. Never refresh authority from live caller, fall back to four calls without content checking, reuse after failure or move checks after borrow/query.",
+    "equality_scope": "Type/encoding equivalence is specified for stable graphs. Existing callback mutation scenarios remain admitted and must be checked at the same late point. A mutation restored before all existing discrete guards may pass; no continuous or adversarial heap isolation guarantee."
+  },
+  "call_accounting": {
+    "status": "proposed_only_current_runtime_unchanged",
+    "current_cold_canonical": 6,
+    "proposed_cold_canonical": 4,
+    "proposed_cold_full_typed_comparisons": 2,
+    "proposed_all7_generic_canonical": 39,
+    "proposed_all7_full_typed_comparisons": 2,
+    "all7_live_snapshot_fingerprints": 15,
+    "all7_digests": 22,
+    "qualification": "Six complete cold content observations remain: four canonical plus two typed checks. Canonical count reduction does not establish a speedup; reference decode/freeze/keysort/domain validation are new work."
+  },
+  "acceptance": {
+    "status": "future_candidate_not_implemented_or_tested",
+    "required_cases": {
+      "authority": [
+        "reference_only_from_source_bytes_of_successful_early_complete_comparisons",
+        "reference_tree_exact_grammar_recursively_immutable_no_live_or_parsed_alias",
+        "reference_build_decode_validation_and_lifetime_inside_charged_cold_scope",
+        "reference_tamper_or_mixed_source_policy_rejected_without_fallback"
+      ],
+      "scalar": [
+        "exact_types_none_bool_int_float_str_and_bool_int_int_float_separation",
+        "finite_float_hex_subnormal_extremes_and_positive_negative_zero",
+        "arbitrary_precision_integer_decimal_conversion_and_current_interpreter_limits",
+        "unicode_exact_codepoints_no_normalization_and_utf8_rejection_domain"
+      ],
+      "containers": [
+        "list_tuple_tag_order_lengths_and_duplicate_elements_all_covered",
+        "dict_proxy_equivalence_sorted_exact_string_keyset_values_and_original_read_protocol",
+        "every_nested_config_support_audit_and_unrelated_field_covered",
+        "no_identity_len_digest_only_equality_or_shallow_mappingproxy_shortcut"
+      ],
+      "failure": [
+        "unsupported_custom_subclass_nonstr_keys_and_nonfinite_rejected",
+        "selected_root_fully_validated_even_after_an_earlier_value_mismatch",
+        "active_path_cycles_rejected_shared_acyclic_aliases_allowed_depth_utf8_tail_fail_closed",
+        "reference_build_load_prepare_compare_failure_poison_all_state_no_retry"
+      ],
+      "timing": [
+        "persistent_config_and_model_init_mutations_rejected_at_original_late_before_borrow",
+        "ABA_crossing_original_late_boundary_rejected_no_baseline_refresh",
+        "restore_before_late_and_between_discrete_guards_no_continuous_detection_claim",
+        "watch_and_observer_entry_exit_mutations_and_comparison_reentry_policy_explicit"
+      ],
+      "preserved": [
+        "all_original_and_current_source_method_request_owner_key_checks_append_only",
+        "original15_create_and_postlock_full_checks_and_original_load_prepare_semantics",
+        "all_final_live_config_model_canonical_and_fifteen_live_snapshot_checks",
+        "independent_publisher_rebuild_scientific_bytes_SQL_and_stopped_log_seal"
+      ],
+      "integration": [
+        "new_policy_bound_in_methods_spec_request_events_receipt_publisher_mixed_rejected",
+        "reference_descriptors_comparison_counts_and_completed_phases_independently_checked",
+        "one_cold_six_hits_reference_reuse_only_in_one_worker_no_hit_guard_removed",
+        "success_and_failure_cleanup_reference_retention_release_no_crossprocess_cache"
+      ],
+      "accounting": [
+        "cold_four_canonical_plus_two_full_typed_checks_not_four_total_content_guards",
+        "all7_generic39_typed2_snapshot15_digest22_expected_future_accounting_only",
+        "reference_parse_freeze_full_walk_keysort_validation_release_and_observer_cost_in_entry",
+        "differential_oracle_acceptance_before_separate_sequential_original48_fair_comparison"
+      ]
+    },
+    "required_case_count": 32,
+    "oracle": "Differential checks against unchanged original canonical for accepted/equal/different/rejected values, including generated nested graphs and explicit limits. Characterization tests alone are not comparator acceptance.",
+    "inherited": "V36 source-anchor temporal/failure requirements, original C1-S1 applicable acceptance, V34 direct/log lifecycle and independent publication. Original methods/results remain immutable.",
+    "gate": "Implement in new files, map every new/inherited requirement to passed tests, seal independent synthetic integration evidence and policy identities before a separately frozen original48 sequential comparison."
+  },
+  "publisher_contract": "A new independent publisher re-reads verified raw config/model and uses original canonical to rebuild source-byte identities and immutable reference authority; never trust a serialized worker reference. Verify policy, source byte length/SHA, exactly one cold reference build with two roots, two successful complete late checks only on cold and zero on hits, ordered passive timing evidence and full success/failure phase counts in request/events/receipt. Preserve every original source/store/scientific reconstruction and stopped-log audit.",
+  "preserved": "All current 2092 sources/168 methods plus original1937/26 and binding15 are retained via the exact inherited specification. Complete identity key, create/post-lock checks, original SQL/scientific bytes, all final live checks, snapshot checks and independent publisher/stopped-log validation remain unchanged.",
+  "scope": {
+    "candidate_implemented": false,
+    "candidate_tests_run": 0,
+    "new_real_context_replays": 0,
+    "new_query_runs": 0,
+    "model_fits": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "measured_speedup": null,
+  "T_plan": null,
+  "created_utc": "2026-11-10T07:27:21.684694+00:00"
+}

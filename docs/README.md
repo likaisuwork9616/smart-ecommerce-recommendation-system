@@ -13,7 +13,7 @@
 
 ## Stage 12｜原 late 時點完整 typed comparator（最新）
 
-37項原typed oracle／所有權／時點測試通過；釐清完整型別與原late邊界，具體規格待封存，候選尚未實作或驗收、目前仍6次canonical。[語義盤點](STAGE12_KNN_LATE_TYPED_V38_20261110.md)
+完整規格與32項待驗要求封存，37項原行為測試通過；設計為4 canonical＋2個原late完整typed檢查，所有來源／鎖後／final／獨立發布保留。候選未實作或驗收，目前仍6次canonical、無加速比例。[語義與規格](STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 
 ## Stage 12｜cold 初始化不可變所有權（前輪）
 
