@@ -4,6 +4,14 @@
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## Stage 12 第 47 輪｜cold canonical bytes 重用候選
+
+| 工作 | 實際結果 |
+| --- | --- |
+| 候選盤點完成 | cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選 |
+
+[本輪盤點與規格](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
+
 ## Stage 12 第 46 輪｜通用入口與 cold／validation 診斷
 
 | 工作 | 實際結果 |
@@ -556,7 +564,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | cold／validation診斷完成 | 通用入口35項與診斷49項驗收完成；原context4cold／8codec循序診斷與獨立停態發布完成，query0；分項與觀測擾動已保存；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 候選盤點完成 | cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
@@ -570,7 +578,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | Stage 5 | 2018年5–9月缺 H60 觀察完成、入庫／評分版本與新標籤角色證據，可啟用新驗證窗為 0 | 依[新時間窗交接清單](templates/review_window_handoff/README.md)取得證據；不再對同三個開發月挑改動 |
 | Stage 6 | 離線研究交付與 UCI v1 封存完成；小組支援、歷史可得／完整性／身分與業務證據仍限制營運 | 依[交付與適用說明](STAGE6_RFM_RESEARCH_HANDOFF.md)保存 v1，來源或規則變更另立版本；Olist 接續仍按交接清單待資料，Retailrocket 推薦資料已另行建置驗收，P0真實開發與共現配對規格已完成，共現實作、成本、真實入口與配對validation也已完成，研究交付與證據保存亦已完成，後續新模型另立規格 |
 | Stage 7 | 延遲模型適用程度尚未確認 | 先固定每日10%預算改善延遲辨識，確認適用程度後再做 Dashboard 視覺化 |
-| Stage 8–13 | 通用入口35項與診斷49項驗收完成；原context4cold／8codec循序診斷與獨立停態發布完成，query0；分項與觀測擾動已保存 | 依cold與逐欄診斷另封單一改善候選，保留全部來源／鎖後／完整內容驗證，不把觀測差異當加速。[本輪結果](STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md) |
+| Stage 8–13 | cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選 | 封存source-anchored late guard與24個待實作驗收要求，不跳過原時點內容檢查。[本輪結果](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md) |
 
 ## Stage 11：D1 候選與比較研究歷程
 

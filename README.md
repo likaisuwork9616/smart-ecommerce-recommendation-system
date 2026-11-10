@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | cold／validation診斷完成 | 通用入口35項與診斷49項驗收完成；原context4cold／8codec循序診斷與獨立停態發布完成，query0；分項與觀測擾動已保存；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 候選盤點完成 | cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜通用入口與 cold／validation 診斷（最新）
+## Stage 12｜cold canonical bytes 重用候選（最新）
+
+cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選。原late兩次觀測中位約0.392秒，不是可保證收益；接著封存保留6次完整canonical的安全範圍與未解除的4次分支條件。 [盤點與候選規格](docs/STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
+
+## Stage 12｜通用入口與 cold／validation 診斷（前輪）
 
 通用入口35項與診斷49項驗收完成；原context4cold／8codec循序診斷與獨立停態發布完成，query0；分項與觀測擾動已保存。cold build中位6.640秒；原／觀測codec完整call中位1.354／1.742秒。這是獨立診斷，不將觀測分項套回原48筆，先前不採用結論不變。 [入口修正與成本診斷](docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md)
 

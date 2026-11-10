@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜通用入口與 cold／validation 診斷（最新）
+## Stage 12｜cold canonical bytes 重用候選（最新）
+
+cold canonical成本與原時點6個反例核對完成；直接6→4有ABA漏檢，安全設計保留late完整核對，尚未實作候選 [盤點與候選規格](STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md)
+
+## Stage 12｜通用入口與 cold／validation 診斷（前輪）
 
 通用入口35項與診斷49項驗收完成；原context4cold／8codec循序診斷與獨立停態發布完成，query0；分項與觀測擾動已保存 [入口修正與成本診斷](STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md)
 
