@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | C1-S1 主體實作與第一批核對完成 | 18 項 codec 合成核對通過，完整新舊情境與獨立發布驗收待完成；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 實作與合成驗收完成 | C1-S1專用完整快照指紋與新舊整合167項通過，70個規格要求逐案映射；人工14帳本672次核對與獨立發布通過，未跑真實48筆、無加速比例；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜C1-S1 專用完整快照指紋（最新）
 
-**C1-S1 主體與原流程 adapter 已實作，18／18 項 codec 核對通過**。每次完整驗證四欄並產生版本化指紋，保留來源、鎖定後重驗與原 pre／post 邊界；scheme 綁定 request、cache.use 與收據。下一步完成32新增＋38既有情境及獨立新程序發布驗收；未啟動真實48筆，沒有加速結論。 [本輪實作與驗收](docs/STAGE12_KNN_C1_S1_V30_20261110.md)
+C1-S1專用完整快照指紋與新舊整合167項通過，70個規格要求逐案映射；人工14帳本672次核對與獨立發布通過，未跑真實48筆、無加速比例。來源1261／原binding15前後逐檔核對；一個cold、六個hit、15次完整live快照與原來源／鎖定後／獨立發布檢查保留，舊C1未採用結果不變。 [本輪實作與驗收](docs/STAGE12_KNN_C1_S1_V30_20261110.md)
 
 ## Stage 12｜C1 序列化成本與候選規格（前輪）
 
