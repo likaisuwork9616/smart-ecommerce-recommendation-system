@@ -1,0 +1,43 @@
+{
+  "status": "v33_postexit_analysis_synthetic_accepted",
+  "created_utc": "2026-11-10T01:45:31.352465+00:00",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_compare_v33.py",
+      "bytes": 6854,
+      "sha256": "8d45b3a32ac0cff0fdde4055b2df3033b5a004249f20172304f8ad901de81121"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_compare_v33.py",
+      "bytes": 4108,
+      "sha256": "3ba3fd480994e85f626836e25d2a1793b900961731056f318d19a1fcb53727bb"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v33-analysis-acceptance-389edca3c8ef404ba2f2f01d5177ac73/tests.log",
+    "bytes": 1712,
+    "sha256": "f6d4b93b2317e6e3ddd17c2e35092ace8ef658061c94329314d0e792f43e0dcd"
+  },
+  "suite": "tests.test_retailrocket_session_knn_compare_v33",
+  "tests_run": 12,
+  "passed_test_ids": [
+    "tests.test_retailrocket_session_knn_compare_v33.AdapterTests.test_exact_clone_preserves_other_dependencies_and_numbers",
+    "tests.test_retailrocket_session_knn_compare_v33.AdapterTests.test_post_attestation_change_rejected",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_changed_current_ancestor",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_changed_current_helper",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_conflicting_direct_helper",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_duplicate_source",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_exact_indirect",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_missing_ancestor",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_missing_helper_binding",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_multiple_helper_bindings",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_wrong_bound_ancestor_sha",
+    "tests.test_retailrocket_session_knn_compare_v33.ProvenanceTests.test_wrong_helper_binding"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "new_real_runs": 0,
+  "seconds": 0.08171549999951822,
+  "analysis_stage": "postexit_only"
+}

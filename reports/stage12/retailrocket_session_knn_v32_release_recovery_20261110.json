@@ -1,0 +1,53 @@
+{
+  "status": "v32_original_window_publication_recovered",
+  "report": {
+    "path": "reports/stage12/retailrocket_session_knn_v31_compare_cost_20261110.json",
+    "bytes": 356721,
+    "sha256": "c9ee9b9a7971039bf311625bb8e8c0b3f3640f357b3494b0e944c5a73ad410d0"
+  },
+  "release": {
+    "path": "reports/stage12/retailrocket_session_knn_v31_compare_release_20261110.json",
+    "bytes": 608,
+    "sha256": "868c0b0c800353ffe69c384f07b02a9880ebce8e81a80aec46b63a330708604d"
+  },
+  "recovery": {
+    "status": "v32_exact_stopped_log_reconciled",
+    "specification": {
+      "path": "reports/stage12/retailrocket_session_knn_v32_release_specification_20261110.json",
+      "bytes": 86258,
+      "sha256": "4dffec9fb8ca79d9f1f8878723ee704fc8e2c97cf725e1409111f927f8a7362c"
+    },
+    "acceptance": {
+      "path": "reports/stage12/retailrocket_session_knn_v32_release_acceptance_20261110.json",
+      "bytes": 7897,
+      "sha256": "b5131b97ab1c6497c9f109d0c3888fc8fb3d079b5357c693886734677d5efbd3"
+    },
+    "audit": {
+      "path": "shop-mysql-runtime/verification/knn-v32-release-recovery-5a4c8cac6ea74233b9d7d6cc50990e77/audit.json",
+      "bytes": 2443,
+      "sha256": "3422b0575c3a004e43d7c5da2ef9b1f5bf1a12d7f184b11edbc7e78fec1a81df"
+    },
+    "witness": {
+      "original_descriptor": {
+        "bytes": 0,
+        "path": "shop-mysql-runtime/verification/knn-v31-s1-362fcd2ee5da4ae4bf2f5fd5bb9e04c5/stdout_stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "final_descriptor": {
+        "path": "shop-mysql-runtime/verification/knn-v31-s1-362fcd2ee5da4ae4bf2f5fd5bb9e04c5/stdout_stderr.log",
+        "bytes": 450,
+        "sha256": "f735e41fb16c5418eb0e5a49e7ccf67e43d26f2a129e72ce17cd0cd59d800841"
+      },
+      "original_prefix_bytes": 0,
+      "original_prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "append_bytes": 450,
+      "append_sha256": "f735e41fb16c5418eb0e5a49e7ccf67e43d26f2a129e72ce17cd0cd59d800841",
+      "reason": "The pipeline flushed exactly the frozen parent audit diagnostics after the independent publisher sealed the still-open outer stdout. No query, payload, cost, source, model or method differs."
+    },
+    "replayed_queries": 0,
+    "new_real_runs": 0,
+    "post_exit_total_seconds": 68.92503750000014
+  },
+  "replayed_queries": 0,
+  "new_real_runs": 0
+}
