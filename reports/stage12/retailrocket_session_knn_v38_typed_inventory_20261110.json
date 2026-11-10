@@ -1,0 +1,408 @@
+{
+  "status": "v38_original_typed_oracle_and_late_contract_inventoried",
+  "created_utc": "2026-11-10T07:24:54.302441+00:00",
+  "inherited": {
+    "records": [
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json",
+        "bytes": 18991,
+        "sha256": "7e90246f4f1fa8550b937f6ceb83834dbb53812b1d1c646c5149295069c9acbb"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_decision_20261110.json",
+        "bytes": 7317,
+        "sha256": "f6f9c6d6918700c20997ea4ce76f6a3b64a996d75792894dc39dc73887744529"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v37_ownership_seal_20261110.json",
+        "bytes": 573,
+        "sha256": "f7fe437ea0103ffaabb80035a1e0c5e1abe052fe307a8a695d73117bdc86841a"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json",
+        "bytes": 1120366,
+        "sha256": "4cc83800221321946c444e6729f157dbffbf07552a63b64c3c04f3030fdd6e58"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_seal_20261110.json",
+        "bytes": 605,
+        "sha256": "c5a23341907e2d299d45a3c15ee8bd29dc2152e61a2ffc626a6993cf60cf3a49"
+      }
+    ],
+    "source_audit": [
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_v2.py",
+          "bytes": 12239,
+          "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+        },
+        "anchors": [
+          {
+            "name": "read",
+            "start_line": 39,
+            "end_line": 40,
+            "bytes": 78,
+            "sha256": "da444c519d54be02359f167369073830c46866ff31cb93110a3dea0b1a4b4606"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+          "bytes": 24728,
+          "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+        },
+        "anchors": [
+          {
+            "name": "inputs",
+            "start_line": 146,
+            "end_line": 157,
+            "bytes": 881,
+            "sha256": "6b350f867e4cf9e586645d1af6026ce1846bd2d4fca2344fcca0e043f973d094"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_diagnostics_v35.py",
+          "bytes": 42988,
+          "sha256": "814e2ebe87e87f6dfd2b1247cd8d23e3042dc2baa08e6f02e02a823947646ddf"
+        },
+        "anchors": [
+          {
+            "name": "inputs",
+            "start_line": 204,
+            "end_line": 208,
+            "bytes": 457,
+            "sha256": "a8597dc4fc62b070237f7fce39f58f9e1b53b1cc79ec25702c7bb3c9fe7f3d6c"
+          },
+          {
+            "name": "run_cold_cycle",
+            "start_line": 240,
+            "end_line": 261,
+            "bytes": 1728,
+            "sha256": "6ca908899d25785a509ad4a85420d71df8d016596bdc912a9840e701dc576880"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+          "bytes": 15598,
+          "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+        },
+        "anchors": [
+          {
+            "name": "run_worker",
+            "start_line": 128,
+            "end_line": 142,
+            "bytes": 905,
+            "sha256": "17c9b9d94d75194ac360e104b5fc675280fcb611fbdac814555fe497d333885c"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/run_retailrocket_session_knn_compare_v31.py",
+          "bytes": 12511,
+          "sha256": "174be03746a1bfd0f2816ab4de3d440d398c29a00895b54db57213ba1332c833"
+        },
+        "anchors": [
+          {
+            "name": "worker",
+            "start_line": 132,
+            "end_line": 134,
+            "bytes": 170,
+            "sha256": "52cbc7e27d9f74e19ff80ef39474bf426a4aaacaba549f2f0757748d245cbc1b"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_snapshot_adapter_v30.py",
+          "bytes": 12376,
+          "sha256": "5281ac90a1cbb647519f3e55611db7542dd328fe5ed27fb3ba2283621de50909"
+        },
+        "anchors": [
+          {
+            "name": "context_contract",
+            "start_line": 25,
+            "end_line": 27,
+            "bytes": 122,
+            "sha256": "a3ee4284cf5761be0eaffdbd0b19721a29cdb5ac3ff0e6aab5942234f76119e0"
+          },
+          {
+            "name": "WorkerContext.load",
+            "start_line": 42,
+            "end_line": 52,
+            "bytes": 727,
+            "sha256": "e0ca4ea076d6ff7ea5302ba21c0ccc6245cd3cd997c5fc786513503c9cf8bb5d"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_diagnostics_v35.py",
+          "bytes": 10697,
+          "sha256": "dd8dbb9c837d84592ed1d4ace230bfdc0cb022db11230b4373db59c5d8dcd622"
+        },
+        "anchors": [
+          {
+            "name": "WorkerContext.load",
+            "start_line": 179,
+            "end_line": 192,
+            "bytes": 912,
+            "sha256": "4270f9922984857d6dc57a1358c5014b7a87b3fedb943540421e9635ecda1f2e"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_pair_v4.py",
+          "bytes": 15376,
+          "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+        },
+        "anchors": [
+          {
+            "name": "verify_selected",
+            "start_line": 44,
+            "end_line": 239,
+            "bytes": 13011,
+            "sha256": "1069cfcfcdfec6344fea8da9389afa78544815856a0ba555cd28b07765d6c6a0"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+          "bytes": 15646,
+          "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+        },
+        "anchors": [
+          {
+            "name": "canonical",
+            "start_line": 23,
+            "end_line": 38,
+            "bytes": 894,
+            "sha256": "69ffb43e23120e17e014fef17aed3fa696eef9cf2d5a965bc6c54ef8195db841"
+          },
+          {
+            "name": "WorkerContext.__init__",
+            "start_line": 105,
+            "end_line": 110,
+            "bytes": 412,
+            "sha256": "0552dbae135c1b2b2589d63906b7375f74c71af69154a58fe17aeb5c4c356690"
+          },
+          {
+            "name": "WorkerContext._identity",
+            "start_line": 118,
+            "end_line": 151,
+            "bytes": 2922,
+            "sha256": "14a8e20f08ca315849e545e74fc9f234a9448acea410c0374d6959e39ddd072e"
+          },
+          {
+            "name": "WorkerContext.load",
+            "start_line": 160,
+            "end_line": 197,
+            "bytes": 3179,
+            "sha256": "e6e944c07707ad6bd313010c58ee4ef10720865193223ab99e842400eb335c1f"
+          },
+          {
+            "name": "WorkerContext.finish",
+            "start_line": 205,
+            "end_line": 216,
+            "bytes": 731,
+            "sha256": "919994318a02015809a4d7c5ae792d5585d7df3063cb12a27dbb7bcaf2629073"
+          },
+          {
+            "name": "make_verifier",
+            "start_line": 229,
+            "end_line": 250,
+            "bytes": 1440,
+            "sha256": "57cb67000fb4b778e8aafd396054e065974babaa673dba19d7c3d5d6447796e0"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_readback_v2.py",
+          "bytes": 16792,
+          "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+        },
+        "anchors": [
+          {
+            "name": "load_context",
+            "start_line": 61,
+            "end_line": 72,
+            "bytes": 722,
+            "sha256": "7ec4d81fe70d8525ac8f97ca021bfebec051426ae393a210fd7067c753c801b7"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_sql_v2.py",
+          "bytes": 10909,
+          "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+        },
+        "anchors": [
+          {
+            "name": "FrozenCatalog",
+            "start_line": 35,
+            "end_line": 49,
+            "bytes": 513,
+            "sha256": "5eb932f7826898e1da08fe313c298f8f42164145d454d66ea2601b61a2efb155"
+          },
+          {
+            "name": "prepare_catalog",
+            "start_line": 52,
+            "end_line": 71,
+            "bytes": 838,
+            "sha256": "d59195c41519d18a899eafaa65d2ddcdc8b16593716fa7662929fc261b9918cc"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_sources_v24.py",
+          "bytes": 12112,
+          "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+        },
+        "anchors": [
+          {
+            "name": "Observation.__init__",
+            "start_line": 20,
+            "end_line": 21,
+            "bytes": 107,
+            "sha256": "4b3fa6d29ffffec989d60f332d00c893243388668db6dccd4463f0441af1df9a"
+          },
+          {
+            "name": "Observation.span",
+            "start_line": 23,
+            "end_line": 40,
+            "bytes": 754,
+            "sha256": "dc1fabebbcd4b274e98c99ea9f3f59651fd4a2f9f4aec429e456dd63396a91bd"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "scripts/retailrocket_session_knn_monitor_v3.py",
+          "bytes": 5935,
+          "sha256": "6683cdd0fea3db236e4afd63b4104b1683a3b6557393461e2c40ad9455a837e3"
+        },
+        "anchors": [
+          {
+            "name": "ThrottledWatch",
+            "start_line": 21,
+            "end_line": 79,
+            "bytes": 2593,
+            "sha256": "3a72693c4faa9adc1eb40bfa1fafd6e408ec34624e23416ec711c4d5d063172f"
+          }
+        ]
+      }
+    ],
+    "preserved_counts": {
+      "current_sources": 2092,
+      "current_methods": 168,
+      "original_sources": 1937,
+      "original_methods": 26,
+      "original_binding": 15,
+      "initialization_dependencies": 4
+    },
+    "limitation": "Re-audit sealed local code/event/test evidence; no new full 12GB source closure hash, real context or query replay."
+  },
+  "methods": [
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_typed_v38.py",
+      "bytes": 20973,
+      "sha256": "85f8c42558b2738549f9bee96af64738bc55016e668aaf5a22d28b23db2f1334"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_typed_contract_v38.py",
+      "bytes": 9593,
+      "sha256": "304ace4fc62c20b43d663aced276a8e1718c263f4973f4f05806f411878de560"
+    }
+  ],
+  "semantics": {
+    "scalar": "Exact None/bool/int/finite-float/str types only. Integers use str(value); floats use finite float.hex(), including signed zero. Python equality is not typed canonical equality.",
+    "sequence": "Exact list and tuple have different tags. Every position, order and repetition is significant; all nested content is covered.",
+    "mapping": "Exact dict and MappingProxyType share the map tag. All keys must be exact str; keys sort by original Python str ordering; insertion order is immaterial. Values remain recursively typed. An exact proxy may wrap a custom mapping: preserve the original key-type scan then sorted-key scan then per-key lookup protocol; do not assume the backing is an exact dict.",
+    "unicode": "No Unicode normalization/case folding or lossy conversion. Original JSON ensure_ascii=False and final UTF-8 encoding reject lone surrogates; omitting output serialization must not widen this domain.",
+    "failure": "Reject nonfinite floats, nonstr keys, custom/subclass values and cyclic/over-depth/unencodable graphs. Shared acyclic aliases remain valid and every occurrence is traversed; cycle detection must use the active ancestry path, not a global visited set. Low-level resource exception classes/messages are not promised identical; no failure may return an equal result or permit borrowing.",
+    "temporal": "All four early live/source canonical checks stay. Late comparison is after the original load/prepare span exits and before expected state publication, snapshot/pre-use/cache.use/borrow/query. Config precedes model; all final live canonical checks remain.",
+    "authority": "Use the validated source canonical bytes, not the mutable caller or a newly captured late baseline. This adopts V36 stronger source-anchor rejection and is not equivalent to the old behavior that could absorb a persistent initialization mutation.",
+    "ownership": "No immutable ownership assumption is made for caller dict/list/support or callback aliases. Only the newly built source reference value must be recursively immutable and nonescaping."
+  },
+  "verification": {
+    "suites": [
+      "tests.test_retailrocket_session_knn_typed_contract_v38",
+      "tests.test_retailrocket_session_knn_ownership_v37",
+      "tests.test_retailrocket_session_knn_canonical_v36"
+    ],
+    "tests_run": 37,
+    "passed_test_ids": [
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_arbitrary_precision_integer_decimal_digits_are_preserved",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_builtin_subclasses_are_not_accepted_as_exact_oracle_types",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_complete_support_and_unrelated_nested_metadata_are_part_of_identity",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_cyclic_list_and_mapping_are_rejected_by_original_recursive_oracle",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_exact_dict_and_mappingproxy_share_map_semantics",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_exact_scalar_tags_do_not_alias_none_boolean_integer_or_string",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_finite_float_values_use_exact_binary64_hex",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_list_and_tuple_tags_are_distinct_at_every_depth",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_lone_surrogate_values_and_keys_fail_original_utf8_encoding",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_map_insertion_order_is_irrelevant_at_every_depth",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_map_key_sort_is_unicode_lexical_not_numeric_or_locale_order",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_nested_boolean_and_integer_values_remain_distinct",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_non_string_map_keys_are_rejected_including_nested_maps",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_nonfinite_float_values_are_rejected_at_scalar_and_nested_positions",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_positive_and_negative_float_zero_remain_distinct",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_sequence_order_duplicates_and_length_are_all_preserved",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_shared_acyclic_dict_and_list_subtrees_match_independent_deep_copies",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_unicode_normalization_case_and_non_ascii_bytes_are_not_coalesced",
+      "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_unsupported_value_types_are_rejected_including_nested_values",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_after_late_capture_expected_A_then_B_restored_A_original_finish_still_accepts",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_equal_support_copy_is_rejected_because_original_API_requires_model_alias",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_list_to_tuple_freezing_changes_typed_canonical_and_original_receipt_comparison",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_mappingproxy_does_not_own_its_mutable_backing_dictionary",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_mappingproxy_is_shallow_and_nested_alias_still_reaches_live_config",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_nested_config_caller_alias_is_live_after_prepare_and_finish_rejects",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_nested_model_caller_alias_is_live_after_prepare_and_finish_rejects",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_observer_callback_can_mutate_nested_model_before_original_late_capture",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_retained_immutable_bytes_are_not_proof_of_live_caller_ownership",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_shared_support_alias_can_change_to_valid_value_during_original_load",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_shared_support_alias_invalid_during_load_is_rejected_and_poisoned",
+      "tests.test_retailrocket_session_knn_ownership_v37.ExistingOwnershipTests.test_watch_callback_can_mutate_nested_config_before_original_late_capture",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_NaN_at_original_late_config_capture_rejects_before_borrow",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_config_ABA_after_initial_validation_is_rejected_by_original_late_guard",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_custom_value_at_original_late_model_capture_rejects_before_borrow",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_model_ABA_during_prepare_is_rejected_by_original_late_guard",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_persistent_B_is_accepted_by_original_late_baseline_despite_source_A",
+      "tests.test_retailrocket_session_knn_canonical_v36.OriginalLateGuardTests.test_restore_A_before_original_late_capture_remains_accepted"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.5639039000016055,
+    "log": {
+      "path": "shop-mysql-runtime/verification/knn-v38-oracle-265262399c2f4f45b90e7e603d121a53/tests.log",
+      "bytes": 8323,
+      "sha256": "4c1de72200bddc12486b0cb8cec90256a790c94eaa94484664e21c0df1bb37f8"
+    },
+    "interpretation": "Original canonical oracle characterization plus original ownership/temporal tests only. No comparator implementation, candidate acceptance or performance measurement."
+  },
+  "scope": {
+    "candidate_implemented": false,
+    "candidate_tests_run": 0,
+    "new_real_context_replays": 0,
+    "new_query_runs": 0,
+    "model_fits": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "measured_speedup": null,
+  "T_plan": null
+}

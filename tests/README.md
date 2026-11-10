@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V38 late typed規格盤點：19項新增原canonical oracle測試、V37的12項所有權及V36的6項時點反例同輪循序重跑，37項全通、1.564秒，無失敗／錯誤／跳過。涵蓋exact type、float.hex／signed zero、完整巢狀欄位、Unicode、unsupported／subclass、surrogate、cycle與共享無環alias；不是新comparator的驗收。候選實作／測試、真實context／query均0。[收據](../reports/stage12/retailrocket_session_knn_v38_typed_inventory_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md)
+
 Stage 12 V37 cold所有權盤點：12項新增tiny原API測試與V36的6項時點反例同輪循序重跑，18項全通、1.492秒，無失敗／錯誤／跳過。涵蓋巢狀caller別名、共享support、watch／observer、MappingProxy backing／巢狀值、immutable bytes與list→tuple型別差異。不是6→4候選驗收，真實context／query均0。[盤點收據](../reports/stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json) · [方法與界線](../docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
 
 Stage 12 V17 投票候選入口通過 24 項驗收（新增 10 項、既有 14 項），包含封存來源漂移、原始48筆保存證據對回、偽造通過摘要拒絕、14次合成checkpoint與期限／成本守恆。[驗收收據](../reports/stage12/retailrocket_session_knn_v17_vote_acceptance_20261106.json)

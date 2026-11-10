@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜cold 初始化不可變所有權（最新）
+## Stage 12｜原 late 時點完整 typed comparator（最新）
+
+37項原typed oracle／所有權／時點測試通過；釐清完整型別與原late邊界，具體規格待封存，候選尚未實作或驗收、目前仍6次canonical。[語義盤點](STAGE12_KNN_LATE_TYPED_V38_20261110.md)
+
+## Stage 12｜cold 初始化不可變所有權（前輪）
 
 13份來源／22個錨點與18項原行為測試通過；可行性判定及16項未來門檻已封存。現有所有權不足以6→4，維持6次，原時點late／final與來源／鎖後／獨立發布不改。[盤點、驗證與判定](STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
 
