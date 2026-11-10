@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | late typed 規格已封存 | 37項原行為測試全通、32項候選待驗要求封存；設計為4次canonical＋2次完整typed核對，未實作或驗收，目前仍6次；身分／鎖後／final／獨立發布保留 |
+| Stage 12：session-kNN K1 | late typed 核心差分完成 | 核心40項測試通過，850個向量中含322個內容差分；worker／獨立發布完整驗收待完成，尚無真實48筆或加速結論 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜原 late 時點完整 typed comparator（最新）
+## Stage 12｜late typed 實作與驗收（最新）
+
+完整typed comparator／immutable reference核心已實作，40項測試全通、1.674秒；850個向量含322個內容差分，其餘grammar／runtime／protocol邊界分開記錄。保留固定來源與原late完整核對；動態proxy及callsite較強拒絕範圍已寫明，不宣稱任意heap全域等價。worker／獨立publisher正式整合驗收待完成，沒有真實context／query或加速比例。[核心實作與差分](docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+
+## Stage 12｜原 late 時點完整 typed comparator（前輪）
 
 原late完整typed comparator規格及32項待驗要求已封存；37項原語義／所有權／時點測試全通、1.564秒。設計以immutable來源reference在原late完整查config／model，保留身分、鎖後、final與獨立發布；預期4次canonical＋2次完整typed檢查，不是少兩個guard。**候選尚未實作或驗收，目前仍6次canonical**；真實context／query均0，沒有加速比例。下一步依規格實作及差分整合驗收，再另封原48筆比較。[語義與完整規格](docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 

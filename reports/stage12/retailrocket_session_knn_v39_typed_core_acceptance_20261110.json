@@ -1,0 +1,6300 @@
+{
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v38_typed_specification_20261110.json",
+    "bytes": 24578,
+    "sha256": "8d8a27d355c1236fe61f524bb7e912fba0251a0ffe77c1e3be9ea5a2ffddfb5a"
+  },
+  "seal": {
+    "path": "reports/stage12/retailrocket_session_knn_v38_typed_seal_20261110.json",
+    "bytes": 674,
+    "sha256": "4df4ae9e63688d4ae2d3fa697fd4e82615ef5303f3ba711e31cbef9f30f40189"
+  },
+  "methods": [
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_entry_v34.py",
+      "bytes": 7680,
+      "sha256": "21d839c7ab71e214764712a5429c9ba48d4e867fa220aa0c8764fabbe291c9c1"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_reuse_v27.py",
+      "bytes": 8428,
+      "sha256": "0848e817fba96f9a6c00654874d1e2352820189a71d6141383113117cf23eca1"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_snapshot_v30.py",
+      "bytes": 30446,
+      "sha256": "ba0c0763d12b09c390a0a3d4b6e752d3fdcf01a7f485ae1926708872a0dc3d9b"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_typed_core_v39.py",
+      "bytes": 4712,
+      "sha256": "87d72c1f1631a47d2333cbd334f9dcec5940c807a2da0b2dcf40f959abf6058a"
+    },
+    {
+      "path": "scripts/archive_retailrocket_three_arm_v1.py",
+      "bytes": 25498,
+      "sha256": "4aa9fdb7babb6dcb75e3deeb8245f12a43e735c5da5a0309daebc6a4f31411de"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_canonical_v36.py",
+      "bytes": 17132,
+      "sha256": "833ac42db8f04264ba3f4c4015b494414e1d9b0f4fb515d2951a9f6920d607ab"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_compare_v31.py",
+      "bytes": 8934,
+      "sha256": "5a03f4ec1f52da6b6e792730856759ddfb0f389a7f2ad50625d7b790a74385fb"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_ownership_v37.py",
+      "bytes": 20178,
+      "sha256": "7368a443244415ebc77fe6df70b0e5420eb993829113f32df55656bbbcebfd25"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_reuse_v26.py",
+      "bytes": 16554,
+      "sha256": "c96590f067d58e58f43c4ed8eae96a44a9d98bf61ed1e1cd4358d65ddf92bbbf"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 13168,
+      "sha256": "f6bbda1a8b4abeb17f93704d4ebf9de07f3c3c246ad9d950e3425efa78672fc9"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_typed_v38.py",
+      "bytes": 20973,
+      "sha256": "85f8c42558b2738549f9bee96af64738bc55016e668aaf5a22d28b23db2f1334"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_v1.py",
+      "bytes": 13257,
+      "sha256": "db934967ef305ea41dba0c44fcf3642f7f80dcfdc53cd2e017fb8b22134586bf"
+    },
+    {
+      "path": "scripts/inventory_retailrocket_session_knn_reuse_v26.py",
+      "bytes": 12256,
+      "sha256": "d220a6947102457aea3c995d7df8f816fdcba3865d6da104646bf719d2e82335"
+    },
+    {
+      "path": "scripts/inventory_retailrocket_session_knn_serialization_v29.py",
+      "bytes": 11941,
+      "sha256": "a040c680d8d488a3c5befc80ef78c56fda6bfe4ac84ff6179da5df064a826134"
+    },
+    {
+      "path": "scripts/prepare_retailrocket_session_knn_v1.py",
+      "bytes": 12565,
+      "sha256": "f5e7e93d4ec8537ae5367d3f11e4f66b1259bb37e6a92744546e399639d960fd"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence.py",
+      "bytes": 9464,
+      "sha256": "b47f9f1ddaa803d41b6cfc29bd4c343bd6ad061b99c4244aca27e2ff670892eb"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_io.py",
+      "bytes": 12142,
+      "sha256": "83603ccef44dd4caa9ecb2f7f110f051ca5b6179b3ac8fba963b99d137791e24"
+    },
+    {
+      "path": "scripts/retailrocket_directed.py",
+      "bytes": 10384,
+      "sha256": "52f72ed8e8f573371b35ea34276beeb45f071912f46a2903e7f34ecd75b21174"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "scripts/retailrocket_popularity.py",
+      "bytes": 11506,
+      "sha256": "c9e44bf53d73df61bea8b88dd4d99a2551756182edc14c592675fa26f0d01dc9"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_io.py",
+      "bytes": 6678,
+      "sha256": "ab8a4dc2e9f4f680e05021983726fd566cdeeb1395362e16146c766ed52416c2"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn.py",
+      "bytes": 10745,
+      "sha256": "53f58d0fb438dd966591f0edadfe3e7c135478e558d3d81c1565ca4636511465"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_cost_v5.py",
+      "bytes": 6650,
+      "sha256": "5ce501da8c2eeb7f4b3c7ea38d724b43246ace98ac4eb0038003293071bea0ff"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_compare_v28.py",
+      "bytes": 10392,
+      "sha256": "54b5883e875eae12d14b2e5ea502306dff489da7e5b0e287ff8e6a19c80d137f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost.py",
+      "bytes": 9196,
+      "sha256": "fe1316e37aa5a17ec41cef5e59c707afc0264c015bb86fa2ee776120c6128863"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_probe_v2.py",
+      "bytes": 10668,
+      "sha256": "d756c37801ee1f8ccafe58a9379ccc1e85861298884265cfa9604bcad46b5ecb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_rollup_v17.py",
+      "bytes": 24958,
+      "sha256": "333b9dc0b82a3beef74b8a10082dc69ccf2895bec947a7fa0a02f7d64c92cdee"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 7807,
+      "sha256": "d4424a2cd7591e7a3dfd8b5757be235e66ccf05244fa92bff4eae71774110070"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_detailed_cost_v6.py",
+      "bytes": 6853,
+      "sha256": "b611b644218c821b89cd56d4188aeca2931cd8d5c4bd09cfb5d61167ed03c260"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 23934,
+      "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v35.py",
+      "bytes": 10697,
+      "sha256": "dd8dbb9c837d84592ed1d4ace230bfdc0cb022db11230b4373db59c5d8dcd622"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_v34.py",
+      "bytes": 16272,
+      "sha256": "7ddcedd4e442c42dbe16d3ab68cc94130e1e8f72a4b686a0513757e78090a08f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_evaluation.py",
+      "bytes": 8053,
+      "sha256": "0eef1b2f74c83f2698ab6839c1a00629aa3f7cad15975472c15e4f897aac23df"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v10.py",
+      "bytes": 11939,
+      "sha256": "845853ff0feb93f63ccc261586e0cfba07b99bd3ae53161ebe3dfb3deef066c8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v16.py",
+      "bytes": 14486,
+      "sha256": "2c964e7c62310836bec64348022bc5732003ab0ded607c741f061017594dd9fb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v7.py",
+      "bytes": 11919,
+      "sha256": "90dbdc026acf55a5953092e1c804939454e7eb17e0a259562a7799f9a5fa9949"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v8.py",
+      "bytes": 9155,
+      "sha256": "34a85e847b8b0759d2eea0076fcd004c5feaba5cac4fe6718fd92932e4b04e62"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_gap_v9.py",
+      "bytes": 13755,
+      "sha256": "91c7222f3726a38df0d3021c3a1a24493e839c0a8d2dc9269cf82f7779c48925"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_guards_v21.py",
+      "bytes": 6367,
+      "sha256": "0c44ba75e6c849ae92829a9aa3828e061b1f0b20e2e4a6bd26bfb53fccb97c4b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_io.py",
+      "bytes": 10841,
+      "sha256": "7ce4c7e6a800ee2db55860150dcba99d47bbc0e6a29f2168d9c7f19756163e9b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_joint_cost_v5.py",
+      "bytes": 18105,
+      "sha256": "b032c5528b3516aca670f241ec9f3ff5d49300fa727c03e13a9af0801acce938"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_monitor_v3.py",
+      "bytes": 5935,
+      "sha256": "6683cdd0fea3db236e4afd63b4104b1683a3b6557393461e2c40ad9455a837e3"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_oracle.py",
+      "bytes": 14292,
+      "sha256": "3699f0bc6b5906eaad376ba5cdf677b77e8049fb1499acd8c0a056ad8caa6462"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_overlap_candidate_v21.py",
+      "bytes": 1264,
+      "sha256": "759ffc54e2ca5eefb4b476ef1e065b1028d625676a3b53c2409a357500cc5f77"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_overlap_v22.py",
+      "bytes": 1261,
+      "sha256": "3cd430e401f6e6271b688f4ba27a0cd07ce109b3c318db0ea9eea83dd717926d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_probe_v3.py",
+      "bytes": 26337,
+      "sha256": "3824392b3db782edbd6e82423f0558e0444334597a1b882b783912a8f98dcb6b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_priority_v23.py",
+      "bytes": 6126,
+      "sha256": "4c0c365efe97504bc149b6576cc6ba54a49515e45d6d6106242308599672e09a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_refined_cost_v6.py",
+      "bytes": 7618,
+      "sha256": "6e28d2cc8f39b03a8f3ae26b0745a0144f7c7fb7d5a1e1f965c307f3f1e64a55"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_audit_v27.py",
+      "bytes": 7988,
+      "sha256": "be9f1f33c5c80f7ed60258b8f49ad7c40daa99d6ca5a21c9c3c4aa6fbd97b5d2"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "bytes": 15646,
+      "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_snapshot_adapter_v30.py",
+      "bytes": 12376,
+      "sha256": "5281ac90a1cbb647519f3e55611db7542dd328fe5ed27fb3ba2283621de50909"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_snapshot_v30.py",
+      "bytes": 3246,
+      "sha256": "bdb41ff716334f70ae6fb6f5f5f6aee6928d402cd9dc8beb4076cc3b8e6788bb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v4.py",
+      "bytes": 19252,
+      "sha256": "a84e8a782fdc0234e633d2b2f18e1f4755865eda9f0b590411e26fdd776258d6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_tail_v19.py",
+      "bytes": 24246,
+      "sha256": "94320d86156a9d8ca14c9293d2ff46feee02df1a79b04fe2b040d53d4cc0827a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_v39.py",
+      "bytes": 19329,
+      "sha256": "3a20aa0911a885c53c5f3296602ba23bbbf8e5e58979a1ff50bc3d1c8e9eeb46"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_vote_v7.py",
+      "bytes": 15759,
+      "sha256": "841aa72abf8d331facb4049aaa11b8d7e94142c1418ba10e13670ea182ae7b5f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+      "bytes": 15598,
+      "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_compare_v31.py",
+      "bytes": 12511,
+      "sha256": "174be03746a1bfd0f2816ab4de3d440d398c29a00895b54db57213ba1332c833"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_diagnostics_v35.py",
+      "bytes": 42988,
+      "sha256": "814e2ebe87e87f6dfd2b1247cd8d23e3042dc2baa08e6f02e02a823947646ddf"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v16.py",
+      "bytes": 21906,
+      "sha256": "d2ae41b416a83d6252105741cdbe14e3eac0bd5d82ad280232a246748ed2811f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v7.py",
+      "bytes": 21777,
+      "sha256": "543cc2d6c8edda77e7e6f61d96b5b1f66f834bbd21e3fb5e63256bf0750ba9fd"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v9.py",
+      "bytes": 19569,
+      "sha256": "dce04726957880c20a6e5ecf1819ebcfebff02547b78cd540ef5b6df0aebddbb"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_guards_v21.py",
+      "bytes": 48656,
+      "sha256": "e780c4b383fce70138a6ee9e4d822dbc53e8f65f301689e0e9c1e1ba2250abe3"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_overlap_v22.py",
+      "bytes": 31730,
+      "sha256": "c13b69535b5d06328a328ab37b2930a114c5c4ae6a99daa5ea2015f7da6fb5c8"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_refined_cost_v6.py",
+      "bytes": 19930,
+      "sha256": "ab3dc2debd2049bb379bce507662c537a1a42d1df28f58bbb87f66bec16467ad"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_sources_v25.py",
+      "bytes": 24728,
+      "sha256": "7b0ca47ab3f562c3652d50519a7a58636f0faec2d185d98b6547f65b10f65f5d"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_tail_v19.py",
+      "bytes": 35539,
+      "sha256": "b4d549892dd13a5d1083b275d613a96acbe95c36e314bd516ef9b412e36e8022"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v1.py",
+      "bytes": 16464,
+      "sha256": "c5c81352c32b465cc3f67e807df28ebd778e46ffe9cdb9e8f735fe2b1ea728b7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "bytes": 12239,
+      "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v17.py",
+      "bytes": 34713,
+      "sha256": "9a192bbf773baef28505eb46d6a9a2c5eb1ff9f76e6178ebb0cc8c96a42d48a9"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v7.py",
+      "bytes": 21936,
+      "sha256": "99cd2eca90b19cda349700916247ca5178a7d58d820342d4c002233db924f025"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn.py",
+      "bytes": 20857,
+      "sha256": "5e55d59c350987ffc334d3ddc944de4965f130665432e22a14d3579053b3f07f"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_compare_v28.py",
+      "bytes": 12791,
+      "sha256": "a1b8d358cafaefb956b1f5e3aa084757b03aca4c72c7f45f79b54e0c219b6208"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_compare_v31.py",
+      "bytes": 18235,
+      "sha256": "37ad04c4066048b90253c1ea67edea9381422972ebcae8cfe189c72c5ffc7d09"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostic_entry_v35.py",
+      "bytes": 21954,
+      "sha256": "599c5563dbd550debdeb9c25d8d6ff41792cf6076bb03560ccdb625d2e436a6a"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_v34.py",
+      "bytes": 12263,
+      "sha256": "2e72d193bcc12e220858bc486485580706336a9f0aa18e92a21d5ef10eb139c2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pair_v4.py",
+      "bytes": 12626,
+      "sha256": "bd2cd1c1fde892b80d164f2033b85ddec3be339313755cf439aa2daa96944585"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_reuse_acceptance_v27.py",
+      "bytes": 26036,
+      "sha256": "23ec5398f8ff24f3ba282b7a9f0b1bc1ff39fa19f5ba788fd097ae0544c00d7e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_reuse_v27.py",
+      "bytes": 10122,
+      "sha256": "d8dc1f33462175df8955d8d1685c6dca6445ef5d48bbef79d3319c813b272d8c"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_snapshot_integration_v30.py",
+      "bytes": 28513,
+      "sha256": "c30dd1e286551fb303af25270ea9b7be7dca20a945698af6af1e917cf2ad0577"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_typed_contract_v38.py",
+      "bytes": 9593,
+      "sha256": "304ace4fc62c20b43d663aced276a8e1718c263f4973f4f05806f411878de560"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_typed_v39.py",
+      "bytes": 25930,
+      "sha256": "13b84e2e44720761a858fc60bac7be4268ccede94018f069f963d320a1176ad4"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_validation.py",
+      "bytes": 17481,
+      "sha256": "ba8def181e5018a7accfec59c3abb3563b79f5abf8e2ce163935e77dfae54164"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_typed_v39",
+    "tests.test_retailrocket_session_knn_typed_contract_v38"
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "scope": {
+    "comparator_core_implemented": true,
+    "worker_publication_accepted": false,
+    "new_real_query_runs": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked"
+  },
+  "interpretation": "New comparator/reference core differential tests plus original oracle characterization. Not complete worker/publisher acceptance or performance measurement.",
+  "measured_speedup": null,
+  "T_plan": null,
+  "status": "v39_typed_comparator_core_differential_accepted",
+  "created_utc": "2026-11-10T08:10:26.256267+00:00",
+  "tests_run": 40,
+  "passed_test_ids": [
+    "tests.test_retailrocket_session_knn_typed_v39.BoundaryTests.test_current_runtime_and_attested_callsite_are_checked",
+    "tests.test_retailrocket_session_knn_typed_v39.BoundaryTests.test_integer_limit_change_and_large_decimal_conversion",
+    "tests.test_retailrocket_session_knn_typed_v39.BoundaryTests.test_last_proxy_read_permanent_runtime_change_cannot_return_equal",
+    "tests.test_retailrocket_session_knn_typed_v39.BoundaryTests.test_near_limit_worker_approval_and_public_deep_bytes_rejection",
+    "tests.test_retailrocket_session_knn_typed_v39.GeneratedTests.test_reproducible_nested_equal_and_unequal_graphs",
+    "tests.test_retailrocket_session_knn_typed_v39.ReferenceTests.test_controlled_stale_admission_cannot_authorize_changed_slots",
+    "tests.test_retailrocket_session_knn_typed_v39.ReferenceTests.test_malformed_tags_payloads_shapes_and_noncanonical_bytes",
+    "tests.test_retailrocket_session_knn_typed_v39.ReferenceTests.test_public_builder_rechecks_oracle_and_private_boundary_is_explicit",
+    "tests.test_retailrocket_session_knn_typed_v39.ReferenceTests.test_reference_is_tuple_only_nonserializable_and_factory_admitted",
+    "tests.test_retailrocket_session_knn_typed_v39.ScalarTests.test_exact_scalar_and_string_vectors",
+    "tests.test_retailrocket_session_knn_typed_v39.ScalarTests.test_mapping_order_and_dict_proxy_equivalence",
+    "tests.test_retailrocket_session_knn_typed_v39.ScalarTests.test_type_and_encoding_inequality_vectors",
+    "tests.test_retailrocket_session_knn_typed_v39.ScalarTests.test_unsupported_subclasses_and_invalid_values_are_not_equal",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_active_ancestry_rejects_cycles_and_recovers_after_failure",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_caught_nested_comparison_still_invalidates_outer_and_resets",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_dynamic_second_pass_nonstr_is_explicit_admission_not_oracle_rejection",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_dynamic_second_pass_string_payload_matches_original_json",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_ordinary_mismatch_never_skips_invalid_extra_live_tails",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_proxy_protocol_exact_all_keyscan_sorted_then_getitem",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_proxy_reentry_is_rejected_without_leaking_busy_state",
+    "tests.test_retailrocket_session_knn_typed_v39.TraversalTests.test_shared_acyclic_aliases_are_each_fully_traversed",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_arbitrary_precision_integer_decimal_digits_are_preserved",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_builtin_subclasses_are_not_accepted_as_exact_oracle_types",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_complete_support_and_unrelated_nested_metadata_are_part_of_identity",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_cyclic_list_and_mapping_are_rejected_by_original_recursive_oracle",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_exact_dict_and_mappingproxy_share_map_semantics",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_exact_scalar_tags_do_not_alias_none_boolean_integer_or_string",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_finite_float_values_use_exact_binary64_hex",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_list_and_tuple_tags_are_distinct_at_every_depth",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_lone_surrogate_values_and_keys_fail_original_utf8_encoding",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_map_insertion_order_is_irrelevant_at_every_depth",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_map_key_sort_is_unicode_lexical_not_numeric_or_locale_order",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_nested_boolean_and_integer_values_remain_distinct",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_non_string_map_keys_are_rejected_including_nested_maps",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_nonfinite_float_values_are_rejected_at_scalar_and_nested_positions",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_positive_and_negative_float_zero_remain_distinct",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_sequence_order_duplicates_and_length_are_all_preserved",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_shared_acyclic_dict_and_list_subtrees_match_independent_deep_copies",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_unicode_normalization_case_and_non_ascii_bytes_are_not_coalesced",
+    "tests.test_retailrocket_session_knn_typed_contract_v38.OriginalTypedCanonicalTests.test_unsupported_value_types_are_rejected_including_nested_values"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 1.674343399998179,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v39-core-tests-b8627d14bdf244f8b0329ed0ced7349e/tests.log",
+    "bytes": 8166,
+    "sha256": "1af9a06aa6f60bb3736f31c71a3eb1c44307b0bbc70dce39fc36de44858971ef"
+  },
+  "differential": {
+    "status": "v39_executed_artificial_core_vectors",
+    "vector_count": 850,
+    "differential_vector_count": 322,
+    "equal": 158,
+    "unequal": 140,
+    "oracle_rejected": 24,
+    "reference_rejection_vectors": 30,
+    "boundary_vectors": 491,
+    "protocol_vectors": 7,
+    "unique_vector_ids": 850,
+    "vectors": {
+      "differential": [
+        {
+          "id": "generated.equal.0",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.0",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.1",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.1",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.2",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.2",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.3",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.3",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.4",
+          "outcome": "equal",
+          "oracle_bytes": 1015,
+          "source_bytes": 1015,
+          "candidate_equal": true,
+          "visited_nodes": 45
+        },
+        {
+          "id": "generated.unequal.4",
+          "outcome": "unequal",
+          "oracle_bytes": 1060,
+          "source_bytes": 1015,
+          "candidate_equal": false,
+          "visited_nodes": 47
+        },
+        {
+          "id": "generated.equal.5",
+          "outcome": "equal",
+          "oracle_bytes": 23,
+          "source_bytes": 23,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.5",
+          "outcome": "unequal",
+          "oracle_bytes": 68,
+          "source_bytes": 23,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.6",
+          "outcome": "equal",
+          "oracle_bytes": 4479,
+          "source_bytes": 4479,
+          "candidate_equal": true,
+          "visited_nodes": 209
+        },
+        {
+          "id": "generated.unequal.6",
+          "outcome": "unequal",
+          "oracle_bytes": 4524,
+          "source_bytes": 4479,
+          "candidate_equal": false,
+          "visited_nodes": 211
+        },
+        {
+          "id": "generated.equal.7",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.7",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.8",
+          "outcome": "equal",
+          "oracle_bytes": 51,
+          "source_bytes": 51,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.8",
+          "outcome": "unequal",
+          "oracle_bytes": 96,
+          "source_bytes": 51,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.9",
+          "outcome": "equal",
+          "oracle_bytes": 37,
+          "source_bytes": 37,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.9",
+          "outcome": "unequal",
+          "oracle_bytes": 82,
+          "source_bytes": 37,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.10",
+          "outcome": "equal",
+          "oracle_bytes": 252,
+          "source_bytes": 252,
+          "candidate_equal": true,
+          "visited_nodes": 14
+        },
+        {
+          "id": "generated.unequal.10",
+          "outcome": "unequal",
+          "oracle_bytes": 298,
+          "source_bytes": 252,
+          "candidate_equal": false,
+          "visited_nodes": 16
+        },
+        {
+          "id": "generated.equal.11",
+          "outcome": "equal",
+          "oracle_bytes": 334,
+          "source_bytes": 334,
+          "candidate_equal": true,
+          "visited_nodes": 18
+        },
+        {
+          "id": "generated.unequal.11",
+          "outcome": "unequal",
+          "oracle_bytes": 380,
+          "source_bytes": 334,
+          "candidate_equal": false,
+          "visited_nodes": 20
+        },
+        {
+          "id": "generated.equal.12",
+          "outcome": "equal",
+          "oracle_bytes": 350,
+          "source_bytes": 350,
+          "candidate_equal": true,
+          "visited_nodes": 22
+        },
+        {
+          "id": "generated.unequal.12",
+          "outcome": "unequal",
+          "oracle_bytes": 396,
+          "source_bytes": 350,
+          "candidate_equal": false,
+          "visited_nodes": 24
+        },
+        {
+          "id": "generated.equal.13",
+          "outcome": "equal",
+          "oracle_bytes": 548,
+          "source_bytes": 548,
+          "candidate_equal": true,
+          "visited_nodes": 26
+        },
+        {
+          "id": "generated.unequal.13",
+          "outcome": "unequal",
+          "oracle_bytes": 594,
+          "source_bytes": 548,
+          "candidate_equal": false,
+          "visited_nodes": 28
+        },
+        {
+          "id": "generated.equal.14",
+          "outcome": "equal",
+          "oracle_bytes": 3153,
+          "source_bytes": 3153,
+          "candidate_equal": true,
+          "visited_nodes": 160
+        },
+        {
+          "id": "generated.unequal.14",
+          "outcome": "unequal",
+          "oracle_bytes": 3199,
+          "source_bytes": 3153,
+          "candidate_equal": false,
+          "visited_nodes": 162
+        },
+        {
+          "id": "generated.equal.15",
+          "outcome": "equal",
+          "oracle_bytes": 82,
+          "source_bytes": 82,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.15",
+          "outcome": "unequal",
+          "oracle_bytes": 128,
+          "source_bytes": 82,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.16",
+          "outcome": "equal",
+          "oracle_bytes": 67,
+          "source_bytes": 67,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.unequal.16",
+          "outcome": "unequal",
+          "oracle_bytes": 113,
+          "source_bytes": 67,
+          "candidate_equal": false,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.equal.17",
+          "outcome": "equal",
+          "oracle_bytes": 174,
+          "source_bytes": 174,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.unequal.17",
+          "outcome": "unequal",
+          "oracle_bytes": 220,
+          "source_bytes": 174,
+          "candidate_equal": false,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.equal.18",
+          "outcome": "equal",
+          "oracle_bytes": 33,
+          "source_bytes": 33,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.18",
+          "outcome": "unequal",
+          "oracle_bytes": 79,
+          "source_bytes": 33,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.19",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.19",
+          "outcome": "unequal",
+          "oracle_bytes": 60,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.20",
+          "outcome": "equal",
+          "oracle_bytes": 1205,
+          "source_bytes": 1205,
+          "candidate_equal": true,
+          "visited_nodes": 40
+        },
+        {
+          "id": "generated.unequal.20",
+          "outcome": "unequal",
+          "oracle_bytes": 1251,
+          "source_bytes": 1205,
+          "candidate_equal": false,
+          "visited_nodes": 42
+        },
+        {
+          "id": "generated.equal.21",
+          "outcome": "equal",
+          "oracle_bytes": 2411,
+          "source_bytes": 2411,
+          "candidate_equal": true,
+          "visited_nodes": 121
+        },
+        {
+          "id": "generated.unequal.21",
+          "outcome": "unequal",
+          "oracle_bytes": 2457,
+          "source_bytes": 2411,
+          "candidate_equal": false,
+          "visited_nodes": 123
+        },
+        {
+          "id": "generated.equal.22",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.22",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.23",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.23",
+          "outcome": "unequal",
+          "oracle_bytes": 60,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.24",
+          "outcome": "equal",
+          "oracle_bytes": 47,
+          "source_bytes": 47,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.24",
+          "outcome": "unequal",
+          "oracle_bytes": 93,
+          "source_bytes": 47,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.25",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.25",
+          "outcome": "unequal",
+          "oracle_bytes": 60,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.26",
+          "outcome": "equal",
+          "oracle_bytes": 8,
+          "source_bytes": 8,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.26",
+          "outcome": "unequal",
+          "oracle_bytes": 54,
+          "source_bytes": 8,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.27",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.27",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.28",
+          "outcome": "equal",
+          "oracle_bytes": 36,
+          "source_bytes": 36,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.28",
+          "outcome": "unequal",
+          "oracle_bytes": 82,
+          "source_bytes": 36,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.29",
+          "outcome": "equal",
+          "oracle_bytes": 484,
+          "source_bytes": 484,
+          "candidate_equal": true,
+          "visited_nodes": 21
+        },
+        {
+          "id": "generated.unequal.29",
+          "outcome": "unequal",
+          "oracle_bytes": 530,
+          "source_bytes": 484,
+          "candidate_equal": false,
+          "visited_nodes": 23
+        },
+        {
+          "id": "generated.equal.30",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.30",
+          "outcome": "unequal",
+          "oracle_bytes": 60,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.31",
+          "outcome": "equal",
+          "oracle_bytes": 5674,
+          "source_bytes": 5674,
+          "candidate_equal": true,
+          "visited_nodes": 286
+        },
+        {
+          "id": "generated.unequal.31",
+          "outcome": "unequal",
+          "oracle_bytes": 5720,
+          "source_bytes": 5674,
+          "candidate_equal": false,
+          "visited_nodes": 288
+        },
+        {
+          "id": "generated.equal.32",
+          "outcome": "equal",
+          "oracle_bytes": 129,
+          "source_bytes": 129,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.32",
+          "outcome": "unequal",
+          "oracle_bytes": 175,
+          "source_bytes": 129,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.33",
+          "outcome": "equal",
+          "oracle_bytes": 47,
+          "source_bytes": 47,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.33",
+          "outcome": "unequal",
+          "oracle_bytes": 93,
+          "source_bytes": 47,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.34",
+          "outcome": "equal",
+          "oracle_bytes": 294,
+          "source_bytes": 294,
+          "candidate_equal": true,
+          "visited_nodes": 15
+        },
+        {
+          "id": "generated.unequal.34",
+          "outcome": "unequal",
+          "oracle_bytes": 340,
+          "source_bytes": 294,
+          "candidate_equal": false,
+          "visited_nodes": 17
+        },
+        {
+          "id": "generated.equal.35",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.35",
+          "outcome": "unequal",
+          "oracle_bytes": 56,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.36",
+          "outcome": "equal",
+          "oracle_bytes": 272,
+          "source_bytes": 272,
+          "candidate_equal": true,
+          "visited_nodes": 13
+        },
+        {
+          "id": "generated.unequal.36",
+          "outcome": "unequal",
+          "oracle_bytes": 318,
+          "source_bytes": 272,
+          "candidate_equal": false,
+          "visited_nodes": 15
+        },
+        {
+          "id": "generated.equal.37",
+          "outcome": "equal",
+          "oracle_bytes": 1326,
+          "source_bytes": 1326,
+          "candidate_equal": true,
+          "visited_nodes": 63
+        },
+        {
+          "id": "generated.unequal.37",
+          "outcome": "unequal",
+          "oracle_bytes": 1372,
+          "source_bytes": 1326,
+          "candidate_equal": false,
+          "visited_nodes": 65
+        },
+        {
+          "id": "generated.equal.38",
+          "outcome": "equal",
+          "oracle_bytes": 7102,
+          "source_bytes": 7102,
+          "candidate_equal": true,
+          "visited_nodes": 328
+        },
+        {
+          "id": "generated.unequal.38",
+          "outcome": "unequal",
+          "oracle_bytes": 7148,
+          "source_bytes": 7102,
+          "candidate_equal": false,
+          "visited_nodes": 330
+        },
+        {
+          "id": "generated.equal.39",
+          "outcome": "equal",
+          "oracle_bytes": 1907,
+          "source_bytes": 1907,
+          "candidate_equal": true,
+          "visited_nodes": 99
+        },
+        {
+          "id": "generated.unequal.39",
+          "outcome": "unequal",
+          "oracle_bytes": 1953,
+          "source_bytes": 1907,
+          "candidate_equal": false,
+          "visited_nodes": 101
+        },
+        {
+          "id": "generated.equal.40",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.40",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.41",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.41",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.42",
+          "outcome": "equal",
+          "oracle_bytes": 388,
+          "source_bytes": 388,
+          "candidate_equal": true,
+          "visited_nodes": 18
+        },
+        {
+          "id": "generated.unequal.42",
+          "outcome": "unequal",
+          "oracle_bytes": 434,
+          "source_bytes": 388,
+          "candidate_equal": false,
+          "visited_nodes": 20
+        },
+        {
+          "id": "generated.equal.43",
+          "outcome": "equal",
+          "oracle_bytes": 294,
+          "source_bytes": 294,
+          "candidate_equal": true,
+          "visited_nodes": 12
+        },
+        {
+          "id": "generated.unequal.43",
+          "outcome": "unequal",
+          "oracle_bytes": 340,
+          "source_bytes": 294,
+          "candidate_equal": false,
+          "visited_nodes": 14
+        },
+        {
+          "id": "generated.equal.44",
+          "outcome": "equal",
+          "oracle_bytes": 678,
+          "source_bytes": 678,
+          "candidate_equal": true,
+          "visited_nodes": 37
+        },
+        {
+          "id": "generated.unequal.44",
+          "outcome": "unequal",
+          "oracle_bytes": 724,
+          "source_bytes": 678,
+          "candidate_equal": false,
+          "visited_nodes": 39
+        },
+        {
+          "id": "generated.equal.45",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.45",
+          "outcome": "unequal",
+          "oracle_bytes": 60,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.46",
+          "outcome": "equal",
+          "oracle_bytes": 91,
+          "source_bytes": 91,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.46",
+          "outcome": "unequal",
+          "oracle_bytes": 137,
+          "source_bytes": 91,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.47",
+          "outcome": "equal",
+          "oracle_bytes": 154,
+          "source_bytes": 154,
+          "candidate_equal": true,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.unequal.47",
+          "outcome": "unequal",
+          "oracle_bytes": 200,
+          "source_bytes": 154,
+          "candidate_equal": false,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.equal.48",
+          "outcome": "equal",
+          "oracle_bytes": 31,
+          "source_bytes": 31,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.48",
+          "outcome": "unequal",
+          "oracle_bytes": 77,
+          "source_bytes": 31,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.49",
+          "outcome": "equal",
+          "oracle_bytes": 99,
+          "source_bytes": 99,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.unequal.49",
+          "outcome": "unequal",
+          "oracle_bytes": 145,
+          "source_bytes": 99,
+          "candidate_equal": false,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.equal.50",
+          "outcome": "equal",
+          "oracle_bytes": 67,
+          "source_bytes": 67,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.unequal.50",
+          "outcome": "unequal",
+          "oracle_bytes": 113,
+          "source_bytes": 67,
+          "candidate_equal": false,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.equal.51",
+          "outcome": "equal",
+          "oracle_bytes": 415,
+          "source_bytes": 415,
+          "candidate_equal": true,
+          "visited_nodes": 27
+        },
+        {
+          "id": "generated.unequal.51",
+          "outcome": "unequal",
+          "oracle_bytes": 461,
+          "source_bytes": 415,
+          "candidate_equal": false,
+          "visited_nodes": 29
+        },
+        {
+          "id": "generated.equal.52",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.52",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.53",
+          "outcome": "equal",
+          "oracle_bytes": 1047,
+          "source_bytes": 1047,
+          "candidate_equal": true,
+          "visited_nodes": 53
+        },
+        {
+          "id": "generated.unequal.53",
+          "outcome": "unequal",
+          "oracle_bytes": 1093,
+          "source_bytes": 1047,
+          "candidate_equal": false,
+          "visited_nodes": 55
+        },
+        {
+          "id": "generated.equal.54",
+          "outcome": "equal",
+          "oracle_bytes": 28,
+          "source_bytes": 28,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.54",
+          "outcome": "unequal",
+          "oracle_bytes": 74,
+          "source_bytes": 28,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.55",
+          "outcome": "equal",
+          "oracle_bytes": 1310,
+          "source_bytes": 1310,
+          "candidate_equal": true,
+          "visited_nodes": 63
+        },
+        {
+          "id": "generated.unequal.55",
+          "outcome": "unequal",
+          "oracle_bytes": 1356,
+          "source_bytes": 1310,
+          "candidate_equal": false,
+          "visited_nodes": 65
+        },
+        {
+          "id": "generated.equal.56",
+          "outcome": "equal",
+          "oracle_bytes": 33,
+          "source_bytes": 33,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.56",
+          "outcome": "unequal",
+          "oracle_bytes": 79,
+          "source_bytes": 33,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.57",
+          "outcome": "equal",
+          "oracle_bytes": 123,
+          "source_bytes": 123,
+          "candidate_equal": true,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.unequal.57",
+          "outcome": "unequal",
+          "oracle_bytes": 169,
+          "source_bytes": 123,
+          "candidate_equal": false,
+          "visited_nodes": 8
+        },
+        {
+          "id": "generated.equal.58",
+          "outcome": "equal",
+          "oracle_bytes": 701,
+          "source_bytes": 701,
+          "candidate_equal": true,
+          "visited_nodes": 23
+        },
+        {
+          "id": "generated.unequal.58",
+          "outcome": "unequal",
+          "oracle_bytes": 747,
+          "source_bytes": 701,
+          "candidate_equal": false,
+          "visited_nodes": 25
+        },
+        {
+          "id": "generated.equal.59",
+          "outcome": "equal",
+          "oracle_bytes": 648,
+          "source_bytes": 648,
+          "candidate_equal": true,
+          "visited_nodes": 36
+        },
+        {
+          "id": "generated.unequal.59",
+          "outcome": "unequal",
+          "oracle_bytes": 694,
+          "source_bytes": 648,
+          "candidate_equal": false,
+          "visited_nodes": 38
+        },
+        {
+          "id": "generated.equal.60",
+          "outcome": "equal",
+          "oracle_bytes": 32,
+          "source_bytes": 32,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.60",
+          "outcome": "unequal",
+          "oracle_bytes": 78,
+          "source_bytes": 32,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.61",
+          "outcome": "equal",
+          "oracle_bytes": 2831,
+          "source_bytes": 2831,
+          "candidate_equal": true,
+          "visited_nodes": 134
+        },
+        {
+          "id": "generated.unequal.61",
+          "outcome": "unequal",
+          "oracle_bytes": 2877,
+          "source_bytes": 2831,
+          "candidate_equal": false,
+          "visited_nodes": 136
+        },
+        {
+          "id": "generated.equal.62",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.62",
+          "outcome": "unequal",
+          "oracle_bytes": 56,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.63",
+          "outcome": "equal",
+          "oracle_bytes": 32,
+          "source_bytes": 32,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.63",
+          "outcome": "unequal",
+          "oracle_bytes": 78,
+          "source_bytes": 32,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.64",
+          "outcome": "equal",
+          "oracle_bytes": 13,
+          "source_bytes": 13,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.64",
+          "outcome": "unequal",
+          "oracle_bytes": 59,
+          "source_bytes": 13,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.65",
+          "outcome": "equal",
+          "oracle_bytes": 56,
+          "source_bytes": 56,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.unequal.65",
+          "outcome": "unequal",
+          "oracle_bytes": 102,
+          "source_bytes": 56,
+          "candidate_equal": false,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.equal.66",
+          "outcome": "equal",
+          "oracle_bytes": 493,
+          "source_bytes": 493,
+          "candidate_equal": true,
+          "visited_nodes": 21
+        },
+        {
+          "id": "generated.unequal.66",
+          "outcome": "unequal",
+          "oracle_bytes": 539,
+          "source_bytes": 493,
+          "candidate_equal": false,
+          "visited_nodes": 23
+        },
+        {
+          "id": "generated.equal.67",
+          "outcome": "equal",
+          "oracle_bytes": 91,
+          "source_bytes": 91,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.67",
+          "outcome": "unequal",
+          "oracle_bytes": 137,
+          "source_bytes": 91,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.68",
+          "outcome": "equal",
+          "oracle_bytes": 22,
+          "source_bytes": 22,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.68",
+          "outcome": "unequal",
+          "oracle_bytes": 68,
+          "source_bytes": 22,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.69",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.69",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.70",
+          "outcome": "equal",
+          "oracle_bytes": 3476,
+          "source_bytes": 3476,
+          "candidate_equal": true,
+          "visited_nodes": 171
+        },
+        {
+          "id": "generated.unequal.70",
+          "outcome": "unequal",
+          "oracle_bytes": 3522,
+          "source_bytes": 3476,
+          "candidate_equal": false,
+          "visited_nodes": 173
+        },
+        {
+          "id": "generated.equal.71",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.71",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.72",
+          "outcome": "equal",
+          "oracle_bytes": 30,
+          "source_bytes": 30,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.72",
+          "outcome": "unequal",
+          "oracle_bytes": 76,
+          "source_bytes": 30,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.73",
+          "outcome": "equal",
+          "oracle_bytes": 111,
+          "source_bytes": 111,
+          "candidate_equal": true,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.unequal.73",
+          "outcome": "unequal",
+          "oracle_bytes": 157,
+          "source_bytes": 111,
+          "candidate_equal": false,
+          "visited_nodes": 8
+        },
+        {
+          "id": "generated.equal.74",
+          "outcome": "equal",
+          "oracle_bytes": 597,
+          "source_bytes": 597,
+          "candidate_equal": true,
+          "visited_nodes": 18
+        },
+        {
+          "id": "generated.unequal.74",
+          "outcome": "unequal",
+          "oracle_bytes": 643,
+          "source_bytes": 597,
+          "candidate_equal": false,
+          "visited_nodes": 20
+        },
+        {
+          "id": "generated.equal.75",
+          "outcome": "equal",
+          "oracle_bytes": 29,
+          "source_bytes": 29,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.75",
+          "outcome": "unequal",
+          "oracle_bytes": 75,
+          "source_bytes": 29,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.76",
+          "outcome": "equal",
+          "oracle_bytes": 617,
+          "source_bytes": 617,
+          "candidate_equal": true,
+          "visited_nodes": 25
+        },
+        {
+          "id": "generated.unequal.76",
+          "outcome": "unequal",
+          "oracle_bytes": 663,
+          "source_bytes": 617,
+          "candidate_equal": false,
+          "visited_nodes": 27
+        },
+        {
+          "id": "generated.equal.77",
+          "outcome": "equal",
+          "oracle_bytes": 129,
+          "source_bytes": 129,
+          "candidate_equal": true,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.unequal.77",
+          "outcome": "unequal",
+          "oracle_bytes": 175,
+          "source_bytes": 129,
+          "candidate_equal": false,
+          "visited_nodes": 11
+        },
+        {
+          "id": "generated.equal.78",
+          "outcome": "equal",
+          "oracle_bytes": 3874,
+          "source_bytes": 3874,
+          "candidate_equal": true,
+          "visited_nodes": 207
+        },
+        {
+          "id": "generated.unequal.78",
+          "outcome": "unequal",
+          "oracle_bytes": 3920,
+          "source_bytes": 3874,
+          "candidate_equal": false,
+          "visited_nodes": 209
+        },
+        {
+          "id": "generated.equal.79",
+          "outcome": "equal",
+          "oracle_bytes": 829,
+          "source_bytes": 829,
+          "candidate_equal": true,
+          "visited_nodes": 43
+        },
+        {
+          "id": "generated.unequal.79",
+          "outcome": "unequal",
+          "oracle_bytes": 875,
+          "source_bytes": 829,
+          "candidate_equal": false,
+          "visited_nodes": 45
+        },
+        {
+          "id": "generated.equal.80",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.80",
+          "outcome": "unequal",
+          "oracle_bytes": 56,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.81",
+          "outcome": "equal",
+          "oracle_bytes": 174,
+          "source_bytes": 174,
+          "candidate_equal": true,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.unequal.81",
+          "outcome": "unequal",
+          "oracle_bytes": 220,
+          "source_bytes": 174,
+          "candidate_equal": false,
+          "visited_nodes": 11
+        },
+        {
+          "id": "generated.equal.82",
+          "outcome": "equal",
+          "oracle_bytes": 305,
+          "source_bytes": 305,
+          "candidate_equal": true,
+          "visited_nodes": 15
+        },
+        {
+          "id": "generated.unequal.82",
+          "outcome": "unequal",
+          "oracle_bytes": 351,
+          "source_bytes": 305,
+          "candidate_equal": false,
+          "visited_nodes": 17
+        },
+        {
+          "id": "generated.equal.83",
+          "outcome": "equal",
+          "oracle_bytes": 126,
+          "source_bytes": 126,
+          "candidate_equal": true,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.unequal.83",
+          "outcome": "unequal",
+          "oracle_bytes": 172,
+          "source_bytes": 126,
+          "candidate_equal": false,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.equal.84",
+          "outcome": "equal",
+          "oracle_bytes": 293,
+          "source_bytes": 293,
+          "candidate_equal": true,
+          "visited_nodes": 17
+        },
+        {
+          "id": "generated.unequal.84",
+          "outcome": "unequal",
+          "oracle_bytes": 339,
+          "source_bytes": 293,
+          "candidate_equal": false,
+          "visited_nodes": 19
+        },
+        {
+          "id": "generated.equal.85",
+          "outcome": "equal",
+          "oracle_bytes": 91,
+          "source_bytes": 91,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.85",
+          "outcome": "unequal",
+          "oracle_bytes": 137,
+          "source_bytes": 91,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.86",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.86",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.87",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.87",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.88",
+          "outcome": "equal",
+          "oracle_bytes": 58,
+          "source_bytes": 58,
+          "candidate_equal": true,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.unequal.88",
+          "outcome": "unequal",
+          "oracle_bytes": 104,
+          "source_bytes": 58,
+          "candidate_equal": false,
+          "visited_nodes": 5
+        },
+        {
+          "id": "generated.equal.89",
+          "outcome": "equal",
+          "oracle_bytes": 89,
+          "source_bytes": 89,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.89",
+          "outcome": "unequal",
+          "oracle_bytes": 135,
+          "source_bytes": 89,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.90",
+          "outcome": "equal",
+          "oracle_bytes": 420,
+          "source_bytes": 420,
+          "candidate_equal": true,
+          "visited_nodes": 26
+        },
+        {
+          "id": "generated.unequal.90",
+          "outcome": "unequal",
+          "oracle_bytes": 466,
+          "source_bytes": 420,
+          "candidate_equal": false,
+          "visited_nodes": 28
+        },
+        {
+          "id": "generated.equal.91",
+          "outcome": "equal",
+          "oracle_bytes": 393,
+          "source_bytes": 393,
+          "candidate_equal": true,
+          "visited_nodes": 15
+        },
+        {
+          "id": "generated.unequal.91",
+          "outcome": "unequal",
+          "oracle_bytes": 439,
+          "source_bytes": 393,
+          "candidate_equal": false,
+          "visited_nodes": 17
+        },
+        {
+          "id": "generated.equal.92",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.92",
+          "outcome": "unequal",
+          "oracle_bytes": 56,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.93",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.93",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.94",
+          "outcome": "equal",
+          "oracle_bytes": 86,
+          "source_bytes": 86,
+          "candidate_equal": true,
+          "visited_nodes": 7
+        },
+        {
+          "id": "generated.unequal.94",
+          "outcome": "unequal",
+          "oracle_bytes": 132,
+          "source_bytes": 86,
+          "candidate_equal": false,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.equal.95",
+          "outcome": "equal",
+          "oracle_bytes": 20,
+          "source_bytes": 20,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.95",
+          "outcome": "unequal",
+          "oracle_bytes": 66,
+          "source_bytes": 20,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.96",
+          "outcome": "equal",
+          "oracle_bytes": 26,
+          "source_bytes": 26,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.96",
+          "outcome": "unequal",
+          "oracle_bytes": 72,
+          "source_bytes": 26,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.97",
+          "outcome": "equal",
+          "oracle_bytes": 31,
+          "source_bytes": 31,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.97",
+          "outcome": "unequal",
+          "oracle_bytes": 77,
+          "source_bytes": 31,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.98",
+          "outcome": "equal",
+          "oracle_bytes": 52,
+          "source_bytes": 52,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.98",
+          "outcome": "unequal",
+          "oracle_bytes": 98,
+          "source_bytes": 52,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.99",
+          "outcome": "equal",
+          "oracle_bytes": 22,
+          "source_bytes": 22,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.99",
+          "outcome": "unequal",
+          "oracle_bytes": 68,
+          "source_bytes": 22,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.100",
+          "outcome": "equal",
+          "oracle_bytes": 297,
+          "source_bytes": 297,
+          "candidate_equal": true,
+          "visited_nodes": 16
+        },
+        {
+          "id": "generated.unequal.100",
+          "outcome": "unequal",
+          "oracle_bytes": 344,
+          "source_bytes": 297,
+          "candidate_equal": false,
+          "visited_nodes": 18
+        },
+        {
+          "id": "generated.equal.101",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.101",
+          "outcome": "unequal",
+          "oracle_bytes": 59,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.102",
+          "outcome": "equal",
+          "oracle_bytes": 24,
+          "source_bytes": 24,
+          "candidate_equal": true,
+          "visited_nodes": 2
+        },
+        {
+          "id": "generated.unequal.102",
+          "outcome": "unequal",
+          "oracle_bytes": 71,
+          "source_bytes": 24,
+          "candidate_equal": false,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.equal.103",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.103",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.104",
+          "outcome": "equal",
+          "oracle_bytes": 74,
+          "source_bytes": 74,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.104",
+          "outcome": "unequal",
+          "oracle_bytes": 121,
+          "source_bytes": 74,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.105",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.105",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.106",
+          "outcome": "equal",
+          "oracle_bytes": 478,
+          "source_bytes": 478,
+          "candidate_equal": true,
+          "visited_nodes": 22
+        },
+        {
+          "id": "generated.unequal.106",
+          "outcome": "unequal",
+          "oracle_bytes": 525,
+          "source_bytes": 478,
+          "candidate_equal": false,
+          "visited_nodes": 24
+        },
+        {
+          "id": "generated.equal.107",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.107",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.108",
+          "outcome": "equal",
+          "oracle_bytes": 2275,
+          "source_bytes": 2275,
+          "candidate_equal": true,
+          "visited_nodes": 105
+        },
+        {
+          "id": "generated.unequal.108",
+          "outcome": "unequal",
+          "oracle_bytes": 2322,
+          "source_bytes": 2275,
+          "candidate_equal": false,
+          "visited_nodes": 107
+        },
+        {
+          "id": "generated.equal.109",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.109",
+          "outcome": "unequal",
+          "oracle_bytes": 61,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.110",
+          "outcome": "equal",
+          "oracle_bytes": 76,
+          "source_bytes": 76,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "generated.unequal.110",
+          "outcome": "unequal",
+          "oracle_bytes": 123,
+          "source_bytes": 76,
+          "candidate_equal": false,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.equal.111",
+          "outcome": "equal",
+          "oracle_bytes": 1994,
+          "source_bytes": 1994,
+          "candidate_equal": true,
+          "visited_nodes": 100
+        },
+        {
+          "id": "generated.unequal.111",
+          "outcome": "unequal",
+          "oracle_bytes": 2041,
+          "source_bytes": 1994,
+          "candidate_equal": false,
+          "visited_nodes": 102
+        },
+        {
+          "id": "generated.equal.112",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.112",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.113",
+          "outcome": "equal",
+          "oracle_bytes": 16,
+          "source_bytes": 16,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.113",
+          "outcome": "unequal",
+          "oracle_bytes": 63,
+          "source_bytes": 16,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.114",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.114",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.115",
+          "outcome": "equal",
+          "oracle_bytes": 16,
+          "source_bytes": 16,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.115",
+          "outcome": "unequal",
+          "oracle_bytes": 63,
+          "source_bytes": 16,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.116",
+          "outcome": "equal",
+          "oracle_bytes": 8,
+          "source_bytes": 8,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.116",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 8,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.117",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.117",
+          "outcome": "unequal",
+          "oracle_bytes": 61,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.118",
+          "outcome": "equal",
+          "oracle_bytes": 151,
+          "source_bytes": 151,
+          "candidate_equal": true,
+          "visited_nodes": 9
+        },
+        {
+          "id": "generated.unequal.118",
+          "outcome": "unequal",
+          "oracle_bytes": 198,
+          "source_bytes": 151,
+          "candidate_equal": false,
+          "visited_nodes": 11
+        },
+        {
+          "id": "generated.equal.119",
+          "outcome": "equal",
+          "oracle_bytes": 1388,
+          "source_bytes": 1388,
+          "candidate_equal": true,
+          "visited_nodes": 62
+        },
+        {
+          "id": "generated.unequal.119",
+          "outcome": "unequal",
+          "oracle_bytes": 1435,
+          "source_bytes": 1388,
+          "candidate_equal": false,
+          "visited_nodes": 64
+        },
+        {
+          "id": "generated.equal.120",
+          "outcome": "equal",
+          "oracle_bytes": 8,
+          "source_bytes": 8,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.120",
+          "outcome": "unequal",
+          "oracle_bytes": 55,
+          "source_bytes": 8,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.121",
+          "outcome": "equal",
+          "oracle_bytes": 90,
+          "source_bytes": 90,
+          "candidate_equal": true,
+          "visited_nodes": 6
+        },
+        {
+          "id": "generated.unequal.121",
+          "outcome": "unequal",
+          "oracle_bytes": 137,
+          "source_bytes": 90,
+          "candidate_equal": false,
+          "visited_nodes": 8
+        },
+        {
+          "id": "generated.equal.122",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.122",
+          "outcome": "unequal",
+          "oracle_bytes": 58,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.123",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.123",
+          "outcome": "unequal",
+          "oracle_bytes": 57,
+          "source_bytes": 10,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "generated.equal.124",
+          "outcome": "equal",
+          "oracle_bytes": 1015,
+          "source_bytes": 1015,
+          "candidate_equal": true,
+          "visited_nodes": 59
+        },
+        {
+          "id": "generated.unequal.124",
+          "outcome": "unequal",
+          "oracle_bytes": 1062,
+          "source_bytes": 1015,
+          "candidate_equal": false,
+          "visited_nodes": 61
+        },
+        {
+          "id": "generated.equal.125",
+          "outcome": "equal",
+          "oracle_bytes": 1961,
+          "source_bytes": 1961,
+          "candidate_equal": true,
+          "visited_nodes": 90
+        },
+        {
+          "id": "generated.unequal.125",
+          "outcome": "unequal",
+          "oracle_bytes": 2008,
+          "source_bytes": 1961,
+          "candidate_equal": false,
+          "visited_nodes": 92
+        },
+        {
+          "id": "generated.equal.126",
+          "outcome": "equal",
+          "oracle_bytes": 678,
+          "source_bytes": 678,
+          "candidate_equal": true,
+          "visited_nodes": 30
+        },
+        {
+          "id": "generated.unequal.126",
+          "outcome": "unequal",
+          "oracle_bytes": 725,
+          "source_bytes": 678,
+          "candidate_equal": false,
+          "visited_nodes": 32
+        },
+        {
+          "id": "generated.equal.127",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "generated.unequal.127",
+          "outcome": "unequal",
+          "oracle_bytes": 59,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 3
+        },
+        {
+          "id": "scalar.equal.0",
+          "outcome": "equal",
+          "oracle_bytes": 8,
+          "source_bytes": 8,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.1",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.2",
+          "outcome": "equal",
+          "oracle_bytes": 13,
+          "source_bytes": 13,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.3",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.4",
+          "outcome": "equal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.5",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.6",
+          "outcome": "equal",
+          "oracle_bytes": 131,
+          "source_bytes": 131,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.7",
+          "outcome": "equal",
+          "oracle_bytes": 132,
+          "source_bytes": 132,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.8",
+          "outcome": "equal",
+          "oracle_bytes": 20,
+          "source_bytes": 20,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.9",
+          "outcome": "equal",
+          "oracle_bytes": 21,
+          "source_bytes": 21,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.10",
+          "outcome": "equal",
+          "oracle_bytes": 32,
+          "source_bytes": 32,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.11",
+          "outcome": "equal",
+          "oracle_bytes": 33,
+          "source_bytes": 33,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.12",
+          "outcome": "equal",
+          "oracle_bytes": 35,
+          "source_bytes": 35,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.13",
+          "outcome": "equal",
+          "oracle_bytes": 35,
+          "source_bytes": 35,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.14",
+          "outcome": "equal",
+          "oracle_bytes": 35,
+          "source_bytes": 35,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.15",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.16",
+          "outcome": "equal",
+          "oracle_bytes": 15,
+          "source_bytes": 15,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.17",
+          "outcome": "equal",
+          "oracle_bytes": 15,
+          "source_bytes": 15,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.18",
+          "outcome": "equal",
+          "oracle_bytes": 182,
+          "source_bytes": 182,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.19",
+          "outcome": "equal",
+          "oracle_bytes": 12,
+          "source_bytes": 12,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.20",
+          "outcome": "equal",
+          "oracle_bytes": 13,
+          "source_bytes": 13,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.21",
+          "outcome": "equal",
+          "oracle_bytes": 16,
+          "source_bytes": 16,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.equal.22",
+          "outcome": "equal",
+          "oracle_bytes": 14,
+          "source_bytes": 14,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "map.order.0",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "map.proxy.0",
+          "outcome": "equal",
+          "oracle_bytes": 10,
+          "source_bytes": 10,
+          "candidate_equal": true,
+          "visited_nodes": 1
+        },
+        {
+          "id": "map.order.1",
+          "outcome": "equal",
+          "oracle_bytes": 70,
+          "source_bytes": 70,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "map.proxy.1",
+          "outcome": "equal",
+          "oracle_bytes": 70,
+          "source_bytes": 70,
+          "candidate_equal": true,
+          "visited_nodes": 5
+        },
+        {
+          "id": "map.order.2",
+          "outcome": "equal",
+          "oracle_bytes": 91,
+          "source_bytes": 91,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "map.proxy.2",
+          "outcome": "equal",
+          "oracle_bytes": 91,
+          "source_bytes": 91,
+          "candidate_equal": true,
+          "visited_nodes": 4
+        },
+        {
+          "id": "scalar.unequal.0",
+          "outcome": "unequal",
+          "oracle_bytes": 13,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.1",
+          "outcome": "unequal",
+          "oracle_bytes": 14,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.2",
+          "outcome": "unequal",
+          "oracle_bytes": 11,
+          "source_bytes": 32,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.3",
+          "outcome": "unequal",
+          "oracle_bytes": 11,
+          "source_bytes": 20,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.4",
+          "outcome": "unequal",
+          "oracle_bytes": 20,
+          "source_bytes": 21,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.5",
+          "outcome": "unequal",
+          "oracle_bytes": 11,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.6",
+          "outcome": "unequal",
+          "oracle_bytes": 11,
+          "source_bytes": 12,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.7",
+          "outcome": "unequal",
+          "oracle_bytes": 22,
+          "source_bytes": 23,
+          "candidate_equal": false,
+          "visited_nodes": 2
+        },
+        {
+          "id": "scalar.unequal.8",
+          "outcome": "unequal",
+          "oracle_bytes": 12,
+          "source_bytes": 13,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.9",
+          "outcome": "unequal",
+          "oracle_bytes": 8,
+          "source_bytes": 14,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.10",
+          "outcome": "unequal",
+          "oracle_bytes": 12,
+          "source_bytes": 11,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "scalar.unequal.11",
+          "outcome": "unequal",
+          "oracle_bytes": 111,
+          "source_bytes": 111,
+          "candidate_equal": false,
+          "visited_nodes": 1
+        },
+        {
+          "id": "invalid.scalar.0",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.1",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.2",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.3",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.4",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.5",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.6",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.7",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.8",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.9",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.10",
+          "outcome": "oracle_rejected",
+          "oracle_error": "ValueError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.11",
+          "outcome": "oracle_rejected",
+          "oracle_error": "UnicodeEncodeError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.12",
+          "outcome": "oracle_rejected",
+          "oracle_error": "UnicodeEncodeError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.13",
+          "outcome": "oracle_rejected",
+          "oracle_error": "UnicodeEncodeError",
+          "candidate_equal": false
+        },
+        {
+          "id": "invalid.scalar.14",
+          "outcome": "oracle_rejected",
+          "oracle_error": "UnicodeEncodeError",
+          "candidate_equal": false
+        },
+        {
+          "id": "cycle.0",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "cycle.1",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "cycle.2",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "cycle.3",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "tail.invalid.0",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "tail.invalid.1",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "tail.invalid.2",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "tail.invalid.3",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "tail.invalid.4",
+          "outcome": "oracle_rejected",
+          "candidate_equal": false
+        },
+        {
+          "id": "alias.DAG.repeat",
+          "outcome": "equal",
+          "visited_nodes": 14
+        }
+      ],
+      "reference": [
+        {
+          "id": "reference.stale_admission_changed_slots",
+          "outcome": "rejected",
+          "slots_checked": 7
+        },
+        {
+          "id": "reference.invalid.0",
+          "outcome": "rejected",
+          "bytes": 2
+        },
+        {
+          "id": "reference.invalid.1",
+          "outcome": "rejected",
+          "bytes": 4
+        },
+        {
+          "id": "reference.invalid.2",
+          "outcome": "rejected",
+          "bytes": 5
+        },
+        {
+          "id": "reference.invalid.3",
+          "outcome": "rejected",
+          "bytes": 11
+        },
+        {
+          "id": "reference.invalid.4",
+          "outcome": "rejected",
+          "bytes": 13
+        },
+        {
+          "id": "reference.invalid.5",
+          "outcome": "rejected",
+          "bytes": 15
+        },
+        {
+          "id": "reference.invalid.6",
+          "outcome": "rejected",
+          "bytes": 10
+        },
+        {
+          "id": "reference.invalid.7",
+          "outcome": "rejected",
+          "bytes": 12
+        },
+        {
+          "id": "reference.invalid.8",
+          "outcome": "rejected",
+          "bytes": 12
+        },
+        {
+          "id": "reference.invalid.9",
+          "outcome": "rejected",
+          "bytes": 12
+        },
+        {
+          "id": "reference.invalid.10",
+          "outcome": "rejected",
+          "bytes": 15
+        },
+        {
+          "id": "reference.invalid.11",
+          "outcome": "rejected",
+          "bytes": 15
+        },
+        {
+          "id": "reference.invalid.12",
+          "outcome": "rejected",
+          "bytes": 17
+        },
+        {
+          "id": "reference.invalid.13",
+          "outcome": "rejected",
+          "bytes": 12
+        },
+        {
+          "id": "reference.invalid.14",
+          "outcome": "rejected",
+          "bytes": 15
+        },
+        {
+          "id": "reference.invalid.15",
+          "outcome": "rejected",
+          "bytes": 39
+        },
+        {
+          "id": "reference.invalid.16",
+          "outcome": "rejected",
+          "bytes": 39
+        },
+        {
+          "id": "reference.invalid.17",
+          "outcome": "rejected",
+          "bytes": 15
+        },
+        {
+          "id": "reference.invalid.18",
+          "outcome": "rejected",
+          "bytes": 9
+        },
+        {
+          "id": "reference.invalid.19",
+          "outcome": "rejected",
+          "bytes": 9
+        },
+        {
+          "id": "reference.invalid.20",
+          "outcome": "rejected",
+          "bytes": 9
+        },
+        {
+          "id": "reference.invalid.21",
+          "outcome": "rejected",
+          "bytes": 16
+        },
+        {
+          "id": "reference.invalid.22",
+          "outcome": "rejected",
+          "bytes": 12
+        },
+        {
+          "id": "reference.invalid.23",
+          "outcome": "rejected",
+          "bytes": 16
+        },
+        {
+          "id": "reference.invalid.24",
+          "outcome": "rejected",
+          "bytes": 16
+        },
+        {
+          "id": "reference.invalid.25",
+          "outcome": "rejected",
+          "bytes": 16
+        },
+        {
+          "id": "reference.invalid.26",
+          "outcome": "rejected",
+          "bytes": 11
+        },
+        {
+          "id": "reference.invalid.27",
+          "outcome": "rejected",
+          "bytes": 19
+        },
+        {
+          "id": "reference.immutable.factory",
+          "outcome": "rejected_forgery_and_immutable"
+        }
+      ],
+      "boundary": [
+        {
+          "id": "runtime.recursion_and_callsite",
+          "outcome": "policy_eligibility_rejection_not_oracle_equivalence"
+        },
+        {
+          "id": "runtime.integer_digits",
+          "outcome": "oracle_and_policy_reject_changed_limit",
+          "decimal_digits": 5001
+        },
+        {
+          "id": "runtime.permanent_last_proxy_mutation",
+          "outcome": "actual_original_and_candidate_reject_runtime_mutation",
+          "restored_after_failure": true,
+          "lowered_limits": [
+            80,
+            80
+          ]
+        },
+        {
+          "id": "runtime.approved_depth.0",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 0,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.1",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 1,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.2",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 2,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.3",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 3,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.4",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 4,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.5",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 5,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.6",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 6,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.7",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 7,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.8",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 8,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.9",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 9,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.10",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 10,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.11",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 11,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.12",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 12,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.13",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 13,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.14",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 14,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.15",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 15,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.16",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 16,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.17",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 17,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.18",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 18,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.19",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 19,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.20",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 20,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.21",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 21,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.22",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 22,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.23",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 23,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.24",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 24,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.25",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 25,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.26",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 26,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.27",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 27,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.28",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 28,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.29",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 29,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.30",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 30,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.31",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 31,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.32",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 32,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.33",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 33,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.34",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 34,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.35",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 35,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.36",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 36,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.37",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 37,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.38",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 38,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.39",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 39,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.40",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 40,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.41",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 41,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.42",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 42,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.43",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 43,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.44",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 44,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.45",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 45,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.46",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 46,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.47",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 47,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.48",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 48,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.49",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 49,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.50",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 50,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.51",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 51,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.52",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 52,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.53",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 53,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.54",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 54,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.55",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 55,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.56",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 56,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.57",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 57,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.58",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 58,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.59",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 59,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.60",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 60,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.61",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 61,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.62",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 62,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.63",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 63,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.64",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 64,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.65",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 65,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.66",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 66,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.67",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 67,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.68",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 68,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.69",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 69,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.70",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 70,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.71",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 71,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.72",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 72,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.73",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 73,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.74",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 74,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.75",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 75,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.76",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 76,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.77",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 77,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.78",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 78,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.79",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 79,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.80",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 80,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.81",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 81,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.82",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 82,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.83",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 83,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.84",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 84,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.85",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 85,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.86",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 86,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.87",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 87,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.88",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 88,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.89",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 89,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.90",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 90,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.91",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 91,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.92",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 92,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.93",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 93,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.94",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 94,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.95",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 95,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.96",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 96,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.97",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 97,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.98",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 98,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.99",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 99,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.100",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 100,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.101",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 101,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.102",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 102,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.103",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 103,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.104",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 104,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.105",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 105,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.106",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 106,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.107",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 107,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.108",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 108,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.109",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 109,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.110",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 110,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.111",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 111,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.112",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 112,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.113",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 113,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.114",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 114,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.115",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 115,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.116",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 116,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.117",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 117,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.118",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 118,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.119",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 119,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.120",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 120,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.121",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 121,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.122",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 122,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.123",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 123,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.124",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 124,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.125",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 125,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.126",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 126,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.127",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 127,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.128",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 128,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.129",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 129,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.130",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 130,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.131",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 131,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.132",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 132,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.133",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 133,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.134",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 134,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.135",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 135,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.136",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 136,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.137",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 137,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.138",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 138,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.139",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 139,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.140",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 140,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.141",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 141,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.142",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 142,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.143",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 143,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.144",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 144,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.145",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 145,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.146",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 146,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.147",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 147,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.148",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 148,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.149",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 149,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.150",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 150,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.151",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 151,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.152",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 152,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.153",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 153,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.154",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 154,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.155",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 155,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.156",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 156,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.157",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 157,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.158",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 158,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.159",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 159,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.160",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 160,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.161",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 161,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.162",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 162,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.163",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 163,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.164",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 164,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.165",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 165,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.166",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 166,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.167",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 167,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.168",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 168,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.169",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 169,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.170",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 170,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.171",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 171,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.172",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 172,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.173",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 173,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.174",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 174,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.175",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 175,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.176",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 176,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.177",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 177,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.178",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 178,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.179",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 179,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.180",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 180,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.181",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 181,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.182",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 182,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.183",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 183,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.184",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 184,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.185",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 185,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.186",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 186,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.187",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 187,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.188",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 188,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.189",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 189,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.190",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 190,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.191",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 191,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.192",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 192,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.193",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 193,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.194",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 194,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.195",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 195,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.196",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 196,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.197",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 197,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.198",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 198,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.199",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 199,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.200",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 200,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.201",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 201,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.202",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 202,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.203",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 203,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.204",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 204,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.205",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 205,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.206",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 206,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.207",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 207,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.208",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 208,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.209",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 209,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.210",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 210,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.211",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 211,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.212",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 212,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.213",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 213,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.214",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 214,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.215",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 215,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.216",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 216,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.217",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 217,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.218",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 218,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.219",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 219,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.220",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 220,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.221",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 221,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.222",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 222,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.223",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 223,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.224",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 224,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.225",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 225,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.226",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 226,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.227",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 227,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.228",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 228,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.229",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 229,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.230",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 230,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.231",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 231,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.232",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 232,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.233",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 233,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.234",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 234,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.235",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 235,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.236",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 236,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.237",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 237,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.238",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 238,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.239",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 239,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.240",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 240,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.241",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 241,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.242",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 242,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.243",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 243,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.244",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 244,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.245",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 245,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.246",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 246,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.247",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 247,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.248",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 248,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.249",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 249,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.250",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 250,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.251",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 251,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.252",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 252,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.253",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 253,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.254",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 254,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.255",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 255,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.256",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 256,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.257",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 257,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.258",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 258,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.259",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 259,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.260",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 260,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.261",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 261,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.262",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 262,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.263",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 263,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.264",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 264,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.265",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 265,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.266",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 266,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.267",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 267,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.268",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 268,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.269",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 269,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.270",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 270,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.271",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 271,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.272",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 272,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.273",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 273,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.274",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 274,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.275",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 275,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.276",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 276,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.277",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 277,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.278",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 278,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.279",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 279,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.280",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 280,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.281",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 281,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.282",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 282,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.283",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 283,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.284",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 284,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.285",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 285,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.286",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 286,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.287",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 287,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.288",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 288,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.289",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 289,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.290",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 290,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.291",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 291,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.292",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 292,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.293",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 293,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.294",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 294,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.295",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 295,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.296",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 296,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.297",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 297,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.298",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 298,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.299",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 299,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.300",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 300,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.301",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 301,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.302",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 302,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.303",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 303,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.304",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 304,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.305",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 305,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.306",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 306,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.307",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 307,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.308",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 308,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.309",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 309,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.310",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 310,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.311",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 311,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.312",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 312,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.313",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 313,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.314",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 314,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.315",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 315,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.316",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 316,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.317",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 317,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.318",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 318,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.319",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 319,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.320",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 320,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.321",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 321,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.322",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 322,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.323",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 323,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.324",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 324,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.325",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 325,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.326",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 326,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.327",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 327,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.328",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 328,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.329",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 329,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.330",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 330,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.331",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 331,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.332",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 332,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.333",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 333,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.334",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 334,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.335",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 335,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.336",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 336,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.337",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 337,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.338",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 338,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.339",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 339,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.340",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 340,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.341",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 341,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.342",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 342,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.343",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 343,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.344",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 344,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.345",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 345,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.346",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 346,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.347",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 347,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.348",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 348,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.349",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 349,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.350",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 350,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.351",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 351,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.352",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 352,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.353",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 353,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.354",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 354,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.355",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 355,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.356",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 356,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.357",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 357,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.358",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 358,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.359",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 359,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.360",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 360,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.361",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 361,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.362",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 362,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.363",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 363,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.364",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 364,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.365",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 365,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.366",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 366,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.367",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 367,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.368",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 368,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.369",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 369,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.370",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 370,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.371",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 371,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.372",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 372,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.373",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 373,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.374",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 374,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.375",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 375,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.376",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 376,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.377",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 377,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.378",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 378,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.379",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 379,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.380",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 380,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.381",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 381,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.382",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 382,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.383",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 383,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.384",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 384,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.385",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 385,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.386",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 386,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.387",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 387,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.388",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 388,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.389",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 389,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.390",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 390,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.391",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 391,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.392",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 392,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.393",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 393,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.394",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 394,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.395",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 395,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.396",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 396,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.397",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 397,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.398",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 398,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.399",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 399,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.400",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 400,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.401",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 401,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.402",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 402,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.403",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 403,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.404",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 404,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.405",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 405,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.406",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 406,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.407",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 407,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.408",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 408,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.409",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 409,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.410",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 410,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.411",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 411,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.412",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 412,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.413",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 413,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.414",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 414,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.415",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 415,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.416",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 416,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.417",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 417,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.418",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 418,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.419",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 419,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.420",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 420,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.421",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 421,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.422",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 422,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.423",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 423,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.424",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 424,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.425",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 425,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.426",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 426,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.427",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 427,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.428",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 428,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.429",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 429,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.430",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 430,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.431",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 431,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.432",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 432,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.433",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 433,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.434",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 434,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.435",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 435,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.436",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 436,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.437",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 437,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.438",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 438,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.439",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 439,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.440",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 440,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.441",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 441,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.442",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 442,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.443",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 443,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.444",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 444,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.445",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 445,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.446",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 446,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.447",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 447,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.448",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 448,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.449",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 449,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.450",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 450,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.451",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 451,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.452",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 452,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.453",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 453,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.454",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 454,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.455",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 455,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.456",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 456,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.457",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 457,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.458",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 458,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.459",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 459,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.460",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 460,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.461",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 461,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.462",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 462,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.463",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 463,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.464",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 464,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.465",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 465,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.466",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 466,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.467",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 467,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.468",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 468,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.469",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 469,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.470",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 470,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.471",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 471,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.472",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 472,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.473",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 473,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.474",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 474,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.475",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 475,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.476",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 476,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.477",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 477,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.478",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 478,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.479",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 479,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.480",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 480,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.481",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 481,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.approved_depth.482",
+          "outcome": "original_oracle_success_equal",
+          "approved_depth": 482,
+          "approved_callsite": 16
+        },
+        {
+          "id": "runtime.actual_near_limit",
+          "outcome": "all_actual_worker_oracle_approvals_equal",
+          "approved_vectors": 483,
+          "first_oracle_rejected_depth": 483,
+          "manual_deep_public_reference_rejected": true
+        },
+        {
+          "id": "provenance.public_and_trusted",
+          "outcome": "two_explicit_authorities_verified"
+        },
+        {
+          "id": "proxy.dynamic_nonstr_admission.0",
+          "outcome": "oracle_valid_unequal_but_dynamic_key_admission_rejected",
+          "oracle_bytes": 28,
+          "candidate_error": "TypeError"
+        },
+        {
+          "id": "proxy.dynamic_nonstr_admission.1",
+          "outcome": "oracle_valid_unequal_but_dynamic_key_admission_rejected",
+          "oracle_bytes": 25,
+          "candidate_error": "TypeError"
+        },
+        {
+          "id": "proxy.dynamic_nonstr_admission.2",
+          "outcome": "oracle_valid_unequal_but_dynamic_key_admission_rejected",
+          "oracle_bytes": 28,
+          "candidate_error": "TypeError"
+        }
+      ],
+      "protocol": [
+        {
+          "id": "proxy.caught_reentry",
+          "outcome": "outer_rejected_and_busy_released"
+        },
+        {
+          "id": "proxy.dynamic_unicode.0",
+          "outcome": "exact_original_payload_and_protocol",
+          "expected_equal": false,
+          "events": [
+            [
+              "iter",
+              1
+            ],
+            [
+              "iter",
+              2
+            ],
+            [
+              "len"
+            ],
+            [
+              "get",
+              "b"
+            ]
+          ]
+        },
+        {
+          "id": "proxy.dynamic_unicode.1",
+          "outcome": "exact_original_payload_and_protocol",
+          "expected_equal": true,
+          "events": [
+            [
+              "iter",
+              1
+            ],
+            [
+              "iter",
+              2
+            ],
+            [
+              "len"
+            ],
+            [
+              "get",
+              "a"
+            ]
+          ]
+        },
+        {
+          "id": "proxy.trace.0",
+          "outcome": "exact_original_protocol",
+          "events": [
+            [
+              "iter"
+            ],
+            [
+              "iter"
+            ],
+            [
+              "len"
+            ],
+            [
+              "get",
+              "a"
+            ],
+            [
+              "get",
+              "z"
+            ]
+          ]
+        },
+        {
+          "id": "proxy.trace.1",
+          "outcome": "exact_original_protocol",
+          "events": [
+            [
+              "iter"
+            ],
+            [
+              "iter"
+            ],
+            [
+              "len"
+            ],
+            [
+              "get",
+              "a"
+            ],
+            [
+              "get",
+              "z"
+            ]
+          ]
+        },
+        {
+          "id": "proxy.nonstring.shortcircuit",
+          "outcome": "exact_original_protocol",
+          "events": [
+            [
+              "iter"
+            ]
+          ]
+        },
+        {
+          "id": "proxy.reentry",
+          "outcome": "rejected_and_busy_released"
+        }
+      ]
+    },
+    "real_data_runs": 0,
+    "interpretation": "Counts describe actually executed vectors, not unittest wrapper counts. Runtime/callsite and unstable second-pass nonstring-key admission rejections are separate from oracle-equivalence claims. Public reference construction performs an extra unchanged canonical verification; the worker private path does not."
+  }
+}

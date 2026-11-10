@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V39 late typed 核心 | [完整比較器](retailrocket_session_knn_typed_v39.py)、[核心驗收／核對](accept_retailrocket_session_knn_typed_core_v39.py) | 40項測試與850個向量通過，其中322內容差分；worker／獨立發布整合待完成。現用`--audit`、拒絕覆寫，無真實measure入口。[實作與邊界](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md) |
 | K1 V38 late 完整 typed 規格 | [盤點／封存／核對](freeze_retailrocket_session_knn_typed_v38.py) | 37項原行為測試通過；immutable來源reference／原late完整比較規格及32項待驗要求封存。候選未實作／未驗收，目前仍6次canonical；現用`--audit`，拒絕覆寫、無candidate／measure入口。[說明](../docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md) |
 | K1 V37 cold 所有權驗證 | [盤點／判定／核對](freeze_retailrocket_session_knn_ownership_v37.py) | 13份來源／22個錨點與18項原行為測試通過；可行性與16項未來門檻已封存，現有caller／callback未封閉，6→4不放行、保留6次及原時點核對。現用`--audit`，沒有measure開關。[說明](../docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md) |
 | K1 V36 cold canonical 候選 | [盤點／封存／核對](freeze_retailrocket_session_knn_canonical_v36.py) | 6個原guard反例通過；安全候選24個待驗要求已封存，cold保留6次，盲重用減為4次有ABA風險不放行。沒有candidate／measure開關，現用`--audit`。[盤點與規格](../docs/STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md) |

@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜原 late 時點完整 typed comparator（最新）
+## Stage 12｜late typed 實作與驗收（最新）
+
+核心40項測試及850個向量通過，內容差分322個；immutable reference／完整typed比較已實作，worker與獨立發布整合驗收待完成，沒有真實48筆或加速結論。[實作與差分](STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+
+## Stage 12｜原 late 時點完整 typed comparator（前輪）
 
 完整規格與32項待驗要求封存，37項原行為測試通過；設計為4 canonical＋2個原late完整typed檢查，所有來源／鎖後／final／獨立發布保留。候選未實作或驗收，目前仍6次canonical、無加速比例。[語義與規格](STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 

@@ -1,5 +1,7 @@
 # 測試與驗證
 
+Stage 12 V39核心差分：21個新core與19個原typed oracle測試同輪循序全通，40項、1.674秒。實際850個向量包含322內容差分（158相等、140不等、24原oracle拒絕）、30 reference拒絕、491 runtime／深度邊界及7 protocol；850唯一ID。Eligibility邊界不冒稱oracle拒絕，worker／獨立publisher完整驗收待完成。[核心收據](../reports/stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+
 Stage 12 V38 late typed規格盤點：19項新增原canonical oracle測試、V37的12項所有權及V36的6項時點反例同輪循序重跑，37項全通、1.564秒，無失敗／錯誤／跳過。涵蓋exact type、float.hex／signed zero、完整巢狀欄位、Unicode、unsupported／subclass、surrogate、cycle與共享無環alias；不是新comparator的驗收。候選實作／測試、真實context／query均0。[收據](../reports/stage12/retailrocket_session_knn_v38_typed_inventory_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 
 Stage 12 V37 cold所有權盤點：12項新增tiny原API測試與V36的6項時點反例同輪循序重跑，18項全通、1.492秒，無失敗／錯誤／跳過。涵蓋巢狀caller別名、共享support、watch／observer、MappingProxy backing／巢狀值、immutable bytes與list→tuple型別差異。不是6→4候選驗收，真實context／query均0。[盤點收據](../reports/stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json) · [方法與界線](../docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
