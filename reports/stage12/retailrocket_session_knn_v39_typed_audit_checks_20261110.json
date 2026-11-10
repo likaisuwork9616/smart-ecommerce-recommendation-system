@@ -1,0 +1,62 @@
+{
+  "status": "v39_full_receipt_nested_summary_tamper_rejected",
+  "created_utc": "2026-11-10T08:29:41.978622+00:00",
+  "report": {
+    "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json",
+    "bytes": 407066,
+    "sha256": "daf761c24d4d75285c0d3f9fe962ad27ed595523922f587140db62e702dabffa"
+  },
+  "seal": {
+    "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_seal_20261110.json",
+    "bytes": 728,
+    "sha256": "e44445b9eff575f491b9d45189804e0883a303dca8c8e92791beb3d531806012"
+  },
+  "validator": {
+    "path": "scripts/accept_retailrocket_session_knn_typed_v39.py",
+    "bytes": 17674,
+    "sha256": "9cdb710a7bc4d652e566e87fd9f8cf92dd6491d2c4d8199412ee42b770172209"
+  },
+  "runner": {
+    "path": "shop-mysql-runtime/verification/check_knn_v39_receipt_20261110.py",
+    "bytes": 2068,
+    "sha256": "59c361f60ebc5392a12dec5a6c5e77101dd61199c6565d4db0ddd081456fbb0f"
+  },
+  "checks": [
+    {
+      "id": "operation_counts",
+      "rejected": true,
+      "error": "Actual operation summary differs"
+    },
+    {
+      "id": "differential",
+      "rejected": true,
+      "error": "Executed differential vectors differ from the sealed same-suite core evidence"
+    },
+    {
+      "id": "module_counts",
+      "rejected": true,
+      "error": "Per-module executed test counts differ"
+    },
+    {
+      "id": "integration_count",
+      "rejected": true,
+      "error": "Complete stopped integration evidence or metadata differs"
+    },
+    {
+      "id": "integration_evidence",
+      "rejected": true,
+      "error": "Complete stopped integration evidence or metadata differs"
+    },
+    {
+      "id": "integration_typed_proof",
+      "rejected": true,
+      "error": "Complete stopped integration evidence or metadata differs"
+    }
+  ],
+  "checks_run": 6,
+  "failures": 0,
+  "seconds": 6.386257100002695,
+  "original_report_unchanged": true,
+  "new_query_runs": 0,
+  "interpretation": "Direct validation of six altered metadata payloads against sealed original core and stopped raw integration evidence. No file tamper or query replay."
+}

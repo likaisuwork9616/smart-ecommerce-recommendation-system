@@ -13,7 +13,7 @@
 
 ## Stage 12｜late typed 實作與驗收（最新）
 
-核心40項測試及850個向量通過，內容差分322個；immutable reference／完整typed比較已實作，worker與獨立發布整合驗收待完成，沒有真實48筆或加速結論。[實作與差分](STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+核心40項與整合165項通過、129個要求全映射；人工14帳本672次及新程序獨立發布完成。Cold實際4 canonical＋2 typed，身分／鎖後／原時點／final及末次entry內reference釋放保留，無真實48筆或加速結論。[實作與完整驗收](STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 
 ## Stage 12｜原 late 時點完整 typed comparator（前輪）
 

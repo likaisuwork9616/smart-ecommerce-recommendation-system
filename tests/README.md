@@ -1,6 +1,6 @@
 # 測試與驗證
 
-Stage 12 V39核心差分：21個新core與19個原typed oracle測試同輪循序全通，40項、1.674秒。實際850個向量包含322內容差分（158相等、140不等、24原oracle拒絕）、30 reference拒絕、491 runtime／深度邊界及7 protocol；850唯一ID。Eligibility邊界不冒稱oracle拒絕，worker／獨立publisher完整驗收待完成。[核心收據](../reports/stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+Stage 12 V39：核心40項（850向量含322內容差分）與完整整合165項全通。整合含core21／worker56／publisher18／未改snapshot18／V34 15／原oracle19＋ownership12＋時點6；98.602秒，129要求映射到成功ID。人工14帳本672次科學bytes核對、新程序pub、原late時點、失敗poison、兩root發佈、weaklease即時釋放及停態log全驗。Eligibility邊界不冒稱oracle拒絕；無真實查詢或加速比例。[核心收據](../reports/stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [完整驗收](../reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 
 Stage 12 V38 late typed規格盤點：19項新增原canonical oracle測試、V37的12項所有權及V36的6項時點反例同輪循序重跑，37項全通、1.564秒，無失敗／錯誤／跳過。涵蓋exact type、float.hex／signed zero、完整巢狀欄位、Unicode、unsupported／subclass、surrogate、cycle與共享無環alias；不是新comparator的驗收。候選實作／測試、真實context／query均0。[收據](../reports/stage12/retailrocket_session_knn_v38_typed_inventory_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md)
 
