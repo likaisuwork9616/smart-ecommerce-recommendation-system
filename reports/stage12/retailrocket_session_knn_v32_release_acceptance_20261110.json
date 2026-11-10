@@ -1,0 +1,91 @@
+{
+  "status": "v32_exact_log_reconciliation_synthetic_accepted",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v32_release_specification_20261110.json",
+    "bytes": 86258,
+    "sha256": "4dffec9fb8ca79d9f1f8878723ee704fc8e2c97cf725e1409111f927f8a7362c"
+  },
+  "methods": [
+    {
+      "path": "scripts/release_retailrocket_session_knn_v32.py",
+      "bytes": 21448,
+      "sha256": "d6f40108b3207d579abf047c706c24dde66efb1f3f38e5837b7ffccae62fffc7"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_release_v32.py",
+      "bytes": 16713,
+      "sha256": "e93d30dcaac346cc8af19544b06b30ecadb69b3f50cd0797524919365b1af426"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_release_v32",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests",
+    "tests.test_retailrocket_session_knn_snapshot_v30"
+  ],
+  "tests_run": 52,
+  "passed_test_ids": [
+    "tests.test_retailrocket_session_knn_release_v32.AuditTests.test_complete_post_exit_delegate_and_all14_scientific_frame_checks_preserved",
+    "tests.test_retailrocket_session_knn_release_v32.AuditTests.test_mixed_namespace_request_scheme_and_publisher_status_or_scheme_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.AuditTests.test_toctou_append_after_original_audit_cannot_receive_new_final_seal",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_actual_log_prefix_truncation_or_tail_change_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_caller_cannot_authorize_arbitrary_expected_tail",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_exact_frozen_tail_and_original_empty_descriptor_accepted",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_final_descriptor_path_size_and_sha_must_match",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_lf_rewrite_and_same_size_arbitrary_tail_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_old_prefix_content_or_nonempty_shape_is_never_exempt",
+    "tests.test_retailrocket_session_knn_release_v32.LogTests.test_only_exact_outer_log_basename_can_receive_exception",
+    "tests.test_retailrocket_session_knn_release_v32.ManifestTests.test_sorted_complete_manifest_rejects_added_files_and_changed_contents_before_publication",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_failed_child_and_wrong_child_identity_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_incomplete_pipeline_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_matching_live_tracked_process_identity_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_normal_supervisor_children_and_tracked_identities_must_all_be_stopped",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_outer_deadline_and_resource_limits_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_overlapping_worker_and_publisher_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_reused_pid_with_different_creation_identity_is_not_original_live_process",
+    "tests.test_retailrocket_session_knn_release_v32.StoppedTests.test_supervisor_failure_stop_and_live_cleanup_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_every_old_descriptor_use_rereads_log_and_detects_late_append",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_invocation_local_exception_does_not_replace_frozen_global_verifier",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_new_log_descriptor_is_strictly_verified",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_old_stdout_exception_preserves_strict_verification_of_all_other_sources",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_other_file_tampering_is_not_covered_by_log_exception",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_same_basename_from_another_context_is_strictly_rejected",
+    "tests.test_retailrocket_session_knn_release_v32.VerifierTests.test_unknown_descriptor_for_same_log_path_rejected",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_decision_thresholds_orders_cold_and_primary_are_not_weakened",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_exact_context_dependencies_and_methods_are_bound",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_failed_worker_prevents_publisher_and_existing_request_prevents_retry",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_new_namespace_rejects_old_real_entries_and_nested_artificial_window",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_real_source_contract_appends_methods_without_replacing_original17",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_real_specification_and_exact_original_scope",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_request_and_context_reject_missing_or_mixed_fingerprint_scheme",
+    "tests.test_retailrocket_session_knn_compare_v31.ContractTests.test_request_synthetic_marker_roster_context_and_limits_reject",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_cached_encoded_bytes_cannot_hide_live_mutation",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_changed_count_key_or_value",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_changed_fallback_value_or_order",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_changed_first_key_or_value",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_changed_first_times_value_or_order",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_no_sorting_sequences_to_hide_tampering",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_scheme_prefix_and_event_version_mismatch",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_separate_validation_JSON_UTF8_SHA_release_timers",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_truncation_or_omitted_tail_rejected",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotMutationTests.test_watch_failure_keeps_failed_observation",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_all_four_fields_present_and_field_order",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_bool_float_int_not_aliased",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_canonical_ASCII_numeric_string_IDs",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_exact_FrozenCatalog_mappingproxy_tuple_types",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_large_integers_not_float_rounded",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_map_insertion_order_equivalence",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_nonnegative_counts_and_timestamps",
+    "tests.test_retailrocket_session_knn_snapshot_v30.SnapshotSchemaTests.test_tuple_order_duplicates_and_empty_snapshot"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v32-release-tests-079d88acdef34902b94c3277ef5719a9/tests.log",
+    "bytes": 11886,
+    "sha256": "aace4ea20dac6d985e2c6ae982031c0f984c3d98e8aaa9cd31bc235d4af0ee81"
+  },
+  "seconds": 4.969708599999649,
+  "replayed_queries": 0,
+  "new_real_runs": 0
+}

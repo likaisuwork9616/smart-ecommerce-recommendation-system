@@ -38,3 +38,21 @@
 | 故障拒絕 | 原始payload／成本／事件／負載／收據修改、未停止程序、worker或publisher失敗、既有request及scheme混用均受新舊測試核對 |
 
 這是人工資料上的入口驗收，**本階段真實比較次數仍為0，沒有本輪加速比例**。方法、封存規格、測試log與人工證據描述符均已保存於[入口驗收收據](../reports/stage12/retailrocket_session_knn_v31_compare_acceptance_20261110.json)。下一步在提交不變方法與收據後，才以同批原48筆開唯一循序真實窗口。
+
+## 發布前補正：固定外層日誌的停態封存
+
+原48筆14次循序實測已完成，worker／publisher與外層監督均正常結束，原受監督窗口291.469秒；首次公開release被原嚴格檢查擋下，所以尚未公開配對或採用結果。問題在新入口contract呼叫父版audit的兩行診斷stdout：pipeline退出才將buffer寫入外層`stdout_stderr.log`，獨立publisher封存時該檔仍為空。這是入口日誌生命週期的缺口，原人工bridge直接執行純helper，沒有涵蓋這個頂層contract輸出。
+
+| 已確認內容 | 實際結果 |
+| --- | --- |
+| 唯一差異 | 原publisher記錄stdout為0bytes／空SHA；停態後450bytes，SHA `f735e41fb16c5418eb0e5a49e7ccf67e43d26f2a129e72ce17cd0cd59d800841` |
+| 可重推內容 | 精確兩行既有V29診斷，含CRLF；與凍結entry.specification重新捕捉的輸出逐byte相同，不能接受任意追加 |
+| 原窗口保留 | 原方法、request、帳本、事件、成本、負載、publisher結果／五份輸出與停止記錄均不修改；原publisher清單共319份證據，僅日誌一項不同，其餘318份一致 |
+| 新停態發布規格 | 限本次唯一namespace與精確0→450bytes；保留舊nested descriptor，頂層新seal綁最終檔案。其他檔案走原strict，完整file集合也不能增減 |
+| 合成驗收 | 52／52通過：26項新reconciliation負例／停止／late-write／完整manifest核對＋8項原入口contract＋18項codec；失敗／錯誤／跳過均0 |
+| 接續發布 | 提交新規格、方法與驗收後，再以新程序獨立重稽核既有窗口，原1937來源前後額外完整SHA、26方法、672frames、事件／負載／停止身分全部核對；不重跑任何query |
+| 時間分列 | 停態重稽核另有300秒唯讀預算與新時間記錄，不延長原實測、不改原291.469秒窗口或單次入口成本 |
+
+[V32嚴格單次補正規格](../reports/stage12/retailrocket_session_knn_v32_release_specification_20261110.json)與[52項驗收收據](../reports/stage12/retailrocket_session_knn_v32_release_acceptance_20261110.json)獨立保存。此時仍未發布本輪加速比例；不挑重跑、不放寬其他證據。
+
+原V31入口與驗收保持凍結，因此原`--release`仍會對中間log描述符嚴格拒絕。本輪完成後應使用新`scripts/release_retailrocket_session_knn_v32.py --audit`重核既有發布；新`--recover`只准第一次發布，不執行query。後續新實測入口應把頂層contract輸出與日誌關閉時序加入一般驗收，不能把本次窄範圍補正當成一般append許可。

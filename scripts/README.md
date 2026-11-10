@@ -6,6 +6,7 @@
 
 | 工作 | 入口 | 執行前提與產物 |
 | --- | --- | --- |
+| K1 V32 停態發布補正 | [嚴格單次補正與核對](release_retailrocket_session_knn_v32.py) | 52項驗收通過；只對已停止的本輪V31唯一window與精確450-byte診斷做補正。`--recover`只讀原資料、不重跑query；完成後`--audit`重稽核。原V31 `--release`仍保留嚴格拒絕，沒有改舊方法。[說明](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) |
 | K1 V31 C1-S1 原48筆比較 | [真實入口](run_retailrocket_session_knn_compare_v31.py)、[規格封存](freeze_retailrocket_session_knn_compare_v31.py)、[結果分析](analyze_retailrocket_session_knn_compare_v31.py) | 規格封存及178項新舊合成驗收完成；本階段未測真實48筆，提交後才開唯一`--measure`。已有request禁止retry，測後`--release`／分析`--audit`只核既有證據。[規格與結果](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) |
 | K1 V30 C1-S1 專用完整快照指紋 | [專用codec](retailrocket_session_knn_snapshot_v30.py)、[pool與獨立發布adapter](retailrocket_session_knn_snapshot_adapter_v30.py)、[合成驗收／核對](accept_retailrocket_session_knn_snapshot_v30.py) | 167項新舊驗收與70規格要求通過，人工14帳本／672次核對與獨立發布完成。現用`--audit`核既有來源與證據；`--acceptance`拒絕覆寫，無真實measure入口。[實作與驗收](../docs/STAGE12_KNN_C1_S1_V30_20261110.md) |
 | K1 V29 序列化成本與候選 | [已存事件與隔離重播](inventory_retailrocket_session_knn_serialization_v29.py)、[規格封存／核對](freeze_retailrocket_session_knn_serialization_v29.py) | 盤點完成；C1-S1 版本化完整快照指紋與 32 個新增驗收情境已封存，封存時尚未實作；後續C1-S1實作與合成驗收見V30。現有產物用各入口 `--audit`；沒有候選 measure 選項。[盤點與規格](../docs/STAGE12_KNN_SERIALIZATION_V29_20261109.md) |

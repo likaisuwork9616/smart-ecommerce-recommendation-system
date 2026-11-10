@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 真實入口合成驗收完成 | C1-S1真實入口178項新舊整合驗收通過；人工14帳本672次核對與獨立發布通過，原17方法增至26；尚未真實比較；完整 validation 驗收未完成，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 停態發布補正驗收完成 | 原48筆14次實測完成，首次發布因外層日誌延遲flush被擋；精確450bytes停態補正52項驗收通過，待不重跑query的獨立重稽核發布；完整 validation 驗收未完成，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜C1-S1 原48筆公平比較（最新）
 
-C1-S1真實入口178項新舊整合驗收通過；人工14帳本672次核對與獨立發布通過，原17方法增至26；尚未真實比較。父版70個要求仍全數通過；接著提交不變入口與驗收，再以同批原48筆循序比較。 [規格、驗收與結果](docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md)
+原48筆14次實測完成，首次發布因外層日誌延遲flush被擋；精確450bytes停態補正52項驗收通過，待不重跑query的獨立重稽核發布。原始方法與窗口不改；來源、帳本、事件、負載與停止身分仍完整核對，補正成本另列，尚未公開採用結論。 [規格、驗收與結果](docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md)
 
 ## Stage 12｜C1-S1 專用完整快照指紋（前輪）
 
