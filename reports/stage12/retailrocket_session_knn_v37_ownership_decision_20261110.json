@@ -1,0 +1,127 @@
+{
+  "status": "v37_ownership_based_six_to_four_not_admitted",
+  "inventory": {
+    "path": "reports/stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json",
+    "bytes": 18991,
+    "sha256": "7e90246f4f1fa8550b937f6ceb83834dbb53812b1d1c646c5149295069c9acbb"
+  },
+  "inherited": {
+    "records": [
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_inventory_20261110.json",
+        "bytes": 1166209,
+        "sha256": "30240b153ff3dcd43f6fd86430908b2ffc42bdb86823abba6a7d1a52e89aecce"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json",
+        "bytes": 1120366,
+        "sha256": "4cc83800221321946c444e6729f157dbffbf07552a63b64c3c04f3030fdd6e58"
+      },
+      {
+        "path": "reports/stage12/retailrocket_session_knn_v36_canonical_seal_20261110.json",
+        "bytes": 605,
+        "sha256": "c5a23341907e2d299d45a3c15ee8bd29dc2152e61a2ffc626a6993cf60cf3a49"
+      }
+    ],
+    "counts": {
+      "current_sources": 2092,
+      "current_methods": 168,
+      "original_sources": 1937,
+      "original_methods": 26,
+      "original_binding": 15,
+      "initialization_dependencies": 4
+    },
+    "verification_scope": "Re-audited sealed V36 source/event/test evidence and exact local code anchors; no new full 12GB closure hash or real context replay."
+  },
+  "methods": [
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_ownership_v37.py",
+      "bytes": 20178,
+      "sha256": "7368a443244415ebc77fe6df70b0e5420eb993829113f32df55656bbbcebfd25"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_ownership_v37.py",
+      "bytes": 9305,
+      "sha256": "bc8f9462203c35a032847636eac22da98d6fb49975859f18a2311223fd6b78d4"
+    }
+  ],
+  "verification_log": {
+    "path": "shop-mysql-runtime/verification/knn-v37-ownership-764791d5664c46daa9d70f6be34fa025/tests.log",
+    "bytes": 4190,
+    "sha256": "87f805c0e211bdd0f283e8d061a50dc2ab8b33fd1073d92788238a1d5e6366f2"
+  },
+  "finding": "Current config/model/support alias graph and callback API do not satisfy immutable ownership. Keep six cold canonical calls and the original late complete observation.",
+  "admitted": false,
+  "candidate_implemented": false,
+  "call_accounting": {
+    "cold_canonical": 6,
+    "initial_live_source": 4,
+    "original_late_live": 2,
+    "all7_generic_canonical": 41,
+    "all7_live_snapshot_fingerprints": 15,
+    "all7_digests": 22
+  },
+  "safe_existing_design": {
+    "specification": {
+      "path": "reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json",
+      "bytes": 1120366,
+      "sha256": "4cc83800221321946c444e6729f157dbffbf07552a63b64c3c04f3030fdd6e58"
+    },
+    "policy": "C1-S1-cold-canonical-source-anchor-v1",
+    "status": "still_design_only",
+    "behavior": "V36 retains full live canonical at the original late boundary and compares with validated source bytes before borrow; no ownership shortcut is admitted."
+  },
+  "prerequisites_for_future_ownership_candidate": {
+    "graph_ownership": [
+      "Prove provenance and exclusive ownership of both roots and every mutable descendant, including support and schema/window lists.",
+      "Exclude mutation-capable aliases outside the proved owner region from early comparison through the original late boundary; internal proven read-only nonescaping parameter aliases may remain.",
+      "Preserve original complete typed canonical identity; list-to-tuple conversion or detached-copy comparison is not equivalent.",
+      "Define how every admitted input type obtains the invariant; an immutable=True assertion or equal endpoint digest is not proof."
+    ],
+    "callback_capabilities": [
+      "Audit unchanged original callees together with every transitive callback, not merely direct assignment syntax.",
+      "Bind and enforce watch implementation and captures or remove mutation capability without removing required watch calls.",
+      "Bind observer span entry/exit, supplied clock and all reentrant hooks; a normal production default alone is insufficient.",
+      "Keep caller-visible references inaccessible to other admitted mutation routes during the proved interval; worker PID alone does not establish this."
+    ],
+    "temporal_equivalence": [
+      "Keep a complete content observation at the original after-prepare point before cache.use/borrow/query; missing ownership proof forbids deleting the two calls.",
+      "Reject all V36 late ABA and late unsupported/NaN cases with original or stronger timing, with full poison cleanup.",
+      "Retain every final live config/model check and distinguish transient restoration before versus across existing boundaries.",
+      "Any new typed comparator at the late point needs its own canonical-equivalence specification and acceptance; it is not ownership-based byte reuse."
+    ],
+    "identity_accounting": [
+      "Retain all original and current source/method identities append-only, complete request/config/model key and original 15 binding checks.",
+      "Retain create and post-lock full verification, one-cold/six-hit snapshot checks and independent publisher rebuild/stopped-log seal.",
+      "Charge all ownership/copy/freeze/comparison work inside the same entry and cold timings; no hidden preload or cross-worker cache.",
+      "Bind a new policy in methods/spec/request/events/receipt/publisher and pass mapped synthetic acceptance before a separately frozen sequential original48 comparison."
+    ]
+  },
+  "prerequisite_count": 16,
+  "prohibited_shortcuts": [
+    "PID or writer-lock ownership as recursive memory ownership",
+    "Read-only callee body while leaving callbacks or caller aliases unrestricted",
+    "MappingProxy-only wrapper, retained bytes, copied graph or equal endpoint hash as proof",
+    "Deep freeze changing list/tuple semantic identity or skipping original caller checks",
+    "New boolean ownership flag without an enforced invariant",
+    "Moving complete content checks after borrow/query or relying only on independent publication"
+  ],
+  "next_engineering_option": "If serialization reduction is still desired, separately specify a complete canonical-equivalent typed comparator at the original late boundary, or design and enforce a new exclusive-ownership API. Neither is implemented or accepted here.",
+  "preserved": "All source/method identities, complete identity key, original create/post-lock checks, final live content checks, complete snapshot checks and independent publisher/stopped-log validation remain unchanged. No old method or result is edited.",
+  "interpretation": "Feasibility verification of current API only; no performance adoption, no estimated saving from V35 timing, no original48 replay.",
+  "scope": {
+    "candidate_implemented": false,
+    "candidate_tests_run": 0,
+    "new_real_context_replays": 0,
+    "new_query_runs": 0,
+    "model_fits": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "measured_speedup": null,
+  "T_plan": null,
+  "created_utc": "2026-11-10T05:39:27.415750+00:00"
+}

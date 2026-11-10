@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | cold 所有權盤點與驗證完成 | 13份來源／22個錨點與18項原行為測試完成；caller仍可變，尚不能依所有權將canonical 6→4；原late完整核對、來源／鎖後／獨立發布保留，無新效能數據 |
+| Stage 12：session-kNN K1 | cold 所有權可行性已封存 | 18項原行為驗證全通；現有所有權條件不成立，canonical保持6次；16項未來門檻已封存，原late／final、來源／鎖後／獨立發布不變，無新效能數據 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜cold 初始化不可變所有權（最新）
 
-13份來源、22個錨點盤點及18項循序原行為測試全通（12項所有權＋6項時點反例，1.492秒）。目前caller／support仍有可變別名，watch／observer未封閉；不能依所有權將cold canonical 6→4。production預設路徑未見主動改值，不宣稱歷史實測曾遭改動。原late完整核對與所有身分／鎖後／獨立發布保留；真實context與query均0，下一階段封存可行性判定。 [盤點與驗證](docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
+13份來源、22個錨點盤點及18項循序原行為測試全通（12項所有權＋6項時點反例，1.492秒）。現有caller／support可變別名與callback能力未封閉，**不能依所有權將cold canonical 6→4，保持6次**；可行性判定與16項後續門檻已封存。原late／final完整核對、身分／鎖後／獨立發布不變；真實context與query均0，沒有加速比例。下一步可另訂原late時點完整typed comparator規格，不把它混稱bytes重用。 [盤點、驗證與判定](docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md)
 
 ## Stage 12｜cold canonical bytes 重用候選（前輪）
 
