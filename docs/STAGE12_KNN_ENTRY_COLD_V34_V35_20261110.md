@@ -27,11 +27,17 @@
 .venv/Scripts/python.exe -B -m scripts.accept_retailrocket_session_knn_entry_v34 --audit
 ```
 
-`--acceptance`已完成，已有不可變收據會拒絕覆寫；`--audit`只核既有人工窗口與直接來源，不重跑查詢。通用helper沒有真實measure入口；後續cold／validation診斷會另外封存規格、驗收觀測器後再循序執行。
+V34的`--acceptance`已完成，已有不可變收據會拒絕覆寫；`--audit`只核既有人工窗口與直接來源，不重跑查詢。V35診斷也已完成，現在用以下命令重稽核既有窗口，不重新量測：
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_diagnostics_v35 --release shop-mysql-runtime/verification/knn-v35-diagnostics-74dce12292714ac8b111a8d6c9fc371e
+```
+
+V35的`--measure`會拒絕已存在的request，不提供自動重試；本輪來源、方法、完整日誌與結果均保持不可變。
 
 ## 第二階段：cold／validation 診斷規格封存
 
-僅針對原四個context輸入與不變S1表示做獨立觀測，不重跑原48筆、不執行SQL query或fit，也不修改先前不採用結論。規格、來源與時序已封存；觀測器22項小型語義測試通過，完整受監督入口其後亦完成49項正式驗收，見下節；真實context仍待最後階段。
+僅針對原四個context輸入與不變S1表示做獨立觀測，不重跑原48筆、不執行SQL query或fit，也不修改先前不採用結論。規格、來源與時序已封存；觀測器22項小型語義測試通過，完整受監督入口其後亦完成49項正式驗收及唯讀context診斷，實際結果見後文。
 
 | 固定設計 | 內容與界線 |
 | --- | --- |
@@ -68,3 +74,104 @@
 V35的直接來源另明列140個舊專案Python seeds及V33 analyzer／test兩個字串載入目標，避免只以AST漏掉unittest動態載入。原1937／26／15仍不變，封存plan直接來源168，methods168；不是回填舊V31的驗證範圍。
 
 本階段真實context replay仍未開始，沒有新增實測分項或加速比例。完整[入口驗收收據](../reports/stage12/retailrocket_session_knn_v35_diagnostics_acceptance_20261110.json)綁方法、測試log與人工窗口final seal；另有[22項core驗收](../reports/stage12/retailrocket_session_knn_v35_diagnostics_core_acceptance_20261110.json)。提交不變收據後才開唯一真實context診斷窗口。
+
+## 第四階段：原context唯讀診斷完成
+
+唯一窗口`shop-mysql-runtime/verification/knn-v35-diagnostics-74dce12292714ac8b111a8d6c9fc371e`已循序完成，沒有SQL query、fit、新模型validation／bootstrap或原48筆重跑。原始buffers與完整preimage／指紋相同；每次cold保留原source create／post-lock核對，獨立publisher重新建立參考並open四個空store，原始事件與負載重算後才停態封存日誌。本輪沒有使用V32窄範圍log例外。
+
+| 範圍與完整性 | 實際結果 |
+| --- | --- |
+| 新來源契約 | 2092個source、168個methods；原1937／26／15不改，僅追加 |
+| Cold | 4fresh pools／stores：1warmup＋3recorded；12個診斷指紋＋4個原codec參考，8次worker binding全核對、4次publisher open，committed query rows皆0 |
+| Codec | 4pairs／8calls：1warmup＋3recorded，完整preimage等價；publisher另獨立完整original指紋1次，不接收worker快照 |
+| 一次性inputs | 0.071412秒，位於worker initial hash後、cold之前，獨立計時 |
+| 原始維度 | first 234,795、counts 198,946、first_times 234,795、fallback 234,795；每個指紋完整watch 903,335次 |
+
+### Cold細項
+
+以下為三次記錄cycle的中位數，單位秒；warmup另存原報告，不丟棄。inclusive含子層，exclusive僅自身，不能把巢狀欄位再加到父層；不同分項中位數也不保證加總守恆。
+
+| 分項 | inclusive中位秒 | exclusive中位秒 |
+| --- | --- | --- |
+| 整個cold診斷父層（另含來源／guards／參考核對） | 15.101190 | 0.000032 |
+| 原create／post-lock來源核對（巢狀） | 2.341562 | 0.001185 |
+| 完整身分與method核對（巢狀） | 0.550608 | 0.550608 |
+| 原pre-use guard（巢狀） | 1.681315 | 0.000039 |
+| 原final guard（巢狀） | 2.083035 | 0.425415 |
+| 額外原codec參考核對（巢狀） | 1.266692 | 0.000008 |
+| cold build父層 | 6.640285 | 0.001368 |
+| 四個buffer讀取與SHA | 0.026388 | 0.026388 |
+| config JSON | 0.000301 | 0.000301 |
+| model JSON | 0.068379 | 0.068379 |
+| 四次config／model比較canonical | 0.779266 | 0.779266 |
+| 兩次保留canonical | 0.391659 | 0.391659 |
+| 兩個buffer view | 0.000006 | 0.000006 |
+| 原load_context | 2.962002 | 2.962002 |
+| 原prepare | 0.811417 | 0.811405 |
+| MappingProxyType view建構（巢狀） | 0.000005 | 0.000005 |
+| FrozenCatalog建構（巢狀） | 0.000006 | 0.000006 |
+| cold預期指紋（巢狀） | 1.728929 | 0.000037 |
+
+| 原buffer | 讀取＋SHA中位秒 |
+| --- | --- |
+| catalog | 0.013643 |
+| config | 0.000829 |
+| counts | 0.004949 |
+| model | 0.006751 |
+
+| canonical角色 | 每cycle中位秒 |
+| --- | --- |
+| config三次canonical合計 | 0.008101 |
+| model三次canonical合計 | 1.162629 |
+
+角色合計由同cycle原始事件ordinal重算：config為比較兩次＋保留一次，model亦同；這些已包含於上表compare／expected，不是額外工作。原prepare總成本保留全部copy／檢查／排序，MappingProxyType只是view，因此不把view constructor時間當完整copy成本。這些是新觀測scope，不是舊V31 cold exclusive的精確歸因。
+
+下一個cold候選可先評估比較後保留canonical bytes的重用規格；比較與保留分項分別約0.779／0.392秒，但不能因此宣稱整段可省。仍須保留live身分、來源／鎖後核對與最終內容檢查，另做合成驗收及公平比較。
+
+### Validation內部分項與觀測擾動
+
+下表為三次正式D呼叫的中位數，每次只有一個完整指紋；不能直接與原48筆每entry兩個指紋的中位數比較。
+
+| 分項 | 觀測D中位秒 |
+| --- | --- |
+| exact schema | 0.000002 |
+| first遍歷／驗證／row copy | 0.402997 |
+| first排序 | 0.018697 |
+| counts遍歷／驗證／row copy | 0.371772 |
+| counts排序 | 0.017212 |
+| first_times遍歷／驗證／copy | 0.264470 |
+| fallback遍歷／驗證／copy | 0.352652 |
+| 最後watch | 0.000008 |
+
+| 正式pair | 順序 | 原codec B完整call秒 | 觀測codec D完整call秒 | D−B秒 |
+| --- | --- | --- | --- | --- |
+| 1 | BD | 1.353679 | 1.782428 | 0.428749 |
+| 2 | DB | 1.339026 | 1.742072 | 0.403046 |
+| 3 | BD | 1.409355 | 1.708954 | 0.299599 |
+
+B完整call中位數 **1.353679秒**，D完整call中位數 **1.742072秒**。完整call包含Counter建構、invocation-local clone與watch報告輸出，不能只以內層snapshot.fingerprint當觀測器全部成本。差值用來看觀測擾動，也可能含配對間負載波動；不是候選加速比例，沒有拿它扣除任何原始時間。
+
+| Watch與計時 | 實際結果 |
+| --- | --- |
+| 診斷watch報告 | 16份，包含warmup；完整watch 14,453,360次 |
+| 每1024次取樣 | 14,112次有計時，14,439,248次未取樣；逐欄calls／取樣位置與總數重算一致 |
+| 樣本秒數 | 0.009635300秒，含clock開銷；不是總watch耗時，不外推、不加到gross遍歷 |
+| timer校驗 | 獨立256組paired reads保存在setup；只量clock，不代表整個Counter／wrapper開銷，也不作時間校正 |
+
+### 窗口與負載
+
+| 視角 | 實際結果 |
+| --- | --- |
+| V5受監督窗口 | 278.188000秒，1800秒預算內正常完成 |
+| worker／publisher程序 | 173.843153／93.607320秒，沒有重疊 |
+| worker完整來源hash | 前44.896381／後33.555625秒；publisher也有前後兩次完整來源hash，另列原事件 |
+| 公開JSON序列化 | 0.024033秒，不混入cold或codec分項 |
+| 負載 | 12個replay context＋publisher，共707筆，系統CPU依context時長加權平均38.911% |
+| 缺口 | 最大取樣間隔1.115477秒，30個目標週期間隔缺失；不補值，不把它分攤到每個row |
+| 程序與封存 | exit0、tracked仍存活0；完整final manifest含所有日誌，後續append／新增檔都拒絕 |
+
+負載不涵蓋worker兩次完整hash、一次性input_setup與validation_setup的CPU全程；它們的時間已另列。未量測Ollama token／GPU速度，不能推論因果降速。OS cache沒有清空；fresh只代表新pool／store，非OS cold。新方法清單與觀測開銷亦不同於V31，不以本輪數字重算舊加速或採用門檻。
+
+先前C1-S1不採用結論保持：原48筆含cold七次總和仍為R61.128秒／C62.974秒。本輪只提供下一個候選的工程診斷，沒有新效能採用結果；55／55細層、170筆可比較／232筆歷史查詢不變，完整validation未完成、保留測試鎖定，T_plan空。
+
+[實測成本與全部樣本](../reports/stage12/retailrocket_session_knn_v35_diagnostics_cost_20261110.json) · [停態發布收據](../reports/stage12/retailrocket_session_knn_v35_diagnostics_release_20261110.json)。已完成後`--measure`拒絕新窗口；以`--release shop-mysql-runtime/verification/knn-v35-diagnostics-74dce12292714ac8b111a8d6c9fc371e`重稽核既有結果，不重跑測量。
