@@ -1,0 +1,43 @@
+{
+  "status": "v30_C1_S1_implemented_focused_codec_checks_passed_integration_pending",
+  "created_utc": "2026-11-10T01:00:14.421452+00:00",
+  "specification": {
+    "path": "reports/stage12/retailrocket_session_knn_v29_serialization_specification_20261109.json",
+    "bytes": 338322,
+    "sha256": "221f63bbfa21078eedec62f9218dbb294443e4a03698e3a7bb19eb5923659cfd"
+  },
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_snapshot_v30.py",
+      "bytes": 3246,
+      "sha256": "bdb41ff716334f70ae6fb6f5f5f6aee6928d402cd9dc8beb4076cc3b8e6788bb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_snapshot_adapter_v30.py",
+      "bytes": 12376,
+      "sha256": "5281ac90a1cbb647519f3e55611db7542dd328fe5ed27fb3ba2283621de50909"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_snapshot_v30.py",
+      "bytes": 8033,
+      "sha256": "e7d1ba8e26ef0931007586d4d047092a8cff69dcf8c8874df978317b80765a85"
+    }
+  ],
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v30-s1-focused-cab527589e5049aea428f022394833f5/tests.log",
+    "bytes": 3046,
+    "sha256": "afecb45279f1ccea3082967b6faa0c45a8140215e98ae7d3268693f81a45e20a"
+  },
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.32892539999966175,
+  "scope": {
+    "real_runs": 0,
+    "new_real_fit_validation_bootstrap": 0,
+    "reserved_test": "locked"
+  },
+  "full70_case_acceptance": "pending",
+  "measured_speedup": null
+}
