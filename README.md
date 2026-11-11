@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V39 reference 建置分項（最新）
+## Stage 12｜Model 解碼分項（最新）
+
+V43 計時工具通過 4 項人工測試，已核對 V42 使用的 4,566,194 bytes model canonical 與 SHA-256。工具直接量字串掃描、tuple 建置與 UTF-8 解碼，再以整段扣除這三項計算解析主迴圈時間。下一步以同一份來源跑六對實測。[V43 方法與操作](docs/STAGE12_KNN_MODEL_DECODE_V43_20261111.md)
+
+## Stage 12｜V39 reference 建置分項
 
 V42 用 V41 綁定的真實 config 和 model 重播 V39 reference 建置。六對正式重播中，原版中位數 2.258 秒，加計時版 2.164 秒。model 解碼與 tuple 建置中位數 1.841 秒，占整段 84.5%；model 文法驗證中位數 0.306 秒，占 14.3%。28 個 root 的完整 late 核對通過，查詢執行 0 次。[V42 分項、波動與重核](docs/STAGE12_KNN_REFERENCE_COST_V42_20261111.md)
 
