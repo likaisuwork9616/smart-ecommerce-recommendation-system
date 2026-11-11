@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜原 C1-S1 與 V39 直接比較（最新）
+## Stage 12｜V39 reference 建置分項（最新）
+
+V42 已完成分項計時工具與 3 項人工測試。工具沿用 V39 worker 的建置區間，驗證 V41 綁定的 config 和 model，再交替比較原版與加計時版本。實測待執行。[V42 方法與操作](docs/STAGE12_KNN_REFERENCE_COST_V42_20261111.md)
+
+## Stage 12｜原 C1-S1 與 V39 直接比較
 
 V41 入口 9 項測試通過後，用原固定 48 筆在同一窗口循序比較原 C1-S1 與 V39。原 late canonical 共 0.367 秒，V39 reference 建置與 late 比較共 3.062 秒，增加 2.695 秒，其中建置占 2.510 秒。完整冷啟動為原 C1-S1 15.039 秒、V39 18.657 秒。含冷啟動的七次總耗時分別為 65.088 與 72.135 秒。14 份帳本的 672 筆紀錄、兩臂各 15 次快照及停態唯讀重核全部通過。[V41 規格、六對結果與重核](docs/STAGE12_KNN_DIRECT_TYPED_COMPARE_V41_20261111.md)
 
