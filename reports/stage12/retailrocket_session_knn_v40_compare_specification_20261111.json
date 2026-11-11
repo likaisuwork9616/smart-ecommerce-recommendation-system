@@ -1,0 +1,263 @@
+{
+  "status": "v40_original48_typed_comparison_protocol_frozen",
+  "parents": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v31_compare_specification_20261110.json",
+      "bytes": 422394,
+      "sha256": "1473ae19a439372433ffe079d2fbf8d20811558322be6fe3d168b76476311a66"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json",
+      "bytes": 1120366,
+      "sha256": "4cc83800221321946c444e6729f157dbffbf07552a63b64c3c04f3030fdd6e58"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json",
+      "bytes": 407066,
+      "sha256": "daf761c24d4d75285c0d3f9fe962ad27ed595523922f587140db62e702dabffa"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_seal_20261110.json",
+      "bytes": 728,
+      "sha256": "e44445b9eff575f491b9d45189804e0883a303dca8c8e92791beb3d531806012"
+    }
+  ],
+  "cohort": {
+    "model_root": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model",
+    "old_run": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/verified_selected/run.json",
+    "probes": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+    "reference": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/selected_ledger_proof.json",
+    "selected_root": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs"
+  },
+  "dependencies": {
+    "counts": {
+      "bytes": 1784882,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/item_counts.csv",
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    "catalog": {
+      "bytes": 4874693,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/dataset/catalog.csv",
+      "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e"
+    },
+    "config": {
+      "bytes": 24829,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/configuration.json",
+      "sha256": "f3d5b9d6c6711594fb6efeea3f322ae11a77e487ad9888504fda42a73f2b474d"
+    },
+    "model": {
+      "bytes": 2179030,
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/reconstruction.json",
+      "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+    }
+  },
+  "original_binding": [
+    {
+      "bytes": 24829,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/configuration.json",
+      "sha256": "f3d5b9d6c6711594fb6efeea3f322ae11a77e487ad9888504fda42a73f2b474d"
+    },
+    {
+      "bytes": 4437,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/ordinals.json",
+      "sha256": "e7c25d367fe1907aab43b5b356baaca0eac83c8bf7ba120d75cf68bedbcdb05e"
+    },
+    {
+      "bytes": 72533,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/C1/queries.jsonl",
+      "sha256": "8df06b10ace0fa0389b4ee2fccebd10403069c795ed02d0c75ddd22e89c07014"
+    },
+    {
+      "bytes": 106108,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/D1/queries.jsonl",
+      "sha256": "b1101ce7469fcbe3baf3e5b746e67110c9e1155653871783453d395d70372053"
+    },
+    {
+      "bytes": 4874693,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/dataset/catalog.csv",
+      "sha256": "240199fd43adf6afaed58ae2a482a1b1a2add3f3101e48b5c1effead8874017e"
+    },
+    {
+      "bytes": 6449,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/dataset/queries.csv",
+      "sha256": "4f33e0b126125a84c9db8c67bcde6ed219386ca922d806e34ea3052d6c794849"
+    },
+    {
+      "bytes": 1784882,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/item_counts.csv",
+      "sha256": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89"
+    },
+    {
+      "bytes": 3954,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/query_metrics.csv",
+      "sha256": "498a4ae3333a959050936109ebdb2f1e7a6361ebd26a946e03cdf6d63da701eb"
+    },
+    {
+      "bytes": 3931,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/query_slices.csv",
+      "sha256": "23169bbad63729ff4cc214a9872e1112b97ff06a5d3338e1294a60352cf0a6c2"
+    },
+    {
+      "bytes": 13682,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/P0/ranked_queries.csv",
+      "sha256": "d1fee0668125dcb16085c5788e848730e946428a25061a7cdda29416455527f7"
+    },
+    {
+      "bytes": 2083445,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/primary/queries.jsonl",
+      "sha256": "d1a4fb7e6b8c7109f7d3db69f46a93844984ca771f691be85c3e402c7a59ecd6"
+    },
+    {
+      "bytes": 475103232,
+      "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/independent.sqlite",
+      "sha256": "2b3b1bb33be798aed90820d8548d3458a21571b75fb59ee34f767ad9429e22b2"
+    },
+    {
+      "bytes": 30667,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/joint/frozen_probes.json",
+      "sha256": "110165b8180498f7363739db0cdbec4a841d7864b7be04c57f6f35346c081120"
+    },
+    {
+      "bytes": 4485,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/source_index/manifest.json",
+      "sha256": "1d9a92853d75fa4bbc0159a811ca8ce7be693d7f71034e8fe1727f550125cfae"
+    },
+    {
+      "bytes": 127,
+      "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/source_index/seal.json",
+      "sha256": "db892fbaaca8ad0a26f6b766088b0c6f0da138fca86b712a29faeb0ad5ef6bdf"
+    }
+  ],
+  "reference": {
+    "actual_committed_bytes": 2115696,
+    "actual_committed_payload_sha256": "e47a62bcbdc0b0af5a5285a88e9fefc9b9e270b8ea6cca497ef88c9e3fa3abb5",
+    "formal_acceptance": false,
+    "records": 48
+  },
+  "schedule": [
+    {
+      "label": "warm_R",
+      "mode": "R"
+    },
+    {
+      "label": "warm_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_1_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_1_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_2_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_2_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_3_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_3_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_4_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_4_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_5_R",
+      "mode": "R"
+    },
+    {
+      "label": "pair_5_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_6_C",
+      "mode": "C"
+    },
+    {
+      "label": "pair_6_R",
+      "mode": "R"
+    }
+  ],
+  "decision": {
+    "primary_metric": "complete entry seconds; do not reuse the SQL primary-only adoption gate",
+    "entry_positive_pairs_at_least": 5,
+    "total_formal_pairs": 6,
+    "median_paired_entry_saving_percent_at_least": 5,
+    "each_RC_CR_order_median_entry_saving_seconds": "strictly_positive",
+    "all7_candidate_entry_seconds_including_cold": "strictly_less_than_all7_reference",
+    "median_paired_primary_regression_percent_at_most": 5,
+    "required": "All scientific/source/safety/accounting tests pass and resource limits hold. Publish all pair values regardless of outcome; failure means not adopted.",
+    "interpretation": "Frozen engineering screening criteria, not a statistical generalization guarantee or premeasured speedup."
+  },
+  "scope": {
+    "new_keys": 0,
+    "new_real_fit_validation_bootstrap": 0,
+    "full_validation_complete": false,
+    "reserved_test": "locked",
+    "covered_cells": 55,
+    "distinct_comparable_queries": 170,
+    "distinct_historical_queries": 232
+  },
+  "gates": {
+    "reference_gates_verified": 6,
+    "reserved_test": "locked"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "implementation": "CPython",
+    "byteorder": "little"
+  },
+  "budget_seconds": 1800,
+  "limits": {
+    "rss_bytes": 8589934592,
+    "execution_bytes": 21474836480,
+    "minimum_available_bytes": 4294967296,
+    "minimum_free_bytes": 8589934592
+  },
+  "namespace_prefix": "knn-v40-typed-real-",
+  "fingerprint_scheme": "K1-C1-S1-SNAPSHOT-v1",
+  "typed_reference_policy": "C1-S1-cold-late-typed-source-anchor-v1",
+  "typed_reference_scheme": "K1-C1-LATE-TYPED-REFERENCE-v1",
+  "retained_sources": 2101,
+  "retained_methods": 177,
+  "retained_logical_bytes": 12294423494,
+  "activation": {
+    "reference": "Fresh original R, without context reuse, in the same sequential window.",
+    "candidate": "V39 late typed source-anchored C1-S1, with one cold build and six hits.",
+    "measurement": "One V5 window, one worker, fourteen fresh stores, then a new independent publisher.",
+    "cost": "Same full entry and load sampling for both arms; include cold and passive typed timings. Comparison is of complete paths. It does not isolate the marginal effect of the typed change.",
+    "source": "Retain the inherited closure, methods and 15 binding descriptors exactly. Append direct methods, sealed activation and acceptance evidence. Keep full worker/publisher passes and lock-time checks.",
+    "publication": "Require complete physical scientific bytes, accounting, order and independent typed source reconstruction, then seal every file after all tracked writers stop.",
+    "once": "Freeze and commit this protocol, then accept and commit the unchanged entry before measuring. An existing real request or public result blocks another window. Audit only reads saved results.",
+    "runs": 14,
+    "queries_per_run": 48,
+    "engineering_checks": 672
+  },
+  "acceptance_requirements": [
+    "exact-cohort-schedule-gates-and-additive-source-contract",
+    "measurement-requires-sealed-entry-acceptance-and-refuses-retry",
+    "same-role-entry-artificial-window-with-production-input-loader",
+    "independent-typed-and-complete-scientific-publisher",
+    "stopped-log-seal-release-and-read-only-audit",
+    "mixed-policy-tampering-and-failed-window-refused"
+  ],
+  "measured_speedup": null,
+  "real_runs": 0,
+  "T_plan": null
+}

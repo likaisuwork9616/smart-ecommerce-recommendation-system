@@ -33,7 +33,9 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜late typed 實作與驗收（最新）
 
-完整typed comparator與worker／獨立publisher合成驗收完成：核心40項、整合165項全通；人工14帳本672次保存核對成功，129項要求逐案映射。Cold實際4次canonical＋2次完整typed核對；同worker七次generic 39、snapshot 15／digest 22，身分／鎖後／原時點／final／獨立發布及停態日誌保留。新reference在最後entry內釋放，動態proxy／runtime較強拒絕範圍已明列。沒有真實context／query或加速比例；下一步先封存真實比較入口，再循序比較原48筆。[實作、邊界與完整驗收](docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
+V40 已封存原固定 48 筆的比較規格，重核 V39 的 165 項驗收、原帳本 2,115,696 bytes 的完整雜湊及 15 個 binding 描述符。同一窗口依序執行原始 R 與 V39 候選，六對交替並將 cold 計入七次總耗時。真實比較執行 0 次，待新入口通過人工整合驗收後才啟動。[V40 規格與操作](docs/STAGE12_KNN_TYPED_COMPARE_V40_20261111.md)
+
+V39 完整 typed comparator 的核心 40 項、整合 165 項全通。人工 14 帳本 672 次保存核對成功，129 項要求逐案映射。Cold 實際 4 次 canonical 加 2 次完整 typed 核對，同 worker 七次 generic 39、snapshot 15、digest 22。新 reference 在最後 entry 內釋放。[V39 實作、邊界與完整驗收](docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 
 ## Stage 12｜原 late 時點完整 typed comparator（前輪）
 
