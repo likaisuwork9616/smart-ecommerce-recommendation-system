@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | 原固定 48 筆比較完成，V39 候選未採用 | 入口 9 項測試全通，真實窗口 14 份帳本、672 筆核對完成。候選 3／6 對較快，含冷啟動總時間 83.370 秒，原始 R 75.532 秒 |
+| Stage 12：session-kNN K1 | V41 直接比較入口驗收完成 | 9 項測試通過，原 C1-S1 和 V39 在人工窗口各一 cold、六 hits，待原固定 48 筆真實配對 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜原 C1-S1 與 V39 直接比較（最新）
 
-V41 已封存同窗口直接比較規格，重核原固定 48 筆與 V40 的 2,445 個來源描述符。原 C1-S1 與 V39 各有一個獨立冷啟動和六次重用，並分別記錄原 late canonical 與 typed reference 建置加 late 檢查的成本。真實比較執行 0 次，待新入口人工驗收後啟動。[V41 規格與操作](docs/STAGE12_KNN_DIRECT_TYPED_COMPARE_V41_20261111.md)
+V41 規格已封存，9 項新入口測試通過。人工窗口兩臂各一 cold、六 hits，各核對 15 次完整快照，獨立發布程序核對 14 份帳本的 672 筆紀錄。兩次原 late canonical 的被動計時與 V39 建置加比較成本均已驗證，人工結果的停態唯讀重核通過。真實比較執行 0 次，接下來使用原固定 48 筆執行。[V41 規格、驗收與操作](docs/STAGE12_KNN_DIRECT_TYPED_COMPARE_V41_20261111.md)
 
 ## Stage 12｜原固定 48 筆 V40 比較結果
 
