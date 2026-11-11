@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜Model 解碼分項（最新）
+## Stage 12｜Model 解碼低頻抽樣（最新）
+
+V44 抽樣工具通過 4 項測試。人工資料八對配對的淨差中位數為 +52.4 毫秒（+14.7%）。工具在每 64 個文字區塊中隨機取一個，從原版配對總時間扣除估計的字串、tuple 與 UTF-8 時間。下一步以 V43 綁定的 model 重測。[V44 抽樣方法與校準](docs/STAGE12_KNN_MODEL_DECODE_SAMPLING_V44_20261111.md)
+
+## Stage 12｜Model 解碼分項
 
 V43 計時工具 4 項測試通過後，用 V42 的同一份 model 跑六對。加計時版中位數 3.507 秒，其中字串掃描 1.435 秒、tuple 建置 0.104 秒、含計時開銷的陣列解析餘額 1.967 秒。原版中位數 2.752 秒，六對加計時版減原版的差值中位數 +0.737 秒。14 次完整 tuple 結構核對及報告重核通過。[V43 分項與計時波動](docs/STAGE12_KNN_MODEL_DECODE_V43_20261111.md)
 
