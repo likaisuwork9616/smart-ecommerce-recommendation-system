@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V41 直接比較完成 | 真實窗口 14 份帳本、672 筆核對通過。V39 被替換的冷啟動工作多 2.695 秒，含冷啟動七次總耗時多 7.048 秒 |
+| Stage 12：session-kNN K1 | V42 reference 建置拆量完成 | 真實來源六對重播。加計時版中位數 2.164 秒，model 解碼與 tuple 建置占 84.5% |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜V39 reference 建置分項（最新）
 
-V42 已完成分項計時工具與 3 項人工測試。工具沿用 V39 worker 的建置區間，驗證 V41 綁定的 config 和 model，再交替比較原版與加計時版本。實測待執行。[V42 方法與操作](docs/STAGE12_KNN_REFERENCE_COST_V42_20261111.md)
+V42 用 V41 綁定的真實 config 和 model 重播 V39 reference 建置。六對正式重播中，原版中位數 2.258 秒，加計時版 2.164 秒。model 解碼與 tuple 建置中位數 1.841 秒，占整段 84.5%；model 文法驗證中位數 0.306 秒，占 14.3%。28 個 root 的完整 late 核對通過，查詢執行 0 次。[V42 分項、波動與重核](docs/STAGE12_KNN_REFERENCE_COST_V42_20261111.md)
 
 ## Stage 12｜原 C1-S1 與 V39 直接比較
 

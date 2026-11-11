@@ -1,0 +1,676 @@
+{
+  "evidence": {
+    "predecessor": {
+      "path": "reports/stage12/retailrocket_session_knn_v41_compare_result_20261111.json",
+      "bytes": 278845,
+      "sha256": "3912ac1ffb443a14c52da75b4dd9e51fd828429424c860ba81e40a0adb119647"
+    },
+    "authority": {
+      "canonical": {
+        "config": {
+          "bytes": 36375,
+          "scheme": "K1-C1-LATE-TYPED-REFERENCE-v1",
+          "sha256": "99c80621f68134216605b76b57df6c07b98700bc1f1c4f7727bf1dced8c90f1c"
+        },
+        "model": {
+          "bytes": 4566194,
+          "scheme": "K1-C1-LATE-TYPED-REFERENCE-v1",
+          "sha256": "82869bf3fd1afe8dc6a85ef66c52a724855e8f1242603fbe1d05e12916271d14"
+        }
+      },
+      "policy": "C1-S1-cold-late-typed-source-anchor-v1",
+      "raw_sources": {
+        "config": {
+          "bytes": 24829,
+          "path": "shop-mysql-runtime/verification/knn-v5-joint-a578797414144dcca14b2e83b12cc3f8/raw_selected_inputs/configuration.json",
+          "sha256": "f3d5b9d6c6711594fb6efeea3f322ae11a77e487ad9888504fda42a73f2b474d"
+        },
+        "model": {
+          "bytes": 2179030,
+          "path": "shop-mysql-runtime/verification/knn-v5-rebuild-3eaaba48436642a49f5b9e953ba7e721/rebuilt_model/reconstruction.json",
+          "sha256": "ad6eb55cc2c3f51b40bbccb75f7d607d6d7923b93095a456b1739481a3f1be11"
+        }
+      },
+      "reference_scheme": "K1-C1-LATE-TYPED-REFERENCE-v1",
+      "reference_statistics": {
+        "config": {
+          "encoded_depth": 22,
+          "maps": 116,
+          "max_depth": 7,
+          "nodes": 989,
+          "scalars": 851,
+          "sequences": 22
+        },
+        "model": {
+          "encoded_depth": 7,
+          "maps": 3,
+          "max_depth": 2,
+          "nodes": 198961,
+          "scalars": 198958,
+          "sequences": 0
+        }
+      }
+    },
+    "gates": {
+      "reference_gates_verified": 6,
+      "reserved_test": "locked"
+    },
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.4",
+      "psutil": "7.2.2",
+      "implementation": "CPython",
+      "byteorder": "little"
+    },
+    "methods": [
+      {
+        "path": "scripts/diagnose_retailrocket_session_knn_reference_v42.py",
+        "bytes": 10049,
+        "sha256": "7ad030f636ab175796af304c61b1072c487697e1434e0bb033346b686a881fb2"
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_typed_adapter_v39.py",
+        "bytes": 16569,
+        "sha256": "5ca35a9bed47b66230c8e6076c453f2126d4da2925212dcd430686d396e481f1"
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_typed_v39.py",
+        "bytes": 19329,
+        "sha256": "3a20aa0911a885c53c5f3296602ba23bbbf8e5e58979a1ff50bc3d1c8e9eeb46"
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+        "bytes": 15646,
+        "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+        "bytes": 23934,
+        "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+      }
+    ],
+    "V41_worker_reference_build_seconds": 2.5098257
+  },
+  "warmups": [
+    {
+      "mode": "plain",
+      "build": [
+        69330932383600,
+        69333423037000
+      ],
+      "spans": {},
+      "late_roots": [
+        "config",
+        "model"
+      ]
+    },
+    {
+      "mode": "observed",
+      "build": [
+        69334844116000,
+        69336719541800
+      ],
+      "spans": {
+        "config.decode": [
+          69334844147900,
+          69334855879400
+        ],
+        "config.grammar": [
+          69334855882400,
+          69334858249000
+        ],
+        "config.reference": [
+          69334858264400,
+          69334858360900
+        ],
+        "config": [
+          69334844141000,
+          69334858362100
+        ],
+        "model.decode": [
+          69334858380700,
+          69336404647100
+        ],
+        "model.grammar": [
+          69336404653300,
+          69336710423100
+        ],
+        "model.reference": [
+          69336710442300,
+          69336719484700
+        ],
+        "model": [
+          69334858376100,
+          69336719487500
+        ],
+        "authority_check": [
+          69336719507500,
+          69336719539700
+        ]
+      },
+      "late_roots": [
+        "config",
+        "model"
+      ]
+    }
+  ],
+  "pairs": [
+    [
+      {
+        "mode": "plain",
+        "build": [
+          69338067054500,
+          69339939436500
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "observed",
+        "build": [
+          69341291475500,
+          69343187903800
+        ],
+        "spans": {
+          "config.decode": [
+            69341291496600,
+            69341299870400
+          ],
+          "config.grammar": [
+            69341299872200,
+            69341301313500
+          ],
+          "config.reference": [
+            69341301323600,
+            69341301420800
+          ],
+          "config": [
+            69341291489600,
+            69341301421800
+          ],
+          "model.decode": [
+            69341301438200,
+            69342904027400
+          ],
+          "model.grammar": [
+            69342904036400,
+            69343179102100
+          ],
+          "model.reference": [
+            69343179122800,
+            69343187829400
+          ],
+          "model": [
+            69341301434100,
+            69343187831300
+          ],
+          "authority_check": [
+            69343187850900,
+            69343187902400
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ],
+    [
+      {
+        "mode": "observed",
+        "build": [
+          69344546492700,
+          69346450668000
+        ],
+        "spans": {
+          "config.decode": [
+            69344546514300,
+            69344566048400
+          ],
+          "config.grammar": [
+            69344566052000,
+            69344568716100
+          ],
+          "config.reference": [
+            69344568728200,
+            69344568826800
+          ],
+          "config": [
+            69344546507100,
+            69344568827900
+          ],
+          "model.decode": [
+            69344568850900,
+            69346135087200
+          ],
+          "model.grammar": [
+            69346135092900,
+            69346441414100
+          ],
+          "model.reference": [
+            69346441434200,
+            69346450592800
+          ],
+          "model": [
+            69344568845200,
+            69346450595400
+          ],
+          "authority_check": [
+            69346450614300,
+            69346450666500
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "plain",
+        "build": [
+          69347898050600,
+          69349928038900
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ],
+    [
+      {
+        "mode": "plain",
+        "build": [
+          69351439581600,
+          69354225653400
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "observed",
+        "build": [
+          69355862856800,
+          69358144753800
+        ],
+        "spans": {
+          "config.decode": [
+            69355862879700,
+            69355882452600
+          ],
+          "config.grammar": [
+            69355882457400,
+            69355886092200
+          ],
+          "config.reference": [
+            69355886107400,
+            69355886218500
+          ],
+          "config": [
+            69355862871900,
+            69355886219600
+          ],
+          "model.decode": [
+            69355886243800,
+            69357815172400
+          ],
+          "model.grammar": [
+            69357815178700,
+            69358135593600
+          ],
+          "model.reference": [
+            69358135613800,
+            69358144699600
+          ],
+          "model": [
+            69355886237700,
+            69358144702100
+          ],
+          "authority_check": [
+            69358144720000,
+            69358144752400
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ],
+    [
+      {
+        "mode": "observed",
+        "build": [
+          69359490541900,
+          69361755013300
+        ],
+        "spans": {
+          "config.decode": [
+            69359490562400,
+            69359506619700
+          ],
+          "config.grammar": [
+            69359506621700,
+            69359509235700
+          ],
+          "config.reference": [
+            69359509245300,
+            69359509341700
+          ],
+          "config": [
+            69359490555800,
+            69359509342800
+          ],
+          "model.decode": [
+            69359509360800,
+            69361439785700
+          ],
+          "model.grammar": [
+            69361439791700,
+            69361745730400
+          ],
+          "model.reference": [
+            69361745749700,
+            69361754938300
+          ],
+          "model": [
+            69359509355900,
+            69361754940800
+          ],
+          "authority_check": [
+            69361754961000,
+            69361755012100
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "plain",
+        "build": [
+          69363127103900,
+          69365541830400
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ],
+    [
+      {
+        "mode": "plain",
+        "build": [
+          69367159566800,
+          69369644864400
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "observed",
+        "build": [
+          69370988669800,
+          69373308930900
+        ],
+        "spans": {
+          "config.decode": [
+            69370988691500,
+            69371007770100
+          ],
+          "config.grammar": [
+            69371007772600,
+            69371010136000
+          ],
+          "config.reference": [
+            69371010145700,
+            69371010243200
+          ],
+          "config": [
+            69370988684400,
+            69371010244200
+          ],
+          "model.decode": [
+            69371010263500,
+            69372954279900
+          ],
+          "model.grammar": [
+            69372954285400,
+            69373299609300
+          ],
+          "model.reference": [
+            69373299629400,
+            69373308854700
+          ],
+          "model": [
+            69371010258400,
+            69373308857200
+          ],
+          "authority_check": [
+            69373308877200,
+            69373308929000
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ],
+    [
+      {
+        "mode": "observed",
+        "build": [
+          69374679603100,
+          69376743683400
+        ],
+        "spans": {
+          "config.decode": [
+            69374679625100,
+            69374698433900
+          ],
+          "config.grammar": [
+            69374698436200,
+            69374700782600
+          ],
+          "config.reference": [
+            69374700792100,
+            69374700888100
+          ],
+          "config": [
+            69374679617400,
+            69374700889100
+          ],
+          "model.decode": [
+            69374700906200,
+            69376454087700
+          ],
+          "model.grammar": [
+            69376454093300,
+            69376734677500
+          ],
+          "model.reference": [
+            69376734697800,
+            69376743629200
+          ],
+          "model": [
+            69374700901600,
+            69376743631500
+          ],
+          "authority_check": [
+            69376743650500,
+            69376743682300
+          ]
+        },
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      },
+      {
+        "mode": "plain",
+        "build": [
+          69378104789100,
+          69380205174500
+        ],
+        "spans": {},
+        "late_roots": [
+          "config",
+          "model"
+        ]
+      }
+    ]
+  ],
+  "summary": {
+    "build_ns": {
+      "plain": {
+        "min": 1872382000,
+        "median": 2257555950.0,
+        "max": 2786071800
+      },
+      "observed": {
+        "min": 1896428300,
+        "median": 2164275850.0,
+        "max": 2320261100
+      }
+    },
+    "phase_ns": {
+      "config.decode": {
+        "min": 8373800,
+        "median": 18943700.0,
+        "max": 19572900
+      },
+      "config.grammar": {
+        "min": 1441300,
+        "median": 2488700.0,
+        "max": 3634800
+      },
+      "config.reference": {
+        "min": 96000,
+        "median": 97350.0,
+        "max": 111100
+      },
+      "config.other": {
+        "min": 19300,
+        "median": 20400.0,
+        "max": 28900
+      },
+      "model.decode": {
+        "min": 1566236300,
+        "median": 1841055050.0,
+        "max": 1944016400
+      },
+      "model.grammar": {
+        "min": 275065700,
+        "median": 306129950.0,
+        "max": 345323900
+      },
+      "model.reference": {
+        "min": 8706600,
+        "median": 9122200.0,
+        "max": 9225300
+      },
+      "model.other": {
+        "min": 32700,
+        "median": 33650.0,
+        "max": 35700
+      },
+      "authority_check": {
+        "min": 31800,
+        "median": 51300.0,
+        "max": 52200
+      },
+      "adapter_other": {
+        "min": 46900,
+        "median": 49550.0,
+        "max": 52500
+      }
+    },
+    "phase_share_percent": {
+      "config.decode": {
+        "min": 0.4415563720494996,
+        "median": 0.840003887178284,
+        "max": 1.025856180363226
+      },
+      "config.grammar": {
+        "min": 0.07600076417336737,
+        "median": 0.1145565382164454,
+        "max": 0.15928852178691677
+      },
+      "config.reference": {
+        "min": 0.0042021132880260765,
+        "median": 0.0047598689855490785,
+        "max": 0.0051780946848748646
+      },
+      "config.other": {
+        "min": 0.0008522960369470773,
+        "median": 0.0010212597155485185,
+        "max": 0.0012664901176521115
+      },
+      "model.decode": {
+        "min": 82.25273691975734,
+        "median": 84.5187284656729,
+        "max": 85.2483674556455
+      },
+      "model.grammar": {
+        "min": 13.510380391644603,
+        "median": 14.273005165323632,
+        "max": 16.08681721688124
+      },
+      "model.reference": {
+        "min": 0.3975974945233534,
+        "median": 0.4192392180542037,
+        "max": 0.4809746245526869
+      },
+      "model.other": {
+        "min": 0.0014308734478201612,
+        "median": 0.0015636396716533691,
+        "max": 0.00188248614513926
+      },
+      "authority_check": {
+        "min": 0.0014198712737691491,
+        "median": 0.002244552323276409,
+        "max": 0.002741344244933752
+      },
+      "adapter_other": {
+        "min": 0.0021373641548310127,
+        "median": 0.002286457881746662,
+        "max": 0.0027360926276062923
+      }
+    },
+    "observed_minus_plain_ns": [
+      24046300,
+      -125813000,
+      -504174800,
+      -150255100,
+      -165036500,
+      -36305100
+    ],
+    "paired_observed_minus_plain_ns": {
+      "min": -504174800,
+      "median": -138034050.0,
+      "max": 24046300
+    }
+  },
+  "scope": {
+    "build_replays": 14,
+    "reference_roots": 28,
+    "verified_live_roots": 28,
+    "query_runs": 0,
+    "fits": 0,
+    "reserved_test": "locked"
+  }
+}
