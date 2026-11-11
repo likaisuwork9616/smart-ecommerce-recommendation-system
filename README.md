@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V40 真實比較入口驗收完成 | V40 新增 9 項入口測試全通，人工 14 份帳本、672 筆核對及停態封存完成，待原固定 48 筆真實比較 |
+| Stage 12：session-kNN K1 | 原固定 48 筆比較完成，V39 候選未採用 | 入口 9 項測試全通，真實窗口 14 份帳本、672 筆核對完成。候選 3／6 對較快，含冷啟動總時間 83.370 秒，原始 R 75.532 秒 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,9 +31,9 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜原固定 48 筆比較入口（最新）
+## Stage 12｜原固定 48 筆比較結果（最新）
 
-V40 已封存比較規格，9 項新入口測試全通。人工 48 筆使用正式 loader 和同一套程序入口完成 14 份帳本，獨立發布程序核對 672 筆，9 個受追蹤程序全部退出，停態日誌追加與 typed policy 竄改均被拒絕。真實比較執行 0 次，下一步以同窗口循序重跑原始 R 與 V39 候選，六對交替並將 cold 計入七次總耗時。[V40 規格、驗收與操作](docs/STAGE12_KNN_TYPED_COMPARE_V40_20261111.md)
+V40 入口先通過 9 項人工驗收，再以同窗口循序比較原固定 48 筆。獨立程序核對 14 份帳本的 672 筆完整紀錄，9 個受追蹤程序全數退出，停態唯讀重核通過。候選 3／6 對較快，完整入口配對節省中位數 −0.237%。含冷啟動七次總時間比原始 R 多 7.838 秒，因此不採用。這是已檢視的 validation 工程樣本，保留測試仍鎖定。[V40 規格、六對結果與重核操作](docs/STAGE12_KNN_TYPED_COMPARE_V40_20261111.md)
 
 V39 完整 typed comparator 的核心 40 項、整合 165 項全通。人工 14 帳本 672 次保存核對成功，129 項要求逐案映射。Cold 實際 4 次 canonical 加 2 次完整 typed 核對，同 worker 七次 generic 39、snapshot 15、digest 22。新 reference 在最後 entry 內釋放。[V39 實作、邊界與完整驗收](docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 
