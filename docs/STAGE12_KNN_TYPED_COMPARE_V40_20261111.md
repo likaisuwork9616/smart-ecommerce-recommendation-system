@@ -19,3 +19,23 @@
 ```
 
 [比較規格](../reports/stage12/retailrocket_session_knn_v40_compare_specification_20261111.json) · [封存收據](../reports/stage12/retailrocket_session_knn_v40_compare_seal_20261111.json)
+
+## 新入口人工驗收
+
+| 項目 | 實際結果 |
+| --- | --- |
+| 新入口測試 | 9／9 項通過，涵蓋 6 項封存要求，無失敗、錯誤或跳過。測試與證據彙整 76.751 秒 |
+| 實際執行 | 三個獨立 interpreter 走共用的 pipeline、worker 和 publisher 入口，使用正式 loader 讀取人工資料。14 份新帳本，各 48 筆，完整核對 672 筆 |
+| 獨立發布 | worker 退出後，publisher 以原方法獨立重建兩個 typed roots、開啟並核對 14 份帳本。人工窗口四次全來源查核共用 224 個描述符，方法 183 個，binding 27 個 |
+| 停態與拒絕測試 | 9 個受追蹤程序退出。停態後追加日誌、竄改 typed policy、更動 request 範圍及在有舊 request 時另開窗口皆被拒絕。已驗證唯讀重核 |
+
+人工來源和真實 closure 分開計數。真實資料執行 0 次。以下指令可重核入口驗收，並在已提交的封存方法上啟動唯一真實窗口。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.accept_retailrocket_session_knn_compare_v40 --audit
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_compare_v40 --measure
+```
+
+已有完成的結果時使用真實入口 `--audit`。若程序全數退出但結果尚未寫出，`--release` 只讀同一窗口並在核對成功後寫出報告。
+
+[入口驗收收據](../reports/stage12/retailrocket_session_knn_v40_compare_acceptance_20261111.json) · [驗收封存](../reports/stage12/retailrocket_session_knn_v40_compare_acceptance_seal_20261111.json)
