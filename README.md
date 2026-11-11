@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜Model 解碼低頻抽樣（最新）
+## Stage 12｜字串檢查與 scanstring 拆量（最新）
+
+V45 計時工具通過 5 項測試，沿用 V44 的區塊與種子。人工資料八對的完整解碼淨差中位數為 +33.0 毫秒（+7.35%），18 次輸出一致。下一步以 V44 綁定的同一份 model 拆量字元檢查、`scanstring` 與回傳階段，再比較完整解碼。[V45 方法與校準](docs/STAGE12_KNN_STRING_SCAN_V45_20261111.md)
+
+## Stage 12｜Model 解碼低頻抽樣
 
 V44 工具通過 4 項測試與人工校準，再用 V43 同一份 model 跑八對。字串掃描與陣列解析估計中位數分別為 0.967 與 0.801 秒，字串在 7／8 對較慢。抽樣版配對淨差中位數為 +55.2 毫秒（+2.93%）。扣讀錶間隔試算後，整體仍偏向字串較慢，先跑原版的四對中位數有小幅反轉。18 次結構核對及報告重核通過。[V44 校準、八對結果與重核](docs/STAGE12_KNN_MODEL_DECODE_SAMPLING_V44_20261111.md)
 

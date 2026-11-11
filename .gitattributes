@@ -534,3 +534,8 @@ reports/stage12/retailrocket_session_knn_v43_decode_*.json -text whitespace=blan
 scripts/diagnose_retailrocket_session_knn_decode_v44.py text eol=lf
 tests/test_retailrocket_session_knn_decode_v44.py text eol=lf
 reports/stage12/retailrocket_session_knn_v44_decode_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V45 string scan diagnostic evidence.
+scripts/diagnose_retailrocket_session_knn_string_v45.py text eol=lf
+tests/test_retailrocket_session_knn_string_v45.py text eol=lf
+reports/stage12/retailrocket_session_knn_v45_string_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
