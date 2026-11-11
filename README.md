@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V42 reference 建置拆量完成 | 真實來源六對重播。加計時版中位數 2.164 秒，model 解碼與 tuple 建置占 84.5% |
+| Stage 12：session-kNN K1 | V43 model 解碼拆量完成 | 同一份 model 六對重播。字串掃描 1.435 秒、tuple 建置 0.104 秒、含計時開銷的陣列解析餘額 1.967 秒 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜Model 解碼分項（最新）
 
-V43 計時工具通過 4 項人工測試，已核對 V42 使用的 4,566,194 bytes model canonical 與 SHA-256。工具直接量字串掃描、tuple 建置與 UTF-8 解碼，再以整段扣除這三項計算解析主迴圈時間。下一步以同一份來源跑六對實測。[V43 方法與操作](docs/STAGE12_KNN_MODEL_DECODE_V43_20261111.md)
+V43 計時工具 4 項測試通過後，用 V42 的同一份 model 跑六對。加計時版中位數 3.507 秒，其中字串掃描 1.435 秒、tuple 建置 0.104 秒、含計時開銷的陣列解析餘額 1.967 秒。原版中位數 2.752 秒，六對加計時版減原版的差值中位數 +0.737 秒。14 次完整 tuple 結構核對及報告重核通過。[V43 分項與計時波動](docs/STAGE12_KNN_MODEL_DECODE_V43_20261111.md)
 
 ## Stage 12｜V39 reference 建置分項
 

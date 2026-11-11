@@ -15,5 +15,22 @@ V42 的 model `_decode` 中位數為 1.841055 秒。V43 以同一份 4,566,194 b
 
 ```powershell
 .venv/Scripts/python.exe -B -m unittest -v tests.test_retailrocket_session_knn_decode_v43
-.venv/Scripts/python.exe -B -m scripts.diagnose_retailrocket_session_knn_decode_v43 --measure
+.venv/Scripts/python.exe -B -m scripts.diagnose_retailrocket_session_knn_decode_v43 --audit
 ```
+
+## 同一份 model 實測
+
+六對正式重播中，原版完整解碼中位數 **2.752 秒**（2.540–3.325），加計時版 **3.507 秒**（3.315–3.940）。V42 的 **1.841 秒**是前一輪 reference 建置內的解碼觀測。下表取自 V43 的加計時版，時間與占比均先逐次計算再取中位數。
+
+| 分項 | 中位數（秒） | 占整段 | 每次呼叫數 |
+| --- | ---: | ---: | ---: |
+| 字串掃描、escape 檢查與字串建立 | 1.434502 | 40.94% | 596,879 |
+| Tuple 建置 | 0.103554 | 2.94% | 397,924 |
+| 陣列解析及主迴圈餘額，含計時器開銷 | 1.967386 | 56.08% | 按整段扣除 |
+| UTF-8 解碼 | 0.001569 | 0.04% | 1 |
+
+加計時版在六對各多用 0.828、0.875、0.604、0.646、0.906 和 0.615 秒。配對差中位數為 **+0.737 秒**，配對百分比差中位數為 **+25.75%**。逐次計時本身會改變迴圈成本。若假設配對內字串、tuple 和 UTF-8 的直接耗時可沿用，從每對原版總時間扣除這三項，剩餘時間估計的中位數為 **1.265 秒**，範圍 1.041–1.591 秒。此估計依賴該假設，原版的字串掃描與陣列解析孰慢仍待較低開銷的量測。
+
+14 次重播的 tuple 結構與深度都和原版一致。每次加計時版的呼叫數都能從原版 tuple 結構獨立重算。查詢與 fit 各 0 次，保留測試鎖定。`--audit` 已核對 model 來源、結構統計，並用保存的原始計時重算報告摘要。
+
+[每對原始計時與摘要](../reports/stage12/retailrocket_session_knn_v43_decode_cost_20261111.json)
