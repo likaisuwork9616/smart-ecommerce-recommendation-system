@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V43 model 解碼拆量完成 | 同一份 model 六對重播。字串掃描 1.435 秒、tuple 建置 0.104 秒、含計時開銷的陣列解析餘額 1.967 秒 |
+| Stage 12：session-kNN K1 | V44 低頻抽樣完成 | 同一份 model 八對重播，字串掃描在 7／8 對較慢，逐對差中位數 0.219 秒。扣讀錶間隔試算後為 6／8 對 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜Model 解碼低頻抽樣（最新）
 
-V44 抽樣工具通過 4 項測試。人工資料八對配對的淨差中位數為 +52.4 毫秒（+14.7%）。工具在每 64 個文字區塊中隨機取一個，從原版配對總時間扣除估計的字串、tuple 與 UTF-8 時間。下一步以 V43 綁定的 model 重測。[V44 抽樣方法與校準](docs/STAGE12_KNN_MODEL_DECODE_SAMPLING_V44_20261111.md)
+V44 工具通過 4 項測試與人工校準，再用 V43 同一份 model 跑八對。字串掃描與陣列解析估計中位數分別為 0.967 與 0.801 秒，字串在 7／8 對較慢。抽樣版配對淨差中位數為 +55.2 毫秒（+2.93%）。扣讀錶間隔試算後，整體仍偏向字串較慢，先跑原版的四對中位數有小幅反轉。18 次結構核對及報告重核通過。[V44 校準、八對結果與重核](docs/STAGE12_KNN_MODEL_DECODE_SAMPLING_V44_20261111.md)
 
 ## Stage 12｜Model 解碼分項
 
