@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V44 低頻抽樣完成 | 同一份 model 八對重播，字串掃描在 7／8 對較慢，逐對差中位數 0.219 秒。扣讀錶間隔試算後為 6／8 對 |
+| Stage 12：session-kNN K1 | V45 字串檢查拆量完成 | 同一份 model 八對，字元檢查 0.794 秒、`scanstring` 0.231 秒，字元檢查 8／8 對較慢 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜字串檢查與 scanstring 拆量（最新）
 
-V45 計時工具通過 5 項測試，沿用 V44 的區塊與種子。人工資料八對的完整解碼淨差中位數為 +33.0 毫秒（+7.35%），18 次輸出一致。下一步以 V44 綁定的同一份 model 拆量字元檢查、`scanstring` 與回傳階段，再比較完整解碼。[V45 方法與校準](docs/STAGE12_KNN_STRING_SCAN_V45_20261111.md)
+V45 計時工具通過 5 項測試與人工校準後，用 V44 同一份 model 跑八對。字元檢查與 `scanstring` 估計中位數分別為 0.794 與 0.231 秒，字元檢查在 8／8 對較慢。原版與抽樣版完整解碼中位數分別為 1.991 與 1.993 秒，逐對淨差中位數 −37.2 毫秒，範圍 −371.6 至 +386.6 毫秒。18 次結構核對、逐區塊呼叫數與報告重核通過。[V45 校準與八對結果](docs/STAGE12_KNN_STRING_SCAN_V45_20261111.md)
 
 ## Stage 12｜Model 解碼低頻抽樣
 

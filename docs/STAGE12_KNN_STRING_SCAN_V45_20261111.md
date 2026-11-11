@@ -14,7 +14,37 @@ V45 沿用 V44 的 256 字元區塊、每層 64 個區塊及原抽樣種子。�
 ```powershell
 .venv/Scripts/python.exe -B -m unittest -v tests.test_retailrocket_session_knn_string_v45
 .venv/Scripts/python.exe -B -m scripts.diagnose_retailrocket_session_knn_string_v45 --audit calibration
-.venv/Scripts/python.exe -B -m scripts.diagnose_retailrocket_session_knn_string_v45 --measure model
+.venv/Scripts/python.exe -B -m scripts.diagnose_retailrocket_session_knn_string_v45 --audit model
 ```
 
 [人工校準報告](../reports/stage12/retailrocket_session_knn_v45_string_calibration_20261111.json)
+
+## 同一份 model 的八對結果
+
+**字元檢查在 8／8 對都比 `scanstring` 慢。** 逐對差值中位數為 **+0.561 秒**，逐對倍數中位數為 **3.31 倍**。每次抽樣的字串呼叫中位數為 9,333.5 次，約占原版 596,879 次的 1.56%。每個區塊的呼叫數都與 V44 相符。
+
+| 字串分項 | 加權時間中位數（秒） | 八對範圍（秒） | 占被計時的字串工作 |
+| --- | ---: | ---: | ---: |
+| 字元檢查 | 0.794 | 0.626–1.021 | 66.75% |
+| `scanstring` | 0.231 | 0.201–0.312 | 20.12% |
+| 邊界核對與回傳 | 0.150 | 0.128–0.199 | 13.14% |
+| 字串分項合計 | 1.173 | 0.957–1.532 | 100% |
+
+時間和占比先逐次計算再取中位數。把本輪相鄰讀錶中位數 100 ns 全從字元檢查扣除做敏感度試算，字元檢查仍在 8／8 對較慢，逐對差值中位數為 +0.502 秒。回傳分項包含計時版額外時間戳的回傳。
+
+| 配對 | 先執行 | 原版完整解碼（秒） | 抽樣版完整解碼（秒） | 抽樣版 − 原版（毫秒） |
+| --- | --- | ---: | ---: | ---: |
+| 1 | 原版 | 2.367 | 2.665 | +297.8 |
+| 2 | 抽樣版 | 1.941 | 1.996 | +54.8 |
+| 3 | 原版 | 2.041 | 2.003 | −38.6 |
+| 4 | 抽樣版 | 2.223 | 2.164 | −59.0 |
+| 5 | 原版 | 2.314 | 1.942 | −371.6 |
+| 6 | 抽樣版 | 1.604 | 1.991 | +386.6 |
+| 7 | 原版 | 1.671 | 1.635 | −35.9 |
+| 8 | 抽樣版 | 1.939 | 1.676 | −263.4 |
+
+原版和抽樣版的完整解碼中位數為 1.991 與 1.993 秒。用未四捨五入的值逐對相減，淨差中位數 −37.2 毫秒（配對百分比中位數 −2.02%），範圍跨零。這些差值同時含抽樣開銷與執行波動，本輪的完整解碼沒有比較任何優化候選。
+
+同一份 model canonical 的 4,566,194 bytes 與 SHA-256 已核對。18 次完整 tuple 結構與深度一致。`--audit model` 從原始計時和 V44 區塊呼叫數重算摘要通過。查詢與 fit 各 0 次。若進入優化，可先以字元檢查為目標，保留 Unicode 和 escape 的拒絕行為，再用無抽樣的完整解碼配對驗證收益。
+
+[真實 model 分項與配對原始資料](../reports/stage12/retailrocket_session_knn_v45_string_model_20261111.json)
