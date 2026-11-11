@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜原固定 48 筆比較結果（最新）
+## Stage 12｜原 C1-S1 與 V39 直接比較（最新）
+
+V41 已封存同窗口直接比較規格，重核原固定 48 筆與 V40 的 2,445 個來源描述符。原 C1-S1 與 V39 各有一個獨立冷啟動和六次重用，並分別記錄原 late canonical 與 typed reference 建置加 late 檢查的成本。真實比較執行 0 次，待新入口人工驗收後啟動。[V41 規格與操作](docs/STAGE12_KNN_DIRECT_TYPED_COMPARE_V41_20261111.md)
+
+## Stage 12｜原固定 48 筆 V40 比較結果
 
 V40 入口先通過 9 項人工驗收，再以同窗口循序比較原固定 48 筆。獨立程序核對 14 份帳本的 672 筆完整紀錄，9 個受追蹤程序全數退出，停態唯讀重核通過。候選 3／6 對較快，完整入口配對節省中位數 −0.237%。含冷啟動七次總時間比原始 R 多 7.838 秒，因此不採用。這是已檢視的 validation 工程樣本，保留測試仍鎖定。[V40 規格、六對結果與重核操作](docs/STAGE12_KNN_TYPED_COMPARE_V40_20261111.md)
 

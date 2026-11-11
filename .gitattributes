@@ -514,3 +514,8 @@ reports/stage12/retailrocket_session_knn_v39_typed_*.json -text whitespace=blank
 scripts/*retailrocket_session_knn_compare_v40.py text eol=lf
 tests/test_retailrocket_session_knn_compare_v40.py text eol=lf
 reports/stage12/retailrocket_session_knn_v40_compare_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the V41 paired C1-S1 / V39 comparison evidence.
+scripts/*retailrocket_session_knn_compare_v41.py text eol=lf
+tests/test_retailrocket_session_knn_compare_v41.py text eol=lf
+reports/stage12/retailrocket_session_knn_v41_compare_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
