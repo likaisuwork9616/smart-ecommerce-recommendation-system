@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V45 字串檢查拆量完成 | 同一份 model 八對，字元檢查 0.794 秒、`scanstring` 0.231 秒，字元檢查 8／8 對較慢 |
+| Stage 12：session-kNN K1 | V46 字元檢查候選完成解碼配對 | 同一份 model 八對，候選 7／8 對較快，完整解碼的配對節省中位數 0.262 秒（14.16%） |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜字元檢查優化候選（最新）
 
-V46 候選用編譯後的正規表示式跳過一般字元，遇到引號、反斜線、控制字元或 surrogate 才依原規則處理。7 項新測試和 21 項 V39 回歸測試通過，涵蓋 Unicode、escape、首個錯誤、完整 tuple 結構和深陣列。下一步以 V45 綁定的同一份 model 配對量完整解碼。[V46 候選與驗證](docs/STAGE12_KNN_STRING_CANDIDATE_V46_20261112.md)
+V46 候選用編譯後的正規表示式跳過一般字元。7 項新測試和 21 項 V39 回歸測試通過後，以 V45 同一份 model 做八對無抽樣完整解碼。原版／候選中位數 1.725／1.507 秒，候選 7／8 對較快，逐對節省中位數 0.262 秒（14.16%）。18 次完整 tuple 結構、深度與報告重核通過。[V46 驗證、配對結果與重核](docs/STAGE12_KNN_STRING_CANDIDATE_V46_20261112.md)
 
 ## Stage 12｜字串檢查與 scanstring 拆量
 

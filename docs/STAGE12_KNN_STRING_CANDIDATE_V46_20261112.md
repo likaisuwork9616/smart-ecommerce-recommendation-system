@@ -12,5 +12,26 @@ V45 的低頻抽樣顯示字元檢查在八對都比 `scanstring` 慢。V46 用�
 
 ```powershell
 .venv/Scripts/python.exe -B -m unittest -v tests.test_retailrocket_session_knn_string_v46 tests.test_retailrocket_session_knn_typed_v39
-.venv/Scripts/python.exe -B -m scripts.compare_retailrocket_session_knn_string_v46 --measure
+.venv/Scripts/python.exe -B -m scripts.compare_retailrocket_session_knn_string_v46 --audit
 ```
+
+## 無抽樣完整解碼配對
+
+候選在 7／8 對較快。原版與候選的整次解碼中位數分別為 **1.725** 與 **1.507 秒**。先逐對相減再取中位數，節省 **0.262 秒**。逐對百分比的中位數為 **14.16%**。
+
+| 配對 | 先執行 | 原版（秒） | 候選（秒） | 節省（秒） |
+| --- | --- | ---: | ---: | ---: |
+| 1 | 原版 | 1.968 | 1.558 | +0.410 |
+| 2 | 候選 | 1.993 | 1.688 | +0.305 |
+| 3 | 原版 | 1.785 | 1.553 | +0.232 |
+| 4 | 候選 | 1.611 | 1.319 | +0.291 |
+| 5 | 原版 | 1.957 | 1.445 | +0.512 |
+| 6 | 候選 | 1.603 | 1.411 | +0.192 |
+| 7 | 原版 | 1.665 | 1.460 | +0.205 |
+| 8 | 候選 | 1.605 | 1.640 | −0.035 |
+
+原版先跑的四對，節省中位數 0.321 秒。候選先跑的四對，節省中位數 0.242 秒。第八對候選慢 35.0 毫秒。表中各值獨立四捨五入。
+
+18 次完整解碼的 tuple 結構與編碼深度一致。報告重核重新核對 V45 來源、原版與候選的完整輸出，並從原始區間重算摘要。本輪耗時涵蓋該 model canonical 的 `_decode`，reference 建置和完整冷啟動仍待配對確認。查詢與 fit 各 0 次。
+
+[真實 model 配對報告](../reports/stage12/retailrocket_session_knn_v46_string_model_20261112.json)
