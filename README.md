@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜字串檢查與 scanstring 拆量（最新）
+## Stage 12｜字元檢查優化候選（最新）
+
+V46 候選用編譯後的正規表示式跳過一般字元，遇到引號、反斜線、控制字元或 surrogate 才依原規則處理。7 項新測試和 21 項 V39 回歸測試通過，涵蓋 Unicode、escape、首個錯誤、完整 tuple 結構和深陣列。下一步以 V45 綁定的同一份 model 配對量完整解碼。[V46 候選與驗證](docs/STAGE12_KNN_STRING_CANDIDATE_V46_20261112.md)
+
+## Stage 12｜字串檢查與 scanstring 拆量
 
 V45 計時工具通過 5 項測試與人工校準後，用 V44 同一份 model 跑八對。字元檢查與 `scanstring` 估計中位數分別為 0.794 與 0.231 秒，字元檢查在 8／8 對較慢。原版與抽樣版完整解碼中位數分別為 1.991 與 1.993 秒，逐對淨差中位數 −37.2 毫秒，範圍 −371.6 至 +386.6 毫秒。18 次結構核對、逐區塊呼叫數與報告重核通過。[V45 校準與八對結果](docs/STAGE12_KNN_STRING_SCAN_V45_20261111.md)
 

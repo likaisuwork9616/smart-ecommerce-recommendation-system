@@ -539,3 +539,8 @@ reports/stage12/retailrocket_session_knn_v44_decode_*.json -text whitespace=blan
 scripts/diagnose_retailrocket_session_knn_string_v45.py text eol=lf
 tests/test_retailrocket_session_knn_string_v45.py text eol=lf
 reports/stage12/retailrocket_session_knn_v45_string_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V46 string check candidate and paired decoder evidence.
+scripts/*retailrocket_session_knn*string_v46.py text eol=lf
+tests/test_retailrocket_session_knn_string_v46.py text eol=lf
+reports/stage12/retailrocket_session_knn_v46_string_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
