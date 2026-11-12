@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V46 字元檢查候選完成解碼配對 | 同一份 model 八對，候選 7／8 對較快，完整解碼的配對節省中位數 0.262 秒（14.16%） |
+| Stage 12：session-kNN K1 | V47 完成冷啟動配對 | 六對的節省中位數，單獨解碼 0.398 秒、reference 建置 0.600 秒、完整冷入口 1.101 秒。完整入口 4／6 對較快 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜V39 與 V46 冷啟動配對（最新）
 
-V47 已驗證 V46 解碼器接入 V39 的 reference 工廠。5 項測試全通，人工窗口 14 次都新建 context，獨立發布核對 672 筆完整紀錄及 42 次快照。真實窗口待執行，將以同一份 model 配對量解碼、reference 建置與完整冷入口。[V47 規格與驗收](docs/STAGE12_KNN_COLD_V47_20261112.md)
+V47 通過 5 項接入與輸出測試後，以同一份 model 完成六對無抽樣冷啟動比較。V46 候選的配對節省中位數為單獨解碼 0.398 秒（18.29%）、reference 建置 0.600 秒（20.32%）、完整冷入口 1.101 秒（5.75%）。完整冷入口 4／6 對較快。真實窗口 14 份帳本、672 筆完整紀錄、42 次快照及停態重核通過。[V47 驗收、六對結果與重核](docs/STAGE12_KNN_COLD_V47_20261112.md)
 
 ## Stage 12｜字元檢查優化候選
 
