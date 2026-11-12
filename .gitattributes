@@ -544,3 +544,8 @@ reports/stage12/retailrocket_session_knn_v45_string_*.json -text whitespace=blan
 scripts/*retailrocket_session_knn*string_v46.py text eol=lf
 tests/test_retailrocket_session_knn_string_v46.py text eol=lf
 reports/stage12/retailrocket_session_knn_v46_string_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V47 cold comparison methods and evidence.
+scripts/*retailrocket_session_knn*cold_v47.py text eol=lf
+tests/test_retailrocket_session_knn_cold_v47.py text eol=lf
+reports/stage12/retailrocket_session_knn_v47_cold_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

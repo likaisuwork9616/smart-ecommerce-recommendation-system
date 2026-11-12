@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜字元檢查優化候選（最新）
+## Stage 12｜V39 與 V46 冷啟動配對（最新）
+
+V47 已驗證 V46 解碼器接入 V39 的 reference 工廠。5 項測試全通，人工窗口 14 次都新建 context，獨立發布核對 672 筆完整紀錄及 42 次快照。真實窗口待執行，將以同一份 model 配對量解碼、reference 建置與完整冷入口。[V47 規格與驗收](docs/STAGE12_KNN_COLD_V47_20261112.md)
+
+## Stage 12｜字元檢查優化候選
 
 V46 候選用編譯後的正規表示式跳過一般字元。7 項新測試和 21 項 V39 回歸測試通過後，以 V45 同一份 model 做八對無抽樣完整解碼。原版／候選中位數 1.725／1.507 秒，候選 7／8 對較快，逐對節省中位數 0.262 秒（14.16%）。18 次完整 tuple 結構、深度與報告重核通過。[V46 驗證、配對結果與重核](docs/STAGE12_KNN_STRING_CANDIDATE_V46_20261112.md)
 
