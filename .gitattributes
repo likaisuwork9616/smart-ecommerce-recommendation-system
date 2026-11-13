@@ -554,3 +554,10 @@ reports/stage12/retailrocket_session_knn_v47_cold_*.json -text whitespace=blank-
 scripts/*retailrocket_session_knn*cold_v48.py text eol=lf
 tests/test_retailrocket_session_knn_cold_v48.py text eol=lf
 reports/stage12/retailrocket_session_knn_v48_cold_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V49 offline phase accounting and saved-evidence reports.
+scripts/*retailrocket_session_knn*phases_v49.py text eol=lf
+scripts/retailrocket_session_knn_phase_accounting_v49.py text eol=lf
+tests/*retailrocket_session_knn*phases_v49.py text eol=lf
+tests/test_retailrocket_session_knn_phase_accounting_v49.py text eol=lf
+reports/stage12/retailrocket_session_knn_v49_phases_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

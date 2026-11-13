@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V48 第二窗口完成，暫不採用候選為預設 | Reference 六對全快，中位省 0.294 秒；完整入口 3／6 對變慢，中位省 0.008 秒，六對合計多 0.351 秒 |
+| Stage 12：session-kNN K1 | V49 離線分項工具驗收完成 | 13 項純數值／完整性測試全通，準備從 V47／V48 既有紀錄拆查 reference 以外的退步；新增實驗 0 次 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V39 與 V46 第二窗口重測（最新）
+## Stage 12｜既有冷入口紀錄分項拆查（最新）
+
+V49 離線拆帳工具已通過 13 項測試（0.139 秒），檢查巢狀區間、被動 reference／late 時點、三次快照、query／tail 的不重複加總及有正負號的入口時鐘差。工具只讀 V47／V48 已封存紀錄，沒有 `--measure` 選項；正式分項報告待產生，新增實驗、query、decode 與訓練均為 0。[V49 邊界、驗收與操作](docs/STAGE12_KNN_SAVED_PHASES_V49_20261113.md)
+
+## Stage 12｜V39 與 V46 第二窗口重測
 
 V48 經 10 項驗收後，沿用 V47 同 model、原固定 48 筆與計量核心，在第二窗口完成六對無抽樣冷啟動。Reference 建置六對全快，配對節省中位數 0.294 秒（12.69%）；完整入口只有 3／6 對較快，中位省 0.008 秒（0.073%），正式六次合計候選反而多 0.351 秒，含暖機多 0.715 秒。**完整入口退步重現，最差多 1.472 秒，本輪建議暫不採用 V46 為完整入口預設。** 真實 14 份帳本、672 筆完整紀錄、42 次快照與停態重核通過，9 程序全退出，窗口 565.625 秒。這是固定 validation 工程樣本；下一步可先查既有紀錄中的 reference 以外波動。[V48 方法、兩窗結果與採用評估](docs/STAGE12_KNN_COLD_REPEAT_V48_20261113.md)
 
