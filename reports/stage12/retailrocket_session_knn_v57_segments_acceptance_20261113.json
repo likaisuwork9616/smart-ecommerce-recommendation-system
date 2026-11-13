@@ -1,0 +1,238 @@
+{
+  "status": "v57_saved_segment_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_segments_v57.py",
+      "bytes": 11232,
+      "sha256": "e47adcfd6b7c9703e01b77392d87b41cee25d4b0db74a9b8389aec95662efbd5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_segments_v57.py",
+      "bytes": 4839,
+      "sha256": "9e139c7ed99ae966537ee0676eaf2095a2ae6b83b9b3f2c4d1802f0e82c41343"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_segments_v57.py",
+      "bytes": 12354,
+      "sha256": "ed718593dc9b3ba4829a0679123d9fc4aab614a5313ee715df0b46162297aa93"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_segment_analysis_v57.py",
+      "bytes": 6139,
+      "sha256": "ba88fba3139c4330ebcc72adf5a3ead25558fce81f3c70f767efd70304e0de78"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v53_peer_stages_analysis_20261113.json",
+      "bytes": 211366,
+      "sha256": "96487417d3d06775f5abdb27c4c8fbc0282eb80d31bcb702a9d9a6e4641d5e45"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v54_absolute_arms_analysis_20261113.json",
+      "bytes": 17903,
+      "sha256": "f3fe11a70612a2107b91981e8f2212390cfce85001d495d5f3d52a1d1b38359f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v55_time_reference_analysis_20261113.json",
+      "bytes": 44318,
+      "sha256": "b17987a602dd5ef20f603ef74a7d08b564a052d94162495c508fd2fdb03bb066"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v56_common_direction_analysis_20261113.json",
+      "bytes": 558210,
+      "sha256": "2bbdd00b82acf8d338c1a1f45206e479e02e9d729e543acf4fe56f232196e76e"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_segments_v57",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57"
+  ],
+  "tests_run": 20,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_all_positive_and_all_negative_keep_cross_block_runs",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_all_zero_has_no_runs_and_absent_direction_shares_are_none",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_block_boundary_does_not_cut_an_adjacent_run",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_block_counts_densities_and_direction_shares_conserve_each_view",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_exact_thresholds_are_neutral_and_adjacent_float_outside_is_directional",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_excluded_targets_leave_block_summaries_and_positions_explicit",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_first_last_and_singleton_runs_are_retained_with_all_longest_ties",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_input_order_values_and_output_isolation_are_preserved",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_invalid_schema_and_position_key_types_are_rejected",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_neutral_and_excluded_targets_break_runs_without_compressing_positions",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_nonfinite_boolean_and_nonnumeric_values_are_rejected",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_runs_are_maximal_and_modes_are_independent",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_seven_and_eight_position_density_denominators",
+    "tests.test_retailrocket_session_knn_segments_v57.SegmentTests.test_signed_medians_are_stable_for_large_values_and_odd_block_sizes",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_both_v56_direction_modes_and_other46_membership_are_checked",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_changed_scope_case_arm_order_and_position_set_are_rejected",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_cli_rejects_measurement_before_taking_lock",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_fixed_eight_panels_and_ninety_six_blocks_reconcile_to_v56",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_target_and_own_median_delta_reconciliation_rejects_corruption",
+    "tests.test_retailrocket_session_knn_segment_analysis_v57.SegmentReferenceTests.test_target_is_retained_in_all48_but_breaks_primary_runs"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 7.084818200000882,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v57-segment-tests-63cb212332ad4301ae572f97a329a8c0/tests.log",
+    "bytes": 4104,
+    "sha256": "bfc885556b6be129086746bcdd9befc1f370a3171a6d3147343db87d9165638a"
+  },
+  "scope": {
+    "saved_windows_checked": 2,
+    "saved_entries_checked": 28,
+    "matched_saved_rows": 1344,
+    "analysis_window": "V48",
+    "positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "target_positions": [
+      32,
+      33
+    ],
+    "arms": {
+      "R": "V39 original",
+      "C": "V46 candidate"
+    },
+    "reference_groups": 192,
+    "reference_values_per_group": 6,
+    "unique_reference_timers": 1152,
+    "run_stage_panels": 8,
+    "located_cells": 384,
+    "other_cells": 368,
+    "target_cells": 16,
+    "threshold_seconds": 0.001,
+    "blocks": [
+      {
+        "start": 1,
+        "end": 8
+      },
+      {
+        "start": 9,
+        "end": 16
+      },
+      {
+        "start": 17,
+        "end": 24
+      },
+      {
+        "start": 25,
+        "end": 32
+      },
+      {
+        "start": 33,
+        "end": 40
+      },
+      {
+        "start": 41,
+        "end": 48
+      }
+    ],
+    "primary_view": "other46",
+    "contextual_view": "all48",
+    "block_summaries": 96,
+    "cases": [
+      {
+        "pair": 2,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 3,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 4,
+        "stage": "sql_positive_overlaps"
+      },
+      {
+        "pair": 5,
+        "stage": "sql_positive_overlaps"
+      }
+    ],
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
