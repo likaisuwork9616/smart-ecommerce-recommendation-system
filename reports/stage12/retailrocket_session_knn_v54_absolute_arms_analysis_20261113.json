@@ -1,0 +1,475 @@
+{
+  "status": "v54_saved_v48_absolute_stage_arms_reconciled",
+  "acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v54_absolute_arms_acceptance_20261113.json",
+    "bytes": 6284,
+    "sha256": "46af62f58f9e69ca8e1a344d16d46356d9b07a98b6fa441dcd06c8769e34c495"
+  },
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 9123,
+      "sha256": "00499870874a8ecfd7035bb38ba0b64cfc588a85232c28bd15802c81dc197079"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 4675,
+      "sha256": "971a88a3cf5923616317d9acbd6a6da7e3641a73466f20d54cb27c5bd49143ed"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 7044,
+      "sha256": "41a0e75ac46cdf3e60ba7e478b5138f21d2ea658817ae00bad92c84fe713953e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_absolute_arm_analysis_v54.py",
+      "bytes": 4850,
+      "sha256": "6f9ec3c288354bf105c4d2f39d5a442d8840baf540a98307c85065cd1b95b707"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v53_peer_stages_analysis_20261113.json",
+      "bytes": 211366,
+      "sha256": "96487417d3d06775f5abdb27c4c8fbc0282eb80d31bcb702a9d9a6e4641d5e45"
+    }
+  ],
+  "scope": {
+    "saved_windows_checked": 2,
+    "saved_entries_checked": 28,
+    "matched_saved_rows": 1344,
+    "analysis_window": "V48",
+    "positions": [
+      32,
+      33
+    ],
+    "selected_absolute_timers": 16,
+    "cases": [
+      {
+        "pair": 2,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 3,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 4,
+        "stage": "sql_positive_overlaps"
+      },
+      {
+        "pair": 5,
+        "stage": "sql_positive_overlaps"
+      }
+    ],
+    "arms": {
+      "R": "V39 original",
+      "C": "V46 candidate"
+    },
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  },
+  "cases": [
+    {
+      "window": "V48",
+      "pair": 2,
+      "order": "RC",
+      "stage": "sql_selected_votes_and_accumulation",
+      "absolute_seconds": {
+        "R": {
+          "32": 0.055200399999193905,
+          "33": 0.12722729999950388
+        },
+        "C": {
+          "32": 0.07221250000020518,
+          "33": 0.05355489999965357
+        }
+      },
+      "query_delta_seconds": {
+        "32": 0.017012100001011277,
+        "33": -0.07367239999985031
+      },
+      "within_arm_gap_seconds": {
+        "R": -0.07202690000030998,
+        "C": 0.01865760000055161
+      },
+      "raw_arm_terms_seconds": {
+        "C": 0.01865760000055161,
+        "R": 0.07202690000030998
+      },
+      "gap_seconds": 0.09068450000086159,
+      "alignment": {
+        "defined": true,
+        "direction": 1,
+        "components": {
+          "C": {
+            "aligned_net": 0.01865760000055161,
+            "positive_support": 0.01865760000055161,
+            "negative_offset": 0,
+            "positive_share": 0.20574188533183008
+          },
+          "R": {
+            "aligned_net": 0.07202690000030998,
+            "positive_support": 0.07202690000030998,
+            "negative_offset": 0,
+            "positive_share": 0.7942581146681699
+          }
+        },
+        "positive_seconds": 0.09068450000086159,
+        "negative_seconds": 0.0,
+        "net_seconds": 0.09068450000086159,
+        "leading_support_arms": [
+          "R"
+        ]
+      },
+      "max_reconciliation_residual_seconds": 0.0,
+      "v53_deltas_and_gap_reconciled": true
+    },
+    {
+      "window": "V48",
+      "pair": 3,
+      "order": "CR",
+      "stage": "sql_selected_votes_and_accumulation",
+      "absolute_seconds": {
+        "R": {
+          "32": 0.06483019999996031,
+          "33": 0.05365750000055414
+        },
+        "C": {
+          "32": 0.10006650000013906,
+          "33": 0.04169119999914983
+        }
+      },
+      "query_delta_seconds": {
+        "32": 0.035236300000178744,
+        "33": -0.011966300001404306
+      },
+      "within_arm_gap_seconds": {
+        "R": 0.011172699999406177,
+        "C": 0.05837530000098923
+      },
+      "raw_arm_terms_seconds": {
+        "C": 0.05837530000098923,
+        "R": -0.011172699999406177
+      },
+      "gap_seconds": 0.04720260000158305,
+      "alignment": {
+        "defined": true,
+        "direction": 1,
+        "components": {
+          "C": {
+            "aligned_net": 0.05837530000098923,
+            "positive_support": 0.05837530000098923,
+            "negative_offset": 0,
+            "positive_share": 1.0
+          },
+          "R": {
+            "aligned_net": -0.011172699999406177,
+            "positive_support": 0,
+            "negative_offset": -0.011172699999406177,
+            "positive_share": 0.0
+          }
+        },
+        "positive_seconds": 0.05837530000098923,
+        "negative_seconds": -0.011172699999406177,
+        "net_seconds": 0.04720260000158305,
+        "leading_support_arms": [
+          "C"
+        ]
+      },
+      "max_reconciliation_residual_seconds": 0.0,
+      "v53_deltas_and_gap_reconciled": true
+    },
+    {
+      "window": "V48",
+      "pair": 4,
+      "order": "RC",
+      "stage": "sql_positive_overlaps",
+      "absolute_seconds": {
+        "R": {
+          "32": 0.06893729999956122,
+          "33": 0.0696869000003062
+        },
+        "C": {
+          "32": 0.06472010000015871,
+          "33": 0.12400049999996554
+        }
+      },
+      "query_delta_seconds": {
+        "32": -0.00421719999940251,
+        "33": 0.054313599999659345
+      },
+      "within_arm_gap_seconds": {
+        "R": -0.0007496000007449766,
+        "C": -0.05928039999980683
+      },
+      "raw_arm_terms_seconds": {
+        "C": -0.05928039999980683,
+        "R": 0.0007496000007449766
+      },
+      "gap_seconds": -0.058530799999061855,
+      "alignment": {
+        "defined": true,
+        "direction": -1,
+        "components": {
+          "C": {
+            "aligned_net": 0.05928039999980683,
+            "positive_support": 0.05928039999980683,
+            "negative_offset": 0,
+            "positive_share": 1.0
+          },
+          "R": {
+            "aligned_net": -0.0007496000007449766,
+            "positive_support": 0,
+            "negative_offset": -0.0007496000007449766,
+            "positive_share": 0.0
+          }
+        },
+        "positive_seconds": 0.05928039999980683,
+        "negative_seconds": -0.0007496000007449766,
+        "net_seconds": 0.058530799999061855,
+        "leading_support_arms": [
+          "C"
+        ]
+      },
+      "max_reconciliation_residual_seconds": 0.0,
+      "v53_deltas_and_gap_reconciled": true
+    },
+    {
+      "window": "V48",
+      "pair": 5,
+      "order": "CR",
+      "stage": "sql_positive_overlaps",
+      "absolute_seconds": {
+        "R": {
+          "32": 0.0652327999996487,
+          "33": 0.08852999999999156
+        },
+        "C": {
+          "32": 0.0899914000001445,
+          "33": 0.07560090000060882
+        }
+      },
+      "query_delta_seconds": {
+        "32": 0.02475860000049579,
+        "33": -0.012929099999382743
+      },
+      "within_arm_gap_seconds": {
+        "R": -0.023297200000342855,
+        "C": 0.014390499999535677
+      },
+      "raw_arm_terms_seconds": {
+        "C": 0.014390499999535677,
+        "R": 0.023297200000342855
+      },
+      "gap_seconds": 0.03768769999987853,
+      "alignment": {
+        "defined": true,
+        "direction": 1,
+        "components": {
+          "C": {
+            "aligned_net": 0.014390499999535677,
+            "positive_support": 0.014390499999535677,
+            "negative_offset": 0,
+            "positive_share": 0.3818354529350971
+          },
+          "R": {
+            "aligned_net": 0.023297200000342855,
+            "positive_support": 0.023297200000342855,
+            "negative_offset": 0,
+            "positive_share": 0.6181645470649029
+          }
+        },
+        "positive_seconds": 0.03768769999987853,
+        "negative_seconds": 0.0,
+        "net_seconds": 0.03768769999987853,
+        "leading_support_arms": [
+          "R"
+        ]
+      },
+      "max_reconciliation_residual_seconds": 0.0,
+      "v53_deltas_and_gap_reconciled": true
+    }
+  ],
+  "saved_entries_checked": 28,
+  "matched_saved_rows": 1344,
+  "selected_absolute_timers": 16,
+  "identity_order_and_workload_equal": true,
+  "measured_evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/warm_R/measured.json",
+      "bytes": 60217,
+      "sha256": "be5269dec7b1d3ae9845384c8cfae7bd0ebcfc4659c1f779a6e8a06e53550068"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/warm_C/measured.json",
+      "bytes": 60203,
+      "sha256": "d80645b2677e50806d942e509f06a866f76a1850d7c505c38c042d05202c94ea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_1_C/measured.json",
+      "bytes": 60188,
+      "sha256": "327b49c6d6231c20571beac68cf587526e15c13d92a3ff76b458738479bffa7a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_1_R/measured.json",
+      "bytes": 60149,
+      "sha256": "e89c4b1e1f268ad23118acef44d324b3413ae6716051bf60f6f95ce09eb7fe3e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_2_R/measured.json",
+      "bytes": 60211,
+      "sha256": "cddc3aa48f01ec00b622ddefce8f3b9480c609ceb2cb1723c4b2e427122ae454"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_2_C/measured.json",
+      "bytes": 60224,
+      "sha256": "26e7063135dc3a1626de5a26d5dd64f59cbc3e79515e95b8e6d63a5e49ea2db9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_3_C/measured.json",
+      "bytes": 60160,
+      "sha256": "acda397f32f5a429f3f74754df5dc0696105acef1cabec859042b6a45032dcb6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_3_R/measured.json",
+      "bytes": 60155,
+      "sha256": "89350faa02a305b069a8dd4d0e87ad8cff655c28748df85ac24a50a8b6a59ed1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_4_R/measured.json",
+      "bytes": 60136,
+      "sha256": "2869fda2610221d3fd048d9ebd8c21f89b13150adb58d538c9d4a86e9b6244c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_4_C/measured.json",
+      "bytes": 60195,
+      "sha256": "b76eeda1e3aa877fdb49eded8d22411ea336ddaa94a435e9aae419828c0a7421"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_5_C/measured.json",
+      "bytes": 60252,
+      "sha256": "bfc12e7af7ca2b8c3a8ce47fdbeb8ef7128b6ee59be66cfe269e04acb6f44672"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_5_R/measured.json",
+      "bytes": 60234,
+      "sha256": "2b80d1cdf9738496cd642d3384e79c1013bf06d0ee16070b8840c12fa546ad91"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_6_R/measured.json",
+      "bytes": 60244,
+      "sha256": "64661efd3fd0a1b9bb036f7053a548d89463915f23f4bf80fdf53a59e86cc9e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_6_C/measured.json",
+      "bytes": 60208,
+      "sha256": "14bae78791b53d69568e09c1ec4e201b41147e8d52dc922d24f2b243b39a716f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/warm_R/measured.json",
+      "bytes": 60199,
+      "sha256": "43c4b9a492fa19e5c40dcb466ba59555e7eff1c34a11a4581966a40db4c59b21"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/warm_C/measured.json",
+      "bytes": 60171,
+      "sha256": "fb5f098703efe391a78f18387a3ee8c0507d1705f8d5fda64c08b95881bd174b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_1_C/measured.json",
+      "bytes": 60197,
+      "sha256": "07814751c7b109ba312a7d48576225f1032632440ff0da5675b2720b8e71767e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_1_R/measured.json",
+      "bytes": 60184,
+      "sha256": "383d4c533e9996d7b368f80148599c7986abd679c86213d23a1f821e0162148d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_2_R/measured.json",
+      "bytes": 60155,
+      "sha256": "d4febfdb4c58340aaed8bb56bc51725a2bd41dd909101d7f27873ac1c888b763"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_2_C/measured.json",
+      "bytes": 60218,
+      "sha256": "3cbe7782240209b52215130b861a84bb4b1de595ac87ba6a6a48a9ddeb1670b4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_3_C/measured.json",
+      "bytes": 60145,
+      "sha256": "f18a7a30fbcfd7df4789e4a5b806157547b7325394707f0756dca9df26d732d5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_3_R/measured.json",
+      "bytes": 60187,
+      "sha256": "75595745b7bdaec2e60423825c65e5de061493145c6cfe3d3e3cc169326877a4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_4_R/measured.json",
+      "bytes": 60194,
+      "sha256": "dfe38d151bb8f3c7aa7d5ee641ac0f2d9132b5d920fd96563463a06b9a731116"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_4_C/measured.json",
+      "bytes": 60203,
+      "sha256": "620a6fcc08dcfc31bb8d7eda51642214d226257b3276c81abb3d2f556ef96660"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_5_C/measured.json",
+      "bytes": 60179,
+      "sha256": "0cca06792fe347018cf87b579e7c97d60732950f861b35389266e2bd5456eba9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_5_R/measured.json",
+      "bytes": 60187,
+      "sha256": "549f59d64969fb69133b17f2e262ab0857e5add358bea47b5028ec123c7335ec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_6_R/measured.json",
+      "bytes": 60215,
+      "sha256": "54603a4f9e8542376c922f97ab66f241ff6b93e9db8782e5a4898b08ccc72448"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_6_C/measured.json",
+      "bytes": 60185,
+      "sha256": "f6fac1999d82927cdfbd497295e2cd4fd0870b2f1341b8ab38e66f4c354817c6"
+    }
+  ],
+  "interpretation": "Four preselected V48 cases are all retained, without filtering by stage direction or size. R means V39 original; C means V46 candidate. Absolute nonnegative stage durations are distinct from query C-minus-R deltas and within-arm position32-minus-position33 contrasts. Stage gap equals (C32-R32)-(C33-R33)=(C32-C33)-(R32-R33). Signed arm terms are C=(C32-C33), R=-(R32-R33). Alignment uses the stage gap sign. Each case has its own positive-support denominator; these shares are not fractions of total elapsed time and are not aggregated across cases. More arm support does not mean that arm is globally slower or its timer is an outlier. No temporal rise, fall or spike is inferred from four cells. These are previously exposed, non-simultaneous wall-time records; the arithmetic does not establish decoder, CPU, I/O, scheduler or host-load causality."
+}
