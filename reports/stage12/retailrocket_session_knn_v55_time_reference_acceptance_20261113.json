@@ -1,0 +1,148 @@
+{
+  "status": "v55_saved_time_reference_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_time_reference_v55.py",
+      "bytes": 9669,
+      "sha256": "449817bb44aba213e07436c0fb516ccd30eebff7ee0a5182a0792dfa66cb86bb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_time_reference_v55.py",
+      "bytes": 4346,
+      "sha256": "87d7e6b465aeb135e44586d5db018b9ae90d2eaf228fd5ebf0fbb978f61769de"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_time_reference_v55.py",
+      "bytes": 7560,
+      "sha256": "19a1cebfb544de750b6b2ecab5abf56b67e49b250c4f642528098db6d5ade07f"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_time_reference_analysis_v55.py",
+      "bytes": 7372,
+      "sha256": "3eee5bed06162f77a3d35f54ee1cde0a64ddddbb921ab634f468cafc8167cb2d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v53_peer_stages_analysis_20261113.json",
+      "bytes": 211366,
+      "sha256": "96487417d3d06775f5abdb27c4c8fbc0282eb80d31bcb702a9d9a6e4641d5e45"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v54_absolute_arms_analysis_20261113.json",
+      "bytes": 17903,
+      "sha256": "f3fe11a70612a2107b91981e8f2212390cfce85001d495d5f3d52a1d1b38359f"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_time_reference_v55",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55"
+  ],
+  "tests_run": 22,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_all_equal_positive_and_zero_timers",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_descending_tied_ranks_and_counts_include_the_target",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_equal_other_range_endpoints_are_within",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_even_median_and_unscaled_mad_are_hand_calculated",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_input_and_dictionary_order_are_unchanged",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_invalid_target_pairs_are_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_invalid_timer_schema_and_key_types_are_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_invalid_timer_values_are_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_large_finite_midpoints_do_not_overflow",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_minimum_maximum_and_interior_range_relations",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_nearby_values_do_not_become_approximate_ties",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_nonfinite_derived_ratio_is_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_other_five_uses_its_own_odd_median_and_mad",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_tiny_midpoint_is_rounded_without_premature_underflow",
+    "tests.test_retailrocket_session_knn_time_reference_v55.TimeReferenceTests.test_zero_denominators_are_separate_for_six_and_five",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_changed_v54_absolute_timer_order_or_case_set_is_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_cli_rejects_measurement_before_lock",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_eight_groups_six_observations_and_all_sixteen_targets_are_retained",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_other_five_excludes_only_current_pair_and_keeps_other_target",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_reference_groups_never_mix_stage_arm_or_position",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_source_identity_workload_schedule_and_bad_timers_are_rejected",
+    "tests.test_retailrocket_session_knn_time_reference_analysis_v55.TimeReferenceEntryTests.test_v47_warmups_and_tail_commits_do_not_enter_reference_times"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 4.411028800001077,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v55-time-reference-tests-53864a9b669e4b1e997af95052d61213/tests.log",
+    "bytes": 4332,
+    "sha256": "8e38f095ec6265ed5669e0dc2ea9a2faa99727adf3583f009eab306f638bb788"
+  },
+  "scope": {
+    "saved_windows_checked": 2,
+    "saved_entries_checked": 28,
+    "matched_saved_rows": 1344,
+    "analysis_window": "V48",
+    "positions": [
+      32,
+      33
+    ],
+    "arms": {
+      "R": "V39 original",
+      "C": "V46 candidate"
+    },
+    "reference_groups": 8,
+    "reference_values_per_group": 6,
+    "unique_reference_timers": 48,
+    "target_cases": 4,
+    "target_absolute_timers": 16,
+    "cases": [
+      {
+        "pair": 2,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 3,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 4,
+        "stage": "sql_positive_overlaps"
+      },
+      {
+        "pair": 5,
+        "stage": "sql_positive_overlaps"
+      }
+    ],
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
