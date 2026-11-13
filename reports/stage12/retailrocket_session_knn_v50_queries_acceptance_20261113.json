@@ -1,0 +1,88 @@
+{
+  "status": "v50_saved_query_distribution_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_queries_v50.py",
+      "bytes": 15113,
+      "sha256": "902ac5f09e56b429a15ed3be3468f680a2fff5ef70be935380ab974e54a26cd0"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_query_distribution_v50.py",
+      "bytes": 6124,
+      "sha256": "a85717d2e98b4ca151557f8d8758fcfedcff51c60cac62445c17998f56044710"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_query_distribution_v50.py",
+      "bytes": 7613,
+      "sha256": "e48919ca9e2fd4be6ab6693652962130e5f5a4866e0bae5970b6b83972ad5907"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_queries_v50.py",
+      "bytes": 6392,
+      "sha256": "3b26a836c56e2f4dfabf58304cc7515b918c4f67588fdde431be51396fbb406f"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_query_distribution_v50",
+    "tests.test_retailrocket_session_knn_queries_v50"
+  ],
+  "tests_run": 17,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_all_negative_and_all_zero_have_no_positive_concentration",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_concentrated_and_uniform_positive_distributions_are_distinguished",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_empty_nonfinite_nonnumeric_and_overflowing_observations_are_rejected",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_one_millisecond_boundaries_belong_to_within_count",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_percentiles_use_nearest_rank_without_interpolation",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.DistributionTests.test_positive_and_negative_cancellation_uses_gross_positive_denominator",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.QueryPartsTests.test_invalid_nesting_and_append_identity_are_rejected",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.QueryPartsTests.test_nested_query_parts_and_bridge_conserve_without_double_counting",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.QueryPartsTests.test_rank_stage_schema_and_original_timer_values_are_strict",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.QueryPartsTests.test_small_roundoff_is_retained_and_material_boundary_errors_are_rejected",
+    "tests.test_retailrocket_session_knn_query_distribution_v50.QueryPartsTests.test_tail_commit_is_not_assigned_to_a_query",
+    "tests.test_retailrocket_session_knn_queries_v50.PairedDistributionTests.test_cli_does_not_expose_measurement",
+    "tests.test_retailrocket_session_knn_queries_v50.PairedDistributionTests.test_repeated_positions_have_a_different_positive_denominator_and_warmups_are_separate",
+    "tests.test_retailrocket_session_knn_queries_v50.PairedDistributionTests.test_schedule_missing_positions_and_changed_prior_summary_are_rejected",
+    "tests.test_retailrocket_session_knn_queries_v50.QueryEntryTests.test_identity_workload_and_order_changes_are_rejected",
+    "tests.test_retailrocket_session_knn_queries_v50.QueryEntryTests.test_missing_duplicate_or_inconsistent_costs_are_rejected",
+    "tests.test_retailrocket_session_knn_queries_v50.QueryEntryTests.test_query_parts_and_tail_reconcile_without_allocating_tail_to_queries"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.13287549999949988,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v50-query-tests-05f7a05b0d5f484fbf11b9df9ee11e6d/tests.log",
+    "bytes": 3655,
+    "sha256": "ee8f2354bd737fb68499744799e368ebfc442a14d9c73ada17f84a546626a827"
+  },
+  "scope": {
+    "saved_windows": 2,
+    "saved_entries": 28,
+    "fixed_queries": 48,
+    "formal_pairs_per_window": 6,
+    "paired_query_observations_per_window": 288,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records."
+  }
+}

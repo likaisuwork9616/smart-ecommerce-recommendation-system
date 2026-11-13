@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V49 既有紀錄拆查完成 | V48 六對非 reference 多 2.274 秒，主要是快照 +0.958、原 context 載入 +0.886、48 筆主流程 +0.525 秒；新增實驗 0 次 |
+| Stage 12：session-kNN K1 | V50 逐筆分布工具驗收完成 | 17 項測試全通；準備以既有 48 筆查詢檢查增時集中度與跨六對一致性，新增實驗 0 次 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜既有冷入口紀錄分項拆查（最新）
+## Stage 12｜既有 48 筆查詢增時分布（最新）
+
+V50 工具已通過 17 項測試（0.133 秒），檢查同查詢配對、分項守恆、尾端 commit 另外列計，以及正負差抵銷與兩種集中度分母。只用 V47／V48 既有紀錄，按六對×48 筆與同序位跨六對分開分析；正式報告待產生，新增實驗、查詢、解碼與訓練均為 0。[V50 方法、驗收與操作](docs/STAGE12_KNN_QUERY_DISTRIBUTION_V50_20261113.md)
+
+## Stage 12｜既有冷入口紀錄分項拆查
 
 V49 經 13 項工具驗收後，只用 V47／V48 既有紀錄完成拆帳。V48 六對的非 reference 時間合計增加 2.274 秒：三次快照 +0.958 秒、原 context 載入 +0.886 秒、48 筆主流程 +0.525 秒、catalog 準備 +0.259 秒，其餘項目合計 −0.354 秒。最慢的第 5 對主要增加在原 context 載入（+0.822 秒）與 catalog 準備（+0.308 秒）；其他退步對較多落在快照和主流程。V47 六對非 reference 合計仍省 2.189 秒，不能以其兩個退步配對概括整輪。28 份事件樹、2,156 個事件及逐次／逐對加總重核通過，新增實驗、query、decode 與訓練均為 0；目前只能定位 wall time 差異，維持暫不採用預設。[V49 分項、五個退步配對與限制](docs/STAGE12_KNN_SAVED_PHASES_V49_20261113.md)
 

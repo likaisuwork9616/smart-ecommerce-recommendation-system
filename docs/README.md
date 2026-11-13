@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜既有冷入口紀錄分項拆查（最新）
+## Stage 12｜既有 48 筆查詢增時分布（最新）
+
+V50 工具 17 項驗收通過，準備以原兩窗計時檢查逐筆增時與同序位跨六對分布；尾端 commit 另列，不重跑實驗。[分布方法、驗收與分析](STAGE12_KNN_QUERY_DISTRIBUTION_V50_20261113.md)
+
+## Stage 12｜既有冷入口紀錄分項拆查
 
 V49 工具 13 項驗收全通，既有 28 份事件樹與加總重核完成。V48 的非 reference 增時主要落在快照、原 context 載入、48 筆主流程及 catalog 準備；五個退步配對的主要階段各有不同，沒有新增實驗。[分項結果、退步配對與限制](STAGE12_KNN_SAVED_PHASES_V49_20261113.md)
 
