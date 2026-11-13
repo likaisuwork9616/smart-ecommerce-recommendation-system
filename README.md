@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V49 離線分項工具驗收完成 | 13 項純數值／完整性測試全通，準備從 V47／V48 既有紀錄拆查 reference 以外的退步；新增實驗 0 次 |
+| Stage 12：session-kNN K1 | V49 既有紀錄拆查完成 | V48 六對非 reference 多 2.274 秒，主要是快照 +0.958、原 context 載入 +0.886、48 筆主流程 +0.525 秒；新增實驗 0 次 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,7 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜既有冷入口紀錄分項拆查（最新）
 
-V49 離線拆帳工具已通過 13 項測試（0.139 秒），檢查巢狀區間、被動 reference／late 時點、三次快照、query／tail 的不重複加總及有正負號的入口時鐘差。工具只讀 V47／V48 已封存紀錄，沒有 `--measure` 選項；正式分項報告待產生，新增實驗、query、decode 與訓練均為 0。[V49 邊界、驗收與操作](docs/STAGE12_KNN_SAVED_PHASES_V49_20261113.md)
+V49 經 13 項工具驗收後，只用 V47／V48 既有紀錄完成拆帳。V48 六對的非 reference 時間合計增加 2.274 秒：三次快照 +0.958 秒、原 context 載入 +0.886 秒、48 筆主流程 +0.525 秒、catalog 準備 +0.259 秒，其餘項目合計 −0.354 秒。最慢的第 5 對主要增加在原 context 載入（+0.822 秒）與 catalog 準備（+0.308 秒）；其他退步對較多落在快照和主流程。V47 六對非 reference 合計仍省 2.189 秒，不能以其兩個退步配對概括整輪。28 份事件樹、2,156 個事件及逐次／逐對加總重核通過，新增實驗、query、decode 與訓練均為 0；目前只能定位 wall time 差異，維持暫不採用預設。[V49 分項、五個退步配對與限制](docs/STAGE12_KNN_SAVED_PHASES_V49_20261113.md)
 
 ## Stage 12｜V39 與 V46 第二窗口重測
 
