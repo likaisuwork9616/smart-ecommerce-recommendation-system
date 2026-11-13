@@ -584,3 +584,10 @@ tests/test_retailrocket_session_knn_peers_v52.py text eol=lf
 tests/test_retailrocket_session_knn_peer_matching_v52.py text eol=lf
 tests/test_retailrocket_session_knn_peer_variation_v52.py text eol=lf
 reports/stage12/retailrocket_session_knn_v52_peers_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V53 saved peer-stage accounting and evidence.
+scripts/analyze_retailrocket_session_knn_peer_stages_v53.py text eol=lf
+scripts/retailrocket_session_knn_peer_stages_v53.py text eol=lf
+tests/test_retailrocket_session_knn_peer_stages_v53.py text eol=lf
+tests/test_retailrocket_session_knn_peer_stage_analysis_v53.py text eol=lf
+reports/stage12/retailrocket_session_knn_v53_peer_stages_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

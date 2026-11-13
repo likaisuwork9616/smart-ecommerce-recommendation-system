@@ -1,0 +1,110 @@
+{
+  "status": "v53_saved_peer_stage_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_peer_stages_v53.py",
+      "bytes": 10591,
+      "sha256": "500bf62c1277ce50f5b3c7eb5991d1044c225f61f1f62db9577d3cd58911f9cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_peer_stages_v53.py",
+      "bytes": 12454,
+      "sha256": "457e828a4120d8d8f3d4e9aa93a57fd825d5484fbb1a334d7ab20134855ec251"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_peer_stages_v53.py",
+      "bytes": 12601,
+      "sha256": "cf4845865a3b8886b7149ba67314da422a3e34c537b1220dbd8dd03e87c21974"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_peer_stage_analysis_v53.py",
+      "bytes": 6271,
+      "sha256": "f88063c2c102bd412ab48047f3d8e059d6252941ce070404750f57adb418aa06"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_peer_stages_v53",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53"
+  ],
+  "tests_run": 16,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_atomic_and_grouped_views_conserve_without_double_counting_ranking",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_direction_uses_unrounded_deltas_and_strict_one_millisecond_boundaries",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_invalid_numeric_values_and_material_negative_original_stages_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_invalid_position_pair_order_part_schema_and_conservation_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_negative_gap_is_aligned_using_its_own_sign",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_original_inputs_are_unchanged_and_tail_or_envelope_fields_are_excluded",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_tiny_signed_remainders_are_preserved_without_clamping",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StagePairTests.test_zero_gap_retains_raw_offsets_but_has_no_alignment_direction",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StageSummaryTests.test_alignment_precedes_positive_aggregation_and_does_not_use_netted_denominator",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StageSummaryTests.test_empty_opposite_subset_has_zero_counts_totals_and_none_shares",
+    "tests.test_retailrocket_session_knn_peer_stages_v53.StageSummaryTests.test_six_pair_order_and_all_saved_derived_views_are_revalidated",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53.PeerStageEntryTests.test_changed_fixed_peer_or_prior_values_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53.PeerStageEntryTests.test_changed_identity_workload_schedule_and_timer_nesting_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53.PeerStageEntryTests.test_cli_rejects_measurement",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53.PeerStageEntryTests.test_full_entries_reconcile_to_prior_and_publish_only_derived_differences",
+    "tests.test_retailrocket_session_knn_peer_stage_analysis_v53.PeerStageEntryTests.test_warmups_and_tail_commits_do_not_enter_selected_query_differences"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 1.259191600001941,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v53-peer-stage-tests-f22bc694c4c94c6185ecb1fae92756ce/tests.log",
+    "bytes": 3522,
+    "sha256": "ddc4061e72a453ec7dd8a33311c68e2ba12ca3e86d31feb9f92fe769cd0c55e9"
+  },
+  "scope": {
+    "saved_windows": 2,
+    "saved_entries": 28,
+    "matched_saved_rows": 1344,
+    "positions": [
+      32,
+      33
+    ],
+    "formal_pairs_per_window": 6,
+    "selected_formal_query_rows": 48,
+    "atomic_parts": 11,
+    "grouped_parts": 4,
+    "warmups_excluded": true,
+    "tail_commit_excluded": true,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
