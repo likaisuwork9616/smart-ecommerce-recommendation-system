@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜late typed 實作與驗收（最新）
+## Stage 12｜V39 與 V46 第二負載窗口（最新）
+
+沿用 V47 同 model、原固定 48 筆與計量核心，另建 V48 窗口，檢查完整冷入口退步是否重現，再評估候選採用。[第二窗口方法、驗收與結果](STAGE12_KNN_COLD_REPEAT_V48_20261113.md)
+
+## Stage 12｜late typed 實作與驗收
 
 核心40項與整合165項通過、129個要求全映射；人工14帳本672次及新程序獨立發布完成。Cold實際4 canonical＋2 typed，身分／鎖後／原時點／final及末次entry內reference釋放保留，無真實48筆或加速結論。[實作與完整驗收](STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 
