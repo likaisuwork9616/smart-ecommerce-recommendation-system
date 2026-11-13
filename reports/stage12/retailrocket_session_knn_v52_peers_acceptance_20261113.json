@@ -1,0 +1,126 @@
+{
+  "status": "v52_saved_workload_peer_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_peers_v52.py",
+      "bytes": 9490,
+      "sha256": "0e4ab84ee324c8323c7ca23b4c1fc99713e74b3c3bbd3698e81ffe1c05383078"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_peer_matching_v52.py",
+      "bytes": 6664,
+      "sha256": "4ed8b22f34cc7b35b2f475fa36bf04a643f52e05676516750d9851ff02a8fffb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_peer_variation_v52.py",
+      "bytes": 5343,
+      "sha256": "3a92d9fb1b633af25c705d0fa2f8703eb809044331dfb68f40d2f902ccf76f40"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_peer_matching_v52.py",
+      "bytes": 11299,
+      "sha256": "84f039c1163ea16e5538ff930c239d8611254a1ad0af893d1f8d18ad83ab8aa2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_peer_variation_v52.py",
+      "bytes": 7204,
+      "sha256": "0aed9261375daa9648f236959915b1f4ab182bc9bb0353db5e1da16dd0a1d5e0"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_peers_v52.py",
+      "bytes": 4416,
+      "sha256": "e67a5eee3e20bf3c4cdbbc5521a46f41109215aa939fe215b38879ae24792765"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_peer_matching_v52",
+    "tests.test_retailrocket_session_knn_peer_variation_v52",
+    "tests.test_retailrocket_session_knn_peers_v52"
+  ],
+  "tests_run": 27,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_both_targets_are_excluded_even_when_all_records_match_exactly",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_diagnostic_fields_are_not_selection_filters",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_exact_primary_and_expanded_boundaries_use_symmetric_folds",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_fallback_bit_width_diagnostics_are_unavailable_without_changing_peers",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_fraction_comparison_rejects_boundary_rounding_into_primary",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_invalid_schema_types_length_and_targets_use_v51_validation",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_nearest_uses_maximum_fold_instead_of_sum_and_keeps_all_ties",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_no_caliper_peer_does_not_relax_threshold_and_keeps_nearest_ties",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_no_comparable_nearest_has_empty_sets_and_a_reason",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_profiles_are_exact_union_nested_thresholds_and_do_not_mutate_input",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_required_conditions_exclude_otherwise_exact_nearest_candidates",
+    "tests.test_retailrocket_session_knn_peer_matching_v52.PeerMatchingTests.test_zero_zero_is_one_but_one_sided_zero_excludes_matching_and_nearest",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_direction_denominator_requires_both_deltas_strictly_above_threshold",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_empty_peers_returns_no_invented_peer_statistics",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_even_peer_count_uses_each_pair_midpoint_and_preserves_peer_order",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_exact_millisecond_boundaries_are_within",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_inputs_and_returned_lists_have_no_shared_mutable_state",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_invalid_keys_target_peer_membership_and_duplicates_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_invalid_series_and_unselected_nonfinite_values_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_nonfinite_derived_aggregates_are_rejected",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_peer_medians_and_residuals_are_paired_before_summary",
+    "tests.test_retailrocket_session_knn_peer_variation_v52.PeerVariationTests.test_six_values_and_unscaled_mad_with_order_subgroups",
+    "tests.test_retailrocket_session_knn_peers_v52.SavedPeerTests.test_changed_or_missing_saved_entries_are_rejected",
+    "tests.test_retailrocket_session_knn_peers_v52.SavedPeerTests.test_changed_pair_order_count_or_summary_is_rejected",
+    "tests.test_retailrocket_session_knn_peers_v52.SavedPeerTests.test_cli_rejects_measurement",
+    "tests.test_retailrocket_session_knn_peers_v52.SavedPeerTests.test_matching_uses_workload_and_excludes_both_targets",
+    "tests.test_retailrocket_session_knn_peers_v52.SavedPeerTests.test_window_keeps_frozen_primary_and_expanded_sets"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.6368872999992163,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v52-peer-tests-6d3e5e03a132494aaeac16ff92c21860/tests.log",
+    "bytes": 5511,
+    "sha256": "40195fc386e933ac49c440a5076f3bad79e875d22c9e0c24d4df9bda56fa08d2"
+  },
+  "scope": {
+    "saved_windows": 2,
+    "saved_entries": 28,
+    "matched_saved_rows": 1344,
+    "fixed_queries": 48,
+    "target_positions": [
+      32,
+      38
+    ],
+    "candidate_queries": 46,
+    "formal_pairs_per_window": 6,
+    "warmups_excluded_from_timing": true,
+    "workload_only_selection": true,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
