@@ -1,0 +1,1059 @@
+{
+  "status": "v51_saved_fixed48_logical_workload_compared",
+  "acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v51_workloads_acceptance_20261113.json",
+    "bytes": 5648,
+    "sha256": "0f0f678c39c446023a7d74a24072c5c7065f326243a0c474f5c211cafe639924"
+  },
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_workloads_v51.py",
+      "bytes": 8209,
+      "sha256": "0cd73f0e8ebb2c12d92dc3d7c926e24634e9b1225e0050124b3ec14d0d686417"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_workload_distribution_v51.py",
+      "bytes": 6232,
+      "sha256": "7010b4c7f54631a67729c6242701b0799eab0954ed673516dbbc7ed429a9707d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_workload_distribution_v51.py",
+      "bytes": 10016,
+      "sha256": "8d25963421a306c367fe6a66a87315d7138959e7f34531c36a42269c7ef807d9"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_workloads_v51.py",
+      "bytes": 4565,
+      "sha256": "3067cbe77bca83e5896c2cdc4712869426099aaa9ae1a84fcf77c8d61a9a7445"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    }
+  ],
+  "scope": {
+    "saved_windows": 2,
+    "saved_entries": 28,
+    "matched_saved_rows": 1344,
+    "unique_fixed_queries": 48,
+    "target_positions": [
+      32,
+      38
+    ],
+    "other_queries": 46,
+    "repeated_workload_vectors_collapsed": true,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  },
+  "comparison": {
+    "count": 48,
+    "target_ordinals": [
+      32,
+      38
+    ],
+    "other_count": 46,
+    "percentile_method": "nearest_rank: one-based ceil(0.9*n), no interpolation",
+    "rank_method": "Descending all48 ties: rank_first=1+strictly_greater; rank_last=strictly_greater+equal",
+    "comparison_direction": "vs_other46 compares each other value with the target value; denominator excludes both targets",
+    "metrics": {
+      "history_rows_inserted": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 1,
+          "median": 9.5,
+          "p90": 39,
+          "max": 185,
+          "sum": 913,
+          "unique_count": 25
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 1,
+          "median": 9.0,
+          "p90": 35,
+          "max": 185,
+          "sum": 701,
+          "unique_count": 23
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 184,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 19.36842105263158,
+            "ratio_to_other_median": 20.444444444444443,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 28,
+            "rank_first": 7,
+            "rank_last": 7,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 41,
+              "equal": 0,
+              "higher": 5
+            },
+            "ratio_to_all_median": 2.9473684210526314,
+            "ratio_to_other_median": 3.111111111111111,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "sql_overlap_groups_returned": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 480,
+          "median": 516.5,
+          "p90": 2500,
+          "max": 7695,
+          "sum": 51725,
+          "unique_count": 34
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 480,
+          "median": 511.5,
+          "p90": 1945,
+          "max": 7695,
+          "sum": 41538,
+          "unique_count": 32
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 7687,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 14.882865440464666,
+            "ratio_to_other_median": 15.028347996089932,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 2500,
+            "rank_first": 5,
+            "rank_last": 5,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 43,
+              "equal": 0,
+              "higher": 3
+            },
+            "ratio_to_all_median": 4.84027105517909,
+            "ratio_to_other_median": 4.887585532746823,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "sql_overlap_membership_matches": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 480,
+          "median": 546.5,
+          "p90": 2836,
+          "max": 8540,
+          "sum": 55197,
+          "unique_count": 37
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 480,
+          "median": 542.0,
+          "p90": 1998,
+          "max": 8540,
+          "sum": 43829,
+          "unique_count": 35
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 8532,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 15.612076852698994,
+            "ratio_to_other_median": 15.74169741697417,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 2836,
+            "rank_first": 5,
+            "rank_last": 5,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 43,
+              "equal": 0,
+              "higher": 3
+            },
+            "ratio_to_all_median": 5.189387008234218,
+            "ratio_to_other_median": 5.232472324723247,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "neighbor_pool_rows_hashed": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 480,
+          "median": 516.5,
+          "p90": 2500,
+          "max": 7695,
+          "sum": 51725,
+          "unique_count": 34
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 480,
+          "median": 511.5,
+          "p90": 1945,
+          "max": 7695,
+          "sum": 41538,
+          "unique_count": 32
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 7687,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 14.882865440464666,
+            "ratio_to_other_median": 15.028347996089932,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 2500,
+            "rank_first": 5,
+            "rank_last": 5,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 43,
+              "equal": 0,
+              "higher": 3
+            },
+            "ratio_to_all_median": 4.84027105517909,
+            "ratio_to_other_median": 4.887585532746823,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "sql_selected_rows_inserted": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 480,
+          "median": 500.0,
+          "p90": 500,
+          "max": 500,
+          "sum": 23934,
+          "unique_count": 10
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 480,
+          "median": 500.0,
+          "p90": 500,
+          "max": 500,
+          "sum": 22934,
+          "unique_count": 10
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 500,
+            "rank_first": 1,
+            "rank_last": 32,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 16,
+              "equal": 30,
+              "higher": 0
+            },
+            "ratio_to_all_median": 1.0,
+            "ratio_to_other_median": 1.0,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 500,
+            "rank_first": 1,
+            "rank_last": 32,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 16,
+              "equal": 30,
+              "higher": 0
+            },
+            "ratio_to_all_median": 1.0,
+            "ratio_to_other_median": 1.0,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "sql_vote_membership_rows_returned": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 522,
+          "median": 1645.5,
+          "p90": 7023,
+          "max": 15111,
+          "sum": 136381,
+          "unique_count": 41
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 522,
+          "median": 1566.0,
+          "p90": 5961,
+          "max": 15111,
+          "sum": 117911,
+          "unique_count": 40
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 15111,
+            "rank_first": 1,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 1,
+              "higher": 0
+            },
+            "ratio_to_all_median": 9.183226982680036,
+            "ratio_to_other_median": 9.649425287356323,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 3359,
+            "rank_first": 8,
+            "rank_last": 8,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 40,
+              "equal": 0,
+              "higher": 6
+            },
+            "ratio_to_all_median": 2.0413248252810696,
+            "ratio_to_other_median": 2.1449553001277137,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "fraction_vote_additions": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "fallback_catalog_rows_examined": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "catalog_snapshot_rows_prepared": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 0,
+          "median": 0.0,
+          "p90": 0,
+          "max": 0,
+          "sum": 0,
+          "unique_count": 1
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 0,
+            "rank_first": 1,
+            "rank_last": 48,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 0,
+              "equal": 46,
+              "higher": 0
+            },
+            "ratio_to_all_median": null,
+            "ratio_to_other_median": null,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "causal_catalog_candidates": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 200821,
+          "median": 220709.0,
+          "p90": 222369,
+          "max": 222641,
+          "sum": 10534464,
+          "unique_count": 43
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 200821,
+          "median": 220709.0,
+          "p90": 222369,
+          "max": 222641,
+          "sum": 10107815,
+          "unique_count": 41
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 205355,
+            "rank_first": 46,
+            "rank_last": 46,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 2,
+              "equal": 0,
+              "higher": 44
+            },
+            "ratio_to_all_median": 0.9304332854573216,
+            "ratio_to_other_median": 0.9304332854573216,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 221294,
+            "rank_first": 20,
+            "rank_last": 20,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 27,
+              "equal": 0,
+              "higher": 19
+            },
+            "ratio_to_all_median": 1.002650548912822,
+            "ratio_to_other_median": 1.002650548912822,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "positive_causal_candidates": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 18,
+          "median": 731.0,
+          "p90": 4584,
+          "max": 8103,
+          "sum": 69700,
+          "unique_count": 41
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 18,
+          "median": 675.0,
+          "p90": 3961,
+          "max": 8103,
+          "sum": 59480,
+          "unique_count": 40
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 8103,
+            "rank_first": 1,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 1,
+              "higher": 0
+            },
+            "ratio_to_all_median": 11.084815321477429,
+            "ratio_to_other_median": 12.004444444444445,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 2117,
+            "rank_first": 8,
+            "rank_last": 8,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 40,
+              "equal": 0,
+              "higher": 6
+            },
+            "ratio_to_all_median": 2.896032831737346,
+            "ratio_to_other_median": 3.136296296296296,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "exact_vote_additions": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 522,
+          "median": 1645.5,
+          "p90": 7023,
+          "max": 15111,
+          "sum": 136381,
+          "unique_count": 41
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 522,
+          "median": 1566.0,
+          "p90": 5961,
+          "max": 15111,
+          "sum": 117911,
+          "unique_count": 40
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 15111,
+            "rank_first": 1,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 1,
+              "higher": 0
+            },
+            "ratio_to_all_median": 9.183226982680036,
+            "ratio_to_other_median": 9.649425287356323,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 3359,
+            "rank_first": 8,
+            "rank_last": 8,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 40,
+              "equal": 0,
+              "higher": 6
+            },
+            "ratio_to_all_median": 2.0413248252810696,
+            "ratio_to_other_median": 2.1449553001277137,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "integer_vote_additions": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 522,
+          "median": 1645.5,
+          "p90": 7023,
+          "max": 15111,
+          "sum": 136381,
+          "unique_count": 41
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 522,
+          "median": 1566.0,
+          "p90": 5961,
+          "max": 15111,
+          "sum": 117911,
+          "unique_count": 40
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 15111,
+            "rank_first": 1,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 1,
+              "higher": 0
+            },
+            "ratio_to_all_median": 9.183226982680036,
+            "ratio_to_other_median": 9.649425287356323,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 3359,
+            "rank_first": 8,
+            "rank_last": 8,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 40,
+              "equal": 0,
+              "higher": 6
+            },
+            "ratio_to_all_median": 2.0413248252810696,
+            "ratio_to_other_median": 2.1449553001277137,
+            "comparison_unavailable_reason": null
+          }
+        }
+      },
+      "vote_scale_bits": {
+        "quantity_kind": "bit_width",
+        "all48": {
+          "count": 48,
+          "min": 2,
+          "median": 54.0,
+          "p90": 126,
+          "max": 378,
+          "sum": 3319,
+          "unique_count": 40
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 2,
+          "median": 52.5,
+          "p90": 118,
+          "max": 378,
+          "sum": 2855,
+          "unique_count": 38
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 347,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 6.425925925925926,
+            "ratio_to_other_median": 6.609523809523809,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 117,
+            "rank_first": 7,
+            "rank_last": 7,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 41,
+              "equal": 0,
+              "higher": 5
+            },
+            "ratio_to_all_median": 2.1666666666666665,
+            "ratio_to_other_median": 2.2285714285714286,
+            "comparison_unavailable_reason": null
+          }
+        },
+        "includes_fallback_sentinel": false
+      },
+      "distinct_neighbor_similarities": {
+        "quantity_kind": "logical_count",
+        "all48": {
+          "count": 48,
+          "min": 10,
+          "median": 39.0,
+          "p90": 120,
+          "max": 276,
+          "sum": 2934,
+          "unique_count": 32
+        },
+        "excluding_targets46": {
+          "count": 46,
+          "min": 10,
+          "median": 37.5,
+          "p90": 113,
+          "max": 276,
+          "sum": 2501,
+          "unique_count": 30
+        },
+        "targets": {
+          "32": {
+            "ordinal": 32,
+            "value": 270,
+            "rank_first": 2,
+            "rank_last": 2,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 6.923076923076923,
+            "ratio_to_other_median": 7.2,
+            "comparison_unavailable_reason": null
+          },
+          "38": {
+            "ordinal": 38,
+            "value": 163,
+            "rank_first": 3,
+            "rank_last": 3,
+            "vs_other46": {
+              "denominator": 46,
+              "lower": 45,
+              "equal": 0,
+              "higher": 1
+            },
+            "ratio_to_all_median": 4.17948717948718,
+            "ratio_to_other_median": 4.346666666666667,
+            "comparison_unavailable_reason": null
+          }
+        }
+      }
+    },
+    "fraction_fallback": {
+      "all48": {
+        "count": 48,
+        "true_count": 0,
+        "false_count": 48
+      },
+      "excluding_targets46": {
+        "count": 46,
+        "true_count": 0,
+        "false_count": 46
+      },
+      "targets": {
+        "32": false,
+        "38": false
+      }
+    },
+    "interpretation": "Each logical count or bit-width field is summarized independently. No heterogeneous total workload, physical I/O, elapsed-time cause or new execution is inferred."
+  },
+  "saved_entries_checked": 28,
+  "matched_saved_rows": 1344,
+  "unique_queries_counted": 48,
+  "identity_order_and_workload_equal": true,
+  "warmups_used_for_identity_check_only": true,
+  "windows": {
+    "V47": {
+      "entries_checked": 14,
+      "saved_rows_checked": 672
+    },
+    "V48": {
+      "entries_checked": 14,
+      "saved_rows_checked": 672
+    }
+  },
+  "measured_evidence": [
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/warm_R/measured.json",
+      "bytes": 60217,
+      "sha256": "be5269dec7b1d3ae9845384c8cfae7bd0ebcfc4659c1f779a6e8a06e53550068"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/warm_C/measured.json",
+      "bytes": 60203,
+      "sha256": "d80645b2677e50806d942e509f06a866f76a1850d7c505c38c042d05202c94ea"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_1_C/measured.json",
+      "bytes": 60188,
+      "sha256": "327b49c6d6231c20571beac68cf587526e15c13d92a3ff76b458738479bffa7a"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_1_R/measured.json",
+      "bytes": 60149,
+      "sha256": "e89c4b1e1f268ad23118acef44d324b3413ae6716051bf60f6f95ce09eb7fe3e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_2_R/measured.json",
+      "bytes": 60211,
+      "sha256": "cddc3aa48f01ec00b622ddefce8f3b9480c609ceb2cb1723c4b2e427122ae454"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_2_C/measured.json",
+      "bytes": 60224,
+      "sha256": "26e7063135dc3a1626de5a26d5dd64f59cbc3e79515e95b8e6d63a5e49ea2db9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_3_C/measured.json",
+      "bytes": 60160,
+      "sha256": "acda397f32f5a429f3f74754df5dc0696105acef1cabec859042b6a45032dcb6"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_3_R/measured.json",
+      "bytes": 60155,
+      "sha256": "89350faa02a305b069a8dd4d0e87ad8cff655c28748df85ac24a50a8b6a59ed1"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_4_R/measured.json",
+      "bytes": 60136,
+      "sha256": "2869fda2610221d3fd048d9ebd8c21f89b13150adb58d538c9d4a86e9b6244c3"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_4_C/measured.json",
+      "bytes": 60195,
+      "sha256": "b76eeda1e3aa877fdb49eded8d22411ea336ddaa94a435e9aae419828c0a7421"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_5_C/measured.json",
+      "bytes": 60252,
+      "sha256": "bfc12e7af7ca2b8c3a8ce47fdbeb8ef7128b6ee59be66cfe269e04acb6f44672"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_5_R/measured.json",
+      "bytes": 60234,
+      "sha256": "2b80d1cdf9738496cd642d3384e79c1013bf06d0ee16070b8840c12fa546ad91"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_6_R/measured.json",
+      "bytes": 60244,
+      "sha256": "64661efd3fd0a1b9bb036f7053a548d89463915f23f4bf80fdf53a59e86cc9e7"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v47-cold-real-55751c6dc49b4c62b3d5a9d9e716a90c/pair_6_C/measured.json",
+      "bytes": 60208,
+      "sha256": "14bae78791b53d69568e09c1ec4e201b41147e8d52dc922d24f2b243b39a716f"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/warm_R/measured.json",
+      "bytes": 60199,
+      "sha256": "43c4b9a492fa19e5c40dcb466ba59555e7eff1c34a11a4581966a40db4c59b21"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/warm_C/measured.json",
+      "bytes": 60171,
+      "sha256": "fb5f098703efe391a78f18387a3ee8c0507d1705f8d5fda64c08b95881bd174b"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_1_C/measured.json",
+      "bytes": 60197,
+      "sha256": "07814751c7b109ba312a7d48576225f1032632440ff0da5675b2720b8e71767e"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_1_R/measured.json",
+      "bytes": 60184,
+      "sha256": "383d4c533e9996d7b368f80148599c7986abd679c86213d23a1f821e0162148d"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_2_R/measured.json",
+      "bytes": 60155,
+      "sha256": "d4febfdb4c58340aaed8bb56bc51725a2bd41dd909101d7f27873ac1c888b763"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_2_C/measured.json",
+      "bytes": 60218,
+      "sha256": "3cbe7782240209b52215130b861a84bb4b1de595ac87ba6a6a48a9ddeb1670b4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_3_C/measured.json",
+      "bytes": 60145,
+      "sha256": "f18a7a30fbcfd7df4789e4a5b806157547b7325394707f0756dca9df26d732d5"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_3_R/measured.json",
+      "bytes": 60187,
+      "sha256": "75595745b7bdaec2e60423825c65e5de061493145c6cfe3d3e3cc169326877a4"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_4_R/measured.json",
+      "bytes": 60194,
+      "sha256": "dfe38d151bb8f3c7aa7d5ee641ac0f2d9132b5d920fd96563463a06b9a731116"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_4_C/measured.json",
+      "bytes": 60203,
+      "sha256": "620a6fcc08dcfc31bb8d7eda51642214d226257b3276c81abb3d2f556ef96660"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_5_C/measured.json",
+      "bytes": 60179,
+      "sha256": "0cca06792fe347018cf87b579e7c97d60732950f861b35389266e2bd5456eba9"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_5_R/measured.json",
+      "bytes": 60187,
+      "sha256": "549f59d64969fb69133b17f2e262ab0857e5add358bea47b5028ec123c7335ec"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_6_R/measured.json",
+      "bytes": 60215,
+      "sha256": "54603a4f9e8542376c922f97ab66f241ff6b93e9db8782e5a4898b08ccc72448"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/knn-v48-cold-real-af212945e90f4e1bb5d1616007ba1a62/pair_6_C/measured.json",
+      "bytes": 60185,
+      "sha256": "f6fac1999d82927cdfbd497295e2cd4fd0870b2f1341b8ab38e66f4c354817c6"
+    }
+  ],
+  "interpretation": "The 28 entries contain the same 48 fixed query workload vectors; each vector is counted once. Positions are anonymous one-based subset indexes. Counter summaries and the two target values contain no original keys, hashes, ordinals, item IDs or SQL rows. Descending rank intervals preserve ties; comparisons to the other 46 exclude both targets. Counters are separate logical dimensions, never summed into one total workload. Larger counts do not prove CPU, physical I/O, scheduling wait or decoder causality. Catalog candidate counts and vote scale bits are quantities, not rows actually scanned or operation costs. Constant fields cannot distinguish the targets. There is no timing or workload threshold defining significance."
+}
