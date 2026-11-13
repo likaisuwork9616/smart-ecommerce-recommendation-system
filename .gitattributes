@@ -568,3 +568,10 @@ scripts/retailrocket_session_knn_query_distribution_v50.py text eol=lf
 tests/test_retailrocket_session_knn_queries_v50.py text eol=lf
 tests/test_retailrocket_session_knn_query_distribution_v50.py text eol=lf
 reports/stage12/retailrocket_session_knn_v50_queries_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V51 saved logical-workload methods and reports.
+scripts/analyze_retailrocket_session_knn_workloads_v51.py text eol=lf
+scripts/retailrocket_session_knn_workload_distribution_v51.py text eol=lf
+tests/test_retailrocket_session_knn_workloads_v51.py text eol=lf
+tests/test_retailrocket_session_knn_workload_distribution_v51.py text eol=lf
+reports/stage12/retailrocket_session_knn_v51_workloads_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,104 @@
+{
+  "status": "v51_saved_workload_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_workloads_v51.py",
+      "bytes": 8209,
+      "sha256": "0cd73f0e8ebb2c12d92dc3d7c926e24634e9b1225e0050124b3ec14d0d686417"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_workload_distribution_v51.py",
+      "bytes": 6232,
+      "sha256": "7010b4c7f54631a67729c6242701b0799eab0954ed673516dbbc7ed429a9707d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_workload_distribution_v51.py",
+      "bytes": 10016,
+      "sha256": "8d25963421a306c367fe6a66a87315d7138959e7f34531c36a42269c7ef807d9"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_workloads_v51.py",
+      "bytes": 4565,
+      "sha256": "3067cbe77bca83e5896c2cdc4712869426099aaa9ae1a84fcf77c8d61a9a7445"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_workload_distribution_v51",
+    "tests.test_retailrocket_session_knn_workloads_v51"
+  ],
+  "tests_run": 18,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_all_and_other_median_denominators_are_distinct",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_boolean_field_has_separate_counts_and_no_numeric_ranking",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_constant_and_zero_counters_have_full_ties_and_defined_zero_denominators",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_counter_and_boolean_types_are_strict",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_custom_valid_pair_is_one_based_and_excludes_both_targets",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_fallback_bit_width_sentinel_keeps_raw_summary_but_disables_target_comparison",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_input_is_unchanged_and_output_contains_only_target_records",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_invalid_target_count_type_range_and_duplicates_are_rejected",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_known_ranks_percentiles_and_excluded_target_denominator",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_missing_and_extra_fields_are_rejected",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_ties_use_first_and_last_descending_ranks_including_all48",
+    "tests.test_retailrocket_session_knn_workload_distribution_v51.WorkloadDistributionTests.test_wrong_length_or_row_type_is_rejected",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_bad_saved_timing_accounting_is_not_accepted_as_prior_evidence",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_changed_identity_workload_and_order_including_warmups_are_rejected",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_cli_rejects_experiment_mode_before_taking_lock",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_equal_bool_int_counter_corruption_is_not_hidden_by_identity_equality",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_missing_duplicate_reordered_or_extra_entries_are_rejected",
+    "tests.test_retailrocket_session_knn_workloads_v51.SavedWorkloadTests.test_repetitions_collapse_to_48_and_publish_no_identity_or_raw_matrix"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 1.7358724999994593,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v51-workload-tests-71bc60ab7ad34a3894b8fd8bf67a95df/tests.log",
+    "bytes": 3978,
+    "sha256": "89c0c624b427418a4d18f47ca2cc495d13405837a86f7d0e2ba30cc53c8110ec"
+  },
+  "scope": {
+    "saved_windows": 2,
+    "saved_entries": 28,
+    "matched_saved_rows": 1344,
+    "unique_fixed_queries": 48,
+    "target_positions": [
+      32,
+      38
+    ],
+    "other_queries": 46,
+    "repeated_workload_vectors_collapsed": true,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
