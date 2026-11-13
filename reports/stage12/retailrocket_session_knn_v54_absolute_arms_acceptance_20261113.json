@@ -1,0 +1,134 @@
+{
+  "status": "v54_saved_absolute_arm_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 9123,
+      "sha256": "00499870874a8ecfd7035bb38ba0b64cfc588a85232c28bd15802c81dc197079"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 4675,
+      "sha256": "971a88a3cf5923616317d9acbd6a6da7e3641a73466f20d54cb27c5bd49143ed"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_absolute_arms_v54.py",
+      "bytes": 7044,
+      "sha256": "41a0e75ac46cdf3e60ba7e478b5138f21d2ea658817ae00bad92c84fe713953e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_absolute_arm_analysis_v54.py",
+      "bytes": 4850,
+      "sha256": "6f9ec3c288354bf105c4d2f39d5a442d8840baf540a98307c85065cd1b95b707"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v53_peer_stages_analysis_20261113.json",
+      "bytes": 211366,
+      "sha256": "96487417d3d06775f5abdb27c4c8fbc0282eb80d31bcb702a9d9a6e4641d5e45"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_absolute_arms_v54",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54"
+  ],
+  "tests_run": 17,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_all_largest_positive_ties_are_retained",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_arm_total_duration_proportion_is_not_used_as_gap_contribution",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_c_contrast_can_lead_joint_positive_support",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_derived_overflow_and_nonconserving_float_routes_are_rejected",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_each_arm_can_offset_the_other_and_shares_use_gross_positive_support",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_missing_extra_and_wrong_arm_or_position_shapes_are_rejected",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_negative_gap_flips_both_arm_terms_before_contribution_accounting",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_nonfinite_negative_nonnumeric_and_boolean_timers_are_rejected",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_r_contrast_leads_joint_positive_support",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_zero_gap_keeps_nonzero_raw_contrasts_but_has_no_support_shares",
+    "tests.test_retailrocket_session_knn_absolute_arms_v54.AbsoluteArmTests.test_zero_timers_are_valid_and_input_is_not_mutated",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_all_four_fixed_cases_preserve_absolute_timers_and_reconcile_deltas",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_bad_sources_or_timer_nesting_are_rejected_before_publication",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_both_position_deltas_are_checked_even_when_prior_gap_is_unchanged",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_changed_stage_gap_pair_order_or_reference_count_is_rejected",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_cli_rejects_measurement",
+    "tests.test_retailrocket_session_knn_absolute_arm_analysis_v54.AbsoluteArmEntryTests.test_warmup_and_tail_commit_changes_do_not_enter_stage_absolute_values"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 2.746371299999737,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v54-absolute-arm-tests-f514870c3b334d07ab658f1e0ba6ab35/tests.log",
+    "bytes": 3637,
+    "sha256": "0799764c04377716c4ab1de7df07a50d2f122bf315f6697849526c92e6398f54"
+  },
+  "scope": {
+    "saved_windows_checked": 2,
+    "saved_entries_checked": 28,
+    "matched_saved_rows": 1344,
+    "analysis_window": "V48",
+    "positions": [
+      32,
+      33
+    ],
+    "selected_absolute_timers": 16,
+    "cases": [
+      {
+        "pair": 2,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 3,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 4,
+        "stage": "sql_positive_overlaps"
+      },
+      {
+        "pair": 5,
+        "stage": "sql_positive_overlaps"
+      }
+    ],
+    "arms": {
+      "R": "V39 original",
+      "C": "V46 candidate"
+    },
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
