@@ -1,0 +1,255 @@
+{
+  "status": "v56_saved_common_direction_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_common_direction_v56.py",
+      "bytes": 10290,
+      "sha256": "30d9190421572a14ee2d1f102d17ddee262cb36a65b897519c00866c795254a4"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_common_direction_v56.py",
+      "bytes": 4607,
+      "sha256": "5d67540b6730a498ae604e1c2459b338ba6cd4b18112cfd973f933d7f8d8a2f0"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_common_direction_v56.py",
+      "bytes": 11861,
+      "sha256": "bda62a1c7e8e586439924cbe79ef63cc7fed40a970cd1e5ffe8adf0793a06297"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_common_direction_analysis_v56.py",
+      "bytes": 7319,
+      "sha256": "49764725ec878f8ee327c5ef098e161a52164db8446337eb75122f7672edd55a"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v49_phases_analysis_20261113.json",
+      "bytes": 210489,
+      "sha256": "98fc359a9af85e42a0dbffd1e8815a8fa12d430f723a4e44a46cc374486ff250"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v50_queries_analysis_20261113.json",
+      "bytes": 364131,
+      "sha256": "792336e520df35e832a153f42bedb1c1bc73f06218be59b50c8f895415d2fb1f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v51_workloads_analysis_20261113.json",
+      "bytes": 33927,
+      "sha256": "b02f274d0dc74813eee356403fcb5ad5a7245e16098e26e27d4045d401753545"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v52_peers_analysis_20261113.json",
+      "bytes": 69778,
+      "sha256": "5d5025b021ed3ef965d463b123a6047dc6539ce309ac26e2bb3a01e8993f26f9"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v53_peer_stages_analysis_20261113.json",
+      "bytes": 211366,
+      "sha256": "96487417d3d06775f5abdb27c4c8fbc0282eb80d31bcb702a9d9a6e4641d5e45"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v54_absolute_arms_analysis_20261113.json",
+      "bytes": 17903,
+      "sha256": "f3fe11a70612a2107b91981e8f2212390cfce85001d495d5f3d52a1d1b38359f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v55_time_reference_analysis_20261113.json",
+      "bytes": 44318,
+      "sha256": "b17987a602dd5ef20f603ef74a7d08b564a052d94162495c508fd2fdb03bb066"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_common_direction_v56",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56"
+  ],
+  "tests_run": 22,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_all_zero_is_neutral_and_zero_median_ratios_stay_none",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_below_majority_and_raw_majority_can_differ_from_threshold_mode",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_each_position_uses_its_own_median_not_a_cross_position_median",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_exact_plus_and_minus_one_ms_are_within_and_target_neutral",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_full_locate_results_keep_six_and_other_five_distinct",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_hand_calculated_majority_and_opposite_targets",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_invalid_nested_timer_schema_and_values_are_rejected",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_invalid_outer_schema_and_position_types_are_rejected",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_invalid_pair_types_and_range_are_rejected",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_large_signed_deviation_midpoint_stays_finite",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_nested_inputs_and_order_are_unchanged",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_no_majority_despite_nonzero_targets",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_requested_pair_can_be_any_of_six",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_targets_are_excluded_and_majority_requires_twenty_four",
+    "tests.test_retailrocket_session_knn_common_direction_v56.CommonDirectionTests.test_tied_extremes_do_not_count_as_unique_longest_or_shortest",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_cli_rejects_measurement_before_taking_lock",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_other_five_pair_values_form_each_positions_own_reference",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_other_query_change_enters_only_its_stage_arm_and_own_baseline",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_scope_all_cells_other46_and_complete_v55_reconciliation",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_source_and_non_target_timing_corruption_is_rejected",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_v47_warmup_and_tail_changes_never_enter_the_eight_panels",
+    "tests.test_retailrocket_session_knn_common_direction_analysis_v56.CommonDirectionEntryTests.test_v55_group_observation_summary_target_or_case_corruption_is_rejected"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 7.306956700002047,
+  "log": {
+    "path": "shop-mysql-runtime/verification/knn-v56-common-direction-tests-31b2ff2921e74efdbd1341af90eeabd3/tests.log",
+    "bytes": 4640,
+    "sha256": "8498695d75536f4670ea865532edd9e3b30f045e05fed16f989a1d9abb9b36ef"
+  },
+  "scope": {
+    "saved_windows_checked": 2,
+    "saved_entries_checked": 28,
+    "matched_saved_rows": 1344,
+    "analysis_window": "V48",
+    "positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "target_positions": [
+      32,
+      33
+    ],
+    "other_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "arms": {
+      "R": "V39 original",
+      "C": "V46 candidate"
+    },
+    "reference_groups": 192,
+    "reference_values_per_group": 6,
+    "unique_reference_timers": 1152,
+    "run_stage_panels": 8,
+    "located_cells": 384,
+    "other_cells": 368,
+    "target_cells": 16,
+    "threshold_seconds": 0.001,
+    "majority_rule": "Strictly more than 23 of the other 46 in the same direction, separately for each mode.",
+    "cases": [
+      {
+        "pair": 2,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 3,
+        "stage": "sql_selected_votes_and_accumulation"
+      },
+      {
+        "pair": 4,
+        "stage": "sql_positive_overlaps"
+      },
+      {
+        "pair": 5,
+        "stage": "sql_positive_overlaps"
+      }
+    ],
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_fit": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
