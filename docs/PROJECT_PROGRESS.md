@@ -9,7 +9,7 @@
 | 工作 | 狀態與實際結果 |
 | --- | --- |
 | 來源與恢復 | 已整理S0–S5／R0–R5；原V1輸出待驗，新全量方法未選定；既有工程／合成證據不等於全量已驗prefix |
-| 成本互斥範圍 | 接著對照同版本／分母／計時邊界；不拼接不同入口得出總工時 |
+| 成本互斥範圍 | C0–C9已分可沿用／重疊／未知，7項計帳規則與6項缺口已固定；先提待評估方法及階段責任表，不拼接不同入口得出總工時 |
 | 範圍 | 僅文件與聚合收據；Linux、新測試／量測／研究重跑0，T_plan仍null，全量不啟動 |
 
 [本輪證據對照](STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md)
@@ -971,7 +971,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V71整理8項正式驗收缺口，完整獨立反讀與K1−C1結論仍缺；T_plan未知，先不裝Linux，V46暫不採用，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V72對照12項來源／恢復與10類成本，完整方法未選定、獨立反讀與K1−C1結論仍缺；T_plan未知，先不裝Linux，V46暫不採用，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
@@ -986,7 +986,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | Stage 6 | 離線研究交付與 UCI v1 封存完成；小組支援、歷史可得／完整性／身分與業務證據仍限制營運 | 依[交付與適用說明](STAGE6_RFM_RESEARCH_HANDOFF.md)保存 v1，來源或規則變更另立版本；Olist 接續仍按交接清單待資料，Retailrocket 推薦資料已另行建置驗收，P0真實開發與共現配對規格已完成，共現實作、成本、真實入口與配對validation也已完成，研究交付與證據保存亦已完成，後續新模型另立規格 |
 | Stage 7 | 延遲模型適用程度尚未確認 | 先固定每日10%預算改善延遲辨識，確認適用程度後再做 Dashboard 視覺化 |
 | Stage 8–11 | 資料、P0／C1／D1開發驗收及研究交付已完成；適用限制與已曝光validation保留 | 保留既有證據，不能將工程優化當成新的研究成績 |
-| Stage 12 | 主要輸出已產出，完整獨立內容／全域／原bootstrap／收尾與完整成本計畫仍缺 | 依[V71缺口清單](MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md)整理前置；T_plan未知就不啟動全量，不接續舊partial，Linux先不裝 |
+| Stage 12 | 主要輸出已產出，完整獨立內容／全域／原bootstrap／收尾與完整成本計畫仍缺 | 依[V72證據對照](STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md)先提待評估方法與互斥階段責任表；T_plan未知就不啟動全量，不接續舊partial，Linux先不裝 |
 | Stage 13 | 其他推薦研究尚未開始 | 另依研究問題規劃，不擴入本輪主線整理 |
 
 ## Stage 11：D1 候選與比較研究歷程

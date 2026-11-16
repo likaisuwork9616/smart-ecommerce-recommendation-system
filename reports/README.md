@@ -4,13 +4,14 @@
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
-`mainline/`保存V71跨階段的既有證據盤點與優先順序，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
+`mainline/`保存V71跨階段的既有證據盤點／優先順序，以及V72 K1成本／來源／恢復對照，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
 | V72 K1來源與恢復 | [來源S0–S5／恢復R0–R5對照](mainline/v72_k1_source_recovery_map_20261116.json)；既有證據適用範圍盤點，未開新全量驗收 |
+| V72 K1成本與未知項目 | [10類成本／7項計帳規則／6項缺口](mainline/v72_k1_cost_overlap_map_20261116.json)；同版本與邊界才可使用，不拼出T_plan |
 | V71主線缺口：K1完整獨立驗收 | [方法與界線](../docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md) · [既有K1成果與8項待驗範圍](mainline/v71_k1_acceptance_inventory_20261116.json)；只讀紀錄盤點，非新驗收或量測 |
 | V71主線缺口：每日10%待資料 | [四包證據／15項交接／三個判定](mainline/v71_daily10_data_backlog_20261116.json)；沿用既有模板，不建立交接實例或補分數 |
 | V71主線排序 | [前置關係與暫緩事項](mainline/v71_mainline_priorities_20261116.json)；每日資料來源優先，K1成本／來源／恢復文件盤點可並行，後續驗收待前提 |

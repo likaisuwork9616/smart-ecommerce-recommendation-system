@@ -49,7 +49,59 @@ V5已完成166,897筆工程鏈及七路source-only EOF恢復，不能再列成�
 | 小步驟 | 狀態與界線 |
 | --- | --- |
 | 1. 對象、來源與恢復 | S0–S5／R0–R5獨立靜態複核通過；20份來源描述、原欄位與15個文件連結核對一致，沒有新內容驗收 |
-| 2. 成本重疊與未知清單 | 接著依同版本、同分母、同計時邊界對照；不估新工時 |
+| 2. 成本重疊與未知清單 | 10類成本、7項計帳規則、6項缺口完成；獨立靜態複核通過，不估新工時 |
 | Linux／新增量測／研究重跑 | 全部0；T_plan仍null，全量不啟動 |
 
 [來源與恢復盤點收據](../reports/mainline/v72_k1_source_recovery_map_20261116.json)
+
+## 成本對照：保留原邊界，不拼接成全量工時
+
+下列秒數只引用原聚合收據，保留各自版本、工作量與環境；本輪未重新計時。引用數值的目的是指出已有證據，不為選擇某版方法提供速度保證。
+
+| ID／成本範圍 | 可沿用的既有證據 | 範圍重疊／不能直接計入 | 仍未知 |
+| --- | --- | --- | --- |
+| C0 來源核對、監督與發布 | V31／V33已有worker、publisher及整個窗口拆帳；V40／V48也有真實來源與停態發布紀錄 | window包含process，process包含entry／callback及其來源檢查；閉包與binding的邏輯bytes也有包含關係 | 所選全量入口的來源清單、每次重驗位置、監督／發布／退出後稽核邊界及耗時 |
+| C1 獨立重建／context準備 | V5完整獨立重建248.676秒；1,180,256 sessions／1,587,436 memberships；後續工程入口有context／catalog分項 | V2與V5是不同方法／窗口；重建子段與整窗口不能相加；不同版本初始化不能混作同次工作 | 所選方法沿用sealed DB或另重建的規格、完整來源／資源及準備成本 |
+| C2 全部query驗證 | 全窗結構166,897筆已完成；V17有55細格成本情境，較新V48 scope記170個可比較query／232歷史身分 | verify含解析與rank，rank含SQL／投票；重複樣本不是新身分；有限樣本及分層最大值不是全人口時間上界 | 未採樣的實際SQL／投票／payload尾端；新全量方法全部query的成本適用性 |
+| C3 append／commit／budget／尾段 | V5、V17、V23已有直接budget、內含commit、尾端與setup分類 | append含編碼／實體寫入；primary含所有commit，tail須扣掉同次已計commit；budget按query／commit／stage／setup上下文歸一次 | 全量節奏與所選新方法的保存、恢復及收尾生命週期成本；120秒不保證最大損失時間 |
+| C4 全形狀工程ledger建置 | V5 166,897 records／62,235 visitors／2,608 chunks／2,413,599,879 payload bytes，build350.266秒 | builder含解析、given-ID指標、編碼與chunk I/O，與C2／C3重疊；不得整段另加到query projection | 全量獨立驗算後的已驗real ledger；工程adapter校準不等於其餘列驗收 |
+| C5 完整鏈、來源定位與恢復 | V5完整工程鏈＋七路source-only EOF定位177.864秒 | 這是工程鏈，不是全量已驗real ledger；恢復內部重驗若已在同一父phase，不另加；另一次真正恢復則須計其工作 | 所選全量方法的有效prefix恢復、EOF／DB／來源再核與實際恢復成本 |
+| C6 全域與切片重播 | V5完整工程四臂／conditional／切片global532.128秒，覆蓋166,897 records／62,235 visitors | 固定形狀結果尚未與原aggregate作科學驗收；內部API計時已在phase中 | 原全域與切片正式內容核對、全量已驗ledger上的完整成本 |
+| C7 原bootstrap反讀 | V5新2,000 self-reference draw phase332.927秒，可參考形狀與重播工作 | fixture49.737秒與replay122.101秒已在phase內；原draws當時只可能作opaque SHA，未作內容驗收 | 原2,000 draws的順序／RNG／visitor／統計／區間核對與重啟成本；不能用新draws頂替 |
+| C8 reference／cold／快照／guard | V41直接比較原C1-S1／V39；V47／V48比較V39／V46；V49已有21項入口拆帳 | reference內含於cold_build，再內含於entry；快照子項在fingerprint／guard內；事後model單獨decode是另一段重播 | 所選全量方法的實際初始化與釋放頻率、成本及收益；目前沒有候選採用或因果加速結論 |
+| C9 RSS／TEMP／磁碟／負載 | V5及後續有抽樣RSS、目錄大小、負載與採樣缺口紀錄 | V5重播窗口新目錄4,328,542 bytes不含既有2.414GB唯讀ledger；資料大小不是峰值，抽樣峰值不是上界 | 全量程序樹／supervisor、DB／journal／TEMP、ledger／尾段／發布及保留證據的生命週期、容量與期限可行性 |
+
+數值依據：[V5成本收據的measured_coverage／non_additivity／limits](../reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json)、[V5重播範圍](../reports/stage12/retailrocket_session_knn_v5_ledger_replay_cost_20261103.json)。其餘邊界依據：[V17](STAGE12_KNN_COST_ROLLUP_V17_20261106.md)、[V23](STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md)、[V41](STAGE12_KNN_DIRECT_TYPED_COMPARE_V41_20261111.md)、[V47](STAGE12_KNN_COLD_V47_20261112.md)、[V49](STAGE12_KNN_SAVED_PHASES_V49_20261113.md)。
+
+### 同一工作只歸屬一次，但必要再核不能省略
+
+| 規則 | 正確用法 |
+| --- | --- |
+| O0 父子時間 | 在同一個run選互斥項。V31保存的窗口可拆worker＋publisher＋監督其餘；不能再把window加上兩個process。publisher callback也不是額外process |
+| O1 query與保存 | verify只計一次；append扣內含commit、直接budget時只扣該次觀測的對應事件，並把被拆費用放回唯一所屬項；tail／seal不重複計commit |
+| O2 工程代理 | C4不是驗算完成後額外必跑的一整段；不能把builder350.266秒整段加到已包含其工作之query情境。C6／C7只是工程phase，不能冒充原內容驗收成本 |
+| O3 來源再核 | 同一pass的子清單已在closure內，不再加；但worker／publisher前後、writer-lock後及恢復時是真正不同操作，必須按所選方法保留並計帳 |
+| O4 cold邊界 | V47／V48的完整冷入口是context冷啟動：輸入物件預載、context關閉、獨立發布在入口外；入口內仍有原load_context。它不是OS冷快取或完整監督窗口 |
+| O5 統計摘要與兩個時鐘 | 各項中位數不保證可加；先逐次守恆再作摘要。V49的`entry − run.total`保留有號差額，不硬歸成某階段或截成零；`cold_other`等餘額維持未細分 |
+| O6 跨版本與跨窗口 | V17的55格情境、V5各工程phase、V31或V48入口不構成同一執行；不得加總成T_plan。V31事後發布補正也不回填原窗口，重複48筆不擴大科學驗收分母 |
+
+例如[V31／V33原拆帳](../reports/stage12/retailrocket_session_knn_v31_compare_analysis_20261110.json)記錄worker193.091秒、publisher96.095秒、監督其餘2.283秒，共同位於291.469秒窗口內；這是該次14個48筆工程入口的層級證據，並非新全量方案的估時。相反，V17核心情境刻意排除setup、尾端、整批commit及budget，因此不能把它稱為完整入口。
+
+舊未知項須隨後續證據更新：V2當時未完成的全窗結構與工程I/O，V5已補；V23當時未拆出的部分入口／publisher成本，V31／V33已補相應工程窗口，V49又補V47／V48的21項守恆拆帳。**目前未知的是所選全量方法的適用範圍、完整內容驗收、資源與完成成本，不是所有階段都從未量過。** 既有wall time也不能自行拆成CPU運算／等待或判定外部負載因果；1ms診斷與Linux不是本輪主線的必要前提。
+
+## 剩餘缺口與只讀工作的先後
+
+| ID／先後 | 仍缺的明確交付物 | 對應範圍與本輪處置 |
+| --- | --- | --- |
+| U0 先固定待評估方法 | 待評估的完整工程版本／runtime／入口、繼承與新增差異、K0–K5輸入輸出責任表 | 對應全部S／R／C；目前null。先作文件方案，不代表採用或執行 |
+| U1 隨方法建立互斥帳 | 每一階段的起訖、內含／外加關係、source pass及cold／hit／restart次數、證據來源和未知欄 | C0–C8；可先只讀整理，不能填入跨版本拼湊總秒數 |
+| U2 補全量內容的證據方案 | 全query尾端、全量已驗ledger、原global／原2,000 draws的內容驗收與成本取得方式 | K1–K5、C2–C7；先列必要證據，不在本輪執行驗算或量測 |
+| U3 與U2並行訂資源／停止規格 | TEMP與磁碟完整範圍、RSS生命週期、預算、停止／退出／恢復／完成責任及方法變更的驗收範圍 | K5／K6、R0–R5、C9；沿用原限制，不把抽樣值當上界或縮減來源守門 |
+| U4 前提足夠後才估時 | 可追溯、無重複項的全量成本情境與假設／不確定性，以及有界取得未知證據的提案 | 現在T_plan仍null；舊4.5小時規劃／6小時候選窗口不是現行執行授權。缺資料時先提取得方式，不要求先有完整數字才可規劃 |
+| U5 完成後才交付結論 | 新方案全部必要內容、來源、資源與正常退出收據通過，才形成K7完整驗收及K1−C1開發結論 | 尚未執行。驗收與效果好壞分開，原partial不改寫，最終選模／refit／test仍另題 |
+
+本輪能交付的是上述對照與責任缺口，不能解答「全量還要多久」或把任何未知填零。建議下一步仍只讀，先提出U0的具體待評估方法與差異清單，再整理U1的階段邊界；若發現現有證據不足，再另提有界取得方案。每日10%待資料優先順序與Dashboard暫緩不變。
+
+兩步皆經獨立靜態複核。第二步核對17筆直接來源描述，加上第一步20筆，共37筆描述／30個不同檔案，bytes與SHA相符；引用原欄位一致、6項文件依賴無循環、本文24個本機連結有效。原研究方法與凍結結果未更動；第一步已推送`209dfd6`，兩步各同步README。這些是文件一致性檢查，沒有新增內容驗收或研究執行。
+
+[成本分類與未知項目收據](../reports/mainline/v72_k1_cost_overlap_map_20261116.json)

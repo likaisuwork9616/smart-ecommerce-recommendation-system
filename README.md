@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V71回到主線驗收缺口盤點 | 主要166,897列validation與2,000列bootstrap已產出；完整獨立驗收未完成，8項範圍已整理，T_plan仍未知，先不裝Linux |
+| Stage 12：session-kNN K1 | V72成本／來源／恢復證據對照完成 | 主要166,897列validation與2,000列bootstrap已產出；完整獨立驗收未完成，已分可沿用／重疊／未知；全量方法與T_plan仍未知，先不裝Linux |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,9 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜K1成本、來源與恢復證據對照（最新）
 
-V72只查既有紀錄，先完成來源S0–S5與恢復R0–R5的適用範圍整理。原V1輸出是待驗對象，未來完整驗收的方法／runtime／入口尚未選定；V2恢復規則與V5完整工程重建、帳本及EOF證據可沿用作依據，但不能直接接續舊artifact或稱全量科學驗收。V40已完成48筆工程入口，V39作後續比較基準不代表正式採用；V32特定日誌補正也不是通用恢復方法。接著整理成本重疊與未知項目；`T_plan=null`、全量不啟動，不裝Linux、不新增測試或量測、不重跑。[完整證據對照](docs/STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md)
+V72只查既有紀錄，已完成來源S0–S5、恢復R0–R5及成本C0–C9對照，逐項區分可沿用、範圍重疊與仍未知。原V1輸出是待驗對象，未來完整驗收的方法／runtime／入口尚未選定；V2恢復規則與V5完整工程重建、帳本及EOF證據可作依據，但不能直接接續舊artifact或稱全量科學驗收。V40已有48筆工程入口，V39作後續比較基準不代表正式採用；V32特定日誌補正也不是通用恢復方法。
+
+已固定7項計帳規則：verify內含rank、append內含寫入與部分commit，工程builder與逐query成本重疊；window／process／entry及reference／cold也不能重加。V31／V33與V49已補各自工程入口拆帳，不再沿用早期「完全未量」的舊缺口；同一來源的必要前後再核仍須保留。剩餘6項交付物先從**待評估方法與差異清單、互斥階段責任表**開始，再規劃全量內容、資源、恢復與完成證據。這是文件順序，尚未排定新實驗；`T_plan=null`、全量不啟動，不裝Linux、不新增測試或量測、不重跑。[完整證據對照](docs/STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md)
 
 ## 主線進度｜K1驗收與每日10%待資料
 
