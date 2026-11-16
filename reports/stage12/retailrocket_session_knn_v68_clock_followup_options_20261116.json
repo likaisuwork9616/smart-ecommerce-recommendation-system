@@ -1,0 +1,195 @@
+{
+  "schema": "v68_clock_followup_options_assessment",
+  "date": "2026-11-16",
+  "status": "assessment_only_no_new_measurement_authorized",
+  "scope": {
+    "existing_V67_records_only": true,
+    "new_measurement_runs": 0,
+    "new_real_clock_reads": 0,
+    "project_modules_imported": 0,
+    "new_test_bodies_executed": 0,
+    "new_B_attempts": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "new_live_load_samples": 0,
+    "reserved_test": "locked",
+    "adopt_v46": false,
+    "measurement_candidates_executed": 0,
+    "original_specs_unchanged": true,
+    "V67_attempt_allowance_exhausted": true,
+    "new_measurement_authorized": false
+  },
+  "sources": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v68_clock_limits_evidence_20261116.json",
+      "bytes": 38940,
+      "sha256": "e6c4c13d7913de4634b228ef1d089ae1553ea7deb4b25e849c12de5a7efb103a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v67_clock_result_20261116.json",
+      "bytes": 5035,
+      "sha256": "fba1554a0e29ae6634e06fefe018e3581f76ab57d68d011ed5b87b756ff43ec0"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v62_wall_cpu_specification_20261116.json",
+      "bytes": 10360,
+      "sha256": "e7c356265b7e917a5171d230e41e9e457fa118775f12222dd8edfd1b1690c190"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+      "bytes": 18684,
+      "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v66_clock_calibration_plan_20261116.json",
+      "bytes": 7377,
+      "sha256": "496da0b3093263990047db0e42108086ae914fc33ccef622913a29f19286f97f"
+    },
+    {
+      "path": "docs/STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md",
+      "bytes": 9695,
+      "sha256": "df1a935d879c9db301ccda93db0b097541818b5a7aea23409e249ce18ec3c513"
+    }
+  ],
+  "evidence_published_commit": "1fda0c91a22c9ad3857327c326d71f7e28ca64d8",
+  "recommendation": {
+    "current_route": "P1",
+    "next_document_if_continuing_original_1ms_question": "P3",
+    "basis": "既有B不符合max門檻，且沒有完整輪與sleep；先保留描述，再確認值得驗的候選來源。",
+    "inference_not_measurement": true,
+    "selected_new_API": null,
+    "selected_new_platform": null,
+    "new_thresholds": null,
+    "new_runtime_estimate_seconds": null,
+    "runtime_estimate_reason": "尚未選定新方案，未試跑；既有1.9424457秒不可當完整新B估時。",
+    "remaining_question": "32／33的運算與等待仍未能拆分，V46暫不採用。"
+  },
+  "options": [
+    {
+      "id": "P1",
+      "name": "保留既有wall與工作量／負載描述",
+      "disposition": "current_preferred",
+      "gaps": [
+        "G5",
+        "G7"
+      ],
+      "supports": "已保存窗口的耗時與關聯描述",
+      "does_not_support": "運算／等待分解、歷史原因回填或V46採用",
+      "new_measurement_authorized": false
+    },
+    {
+      "id": "P2",
+      "name": "同工具另定窗口或環境的新B",
+      "disposition": "conditional_not_immediate",
+      "gaps": [
+        "G1",
+        "G6"
+      ],
+      "supports_if_validated": "新條件是否符合原1ms目標所需的完整能力門檻",
+      "prerequisites": [
+        "事前指定待檢證的新條件與理由",
+        "新來源與環境綁定",
+        "確認適用A證據",
+        "固定attempt與停止／期限及估時",
+        "另行確認新B；V67不能補跑"
+      ],
+      "unresolved": "無證據表示換窗口能修復CPU推進或bracket問題",
+      "new_measurement_authorized": false
+    },
+    {
+      "id": "P3",
+      "name": "候選CPU／觀測來源的文件可行性規格",
+      "disposition": "recommended_next_document_if_1ms_goal_retained",
+      "gaps": [
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "supports_if_validated": "是否存在語義與範圍相符且值得校準的候選",
+      "prerequisites": [
+        "官方／一手語義與版本證據",
+        "計帳歸屬、單位、更新／缺失行為",
+        "邊界時序、原始保存與來源綁定",
+        "受影響A案例與新B需求"
+      ],
+      "unresolved": "本輪沒有候選API／平台已較準的證據，尚未選型",
+      "new_measurement_authorized": false
+    },
+    {
+      "id": "P4",
+      "name": "另立較粗階段或較大差值問題",
+      "disposition": "only_if_research_goal_changes",
+      "gaps": [
+        "G6"
+      ],
+      "supports_if_validated": "新的較粗問題是否可辨識",
+      "prerequisites": [
+        "研究需求先接受改題",
+        "事前固定尺度／容許誤差／驗收",
+        "新語義能力與擾動證據"
+      ],
+      "unresolved": "15.625ms片段推進不能反推出可接受尺度，也不能救回原1ms結論",
+      "new_measurement_authorized": false
+    },
+    {
+      "id": "P5",
+      "name": "等待／排程等直接事件設計",
+      "disposition": "only_if_mechanism_attribution_required",
+      "gaps": [
+        "G2",
+        "G4",
+        "G5"
+      ],
+      "supports_if_validated": "對特定機制有可對應事件證據",
+      "prerequisites": [
+        "先固定可區分的原因",
+        "事件完整性／遺失",
+        "query與thread對應",
+        "時間關聯與擾動驗收"
+      ],
+      "unresolved": "wall減CPU本身不足以命名等待類型；屬另一套觀測契約",
+      "new_measurement_authorized": false
+    }
+  ],
+  "proposed_next_document_fields": [
+    "研究問題與尺度",
+    "來源語義與適用版本",
+    "歸屬／單位／更新／缺失",
+    "邊界與保存契約",
+    "可沿用與須重驗的A證據",
+    "新B理由、資料要求、attempt、期限與估時",
+    "C及D與目標局部品質驗收的條件"
+  ],
+  "future_gate_conditions": {
+    "same_boundary_route": [
+      "適用A",
+      "另行授權新B",
+      "B通過後才安排C",
+      "C通過後才安排D"
+    ],
+    "changed_event_contract_requires_new_semantic_capability_and_perturbation_spec": true,
+    "no_gate_skipping": true,
+    "no_historical_wait_backfill": true,
+    "V46_adoption_requires_separate_uninstrumented_cold_entry_evidence": true
+  },
+  "not_supported_as_repairs": [
+    "刪除末點或只看片段p99",
+    "把null或partial補成complete",
+    "補跑直到通過",
+    "從失敗結果倒推寬門檻",
+    "把不同歸屬計數直接替代thread CPU",
+    "扣估計探針成本",
+    "把改序列化、降採樣密度或延長期限視為已修復能力問題"
+  ],
+  "review": {
+    "independent_options_review_completed": true,
+    "independent_evidence_matrix_review_completed": true,
+    "new_tests_run": 0,
+    "new_measurements_run": 0,
+    "final_document_and_receipt_review_completed": true,
+    "wording_clarification": "P1為已授權的既有描述整理；各路徑皆無新量測授權，P2–P5未執行。"
+  }
+}
