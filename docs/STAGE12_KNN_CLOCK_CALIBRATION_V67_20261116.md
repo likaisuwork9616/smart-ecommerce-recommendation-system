@@ -8,8 +8,8 @@
 | --- | --- |
 | 工具與案例 | r2 已封存來源與123個具名案例（49／32／18／24）；獨立靜態審閱完成，先推送 |
 | 假時鐘驗收 | r2 首次suite 123全過（49／32／18／24）；失敗／錯誤／跳過0，log 1.572秒；正式唯讀反查相符，未重跑 |
-| 正式 B | 尚未執行、尚無本輪 clock metadata；必須已封存且假驗收通過並推送 |
-| 結果與唯讀核對 | 待正式 attempt 後保存完整或失敗證據，反讀後發布；不因此補跑 |
+| 正式 B | 唯一一次已執行；首輪bracket max 227,300ns >100,000ns提前停止，能力未確認；整關1,942,445,700ns，未補跑 |
+| 結果與唯讀核對 | 正式及獨立audit通過；163個唯一descriptor與30,570組統計相符，live attempts=1／reruns=0；不進C／D |
 
 V62–V66 封存來源保持原樣。新判定接入保留 V65 `_capability` 的 code object 與數值公式，只在每次呼叫的獨立 globals 替換來源驗證／結果呈現。實測記錄用 `real_clock_capability_v67`，人工案例用 `fake_clock_capability_v67`；不把實測改標為人工資料。純判定器不自稱實際執行 B，正式結果須另有 collector 的讀錶身分、整關起訖、落盤與唯一 attempt 證據。
 
@@ -40,6 +40,8 @@ r2 固定123個具名案例（既有回歸49／collector32／來源接入18／dr
 
 ## 操作與保存
 
+**本次唯一B已執行，額度已用完。**以下是本輪操作歷程；不要再次執行measure，可使用audit做唯讀核對。
+
 ```powershell
 # 封存後先更新 README、commit 並 push main，才允許新假案例執行。
 .venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --freeze --revision 2
@@ -67,3 +69,31 @@ r1 已先推送57d8188；新案例執行前的來源Git核對遇到歷史V20文�
 [假驗收收據](../reports/stage12/retailrocket_session_knn_v67_clock_acceptance_r2_20261116.json)。
 
 獨立反讀另核對156個唯一local descriptors、7個新方法／seal Gitblob、145個歷史inputs（136 exact、9僅CRLF→LF）、123個AST／loaded／named ok案例及private reservation／attempt／log，全數一致。該次反讀確認B reservation與result均尚不存在，沒有執行測試body或讀實機時鐘。[獨立收據](../reports/stage12/retailrocket_session_knn_v67_clock_independent_fake_audit_r2_20261116.json)。
+
+## 唯一一次 B 實際結果
+
+假驗收結果已推送407461a後才建立唯一reservation與worker claim。正式B結論為 **clock_capability_unconfirmed**，沒有達到完整能力驗收；因第一輪bracket超標提前停止，不補跑，也不執行C／D或原固定48筆。
+
+| 項目 | 已保存的實際結果 |
+| --- | --- |
+| 正式attempt | 1次；worker正常退出0，supervisor未timeout、無launch error |
+| 整關wall | 1,942,445,700ns＝1.9424457秒，包含metadata、收集、純判定與必要raw序列化／flush／fsync／hash；未逾30秒 |
+| 第一輪 | 30,570組；首末wall_before差301,961,900ns＝0.3019619秒，未滿500ms，completed=false |
+| 停止點 | `round:1:stamp:30569`（零基，實際第30,570組）bracket 227,300ns＝0.2273ms，超過100,000ns上限 |
+| 片段bracket | min／p50 1,000ns，p95 1,100ns，p99 2,600ns，max 227,300ns；是已取得片段分布，不是完整B分布 |
+| 片段CPU增量 | 30,569個相鄰增量中30,550個為0、19個為正；19個全為15,625,000ns＝15.625ms |
+| 宣告解析度 | wall及CPU metadata換算皆100ns；宣告值不能代替觀察到的推進量或能力驗收 |
+| 尚未執行 | 第二、三輪與10次sleep全部null；sleep呼叫0次，無補零／省略槽位 |
+| 保存 | raw 9,226,243 bytes、outcome 9,226,969 bytes；均在私人Git忽略目錄，公開只留descriptor／摘要 |
+| 結構與執行錯誤 | 收集errors為空，無primary error；正式停止原因僅bracket max超標 |
+| 正式唯讀反查 | source／fake acceptance／reservation／claim／raw／outcome／final／summary相符，沒有重測 |
+
+### 片段診斷與正式結論的差別
+
+保留的V65純判定器會對提供的片段計算q=15,625,000ns，並回傳`cpu_resolution_insufficient`，同時列出輪次／sleep未完成等原因。這是**提供記錄的診斷值**。V66事先固定只有完整0.5秒輪、且正增量數足夠才可據該輪p95正式提前判不足；本輪在0.302秒即因bracket停止，因此正式collector結論維持**未確認**，不能把partial q冒充完整三輪q或時鐘硬體精度。
+
+已觀察片段再次出現15.625ms跳值，但這輪沒有完成三輪及sleep對照，仍不能宣稱1ms細分能力已通過。CPU零增量不代表沒有運算，wall−CPU也不能直接等同等待。V46暫不採用；本次沒有任何V39／V46速度比較或32／33新查詢。
+
+[正式結果收據](../reports/stage12/retailrocket_session_knn_v67_clock_result_20261116.json)。後續若繼續，先對既有證據整理目前可辨識的範圍及替代觀測限制；新增時鐘方案／量測需另訂規格與授權，不使用本輪已用完的一次性額度。
+
+獨立反讀完成：163個唯一檔案描述、已發布407461a／reservation／claim／raw／outcome／summary一致；從30,570組raw逐項重算全部分位數、正／零增量及唯一末點bracket超標，control與stamp時間順序、保存prefix、固定缺失槽位及整關deadline均相符。全程只讀既有資料，沒有import專案模組、重新讀時鐘或重跑測試／B。[獨立B反讀收據](../reports/stage12/retailrocket_session_knn_v67_clock_independent_B_audit_20261116.json)。
