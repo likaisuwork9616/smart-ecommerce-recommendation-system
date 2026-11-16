@@ -1,0 +1,209 @@
+{
+  "status": "v63_minimal_methods_sealed_not_yet_tested",
+  "scope": {
+    "stage": "minimal_boundary_and_fake_clock_acceptance_only",
+    "fake_clocks_only": true,
+    "actual_entry_adapter": false,
+    "full_v62_A_passed": false,
+    "real_calibration": false,
+    "artificial_workload_benchmark": false,
+    "real_entry_runs": false,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_training": 0,
+    "new_live_samples": 0,
+    "actual_clock_resolution": null,
+    "actual_overhead": null,
+    "reserved_test": "locked",
+    "adopt_v46": false,
+    "pending": [
+      "actual_entry_binding_and_setup_lifecycle",
+      "full_payload_and_checkpoint_equivalence",
+      "SQL_lazy_fetch_watch_fault_equivalence",
+      "V39_V46_call_local_adapter_equivalence",
+      "V62_B_clock_capability",
+      "V62_C_artificial_overhead",
+      "V62_D_real_entry_overhead"
+    ]
+  },
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v62_wall_cpu_specification_20261116.json",
+      "bytes": 10360,
+      "sha256": "e7c356265b7e917a5171d230e41e9e457fa118775f12222dd8edfd1b1690c190"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+      "bytes": 18684,
+      "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cold_v47.py",
+      "bytes": 14596,
+      "sha256": "35a437ac1b632228f139b0d03156a7206c013ec47c26d3acf5997a4b75ca9846"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_adapter_v39.py",
+      "bytes": 16569,
+      "sha256": "5ca35a9bed47b66230c8e6076c453f2126d4da2925212dcd430686d396e481f1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "bytes": 15646,
+      "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 23934,
+      "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 25296,
+      "sha256": "1408e036dbb9039a4474eac786840b37725e334d8cba9eeaebc6a3fdb3c03be8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_sql_v20.py",
+      "bytes": 11740,
+      "sha256": "7b4e06308e503f59333958a7992c589d3dcddea231329fc82171ea545bffdbbc"
+    },
+    {
+      "path": "docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md",
+      "bytes": 17930,
+      "sha256": "35357adf8c76d671a9142be68a08bc4d3540712eb0f596df96d20f26ff81e300"
+    },
+    {
+      "path": "docs/STAGE12_KNN_EVIDENCE_GAPS_V58_20261116.md",
+      "bytes": 9463,
+      "sha256": "505c83f85b3188ff1991138d08480a00461845b8d01288150fc8675b03371048"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v61_contained_load_analysis_20261116.json",
+      "bytes": 1791584,
+      "sha256": "f299334f3ffcd5d0f8ff4ce773ac3ba4f4a4e0c6ca3c359fe80afa885585113e"
+    }
+  ],
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_v63.py",
+      "bytes": 13021,
+      "sha256": "2316b4da549710547a6386ede251dd0868a44ee089e06cf21b1a15626bc966e8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_layout_v63.py",
+      "bytes": 6746,
+      "sha256": "ba0680046f9c62adacbb580af57fc808de5ae0ae2731b1e7a588e50bfc989ed6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_summary_v63.py",
+      "bytes": 7575,
+      "sha256": "a3071fb38764af6f08e32b328076dfa2d837171fc9ff71f55a632ff8bccbf377"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_wall_cpu_v63.py",
+      "bytes": 8554,
+      "sha256": "246d73df63ced5bc3ac8b5fe9ef4bcaf2f76518c298859cb7336cf1d8723fdd4"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_v63.py",
+      "bytes": 14770,
+      "sha256": "99a3d2da9f89c4e1ba1cdcf8f5241c976db3479f70bdf89cba651862c531120d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_layout_v63.py",
+      "bytes": 11054,
+      "sha256": "00922a3b6d363ef80be89cbb469c71c8c6cf6a7d1bc7bd68dad706b99514f8c6"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_summary_v63.py",
+      "bytes": 8833,
+      "sha256": "b121f7c4eb439b0fc0458ac48c150bcad01b826a2c137360823601b680e7223b"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_integration_v63.py",
+      "bytes": 3839,
+      "sha256": "b26d4cd92543d4ee31f36c96a9eece60e44d06b0b13ff941c23dd9951e1b0791"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_wall_cpu_v63",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63",
+    "tests.test_retailrocket_session_knn_wall_cpu_integration_v63"
+  ],
+  "declared_tests": [
+    "tests.test_retailrocket_session_knn_wall_cpu_integration_v63.BoundaryLayoutIntegrationTests.test_all_725_fake_points_bind_578_spans_and_keep_wrapper_remainder",
+    "tests.test_retailrocket_session_knn_wall_cpu_integration_v63.BoundaryLayoutIntegrationTests.test_extra_clock_or_missing_clock_is_not_repaired_by_layout",
+    "tests.test_retailrocket_session_knn_wall_cpu_integration_v63.BoundaryLayoutIntegrationTests.test_partial_prefix_retains_raw_values_and_never_synthesizes_spans",
+    "tests.test_retailrocket_session_knn_wall_cpu_integration_v63.BoundaryLayoutIntegrationTests.test_same_ids_wrong_marker_order_rejected_even_for_unreferenced_setup_point",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_all_markers_do_not_override_explicit_incomplete_status",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_cohort_requires_unique_fortyeight_identities_in_supplied_order",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_complete_counts_original_identity_and_setup_tail_scope",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_completed_trace_requires_all_markers",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_flags_and_marker_schema_use_strict_types",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_incomplete_valid_prefix_never_invents_spans_or_boundary_ids",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_missing_reordered_extra_and_duplicate_boundaries_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_nonnumeric_cohort_order_is_preserved_when_trace_matches",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_nonquery_points_cannot_claim_query_identity",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_partial_trace_must_be_prefix_not_skipped_or_resumed",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_plans_are_detached_from_input_and_accept_explicit_tuples",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_query_ordinal_original_identity_and_hash_must_match_cohort",
+    "tests.test_retailrocket_session_knn_wall_cpu_layout_v63.LayoutTests.test_shared_rank_mark_ids_and_parent_layers_preserve_wrapper_gaps",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_all_eight_pairs_order_layers_and_warmups_are_preserved",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_all_missing_remain_null_and_cannot_pass",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_distribution_even_median_and_missing_denominators",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_exact_budget_edges_and_above_edge_without_float_rounding",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_incomplete_and_zero_original_are_not_successful_observations",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_invalid_percentiles_and_values_are_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_invalid_wall_and_completion_types_are_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_large_odd_integer_median_retains_exact_rational",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_missing_duration_stays_in_original_pair_without_substitution",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_missing_extra_duplicate_and_wrong_schedule_are_structural_errors",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_nearest_rank_is_one_based_and_keeps_original_integers",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_results_are_detached_and_input_is_unchanged",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_signed_differences_cannot_cancel_the_absolute_budget",
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63.WallCpuSummaryTests.test_warm_values_do_not_change_formal_arithmetic",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_all_signed_formulas_with_unequal_brackets",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_bad_numeric_types_are_rejected_without_fake_zero",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_body_exception_and_cleanup_survive_secondary_timer_failure",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_body_failure_with_valid_end_still_stays_incomplete",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_clock_backwards_and_overlap_fail_closed",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_clock_failure_retains_partial_raw_values",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_duplicate_boundary_rejects_without_reading_more_clocks",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_end_failure_does_not_publish_success",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_explicit_dependencies_and_mode_are_required",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_forged_completion_flags_and_error_records_cannot_become_spans",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_large_clock_origin_does_not_roundtrip_through_float",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_no_buffer_write_or_validation_between_clock_reads",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_off_mode_runs_original_body_and_has_no_diagnostic_recorder",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_read_order_and_legacy_return_keep_raw_integers",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_start_failure_never_runs_body",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_successful_body_runs_once_and_preserves_return_identity",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_thread_change_within_or_between_boundaries_is_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.BoundaryTests.test_zero_clock_advances_are_legal",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_empty_or_lazy_plan_cannot_publish_empty_success",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_missing_duplicate_or_reordered_endpoints_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_mixed_recording_or_thread_registry_is_rejected",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_nested_measured_calls_have_correct_parent_without_clock_defaults",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_original_registry_and_plan_are_not_mutated",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_outer_wrapper_and_gaps_remain_unassigned_not_wait",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_shared_seven_segments_telescope_without_adding_parent_twice",
+    "tests.test_retailrocket_session_knn_wall_cpu_v63.SpanTreeTests.test_wrong_parent_cycle_child_outside_and_sibling_overlap_rejected"
+  ]
+}

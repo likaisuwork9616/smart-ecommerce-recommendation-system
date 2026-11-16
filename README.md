@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V62 同邊界 wall／CPU 規格完成 | 固定讀值邊界、1 ms 辨識目標與四關驗收；尚未實作／校準／重測，仍不能拆分 32／33 等待，暫不採用 V46 |
+| Stage 12：session-kNN K1 | V63 最小 wall／CPU 工具待假時鐘驗收 | 注入時鐘、邊界樹、人工 725 點與資料統計已實作；57 個具名案例先封存再執行，不接入真實入口，暫不採用 V46 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜同邊界 wall／CPU 計時規格（最新）
+## Stage 12｜最小 wall／CPU 工具與假時鐘驗收（最新）
+
+V63 依 V62 完成最小工具：明確注入三種 reader、保留原始整數及有號差、檢查共享邊界／父子區段、處理原例外與終點 timer 失敗，O 模式不建立診斷紀錄。另有人工 48 筆的 725 點／578 span 布局驗證及純資料配對統計；方法與 57 個具名測試先封存推送，目前尚未執行驗收。
+
+這次只驗最小邊界與人工資料；**不接入真實入口、不做實機校準或任何工作量 benchmark**。真實接入、完整 payload／帳本與 SQL／lazy fetch／watch／fault 一致性仍待合成驗收，不能稱整個 V62 A 關已通過。新增實驗、查詢、解碼、訓練及即時採樣均為 0，維持暫不採用 V46。[V63 工具、驗收界線與操作](docs/STAGE12_KNN_WALL_CPU_TOOL_V63_20261116.md)
+
+## Stage 12｜同邊界 wall／CPU 計時規格
 
 V62 先訂規格，**沒有實作工具或新增量測**。第一版對原固定 48 筆保留 query 七個邊界與 ranking 七分項，以 `wall_before → thread CPU → wall_after` 保存同一程式邊界的讀值間隔；不是兩個 API 原子同步。32／33 為事先指定重點，其餘 46 筆同樣觀測，wall−CPU 只稱有號殘差，不直接解讀成等待。
 

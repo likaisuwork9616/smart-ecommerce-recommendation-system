@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜同邊界 wall／CPU 計時與開銷驗收規格（最新）
+## Stage 12｜最小 wall／CPU 邊界工具與假時鐘驗收（最新）
+
+V63 已實作注入時鐘核心、人工 725 點布局與純資料統計，57 個具名案例先封存推送，尚未執行；不接入真實入口或校準，也不宣稱完整 A 關通過。[最小工具、驗收界線與操作](STAGE12_KNN_WALL_CPU_TOOL_V63_20261116.md)
+
+## Stage 12｜同邊界 wall／CPU 計時與開銷驗收規格
 
 V62 固定 query／ranking 邊界、wall 前後夾取 thread CPU、1 ms 目標及四關驗收。兩份獨立唯讀審查完成；工具與實測尚未開始，不把 wall−CPU 當純等待，維持暫不採用 V46。[同邊界、開銷門檻、失敗處理與後續](STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md)
 
