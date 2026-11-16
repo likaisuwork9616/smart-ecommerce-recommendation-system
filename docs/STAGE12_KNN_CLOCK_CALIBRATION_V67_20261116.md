@@ -7,7 +7,7 @@
 | 小步驟 | 狀態與實際結果 |
 | --- | --- |
 | 工具與案例 | r2 已封存來源與123個具名案例（49／32／18／24）；獨立靜態審閱完成，先推送 |
-| 假時鐘驗收 | 尚未執行；封存案例包含 V63／V65 純資料回歸及三個新 suite |
+| 假時鐘驗收 | r2 首次suite 123全過（49／32／18／24）；失敗／錯誤／跳過0，log 1.572秒；正式唯讀反查相符，未重跑 |
 | 正式 B | 尚未執行、尚無本輪 clock metadata；必須已封存且假驗收通過並推送 |
 | 結果與唯讀核對 | 待正式 attempt 後保存完整或失敗證據，反讀後發布；不因此補跑 |
 
@@ -59,3 +59,11 @@ q 仍只是該窗口的 CPU 推進量篩檢，不是真硬體精度或誤差界�
 ## r1 預檢紀錄
 
 r1 已先推送57d8188；新案例執行前的來源Git核對遇到歷史V20文件本機CRLF／Git LF差異而拒絕。當時測試0、fake reservation未建立、B 0次。保留r1 manifest與預檢紀錄，r2只補歷史文字的嚴格換行對照及兩個假案例；先重新封存推送再執行，未試跑校準。
+
+## r2 假驗收實際結果
+
+先推送1e6402c後執行唯一一次r2 suite：123項全過、失敗0、錯誤0、跳過0。log為1.572秒，僅代表合成測試執行，不是實機刻度或開銷。正式audit核對來源／Git／reservation／attempt／具名log全部相符，tests rerun=0。此階段B仍0次，尚未取得本輪clock metadata；發布本驗收後才可啟動唯一一次B。
+
+[假驗收收據](../reports/stage12/retailrocket_session_knn_v67_clock_acceptance_r2_20261116.json)。
+
+獨立反讀另核對156個唯一local descriptors、7個新方法／seal Gitblob、145個歷史inputs（136 exact、9僅CRLF→LF）、123個AST／loaded／named ok案例及private reservation／attempt／log，全數一致。該次反讀確認B reservation與result均尚不存在，沒有執行測試body或讀實機時鐘。[獨立收據](../reports/stage12/retailrocket_session_knn_v67_clock_independent_fake_audit_r2_20261116.json)。

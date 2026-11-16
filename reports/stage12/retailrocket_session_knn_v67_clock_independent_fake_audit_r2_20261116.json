@@ -1,0 +1,138 @@
+{
+  "schema": "v67_independent_fake_acceptance_audit_r2",
+  "status": "passed",
+  "audit_scope": "saved_bytes_AST_declarations_and_Git_blobs_only",
+  "project_modules_imported": 0,
+  "test_bodies_executed_by_this_audit": 0,
+  "real_clock_reads_by_this_audit": 0,
+  "live_B_attempts_executed_by_this_audit": 0,
+  "live_B_reservation_absent_at_audit": true,
+  "live_B_result_absent_at_audit": true,
+  "r1_acceptance_absent_at_audit": true,
+  "acceptance": {
+    "path": "reports/stage12/retailrocket_session_knn_v67_clock_acceptance_r2_20261116.json",
+    "bytes": 40700,
+    "sha256": "277dca71d9a5de6b861199181c2ce5bab50131bec6c07d9c540918a1bd0b1065"
+  },
+  "seal": {
+    "path": "reports/stage12/retailrocket_session_knn_v67_clock_methods_r2_20261116.json",
+    "bytes": 40206,
+    "sha256": "491a20ece146b1506c9f2aaf56d0f23cade6845db3632d639988b3fb9f040b4c"
+  },
+  "seal_commit": "1e6402cd7452c1641dfcc32db4eb99e367dfc45f",
+  "main_and_origin_main_match_seal_commit_at_audit": true,
+  "private_reservation": {
+    "path": "shop-mysql-runtime/verification/v67-fake-r2-reservation.json",
+    "bytes": 323,
+    "sha256": "aa4141382bc66adae29b71323379a2bf047eb2c5814e71f617c3dc04bc7bccf7"
+  },
+  "private_attempt": {
+    "path": "shop-mysql-runtime/verification/v67-fake-f0e1a0dfe0b14c629117176940bbd9d2/attempt.json",
+    "bytes": 17319,
+    "sha256": "bbcc64ba8ef8bd56fff855ff264f5d58d721d827d2c7c40933b76f413a0f91f2"
+  },
+  "private_test_log": {
+    "path": "shop-mysql-runtime/verification/v67-fake-f0e1a0dfe0b14c629117176940bbd9d2/tests.log",
+    "bytes": 24049,
+    "sha256": "670ae7049cfa798a0144dcfe538ae127b5f636048c151f5071cff263fcd479f9"
+  },
+  "local_unique_descriptors_verified": 156,
+  "methods_verified_exact": 6,
+  "historical_inputs_verified": 145,
+  "new_seal_and_method_git_blobs_exact": 7,
+  "historical_git_blob_exact_count": 136,
+  "historical_checkout_normalization": [
+    {
+      "path": "docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md",
+      "sealed_local_bytes": 17930,
+      "sealed_local_sha256": "35357adf8c76d671a9142be68a08bc4d3540712eb0f596df96d20f26ff81e300",
+      "git_blob_bytes": 17743,
+      "git_blob_sha256": "e8668726301c04e12941212c0dec07ca025ac810d55d6f1310bb7038c1fd6261",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_TYPED_V65_20261116.md",
+      "sealed_local_bytes": 10907,
+      "sealed_local_sha256": "6bd42e3ca4f48da51362910a5a1b109961c587142255636de043c3a11075b029",
+      "git_blob_bytes": 10817,
+      "git_blob_sha256": "53b3c607c8e77063f9514f6a7ddb35cc7c882b1b67f09c1f2eb7ad4b19a4b2f5",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "sealed_local_bytes": 2,
+      "sealed_local_sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "git_blob_bytes": 1,
+      "git_blob_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_gap_v16.py",
+      "sealed_local_bytes": 21906,
+      "sealed_local_sha256": "d2ae41b416a83d6252105741cdbe14e3eac0bd5d82ad280232a246748ed2811f",
+      "git_blob_bytes": 21525,
+      "git_blob_sha256": "57ee953b6a5b6727989c487878a41cd1da473fbf13fa235454abe31ba9eb3a61",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_overlap_v22.py",
+      "sealed_local_bytes": 31730,
+      "sealed_local_sha256": "c13b69535b5d06328a328ab37b2930a114c5c4ae6a99daa5ea2015f7da6fb5c8",
+      "git_blob_bytes": 31197,
+      "git_blob_sha256": "5ec0e83450164401a3149e5a1b61d2648d7b5d94d2f4970b0762fbc3583a2ab4",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v17.py",
+      "sealed_local_bytes": 34713,
+      "sealed_local_sha256": "9a192bbf773baef28505eb46d6a9a2c5eb1ff9f76e6178ebb0cc8c96a42d48a9",
+      "git_blob_bytes": 34130,
+      "git_blob_sha256": "4b4fa433ba672c7c7d5b1a7e0dcee54a5b1ec7cb31b21e2fba8414d16c6cf455",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_vote_v7.py",
+      "sealed_local_bytes": 21936,
+      "sealed_local_sha256": "99cd2eca90b19cda349700916247ca5178a7d58d820342d4c002233db924f025",
+      "git_blob_bytes": 21564,
+      "git_blob_sha256": "b9483adc03e77dbfeac41c7b75e8d4b54168c17dc568c690332370e7208e3760",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_sql_v20.py",
+      "sealed_local_bytes": 11740,
+      "sealed_local_sha256": "7b4e06308e503f59333958a7992c589d3dcddea231329fc82171ea545bffdbbc",
+      "git_blob_bytes": 11526,
+      "git_blob_sha256": "3f01dadd84fa01816a2b44cbe6ad3362ac9662968f8ae833126680feece5e14e",
+      "relation": "local_CRLF_to_git_LF_only"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_v20.py",
+      "sealed_local_bytes": 25296,
+      "sealed_local_sha256": "1408e036dbb9039a4474eac786840b37725e334d8cba9eeaebc6a3fdb3c03be8",
+      "git_blob_bytes": 24918,
+      "git_blob_sha256": "053533ea6d2f1f2a6ea6657c23e7c71280318ff6e02a9fbd6a056871b3f1ab19",
+      "relation": "local_CRLF_to_git_LF_only"
+    }
+  ],
+  "declared_loaded_logged_tests_exactly_equal": true,
+  "unique_named_successful_tests": 123,
+  "suite_test_counts": {
+    "tests.test_retailrocket_session_knn_wall_cpu_v63": 26,
+    "tests.test_retailrocket_session_knn_wall_cpu_summary_v63": 14,
+    "tests.test_retailrocket_session_knn_wall_cpu_decision_v65.CapabilityDecisionTests": 9,
+    "tests.test_retailrocket_session_knn_clock_collector_v67": 32,
+    "tests.test_retailrocket_session_knn_clock_capability_v67": 18,
+    "tests.test_retailrocket_session_knn_clock_driver_v67": 24
+  },
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "public_private_attempt_and_reservation_equal": true,
+  "B_C_D_authorized_by_this_audit": false,
+  "private_auditor": {
+    "path": "shop-mysql-runtime/verification/audit_v67_fake_r2_independent.py",
+    "bytes": 6815,
+    "sha256": "25fdefcd0ab8cfc4e9a408330209d3190d6e11bb2d36f0bb70ce47709009e268"
+  }
+}

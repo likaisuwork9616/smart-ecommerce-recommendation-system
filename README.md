@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V67 B 工具與案例準備完成，待封存驗收 | 使用者已確認最多一次B；新增collector、真實來源接入與一次性入口；尚未執行新測試或B，整關30秒，失敗不補跑 |
+| Stage 12：session-kNN K1 | V67 假驗收123項全過，待唯一一次B | 49／32／18／24項全部通過，正式唯讀反查相符；B尚未執行，整關30秒，失敗不補跑，不做C／D或原48筆 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,11 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜一次 B 校準工具與案例（最新）
+## Stage 12｜一次 B 校準工具驗收（最新）
 
-V67 已獲授權依 V66 準備工具並最多執行一次 B。新增收集器、保留真實來源的 V65 純判定接入與一次性入口；固定三輪各0.5秒、十次sleep(0.05)，30秒包含metadata、採樣、判定及必要原始證據落盤。工具保留失敗／未執行槽位，實機reservation與worker claim均只能建立一次，失敗不補跑。
+V67 已先封存並推送工具／案例，r2 的 **123項假驗收全部通過**（既有純資料回歸49／collector32／來源接入18／driver24），失敗／錯誤／跳過均0。測試log記錄1.572秒，這是合成suite時間，不是實機B或時鐘開銷。正式及獨立唯讀核對相符：156組唯一來源／證據雜湊、123條具名成功log一致，未重跑suite。r1曾因歷史文件CRLF／Git LF差異在測試前拒絕，執行0；已保留紀錄，r2只允許歷史文字的精確換行對照，新方法／收據仍逐byte一致。
 
-r1 預檢因歷史文件CRLF／Git LF差異停止，測試執行0；已補上只限歷史文字來源的換行核對，方法／收據仍逐byte相同。r2 已封存方法、來源及 **123 個具名假案例**（既有純資料回歸49／collector32／來源接入18／driver24），先推送 main；**尚未執行新案例或實機 B，沒有本輪clock metadata與能力新值**。假驗收通過並發布後才執行一次B；不做C／D、原固定48筆、真實model、SQL／訓練或負載採樣。維持暫不採用V46。[方法、截止界線與操作](docs/STAGE12_KNN_CLOCK_CALIBRATION_V67_20261116.md)
+已驗證三讀與固定槽位、30秒含判定／必要落盤、失敗保存、來源拒絕及一次性reservation／claim。**正式B仍0次，沒有本輪clock metadata與能力新值**；本步發布驗收後才執行唯一一次B，整關30秒、失敗不補跑。不做C／D、原固定48筆、真實model、SQL／訓練或負載採樣，維持暫不採用V46。[驗收、截止界線與操作](docs/STAGE12_KNN_CLOCK_CALIBRATION_V67_20261116.md)
 
 ## Stage 12｜B 實機時鐘能力校準計畫
 
