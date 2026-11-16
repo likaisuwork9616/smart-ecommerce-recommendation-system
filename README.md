@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V63 最小 wall／CPU 假時鐘驗收完成 | 先封存再執行，57 項全過、唯讀重核相符；725 點人工布局／有號差／例外／統計通過，完整 A 與實機校準仍待完成 |
+| Stage 12：session-kNN K1 | V64 合成入口工具與案例已封存 | 81 項案例與方法／來源已封存（V63 回歸 57＋V64 新案例 24）；推送後才驗收，目前尚無測試結果，不做實機校準或原 48 筆重跑 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜最小 wall／CPU 工具與假時鐘驗收（最新）
+## Stage 12｜wall／CPU 合成入口與操作一致性（最新）
+
+V64 承接 V62／V63，以單次呼叫的 clone 接入原 V39 policy → V27 runner → V22 完整入口，加入全新 48 筆合成資料、小型 SQLite 與真正 checkpoint 寫入／反讀。案例涵蓋完整 expected／precise／delta_hex、工作量、五個入口檔與帳本 bytes，以及 SQL／lazy fetch／watch／fault 順序；先封存工具與案例並推送，再執行驗收。**r1 已封存 81 個具名案例：V63 回歸 57、SQL 6、接入 guard 15、完整入口／故障矩陣 3；目前測試執行數仍為 0，沒有通過數或開銷結果。**
+
+這輪只用假邊界時鐘；會執行合成 query／SQL／檔案操作，但不讀真實 model、不重跑原固定 48 筆，也不做實機校準。synthetic pool 只用來驗實際入口路由，真正 V39／V46 typed worker 接入與 A16 完整判定仍待完成，不能稱整個 A 關通過。維持暫不採用 V46。[方法、驗收界線與操作](docs/STAGE12_KNN_WALL_CPU_ENTRY_V64_20261116.md)
+
+## Stage 12｜最小 wall／CPU 工具與假時鐘驗收
 
 V63 依 V62 完成最小工具，先封存推送再執行，**57 項假時鐘／人工資料測試全數通過，失敗、錯誤、跳過均為 0**。邊界核心、人工 725 點／578 span 布局、純資料統計與整合驗收分別通過 26／13／14／4 項；正式唯讀重核相符。已驗證保留原始大整數、零 CPU 與負 wall−CPU 差、共享邊界不重加，以及終點 timer 失敗時仍保留原 body 例外。
 
