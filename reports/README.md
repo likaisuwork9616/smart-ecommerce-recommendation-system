@@ -11,6 +11,7 @@
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
 | V71主線缺口：K1完整獨立驗收 | [方法與界線](../docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md) · [既有K1成果與8項待驗範圍](mainline/v71_k1_acceptance_inventory_20261116.json)；只讀紀錄盤點，非新驗收或量測 |
+| V71主線缺口：每日10%待資料 | [四包證據／15項交接／三個判定](mainline/v71_daily10_data_backlog_20261116.json)；沿用既有模板，不建立交接實例或補分數 |
 | Stage 12：V33 停態成本分析 | [12項驗收](stage12/retailrocket_session_knn_v33_analysis_acceptance_20261110.json) · [完整成本與來源鏈重算](stage12/retailrocket_session_knn_v31_compare_analysis_20261110.json) |
 | Stage 12：V32 停態發布補正 | [說明](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) · [規格](stage12/retailrocket_session_knn_v32_release_specification_20261110.json) · [52項驗收](stage12/retailrocket_session_knn_v32_release_acceptance_20261110.json) · [同窗口重稽核發布](stage12/retailrocket_session_knn_v32_release_recovery_20261110.json) |
 | Stage 12 歷史：V39 late typed 實作 | [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md) · [核心40項／850向量](stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [165項整合／129要求／人工672次](stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json) · [seal](stage12/retailrocket_session_knn_v39_typed_acceptance_seal_20261110.json) · [6項摘要竄改拒絕](stage12/retailrocket_session_knn_v39_typed_audit_checks_20261110.json)；本列為當輪範圍，後續見文件導覽 |

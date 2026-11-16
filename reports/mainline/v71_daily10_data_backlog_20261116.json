@@ -1,0 +1,413 @@
+{
+  "schema": "v71_saved_daily10_data_backlog",
+  "date": "2026-11-16",
+  "status": "pending_data_inventory_only",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "docs/templates/daily_data_handoff/README.md",
+      "bytes": 9168,
+      "sha256": "b49816bb9d4adbaf6597e3793f590dc2ce9717359d88831c60e5f419e29dc061"
+    },
+    {
+      "path": "docs/templates/daily_data_handoff/acceptance_record.template.md",
+      "bytes": 16560,
+      "sha256": "241cef5510358a76fce6418c7fc7ec0a09d891d8a5c9e15092f3bb1a04e544c9"
+    },
+    {
+      "path": "docs/STAGE4_OFFLINE_DAILY_ACCEPTANCE.md",
+      "bytes": 22341,
+      "sha256": "1d159e0299bae94e3699707f97eb01a2e129c839c8a7cbe4e84cc8a0e03b5e99"
+    },
+    {
+      "path": "docs/STAGE4_MODEL_APPLICABILITY.md",
+      "bytes": 14493,
+      "sha256": "ac9ddc6b4c8506a2f8c62a32b5d687b03747b01b6631b1f6795f046d309e82bd"
+    },
+    {
+      "path": "docs/STAGE4_OUTCOME_CLOCK.md",
+      "bytes": 22540,
+      "sha256": "31147a4eb1ae21eeb391c4cca7f0ba13fc63ee0b6a379d452515e6636a4f6f90"
+    },
+    {
+      "path": "docs/STAGE4_EVENT_SOURCE_AVAILABILITY.md",
+      "bytes": 11279,
+      "sha256": "ea82454b8d550f08fc4ee93a94fc788cd0f914d3b5cedc17c57e8dff585f72b5"
+    },
+    {
+      "path": "reports/stage4/daily_delivery_acceptance.json",
+      "bytes": 42580,
+      "sha256": "1a3fb55baf6688086d20f4e3ad9ccfd4f2b30a60ac253da23a447ccfb809afca"
+    },
+    {
+      "path": "reports/stage4/daily_data_contract.json",
+      "bytes": 14478,
+      "sha256": "a893c85ee7ab2f7b31a1efc4ec2dc9c4a863f5aaa208a39bfb08aa1906d2978d"
+    },
+    {
+      "path": "reports/stage4/event_source_availability.json",
+      "bytes": 34886,
+      "sha256": "fc5fdf4018a8b3d3202d8b7efb325904f215de78e4fe4871e48fe3e79ca29ee8"
+    }
+  ],
+  "saved_research_delivery": {
+    "day": "2018-02-01",
+    "research_rows": 242,
+    "raw_export_approval_rows": 245,
+    "capacity_per_research_run": 24,
+    "research_runs": 20,
+    "saved_flags_verified": 4840,
+    "alert_flags_across_runs": 480,
+    "scope": "Complete day only within the retrospectively valid final-delivered research cohort, not all real approvals.",
+    "not_20_notification_batches": true
+  },
+  "saved_contract": {
+    "report_status": "ok",
+    "decision": "pending_data_no_training_no_production_acceptance",
+    "contract_dimensions": {
+      "day_close_completion": {
+        "production_gate_passed": false,
+        "reason": "No upstream scope/cursor, source watermark, close manifest or reconciliation proof.",
+        "status": "pending_data"
+      },
+      "full_daily_roster": {
+        "production_gate_passed": false,
+        "reason": "Exported approvals lack upstream population scope and reconciliation; 242 research rows omit 3 of 245 exported day approvals.",
+        "status": "pending_data"
+      },
+      "historical_source_and_promise_versions": {
+        "production_gate_passed": false,
+        "reason": "Static exported values and artifact hashes lack effective-time and recorded-time version history.",
+        "status": "pending_data"
+      },
+      "ingestion_asof_clock": {
+        "production_gate_passed": false,
+        "reason": "No original available/ingested clock or verified business timezone in the inspected raw schemas.",
+        "status": "pending_data"
+      }
+    },
+    "clock": {
+      "business_timezone_verified": false,
+      "day": "2018-02-01",
+      "file_hash_is_operational_version_or_asof_proof": false,
+      "historical_ingested_at_verified": false,
+      "interval": "[2018-02-01 00:00:00,2018-02-02 00:00:00)",
+      "timestamp_representation": "naive exported wall-clock; no timezone conversion"
+    },
+    "choices_unconfirmed": [
+      "business_timezone",
+      "ingestion_and_close_SLA",
+      "late_arrival_policy",
+      "reapproval_policy",
+      "day_reopen_policy"
+    ],
+    "fixed_research_policy": {
+      "daily_fraction": 0.1,
+      "floor_245_div_10_equals_24_is_not_full_day_acceptance": true,
+      "new_capacity_or_rank_or_alerts_computed": false,
+      "previous_research_daily_capacity": 24,
+      "raw_245_capacity_not_accepted": true,
+      "seeds": [
+        11,
+        29,
+        42,
+        73,
+        101
+      ],
+      "versions": [
+        "base08",
+        "age08",
+        "base10",
+        "age10"
+      ]
+    },
+    "missing_scores_per_run": 3,
+    "missing_score_scenarios_across_runs": 60,
+    "report_ok_is_production_pass": false
+  },
+  "evidence_packages": [
+    {
+      "id": "D-P1",
+      "kind": "full_approval_roster_identity_and_scope",
+      "checks": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ]
+    },
+    {
+      "id": "D-P2",
+      "kind": "original_availability_clocks_and_business_day",
+      "checks": [
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "id": "D-P3",
+      "kind": "historical_bitemporal_versions_and_coverage",
+      "checks": [
+        "B3",
+        "B4"
+      ]
+    },
+    {
+      "id": "D-P4",
+      "kind": "upstream_close_partition_and_local_reconciliation",
+      "checks": [
+        "C1",
+        "C2",
+        "C3"
+      ]
+    }
+  ],
+  "original_checklist": [
+    {
+      "check_id": "A1",
+      "requirement": "來源／授權範圍、scope與schema版本、保留期間及資料字典",
+      "responsible_role": "資料提供方／來源負責人",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "A2",
+      "requirement": "同ID或匿名映射版本、join keys及基數，孤兒／衝突身分處置",
+      "responsible_role": "資料提供方／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "A3",
+      "requirement": "全核准事件清冊、事件修訂、核准資格與重核准／撤銷規則",
+      "responsible_role": "來源負責人／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "A4",
+      "requirement": "核准日分母、事件數與唯一ID數分列；缺失／逆序／重複／隔離及範圍缺口",
+      "responsible_role": "驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "B1",
+      "requirement": "時區、日切、精度、DST與同時刻邊界的來源語義",
+      "responsible_role": "來源負責人／使用方",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "B2",
+      "requirement": "原commit／received／持久入庫／queryable時間的證據及相互關係",
+      "responsible_role": "來源負責人／入庫負責人",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "B3",
+      "requirement": "必要輸入的雙時間版本、取代／撤銷與t時點有效且已可得的重建",
+      "responsible_role": "資料提供方／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "B4",
+      "requirement": "join與歷史窗口涵蓋、版本衝突／重疊及已知真實事件分母；未知捕獲率留null",
+      "responsible_role": "驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "C1",
+      "requirement": "上游核准日結、全分區清單、零筆分區證明及游標／snapshot保證",
+      "responsible_role": "來源負責人／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "C2",
+      "requirement": "同scope同版本上下游計數、ID集合、游標、重複／修訂／隔離與差異對帳",
+      "responsible_role": "入庫負責人／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "C3",
+      "requirement": "本地資料及日結訊號的收到、持久落盤、可查詢完成證據與交付時點T",
+      "responsible_role": "入庫負責人／驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "C4",
+      "requirement": "晚到／重開修訂、通知去重及同日已送名額政策，未定選項明列",
+      "responsible_role": "來源負責人／使用方",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "D1",
+      "requirement": "每日10%、四設定、全部五種子與查詢時點契約維持，未啟動新訓練或效能比較",
+      "responsible_role": "驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "D2",
+      "requirement": "全N凍結分數的版本／身分／排序／名額／輸出交付，獨立於資料交接驗收",
+      "responsible_role": "驗收者",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    },
+    {
+      "check_id": "D3",
+      "requirement": "分開記資料交接、凍結分數交付及模型適用／正式通知的判定與限制",
+      "responsible_role": "驗收者／使用方",
+      "status": "pending_data",
+      "actual": null,
+      "evidence_received_this_round": false
+    }
+  ],
+  "dependency_layers": {
+    "source_semantics_first": [
+      "A1",
+      "A2",
+      "A3",
+      "B1"
+    ],
+    "evidence_packages_parallel": [
+      "A4",
+      "B2",
+      "B3",
+      "B4",
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "operation_policy_before_delivery": [
+      "C4"
+    ],
+    "maintained_research_contract": [
+      "D1"
+    ],
+    "separate_score_delivery": [
+      "D2"
+    ],
+    "independent_gate_recording": [
+      "D3"
+    ]
+  },
+  "policy": {
+    "N": "unique complete daily approval roster under confirmed scope/rule/revision/closure",
+    "new_handoff_N": null,
+    "new_handoff_K": null,
+    "capacity": "floor(N/10)",
+    "N_below_10_capacity": 0,
+    "score_order": [
+      "score_descending",
+      "order_id_ascending"
+    ],
+    "versions": [
+      "base08",
+      "age08",
+      "base10",
+      "age10"
+    ],
+    "seeds": [
+      11,
+      29,
+      42,
+      73,
+      101
+    ],
+    "same_roster_all_20": true,
+    "unknown_outcomes_compete": true,
+    "no_final_status_or_score_filter_to_shrink_N": true,
+    "no_zero_score_imputation": true,
+    "no_route_specific_10_percent": true,
+    "no_borrowing_days": true,
+    "no_duplicate_capacity_on_rerun_or_reopen": true
+  },
+  "independent_gates": [
+    {
+      "id": "data_handoff_A_C",
+      "status": "pending_data",
+      "does_not_require_score_delivery_first": true
+    },
+    {
+      "id": "whole_N_frozen_score_delivery_D2",
+      "status": "pending_data",
+      "old_242_research_delivery_retained": true
+    },
+    {
+      "id": "model_applicability_and_formal_notification",
+      "status": "not_established",
+      "data_or_delivery_pass_does_not_imply_pass": true,
+      "original_historical_month_recall_requirement_fully_met": false
+    }
+  ],
+  "time_boundaries": {
+    "t": "original_per_order_approval_prediction_time",
+    "T": "post_close_roster_freeze_and_delivery_time",
+    "historical_event": "occurred_at<t and original_available_at<t",
+    "promise_version": "original_available_at<t and effective_at<=t and valid_as_known_at_t",
+    "current_approval_input": "separate_availability_evidence_not_event_before_itself",
+    "no_backfill_t_using_late_T": true,
+    "close_completeness_scope": "approval_flow_not_all_logistics_events",
+    "outcome_maturity_is_separate_from_ingestion_and_feature_availability": true
+  },
+  "next_needed": "authorized_source_scope_and_responsible_roles_then_four_evidence_packages_using_existing_15_item_template",
+  "private_handoff_instance_created": false,
+  "contact_to_source_party_sent": false,
+  "new_operational_data_received": false,
+  "Stage4_prior_test_already_exposed": true,
+  "Retailrocket_reserved_test_still_locked": true,
+  "review": {
+    "status": "independent_daily_data_static_review_passed",
+    "source_descriptor_matches": 9,
+    "original_checklist_rows_exact_match": 15,
+    "saved_contract_groups_exact_match": 5,
+    "saved_counts_match": true,
+    "new_data_acceptance": 0,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}
