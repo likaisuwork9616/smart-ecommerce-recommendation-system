@@ -1,0 +1,226 @@
+{
+  "kind": "v58_saved_load_wait_evidence_inventory",
+  "review_date": "2026-11-16",
+  "status": "saved_evidence_inventory_checked",
+  "scope": "Existing V47/V48 records only; includes warm entries; publisher separate. Not a causal or performance comparison.",
+  "new_experiments": 0,
+  "new_queries": 0,
+  "new_decodes": 0,
+  "new_training": 0,
+  "reserved_test": "locked",
+  "sources": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    }
+  ],
+  "methods": [
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+      "bytes": 15598,
+      "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cold_v47.py",
+      "bytes": 14596,
+      "sha256": "35a437ac1b632228f139b0d03156a7206c013ec47c26d3acf5997a4b75ca9846"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 7807,
+      "sha256": "d4424a2cd7591e7a3dfd8b5757be235e66ccf05244fa92bff4eae71774110070"
+    }
+  ],
+  "windows": {
+    "V47": {
+      "entries": 14,
+      "formal_entries": 12,
+      "warm_entries": 2,
+      "entry_telemetry_records": 1161,
+      "publisher_telemetry_records": 447,
+      "total_telemetry_files": 15,
+      "entry_wall_events": 1078,
+      "query_duration_rows": 672,
+      "empty_profiles": 14,
+      "entry_bracketing_checks": 14,
+      "manifest_files_verified": 88,
+      "method_source_bindings_verified": 5,
+      "file_types_verified": {
+        "request.json": 1,
+        "telemetry_records.json": 15,
+        "entry_span.json": 15,
+        "events.json": 15,
+        "measured.json": 14,
+        "observations.json": 14,
+        "profile.json": 14
+      },
+      "nominal_interval_seconds": 0.2,
+      "entry_sample_gaps_seconds": {
+        "count": 1147,
+        "min": 0.015460499999790045,
+        "median": 0.2323139000000083,
+        "max": 0.8732276000000638
+      },
+      "entry_capture_elapsed_seconds": {
+        "count": 1161,
+        "min": 0.007891700000072888,
+        "median": 0.00976330000003145,
+        "max": 0.6731819000001451
+      },
+      "entry_capture_elapsed_sum_seconds": 14.22135349999553,
+      "estimated_missing_periodic_slots": 45,
+      "summary_count_gap_capture_checks": "passed"
+    },
+    "V48": {
+      "entries": 14,
+      "formal_entries": 12,
+      "warm_entries": 2,
+      "entry_telemetry_records": 1063,
+      "publisher_telemetry_records": 491,
+      "total_telemetry_files": 15,
+      "entry_wall_events": 1078,
+      "query_duration_rows": 672,
+      "empty_profiles": 14,
+      "entry_bracketing_checks": 14,
+      "manifest_files_verified": 88,
+      "method_source_bindings_verified": 5,
+      "file_types_verified": {
+        "request.json": 1,
+        "telemetry_records.json": 15,
+        "entry_span.json": 15,
+        "events.json": 15,
+        "measured.json": 14,
+        "observations.json": 14,
+        "profile.json": 14
+      },
+      "nominal_interval_seconds": 0.2,
+      "entry_sample_gaps_seconds": {
+        "count": 1049,
+        "min": 0.012612100000296778,
+        "median": 0.23262870000053226,
+        "max": 0.9762332999998762
+      },
+      "entry_capture_elapsed_seconds": {
+        "count": 1063,
+        "min": 0.00906459999987419,
+        "median": 0.011177299999872048,
+        "max": 0.7728587999999945
+      },
+      "entry_capture_elapsed_sum_seconds": 14.367806100000962,
+      "estimated_missing_periodic_slots": 62,
+      "summary_count_gap_capture_checks": "passed"
+    }
+  },
+  "schemas": {
+    "event": [
+      "completed",
+      "end_ns",
+      "error_type",
+      "id",
+      "metadata",
+      "parent",
+      "phase",
+      "start_ns"
+    ],
+    "query": [
+      "append_without_commit_seconds",
+      "checkpoint_append_seconds",
+      "chunk_commit_seconds",
+      "key_sha256",
+      "original_ordinal",
+      "rank_seconds",
+      "rank_stages_seconds",
+      "seconds",
+      "sql_workload",
+      "subset_ordinal",
+      "verification_seconds"
+    ],
+    "observation_append": [
+      "completed",
+      "frame_bytes",
+      "parts_seconds",
+      "seconds",
+      "subset_ordinal",
+      "unpartitioned_seconds"
+    ],
+    "observation_budget": [
+      "completed",
+      "context",
+      "seconds",
+      "stage",
+      "subset_ordinal"
+    ],
+    "telemetry": [
+      "collector_seconds",
+      "disk_io",
+      "disk_io_status",
+      "kind",
+      "logical_cpus",
+      "memory",
+      "monotonic_seconds",
+      "observed_utc",
+      "ollama",
+      "ollama_scan_status",
+      "repeat_index",
+      "sequence",
+      "system_cpu_percent",
+      "worker"
+    ],
+    "process": [
+      "cpu_system_seconds",
+      "cpu_user_seconds",
+      "create_time",
+      "name",
+      "pid",
+      "rss_bytes",
+      "status"
+    ],
+    "memory": [
+      "available_bytes",
+      "percent",
+      "total_bytes",
+      "used_bytes"
+    ],
+    "disk_io": [
+      "read_bytes",
+      "read_count",
+      "read_time",
+      "write_bytes",
+      "write_count",
+      "write_time"
+    ]
+  },
+  "checks": {
+    "manifest_files_verified": 176,
+    "method_source_bindings_verified": 10,
+    "total_telemetry_files": 30,
+    "total_telemetry_records": 3162,
+    "query_duration_rows": 1344,
+    "empty_profiles": 28,
+    "entry_bracketing_checks": 28
+  },
+  "interpretation": [
+    "Gaps pool adjacent capture-start differences within each of 14 entries, including start/end and excluding publisher; never bridge runs.",
+    "Capture elapsed is acquisition wall duration, not measured perturbation and cannot be subtracted from entry time.",
+    "Checked query/ranking/append/budget schemas have no absolute start/end or thread CPU; telemetry has no process IO, context-switch or explicit wait state.",
+    "Process CPU includes all process threads, including its sampler. Host disk totals are not query/process IO.",
+    "Existing phase events permit coarse overlap checks, not uniform interpolation or query-level CPU/wait attribution.",
+    "Targeted inventory only, not a replay of all earlier acceptance or output/workload audits."
+  ]
+}

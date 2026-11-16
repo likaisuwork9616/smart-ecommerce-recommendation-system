@@ -619,3 +619,6 @@ scripts/retailrocket_session_knn_segments_v57.py text eol=lf
 tests/test_retailrocket_session_knn_segments_v57.py text eol=lf
 tests/test_retailrocket_session_knn_segment_analysis_v57.py text eol=lf
 reports/stage12/retailrocket_session_knn_v57_segments_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the V58 saved-evidence inventory receipt bytes.
+reports/stage12/retailrocket_session_knn_v58_evidence_inventory_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
