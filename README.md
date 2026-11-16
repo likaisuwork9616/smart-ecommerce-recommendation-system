@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V58 負載與等待證據缺口盤點完成 | 已有 30 份粗粒度負載紀錄，但缺逐 query 起訖與 thread CPU，不能分類等待原因；176 檔來源核對通過。先用既有入口摘要對照，新增量測 0 次 |
+| Stage 12：session-kNN K1 | V59 整入口負載對照工具驗收完成 | 全六對、24 項指標及暖機／publisher 分離規則已固定，20 項人工測試通過；待封存後分析既有紀錄，新增實驗 0 次 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜負載與等待時間的證據缺口（最新）
+## Stage 12｜既有整入口負載與採樣覆蓋（最新）
+
+V59 先固定兩窗全部正式六對的比較規則：保留 R／C 絕對值與 C−R 差，24 項入口／CPU／記憶體／磁碟／collector／coverage 指標，暖機與 publisher 另列。20 項人工測試通過，包含缺值、計數器重設、來源篡改與時軸包覆；工具封存後才分析正式紀錄，目前尚無本輪負載比較結論。分析將只讀 120 個封存檔，重建 30 份既有摘要，不重跑實驗或即時採樣。[V59 固定規則、驗收與操作](docs/STAGE12_KNN_ENTRY_LOAD_V59_20261116.md)
+
+## Stage 12｜負載與等待時間的證據缺口
 
 V58 確認 V47／V48 **已有整入口 CPU、記憶體與整機磁碟計數**，不是完全沒有負載證據。30 份 telemetry 共 3,162 筆；其中 28 個冷入口的實際採樣間隔中位數約 232 ms，兩窗最大間隔為 873／976 ms。名目 200 ms 是採集後的等待時間，不能當成精確固定間隔，也不能把 collector 耗時直接從完整入口扣掉。
 

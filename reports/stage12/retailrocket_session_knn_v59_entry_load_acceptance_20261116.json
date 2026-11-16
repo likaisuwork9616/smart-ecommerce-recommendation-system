@@ -1,0 +1,121 @@
+{
+  "status": "v59_saved_entry_load_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 11397,
+      "sha256": "d8daf78963be84dbd1e38a553519ab3d863a0b5f6464edee8d39214d366c5488"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 11986,
+      "sha256": "17fa2209115bddc7326c6436cb1c6d3ffadffb4489b633d161b64a335bea4322"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 9646,
+      "sha256": "c22c8d7e7d9157ea138a826439b857ecdd01d3b7028b66605d5658a73f7005f2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_load_analysis_v59.py",
+      "bytes": 6721,
+      "sha256": "61839cabfa5d7a6b83087ba38f65c2ed860df2f49e746fb64098b0594bd5cf01"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v58_evidence_inventory_20261116.json",
+      "bytes": 7029,
+      "sha256": "2af4bb27f73ffdd4ee9beb2efba72a6f1d8c48bf999f0fd14a74fa408f2a6486"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+      "bytes": 15598,
+      "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cold_v47.py",
+      "bytes": 14596,
+      "sha256": "35a437ac1b632228f139b0d03156a7206c013ec47c26d3acf5997a4b75ca9846"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 7807,
+      "sha256": "d4424a2cd7591e7a3dfd8b5757be235e66ccf05244fa92bff4eae71774110070"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_entry_load_v59",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59"
+  ],
+  "tests_run": 20,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_coverage_disk_and_acquisition_accounting_fail_closed",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_cross_window_is_difference_of_arm_medians",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_every_pair_absolute_values_delta_and_execution_order",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_exact_entry_signs_include_zero_without_significance_threshold",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_input_and_returned_nested_values_are_not_aliased",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_invalid_counter_or_statistic_values_are_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_nonfinite_boolean_and_invalid_entry_values_are_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_partial_missing_deltas_do_not_become_zero",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_process_cpu_above_100_and_host_disk_zero_time_are_retained",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_unavailable_process_and_disk_remain_null_with_valid_counts",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_warm_and_publisher_are_preserved_but_excluded",
+    "tests.test_retailrocket_session_knn_entry_load_v59.EntryLoadTests.test_wrong_window_scope_schedule_missing_extra_and_arm_are_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.ObservationTests.test_modified_summary_is_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.ObservationTests.test_publisher_is_checked_under_its_own_identity",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.ObservationTests.test_raw_counter_reset_is_retained_not_filled_or_bridged",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.ObservationTests.test_rebuild_uses_saved_values_without_live_sampling",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.ObservationTests.test_wrong_identity_completion_and_bounds_are_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.SealedReaderTests.test_duplicate_and_outside_paths_are_rejected",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.SealedReaderTests.test_publication_is_exclusive_and_rejects_nan",
+    "tests.test_retailrocket_session_knn_entry_load_analysis_v59.SealedReaderTests.test_verified_json_and_changed_bytes"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.06127669999978025,
+  "log": {
+    "path": "shop-mysql-runtime/verification/v59-entry-load-acceptance-eb39fb186768469191d80c2eb111986f/tests.log",
+    "bytes": 3855,
+    "sha256": "a5d0f4b3888a996287705ebe3d5eb19fd3562d9bbbce953153316037cc880b62"
+  },
+  "scope": {
+    "windows": [
+      "V47",
+      "V48"
+    ],
+    "formal_pairs_per_window": 6,
+    "formal_entries": 24,
+    "warm_entries_separate": 4,
+    "publishers_separate": 2,
+    "expected_raw_files": 120,
+    "expected_telemetry_summaries": 30,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_training": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
