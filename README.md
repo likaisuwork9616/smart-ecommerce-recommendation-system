@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜K1全量反讀待評估方法（最新）
+## Stage 12｜K1最小接入與人工驗收規格（最新）
+
+V74依V73整理六個最小責任元件、人工request／輸出契約與G0–G7驗收關卡。未來工具只接受已封存人工bundle，人工N與真實166,897筆分開；新CP子類保留原完整檢查後核queries語義，涵蓋candidate／finalize／orphan恢復。首次candidate不要求自己先存在，所有完成守門均在同一writer鎖內。接著整理人工案例清單、估時與停止條件；依本次指示，等確認後才準備工具。現在工具／fixture／測試／量測／Linux／真實重跑均0，T_plan仍null。[最小接入規格與進度](docs/STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
+
+## Stage 12｜K1全量反讀待評估方法（前輪）
 
 V73依V72提出具體組合：Windows與歷史runtime相容目標，以V2完整反讀／CheckpointStore為骨架，接入V4精確SQL與指標計算，保留frozen exact。首次建立新run獨立DB，重啟僅用該run有效seal與ledger；來源定位先保留逐序掃描，global與原2,000 draws維持同一完成單元。已列10項接入差異，尚未實作／驗收；現有V4最多64筆及工程48筆入口限制不解除。
 

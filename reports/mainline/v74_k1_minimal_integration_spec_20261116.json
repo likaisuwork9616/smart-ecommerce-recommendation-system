@@ -1,0 +1,331 @@
+{
+  "schema": "v74_K1_minimum_synthetic_integration_specification",
+  "date": "2026-11-16",
+  "status": "documentary_specification_waiting_user_confirmation",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "reports/mainline/v73_k1_method_proposal_20261116.json",
+      "bytes": 12238,
+      "sha256": "4d7ba0c4f5330f82125814d58a71cb3023cc6d100159da9779778de1c0643a1d"
+    },
+    {
+      "path": "reports/mainline/v73_k1_stage_responsibility_20261116.json",
+      "bytes": 14911,
+      "sha256": "6e94b414fbcc71d14d374efaa94870338485b08fbe16ed4e7e7d64d03c21197e"
+    },
+    {
+      "path": "docs/STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md",
+      "bytes": 24149,
+      "sha256": "e029e613649530e6881730cd007efc4da288c917f043b36de44a5a25f799ca93"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_paired_v1.json",
+      "bytes": 13698,
+      "sha256": "4fa418944a3b715520432ad44f4755409d1a4a257538d630d989fb3c6a58c333"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_readback_v2.json",
+      "bytes": 3310,
+      "sha256": "86b713d330091dfeb7e527102425369dc96704b312bf6604b1de1607953c9243"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_v34.py",
+      "bytes": 16272,
+      "sha256": "7ddcedd4e442c42dbe16d3ab68cc94130e1e8f72a4b686a0513757e78090a08f"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_readback_v2.py",
+      "bytes": 11117,
+      "sha256": "a0f42681e838238b48c635c2b4588dc0b850f07268645a5ee1fd209d79af3a03"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pair_v4.py",
+      "bytes": 12626,
+      "sha256": "bd2cd1c1fde892b80d164f2033b85ddec3be339313755cf439aa2daa96944585"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    }
+  ],
+  "confirmation": {
+    "required_before_tool_preparation": true,
+    "source": "current_user_instruction",
+    "received": false,
+    "tool_preparation_started": false
+  },
+  "inherited_method": "V2_full_readback_and_CheckpointStore_with_V4_exact_SQL_and_terms",
+  "components": [
+    {
+      "id": "M0",
+      "role": "sealed_synthetic_bundle_admission",
+      "phases": [
+        "P0"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "M1",
+      "role": "full_order_independent_worker_adapter",
+      "phases": [
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "M2",
+      "role": "versioned_CP_complete_checks_guard",
+      "phases": [
+        "P1",
+        "P7",
+        "P8"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "M3",
+      "role": "supervisor_and_synthetic_pipeline",
+      "phases": [
+        "P0",
+        "P1",
+        "P7",
+        "P8"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "M4",
+      "role": "readonly_publisher",
+      "phases": [
+        "P9"
+      ],
+      "implementation_status": "not_implemented"
+    },
+    {
+      "id": "M5",
+      "role": "external_stopped_finalizer",
+      "phases": [
+        "P10"
+      ],
+      "implementation_status": "not_implemented"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "requirement": "scope_and_authority",
+      "status": "not_executed"
+    },
+    {
+      "id": "G1",
+      "requirement": "full_scientific_synthetic_content",
+      "status": "not_executed"
+    },
+    {
+      "id": "G2",
+      "requirement": "persistence_and_recovery",
+      "status": "not_executed"
+    },
+    {
+      "id": "G3",
+      "requirement": "same_lock_completion_semantics",
+      "status": "not_executed"
+    },
+    {
+      "id": "G4",
+      "requirement": "source_passes_and_raw_publication_proof",
+      "status": "not_executed"
+    },
+    {
+      "id": "G5",
+      "requirement": "stopped_delivery",
+      "status": "not_executed"
+    },
+    {
+      "id": "G6",
+      "requirement": "failure_deadline_and_budget",
+      "status": "not_executed"
+    },
+    {
+      "id": "G7",
+      "requirement": "accounting_and_evidence_reporting",
+      "status": "not_executed"
+    }
+  ],
+  "artificial_request": {
+    "profile": "synthetic_only",
+    "bundle_manifest_seal_required": true,
+    "single_marker_sufficient": false,
+    "data_paths": "sealed_bundle_relative_whitelist",
+    "method_paths": "separate_direct_repo_method_whitelist",
+    "arbitrary_primary_or_DB_path_allowed": false,
+    "caller_N_override_allowed": false,
+    "long_fixture_queries": 129,
+    "long_fixture_visitors": 3,
+    "other_full_fixture_queries_max": 129,
+    "original_artificial_draws": 2000,
+    "required_stages": [
+      "reconstruction",
+      "queries",
+      "global",
+      "bootstrap"
+    ],
+    "count_type": "exact_int_not_bool_or_float",
+    "EOF_type": "exact_bool_true",
+    "case_file_counts_bytes_and_training_sizes": "freeze_before_formal_acceptance"
+  },
+  "guard_design": {
+    "mechanism": "new_CheckpointStore_subclass_override_private_complete_checks",
+    "requires_writer_lock": true,
+    "calls_parent_complete_checks_first": true,
+    "checks": [
+      "same_run",
+      "same_complete_ledger",
+      "queries_equals_fixture_N_exact_int",
+      "paired_streams_EOF_exact_true"
+    ],
+    "returns_current_summary_stages": true,
+    "parent_candidate_checks_preserved_when_candidate_exists": true,
+    "first_write_candidate_requires_existing_candidate": false,
+    "applies_to": [
+      "write_candidate",
+      "finalize",
+      "supersede_candidate"
+    ],
+    "public_guard_parameter_claimed": false,
+    "frozen_CP_modified": false
+  },
+  "preserved_scientific_target": {
+    "queries": 166897,
+    "visitors": 62235,
+    "original_draws": 2000,
+    "real_profile_enabled": false,
+    "full_execution_enabled": false,
+    "T_plan": null
+  },
+  "acceptance_policy": {
+    "all_required_subcases_needed": true,
+    "expected_rejection_is_success_only_with_evidence": true,
+    "science_payload_bytes_equal_control_metadata_checked_separately": true,
+    "no_second_ranking_or_numeric_global_draw_replay_in_publisher": true,
+    "new_tests_executed": 0,
+    "new_fixtures_created": 0
+  },
+  "v73_ids": {
+    "differences": [
+      "D0",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9"
+    ],
+    "phases": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10"
+    ],
+    "source_positions": [
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "H5",
+      "H6",
+      "H7",
+      "H8"
+    ],
+    "recovery_branches": [
+      "B0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7"
+    ]
+  },
+  "review": {
+    "status": "independent_documentary_review_passed",
+    "source_descriptors_verified": 15,
+    "components": 6,
+    "gates": 8,
+    "v73_references_match": true,
+    "document_links_verified": 7,
+    "frozen_methods_and_results_unchanged": true,
+    "tools_fixtures_tests_measurements_created_or_run": 0,
+    "limitations": "Static documentary checks only; no implementation or execution acceptance."
+  }
+}

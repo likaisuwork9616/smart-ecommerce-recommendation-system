@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜K1全量反讀方法與責任提案（最新）
+## Stage 12｜K1最小接入與人工驗收規格（最新）
+
+V74先列六元件、人工來源隔離、request／輸出與G0–G7通過條件；新完成guard涵蓋candidate、finalize及orphan恢復。案例／估時接著整理，確認前不準備工具或執行。[本輪規格](STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
+
+## Stage 12｜K1全量反讀方法與責任提案（前輪）
 
 V73只讀提出Windows／V2完整骨架＋V4精確核心及10項接入差異，完成11階段、8個正常來源核對位置、8種恢復／停止分支。明確分開worker內容驗算、supervisor鎖內最終化、publisher證據反核及外部停態封存；尚未新增全量入口、工具或驗收。[本輪提案](STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
 

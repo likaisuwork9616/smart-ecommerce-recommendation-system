@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V74最小接入規格 | [六元件／人工request／八關卡](mainline/v74_k1_minimal_integration_spec_20261116.json)；確認前不建立工具或執行驗收 |
 | V73 K1具體方法 | [V2完整骨架＋V4精確核心與10項差異](mainline/v73_k1_method_proposal_20261116.json)；文件提案，不是新入口已實作或全量授權 |
 | V73 K1階段責任 | [11階段／8來源核對位置／8恢復分支](mainline/v73_k1_stage_responsibility_20261116.json)；同鎖query完成守門與停態交付尚待接入驗證 |
 | V72 K1來源與恢復 | [來源S0–S5／恢復R0–R5對照](mainline/v72_k1_source_recovery_map_20261116.json)；既有證據適用範圍盤點，未開新全量驗收 |
