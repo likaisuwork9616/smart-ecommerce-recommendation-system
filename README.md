@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V69 候選來源可行性規格完成 | 保留1ms目標，17份來源、6類候選與來源／保存契約；七群A案例需求及原B／C／D門檻已固定，候選能力仍未知，新增量測0 |
+| Stage 12：session-kNN K1 | V70 Linux平台／runtime文件評估 | 保留1ms目標，14份官方來源；原生Ubuntu Server24.04／GA6.8為條件首選，WSL2為次選，CPython3.12.10獨立build提案；實機可用性未知，新增量測0 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜候選觀測來源可行性規格（最新）
+## Stage 12｜Linux環境可行性與接入提案（最新）
+
+V70依V69評估另定Linux環境，核對14份官方來源。文件層首選為**原生Ubuntu Server24.04 LTS amd64、GA6.8核心軌道與Linux本機檔案系統**；若只能沿用Windows，次選為WSL2＋Ubuntu24.04，另列環境ID，不能視為原生Linux。可用主機、權限、實際kernel／套件修訂與容量目前都未知，沒有探測或安裝。
+
+runtime提案為**upstream CPython3.12.10 release build，PGO／LTO／Py_DEBUG關閉**，只為對齊V67保存的patch、作隔離合成研究；並非與Windows相同binary，也不是較快或較準的證據。官方已有3.12.16安全版，若改用須另定方法。Linux工作副本須重建自己的`.venv/`，不搬Windows環境。平台／runtime已完成獨立靜態審閱、7個本機來源描述相符；接著固定最小接入、可比限制與確認範圍，確認前不準備工具或案例。本輪探測／下載／安裝／建置／測試／量測／B／C／D／原48筆皆0，V46暫不採用。[平台、runtime與未知條件](docs/STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
+
+## Stage 12｜候選觀測來源可行性規格
 
 V69依V68保留原 **1ms目標與同一thread的user＋kernel CPU時長**，核對17份官方／維護者一手文件，整理6類來源。既有Windows GetThreadTimes語義相符但沒有新能力證據；Linux CLOCK_THREAD_CPUTIME_ID列為須另定平台的條件候選，未宣稱較準。cycles、整個process CPU及wall timestamp不能直接替代原量；ETW排程區間須另訂事件契約。
 

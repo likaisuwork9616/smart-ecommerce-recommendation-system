@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜候選觀測來源可行性規格（最新）
+## Stage 12｜Linux環境可行性與接入提案（最新）
+
+V70核對14份官方來源，提案原生Ubuntu Server24.04／GA6.8，Windows上WSL2為條件次選；runtime為隔離的CPython3.12.10非PGO／非LTO release build。現機可用性與能力均未知，接著固定最小接入與可比限制；確認前不準備工具／案例，不新增量測。[平台與runtime評估](STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
+
+## Stage 12｜候選觀測來源可行性規格
 
 V69保留原1ms與thread CPU目標，核對17份官方／維護者來源及6類候選。Linux thread clock僅條件候選，ETW另契約，cycles／process／wall不直接替CPU；來源准入／保存、七群A案例需求與原B／C／D門檻已固定，能力仍未知。下一步先明定可接受的平台／runtime及接入範圍。不新增量測／測試／C／D或原48筆。[官方語義與可行性規格](STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md)
 

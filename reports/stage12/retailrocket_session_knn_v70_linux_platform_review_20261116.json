@@ -1,0 +1,306 @@
+{
+  "schema": "v70_linux_platform_documentary_review",
+  "date": "2026-11-16",
+  "status": "conditional_feasibility_proposal_not_execution_ready",
+  "scope": {
+    "target_difference_ns": 1000000,
+    "original_thread_cpu_quantity_retained": true,
+    "new_clock_reads": 0,
+    "new_clock_metadata_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_B_attempts": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "environment_probes": 0,
+    "downloads": 0,
+    "installs": 0,
+    "builds": 0,
+    "environment_starts": 0,
+    "new_tools": 0,
+    "new_synthetic_cases": 0,
+    "new_measurement_authorized": false,
+    "tool_preparation_authorized": false,
+    "adopt_v46": false,
+    "reserved_test": "locked"
+  },
+  "local_source_bindings": [
+    {
+      "path": "docs/STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md",
+      "bytes": 22147,
+      "sha256": "16774cbd7b4b7a858205e4c100525d8d3da0407ce10a4ccc28d2c0e2fa96ebca"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v69_observation_sources_20261116.json",
+      "bytes": 14526,
+      "sha256": "0253034876a1ad45876d984148395ac353d9014562ebca7fc31cc3bc7f026f82"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v69_observation_feasibility_20261116.json",
+      "bytes": 18997,
+      "sha256": "6cce6de61cf59f104493ed33d8bdc08f4772f2ae61af24cf813dea5dd8e0eca6"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v67_clock_result_20261116.json",
+      "bytes": 5035,
+      "sha256": "fba1554a0e29ae6634e06fefe018e3581f76ab57d68d011ed5b87b756ff43ec0"
+    },
+    {
+      "path": "docs/LOCAL_SETUP.md",
+      "bytes": 10470,
+      "sha256": "7d178fbe2da0a4ff6d7c19a168edfa459e9009a8339a012f219904382700d10e"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 194,
+      "sha256": "4068a2cc9afdd036cb83a808b98e52eaf6c1da0165252a5fcc76056ff3ff4d86"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 2272,
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    }
+  ],
+  "official_sources": [
+    {
+      "id": "L01",
+      "title": "Ubuntu 24.04 LTS release notes",
+      "url": "https://documentation.ubuntu.com/release-notes/24.04/",
+      "locator": "Support lifespan; Linux kernel; Toolchain Upgrades",
+      "paraphrase": "首發6.8、glibc2.39、Python3.12是發行描述，不是使用者現況。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L02",
+      "title": "Ubuntu kernel lifecycle",
+      "url": "https://ubuntu.com/kernel/lifecycle",
+      "locator": "Ubuntu 24.04 LTS — Noble Numbat",
+      "paraphrase": "Server預設GA，Desktop預設HWE；LTS不唯一決定核心軌道。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L03",
+      "title": "Comparing WSL Versions",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/compare-versions",
+      "locator": "Comparing WSL 1 and WSL 2; WSL 2 architecture",
+      "paraphrase": "WSL2含Linux kernel與受管VM；WSL1不是相同kernel架構。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L04",
+      "title": "WSL configuration",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/wsl-config",
+      "locator": ".wslconfig versus wsl.conf; Main WSL settings",
+      "paraphrase": ".wslconfig是WSL2 VM全域資源與kernel配置，不是單專案設定。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L05",
+      "title": "WSL filesystems",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/filesystems",
+      "locator": "File storage and performance across file systems",
+      "paraphrase": "官方建議Linux工具的專案檔案位於Linux檔案系統。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L06",
+      "title": "What is a container?",
+      "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/",
+      "locator": "Containers versus virtual machines",
+      "paraphrase": "VM有自己的OS/kernel，容器共用執行所在kernel。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L07",
+      "title": "Docker resource constraints",
+      "url": "https://docs.docker.com/engine/containers/resource_constraints/",
+      "locator": "CPU; Configure the default CFS scheduler",
+      "paraphrase": "quota/cpuset/shares影響CPU資源；shares不是保留CPU保證。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L08",
+      "title": "Docker Desktop WSL 2 backend",
+      "url": "https://docs.docker.com/desktop/features/wsl/",
+      "locator": "Overview; Enable Docker in a WSL 2 distribution",
+      "paraphrase": "Windows Desktop的WSL2 backend仍有受管VM與共用kernel。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L09",
+      "title": "Python 3.12.10 release",
+      "url": "https://www.python.org/downloads/release/python-31210/",
+      "locator": "Release date; maintenance status; Files",
+      "paraphrase": "3.12.10為最後完整bugfix版，已被3.12.16取代，提供source release。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L10",
+      "title": "Python 3.12.16 release",
+      "url": "https://www.python.org/downloads/release/python-31216/",
+      "locator": "Release date; No installers",
+      "paraphrase": "3.12.16是2026-10-25安全更新；3.12後續source-only。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L11",
+      "title": "CPython v3.12.10 configure",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/Doc/using/configure.rst",
+      "locator": "Performance options; Python Debug Build; Compiler and linker flags",
+      "paraphrase": "tag文件固定PGO/LTO/Py_DEBUG及建置選項；文件不是binary驗證。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L12",
+      "title": "CPython v3.12.10 venv",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/Doc/library/venv.rst",
+      "locator": "venv-intro; Creating virtual environments",
+      "paraphrase": "venv基於base interpreter，應於目標重建，不視為可複製搬移。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L13",
+      "title": "Available Python versions on Ubuntu",
+      "url": "https://ubuntu.com/developers/docs/reference/availability/python/",
+      "locator": "Ubuntu Python 3 (deb) packages",
+      "paraphrase": "Ubuntu24.04列3.12系列，未保證本案3.12.10 patch或build。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "L14",
+      "title": "Python time",
+      "url": "https://docs.python.org/3.12/library/time.html",
+      "locator": "thread_time_ns; perf_counter_ns; CLOCK_THREAD_CPUTIME_ID",
+      "paraphrase": "thread CPU為目前thread user+system，ns為整數表示，不保證本案能力；頁面版本3.12.16。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    }
+  ],
+  "platform_candidates": [
+    {
+      "id": "P1",
+      "platform": "native Ubuntu Server 24.04 LTS amd64",
+      "kernel_track": "GA 6.8",
+      "preference": "preferred_if_available",
+      "rationale": "reduce_virtualization_and_cross_OS_filesystem_factors_not_accuracy_claim"
+    },
+    {
+      "id": "P2",
+      "platform": "WSL 2 with Ubuntu 24.04 LTS amd64",
+      "kernel_track": "Microsoft WSL kernel; exact version unknown; not Ubuntu GA6.8",
+      "preference": "conditional_alternative_if_Windows_only",
+      "rationale": "reuse_Windows_host_with_distinct_VM_and_host_scope"
+    },
+    {
+      "id": "P3",
+      "platform": "general VM with Ubuntu Server 24.04 LTS",
+      "kernel_track": "guest kernel plus specified hypervisor",
+      "preference": "not_initial_priority"
+    },
+    {
+      "id": "P4",
+      "platform": "Linux containers or Windows Docker Desktop",
+      "kernel_track": "executing host/VM kernel; image digest insufficient",
+      "preference": "not_initial_priority"
+    }
+  ],
+  "runtime_proposal": {
+    "id": "R1",
+    "implementation": "upstream CPython",
+    "version": "3.12.10",
+    "architecture": "x86_64",
+    "source": "official source release, not downloaded",
+    "build": {
+      "kind": "release",
+      "PGO": false,
+      "LTO": false,
+      "Py_DEBUG": false,
+      "BOLT": false,
+      "sanitizer": false,
+      "C_profiler": false,
+      "custom_march_native": false,
+      "compiler": "Ubuntu archive GCC; exact revision unknown",
+      "compiler_revision": null,
+      "configure_args": null,
+      "binary_sha256": null
+    },
+    "base_runtime_location": "ignored research tools location; no system Python replacement",
+    "venv": "independent Linux checkout .venv; recreate, do not copy Windows venv",
+    "purpose": "isolated synthetic research with saved_V67_patch_alignment; not public service runtime",
+    "same_Windows_binary": false,
+    "newer_maintenance_alternative": "CPython 3.12.16 requires a distinct method/version"
+  },
+  "runtime_alternatives": [
+    {
+      "id": "R2",
+      "runtime": "Ubuntu system Python 3.12",
+      "same_patch_established": false
+    },
+    {
+      "id": "R3",
+      "runtime": "CPython 3.12.16",
+      "adds_patch_difference": true
+    }
+  ],
+  "actual_environment": {
+    "available_platform": null,
+    "selected_platform": null,
+    "user_platform_confirmation_received": false,
+    "host_identity": null,
+    "OS_point_release": null,
+    "kernel_revision": null,
+    "libc_revision": null,
+    "permissions": null,
+    "capacity": null,
+    "build_success": null,
+    "Linux_A_passed": null,
+    "Linux_B_passed": null,
+    "capability_1ms": null,
+    "overhead": null
+  },
+  "limitations": [
+    "same_semantics_not_same_clock_implementation",
+    "same_Python_patch_not_same_binary",
+    "no_cross_platform_timing_pairing",
+    "no_backfill_V47_V48_wait",
+    "no_Windows_V46_adoption_evidence",
+    "source_documentation_not_local_availability"
+  ],
+  "review": {
+    "status": "independent_platform_and_runtime_static_reviews_passed",
+    "local_descriptor_matches": 7,
+    "document_links_checked": 17,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}
