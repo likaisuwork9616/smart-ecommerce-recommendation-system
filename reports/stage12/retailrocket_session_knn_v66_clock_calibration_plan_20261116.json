@@ -1,0 +1,220 @@
+{
+  "schema": "stage12_clock_capability_plan_v66",
+  "date": "2026-11-16",
+  "status": "planning_only_awaiting_user_confirmation",
+  "plan_document": {
+    "path": "docs/STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md",
+    "bytes": 9695,
+    "sha256": "df1a935d879c9db301ccda93db0b097541818b5a7aea23409e249ce18ec3c513"
+  },
+  "source_bindings": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v62_wall_cpu_specification_20261116.json",
+      "bytes": 10360,
+      "sha256": "e7c356265b7e917a5171d230e41e9e457fa118775f12222dd8edfd1b1690c190"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+      "bytes": 18684,
+      "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v65_wall_cpu_acceptance_r1_20261116.json",
+      "bytes": 173269,
+      "sha256": "92391b7e3fd713b65623aed0fb7ff597db7075d751c9ac7d2c1df6cfe98f03c0"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_v63.py",
+      "bytes": 13021,
+      "sha256": "2316b4da549710547a6386ede251dd0868a44ee089e06cf21b1a15626bc966e8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_decision_v65.py",
+      "bytes": 32279,
+      "sha256": "5997653a52125c96e2717fe9643040f9cfd02c0c367f6e53b41e3fee9fa14ff5"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_TYPED_V65_20261116.md",
+      "bytes": 10907,
+      "sha256": "6bd42e3ca4f48da51362910a5a1b109961c587142255636de043c3a11075b029"
+    }
+  ],
+  "scope": {
+    "phase": "B_only",
+    "user_confirmation_received": false,
+    "collector_implemented": false,
+    "real_provenance_adapter_implemented": false,
+    "new_tests_executed": 0,
+    "clock_metadata_collected": false,
+    "calibration_attempts_executed": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "new_live_load_samples": 0,
+    "actual_clock_capability": null,
+    "actual_clock_resolution": null,
+    "actual_overhead": null,
+    "reserved_test": "locked",
+    "adopt_v46": false
+  },
+  "confirmation_scope": "prepare_seal_validate_new_collector_then_at_most_one_B_attempt_only",
+  "prerequisites": {
+    "existing_A_acceptance": {
+      "path": "reports/stage12/retailrocket_session_knn_v65_wall_cpu_acceptance_r1_20261116.json",
+      "bytes": 173269,
+      "sha256": "92391b7e3fd713b65623aed0fb7ff597db7075d751c9ac7d2c1df6cfe98f03c0"
+    },
+    "existing_A_tests": 112,
+    "requires_new_collector": true,
+    "requires_real_provenance_admission": true,
+    "synthetic_relabeling_forbidden": true,
+    "new_collector_fake_clock_cases_must_be_sealed_pushed_then_tested": true
+  },
+  "planned_sequence": [
+    "implement_and_seal_new_collector_provenance_and_fake_clock_cases",
+    "push_methods_and_README_before_new_fake_clock_tests",
+    "pass_fake_clock_tests_and_push_their_actual_results",
+    "verify_sources_then_execute_at_most_one_B_attempt",
+    "retain_raw_and_incomplete_evidence_readonly_audit_update_README_and_push"
+  ],
+  "capability_B": {
+    "target_difference_ns": 1000000,
+    "dense_rounds": 3,
+    "dense_round_wall_seconds": 0.5,
+    "dense_samples_cap_per_round": 1000000,
+    "stage_deadline_seconds": 30,
+    "minimum_positive_cpu_increments_per_round": 10,
+    "q_definition": "max(ceil(declared_cpu_resolution_seconds * 1e9), each_round_positive_cpu_increment_p95)",
+    "q_max_ns": 100000,
+    "bracket_p99_max_ns": 50000,
+    "bracket_max_ns": 100000,
+    "sleep_trials": 10,
+    "sleep_requested_seconds": 0.05,
+    "sleep_wall_min_ns": 40000000,
+    "sleep_cpu_wall_ratio_p90_max": 0.1,
+    "zero_cpu_does_not_mean_zero_work": true,
+    "dense_duration_timebase": "perf_counter_elapsed_wall"
+  },
+  "collection": {
+    "same_worker_thread": true,
+    "read_order": [
+      "thread_guard",
+      "wall_before_ns",
+      "thread_cpu_ns",
+      "wall_after_ns",
+      "thread_guard"
+    ],
+    "allocation_validation_and_IO_between_three_clock_reads": false,
+    "round_elapsed": "last.wall_before_ns - first.wall_before_ns",
+    "initial_stamp_included_in_cap": true,
+    "wall_target_at_sample_cap_can_complete": true,
+    "warmups": 0,
+    "trial_runs": 0,
+    "automatic_retries": 0,
+    "extra_profiler": false,
+    "extra_load_collector": false,
+    "change_GC_priority_affinity_cache": false
+  },
+  "deadline": {
+    "seconds": 30,
+    "starts": "B_worker_environment_and_clock_metadata_acquisition",
+    "includes": [
+      "metadata",
+      "three_dense_rounds",
+      "ten_sleep_controls",
+      "within_attempt_statistics_and_decision",
+      "necessary_raw_evidence_persistence"
+    ],
+    "excludes": [
+      "source_preflight",
+      "tool_development_and_sealing",
+      "later_independent_audit",
+      "public_documentation_and_git_publication"
+    ],
+    "timeout_cannot_publish_pass": true,
+    "OS_return_at_exact_deadline_not_guaranteed": true,
+    "after_stop_no_more_calibration_stamps_cpu_samples_or_sleeps": true,
+    "necessary_final_wall_control_reads_separately_recorded": true
+  },
+  "stop_rules": [
+    {
+      "when": "clock_missing_or_invalid_metadata",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "backward_clock_cross_thread_or_invalid_structure",
+      "status": "rejected_structure"
+    },
+    {
+      "when": "sample_cap_reached_without_wall_target",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "completed_round_has_fewer_than_10_positive_CPU_increments",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "declared_CPU_resolution_ceil_above_100000_ns",
+      "status": "cpu_resolution_insufficient"
+    },
+    {
+      "when": "complete_round_with_enough_positive_CPU_has_p95_above_100000_ns",
+      "status": "cpu_resolution_insufficient"
+    },
+    {
+      "when": "any_bracket_above_100000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "full_fixed_set_bracket_p99_above_50000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "any_sleep_actual_wall_below_40000000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "complete_ten_sleep_ratio_p90_above_0_10",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "deadline_cancel_collection_or_persistence_incomplete",
+      "status": "clock_capability_unconfirmed"
+    }
+  ],
+  "retention": {
+    "dense_slots": 3,
+    "sleep_slots": 10,
+    "unexecuted_slots": "null_with_incomplete_reason",
+    "keep_partial_raw_values": true,
+    "drop_slow_values": false,
+    "impute_missing": false,
+    "switch_clock": false,
+    "subtract_estimated_probe_cost": false,
+    "raw_and_identity_destination": "git_ignored_private_verification_directory"
+  },
+  "estimates": {
+    "basis": "planning_estimates_no_trial_measurement",
+    "nominal_busy_seconds": 1.5,
+    "requested_sleep_seconds": 0.5,
+    "nominal_core_seconds": 2.0,
+    "B_budget_seconds": 30,
+    "B_through_evidence_review_minutes": [
+      1,
+      3
+    ],
+    "complete_engineering_minutes": [
+      20,
+      40
+    ],
+    "nested_estimates_do_not_add": true,
+    "actual_elapsed_seconds": null
+  },
+  "review": {
+    "independent_readonly_reviews": 2,
+    "tests_or_clock_reads_during_review": false
+  },
+  "next_action": "await_user_confirmation_not_start_B"
+}

@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V65 A1–16 合成驗收完成 | 先封存推送再驗收，112 項全過；真正 V39／V46 六入口完整輸出相同，A16 判定補齊，198 合成檔案唯讀重核相符；實機 B／C／D 未執行 |
+| Stage 12：session-kNN K1 | V66 B 校準計畫完成，待確認 | 已固定流程、停止條件與估時；整輪工程估20–40分鐘，單次B上限30秒；尚未實作收集器或執行B／C／D |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜真正 typed worker 與 A16 完整判定（最新）
+## Stage 12｜B 實機時鐘能力校準計畫（最新）
+
+V66 依 V62 完成 B 計畫，**目前僅規劃，等待使用者確認後才實作及執行**。同一 worker 執行緒做三輪各 0.5 秒的成組讀值與十次 sleep(0.05)，名目固定時間約 2 秒；B 整關預留 30 秒，包含 metadata、採樣、當輪判定及必要原始證據落盤。樣本不足、cap／期限未完成、倒退／跨執行緒、確定 CPU 推進量過粗或 bracket／sleep 不符均停止，保留缺失與原因，不補跑。
+
+現有 V65 判定器只接受人工資料，尚無 B 實機 collector；確認後先補新收集器及真實來源接入，工具／案例先封存推送，再做假時鐘驗收，通過後最多一次正式 B。**整輪工程估 20–40 分鐘**，其中 B 到事後證據整理估 1–3 分鐘；都是未試跑的規劃值，不延長 B 的 30 秒預算。今天未讀本輪 clock metadata、未跑新測試或任何校準；不做 C／D、原固定 48 筆或真實 model 重跑，V46 暫不採用。[流程、停止條件、估時與確認範圍](docs/STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md)
+
+## Stage 12｜真正 typed worker 與 A16 完整判定
 
 V65 先封存推送，再完成唯一一次正式驗收：**112 項全過，失敗／錯誤／跳過均為 0**（既有回歸 81／真正 typed worker 4／A16 27）。V39／V46 各自的原基線、O、D 共六個合成入口，五個完整輸出檔、48 筆 payload、142,166 bytes 帳本、工作量與操作順序全部相同。每個成功入口確實呼叫選定 decoder 兩次、建置兩個 reference roots 並做兩次 late comparison；來源不符、checkpoint 故障與借用期間 model 變更的十八個拒絕情境亦通過。
 

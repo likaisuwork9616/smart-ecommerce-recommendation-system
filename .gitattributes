@@ -658,3 +658,7 @@ reports/stage12/retailrocket_session_knn_v64_wall_cpu_*.json -text whitespace=bl
 scripts/*retailrocket_session_knn_wall_cpu*v65.py text eol=lf
 tests/*retailrocket_session_knn_wall_cpu*v65.py text eol=lf
 reports/stage12/retailrocket_session_knn_v65_wall_cpu_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V66 planning-only calibration scope and source bindings.
+docs/STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md text eol=lf
+reports/stage12/retailrocket_session_knn_v66_clock_calibration_plan_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

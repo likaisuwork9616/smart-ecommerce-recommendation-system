@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜真正 typed worker 與 A16 完整判定（最新）
+## Stage 12｜B 實機時鐘能力校準計畫（最新）
+
+V66 已固定 B 流程、停止條件及估時，僅規劃、待使用者確認。尚缺實機 collector／真實來源接入；確認後先封存並驗收新工具，再做最多一次 B。固定忙迴圈及 sleep 名目2秒、B整關30秒上限，整輪工程估20–40分鐘；未讀新clock metadata，未執行B／C／D。[完整計畫與範圍](STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md)
+
+## Stage 12｜真正 typed worker 與 A16 完整判定
 
 V65 先封存推送，再完成 112 項驗收（81／4／27），全部通過；真正 V39／V46 六個合成入口完整輸出、帳本與操作一致，A16 純資料判定及 A1–16 映射補齊。198 個合成檔案正式唯讀重核相符；實機 B／C／D 未執行，不把合成 pass 當成刻度或開銷實測。[實際結果、驗收界線與操作](STAGE12_KNN_WALL_CPU_TYPED_V65_20261116.md)
 
