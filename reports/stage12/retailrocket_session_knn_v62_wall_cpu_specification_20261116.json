@@ -1,0 +1,355 @@
+{
+  "schema": "stage12_wall_cpu_specification_v62",
+  "status": "specification_only_not_implemented_or_measured",
+  "date": "2026-11-16",
+  "spec_document": {
+    "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+    "bytes": 18684,
+    "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/retailrocket_session_knn_cold_v47.py",
+      "bytes": 14596,
+      "sha256": "35a437ac1b632228f139b0d03156a7206c013ec47c26d3acf5997a4b75ca9846"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_adapter_v39.py",
+      "bytes": 16569,
+      "sha256": "5ca35a9bed47b66230c8e6076c453f2126d4da2925212dcd430686d396e481f1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "bytes": 15646,
+      "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 23934,
+      "sha256": "032a3d02a13afef9002eb01979f0a8e5710a9bffb4e0c4b3150c37017e544970"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_v20.py",
+      "bytes": 25296,
+      "sha256": "1408e036dbb9039a4474eac786840b37725e334d8cba9eeaebc6a3fdb3c03be8"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_diagnostics_sql_v20.py",
+      "bytes": 11740,
+      "sha256": "7b4e06308e503f59333958a7992c589d3dcddea231329fc82171ea545bffdbbc"
+    },
+    {
+      "path": "docs/STAGE12_KNN_DIAGNOSTICS_V20_20261106.md",
+      "bytes": 17930,
+      "sha256": "35357adf8c76d671a9142be68a08bc4d3540712eb0f596df96d20f26ff81e300"
+    },
+    {
+      "path": "docs/STAGE12_KNN_EVIDENCE_GAPS_V58_20261116.md",
+      "bytes": 9463,
+      "sha256": "505c83f85b3188ff1991138d08480a00461845b8d01288150fc8675b03371048"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v61_contained_load_analysis_20261116.json",
+      "bytes": 1791584,
+      "sha256": "f299334f3ffcd5d0f8ff4ce773ac3ba4f4a4e0c6ca3c359fe80afa885585113e"
+    }
+  ],
+  "scope": {
+    "cohort": "original_fixed48_exposed_validation",
+    "primary_display_ordinals_1_based": [
+      32,
+      33
+    ],
+    "all_queries_instrumented": 48,
+    "reserved_test": "locked",
+    "adopt_v46": false,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_training": 0,
+    "new_live_samples": 0,
+    "actual_clock_capability": null,
+    "actual_overhead": null,
+    "tool_acceptance_results": null,
+    "coarse_seven_phase_thread_cpu_in_scope": false
+  },
+  "boundary": {
+    "wall_api": "time.perf_counter_ns",
+    "cpu_api": "time.thread_time_ns",
+    "read_order": [
+      "wall_before_ns",
+      "thread_cpu_ns",
+      "wall_after_ns"
+    ],
+    "legacy_return": "wall_before_ns / 1e9",
+    "same_thread_required": true,
+    "wall": "end.wall_before_ns - start.wall_before_ns",
+    "cpu": "end.thread_cpu_ns - start.thread_cpu_ns",
+    "residual": "wall - cpu",
+    "inner": "end.wall_before_ns - start.wall_after_ns",
+    "outer": "end.wall_after_ns - start.wall_before_ns",
+    "clamp_negative_residual": false,
+    "subtract_average_probe_cost": false,
+    "brackets_are_true_error_bounds": false
+  },
+  "query_points": [
+    "query_start",
+    "rank_start",
+    "rank_end",
+    "verification_end",
+    "append_start",
+    "append_end",
+    "query_end"
+  ],
+  "ranking_phases": [
+    "history_and_temp_setup",
+    "sql_positive_overlaps",
+    "neighbor_pool_sha",
+    "exact_neighbor_selection",
+    "sql_selected_votes_and_accumulation",
+    "top_ten_and_zero_fill",
+    "prediction_output"
+  ],
+  "planned_successful_fresh_entry_call_counts": {
+    "pair_setup": 3,
+    "pair_per_query": 7,
+    "pair_tail": 2,
+    "pair_total": 341,
+    "sql_per_query": 8,
+    "sql_total": 384,
+    "total_original_call_points": 725
+  },
+  "acceptance_A_required_categories": [
+    "read_order_and_body_once",
+    "bracket_and_signed_residual",
+    "integer_precision_and_zero_cpu",
+    "negative_residual_and_clock_backwards",
+    "missing_duplicate_order_types",
+    "thread_parent_overlap",
+    "shared_boundaries_and_conservation",
+    "fresh48_identity_and_counts",
+    "setup_tail_wrapper_scope",
+    "incomplete_skip_resume",
+    "original_exception_cleanup",
+    "off_mode_no_extra_probe",
+    "full_payload_workload_ledger_equivalence",
+    "sql_lazy_eof_watch_fault_equivalence",
+    "call_local_namespace_and_decoder_isolation",
+    "statistics_schedule_missing_failure_fixtures"
+  ],
+  "capability_B": {
+    "target_difference_ns": 1000000,
+    "dense_rounds": 3,
+    "dense_round_wall_seconds": 0.5,
+    "dense_samples_cap_per_round": 1000000,
+    "stage_deadline_seconds": 30,
+    "minimum_positive_cpu_increments_per_round": 10,
+    "q_definition": "max(ceil(declared_cpu_resolution_seconds * 1e9), each_round_positive_cpu_increment_p95)",
+    "q_max_ns": 100000,
+    "bracket_p99_max_ns": 50000,
+    "bracket_max_ns": 100000,
+    "sleep_trials": 10,
+    "sleep_requested_seconds": 0.05,
+    "sleep_wall_min_ns": 40000000,
+    "sleep_cpu_wall_ratio_p90_max": 0.1,
+    "zero_cpu_does_not_mean_zero_work": true,
+    "dense_duration_timebase": "perf_counter_elapsed_wall"
+  },
+  "overhead_C": {
+    "empty_stamp_trials": 4097,
+    "full_recording_path_trials": 4097,
+    "synthetic_queries_per_entry": 48,
+    "lcg_seed": 1,
+    "lcg_multiplier": 1664525,
+    "lcg_increment": 1013904223,
+    "lcg_modulus": 4294967296,
+    "lcg_iterations_per_ranking_phase": 4096,
+    "sleep_seconds_per_ranking_phase": 0.001,
+    "workloads": [
+      "lcg",
+      "sleep"
+    ],
+    "warmups_per_mode_per_workload": 1,
+    "pairs_per_workload": 8,
+    "orders": [
+      "OD",
+      "DO",
+      "OD",
+      "DO",
+      "OD",
+      "DO",
+      "OD",
+      "DO"
+    ],
+    "deadline_seconds_per_workload": 120,
+    "common_outer_includes_output_serialization_and_write": true,
+    "median_absolute_pair_relative_delta_max": 0.02,
+    "maximum_absolute_pair_relative_delta_max": 0.05,
+    "lcg_reset_seed_each_phase": true,
+    "common_outer_wall_exempt_from_O_no_probe_rule": true
+  },
+  "real_overhead_D_planned_only": {
+    "scheduled_or_authorized_by_this_spec": false,
+    "decoders": [
+      "V39",
+      "V46"
+    ],
+    "modes": {
+      "O": "existing_uninstrumented",
+      "D": "new_boundary_diagnostics"
+    },
+    "warmup_order": [
+      [
+        "V39",
+        "O"
+      ],
+      [
+        "V46",
+        "D"
+      ],
+      [
+        "V46",
+        "O"
+      ],
+      [
+        "V39",
+        "D"
+      ]
+    ],
+    "blocks": [
+      {
+        "block": 1,
+        "decoder_order": [
+          "V39",
+          "V46"
+        ],
+        "within_decoder_order": "OD"
+      },
+      {
+        "block": 2,
+        "decoder_order": [
+          "V46",
+          "V39"
+        ],
+        "within_decoder_order": "DO"
+      },
+      {
+        "block": 3,
+        "decoder_order": [
+          "V39",
+          "V46"
+        ],
+        "within_decoder_order": "OD"
+      },
+      {
+        "block": 4,
+        "decoder_order": [
+          "V46",
+          "V39"
+        ],
+        "within_decoder_order": "DO"
+      },
+      {
+        "block": 5,
+        "decoder_order": [
+          "V39",
+          "V46"
+        ],
+        "within_decoder_order": "OD"
+      },
+      {
+        "block": 6,
+        "decoder_order": [
+          "V46",
+          "V39"
+        ],
+        "within_decoder_order": "DO"
+      }
+    ],
+    "formal_pairs": 12,
+    "formal_entries": 24,
+    "warm_entries": 4,
+    "total_entries": 28,
+    "repeated_queries_including_warm": 1344,
+    "entry_and_query_sum_relative_delta_median_max": 0.02,
+    "entry_and_query_sum_relative_delta_max_max": 0.05,
+    "primary_local_absolute_delta_median_max_ns": 100000,
+    "primary_local_absolute_delta_max_ns": 500000,
+    "target_telemetry_sleep_seconds": 0.2,
+    "window_deadline_seconds": 1800,
+    "estimate_before_scheduling": true,
+    "calibrate_B_before_and_after_every_O_and_D_entry_including_warm": true,
+    "planned_calibration_B_invocations": 56,
+    "original_entry_gate_metric": "accounting.costs.entry_seconds from entry.json.seconds",
+    "other_preserved_boundaries": [
+      "run.total",
+      "entry_span"
+    ],
+    "instrumentation_entry_includes": [
+      "diagnostic_buffer_setup",
+      "run.total",
+      "diagnostic_serialization_write_flush",
+      "diagnostic_buffer_cleanup"
+    ],
+    "instrumentation_entry_excludes": [
+      "sampler_lifecycle_and_raw_output",
+      "process_start",
+      "source_preparation",
+      "pool_construction_and_close",
+      "capability_calibration"
+    ],
+    "sampler_order": [
+      "start_and_first_capture",
+      "instrumentation_entry_start",
+      "body_and_diagnostic_output",
+      "instrumentation_entry_end",
+      "stop_and_last_capture"
+    ]
+  },
+  "statistics": {
+    "percentiles": "nearest_rank_ceil_p_times_n_1_based",
+    "median": "mean_of_middle_two_for_even_n",
+    "pair_direction": "D_minus_O",
+    "gate_relative": "abs(D-O)/O; O > 0",
+    "retain_all_pairs_and_warmups": true,
+    "retry_until_pass": false,
+    "choose_lower_overhead_pairs": false
+  },
+  "fail_states": [
+    "rejected_structure",
+    "clock_capability_unconfirmed",
+    "cpu_resolution_insufficient",
+    "perturbation_not_accepted"
+  ],
+  "interpretation": {
+    "residual_label": "wall-minus-thread-CPU signed residual",
+    "pure_wait_attribution": false,
+    "backfill_v47_v48_wait": false,
+    "v46_adoption_evidence": false
+  },
+  "official_references": [
+    "https://docs.python.org/3.12/library/time.html#time.thread_time_ns",
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getthreadtimes"
+  ],
+  "spec_review": {
+    "independent_read_only_reviews": 2,
+    "timing_tools_implemented": false,
+    "tests_run": 0,
+    "benchmarks_run": 0
+  }
+}
