@@ -13,7 +13,7 @@
 
 ## Stage 12｜候選觀測來源可行性規格（最新）
 
-V69保留原1ms與thread CPU目標，核對17份官方／維護者來源及6類候選。Linux thread clock僅條件候選，ETW另契約，cycles／process／wall不直接替CPU；沒有新能力結果，後續驗收條件接著固定。不新增量測／測試／C／D或原48筆。[官方語義與候選限制](STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md)
+V69保留原1ms與thread CPU目標，核對17份官方／維護者來源及6類候選。Linux thread clock僅條件候選，ETW另契約，cycles／process／wall不直接替CPU；來源准入／保存、七群A案例需求與原B／C／D門檻已固定，能力仍未知。下一步先明定可接受的平台／runtime及接入範圍。不新增量測／測試／C／D或原48筆。[官方語義與可行性規格](STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md)
 
 ## Stage 12｜時鐘能力限制與後續方案
 

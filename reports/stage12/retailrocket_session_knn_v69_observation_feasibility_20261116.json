@@ -1,0 +1,590 @@
+{
+  "schema": "v69_observation_source_feasibility_specification",
+  "date": "2026-11-16",
+  "status": "specification_only_no_execution",
+  "scope": {
+    "target_difference_ns": 1000000,
+    "original_thread_cpu_quantity_retained": true,
+    "new_clock_reads": 0,
+    "new_clock_metadata_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_B_attempts": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "trace_sessions_started": 0,
+    "environment_probes": 0,
+    "new_measurement_authorized": false,
+    "adopt_v46": false,
+    "reserved_test": "locked",
+    "adapter_implemented": false,
+    "new_semantic_tests_executed": 0,
+    "selected_live_candidate": null,
+    "selected_execution_platform": null,
+    "actual_candidate_capability": null,
+    "actual_candidate_overhead": null
+  },
+  "source_registry": {
+    "path": "reports/stage12/retailrocket_session_knn_v69_observation_sources_20261116.json",
+    "bytes": 14526,
+    "sha256": "0253034876a1ad45876d984148395ac353d9014562ebca7fc31cc3bc7f026f82"
+  },
+  "source_registry_published_commit": "8d340d134af2a5457e895a6952efee8a3f94c85a",
+  "local_source_bindings": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v62_wall_cpu_specification_20261116.json",
+      "bytes": 10360,
+      "sha256": "e7c356265b7e917a5171d230e41e9e457fa118775f12222dd8edfd1b1690c190"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+      "bytes": 18684,
+      "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v66_clock_calibration_plan_20261116.json",
+      "bytes": 7377,
+      "sha256": "496da0b3093263990047db0e42108086ae914fc33ccef622913a29f19286f97f"
+    },
+    {
+      "path": "docs/STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md",
+      "bytes": 9695,
+      "sha256": "df1a935d879c9db301ccda93db0b097541818b5a7aea23409e249ce18ec3c513"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v68_clock_followup_options_20261116.json",
+      "bytes": 7021,
+      "sha256": "3f0c0181ddf56b2e79595a38e292f824bcb1d52f228b2fb65601855e848d3772"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_decision_v65.py",
+      "bytes": 32279,
+      "sha256": "5997653a52125c96e2717fe9643040f9cfd02c0c367f6e53b41e3fee9fa14ff5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_clock_capability_v67.py",
+      "bytes": 5458,
+      "sha256": "bb2e1cae66760139aa39f2c49b051c70233e80e389058f0b1916310c4129d1f0"
+    }
+  ],
+  "documentary_route": {
+    "candidate": "LINUX_THREAD",
+    "status": "same_quantity_conditional_not_execution_ready",
+    "preferred_future_api": "time.thread_time_ns",
+    "wall_api": "time.perf_counter_ns",
+    "explicit_clock_id_variant_requires_separate_method_revision": true,
+    "platform_requires_separate_selection_and_confirmation": true,
+    "platform_change_does_not_answer_historical_Windows_wait": true,
+    "Windows_only_if_required": "no_new_verified_same_quantity_replacement_in_this_review",
+    "ETW": "separate_event_contract_not_admitted_to_CPU_timer_B"
+  },
+  "admission_requirements": [
+    "same_target_thread_user_plus_kernel_or_system_duration",
+    "pin_runtime_build_OS_kernel_libc_arch_virtualization",
+    "pin_API_clock_id_reader_adapter_and_source_hash",
+    "no_process_cycles_wall_or_event_duration_relabeling",
+    "no_automatic_clock_fallback",
+    "raw_integer_units_and_exact_conversion",
+    "same_thread_three_read_order",
+    "error_and_handle_lifecycle_contract",
+    "affected_A_sealed_pushed_and_accepted_before_new_B",
+    "new_attempt_plan_estimate_and_confirmation_before_measurement",
+    "both_clocks_available_monotonic_non_adjustable_and_observed_non_decreasing"
+  ],
+  "raw_contract": {
+    "manifest": [
+      "candidate_id",
+      "measurand",
+      "accounting_scope",
+      "API",
+      "clock_id_if_applicable",
+      "adapter_and_evaluator_hashes",
+      "configuration_and_case_hashes",
+      "official_source_versions",
+      "distinct_real_and_fake_origin"
+    ],
+    "environment": [
+      "runtime_build",
+      "OS_kernel_libc_arch_virtualization",
+      "process_thread_lifecycle",
+      "permission_requirements_and_state"
+    ],
+    "clock_metadata": [
+      "implementation",
+      "available",
+      "monotonic",
+      "adjustable",
+      "declared_resolution_raw",
+      "metadata_acquisition_method"
+    ],
+    "boundaries": [
+      "wall_before_ns",
+      "thread_cpu_ns",
+      "wall_after_ns",
+      "thread_guard",
+      "boundary_sequence_parent",
+      "completed",
+      "raw_native_values_and_exact_unit_conversion_if_needed"
+    ],
+    "failure": [
+      "fixed_three_round_and_ten_sleep_slots",
+      "cap_deadline_stop_location",
+      "partial_capture",
+      "primary_and_secondary_errors",
+      "unexecuted_null"
+    ],
+    "deadline": [
+      "separate_control_wall",
+      "pre_and_post_evaluation",
+      "pre_and_post_required_raw_write",
+      "raw_descriptor",
+      "provisional_vs_final"
+    ],
+    "public": [
+      "status",
+      "complete_missing_denominators",
+      "all_statistics",
+      "source_and_private_evidence_relative_descriptors",
+      "limitations"
+    ],
+    "private_only": [
+      "raw_absolute_ticks",
+      "machine_process_thread_identity"
+    ]
+  },
+  "required_original_A_categories": [
+    "read_order_and_body_once",
+    "bracket_and_signed_residual",
+    "integer_precision_and_zero_cpu",
+    "negative_residual_and_clock_backwards",
+    "missing_duplicate_order_types",
+    "thread_parent_overlap",
+    "shared_boundaries_and_conservation",
+    "fresh48_identity_and_counts",
+    "setup_tail_wrapper_scope",
+    "incomplete_skip_resume",
+    "original_exception_cleanup",
+    "off_mode_no_extra_probe",
+    "full_payload_workload_ledger_equivalence",
+    "sql_lazy_eof_watch_fault_equivalence",
+    "call_local_namespace_and_decoder_isolation",
+    "statistics_schedule_missing_failure_fixtures"
+  ],
+  "affected_A_families": [
+    {
+      "id": "A-S1",
+      "name": "來源准入",
+      "requirements": [
+        "origin/API/reader/implementation/version/hash一致",
+        "錯平台/來源改標拒絕",
+        "process/cycles fallback拒絕"
+      ]
+    },
+    {
+      "id": "A-S2",
+      "name": "計帳歸屬",
+      "requirements": [
+        "同thread前後guard",
+        "生命週期/跨thread錯誤拒絕",
+        "委派工作明列範圍"
+      ]
+    },
+    {
+      "id": "A-S3",
+      "name": "數值與錯誤",
+      "requirements": [
+        "原始大整數及精確單位換算",
+        "合法零CPU/有號residual",
+        "bool/float/溢位/倒退/缺值拒絕",
+        "原生失敗與主次例外保存"
+      ]
+    },
+    {
+      "id": "A-S4",
+      "name": "邊界與布局",
+      "requirements": [
+        "三讀中無配置或I/O",
+        "原wall回傳/共享mark/父子守恆",
+        "partial prefix不冒充完整"
+      ]
+    },
+    {
+      "id": "A-S5",
+      "name": "期限與保存",
+      "requirements": [
+        "cap與target同點",
+        "30秒含metadata判定與必要raw落盤",
+        "慢依賴/取消/停止後無新增樣本",
+        "固定null槽位與第一錯誤"
+      ]
+    },
+    {
+      "id": "A-S6",
+      "name": "入口行為",
+      "requirements": [
+        "O無新增探針",
+        "合成完整payload/工作量/帳本一致",
+        "SQL/lazy/watch/fault一致",
+        "decoder與call-local隔離"
+      ]
+    },
+    {
+      "id": "A-S7",
+      "name": "判定與反讀",
+      "requirements": [
+        "新admission且舊數值公式保留",
+        "完整/缺失fixture重算",
+        "純判定不自稱實機執行",
+        "一次性狀態/來源/公開私人收據一致"
+      ]
+    }
+  ],
+  "named_new_cases": null,
+  "new_case_count": null,
+  "inherited_v62": {
+    "boundary": {
+      "wall_api": "time.perf_counter_ns",
+      "cpu_api": "time.thread_time_ns",
+      "read_order": [
+        "wall_before_ns",
+        "thread_cpu_ns",
+        "wall_after_ns"
+      ],
+      "legacy_return": "wall_before_ns / 1e9",
+      "same_thread_required": true,
+      "wall": "end.wall_before_ns - start.wall_before_ns",
+      "cpu": "end.thread_cpu_ns - start.thread_cpu_ns",
+      "residual": "wall - cpu",
+      "inner": "end.wall_before_ns - start.wall_after_ns",
+      "outer": "end.wall_after_ns - start.wall_before_ns",
+      "clamp_negative_residual": false,
+      "subtract_average_probe_cost": false,
+      "brackets_are_true_error_bounds": false
+    },
+    "capability_B": {
+      "target_difference_ns": 1000000,
+      "dense_rounds": 3,
+      "dense_round_wall_seconds": 0.5,
+      "dense_samples_cap_per_round": 1000000,
+      "stage_deadline_seconds": 30,
+      "minimum_positive_cpu_increments_per_round": 10,
+      "q_definition": "max(ceil(declared_cpu_resolution_seconds * 1e9), each_round_positive_cpu_increment_p95)",
+      "q_max_ns": 100000,
+      "bracket_p99_max_ns": 50000,
+      "bracket_max_ns": 100000,
+      "sleep_trials": 10,
+      "sleep_requested_seconds": 0.05,
+      "sleep_wall_min_ns": 40000000,
+      "sleep_cpu_wall_ratio_p90_max": 0.1,
+      "zero_cpu_does_not_mean_zero_work": true,
+      "dense_duration_timebase": "perf_counter_elapsed_wall"
+    },
+    "overhead_C": {
+      "empty_stamp_trials": 4097,
+      "full_recording_path_trials": 4097,
+      "synthetic_queries_per_entry": 48,
+      "lcg_seed": 1,
+      "lcg_multiplier": 1664525,
+      "lcg_increment": 1013904223,
+      "lcg_modulus": 4294967296,
+      "lcg_iterations_per_ranking_phase": 4096,
+      "sleep_seconds_per_ranking_phase": 0.001,
+      "workloads": [
+        "lcg",
+        "sleep"
+      ],
+      "warmups_per_mode_per_workload": 1,
+      "pairs_per_workload": 8,
+      "orders": [
+        "OD",
+        "DO",
+        "OD",
+        "DO",
+        "OD",
+        "DO",
+        "OD",
+        "DO"
+      ],
+      "deadline_seconds_per_workload": 120,
+      "common_outer_includes_output_serialization_and_write": true,
+      "median_absolute_pair_relative_delta_max": 0.02,
+      "maximum_absolute_pair_relative_delta_max": 0.05,
+      "lcg_reset_seed_each_phase": true,
+      "common_outer_wall_exempt_from_O_no_probe_rule": true
+    },
+    "real_overhead_D_planned_only": {
+      "scheduled_or_authorized_by_this_spec": false,
+      "decoders": [
+        "V39",
+        "V46"
+      ],
+      "modes": {
+        "O": "existing_uninstrumented",
+        "D": "new_boundary_diagnostics"
+      },
+      "warmup_order": [
+        [
+          "V39",
+          "O"
+        ],
+        [
+          "V46",
+          "D"
+        ],
+        [
+          "V46",
+          "O"
+        ],
+        [
+          "V39",
+          "D"
+        ]
+      ],
+      "blocks": [
+        {
+          "block": 1,
+          "decoder_order": [
+            "V39",
+            "V46"
+          ],
+          "within_decoder_order": "OD"
+        },
+        {
+          "block": 2,
+          "decoder_order": [
+            "V46",
+            "V39"
+          ],
+          "within_decoder_order": "DO"
+        },
+        {
+          "block": 3,
+          "decoder_order": [
+            "V39",
+            "V46"
+          ],
+          "within_decoder_order": "OD"
+        },
+        {
+          "block": 4,
+          "decoder_order": [
+            "V46",
+            "V39"
+          ],
+          "within_decoder_order": "DO"
+        },
+        {
+          "block": 5,
+          "decoder_order": [
+            "V39",
+            "V46"
+          ],
+          "within_decoder_order": "OD"
+        },
+        {
+          "block": 6,
+          "decoder_order": [
+            "V46",
+            "V39"
+          ],
+          "within_decoder_order": "DO"
+        }
+      ],
+      "formal_pairs": 12,
+      "formal_entries": 24,
+      "warm_entries": 4,
+      "total_entries": 28,
+      "repeated_queries_including_warm": 1344,
+      "entry_and_query_sum_relative_delta_median_max": 0.02,
+      "entry_and_query_sum_relative_delta_max_max": 0.05,
+      "primary_local_absolute_delta_median_max_ns": 100000,
+      "primary_local_absolute_delta_max_ns": 500000,
+      "target_telemetry_sleep_seconds": 0.2,
+      "window_deadline_seconds": 1800,
+      "estimate_before_scheduling": true,
+      "calibrate_B_before_and_after_every_O_and_D_entry_including_warm": true,
+      "planned_calibration_B_invocations": 56,
+      "original_entry_gate_metric": "accounting.costs.entry_seconds from entry.json.seconds",
+      "other_preserved_boundaries": [
+        "run.total",
+        "entry_span"
+      ],
+      "instrumentation_entry_includes": [
+        "diagnostic_buffer_setup",
+        "run.total",
+        "diagnostic_serialization_write_flush",
+        "diagnostic_buffer_cleanup"
+      ],
+      "instrumentation_entry_excludes": [
+        "sampler_lifecycle_and_raw_output",
+        "process_start",
+        "source_preparation",
+        "pool_construction_and_close",
+        "capability_calibration"
+      ],
+      "sampler_order": [
+        "start_and_first_capture",
+        "instrumentation_entry_start",
+        "body_and_diagnostic_output",
+        "instrumentation_entry_end",
+        "stop_and_last_capture"
+      ]
+    },
+    "statistics": {
+      "percentiles": "nearest_rank_ceil_p_times_n_1_based",
+      "median": "mean_of_middle_two_for_even_n",
+      "pair_direction": "D_minus_O",
+      "gate_relative": "abs(D-O)/O; O > 0",
+      "retain_all_pairs_and_warmups": true,
+      "retry_until_pass": false,
+      "choose_lower_overhead_pairs": false
+    },
+    "fail_states": [
+      "rejected_structure",
+      "clock_capability_unconfirmed",
+      "cpu_resolution_insufficient",
+      "perturbation_not_accepted"
+    ],
+    "interpretation": {
+      "residual_label": "wall-minus-thread-CPU signed residual",
+      "pure_wait_attribution": false,
+      "backfill_v47_v48_wait": false,
+      "v46_adoption_evidence": false
+    }
+  },
+  "B_completion_and_stop_rules": [
+    {
+      "when": "clock_missing_or_invalid_metadata",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "backward_clock_cross_thread_or_invalid_structure",
+      "status": "rejected_structure"
+    },
+    {
+      "when": "sample_cap_reached_without_wall_target",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "completed_round_has_fewer_than_10_positive_CPU_increments",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "declared_CPU_resolution_ceil_above_100000_ns",
+      "status": "cpu_resolution_insufficient"
+    },
+    {
+      "when": "complete_round_with_enough_positive_CPU_has_p95_above_100000_ns",
+      "status": "cpu_resolution_insufficient"
+    },
+    {
+      "when": "any_bracket_above_100000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "full_fixed_set_bracket_p99_above_50000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "any_sleep_actual_wall_below_40000000_ns",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "complete_ten_sleep_ratio_p90_above_0_10",
+      "status": "clock_capability_unconfirmed"
+    },
+    {
+      "when": "deadline_cancel_collection_or_persistence_incomplete",
+      "status": "clock_capability_unconfirmed"
+    }
+  ],
+  "B_deadline_scope": {
+    "seconds": 30,
+    "starts": "B_worker_environment_and_clock_metadata_acquisition",
+    "includes": [
+      "metadata",
+      "three_dense_rounds",
+      "ten_sleep_controls",
+      "within_attempt_statistics_and_decision",
+      "necessary_raw_evidence_persistence"
+    ],
+    "excludes": [
+      "source_preflight",
+      "tool_development_and_sealing",
+      "later_independent_audit",
+      "public_documentation_and_git_publication"
+    ],
+    "timeout_cannot_publish_pass": true,
+    "OS_return_at_exact_deadline_not_guaranteed": true,
+    "after_stop_no_more_calibration_stamps_cpu_samples_or_sleeps": true,
+    "necessary_final_wall_control_reads_separately_recorded": true
+  },
+  "new_B_plan_requirements": {
+    "maximum_formal_attempts_per_future_approved_plan": 1,
+    "V67_reservation_not_reusable": true,
+    "launch_failure_cancel_timeout_consume_attempt": true,
+    "seal_and_push_before_new_tests": true,
+    "publish_fake_acceptance_before_live": true,
+    "estimate_before_confirmation": true,
+    "current_measurement_authorized": false,
+    "new_runtime_estimate_seconds": null,
+    "attempt_limit_scope": "new_standalone_B_gate_plan_only; later_D_56_checks_require_separate_plan_and_authorization"
+  },
+  "ETW_hold": {
+    "admitted_to_original_CPU_B": false,
+    "complete_execution_protocol_defined": false,
+    "necessary_requirements": [
+      "identity_lifecycle_migration_query_marker_coverage",
+      "raw_clock_and_frequency_exact_conversion",
+      "endpoint_alignment_and_same_timestamp_ambiguity_rules",
+      "duplicate_ready_and_reorder_reconstruction",
+      "appropriate_loss_counters_and_provider_coverage",
+      "DPC_ISR_and_delegated_work_accounting",
+      "synthetic_reconstruction_failure_cases",
+      "new_semantics_capability_and_perturbation_acceptance"
+    ],
+    "missing": [
+      "concrete_event_design_and_alignment_uncertainty_gate",
+      "coverage_and_loss_evidence",
+      "actual_perturbation_evidence",
+      "event_specific_coverage_acceptance_rules",
+      "event_specific_perturbation_protocol_and_threshold_mapping"
+    ],
+    "q_CPU_increment_gate_not_applicable_to_scheduler_intervals": true,
+    "original_1ms_goal_not_relaxed": true,
+    "original_local_perturbation_budget_retained_as_upper_level_constraint": true,
+    "original_CPU_C_D_not_complete_ETW_protocol": true
+  },
+  "conditions_after_B": {
+    "no_C_before_B_pass": true,
+    "no_D_before_C_pass": true,
+    "C_D_not_scheduled": true,
+    "same_environment_required_for_all_O_D_and_decoders": true,
+    "no_cross_platform_pairing": true,
+    "no_historical_wait_backfill": true,
+    "V46_adoption_requires_separate_uninstrumented_cold_entry_evidence": true
+  },
+  "next_step": "先明定是否接受另定環境及具體平台/runtime/接入範圍；可接受才另行準備adapter與合成案例封存計畫，不直接啟動B。",
+  "documentary_review": {
+    "V62_V66_static_review": "passed_after_clarifying_metadata_attempt_scope_and_C_trial_counts",
+    "independent_ETW_review": "passed_after_explicit_event_specific_coverage_and_perturbation_rules_gap",
+    "validation_kind": "static_document_and_data_consistency_only",
+    "new_tests_executed": 0,
+    "new_measurements": 0,
+    "static_consistency": {
+      "local_descriptor_checks": 18,
+      "unique_bound_files": 12,
+      "inherited_V62_sections_exact_match": 7,
+      "original_A_categories_exact_match": 16,
+      "new_A_requirement_families": 7,
+      "V66_stop_rules_exact_match": 11,
+      "V66_deadline_exact_match": true,
+      "registered_sources": 17,
+      "document_links_checked": 26,
+      "frozen_V62_V68_unchanged": true
+    }
+  }
+}
