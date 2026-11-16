@@ -13,7 +13,7 @@
 
 ## Stage 12｜K1全量反讀方法與責任提案（最新）
 
-V73只讀提出Windows／V2完整骨架＋V4精確核心的待評估組合及10項接入差異；fresh DB、同run恢復、順序prefix掃描及原global／draw完成單元明列。尚未新增全量入口、工具或驗收，接著整理階段與責任。[本輪提案](STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
+V73只讀提出Windows／V2完整骨架＋V4精確核心及10項接入差異，完成11階段、8個正常來源核對位置、8種恢復／停止分支。明確分開worker內容驗算、supervisor鎖內最終化、publisher證據反核及外部停態封存；尚未新增全量入口、工具或驗收。[本輪提案](STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
 
 ## Stage 12｜K1成本、來源與恢復證據對照
 

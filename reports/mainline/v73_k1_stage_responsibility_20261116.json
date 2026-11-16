@@ -1,0 +1,441 @@
+{
+  "schema": "v73_K1_documentary_stage_boundaries_and_responsibility",
+  "date": "2026-11-16",
+  "status": "documentary_responsibility_specification_not_implemented",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "reports/mainline/v73_k1_method_proposal_20261116.json",
+      "bytes": 12238,
+      "sha256": "4d7ba0c4f5330f82125814d58a71cb3023cc6d100159da9779778de1c0643a1d"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_readback_v2.json",
+      "bytes": 3310,
+      "sha256": "86b713d330091dfeb7e527102425369dc96704b312bf6604b1de1607953c9243"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v4.py",
+      "bytes": 19252,
+      "sha256": "a84e8a782fdc0234e633d2b2f18e1f4755865eda9f0b590411e26fdd776258d6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_v34.py",
+      "bytes": 16272,
+      "sha256": "7ddcedd4e442c42dbe16d3ab68cc94130e1e8f72a4b686a0513757e78090a08f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_publication_v39.py",
+      "bytes": 14108,
+      "sha256": "2f1bfd83ec19c5e7964cc2006e3dd4bb97cc5bc87cf92c477223f581b004c664"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md",
+      "bytes": 8658,
+      "sha256": "29ec4cdffed5b27b9efe84d5c8df739b49ac4b9709ab180de6e9824ab5a1bb7a"
+    },
+    {
+      "path": "docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md",
+      "bytes": 15834,
+      "sha256": "9b6eb4533b3a3991e7c981700145629b29507528fe9fc8e4bb591e9064711f58"
+    },
+    {
+      "path": "docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md",
+      "bytes": 10586,
+      "sha256": "becf381d729a60f154dca9e76a1d68de4cb777537180aa57f69fb819a67f968c"
+    }
+  ],
+  "method_proposal_commit": "1869c58",
+  "proposal_method": "V2_full_readback_and_CheckpointStore_with_V4_exact_SQL_and_terms",
+  "phases": [
+    {
+      "id": "P0",
+      "name": "admission",
+      "owner": "new_orchestrator",
+      "inputs": "frozen_scientific_method_runtime_authority_gates_budget",
+      "outputs": "new_request_and_binding",
+      "boundary": "no_execution_until_deadline_and_total_budget_frozen",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P1",
+      "name": "open_lock_recover",
+      "owner": "independent_worker_with_CP",
+      "inputs": "same_run_request_binding_sources_and_existing_chain",
+      "outputs": "validated_committed_prefix_and_stage_state",
+      "boundary": "create_open_writer_recover_source_calls_counted_in_context",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P2",
+      "name": "independent_database",
+      "owner": "independent_worker",
+      "inputs": "allowed_raw_roles_original_train_references_or_same_run_seal",
+      "outputs": "closed_integrity_checked_sealed_DB_and_model_receipt",
+      "boundary": "fresh_first_run_or_same_run_verified_seal_only",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P3",
+      "name": "query_setup_and_prefix_scan",
+      "owner": "independent_worker",
+      "inputs": "model_context_original_seven_streams_valid_committed_prefix",
+      "outputs": "next_original_query_and_attempt_local_context",
+      "boundary": "reset_metric_cache_readonly_immutable_DB_TEMP_MEMORY_sequential_scan",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P4",
+      "name": "remaining_query_checks_and_append",
+      "owner": "independent_worker",
+      "inputs": "original_order_four_arm_sources_and_context",
+      "outputs": "fully_checked_payloads_appended_then_committed_at_safe_boundaries",
+      "boundary": "verify_contains_rank_append_contains_encoding_writes_and_commits",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P5",
+      "name": "EOF_tail_queries_seal",
+      "owner": "independent_worker",
+      "inputs": "all_original_paired_streams_and_ledger",
+      "outputs": "full_166897_queries_EOF_stage_and_closed_query_DB",
+      "boundary": "tail_flush_not_duplicate_of_P4_commits",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P6",
+      "name": "global_and_original_bootstrap_unit",
+      "owner": "independent_worker",
+      "inputs": "full_verified_ledger_original_aggregate_and_draws",
+      "outputs": "consistent_global_and_bootstrap_seals",
+      "boundary": "load_context_Fold_original_check_bootstrap_aggregate_two_seals_in_original_order",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P7",
+      "name": "candidate_and_worker_shutdown",
+      "owner": "independent_worker",
+      "inputs": "complete_chain_all_required_stages_and_sources",
+      "outputs": "candidate_closed_handles_released_lock_then_worker_exit",
+      "boundary": "candidate_not_success_cleanup_and_source_checks_counted",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P8",
+      "name": "observed_exit_and_CP_finalization",
+      "owner": "independent_supervisor",
+      "inputs": "actual_normal_exit_candidate_full_chain_and_stage_receipts",
+      "outputs": "CP_run_acceptance",
+      "boundary": "versioned_finalize_preserves_CP_rules_and_checks_queries_under_same_supervisor_writer_lock_before_acceptance_commit",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P9",
+      "name": "independent_publication_proof",
+      "owner": "new_readonly_publisher",
+      "inputs": "raw_request_binding_candidate_CP_acceptance_chain_stages_and_outputs",
+      "outputs": "raw_evidence_consistency_proof_closed_logs_and_publisher_exit",
+      "boundary": "no_second_query_ranking_or_numeric_global_draw_replay",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    },
+    {
+      "id": "P10",
+      "name": "stopped_seal_and_public_delivery",
+      "owner": "external_finalizer",
+      "inputs": "all_internal_writers_stopped_closed_logs_P9_proof_and_complete_file_set",
+      "outputs": "external_manifest_seal_and_public_completion",
+      "boundary": "no_self_hash_cycle_no_write_back_into_closed_namespace",
+      "implementation_status": "existing_primitives_new_full_adapter_pending"
+    }
+  ],
+  "normal_phase_order": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9",
+    "P10"
+  ],
+  "source_verification_calls": [
+    {
+      "id": "H1",
+      "phase": "P1",
+      "call": "worker_create_or_open_check_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H2",
+      "phase": "P1",
+      "call": "worker_writer_force_check_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H3",
+      "phase": "P7",
+      "call": "write_candidate_complete_checks_force_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H4",
+      "phase": "P8",
+      "call": "independent_supervisor_open_check_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H5",
+      "phase": "P8",
+      "call": "finalize_supervisor_writer_force_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H6",
+      "phase": "P8",
+      "call": "finalize_complete_checks_force_sources",
+      "evidence": "existing_CP"
+    },
+    {
+      "id": "H7",
+      "phase": "P9",
+      "call": "publisher_before_proof_full_binding_verification",
+      "evidence": "new_adapter_pending"
+    },
+    {
+      "id": "H8",
+      "phase": "P9",
+      "call": "publisher_after_proof_full_binding_verification",
+      "evidence": "new_adapter_pending"
+    }
+  ],
+  "source_pass_policy": {
+    "normal_fresh_path_positions": 8,
+    "existing_CP_positions": 6,
+    "new_publisher_positions": 2,
+    "all_paths_always_eight": false,
+    "P0_no_implicit_extra_full_scientific_pass": true,
+    "P10_no_implicit_ninth_full_scientific_pass": true,
+    "stage_artifacts_ledger_chain_and_stopped_manifest_are_separate_sets": true,
+    "no_continuous_external_source_mutation_detection_claim": true
+  },
+  "queries_completion_guard": {
+    "required_stages": [
+      "reconstruction",
+      "queries",
+      "global",
+      "bootstrap"
+    ],
+    "default_CP_queries_presence_is_not_full_semantic_proof": true,
+    "new_P8_guard_pending": [
+      "same_run_identity",
+      "same_complete_ledger_identity",
+      "queries_exact_166897",
+      "paired_streams_eof_checked_is_true"
+    ],
+    "publisher_rechecks_consistency": true,
+    "locking": "same_supervisor_writer_lock_after_complete_chain_checks_before_acceptance_commit",
+    "bound_to_same_finalize_inputs": [
+      "run",
+      "ledger",
+      "stage",
+      "candidate"
+    ],
+    "existing_CP_has_injectable_guard": false,
+    "frozen_CP_modified_this_round": false
+  },
+  "recovery_branches": [
+    {
+      "id": "B0",
+      "condition": "fresh_new_run",
+      "entry_or_replay_path": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "rule": "no_old_partial_or_engineering_prefix"
+    },
+    {
+      "id": "B1",
+      "condition": "unsealed_reconstruction",
+      "entry_or_replay_path": [
+        "P1",
+        "P2"
+      ],
+      "rule": "preserve_incomplete_DB_before_fresh_rebuild"
+    },
+    {
+      "id": "B2",
+      "condition": "valid_committed_query_prefix",
+      "entry_or_replay_path": [
+        "P1",
+        "P3",
+        "P4",
+        "P5",
+        "P6"
+      ],
+      "rule": "recompute_uncommitted_tail_no_repair_of_committed_corruption"
+    },
+    {
+      "id": "B3",
+      "condition": "incomplete_global_draw_unit",
+      "entry_or_replay_path": [
+        "P1",
+        "P3",
+        "P5",
+        "P6"
+      ],
+      "rule": "entire_P6_replay_validate_existing_partial_seals_no_draw_checkpoint"
+    },
+    {
+      "id": "B4",
+      "condition": "orphan_candidate_without_normal_exit",
+      "entry_or_replay_path": [
+        "P1",
+        "P3",
+        "P5",
+        "P6",
+        "P7"
+      ],
+      "rule": "supersede_preserve_old_candidate_after_death_check_no_old_exit_code_reuse"
+    },
+    {
+      "id": "B5",
+      "condition": "normal_exit_recorded_CP_finalization_missing",
+      "entry_or_replay_path": [
+        "P8"
+      ],
+      "rule": "reenter_supervisor_finalize_using_actual_existing_exit_receipt"
+    },
+    {
+      "id": "B6",
+      "condition": "CP_accepted_outer_publication_missing",
+      "entry_or_replay_path": [
+        "P9",
+        "P10"
+      ],
+      "rule": "only_remaining_publication_no_scientific_worker_restart"
+    },
+    {
+      "id": "B7",
+      "condition": "complete_or_expired_or_integrity_failure",
+      "entry_or_replay_path": [],
+      "rule": "readonly_if_complete_otherwise_stop_preserve_no_auto_retry_or_budget_reset"
+    }
+  ],
+  "completion_order": [
+    "worker_candidate",
+    "actual_normal_worker_exit",
+    "CP_run_acceptance",
+    "publisher_proof_and_exit",
+    "all_internal_writers_stopped",
+    "external_final_seal_and_public_completion"
+  ],
+  "acceptance_ownership": {
+    "scientific_query_global_original_draw_verification": "independent_worker_relative_to_production",
+    "normal_exit_and_complete_run_checks": "independent_supervisor",
+    "raw_persisted_evidence_chain_proof": "separate_publisher_not_second_scientific_oracle",
+    "stopped_file_set_and_public_delivery": "external_finalizer"
+  },
+  "accounting": {
+    "phase_table_is_not_existing_11_timers": true,
+    "new_clock_calls_this_round": 0,
+    "outer_scope": "admission_through_external_finalizer_and_required_waits_recovery",
+    "nested_phases_and_source_passes_not_additive_with_parents": true,
+    "supervisor_monitoring_overlap_not_added_to_worker_wall": true,
+    "startup_shutdown_and_unknown_residuals_retained": true,
+    "signed_clock_bridge_not_clamped": true,
+    "restart_episodes_and_downtime_keep_same_absolute_and_cumulative_budget": true,
+    "control_budget_and_final_seals_outside_closed_namespace": true,
+    "new_full_T_plan": null,
+    "new_deadline": null,
+    "new_total_budget": null
+  },
+  "non_actions": [
+    "no_new_entry_or_fixture",
+    "no_second_166897_rank_pass",
+    "no_extra_global_draw_numeric_replay_by_publisher",
+    "no_V32_generic_repair",
+    "no_indexed_resume",
+    "no_Linux_or_1ms_prerequisite"
+  ],
+  "difference_ids": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "D8",
+    "D9"
+  ],
+  "future_gate_status": {
+    "synthetic_integration_and_fault_acceptance": "not_implemented_not_run",
+    "full_cost_resource_plan": "insufficient_evidence",
+    "full_scientific_acceptance": "not_run",
+    "research_handoff": "not_complete"
+  },
+  "full_execution_enabled": false,
+  "T_plan": null,
+  "reserved_test": "locked",
+  "review": {
+    "status": "independent_stage_responsibility_static_review_passed",
+    "direct_source_descriptors": 10,
+    "method_step_source_descriptors": 28,
+    "total_descriptor_checks": 38,
+    "unique_bound_files": 31,
+    "normal_phases": 11,
+    "source_positions": 8,
+    "recovery_branches": 8,
+    "difference_ids_matched": 10,
+    "phase_and_recovery_references_valid": true,
+    "locked_queries_guard_explicit": true,
+    "document_links_verified": 18,
+    "frozen_methods_results_and_step1_receipt_unchanged": true,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}

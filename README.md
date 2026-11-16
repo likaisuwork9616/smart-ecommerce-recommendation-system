@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V72成本／來源／恢復證據對照完成 | 主要166,897列validation與2,000列bootstrap已產出；完整獨立驗收未完成，已分可沿用／重疊／未知；全量方法與T_plan仍未知，先不裝Linux |
+| Stage 12：session-kNN K1 | V73具體方法與責任提案完成 | 主要166,897列validation與2,000列bootstrap已產出；已提V2完整骨架＋V4核心，列10項差異／11階段，尚未接入驗收；T_plan未知，先不裝Linux |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,9 +33,11 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜K1全量反讀待評估方法（最新）
 
-V73依V72提出具體組合：Windows與歷史runtime相容目標，以V2完整反讀／CheckpointStore為骨架，接入V4精確SQL與指標計算，保留frozen exact。首次建立新run獨立DB，重啟僅用該run有效seal與ledger；來源定位先保留逐序掃描，global與原2,000 draws維持同一完成單元。已列10項接入差異，尚未實作／驗收；現有V4最多64筆及工程48筆入口限制不解除。接著列階段邊界與驗收責任。全量仍關閉、T_plan仍null，不裝Linux、不新增工具／案例／測試／量測或重跑。[方法提案與進度](docs/STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
+V73依V72提出具體組合：Windows與歷史runtime相容目標，以V2完整反讀／CheckpointStore為骨架，接入V4精確SQL與指標計算，保留frozen exact。首次建立新run獨立DB，重啟僅用該run有效seal與ledger；來源定位先保留逐序掃描，global與原2,000 draws維持同一完成單元。已列10項接入差異，尚未實作／驗收；現有V4最多64筆及工程48筆入口限制不解除。
 
-## Stage 12｜K1成本、來源與恢復證據對照
+11個階段已明列起訖、輸入輸出與驗收責任，另列正常路徑8個來源核對位置、8種恢復／停止分支。worker做獨立內容驗算；supervisor確認正常退出並在同一writer鎖內核新queries／EOF guard；publisher反核原證據鏈，外部finalizer停態封存後才公開完成。發布不默默重跑第二次全量排名，CP acceptance也不提前當外層交付成功。下一步先整理最小接入規格與人工案例清單，尚未開始工具準備。全量仍關閉、T_plan仍null，不裝Linux、不新增工具／案例／測試／量測或重跑。[方法提案與責任表](docs/STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
+
+## Stage 12｜K1成本、來源與恢復證據對照（前輪）
 
 V72只查既有紀錄，已完成來源S0–S5、恢復R0–R5及成本C0–C9對照，逐項區分可沿用、範圍重疊與仍未知。原V1輸出是待驗對象，未來完整驗收的方法／runtime／入口尚未選定；V2恢復規則與V5完整工程重建、帳本及EOF證據可作依據，但不能直接接續舊artifact或稱全量科學驗收。V40已有48筆工程入口，V39作後續比較基準不代表正式採用；V32特定日誌補正也不是通用恢復方法。
 
