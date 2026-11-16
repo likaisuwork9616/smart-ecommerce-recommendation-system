@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V68 時鐘限制與後續方案評估完成 | 164個描述核對、7項結論界線／7項缺口、5條路徑；目前保留既有描述，若續問1ms先訂候選來源規格；新增量測0，V46暫不採用 |
+| Stage 12：session-kNN K1 | V69 候選來源官方語義已核對 | 保留1ms目標，17份官方／維護者來源、6類來源篩選；Linux thread clock僅條件候選，ETW另契約；後續驗收規格待固定，新增量測0 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜時鐘能力限制與後續方案（最新）
+## Stage 12｜候選觀測來源可行性規格（最新）
+
+V69依V68保留原 **1ms目標與同一thread的user＋kernel CPU時長**，核對17份官方／維護者一手文件，整理6類來源。既有Windows GetThreadTimes語義相符但沒有新能力證據；Linux CLOCK_THREAD_CPUTIME_ID列為須另定平台的條件候選，未宣稱較準。cycles、整個process CPU及wall timestamp不能直接替代原量；ETW排程區間須另訂事件契約。
+
+文件層篩選已完成獨立審閱，接著固定版本／計帳／缺失與受影響A／B／C／D條件。**目前沒有候選通過實機驗收，也未選定可執行的新平台**。本輪不實作工具、不探測環境、不讀新clock metadata，新增量測／測試／C／D／原48筆均0；V67仍未確認，V46暫不採用。[官方來源、語義與限制](docs/STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md)
+
+## Stage 12｜時鐘能力限制與後續方案
 
 V68 只讀V67既有紀錄，**164個唯一檔案描述全數相符**，並從raw重算片段統計；整理7項可支持／不可延伸的結論及7項證據缺口。V67原先163個描述保持原樣，本輪多核對其獨立反讀腳本。正式狀態仍是能力未確認：完整輪0／3、sleep 0／10；末點bracket 0.2273ms超過0.1ms，片段p99雖僅0.0026ms仍不能抵銷max門檻。
 

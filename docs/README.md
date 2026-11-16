@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜時鐘能力限制與後續方案（最新）
+## Stage 12｜候選觀測來源可行性規格（最新）
+
+V69保留原1ms與thread CPU目標，核對17份官方／維護者來源及6類候選。Linux thread clock僅條件候選，ETW另契約，cycles／process／wall不直接替CPU；沒有新能力結果，後續驗收條件接著固定。不新增量測／測試／C／D或原48筆。[官方語義與候選限制](STAGE12_KNN_OBSERVATION_SOURCES_V69_20261116.md)
+
+## Stage 12｜時鐘能力限制與後續方案
 
 V68唯讀核對164個來源／證據描述，整理7項結論界線與7項缺口。V67仍能力未確認；低片段p99不能抵銷max失敗，partial CPU推進與單次收尾時間不能當完整能力或C／D成本。五條後續路徑已評估：目前保留既有描述，若維持1ms目標則建議先訂候選來源可行性規格。本輪不新增量測／測試／C／D或原48筆。[證據矩陣、缺口與方案](STAGE12_KNN_CLOCK_LIMITS_V68_20261116.md)
 

@@ -1,0 +1,380 @@
+{
+  "schema": "v69_observation_source_documentary_review",
+  "date": "2026-11-16",
+  "status": "documentary_screening_only",
+  "scope": {
+    "target_difference_ns": 1000000,
+    "original_thread_cpu_quantity_retained": true,
+    "new_clock_reads": 0,
+    "new_clock_metadata_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_B_attempts": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "trace_sessions_started": 0,
+    "environment_probes": 0,
+    "new_measurement_authorized": false,
+    "adopt_v46": false,
+    "reserved_test": "locked"
+  },
+  "local_source_bindings": [
+    {
+      "path": "docs/STAGE12_KNN_CLOCK_LIMITS_V68_20261116.md",
+      "bytes": 15005,
+      "sha256": "2efd727676cd6eafe6641ef93947acb9e9362c3d391cd401ceea1cce13de984d"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v68_clock_followup_options_20261116.json",
+      "bytes": 7021,
+      "sha256": "3f0c0181ddf56b2e79595a38e292f824bcb1d52f228b2fb65601855e848d3772"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v68_clock_limits_evidence_20261116.json",
+      "bytes": 38940,
+      "sha256": "e6c4c13d7913de4634b228ef1d089ae1553ea7deb4b25e849c12de5a7efb103a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v62_wall_cpu_specification_20261116.json",
+      "bytes": 10360,
+      "sha256": "e7c356265b7e917a5171d230e41e9e457fa118775f12222dd8edfd1b1690c190"
+    },
+    {
+      "path": "docs/STAGE12_KNN_WALL_CPU_SPEC_V62_20261116.md",
+      "bytes": 18684,
+      "sha256": "c93fb3e55dfd6817cfbfd8b3d8cc7ec4e1d749d17b4c0fbaae0358ba18d66075"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v66_clock_calibration_plan_20261116.json",
+      "bytes": 7377,
+      "sha256": "496da0b3093263990047db0e42108086ae914fc33ccef622913a29f19286f97f"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v67_clock_result_20261116.json",
+      "bytes": 5035,
+      "sha256": "fba1554a0e29ae6634e06fefe018e3581f76ab57d68d011ed5b87b756ff43ec0"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_decision_v65.py",
+      "bytes": 32279,
+      "sha256": "5997653a52125c96e2717fe9643040f9cfd02c0c367f6e53b41e3fee9fa14ff5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_clock_capability_v67.py",
+      "bytes": 5458,
+      "sha256": "bb2e1cae66760139aa39f2c49b051c70233e80e389058f0b1916310c4129d1f0"
+    },
+    {
+      "path": "shop-mysql-runtime/verification/v67-B-4826fc569f984b03a277cbf8b57950cc/outcome.json",
+      "bytes": 9226969,
+      "sha256": "2ad183c8d79a06382d2d5864b18d9d6026e1545e70d4c1f977b9b47cac9f31b0"
+    }
+  ],
+  "version_context": {
+    "saved_V67_python_version": "3.12.10",
+    "source": "saved_V67_outcome_not_live_probe",
+    "python_documentation_page_version": "3.12.16",
+    "implementation_source_tag": "v3.12.10",
+    "actual_new_runtime_binary_checked": false
+  },
+  "official_or_maintainer_sources": [
+    {
+      "id": "O01",
+      "title": "Python 3.12 time",
+      "url": "https://docs.python.org/3.12/library/time.html",
+      "authority": "Python官方文件；本次頁面標示3.12.16",
+      "locator": "perf_counter_ns; thread_time_ns; process_time_ns; clock_gettime_ns; CLOCK_THREAD_CPUTIME_ID",
+      "paraphrase": "區分wall、當前thread與process CPU；ns回傳不改變計帳範圍，clock_gettime_ns有平台可用性限制。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O02",
+      "title": "CPython v3.12.10 timemodule.c",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/Modules/timemodule.c",
+      "authority": "CPython官方tag v3.12.10",
+      "locator": "_PyTime_GetThreadTimeWithInfo; Windows與CLOCK_THREAD_CPUTIME_ID分支",
+      "paraphrase": "Windows分支使用GetThreadTimes；符合編譯條件的clock_gettime分支使用CLOCK_THREAD_CPUTIME_ID；未核對本機binary。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O03",
+      "title": "Linux man-pages clock_getres(2)",
+      "url": "https://man7.org/linux/man-pages/man2/clock_gettime.2.html",
+      "authority": "Linux man-pages維護者一手文件",
+      "locator": "DESCRIPTION: CLOCK_THREAD_CPUTIME_ID; ERRORS",
+      "paraphrase": "Linux thread clock計該thread CPU；resolution依implementation；clockid錯誤有錯誤回傳，文件不是本機能力校準。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O04",
+      "title": "GetThreadTimes",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getthreadtimes",
+      "authority": "Microsoft官方",
+      "locator": "Parameters; Return value; Remarks",
+      "paraphrase": "指定thread的kernel/user duration以100ns單位表示；需query handle權限，原生BOOL回0表示失敗，不代表CPU duration為零；creation/exit與CPU duration不可混用。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O05",
+      "title": "QueryThreadCycleTime",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/realtimeapiset/nf-realtimeapiset-querythreadcycletime",
+      "authority": "Microsoft官方",
+      "locator": "CycleTime; Remarks",
+      "paraphrase": "thread user/kernel cycles；官方不允許據此轉elapsed time，不能以CPU或QPC頻率變成原CPU時長。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O06",
+      "title": "GetProcessTimes",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes",
+      "authority": "Microsoft官方",
+      "locator": "lpKernelTime; lpUserTime; Remarks",
+      "paraphrase": "各thread的kernel/user加總，單位100ns；多核心時可超過elapsed wall，歸屬是process。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O07",
+      "title": "QueryPerformanceCounter",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/profileapi/nf-profileapi-queryperformancecounter",
+      "authority": "Microsoft官方",
+      "locator": "Description; Remarks",
+      "paraphrase": "提供時間區間用高解析timestamp counts；不是thread CPU記帳來源。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O08",
+      "title": "QueryPerformanceFrequency",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/profileapi/nf-profileapi-queryperformancefrequency",
+      "authority": "Microsoft官方",
+      "locator": "Description; Remarks",
+      "paraphrase": "提供QPC每秒counts；頻率屬QPC，不能拿來換算QueryThreadCycleTime。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O09",
+      "title": "CPU Analysis",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/test/wpt/cpu-analysis",
+      "authority": "Microsoft官方",
+      "locator": "CPU Usage (Precise); CPU Usage / Ready / Waits columns",
+      "paraphrase": "Precise由context-switch資料推得時間線，CPU Usage為切出減切入，與直接讀取thread CPU累計不是同一契約。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O10",
+      "title": "CSwitch class",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/cswitch",
+      "authority": "Microsoft官方",
+      "locator": "Properties; Remarks",
+      "paraphrase": "事件有新舊thread與狀態／wait reason，事件量大；不是query邊界的直接CPU duration。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O11",
+      "title": "ReadyThread class",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/readythread",
+      "authority": "Microsoft官方",
+      "locator": "TThreadId; Flag",
+      "paraphrase": "TThreadId為被設為ready者；特定換入條件可能再有ready事件，不假定一對一。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O12",
+      "title": "cswitch analysis",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/test/wpt/cswitch",
+      "authority": "Microsoft官方",
+      "locator": "Options: -exc_dpcisr",
+      "paraphrase": "可排除DPC/ISR，但需DPC/interrupt tracing，候選須固定中斷歸屬。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O13",
+      "title": "WNODE_HEADER",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/etw/wnode-header",
+      "authority": "Microsoft官方",
+      "locator": "ClientContext=1; PerfFreq",
+      "paraphrase": "QPC模式event timestamp對應QPC API，換算依trace PerfFreq；不可混clock或epoch。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O14",
+      "title": "EVENT_TRACE_LOGFILEW",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntrace/ns-evntrace-event_trace_logfilew",
+      "authority": "Microsoft官方",
+      "locator": "PROCESS_TRACE_MODE_RAW_TIMESTAMP; EventsLost",
+      "paraphrase": "consumer預設轉system time，raw flag保留原格式；此結構EventsLost未使用，不能以其零值證無loss。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O15",
+      "title": "EVENT_TRACE_PROPERTIES",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntrace/ns-evntrace-event_trace_properties",
+      "authority": "Microsoft官方",
+      "locator": "EventsLost; LogBuffersLost; RealTimeBuffersLost",
+      "paraphrase": "提供session事件與buffer loss統計；要按session模式保存適用值，不把未知當零。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O16",
+      "title": "PEVENT_RECORD_CALLBACK",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntrace/nc-evntrace-pevent_record_callback",
+      "authority": "Microsoft官方",
+      "locator": "Remarks: event ordering",
+      "paraphrase": "官方列有事件亂序情況；需固定重建順序，不直接使用callback到達順序。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    },
+    {
+      "id": "O17",
+      "title": "StartTraceW",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/evntrace/nf-evntrace-starttracew",
+      "authority": "Microsoft官方",
+      "locator": "Remarks: security; system logger",
+      "paraphrase": "session及kernel logger有不同控制權限／限制；需事前固定session與權限計畫，本輪不探測。",
+      "review_date": "2026-11-16",
+      "live_page_reviewed": true,
+      "full_text_archived": false
+    }
+  ],
+  "unavailable_sources_not_used": [
+    {
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/functions/clock_gettime.html",
+      "reason": "HTTP 403"
+    },
+    {
+      "url": "https://pubs.opengroup.org/onlinepubs/9699919799/functions/clock_getres.html",
+      "reason": "HTTP 403"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "WALL",
+      "sources": [
+        "O01",
+        "O07",
+        "O08"
+      ],
+      "quantity": "elapsed_wall",
+      "scope": "elapsed_interval",
+      "unit": "ns_or_QPC_counts_with_QPF",
+      "disposition": "wall_reference_only",
+      "measurement_passed": false
+    },
+    {
+      "id": "WIN_THREAD",
+      "sources": [
+        "O01",
+        "O02",
+        "O04"
+      ],
+      "quantity": "thread_user_plus_kernel_cpu_duration",
+      "scope": "same_target_thread",
+      "unit": "ns_or_100ns_units",
+      "disposition": "baseline_semantically_compatible_not_new_capability",
+      "measurement_passed": false
+    },
+    {
+      "id": "LINUX_THREAD",
+      "sources": [
+        "O01",
+        "O02",
+        "O03"
+      ],
+      "quantity": "thread_user_plus_system_cpu_duration",
+      "scope": "same_current_thread",
+      "unit": "integer_ns",
+      "disposition": "conditional_same_quantity_candidate_requires_separate_platform",
+      "measurement_passed": false
+    },
+    {
+      "id": "WIN_CYCLES",
+      "sources": [
+        "O05"
+      ],
+      "quantity": "thread_cpu_cycles",
+      "scope": "target_thread",
+      "unit": "cycles",
+      "disposition": "rejected_as_thread_cpu_duration",
+      "measurement_passed": false
+    },
+    {
+      "id": "PROCESS",
+      "sources": [
+        "O01",
+        "O06"
+      ],
+      "quantity": "all_process_threads_cpu_duration",
+      "scope": "process",
+      "unit": "ns_or_100ns_units",
+      "disposition": "rejected_scope_mismatch",
+      "measurement_passed": false
+    },
+    {
+      "id": "ETW_SCHED",
+      "sources": [
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17"
+      ],
+      "quantity": "scheduler_state_intervals",
+      "scope": "event_reconstruction_for_identified_thread",
+      "unit": "raw_trace_timestamp_plus_declared_conversion",
+      "disposition": "conditional_event_design_not_drop_in_cpu",
+      "measurement_passed": false
+    }
+  ],
+  "inference_limits": [
+    "文件語義篩選不等於實機精度／開銷驗收",
+    "本輪非全API窮盡搜尋",
+    "同名API或ns單位不保證同implementation或推進量",
+    "Linux候選未代表平台已可用或較準",
+    "ETW Precise不等同原thread CPU契約",
+    "V67仍未確認且一次額度用完"
+  ],
+  "next_step": "固定來源保存契約及後續A/B/C/D條件；本輪不執行",
+  "documentary_review": {
+    "source_scope_review": "passed",
+    "independent_ETW_review": "passed",
+    "new_tests_run": 0,
+    "new_measurements_run": 0
+  }
+}
