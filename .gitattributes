@@ -627,3 +627,10 @@ reports/stage12/retailrocket_session_knn_v58_evidence_inventory_*.json -text whi
 scripts/*retailrocket_session_knn_entry_load_v59.py text eol=lf
 tests/test_retailrocket_session_knn_entry_load*_v59.py text eol=lf
 reports/stage12/retailrocket_session_knn_v59_entry_load_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V60 saved coarse-phase overlap rules and evidence.
+scripts/*retailrocket_session_knn_phase_coverage_v60.py text eol=lf
+scripts/retailrocket_session_knn_coarse_phases_v60.py text eol=lf
+tests/test_retailrocket_session_knn_*coverage*_v60.py text eol=lf
+tests/test_retailrocket_session_knn_coarse_phases_v60.py text eol=lf
+reports/stage12/retailrocket_session_knn_v60_phase_coverage_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

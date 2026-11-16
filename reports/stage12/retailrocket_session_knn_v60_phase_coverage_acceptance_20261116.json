@@ -1,0 +1,195 @@
+{
+  "status": "v60_coarse_coverage_tools_accepted",
+  "methods": [
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_phase_coverage_v60.py",
+      "bytes": 11492,
+      "sha256": "0ee277aff39fa28c2e5de49b442f61e3fd923e8c5efab3f45c1576dbfcd2f8f8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_phase_coverage_v60.py",
+      "bytes": 7042,
+      "sha256": "479223d1ed910fdd38fc4d68801283db88ae63b40d69b48efda3652e9b97fa78"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_coarse_phases_v60.py",
+      "bytes": 3883,
+      "sha256": "6aca5c31fbbbfb1105dd034c35c7135c82a26cac1e288b9475afeb1ed678965c"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_phase_coverage_v60.py",
+      "bytes": 9682,
+      "sha256": "083274d02c226de071de1cdf388074e0184b5f616c1adf35c223dccca3652a7b"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_coarse_phases_v60.py",
+      "bytes": 5672,
+      "sha256": "c0e949137a71a7535d40cbef1d1f54fa64732e7d6a0f7aaab2a89eb6d0c8e741"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_phase_coverage_analysis_v60.py",
+      "bytes": 4438,
+      "sha256": "c5c4162fbe76f9afc6739e2a6d52f6aed087559847dd8d347865ef141f7d233f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_phase_accounting_v49.py",
+      "bytes": 11661,
+      "sha256": "f054f16d09522b8acf6640f6530819a21a025bb0524ec205dcc56741d3c55631"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_phase_accounting_v49.py",
+      "bytes": 9778,
+      "sha256": "7e0ef8d19cdae0ca558bfa312eee8500c81b8c4813ae6a499d613e9e60778a9c"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v58_evidence_inventory_20261116.json",
+      "bytes": 7029,
+      "sha256": "2af4bb27f73ffdd4ee9beb2efba72a6f1d8c48bf999f0fd14a74fa408f2a6486"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v47_cold_result_20261112.json",
+      "bytes": 291120,
+      "sha256": "3ff9aa0eceb8e2ae79c02549953aad91f95fe8a3a3c9d5785a095b5d02a84ecd"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reinforcement_v18.py",
+      "bytes": 30116,
+      "sha256": "faf153424ad46bacb0387ce1c6f94c46136cc268b409b03d887b72011c40ad8a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_compare_v28.py",
+      "bytes": 15598,
+      "sha256": "ad3fd992475cb29d06539adc299319df953fc1ee2cda5d2628750cad906833ea"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cold_v47.py",
+      "bytes": 14596,
+      "sha256": "35a437ac1b632228f139b0d03156a7206c013ec47c26d3acf5997a4b75ca9846"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost_window_v5.py",
+      "bytes": 7807,
+      "sha256": "d4424a2cd7591e7a3dfd8b5757be235e66ccf05244fa92bff4eae71774110070"
+    },
+    {
+      "path": "scripts/analyze_retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 11397,
+      "sha256": "d8daf78963be84dbd1e38a553519ab3d863a0b5f6464edee8d39214d366c5488"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 11986,
+      "sha256": "17fa2209115bddc7326c6436cb1c6d3ffadffb4489b633d161b64a335bea4322"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_load_v59.py",
+      "bytes": 9646,
+      "sha256": "c22c8d7e7d9157ea138a826439b857ecdd01d3b7028b66605d5658a73f7005f2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_load_analysis_v59.py",
+      "bytes": 6721,
+      "sha256": "61839cabfa5d7a6b83087ba38f65c2ed860df2f49e746fb64098b0594bd5cf01"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v59_entry_load_acceptance_20261116.json",
+      "bytes": 5995,
+      "sha256": "e47dda71a927a004eab7a1151fbfb320bf6374bcd0a2f2bff0f949d404d34208"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v59_entry_load_analysis_20261116.json",
+      "bytes": 198170,
+      "sha256": "1adee63a5807d89b98dae167891183a873d892608a6f33584eab49cdab8e586a"
+    }
+  ],
+  "suites": [
+    "tests.test_retailrocket_session_knn_phase_coverage_v60",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60"
+  ],
+  "tests_run": 26,
+  "passed_tests": [
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_back_to_back_captures_have_no_confirmed_interior_duration",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_capture_hull_crossing_excludes_nominally_contained_interval",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_capture_hull_only_overlap_is_retained_but_not_coverage",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_conservation_counts_durations_and_crossing_intervals",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_count_and_half_share_gates_use_unrounded_integer_arithmetic",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_duplicate_sequence_restart_and_resource_fields_are_rejected",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_equal_boundaries_are_contained_and_touch_is_not_overlap",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_full_nominal_coverage_is_not_enough_without_two_contained_intervals",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_interior_half_share_boundary_excludes_capture_elapsed",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_irregular_gaps_and_partial_sampling_span_are_not_filled",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_nan_boolean_float_negative_and_bad_phase_shapes_are_rejected",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_origin_translation_and_inputs_are_unchanged",
+    "tests.test_retailrocket_session_knn_phase_coverage_v60.PhaseCoverageTests.test_zero_duration_and_phase_outside_sampling_have_distinct_ratios",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_exact_seven_intervals_and_provenance",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_input_is_unchanged_and_output_has_no_raw_metadata",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_missing_duplicate_owner_and_passive_corruption_fail_closed",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_original_diagnostic_and_accounting_must_reconcile",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_post_setup_envelope_is_not_primary_or_full_entry_partition",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_shifted_clock_preserves_original_origin_and_durations",
+    "tests.test_retailrocket_session_knn_coarse_phases_v60.CoarsePhaseTests.test_zero_passive_interval_is_preserved_and_negative_is_rejected",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_absolute_clock_shift_does_not_change_public_coverage",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_all_pairs_keep_failed_arm_and_exclude_warm_from_counts",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_missing_entry_or_phase_is_not_silently_omitted",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_normalization_rejects_boolean_negative_and_nonfinite",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_normalization_uses_ns_and_strips_resource_fields",
+    "tests.test_retailrocket_session_knn_phase_coverage_analysis_v60.CoverageAnalysisTests.test_seven_phases_integrate_without_resource_or_live_calls"
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.05808470000010857,
+  "log": {
+    "path": "shop-mysql-runtime/verification/v60-phase-coverage-acceptance-2f218c6b3c1e40498feb31d3fa52335b/tests.log",
+    "bytes": 5453,
+    "sha256": "0eb6aa0852f4688bdcca5162c23ebafb92aa56ffe8e74deb55fae33d32f55cb5"
+  },
+  "scope": {
+    "windows": [
+      "V47",
+      "V48"
+    ],
+    "formal_pairs": 12,
+    "formal_entries": 24,
+    "phases": [
+      "reference_build",
+      "original_load",
+      "prepare_catalog",
+      "snapshot_cold",
+      "snapshot_pre_use",
+      "post_setup_before_final_guard",
+      "snapshot_final"
+    ],
+    "formal_phase_windows": 168,
+    "warm_entries_separate": 4,
+    "warm_phase_windows_separate": 28,
+    "publisher_contexts_separate": 2,
+    "original_raw_files_rechecked": 120,
+    "minimum_contained_intervals": 2,
+    "minimum_confirmed_interior_share": 0.5,
+    "new_experiments": 0,
+    "new_queries": 0,
+    "new_decodes": 0,
+    "new_training": 0,
+    "reserved_test": "locked",
+    "population": "Previously exposed fixed48 validation engineering records only."
+  }
+}
