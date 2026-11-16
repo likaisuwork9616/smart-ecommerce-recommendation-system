@@ -6,7 +6,7 @@
 
 | 小步驟 | 狀態與實際結果 |
 | --- | --- |
-| 工具與案例 | r1 已封存來源與121個具名案例（49／32／18／22）；獨立靜態審閱完成，先推送 |
+| 工具與案例 | r2 已封存來源與123個具名案例（49／32／18／24）；獨立靜態審閱完成，先推送 |
 | 假時鐘驗收 | 尚未執行；封存案例包含 V63／V65 純資料回歸及三個新 suite |
 | 正式 B | 尚未執行、尚無本輪 clock metadata；必須已封存且假驗收通過並推送 |
 | 結果與唯讀核對 | 待正式 attempt 後保存完整或失敗證據，反讀後發布；不因此補跑 |
@@ -27,7 +27,7 @@ parent 在 Popen 返回後最多等待子程序 30 秒；子程序前置核對�
 
 ## 封存與案例範圍
 
-r1 固定121個具名案例（既有回歸49／collector32／來源接入18／driver22）。方法 manifest 以 AST 列出具名案例及遞迴來源，封存時不 import 案例、不讀本輪 clock metadata。執行前要求 main 與已推送 tracking ref 相同，且 Git 提交內的方法／來源／封存 bytes 與本機一致。假驗收每個 revision 只能一次；失敗保留 receipt，修正必須另版封存推送。
+r2 固定123個具名案例（既有回歸49／collector32／來源接入18／driver24）。方法 manifest 以 AST 列出具名案例及遞迴來源，封存時不 import 案例、不讀本輪 clock metadata。執行前要求 main 與已推送 tracking ref 相同，且 Git 提交內的新方法／封存 bytes 與本機一致。歷史 .md／.py 來源仍先核對原封存 bytes／SHA256，只允許其CRLF正規化為Git的LF後逐byte一致；任何其他內容差異均拒絕。假驗收每個 revision 只能一次；失敗保留 receipt，修正必須另版封存推送。
 
 | 案例群 | 封存前設計範圍 |
 | --- | --- |
@@ -42,12 +42,12 @@ r1 固定121個具名案例（既有回歸49／collector32／來源接入18／dr
 
 ```powershell
 # 封存後先更新 README、commit 並 push main，才允許新假案例執行。
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --freeze --revision 1
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --acceptance --revision 1
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --audit-acceptance --revision 1
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --freeze --revision 2
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --acceptance --revision 2
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --audit-acceptance --revision 2
 # 驗收結果也須 commit／push；以下全 V67 最多一次，失敗不重試。
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --measure --revision 1
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --audit-measure --revision 1
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --measure --revision 2
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_clock_calibration_v67 --audit-measure --revision 2
 ```
 
 實機使用全 V67 唯一的 exclusive reservation，加上 worker exclusive claim；失敗、launch failure、timeout 或跨 revision 都不能重新啟動。原始整數、環境／身分、metadata、control wall、partial captures、完整輸出與 log 僅存 Git 忽略的 `shop-mysql-runtime/verification/`。公開收據只保存相對證據描述、聚合統計與失敗原因，不含原始絕對刻度及程序／執行緒身分。
@@ -55,3 +55,7 @@ r1 固定121個具名案例（既有回歸49／collector32／來源接入18／dr
 唯讀 audit 核對封存、已推送提交、假驗收、reservation／claim、證據雜湊，重算純判定與整關截止，核對 raw prefix、final 判定及公開摘要。audit 不讀新時鐘、不 sleep、不重跑 suite 或 B。raw／final 缺失就明示，不能推測通過。
 
 q 仍只是該窗口的 CPU 推進量篩檢，不是真硬體精度或誤差界；B 即使通過也不代表開銷已驗收，不授權 C／D，不能細分 32／33 的運算與等待，也不構成 V46 採用證據。
+
+## r1 預檢紀錄
+
+r1 已先推送57d8188；新案例執行前的來源Git核對遇到歷史V20文件本機CRLF／Git LF差異而拒絕。當時測試0、fake reservation未建立、B 0次。保留r1 manifest與預檢紀錄，r2只補歷史文字的嚴格換行對照及兩個假案例；先重新封存推送再執行，未試跑校準。

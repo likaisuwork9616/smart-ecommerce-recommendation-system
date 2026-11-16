@@ -172,19 +172,28 @@ def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT)
 
 
-def committed(rows, commit):
+def committed(rows, commit, *, historical_text=False):
     for row in rows:
         data = git('show', f"{commit}:{row['path']}")
         if len(data) != row['bytes'] or hashlib.sha256(data).hexdigest() != row['sha256']:
+            # Old Windows text sources were sealed as CRLF but stored by Git as
+            # LF. Permit only that exact relation for historical inputs; the
+            # local original bytes must still match their old immutable seal.
+            if historical_text and Path(row['path']).suffix in ('.md', '.py'):
+                original = local(row['path']).read_bytes()
+                if (len(original) == row['bytes'] and hashlib.sha256(original).hexdigest() == row['sha256']
+                        and original.replace(b'\r\n', b'\n') == data):
+                    continue
             raise ValueError('Committed bytes differ: ' + row['path'])
 
 
-def published(rows):
+def published(rows, historical_inputs=()):
     head = git('rev-parse', 'HEAD').decode().strip()
     if (git('branch', '--show-current').decode().strip() != 'main' or
             git('rev-parse', 'refs/remotes/origin/main').decode().strip() != head):
         raise ValueError('Current main must match the pushed tracking ref')
     committed(rows, head)
+    committed(historical_inputs, head, historical_text=True)
     return head
 
 
@@ -197,7 +206,7 @@ def test_ids(suite):
 def accept(revision):
     seal, acceptance = names(revision)
     frozen = sealed(revision)
-    commit = published([describe(seal), *frozen['methods'], *frozen['inputs']])
+    commit = published([describe(seal), *frozen['methods']], frozen['inputs'])
     if local(acceptance).exists():
         raise FileExistsError('Acceptance cannot be overwritten')
     folder = PRIVATE + 'v67-fake-' + uuid4().hex
@@ -256,7 +265,8 @@ def audit_acceptance(revision):
     if reservation != dict(seal=value['seal'], commit=value['seal_commit'],
                            folder=Path(value['attempt']['path']).parent.as_posix()):
         raise ValueError('Fake reservation differs')
-    committed([value['seal'], *value['methods'], *value['inputs']], value['seal_commit'])
+    committed([value['seal'], *value['methods']], value['seal_commit'])
+    committed(value['inputs'], value['seal_commit'], historical_text=True)
     log = local(value['log']['path']).read_text(encoding='utf-8')
     if sum(line.endswith(' ... ok') for line in log.splitlines()) != value['tests_run']:
         raise ValueError('Named successful log count differs')
@@ -466,7 +476,7 @@ def measure(revision):
     frozen = sealed(revision)
     audit_acceptance(revision)
     seal, acceptance = names(revision)
-    commit = published([describe(seal), describe(acceptance), *frozen['methods'], *frozen['inputs']])
+    commit = published([describe(seal), describe(acceptance), *frozen['methods']], frozen['inputs'])
     if local(RESULT).exists() or local(RESERVATION).exists():
         raise FileExistsError('V67 permits at most one live B attempt, including failed attempts')
     folder = PRIVATE + 'v67-B-' + uuid4().hex

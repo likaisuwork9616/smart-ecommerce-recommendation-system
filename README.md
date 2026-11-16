@@ -35,7 +35,7 @@ Smart E-Commerce Recommendation System
 
 V67 已獲授權依 V66 準備工具並最多執行一次 B。新增收集器、保留真實來源的 V65 純判定接入與一次性入口；固定三輪各0.5秒、十次sleep(0.05)，30秒包含metadata、採樣、判定及必要原始證據落盤。工具保留失敗／未執行槽位，實機reservation與worker claim均只能建立一次，失敗不補跑。
 
-r1 已封存方法、來源及 **121 個具名假案例**（既有純資料回歸49／collector32／來源接入18／driver22），先推送 main；**尚未執行新案例或實機 B，沒有本輪clock metadata與能力新值**。假驗收通過並發布後才執行一次B；不做C／D、原固定48筆、真實model、SQL／訓練或負載採樣。維持暫不採用V46。[方法、截止界線與操作](docs/STAGE12_KNN_CLOCK_CALIBRATION_V67_20261116.md)
+r1 預檢因歷史文件CRLF／Git LF差異停止，測試執行0；已補上只限歷史文字來源的換行核對，方法／收據仍逐byte相同。r2 已封存方法、來源及 **123 個具名假案例**（既有純資料回歸49／collector32／來源接入18／driver24），先推送 main；**尚未執行新案例或實機 B，沒有本輪clock metadata與能力新值**。假驗收通過並發布後才執行一次B；不做C／D、原固定48筆、真實model、SQL／訓練或負載採樣。維持暫不採用V46。[方法、截止界線與操作](docs/STAGE12_KNN_CLOCK_CALIBRATION_V67_20261116.md)
 
 ## Stage 12｜B 實機時鐘能力校準計畫
 
@@ -241,7 +241,7 @@ C1-S1專用完整快照指紋與新舊整合167項通過，70個規格要求逐�
 
 ## Stage 12｜保存前檔案檢查與身分驗證（前輪）
 
-**同批 7 筆、六輪 42 次診斷全通過**。三種 exists 各次 0.031–0.121 ms、身分格式 0.005–0.016 ms；前輪大波動未重現。調整後 append 最大差所屬同對的原始差 102.240 ms 中，98.504 ms 是直接 budget 保存，扣除後 3.736 ms。SQL「先聚合再 join size」候選 **24／24 合成驗收通過**，兩份實際查詢計畫支持改寫；邏輯重複 size join 可少 1,681／21,072 次（7.977%），**不是加速比例，尚未採用**。候選真實效能測試為 0；覆蓋仍 55／55 格，保留測試鎖定。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_sql_assessment_20261106.json)
+**同批 7 筆、六輪 42 次診斷全通過**。三種 exists 各次 0.031–0.123 ms、身分格式 0.005–0.016 ms；前輪大波動未重現。調整後 append 最大差所屬同對的原始差 102.240 ms 中，98.504 ms 是直接 budget 保存，扣除後 3.736 ms。SQL「先聚合再 join size」候選 **24／24 合成驗收通過**，兩份實際查詢計畫支持改寫；邏輯重複 size join 可少 1,681／21,072 次（7.977%），**不是加速比例，尚未採用**。候選真實效能測試為 0；覆蓋仍 55／55 格，保留測試鎖定。 [方法與結果](docs/STAGE12_KNN_GUARDS_V21_20261106.md) · [本階段收據](reports/stage12/retailrocket_session_knn_v21_guards_sql_assessment_20261106.json)
 
 ## Stage 12｜固定七筆的 SQL 與 append 波動診斷（前輪）
 

@@ -124,6 +124,25 @@ class DriverGuardTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 driver.committed([row], 'fake-commit')
 
+    def test_only_historical_text_may_match_git_lf_and_sealed_local_crlf(self):
+        driver.local('old.md').write_bytes(b'old\r\nsealed\r\n')
+        row = driver.describe('old.md')
+        with patch.object(driver, 'git', return_value=b'old\nsealed\n'):
+            with self.assertRaises(ValueError):
+                driver.committed([row], 'fake-commit')
+            driver.committed([row], 'fake-commit', historical_text=True)
+
+    def test_historical_normalization_cannot_hide_content_or_local_seal_changes(self):
+        driver.local('old.md').write_bytes(b'old\r\nsealed\r\n')
+        row = driver.describe('old.md')
+        with patch.object(driver, 'git', return_value=b'changed\nsealed\n'):
+            with self.assertRaises(ValueError):
+                driver.committed([row], 'fake-commit', historical_text=True)
+        driver.local('old.md').write_bytes(b'changed\r\nsealed\r\n')
+        with patch.object(driver, 'git', return_value=b'changed\nsealed\n'):
+            with self.assertRaises(ValueError):
+                driver.committed([row], 'fake-commit', historical_text=True)
+
     def test_existing_attempt_blocks_measure_before_any_launch(self):
         driver.reserve_live(1, self.folder, 'a' * 40)
         with patch.object(driver, 'sealed', return_value={'methods': [], 'inputs': []}), \
