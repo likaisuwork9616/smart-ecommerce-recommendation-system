@@ -1,0 +1,311 @@
+{
+  "schema": "v71_saved_K1_acceptance_backlog",
+  "date": "2026-11-16",
+  "status": "inventory_only_no_execution_authorization",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "docs/contracts/retailrocket_session_knn_paired_v1.json",
+      "bytes": 13698,
+      "sha256": "4fa418944a3b715520432ad44f4755409d1a4a257538d630d989fb3c6a58c333"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_validation_entry_v1.json",
+      "bytes": 4255,
+      "sha256": "e240c1c0f2e7db35b9f71f876c9226acf26ec5f649c56f77b8763dcd8d98fcb2"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_readback_v2.json",
+      "bytes": 3310,
+      "sha256": "86b713d330091dfeb7e527102425369dc96704b312bf6604b1de1607953c9243"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_VALIDATION_ATTEMPT_V1.md",
+      "bytes": 4761,
+      "sha256": "56933cdb5b01b31ba82d43d23a111b405ed3fb0badd3384c63ad928cc0aac444"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v1_validation_attempt.json",
+      "bytes": 10799,
+      "sha256": "0562c3bc77d423dc914a64d091414064ee5e37f5016c5cf4df08191b239134a7"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_READBACK_ONLY_20261029.md",
+      "bytes": 9128,
+      "sha256": "eb0365f4f0432ff93607ec17bec62b67791d080275025d9d8d98e23137b71ac5"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v1_readback_status_audit_20261030.json",
+      "bytes": 8158,
+      "sha256": "4a500eb63a2d60c1af6b94d1dcf643b294b98d81fc1c19ac0df9c05ce4abcacd"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md",
+      "bytes": 8658,
+      "sha256": "29ec4cdffed5b27b9efe84d5c8df739b49ac4b9709ab180de6e9824ab5a1bb7a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json",
+      "bytes": 3607,
+      "sha256": "9c71519987108c4ba78d9a64d4efb9a4f710f53b70ff74fc741243530b66b919"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_COST_COVERAGE_DECISION_V5_20261103.md",
+      "bytes": 6737,
+      "sha256": "d704eb71714bd6d1d641f3f0f6c0ecd3518f88c36bb458777d2f5814c808542a"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json",
+      "bytes": 5883,
+      "sha256": "f0bee6f4a1161cbd0c736d7ae661bc9ff8b35c2302a63152a48999eec35f2005"
+    },
+    {
+      "path": "docs/STAGE12_KNN_ENGINEERING_PRIORITY_V23_20261109.md",
+      "bytes": 11104,
+      "sha256": "25b04d3acfea3fcf47f6ed15b14e79b1fb5458d6c776f5e150776531c1e21805"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_result_20261113.json",
+      "bytes": 300559,
+      "sha256": "f2e8349eea6261e144b6b23a93aa1999e65cc972625ae25a58e0b212b5d00b94"
+    },
+    {
+      "path": "docs/STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md",
+      "bytes": 16195,
+      "sha256": "60a0b0fbaa29632ede0ee4b7a27e25f8780f2f7c6e135189eae5664565de2a8e"
+    }
+  ],
+  "saved_primary_attempt": {
+    "status": "single_K1_validation_attempt_stopped_at_user_deadline_not_accepted",
+    "scope": {
+      "research_cli_invocations": 1,
+      "retries": 0,
+      "primary_train_index_builds": 1,
+      "primary_validation_query_output_lines": 166897,
+      "primary_bootstrap_output_lines": 2000,
+      "full_independent_acceptance": false,
+      "independently_accepted_query_count": null,
+      "independent_query_progress_note": "No durable per-query oracle progress receipt; completed count is unknown.",
+      "K1_minus_C1_accepted_result": null,
+      "comparison_conclusion": "Unavailable: primary artifacts were generated, but full independent acceptance did not complete.",
+      "control_refits_or_rerankings": 0,
+      "final_model_selected": false,
+      "final_refits": 0,
+      "reserved_test_ranked_queries": 0,
+      "reserved_test": "locked",
+      "synthetic_tests_rerun_this_round": 0
+    },
+    "fit_audit": {
+      "start_ms": 1430697600000,
+      "end_ms": 1438387200000,
+      "train_sessions": 1180256,
+      "singleton_sessions": 998801,
+      "train_baskets": 1823018,
+      "basket_item_memberships": 1823388,
+      "distinct_session_item_memberships": 1587436,
+      "positive_support_items": 198946,
+      "maximum_session_items": 389,
+      "maximum_posting_size": 1736,
+      "fit_id": "ceb483631be343e3646d1a367325e53a4a0e2c937405686095d700efbeb1c56a"
+    }
+  },
+  "saved_separate_readback": {
+    "status": "not_running_no_complete_acceptance_process_stop_unrecorded",
+    "last_progress": {
+      "utc": "2026-10-29T09:05:57.877641+00:00",
+      "phase": "full_session_and_candidate_readback",
+      "completed_query_rows_observed": 923,
+      "global_acceptance_complete": false,
+      "note": "Read-only observation of V1 locals; not a resumable checkpoint or final acceptance."
+    },
+    "accepted_query_count": null,
+    "missing_expected_receipts": 8,
+    "historical_stop_time_exit_code_direct_cause": "unknown"
+  },
+  "saved_V5": {
+    "status": "v5_cost_coverage_assessed_do_not_start_full_readback",
+    "decision": "do_not_start_full_real_readback",
+    "execution_enabled": false,
+    "T_plan": null,
+    "measured_coverage": {
+      "complete_independent_rebuild_seconds": 248.67609710001852,
+      "structural_joint_roster_queries": 166897,
+      "joint_selected_queries": 48,
+      "known_independently_verified_unique_queries": 110,
+      "source_derived_engineering_records": 166897,
+      "source_derived_engineering_visitors": 62235,
+      "engineering_payload_bytes": 2413599879,
+      "engineering_chunks": 2608,
+      "engineering_build_seconds": 350.26599640003406,
+      "engineering_chain_and_seven_source_eof_position_seconds": 177.86425909999525,
+      "engineering_four_arm_global_seconds": 532.1277565999771,
+      "new_engineering_self_reference_draw_phase_seconds": 332.927373500017,
+      "new_engineering_self_reference_draws": 2000,
+      "same_verified_subset_repeat_queries": 48,
+      "budget_publications_observed": 12,
+      "budget_publication_seconds_observed": 0.12248860008548945,
+      "direct_query_append_budget_seconds_observed": 0.06735470000421628
+    },
+    "scope": {
+      "new_primary_fits": 0,
+      "new_primary_validation_runs": 0,
+      "new_primary_real_bootstrap": 0,
+      "new_independent_engineering_reconstructions": 1,
+      "full_real_readback": false,
+      "new_real_independent_engineering_K1_evaluations": 96,
+      "known_independently_verified_unique_query_keys": 110,
+      "full_verified_real_ledger": false,
+      "original_real_global_and_bootstrap_accepted": false,
+      "K1_minus_C1_formal_conclusion": null,
+      "final_selection": false,
+      "final_refit": false,
+      "reserved_test_rankings": 0,
+      "reserved_test": "locked"
+    },
+    "non_additivity": "Query verification already includes rank and row parsing; append includes encoding and physical writes. Full source-derived builder includes parsing, given-ID metric arithmetic, encoding and chunk I/O, so it is a fidelity/cost coverage measurement, not an extra disjoint term to blindly add to the query projection. Inner API/phase timers, forced budget within commits/stages, and generation/replay within the draw phase overlap. No artificial exact full T_plan is fabricated from them.",
+    "limits": [
+      "all-query source-derived ledger is scientifically unaccepted; the CP adapter is calibrated only at known verified keys",
+      "full-shape engineering chain recovery is not recovery of a full independently verified real ledger",
+      "finite targeted samples do not certify unsampled actual SQL/vote/payload timing tails",
+      "cache/system state was uncontrolled; no cross-window causal speedup is inferred",
+      "sampled RSS/disk and incomplete OS temporary lifetime are not full resource bounds",
+      "new engineering self-reference draws do not accept the original real 2000 draws",
+      "integrated full-run entry/deadline/recovery specification is not activated by this assessment"
+    ]
+  },
+  "saved_V48": {
+    "scope": {
+      "new_keys": 0,
+      "new_real_fit_validation_bootstrap": 0,
+      "full_validation_complete": false,
+      "reserved_test": "locked",
+      "covered_cells": 55,
+      "distinct_comparable_queries": 170,
+      "distinct_historical_queries": 232
+    },
+    "T_plan": null
+  },
+  "fixed_population": {
+    "queries": 166897,
+    "visitors": 62235,
+    "all_targets_reachable_queries": 161211,
+    "neighbor_count": 500,
+    "replicates": 2000
+  },
+  "pending_acceptance": [
+    {
+      "id": "K0",
+      "requirement": "formal_source_and_independent_rebuild_chain",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K1",
+      "requirement": "all_original_queries_exact_independent_verification",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K2",
+      "requirement": "four_arm_nested_payload_and_metrics",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K3",
+      "requirement": "original_global_and_slice_aggregates",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K4",
+      "requirement": "original_2000_bootstrap_draws",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K5",
+      "requirement": "full_verified_real_ledger_recovery_and_completion",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K6",
+      "requirement": "nonoverlapping_full_cost_resource_and_deadline_plan",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    },
+    {
+      "id": "K7",
+      "requirement": "final_acceptance_and_development_research_release",
+      "status": "not_fully_accepted",
+      "execution_authorized": false
+    }
+  ],
+  "dependency_order": {
+    "before_scheduling": [
+      "K6"
+    ],
+    "content_and_completion": [
+      "K0",
+      "K1",
+      "K2",
+      "K3",
+      "K4",
+      "K5"
+    ],
+    "release": [
+      "K7"
+    ]
+  },
+  "non_prerequisite_engineering_branches": [
+    "Linux_migration",
+    "1ms_wall_CPU_diagnosis",
+    "V46_adoption"
+  ],
+  "later_separate_work": [
+    "final_model_selection",
+    "refit",
+    "reserved_test"
+  ],
+  "interpretation": [
+    "primary_outputs_exist_but_not_fully_independently_accepted",
+    "923_is_observed_lower_bound_not_checkpoint_or_acceptance_percentage",
+    "engineering_full_shape_not_full_scientific_acceptance",
+    "55_cells_170_comparable_232_historical_not_additive_with_923",
+    "sample_timing_not_full_T_plan",
+    "no_reuse_or_relabeling_of_V1_partial",
+    "no_new_K1_C1_effect_claim",
+    "no_raw_evidence_reaudit_this_round"
+  ],
+  "review": {
+    "status": "independent_K1_scope_static_review_passed",
+    "source_descriptor_matches": 14,
+    "document_links_checked": 9,
+    "saved_fact_fields_checked": true,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}

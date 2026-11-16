@@ -23,15 +23,21 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V70 Linux可行性與接入提案完成，待確認 | 14份官方來源；P1原生Ubuntu／P2 WSL2、R1 CPython3.12.10、兩層最小接入與7項可比限制已固定；能力未知，工具／案例／量測均0 |
+| Stage 12：session-kNN K1 | V71回到主線驗收缺口盤點 | 主要166,897列validation與2,000列bootstrap已產出；完整獨立驗收未完成，8項範圍已整理，T_plan仍未知，先不裝Linux |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
-目前已整理 Stage 6–12 的程式、凍結規格、測試與聚合報告。Stage 12 的唯一一次全量 K1 validation 已依時限停止，後續另授權的獨立反讀亦已不在執行，仍無全量獨立驗收或正式研究模型比較結論；後續原48筆的工程比較與成本判定另列於下方，不能當成全量成績。原始資料、本機模型及逐筆執行證據留在 Git 忽略路徑，不隨 repository 提交。
+目前已整理 Stage 6–12 的程式、凍結規格、測試與聚合報告。Stage 12 的唯一一次整輪執行依時限停止時，主要 K1 validation 與 bootstrap 輸出已產出，但完整獨立反讀未完成；後續另授權反讀也未取得完整驗收，仍無正式K1−C1比較結論。原48筆的工程比較與成本判定不能當成全量成績。原始資料、本機模型及逐筆執行證據留在 Git 忽略路徑，不隨 repository 提交。
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜Linux環境可行性與接入提案（最新）
+## 主線進度｜K1驗收與每日10%待資料（最新）
+
+V71依目前指示**先不安裝Linux**，只查既有紀錄。K1主要train索引、166,897列validation及2,000列bootstrap已產出；缺的是完整獨立內容核對與最終收據，不能籠統說成主要輸出未算完。已列8項範圍：正式來源／重建鏈、全query、四臂payload、全域／切片、原bootstrap、已驗帳本與收尾、完整成本資源計畫、最終驗收交付。另授權反讀的923只屬觀測下界，不是可續跑checkpoint。
+
+已有全窗結構名冊與工程ledger／global／draw成本，仍不能代替全量科學驗收；`T_plan`維持未知、全量no-go、Retailrocket test locked、V46暫不採用。Linux／1ms診斷不列為K1正式驗收的既定必經前提。14份來源描述核對與獨立靜態審閱通過，並修正進度總表落後於V36的舊摘要。接著整理每日10%既有15項交接清單與雙主線優先順序；本輪新增量測、測試、排名、訓練、bootstrap與重跑均0。[K1缺口與本輪進度](docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md)
+
+## Stage 12｜Linux環境可行性與接入提案（保留，先不安裝）
 
 V70依V69評估另定Linux環境，核對14份官方來源。文件層首選為**原生Ubuntu Server24.04 LTS amd64、GA6.8核心軌道與Linux本機檔案系統**；若只能沿用Windows，次選為WSL2＋Ubuntu24.04，另列環境ID，不能視為原生Linux。可用主機、權限、實際kernel／套件修訂與容量目前都未知，沒有探測或安裝。
 

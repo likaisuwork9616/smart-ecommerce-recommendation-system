@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜Linux環境可行性與接入提案（最新）
+## 主線進度｜K1驗收與每日10%待資料（最新）
+
+V71先不裝Linux，只查既有紀錄。主要K1 validation／bootstrap已產出，完整獨立驗收未完成；8項缺口與工程證據界線已整理，接著核對每日10%待資料及優先順序。不新增量測或重跑。[主線缺口與排序](MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md)
+
+## Stage 12｜Linux環境可行性與接入提案（保留）
 
 V70核對14份官方來源，提案原生Ubuntu Server24.04／GA6.8，Windows上WSL2為條件次選；runtime為隔離的CPython3.12.10非PGO／非LTO release build。已固定S0核心／S1真正typed合成入口兩層接入及7項可比限制，保留V69門檻。現機可用性與能力未知，待確認平台／runtime／準備範圍；工具／案例／量測均0。[完整可行性與確認提案](STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
 

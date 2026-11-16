@@ -4,13 +4,16 @@
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
+`mainline/`保存V71跨階段的既有證據盤點與優先順序，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
+
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V71主線缺口：K1完整獨立驗收 | [方法與界線](../docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md) · [既有K1成果與8項待驗範圍](mainline/v71_k1_acceptance_inventory_20261116.json)；只讀紀錄盤點，非新驗收或量測 |
 | Stage 12：V33 停態成本分析 | [12項驗收](stage12/retailrocket_session_knn_v33_analysis_acceptance_20261110.json) · [完整成本與來源鏈重算](stage12/retailrocket_session_knn_v31_compare_analysis_20261110.json) |
 | Stage 12：V32 停態發布補正 | [說明](../docs/STAGE12_KNN_C1_S1_COMPARE_V31_20261110.md) · [規格](stage12/retailrocket_session_knn_v32_release_specification_20261110.json) · [52項驗收](stage12/retailrocket_session_knn_v32_release_acceptance_20261110.json) · [同窗口重稽核發布](stage12/retailrocket_session_knn_v32_release_recovery_20261110.json) |
-| Stage 12 最新：V39 late typed 實作 | [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md) · [核心40項／850向量](stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [165項整合／129要求／人工672次](stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json) · [seal](stage12/retailrocket_session_knn_v39_typed_acceptance_seal_20261110.json) · [6項摘要竄改拒絕](stage12/retailrocket_session_knn_v39_typed_audit_checks_20261110.json)；真實查詢0、無加速結論 |
+| Stage 12 歷史：V39 late typed 實作 | [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md) · [核心40項／850向量](stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [165項整合／129要求／人工672次](stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json) · [seal](stage12/retailrocket_session_knn_v39_typed_acceptance_seal_20261110.json) · [6項摘要竄改拒絕](stage12/retailrocket_session_knn_v39_typed_audit_checks_20261110.json)；本列為當輪範圍，後續見文件導覽 |
 | Stage 12 前輪：V38 late 完整 typed 規格 | [語義與方法](../docs/STAGE12_KNN_LATE_TYPED_V38_20261110.md) · [37項原行為證據](stage12/retailrocket_session_knn_v38_typed_inventory_20261110.json) · [完整規格／32項待驗要求](stage12/retailrocket_session_knn_v38_typed_specification_20261110.json) · [seal](stage12/retailrocket_session_knn_v38_typed_seal_20261110.json)；封存時未實作，後續見V39 |
 | Stage 12 前輪：V37 cold 不可變所有權 | [盤點與驗證](../docs/STAGE12_KNN_COLD_OWNERSHIP_V37_20261110.md) · [18項原行為與來源盤點](stage12/retailrocket_session_knn_v37_ownership_inventory_20261110.json) · [可行性與16項門檻](stage12/retailrocket_session_knn_v37_ownership_decision_20261110.json) · [seal](stage12/retailrocket_session_knn_v37_ownership_seal_20261110.json)；6→4不放行、保留原6次 |
 | Stage 12 前輪：V36 cold canonical bytes 候選 | [盤點與規格](../docs/STAGE12_KNN_CANONICAL_REUSE_V36_20261110.md) · [安全候選規格已封存](stage12/retailrocket_session_knn_v36_canonical_specification_20261110.json) |
