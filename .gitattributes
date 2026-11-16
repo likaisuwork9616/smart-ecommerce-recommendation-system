@@ -683,3 +683,7 @@ reports/stage12/retailrocket_session_knn_v70_linux_*.json -text whitespace=blank
 # Preserve V71 saved-evidence mainline backlog and prioritization receipts.
 docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md text eol=lf
 reports/mainline/v71_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V72 documentary evidence maps without changing frozen experiments.
+docs/STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md text eol=lf
+reports/mainline/v72_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

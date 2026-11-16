@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V72 K1來源與恢復 | [來源S0–S5／恢復R0–R5對照](mainline/v72_k1_source_recovery_map_20261116.json)；既有證據適用範圍盤點，未開新全量驗收 |
 | V71主線缺口：K1完整獨立驗收 | [方法與界線](../docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md) · [既有K1成果與8項待驗範圍](mainline/v71_k1_acceptance_inventory_20261116.json)；只讀紀錄盤點，非新驗收或量測 |
 | V71主線缺口：每日10%待資料 | [四包證據／15項交接／三個判定](mainline/v71_daily10_data_backlog_20261116.json)；沿用既有模板，不建立交接實例或補分數 |
 | V71主線排序 | [前置關係與暫緩事項](mainline/v71_mainline_priorities_20261116.json)；每日資料來源優先，K1成本／來源／恢復文件盤點可並行，後續驗收待前提 |
