@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜B 實機時鐘能力校準計畫（最新）
+## Stage 12｜一次 B 校準工具與案例（最新）
+
+V67 已獲確認，新增collector、真實來源判定接入、一次性reservation／claim及假案例。先封存推送，再驗收並發布，最後最多一次B；整關30秒包含判定與必要原始落盤，失敗不補跑。目前新案例／B尚未執行，不做C／D及原48筆。[方法、界線與操作](STAGE12_KNN_CLOCK_CALIBRATION_V67_20261116.md)
+
+## Stage 12｜B 實機時鐘能力校準計畫
 
 V66 已固定 B 流程、停止條件及估時，僅規劃、待使用者確認。尚缺實機 collector／真實來源接入；確認後先封存並驗收新工具，再做最多一次 B。固定忙迴圈及 sleep 名目2秒、B整關30秒上限，整輪工程估20–40分鐘；未讀新clock metadata，未執行B／C／D。[完整計畫與範圍](STAGE12_KNN_CLOCK_CALIBRATION_PLAN_V66_20261116.md)
 
