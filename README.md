@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V64 wall／CPU 合成入口驗收完成 | 先封存推送再驗收，81 項全過；五檔／48 筆完整 payload／142,166 bytes 帳本與操作順序一致，17 種故障通過；未做校準或原 48 筆重跑 |
+| Stage 12：session-kNN K1 | V65 typed worker 與 A16 方法已封存 | r1 封存 112 個具名案例（既有 81／typed 4／A16 27）及 A1–16 映射；推送後才驗收，實機 B／C／D 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜wall／CPU 合成入口與操作一致性（最新）
+## Stage 12｜真正 typed worker 與 A16 完整判定（最新）
+
+V65 依 V62 補上兩個缺口：以新合成資料接入真正 V39／V46 typed worker，保留原來源權威、兩個 reference roots、late comparison 與完整入口；另用人工 records 補齊 B／C／D 的完整判定邏輯，涵蓋固定順序、暖機、缺值、全局及 32／33 局部門檻。V63／V64 的 81 項既有案例也列入回歸，並將 A1–16 對應到具名案例。
+
+**實作及獨立靜態審閱完成；r1 已封存 112 個具名案例（既有回歸 81／typed 4／A16 27）與全部 A1–16 映射，目前執行數為 0。**工具與案例先封存、更新 README 並推上 main，之後才執行。純資料判定通過不等於實機 B／C／D 通過；本輪不做校準、開銷 benchmark、原固定 48 筆或真實 model 重跑。維持暫不採用 V46。[方法、驗收範圍與操作](docs/STAGE12_KNN_WALL_CPU_TYPED_V65_20261116.md)
+
+## Stage 12｜wall／CPU 合成入口與操作一致性
 
 V64 先封存工具與案例並推送，再執行唯一一次正式 suite：**81 項全過，失敗／錯誤／跳過均為 0**（V63 回歸 57／SQL 6／guard 15／入口 3）。原基線、O、D 經實際 V39 policy → V27 runner → V22 入口，五個輸出檔、48 筆完整 expected／precise／delta_hex、工作量與 **142,166 bytes 帳本全部相同**；SQL／lazy fetch／watch／fault 順序也一致。D 實際記下 725 點／578 span／50 root，17 種故障 × 三模式的例外身分、已提交 prefix 與清理均相符。正式及獨立唯讀重核通過（103 組雜湊、81 個具名案例相符），沒有重跑 suite。
 
