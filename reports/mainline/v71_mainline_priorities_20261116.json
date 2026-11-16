@@ -1,0 +1,232 @@
+{
+  "schema": "v71_mainline_dependency_priority_decision",
+  "date": "2026-11-16",
+  "status": "documentary_priorities_fixed_no_execution_authorization",
+  "decision_kind": "dependency_and_user_priority_judgment_not_measurement",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "reports/mainline/v71_k1_acceptance_inventory_20261116.json",
+      "bytes": 11604,
+      "sha256": "a5cd6a467458d011995ecc546b6bd9d1037e79862c8be2462a9d1cd51446f5b9"
+    },
+    {
+      "path": "reports/mainline/v71_daily10_data_backlog_20261116.json",
+      "bytes": 13211,
+      "sha256": "3d7430c24a75dfd8b1f9f1c9e38dc67ac767948797a27f0437c64dca92a73786"
+    }
+  ],
+  "published_steps": {
+    "K1_inventory_commit": "a4ff937",
+    "daily_data_commit": "a5ac50be9374a77f90009db82f0c8d9992e6f59a"
+  },
+  "priorities": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "track": "daily10",
+      "action": "confirm_authorized_source_roles_scope_semantics_and_four_evidence_packages",
+      "requires": [],
+      "status": "pending_external_source_information",
+      "deliverable": "source_field_evidence_gap_mapping_using_existing_15_item_template"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "track": "K1",
+      "action": "map_nonoverlapping_full_scope_cost_source_recovery_and_completion_evidence",
+      "requires": [],
+      "parallel_with": [
+        "P1"
+      ],
+      "status": "read_only_followup_possible_not_executed_here",
+      "deliverable": "existing_overlapping_unknown_new_method_required_mapping_for_K6_and_K0_K5"
+    },
+    {
+      "id": "P3D",
+      "rank": 3,
+      "track": "daily10",
+      "action": "actual_A_C_data_handoff_acceptance",
+      "requires": [
+        "P1",
+        "real_evidence_and_semantics_complete"
+      ],
+      "status": "pending_data_not_scheduled"
+    },
+    {
+      "id": "P3K",
+      "rank": 3,
+      "track": "K1",
+      "action": "separate_bounded_evidence_plan_then_full_readback_plan_only_when_sufficient",
+      "requires": [
+        "P2"
+      ],
+      "status": "no_go_not_scheduled",
+      "full_readback_plan_gate": "adequate_cost_resource_recovery_evidence"
+    },
+    {
+      "id": "P4D",
+      "rank": 4,
+      "track": "daily10",
+      "action": "separate_whole_N_score_delivery_and_model_notification_applicability",
+      "requires": [
+        "P3D"
+      ],
+      "status": "not_established_not_scheduled",
+      "independent_subgates": {
+        "D2_score_delivery": [
+          "valid_whole_N_frozen_scores_for_D2"
+        ],
+        "model_notification_applicability": [
+          "separate_model_outcome_business_evidence"
+        ],
+        "neither_subgate_implies_the_other": true
+      }
+    },
+    {
+      "id": "P4K",
+      "rank": 4,
+      "track": "K1",
+      "action": "full_independent_acceptance_then_release_development_result",
+      "requires": [
+        "P3K",
+        "explicit_new_execution_authorization"
+      ],
+      "status": "not_accepted_not_scheduled",
+      "release_gate": "all_K0_K5_and_resource_source_gates_pass"
+    }
+  ],
+  "existing_K1_gap_ids": [
+    "K0",
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7"
+  ],
+  "existing_daily_check_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "unchanged_states": {
+    "K1_full_independent_acceptance": false,
+    "K1_T_plan": null,
+    "K1_full_execution_enabled": false,
+    "K1_C1_accepted_effect": null,
+    "daily_contract_dimensions": {
+      "day_close_completion": {
+        "production_gate_passed": false,
+        "reason": "No upstream scope/cursor, source watermark, close manifest or reconciliation proof.",
+        "status": "pending_data"
+      },
+      "full_daily_roster": {
+        "production_gate_passed": false,
+        "reason": "Exported approvals lack upstream population scope and reconciliation; 242 research rows omit 3 of 245 exported day approvals.",
+        "status": "pending_data"
+      },
+      "historical_source_and_promise_versions": {
+        "production_gate_passed": false,
+        "reason": "Static exported values and artifact hashes lack effective-time and recorded-time version history.",
+        "status": "pending_data"
+      },
+      "ingestion_asof_clock": {
+        "production_gate_passed": false,
+        "reason": "No original available/ingested clock or verified business timezone in the inspected raw schemas.",
+        "status": "pending_data"
+      }
+    },
+    "new_handoff_N": null,
+    "new_handoff_K": null,
+    "model_formal_notification_applicability": false,
+    "Linux_installation_selected_for_now": false,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_original_test_already_exposed": true
+  },
+  "deferred": [
+    {
+      "work": "Linux_WSL_1ms_wall_CPU_V46",
+      "reason": "user_defers_Linux_and_not_a_formal_K1_readback_prerequisite",
+      "tool_preparation_scheduled": false,
+      "B_C_D_scheduled": false
+    },
+    {
+      "work": "K1_final_selection_refit_reserved_test",
+      "reason": "separate_future_scope_not_automatically_unlocked"
+    },
+    {
+      "work": "Dashboard",
+      "reason": "wait_for_daily10_delay_applicability"
+    },
+    {
+      "work": "other_models_API_frontend",
+      "reason": "outside_current_scope_not_blocked_by_Linux_timer"
+    }
+  ],
+  "constraints": [
+    "no_old_partial_or_923_checkpoint_reuse",
+    "no_new_primary_fit_to_replace_missing_acceptance",
+    "no_sample_timing_completion_guarantee",
+    "no_shrink_N_or_zero_score_fill",
+    "no_20_notification_batches",
+    "no_cross_dataset_test_status_conflation",
+    "no_historical_metadata_backfill",
+    "no_new_source_contacts_or_handoff_instances"
+  ],
+  "next_actions_not_executed": [
+    "identify_available_source_roles_and_real_historical_evidence",
+    "parallel_readonly_K1_cost_source_recovery_scope_mapping"
+  ],
+  "review": {
+    "status": "independent_priority_static_review_passed",
+    "source_descriptors_verified": 25,
+    "unique_bound_files": 25,
+    "K1_gap_ids_matched": 8,
+    "daily_check_ids_matched": 15,
+    "priority_entries": 6,
+    "dependency_graph_acyclic": true,
+    "phase_specific_gates_distinguished": true,
+    "document_links_verified": 18,
+    "saved_evidence_unchanged": true,
+    "new_data_acceptance": 0,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}
