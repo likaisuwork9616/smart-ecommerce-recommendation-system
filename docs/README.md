@@ -13,7 +13,7 @@
 
 ## Stage 12｜K1最小接入與人工驗收規格（最新）
 
-V74先列六元件、人工來源隔離、request／輸出與G0–G7通過條件；新完成guard涵蓋candidate、finalize及orphan恢復。案例／估時接著整理，確認前不準備工具或執行。[本輪規格](STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
+V74先列六元件、人工來源隔離、request／輸出與G0–G7通過條件；新完成guard涵蓋candidate、finalize及orphan恢復。三組人工資料／24案例族已對應V73差異、階段與恢復分支；準備加合成驗收估3–5小時，每版15分鐘成功截止，最多初驗及必要的一次修正版，意外超時不補跑。這些是提案，確認前不準備工具或執行。[本輪規格](STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
 
 ## Stage 12｜K1全量反讀方法與責任提案（前輪）
 

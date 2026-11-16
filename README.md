@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V73具體方法與責任提案完成 | 主要166,897列validation與2,000列bootstrap已產出；已提V2完整骨架＋V4核心，列10項差異／11階段，尚未接入驗收；T_plan未知，先不裝Linux |
+| Stage 12：session-kNN K1 | V74最小接入、人工案例與估時已列，待確認 | 主要166,897列validation與2,000列bootstrap已產出；六元件／24案例族／八關卡待實作，準備與合成驗收估3–5小時；未新增量測或重跑，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,7 +33,9 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜K1最小接入與人工驗收規格（最新）
 
-V74依V73整理六個最小責任元件、人工request／輸出契約與G0–G7驗收關卡。未來工具只接受已封存人工bundle，人工N與真實166,897筆分開；新CP子類保留原完整檢查後核queries語義，涵蓋candidate／finalize／orphan恢復。首次candidate不要求自己先存在，所有完成守門均在同一writer鎖內。接著整理人工案例清單、估時與停止條件；依本次指示，等確認後才準備工具。現在工具／fixture／測試／量測／Linux／真實重跑均0，T_plan仍null。[最小接入規格與進度](docs/STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
+V74依V73整理六個最小責任元件、人工request／輸出契約與G0–G7驗收關卡。未來工具只接受已封存人工bundle，人工N與真實166,897筆分開；新CP子類保留原完整檢查後核queries語義，涵蓋candidate／finalize／orphan恢復。首次candidate不要求自己先存在，所有完成守門均在同一writer鎖內。已列三組人工資料及24個案例族，逐一對應內容／恢復／來源／發布／期限與帳法；129筆人工完整流只證接入語義，不代表真實166,897筆通過。
+
+下一輪工具與人工案例準備、封存及合成驗收估165–300分鐘（約3–5小時）；正常合成執行估2–10分鐘、每版15分鐘成功截止，最多初驗及必要的一次修正版，第二版須重新完整判定，意外超時不補跑。執行預算已含在工作估計，均是提案而非新實測。規格、案例與估時已通過獨立靜態複核。依本次指示，等確認後才準備工具。現在工具／fixture／測試／量測／Linux／真實重跑均0，T_plan仍null，V46暫不採用；每日10%提醒與Dashboard優先順序沿V71。[規格、案例與待確認範圍](docs/STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md)
 
 ## Stage 12｜K1全量反讀待評估方法（前輪）
 

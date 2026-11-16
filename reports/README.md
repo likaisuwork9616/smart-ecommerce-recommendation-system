@@ -4,13 +4,14 @@
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
-`mainline/`保存V71主線盤點／優先順序、V72成本／來源／恢復對照及V73具體方法／階段責任提案，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
+`mainline/`保存V71主線盤點／優先順序、V72成本／來源／恢復對照、V73具體方法／階段責任提案及V74最小接入／人工案例／估時規格，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
 | V74最小接入規格 | [六元件／人工request／八關卡](mainline/v74_k1_minimal_integration_spec_20261116.json)；確認前不建立工具或執行驗收 |
+| V74人工案例與估時 | [三組人工資料／24案例族／待確認範圍](mainline/v74_k1_cases_time_plan_20261116.json)；工作估3–5小時，非新實測；每版15分鐘、最多兩版，意外超時不補跑 |
 | V73 K1具體方法 | [V2完整骨架＋V4精確核心與10項差異](mainline/v73_k1_method_proposal_20261116.json)；文件提案，不是新入口已實作或全量授權 |
 | V73 K1階段責任 | [11階段／8來源核對位置／8恢復分支](mainline/v73_k1_stage_responsibility_20261116.json)；同鎖query完成守門與停態交付尚待接入驗證 |
 | V72 K1來源與恢復 | [來源S0–S5／恢復R0–R5對照](mainline/v72_k1_source_recovery_map_20261116.json)；既有證據適用範圍盤點，未開新全量驗收 |

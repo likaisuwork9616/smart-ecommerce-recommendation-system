@@ -1,0 +1,910 @@
+{
+  "schema": "v74_K1_artificial_case_catalog_and_time_confirmation_plan",
+  "date": "2026-11-16",
+  "status": "documentary_plan_waiting_user_confirmation",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "confirmation": {
+    "required_before_tool_preparation": true,
+    "source": "current_user_instruction",
+    "received": false,
+    "proposed_scope": "prepare_and_seal_synthetic_only_tools_and_fixtures_then_bounded_synthetic_acceptance",
+    "preparation_started": false
+  },
+  "source_bindings": [
+    {
+      "path": "reports/mainline/v74_k1_minimal_integration_spec_20261116.json",
+      "bytes": 8974,
+      "sha256": "25076c8bfdda65f50b9d82055bf45c8c019369fd3f0b90ae12776d3806660896"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_readback_v2.py",
+      "bytes": 11117,
+      "sha256": "a0f42681e838238b48c635c2b4588dc0b850f07268645a5ee1fd209d79af3a03"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pair_v4.py",
+      "bytes": 12626,
+      "sha256": "bd2cd1c1fde892b80d164f2033b85ddec3be339313755cf439aa2daa96944585"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_sql_v4.py",
+      "bytes": 9598,
+      "sha256": "e2a6956da3149c7bb077dec28b7d7823b9c356d2009e7f521d168093b337a86b"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checks_v4.py",
+      "bytes": 11212,
+      "sha256": "b9d7150ff6b3c44985192083f3e3493cf5702ec3f7dc294abe1d9f3865091640"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_entry_v34.py",
+      "bytes": 12263,
+      "sha256": "2e72d193bcc12e220858bc486485580706336a9f0aa18e92a21d5ef10eb139c2"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json",
+      "bytes": 3607,
+      "sha256": "9c71519987108c4ba78d9a64d4efb9a4f710f53b70ff74fc741243530b66b919"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json",
+      "bytes": 407066,
+      "sha256": "daf761c24d4d75285c0d3f9fe962ad27ed595523922f587140db62e702dabffa"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v40_compare_acceptance_20261111.json",
+      "bytes": 39098,
+      "sha256": "46082879799f041f9eac86f080127be7d5d63a8affdce4033982d45c3c2c9efb"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_acceptance_20261113.json",
+      "bytes": 42645,
+      "sha256": "70b1a2cb23a69ca44c39bb8af6221dbc70acaea466dff3768fe406e170048e82"
+    }
+  ],
+  "fixture_profiles": [
+    {
+      "id": "F-small",
+      "purpose": "手算鄰居、精確分數、四臂payload及分母；完整流程N由封存manifest固定且不超過129。",
+      "generated": false
+    },
+    {
+      "id": "F-long",
+      "queries": 129,
+      "visitors": 3,
+      "visitor_query_counts": [
+        70,
+        40,
+        19
+      ],
+      "normal_chunk_counts": [
+        64,
+        64,
+        1
+      ],
+      "purpose": "同visitor跨63→64及127→128，驗完整流／保存／恢復；假時鐘未達120秒。",
+      "generated": false
+    },
+    {
+      "id": "F-edge",
+      "neighbor_counts": [
+        499,
+        500,
+        501
+      ],
+      "purpose": "沿用精確核心邊界向量；不將501鄰居套入F-long每筆，訓練規模另列。",
+      "generated": false
+    }
+  ],
+  "oracle_policy": {
+    "artificial_primary_builder": "test_only",
+    "frozen_V1_oracle_and_V2_reference": true,
+    "goldens_and_original_2000_artificial_draws_sealed_before_candidate_execution": true,
+    "candidate_generates_own_expected": false,
+    "production_primary_helper_import_in_worker": false,
+    "redraw_to_match_allowed": false
+  },
+  "case_families": [
+    {
+      "id": "A01",
+      "title": "人工入口隔離",
+      "required_scenarios": "合法bundle；缺人工標記、real profile、任意N／偽造166897、路徑越界及symlink／junction別名逃逸。負例用人工哨兵檔，不讀真實資料。",
+      "acceptance_evidence": "合法人工N才放行；負例在科學資料讀取／spawn前拒絕，無真實全量通過狀態。",
+      "gates": [
+        "G0"
+      ],
+      "differences": [
+        "D0",
+        "D2"
+      ],
+      "phases": [
+        "P0"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B0",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A02",
+      "title": "方法與runtime身分",
+      "required_scenarios": "完整封存描述符；漏直接helper、未宣告dynamic target、同大小方法變更及runtime不符。",
+      "acceptance_evidence": "不符即拒絕；已匯入模組或祖先報告不能替代直接來源。",
+      "gates": [
+        "G0",
+        "G4"
+      ],
+      "differences": [
+        "D0",
+        "D6"
+      ],
+      "phases": [
+        "P0"
+      ],
+      "source_positions": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "H7",
+        "H8"
+      ],
+      "recovery_branches": [],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A03",
+      "title": "手算與四臂",
+      "required_scenarios": "F-small含完整history、current／next、targets及可達分母。",
+      "acceptance_evidence": "完整payload、Decimal字串、binary delta對封存golden一致，不只top10。",
+      "gates": [
+        "G1"
+      ],
+      "differences": [
+        "D2"
+      ],
+      "phases": [
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B0"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A04",
+      "title": "V4精確核心邊界",
+      "required_scenarios": "F-edge涵蓋499／500／501鄰居、ties、unknown／self／future／fallback、未約分比例、大ID、近等比率及4096-bit Fraction回退。",
+      "acceptance_evidence": "新呼叫點對凍結oracle／V2結果；保留完整pool、零票補集與精確排序。",
+      "gates": [
+        "G1"
+      ],
+      "differences": [
+        "D2"
+      ],
+      "phases": [
+        "P4"
+      ],
+      "source_positions": [],
+      "recovery_branches": [],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A05",
+      "title": "完整流與三chunk",
+      "required_scenarios": "F-long的129筆／3 visitors，原序無selected ordinals；假時鐘未達120秒。",
+      "acceptance_evidence": "完整129筆、64／64／1 chunks、逐筆golden、七路EOF、四required stages與完整發布成立。",
+      "gates": [
+        "G1",
+        "G2",
+        "G5"
+      ],
+      "differences": [
+        "D2",
+        "D3",
+        "D4",
+        "D8"
+      ],
+      "phases": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B0"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A06",
+      "title": "七路配對與角色",
+      "required_scenarios": "七路各自缺列、多列、重複／錯序／錯key；reserved角色放不可解碼內容。",
+      "acceptance_evidence": "配對／EOF異常拒收；非允許角色先分流而不解碼；無新candidate或最終成功。",
+      "gates": [
+        "G0",
+        "G1"
+      ],
+      "differences": [
+        "D2",
+        "D4"
+      ],
+      "phases": [
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "source_positions": [],
+      "recovery_branches": [],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A07",
+      "title": "cache生命週期",
+      "required_scenarios": "命中／未命中、完整target count差異、Decimal context變更、返回dict被改、同run新attempt。",
+      "acceptance_evidence": "值與fallback保持凍結語義，防返回副本污染；每attempt重建cache，不作checkpoint。",
+      "gates": [
+        "G1",
+        "G2"
+      ],
+      "differences": [
+        "D2",
+        "D3"
+      ],
+      "phases": [
+        "P3",
+        "P4",
+        "P7"
+      ],
+      "source_positions": [],
+      "recovery_branches": [],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A08",
+      "title": "fresh與未封存DB",
+      "required_scenarios": "正常重建；建立中斷留下DB／journal；別run的舊DB。",
+      "acceptance_evidence": "完整support／sessions／postings／lineage／fit audit及integrity／close／seal；半成品保留再fresh，拒借別run。",
+      "gates": [
+        "G1",
+        "G2"
+      ],
+      "differences": [
+        "D1",
+        "D5"
+      ],
+      "phases": [
+        "P2"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B0",
+        "B1"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A09",
+      "title": "sealed DB身分",
+      "required_scenarios": "有效同run；同大小DB竄改、缺artifact、多journal、來源／runtime變更。",
+      "acceptance_evidence": "僅完整有效seal可復用；負例在query前拒絕，檔案存在不足。",
+      "gates": [
+        "G0",
+        "G2"
+      ],
+      "differences": [
+        "D1",
+        "D3",
+        "D5"
+      ],
+      "phases": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B2",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A10",
+      "title": "64／120安全邊界",
+      "required_scenarios": "假時鐘下第63／64／65筆；query內跨120秒；EOF短尾段。",
+      "acceptance_evidence": "只在完整query安全點提交；EOF可flush不足64筆，不宣稱兩分鐘損失上限。",
+      "gates": [
+        "G2"
+      ],
+      "differences": [
+        "D3",
+        "D4"
+      ],
+      "phases": [
+        "P4",
+        "P5"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B2"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A11",
+      "title": "append／commit故障",
+      "required_scenarios": "append前後、payload半寫、fsync後manifest前、manifest後latest前。",
+      "acceptance_evidence": "未提交尾段保留重算；已提交鏈可越過舊latest恢復；最終科學bytes等於不中斷golden。",
+      "gates": [
+        "G2"
+      ],
+      "differences": [
+        "D3",
+        "D4"
+      ],
+      "phases": [
+        "P4",
+        "P5"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B2"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A12",
+      "title": "真程序prefix恢復",
+      "required_scenarios": "F-long已提交64筆後於pending query強退；另測錯prefix key／gap／chain SHA。",
+      "acceptance_evidence": "只跳有效64筆，重算尾段到129；損壞拒收，不以source-only位置或子集ordinal代替prefix。",
+      "gates": [
+        "G2",
+        "G6"
+      ],
+      "differences": [
+        "D3",
+        "D7"
+      ],
+      "phases": [
+        "P1",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B2",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A13",
+      "title": "P6合併單元中斷",
+      "required_scenarios": "Fold中、原draw中、global seal後bootstrap seal前中斷。",
+      "acceptance_evidence": "每次完整重啟P6並核舊部分seal一致；無draw checkpoint，最終對golden一致。",
+      "gates": [
+        "G1",
+        "G2"
+      ],
+      "differences": [
+        "D4"
+      ],
+      "phases": [
+        "P6"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B3"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A14",
+      "title": "人工原始2000 draws",
+      "required_scenarios": "改順序、draw SHA、query denominator、RNG前後state、delta、缺／多draw。",
+      "acceptance_evidence": "由原check_bootstrap核恰2000筆及aggregate；負例拒收，不能重抽或改用self-reference。",
+      "gates": [
+        "G1"
+      ],
+      "differences": [
+        "D4"
+      ],
+      "phases": [
+        "P6"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B3",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A15",
+      "title": "鎖內queries語義",
+      "required_scenarios": "合法；缺stage、錯N／bool／float N、EOF false／非bool、run／ledger／candidate錯配；open後writer鎖前改stage。P7／P8／B4逐一涵蓋。",
+      "acceptance_evidence": "同步改人工hash／引用讓負例確實到新guard；同鎖核當次完整摘要。首次write_candidate不要求candidate先存在；既存candidate由原finalize／supersede核對。",
+      "gates": [
+        "G3"
+      ],
+      "differences": [
+        "D4",
+        "D8"
+      ],
+      "phases": [
+        "P7",
+        "P8"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B4",
+        "B5",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A16",
+      "title": "退出與程序身分",
+      "required_scenarios": "candidate存在但worker活著、exit非0、PID重用、權限未知、初次異boot且無可信正常退出。",
+      "acceptance_evidence": "均不得acceptance；只有獨立記錄的真正正常退出才可完成，不能由candidate推定。",
+      "gates": [
+        "G3",
+        "G6"
+      ],
+      "differences": [
+        "D7",
+        "D8"
+      ],
+      "phases": [
+        "P7",
+        "P8"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B4",
+        "B5",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A17",
+      "title": "candidate後真程序強退",
+      "required_scenarios": "寫candidate後強退，缺normal-exit收據。",
+      "acceptance_evidence": "保留orphan與未知退出；確認舊程序不活後，新worker完整重播P6、產新candidate並正常退出；不借舊exit碼。",
+      "gates": [
+        "G2",
+        "G3",
+        "G6"
+      ],
+      "differences": [
+        "D7",
+        "D8"
+      ],
+      "phases": [
+        "P7",
+        "P8"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B4"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A18",
+      "title": "正常退出後finalize中斷",
+      "required_scenarios": "normal_worker_exit已保存，acceptance原子提交前故障。",
+      "acceptance_evidence": "只重入supervisor finalize，保留退出收據，不supersede、不重啟科學worker、不重設預算。",
+      "gates": [
+        "G2",
+        "G3"
+      ],
+      "differences": [
+        "D7",
+        "D8"
+      ],
+      "phases": [
+        "P8"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B5"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A19",
+      "title": "八個來源核對位置",
+      "required_scenarios": "正常trace；H1–H8各前方同大小來源變更；恢復分episode。",
+      "acceptance_evidence": "正常六CP＋兩publisher核對位置與phase正確；每個變更拒收，恢復／失敗次數如實另記。",
+      "gates": [
+        "G4",
+        "G7"
+      ],
+      "differences": [
+        "D6",
+        "D9"
+      ],
+      "phases": [
+        "P1",
+        "P7",
+        "P8",
+        "P9"
+      ],
+      "source_positions": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "H7",
+        "H8"
+      ],
+      "recovery_branches": [],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A20",
+      "title": "publisher原始證據",
+      "required_scenarios": "改request／candidate／CP／stage／ledger／roster計數或摘要；測試專用spy令predict或global／draw數值重播即失敗。",
+      "acceptance_evidence": "原證據矛盾拒收，負例須到新proof檢查；合法proof的排名／數值重播呼叫0，不只信摘要。",
+      "gates": [
+        "G4",
+        "G7"
+      ],
+      "differences": [
+        "D8",
+        "D9"
+      ],
+      "phases": [
+        "P9"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B6",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A21",
+      "title": "停態與完整集合",
+      "required_scenarios": "pipeline／publisher緩衝日誌關閉；活writer、新檔、漏檔、封存後append／bytes變更、外部finalseal。",
+      "acceptance_evidence": "合法晚flush納入最終集合；壞例拒收，無自含hash；封存後內部bytes不變。",
+      "gates": [
+        "G5"
+      ],
+      "differences": [
+        "D8"
+      ],
+      "phases": [
+        "P10"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B6",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A22",
+      "title": "CP完成後外層恢復",
+      "required_scenarios": "CP acceptance後P9／P10中斷或外部公開提交前故障；另測整套成功後重入。",
+      "acceptance_evidence": "只補缺發布；CP／科學bytes不變、worker／ranking／draw重播0；完成後禁止再執行，允許唯讀核對。",
+      "gates": [
+        "G2",
+        "G5"
+      ],
+      "differences": [
+        "D8"
+      ],
+      "phases": [
+        "P9",
+        "P10"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B6",
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A23",
+      "title": "期限資源與監督",
+      "required_scenarios": "假時鐘deadline、含離線總預算、UTC rollback；假RSS／磁碟／TEMP警報與監控失敗，涵蓋P9／P10。",
+      "acceptance_evidence": "安全點停止；停止請求與實際退出分列，清理所記錄子程序；不宣稱Job Object，不新增成功、不延長或重設預算。",
+      "gates": [
+        "G6"
+      ],
+      "differences": [
+        "D5",
+        "D7",
+        "D9"
+      ],
+      "phases": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "source_positions": [],
+      "recovery_branches": [
+        "B7"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    },
+    {
+      "id": "A24",
+      "title": "互斥帳與有號餘額",
+      "required_scenarios": "假事件樹rank⊂verify、commit⊂append／tail、P6子段、H calls、監督重疊、signed bridge與恢復episode。",
+      "acceptance_evidence": "已知人工區間各算一次且依帳法守恆；有號餘額不截零，未知不稱CPU等待；不產生實機成本或T_plan。",
+      "gates": [
+        "G7"
+      ],
+      "differences": [
+        "D9"
+      ],
+      "phases": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10"
+      ],
+      "source_positions": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "H7",
+        "H8"
+      ],
+      "recovery_branches": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "status": "planned_not_implemented_or_executed"
+    }
+  ],
+  "case_family_count": 24,
+  "actual_subcase_count": null,
+  "new_cases_executed": 0,
+  "subcase_freeze_required": [
+    "stable_id",
+    "fixture_and_method_binding",
+    "input_mutation",
+    "expected_outcome",
+    "expected_refusal_phase",
+    "evidence_fields",
+    "expected_success_files_absent_or_unchanged",
+    "preserved_original_evidence"
+  ],
+  "coverage_is": "documentary_mapping_only_not_executed_acceptance",
+  "historical_timings": [
+    {
+      "version": "V2",
+      "path": "reports/stage12/retailrocket_session_knn_v2_synthetic_acceptance_20261103.json",
+      "seconds_field": "elapsed_seconds",
+      "seconds": 85.63118110003415,
+      "tests_run": 185,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "status": "synthetic_equivalence_and_fault_recovery_accepted",
+      "use": "historical_synthetic_acceptance_only_not_new_execution_forecast"
+    },
+    {
+      "version": "V39",
+      "path": "reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json",
+      "seconds_field": "seconds",
+      "seconds": 98.60247270000036,
+      "tests_run": 165,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "status": "v39_full_late_typed_differential_and_independent_publication_accepted",
+      "use": "historical_synthetic_acceptance_only_not_new_execution_forecast"
+    },
+    {
+      "version": "V40",
+      "path": "reports/stage12/retailrocket_session_knn_v40_compare_acceptance_20261111.json",
+      "seconds_field": "seconds",
+      "seconds": 76.7514783000006,
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "status": "v40_original48_comparison_entry_accepted",
+      "use": "historical_synthetic_acceptance_only_not_new_execution_forecast"
+    },
+    {
+      "version": "V48",
+      "path": "reports/stage12/retailrocket_session_knn_v48_cold_acceptance_20261113.json",
+      "seconds_field": "seconds",
+      "seconds": 153.35350909999943,
+      "tests_run": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "status": "v48_second_cold_window_entry_accepted",
+      "use": "historical_synthetic_acceptance_only_not_new_execution_forecast"
+    }
+  ],
+  "work_estimate": {
+    "kind": "judgment_not_measurement",
+    "units": "minutes",
+    "total_min": 165,
+    "total_max": 300,
+    "rounded_display": "約3–5小時",
+    "stages": [
+      {
+        "work": "adapter、guard、來源限制、pipeline與發布接入",
+        "min": 90,
+        "max": 150
+      },
+      {
+        "work": "人工fixture、案例映射、假時鐘與程序故障接入",
+        "min": 45,
+        "max": 90
+      },
+      {
+        "work": "靜態審閱、有限修正、合成驗收、收據／README／Git",
+        "min": 30,
+        "max": 60
+      }
+    ],
+    "machine_execution_already_included": true,
+    "real_full_T_plan": null
+  },
+  "proposed_execution_limits": {
+    "normal_estimate_minutes": [
+      2,
+      10
+    ],
+    "success_deadline_minutes_per_sealed_version": 15,
+    "max_formal_versions": 2,
+    "max_combined_formal_window_minutes": 30,
+    "second_version_only_for_actual_in_scope_bug_fix": true,
+    "retry_after_timeout": false,
+    "subprocess_watchdog_seconds_max": 120,
+    "subprocess_capped_by_remaining_total_budget": true,
+    "fixture_preparation_before_formal_window": true,
+    "required_receipts_inside_success_window": true,
+    "post_deadline_safety_cleanup_and_failure_record_only": true,
+    "retain_all_failed_versions": true,
+    "merge_passes_across_versions": false,
+    "no_threshold_relaxation_case_deletion_or_budget_reset": true,
+    "work_planning_stop_minutes": 300,
+    "limits_are_proposal_not_actual_run": true,
+    "formal_windows_per_version": 1,
+    "second_version_runs_all_required_subcases": true,
+    "allowed_fix_scope": "new_tools_or_synthetic_case_implementation_errors_with_new_seal",
+    "immutable_during_fix": [
+      "frozen_methods",
+      "scientific_rules",
+      "source_authority",
+      "acceptance_thresholds",
+      "required_case_scope"
+    ],
+    "expected_injected_deadline_rejection_may_pass": true,
+    "operating_system_return_time_guaranteed": false,
+    "actual_cleanup_failure_record_time_preserved": true
+  },
+  "stop_conditions": [
+    "unexpected_failure_stops_current_formal_run",
+    "timeout_hang_or_source_authority_ambiguity_stops_without_retry",
+    "frozen_science_or_confirmed_scope_change_requires_revised_proposal",
+    "second_formal_version_failure_stops",
+    "work_plan_300_minutes_exhausted_stops_preparation",
+    "missing_case_or_evidence_means_failed_or_incomplete"
+  ],
+  "still_unproven": [
+    "real_166897_full_content",
+    "real_capacity_and_resource_cost",
+    "real_full_T_plan",
+    "physical_power_loss_durability",
+    "Windows_1ms_CPU_capability",
+    "K1_minus_C1_scientific_conclusion"
+  ],
+  "excluded_next_scope": [
+    "Linux",
+    "B_C_D",
+    "real_model_or_original_fixed48",
+    "real_166897_readback",
+    "new_primary_bootstrap",
+    "V46_adoption"
+  ],
+  "review": {
+    "status": "independent_documentary_case_and_time_reviews_passed",
+    "source_descriptors_verified_this_receipt": 12,
+    "source_descriptors_verified_including_step1": 27,
+    "planned_case_families": 24,
+    "planned_fixture_profiles": 3,
+    "mapped_differences": 10,
+    "mapped_phases": 11,
+    "mapped_source_positions": 8,
+    "mapped_recovery_branches": 8,
+    "mapped_gates": 8,
+    "document_links_verified": 19,
+    "historical_timing_values_verified": 4,
+    "estimate_arithmetic_verified": true,
+    "frozen_code_contracts_results_unchanged": true,
+    "scope": "documentary_checks_only_no_execution_acceptance",
+    "case_catalog_review": "passed_no_required_changes",
+    "time_and_stop_policy_review": "passed_execution_inclusion_wording_clarified"
+  }
+}
