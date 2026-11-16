@@ -31,7 +31,11 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜K1成本、來源與恢復證據對照（最新）
+## Stage 12｜K1全量反讀待評估方法（最新）
+
+V73依V72提出具體組合：Windows與歷史runtime相容目標，以V2完整反讀／CheckpointStore為骨架，接入V4精確SQL與指標計算，保留frozen exact。首次建立新run獨立DB，重啟僅用該run有效seal與ledger；來源定位先保留逐序掃描，global與原2,000 draws維持同一完成單元。已列10項接入差異，尚未實作／驗收；現有V4最多64筆及工程48筆入口限制不解除。接著列階段邊界與驗收責任。全量仍關閉、T_plan仍null，不裝Linux、不新增工具／案例／測試／量測或重跑。[方法提案與進度](docs/STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
+
+## Stage 12｜K1成本、來源與恢復證據對照
 
 V72只查既有紀錄，已完成來源S0–S5、恢復R0–R5及成本C0–C9對照，逐項區分可沿用、範圍重疊與仍未知。原V1輸出是待驗對象，未來完整驗收的方法／runtime／入口尚未選定；V2恢復規則與V5完整工程重建、帳本及EOF證據可作依據，但不能直接接續舊artifact或稱全量科學驗收。V40已有48筆工程入口，V39作後續比較基準不代表正式採用；V32特定日誌補正也不是通用恢復方法。
 

@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜K1成本、來源與恢復證據對照（最新）
+## Stage 12｜K1全量反讀方法與責任提案（最新）
+
+V73只讀提出Windows／V2完整骨架＋V4精確核心的待評估組合及10項接入差異；fresh DB、同run恢復、順序prefix掃描及原global／draw完成單元明列。尚未新增全量入口、工具或驗收，接著整理階段與責任。[本輪提案](STAGE12_KNN_FULL_METHOD_PROPOSAL_V73_20261116.md)
+
+## Stage 12｜K1成本、來源與恢復證據對照
 
 V72只讀既有紀錄，已列來源S0–S5、恢復R0–R5及成本C0–C9，區分可沿用證據、重疊與未知；另固定7項計帳規則、6項待補交付物。完整方法尚未選定，T_plan仍null；下一步先提待評估方法及互斥階段責任表，不接續舊partial或工程ledger，沒有新量測。[證據對照與進度](STAGE12_KNN_ACCEPTANCE_EVIDENCE_MAP_V72_20261116.md)
 

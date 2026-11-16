@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V73 K1具體方法 | [V2完整骨架＋V4精確核心與10項差異](mainline/v73_k1_method_proposal_20261116.json)；文件提案，不是新入口已實作或全量授權 |
 | V72 K1來源與恢復 | [來源S0–S5／恢復R0–R5對照](mainline/v72_k1_source_recovery_map_20261116.json)；既有證據適用範圍盤點，未開新全量驗收 |
 | V72 K1成本與未知項目 | [10類成本／7項計帳規則／6項缺口](mainline/v72_k1_cost_overlap_map_20261116.json)；同版本與邊界才可使用，不拼出T_plan |
 | V71主線缺口：K1完整獨立驗收 | [方法與界線](../docs/MAINLINE_ACCEPTANCE_PRIORITIES_V71_20261116.md) · [既有K1成果與8項待驗範圍](mainline/v71_k1_acceptance_inventory_20261116.json)；只讀紀錄盤點，非新驗收或量測 |

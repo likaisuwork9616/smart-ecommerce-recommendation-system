@@ -1,0 +1,371 @@
+{
+  "schema": "v73_K1_full_readback_documentary_method_proposal",
+  "date": "2026-11-16",
+  "status": "selected_for_documentary_evaluation_only_not_implemented",
+  "scope": {
+    "saved_records_only": true,
+    "Linux_installations": 0,
+    "new_clock_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_fits": 0,
+    "new_predictions": 0,
+    "new_rankings": 0,
+    "new_bootstrap": 0,
+    "new_full_readbacks": 0,
+    "original_fixed48_runs": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "new_tool_implementations": 0,
+    "new_source_data_received": 0,
+    "raw_data_or_model_rows_parsed": 0,
+    "database_opens": 0,
+    "project_modules_imported": 0,
+    "V46_adopted": false,
+    "Retailrocket_reserved_test": "locked",
+    "Stage4_prior_test_exposure_preserved": true
+  },
+  "source_bindings": [
+    {
+      "path": "reports/mainline/v72_k1_cost_overlap_map_20261116.json",
+      "bytes": 15000,
+      "sha256": "c57f52ac4c19196024fd13069a299a66b1415631bcf4832c86de9da45a2ce483"
+    },
+    {
+      "path": "reports/mainline/v72_k1_source_recovery_map_20261116.json",
+      "bytes": 11616,
+      "sha256": "a22cd2f33d5f25b35da3e421726b7f32d609d34becd9d2f5c480cbcdb5585a6d"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_paired_v1.json",
+      "bytes": 13698,
+      "sha256": "4fa418944a3b715520432ad44f4755409d1a4a257538d630d989fb3c6a58c333"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_readback_v2.json",
+      "bytes": 3310,
+      "sha256": "86b713d330091dfeb7e527102425369dc96704b312bf6604b1de1607953c9243"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_rebuild_cost_20261103.json",
+      "bytes": 24412,
+      "sha256": "fe8cb1e394ee6eb2488563590cb5b12fa21a4398e4ef9893906641d14895c073"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v22_overlap_acceptance_20261109.json",
+      "bytes": 4286,
+      "sha256": "040616796bfe9ab9172e35b5229f95817cbc4422607a123836950b7b7d733e89"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v17_cost_rollup_20261106.json",
+      "bytes": 1945334,
+      "sha256": "555eceb1d2cb1dc8158fedf20a0cf6fbf2ac24afb7ede50be6daf7766c37d126"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v4_pair_acceptance_20261103.json",
+      "bytes": 2181,
+      "sha256": "8208fdc9ede769dfdce5defa47c2688be663706d6927ad7bda34a23bb351cdcb"
+    },
+    {
+      "path": "reports/stage12/retailrocket_session_knn_v5_cost_coverage_decision_20261103.json",
+      "bytes": 5883,
+      "sha256": "f0bee6f4a1161cbd0c736d7ae661bc9ff8b35c2302a63152a48999eec35f2005"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_PAIR_OPTIMIZATION_V4_20261103.md",
+      "bytes": 4546,
+      "sha256": "4ac3da377179e992131957ff9298a5f59417c0acc8200fa4d9c123f06a0d3cf8"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_REBUILD_COST_V5_20261103.md",
+      "bytes": 5349,
+      "sha256": "b0bb93510f5e75e6c418e8de5feaa16ead3d76a5d52b367b8ee9e270f0a9541d"
+    },
+    {
+      "path": "docs/STAGE12_RETAILROCKET_KNN_READBACK_V2_20261103.md",
+      "bytes": 8658,
+      "sha256": "29ec4cdffed5b27b9efe84d5c8df739b49ac4b9709ab180de6e9824ab5a1bb7a"
+    },
+    {
+      "path": "docs/STAGE12_KNN_ENTRY_COLD_V34_V35_20261110.md",
+      "bytes": 15834,
+      "sha256": "9b6eb4533b3a3991e7c981700145629b29507528fe9fc8e4bb591e9064711f58"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pair_v4.py",
+      "bytes": 15376,
+      "sha256": "579a35ddd3a22645ecf362f6f4b3794bb60f26736bed4c5128dd32c38d5d9d7b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v4.py",
+      "bytes": 19252,
+      "sha256": "a84e8a782fdc0234e633d2b2f18e1f4755865eda9f0b590411e26fdd776258d6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_v34.py",
+      "bytes": 16272,
+      "sha256": "7ddcedd4e442c42dbe16d3ab68cc94130e1e8f72a4b686a0513757e78090a08f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "bytes": 12239,
+      "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sources_v24.py",
+      "bytes": 12112,
+      "sha256": "ebadee96041d8763f3add284d43ea2e5a88e30bfb395b309cbfc287444131ad7"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_overlap_v22.py",
+      "bytes": 31730,
+      "sha256": "c13b69535b5d06328a328ab37b2930a114c5c4ae6a99daa5ea2015f7da6fb5c8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_oracle.py",
+      "bytes": 14292,
+      "sha256": "3699f0bc6b5906eaad376ba5cdf677b77e8049fb1499acd8c0a056ad8caa6462"
+    }
+  ],
+  "proposal": {
+    "method": "V2_full_readback_and_CheckpointStore_with_V4_exact_SQL_and_terms",
+    "platform_target": "existing_Windows",
+    "runtime_compatibility_target": {
+      "byteorder": "little",
+      "implementation": "CPython",
+      "numpy": "2.5.4",
+      "psutil": "7.2.2",
+      "python": "3.12.10",
+      "sqlite_version": "3.49.1"
+    },
+    "runtime_current_machine_verified": false,
+    "scientific_protocol": "retailrocket_session_knn_paired_v1",
+    "expected_queries": 166897,
+    "expected_visitors": 62235,
+    "original_bootstrap_replicates": 2000,
+    "required_stages": [
+      "reconstruction",
+      "queries",
+      "global",
+      "bootstrap"
+    ],
+    "first_run_database": "fresh_independent_database_in_new_run",
+    "resume_database": "only_same_run_verified_sealed_database",
+    "query_database_mode": "ro_immutable_after_seal_verification",
+    "query_temp_store": "MEMORY",
+    "rebuild_temp_policy": "original_SQL_PRAGMA_semantics_with_full_OS_TEMP_coverage_plan_pending",
+    "source_position": "sequential_source_prefix_scan_no_indexed_iterator",
+    "metric_cache": "existing_4096_LRU_reset_per_worker_attempt_not_persisted",
+    "exact_strategy": "frozen",
+    "global_original_bootstrap": "existing_combined_replay_global_order_no_draw_checkpoint",
+    "whole_run_T_plan": null,
+    "full_execution_enabled": false
+  },
+  "component_symbols": [
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "symbols": [
+        "prepare_model",
+        "verify_queries",
+        "load_context",
+        "replay_global"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "symbols": [
+        "reconstruct"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "symbols": [
+        "predict"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "symbols": [
+        "build_index",
+        "prepare_catalog"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "symbols": [
+        "terms",
+        "exact",
+        "clear_caches"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "symbols": [
+        "CheckpointStore"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_entry_v34.py",
+      "symbols": [
+        "source_inventory",
+        "require_direct_sources",
+        "closed_log_manifest"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "symbols": [
+        "check_bootstrap"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "symbols": [
+        "terms",
+        "Fold"
+      ]
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_oracle.py",
+      "symbols": [
+        "exact",
+        "dump"
+      ]
+    }
+  ],
+  "differences": [
+    {
+      "id": "D0",
+      "topic": "version_runtime_and_direct_closure",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D1",
+      "topic": "fresh_DB_and_same_run_recovery",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D2",
+      "topic": "V4_core_in_full_original_order_stream",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D3",
+      "topic": "prefix_and_metric_cache_lifetime",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D4",
+      "topic": "explicit_all_four_required_stages_and_combined_replay",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D5",
+      "topic": "query_immutable_readonly_TEMP_MEMORY_and_rebuild_OS_TEMP",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D6",
+      "topic": "required_source_passes_and_accounting",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D7",
+      "topic": "full_orchestration_deadline_and_stop",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D8",
+      "topic": "candidate_CP_acceptance_then_stopped_publication",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    },
+    {
+      "id": "D9",
+      "topic": "full_cost_and_resource_evidence",
+      "status": "pending_new_adapter_or_evidence_not_accepted"
+    }
+  ],
+  "saved_runtime_environment": {
+    "byteorder": "little",
+    "implementation": "CPython",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "python": "3.12.10"
+  },
+  "saved_sqlite_version": "3.49.1",
+  "explicit_non_adoptions": [
+    "C1_S1_cross_entry_reuse",
+    "V39_typed_reference",
+    "V46_string_change",
+    "alternative_SQL_candidates",
+    "Linux_migration",
+    "1ms_wall_CPU_diagnostics",
+    "indexed_source_resume"
+  ],
+  "preserved_limits": [
+    "existing_V4_selected_verifier_max64",
+    "existing_engineering_entry_fixed48",
+    "existing_global_synthetic_marker_not_bypassed",
+    "old_V1_partial_and_923_not_reused",
+    "original_outputs_and_test_locked",
+    "no_default_full_run_CLI"
+  ],
+  "not_required_by_this_proposal": [
+    "Job_Object_implementation",
+    "physical_power_loss_test",
+    "Linux_installation",
+    "1ms_clock_capability"
+  ],
+  "review": {
+    "status": "independent_method_static_review_passed",
+    "source_descriptors_verified": 28,
+    "existing_symbols_statically_located": 20,
+    "difference_rows": 10,
+    "historical_runtime_fields_match": true,
+    "document_links_verified_at_step1": 17,
+    "frozen_research_files_unchanged": true,
+    "new_tests": 0,
+    "new_measurements": 0
+  },
+  "symbol_binding_note": "check_bootstrap_is_defined_in_directed_oracle_and_reexported_by_original_readback"
+}
