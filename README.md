@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V70 Linux平台／runtime文件評估 | 保留1ms目標，14份官方來源；原生Ubuntu Server24.04／GA6.8為條件首選，WSL2為次選，CPython3.12.10獨立build提案；實機可用性未知，新增量測0 |
+| Stage 12：session-kNN K1 | V70 Linux可行性與接入提案完成，待確認 | 14份官方來源；P1原生Ubuntu／P2 WSL2、R1 CPython3.12.10、兩層最小接入與7項可比限制已固定；能力未知，工具／案例／量測均0 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -35,7 +35,11 @@ Smart E-Commerce Recommendation System
 
 V70依V69評估另定Linux環境，核對14份官方來源。文件層首選為**原生Ubuntu Server24.04 LTS amd64、GA6.8核心軌道與Linux本機檔案系統**；若只能沿用Windows，次選為WSL2＋Ubuntu24.04，另列環境ID，不能視為原生Linux。可用主機、權限、實際kernel／套件修訂與容量目前都未知，沒有探測或安裝。
 
-runtime提案為**upstream CPython3.12.10 release build，PGO／LTO／Py_DEBUG關閉**，只為對齊V67保存的patch、作隔離合成研究；並非與Windows相同binary，也不是較快或較準的證據。官方已有3.12.16安全版，若改用須另定方法。Linux工作副本須重建自己的`.venv/`，不搬Windows環境。平台／runtime已完成獨立靜態審閱、7個本機來源描述相符；接著固定最小接入、可比限制與確認範圍，確認前不準備工具或案例。本輪探測／下載／安裝／建置／測試／量測／B／C／D／原48筆皆0，V46暫不採用。[平台、runtime與未知條件](docs/STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
+runtime提案為**upstream CPython3.12.10 release build，PGO／LTO／Py_DEBUG關閉**，只為對齊V67保存的patch、作隔離合成研究；並非與Windows相同binary，也不是較快或較準的證據。官方已有3.12.16安全版，若改用須另定方法。Linux工作副本須重建自己的`.venv/`，不搬Windows環境。平台／runtime已完成獨立靜態審閱、7個本機來源描述相符。
+
+最小接入分**S0標準庫wall／CPU核心與新來源契約、S1真正V39／V46的合成入口**；S1仍需NumPy、psutil、SQLite與小型檔案／鎖定驗收，不能整搬Windows套件鎖定檔。假時鐘仍可能伴隨版本／程序身分讀取，舊CRLF與新Git LF也須保留嚴格來源關係。7項可比限制已固定：同API／patch不等於同backend／binary，跨平台不能交叉配對，Linux結果不能回填Windows歷史等待或直接支持Windows採用V46。獨立靜態審閱通過，24次來源描述核對（21個唯一檔案）及繼承V69的五組需求一致。
+
+**待確認P1或P2、R1及S0/S1準備範圍**；確認後才準備新工具／合成案例，先封存再驗收，B另行估時確認且保留30秒上限。實際主機、套件artifact與能力仍未知，沒有新增Linux通過數。本輪探測／下載／安裝／建置／新工具／新案例／測試／量測／B／C／D／原48筆皆0，V46暫不採用。[完整可行性與確認提案](docs/STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)、[接入與可比機器規格](reports/stage12/retailrocket_session_knn_v70_linux_integration_proposal_20261116.json)。
 
 ## Stage 12｜候選觀測來源可行性規格
 

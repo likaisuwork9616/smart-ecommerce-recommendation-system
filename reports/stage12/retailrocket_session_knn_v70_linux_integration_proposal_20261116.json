@@ -1,0 +1,709 @@
+{
+  "schema": "v70_linux_integration_and_comparability_proposal",
+  "date": "2026-11-16",
+  "status": "awaiting_user_confirmation_before_tool_or_case_preparation",
+  "scope": {
+    "target_difference_ns": 1000000,
+    "original_thread_cpu_quantity_retained": true,
+    "new_clock_reads": 0,
+    "new_clock_metadata_reads": 0,
+    "new_measurements": 0,
+    "new_tests": 0,
+    "new_B_attempts": 0,
+    "C_runs": 0,
+    "D_runs": 0,
+    "original_fixed48_runs": 0,
+    "production_model_decodes": 0,
+    "training_runs": 0,
+    "environment_probes": 0,
+    "downloads": 0,
+    "installs": 0,
+    "builds": 0,
+    "environment_starts": 0,
+    "new_tools": 0,
+    "new_synthetic_cases": 0,
+    "new_measurement_authorized": false,
+    "tool_preparation_authorized": false,
+    "adopt_v46": false,
+    "reserved_test": "locked"
+  },
+  "platform_review": {
+    "path": "reports/stage12/retailrocket_session_knn_v70_linux_platform_review_20261116.json",
+    "bytes": 11104,
+    "sha256": "c4b5ea3f480df0ddbcfb07c921523b10c41cad9f035a25247035848e2354ca3a"
+  },
+  "platform_review_published_commit": "6c1995723af9e8f4b7919d163d8d213662bfa67b",
+  "gate_source": {
+    "path": "reports/stage12/retailrocket_session_knn_v69_observation_feasibility_20261116.json",
+    "bytes": 18997,
+    "sha256": "6cce6de61cf59f104493ed33d8bdc08f4772f2ae61af24cf813dea5dd8e0eca6"
+  },
+  "local_source_bindings": [
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_v63.py",
+      "bytes": 13021,
+      "sha256": "2316b4da549710547a6386ede251dd0868a44ee089e06cf21b1a15626bc966e8"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_decision_v65.py",
+      "bytes": 32279,
+      "sha256": "5997653a52125c96e2717fe9643040f9cfd02c0c367f6e53b41e3fee9fa14ff5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_clock_collector_v67.py",
+      "bytes": 16047,
+      "sha256": "37d327b72a9af7124384f91959c0049152a71f0763659f62f521cc46e044963a"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_clock_capability_v67.py",
+      "bytes": 5458,
+      "sha256": "bb2e1cae66760139aa39f2c49b051c70233e80e389058f0b1916310c4129d1f0"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_clock_calibration_v67.py",
+      "bytes": 27631,
+      "sha256": "fe0e3744dc9b23dd23dc5a7dccbc788b7f115433164791a1af41e6011119aadb"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "bytes": 15646,
+      "sha256": "810de09d048af90ce7ff3de3efdeaaedeadea806efdad4799c9171c978828737"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "bytes": 12239,
+      "sha256": "f41ab1895059427126f74e9476745f13cc91838721a602fce712bfbde6b1589e"
+    },
+    {
+      "path": "tests/retailrocket_session_knn_wall_cpu_typed_fixture_v65.py",
+      "bytes": 6275,
+      "sha256": "3b3f62aeaa0d2c9fba58aa24f8710922f3a4404be7cf13790264fd7db2044f0d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_typed_v65.py",
+      "bytes": 19423,
+      "sha256": "bc7891db16ef763f0b27a80f8d64071c9a910d8cfc0dc54a264ac49ecae0004c"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_v39.py",
+      "bytes": 19329,
+      "sha256": "3a20aa0911a885c53c5f3296602ba23bbbf8e5e58979a1ff50bc3d1c8e9eeb46"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_typed_string_v46.py",
+      "bytes": 1999,
+      "sha256": "36f7d4ac128b2801454fe5e86e1b4ab93be0dc1e4f20aaeffdf8dc2fb55f264e"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 2272,
+      "sha256": "23562a3e3922332fdc40e5d061ccd06e60144da4a594098a0344483188dd47d6"
+    },
+    {
+      "path": "docs/LOCAL_SETUP.md",
+      "bytes": 10470,
+      "sha256": "7d178fbe2da0a4ff6d7c19a168edfa459e9009a8339a012f219904382700d10e"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 436,
+      "sha256": "e8bf86df38ae6c2bd2e68c3a5bea9dfe4b3fdb23465dc35a0b9c8cf2d5d05c95"
+    }
+  ],
+  "proposed_bundle": {
+    "preferred_platform": "P1",
+    "conditional_alternative": "P2",
+    "runtime": "R1",
+    "integration_layers": [
+      "S0",
+      "S1"
+    ],
+    "automatic_platform_fallback": false,
+    "platform_availability": null,
+    "selected_platform": null,
+    "selected_runtime": null,
+    "user_confirmation_received": false,
+    "confirmation_scope": "prepare_new_methods_and_synthetic_cases_only; seal_and_push_before_acceptance",
+    "confirmation_not_received_for": [
+      "environment_provisioning",
+      "downloads",
+      "installs",
+      "builds",
+      "test_execution",
+      "B",
+      "C",
+      "D",
+      "original_fixed48"
+    ]
+  },
+  "integration_layers": [
+    {
+      "id": "S0",
+      "scope": "boundary_pure_decision_collector_and_new_admission_driver_contract",
+      "dependencies": [
+        "Python standard library",
+        "external Git for sealing/publication checks"
+      ],
+      "preserve": [
+        "same_thread_guards",
+        "wall_before_CPU_wall_after_order",
+        "raw_integers",
+        "signed_residual",
+        "fixed_null_slots",
+        "original_formulas_and_gates"
+      ],
+      "new_version_requirements": [
+        "Linux_environment_envelope",
+        "exact_reader_and_API_binding",
+        "new_origin_plan_seal_reservation_result_paths",
+        "no_V67_state_reuse"
+      ]
+    },
+    {
+      "id": "S1",
+      "scope": "real_V39_V46_typed_workers_with_synthetic_sources_and_full_A",
+      "dependencies": [
+        "numpy",
+        "psutil",
+        "stdlib_sqlite3_extension",
+        "local_small_file_IO",
+        "OS_file_locking"
+      ],
+      "candidate_versions_from_Windows_lock": {
+        "numpy": "2.5.4",
+        "psutil": "7.2.2"
+      },
+      "Linux_artifact_availability_checked": false,
+      "full_dependency_closure_verified": false,
+      "preserve": [
+        "full_payload",
+        "ledger",
+        "SQL",
+        "lazy_fetch",
+        "watch",
+        "fault",
+        "decoder_isolation",
+        "O_no_added_probe"
+      ],
+      "OS_behaviors_to_validate": [
+        "fcntl_flock",
+        "process_and_boot_identity",
+        "fsync_and_recovery",
+        "runtime_metadata_separate_from_fake_clock"
+      ]
+    }
+  ],
+  "static_code_evidence": [
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_v63.py",
+      "lines": "110-114",
+      "finding": "readers injected"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_wall_cpu_decision_v65.py",
+      "lines": "121-146",
+      "finding": "fixed environment schema and API strings"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_clock_capability_v67.py",
+      "lines": "17-30,61-85",
+      "finding": "fixed V67 origin/readers/source and environment binding"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_clock_calibration_v67.py",
+      "lines": "21-49,175-186,293-338,343-365,485-486",
+      "finding": "V67-only state; exact historical CRLF relation; runtime metadata; sys.executable child"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "lines": "123-142,162-182",
+      "finding": "Windows and POSIX boot identity/locking branches"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_reuse_v27.py",
+      "lines": "44-45",
+      "finding": "real process identity access"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v2.py",
+      "lines": "19-20,61-63",
+      "finding": "NumPy/psutil and environment"
+    },
+    {
+      "path": "tests/retailrocket_session_knn_wall_cpu_typed_fixture_v65.py",
+      "lines": "47-73,85-99",
+      "finding": "synthetic sources retain real typed worker code and environment metadata"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_wall_cpu_typed_v65.py",
+      "lines": "74-78",
+      "finding": "fake budget/process injection but real small IO"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "lines": "69,78,86",
+      "finding": "Windows lock includes numpy,psutil,pywinpty"
+    }
+  ],
+  "static_analysis_limit": "text/AST inspection is not runtime, build, dynamic import, wheel availability, or Linux acceptance proof",
+  "source_preservation": {
+    "frozen_V62_V69_unchanged": true,
+    "keep_historical_descriptors": true,
+    "new_checkout_raw_byte_descriptors_required": true,
+    "Git_commit_blob_binding_required": true,
+    "only_exact_declared_CRLF_LF_relationship": true,
+    "no_generic_normalization_claim": true
+  },
+  "excluded_integration": [
+    "original_models",
+    "original_fixed48",
+    "raw_datasets",
+    "database_credentials",
+    "Windows_MySQL_services",
+    "Jupyter",
+    "Dashboard",
+    "ETW",
+    "process_CPU_or_cycles_substitution"
+  ],
+  "comparability": [
+    {
+      "id": "C1",
+      "preserved": "same_measurand_and_boundary",
+      "not_supported": "same_clock_backend_or_accuracy"
+    },
+    {
+      "id": "C2",
+      "preserved": "CPython_patch_version_if_R1",
+      "not_supported": "same_binary_build_libc_or_timing"
+    },
+    {
+      "id": "C3",
+      "preserved": "synthetic_output_equivalence_after_new_A",
+      "not_supported": "clock_capability_performance_or_real_data_result"
+    },
+    {
+      "id": "C4",
+      "preserved": "new_B_validity_for_selected_environment_window_only",
+      "not_supported": "historical_V67_invalidity_or_all_Linux_pass"
+    },
+    {
+      "id": "C5",
+      "preserved": "future_within_environment_pairing_only",
+      "not_supported": "cross_Windows_Linux_or_P1_P2_pairs_or_pooled_distribution"
+    },
+    {
+      "id": "C6",
+      "preserved": "historical_V47_V48_evidence_unchanged",
+      "not_supported": "backfilled_historical_CPU_wait_or_specific_wait_cause"
+    },
+    {
+      "id": "C7",
+      "preserved": "future_explicit_cold_entry_boundary",
+      "not_supported": "fresh_process_equals_cold_storage_cache_or_Windows_V46_adoption"
+    }
+  ],
+  "inherited_requirements": {
+    "required_original_A_categories": [
+      "read_order_and_body_once",
+      "bracket_and_signed_residual",
+      "integer_precision_and_zero_cpu",
+      "negative_residual_and_clock_backwards",
+      "missing_duplicate_order_types",
+      "thread_parent_overlap",
+      "shared_boundaries_and_conservation",
+      "fresh48_identity_and_counts",
+      "setup_tail_wrapper_scope",
+      "incomplete_skip_resume",
+      "original_exception_cleanup",
+      "off_mode_no_extra_probe",
+      "full_payload_workload_ledger_equivalence",
+      "sql_lazy_eof_watch_fault_equivalence",
+      "call_local_namespace_and_decoder_isolation",
+      "statistics_schedule_missing_failure_fixtures"
+    ],
+    "affected_A_families": [
+      {
+        "id": "A-S1",
+        "name": "來源准入",
+        "requirements": [
+          "origin/API/reader/implementation/version/hash一致",
+          "錯平台/來源改標拒絕",
+          "process/cycles fallback拒絕"
+        ]
+      },
+      {
+        "id": "A-S2",
+        "name": "計帳歸屬",
+        "requirements": [
+          "同thread前後guard",
+          "生命週期/跨thread錯誤拒絕",
+          "委派工作明列範圍"
+        ]
+      },
+      {
+        "id": "A-S3",
+        "name": "數值與錯誤",
+        "requirements": [
+          "原始大整數及精確單位換算",
+          "合法零CPU/有號residual",
+          "bool/float/溢位/倒退/缺值拒絕",
+          "原生失敗與主次例外保存"
+        ]
+      },
+      {
+        "id": "A-S4",
+        "name": "邊界與布局",
+        "requirements": [
+          "三讀中無配置或I/O",
+          "原wall回傳/共享mark/父子守恆",
+          "partial prefix不冒充完整"
+        ]
+      },
+      {
+        "id": "A-S5",
+        "name": "期限與保存",
+        "requirements": [
+          "cap與target同點",
+          "30秒含metadata判定與必要raw落盤",
+          "慢依賴/取消/停止後無新增樣本",
+          "固定null槽位與第一錯誤"
+        ]
+      },
+      {
+        "id": "A-S6",
+        "name": "入口行為",
+        "requirements": [
+          "O無新增探針",
+          "合成完整payload/工作量/帳本一致",
+          "SQL/lazy/watch/fault一致",
+          "decoder與call-local隔離"
+        ]
+      },
+      {
+        "id": "A-S7",
+        "name": "判定與反讀",
+        "requirements": [
+          "新admission且舊數值公式保留",
+          "完整/缺失fixture重算",
+          "純判定不自稱實機執行",
+          "一次性狀態/來源/公開私人收據一致"
+        ]
+      }
+    ],
+    "V62": {
+      "boundary": {
+        "wall_api": "time.perf_counter_ns",
+        "cpu_api": "time.thread_time_ns",
+        "read_order": [
+          "wall_before_ns",
+          "thread_cpu_ns",
+          "wall_after_ns"
+        ],
+        "legacy_return": "wall_before_ns / 1e9",
+        "same_thread_required": true,
+        "wall": "end.wall_before_ns - start.wall_before_ns",
+        "cpu": "end.thread_cpu_ns - start.thread_cpu_ns",
+        "residual": "wall - cpu",
+        "inner": "end.wall_before_ns - start.wall_after_ns",
+        "outer": "end.wall_after_ns - start.wall_before_ns",
+        "clamp_negative_residual": false,
+        "subtract_average_probe_cost": false,
+        "brackets_are_true_error_bounds": false
+      },
+      "capability_B": {
+        "target_difference_ns": 1000000,
+        "dense_rounds": 3,
+        "dense_round_wall_seconds": 0.5,
+        "dense_samples_cap_per_round": 1000000,
+        "stage_deadline_seconds": 30,
+        "minimum_positive_cpu_increments_per_round": 10,
+        "q_definition": "max(ceil(declared_cpu_resolution_seconds * 1e9), each_round_positive_cpu_increment_p95)",
+        "q_max_ns": 100000,
+        "bracket_p99_max_ns": 50000,
+        "bracket_max_ns": 100000,
+        "sleep_trials": 10,
+        "sleep_requested_seconds": 0.05,
+        "sleep_wall_min_ns": 40000000,
+        "sleep_cpu_wall_ratio_p90_max": 0.1,
+        "zero_cpu_does_not_mean_zero_work": true,
+        "dense_duration_timebase": "perf_counter_elapsed_wall"
+      },
+      "overhead_C": {
+        "empty_stamp_trials": 4097,
+        "full_recording_path_trials": 4097,
+        "synthetic_queries_per_entry": 48,
+        "lcg_seed": 1,
+        "lcg_multiplier": 1664525,
+        "lcg_increment": 1013904223,
+        "lcg_modulus": 4294967296,
+        "lcg_iterations_per_ranking_phase": 4096,
+        "sleep_seconds_per_ranking_phase": 0.001,
+        "workloads": [
+          "lcg",
+          "sleep"
+        ],
+        "warmups_per_mode_per_workload": 1,
+        "pairs_per_workload": 8,
+        "orders": [
+          "OD",
+          "DO",
+          "OD",
+          "DO",
+          "OD",
+          "DO",
+          "OD",
+          "DO"
+        ],
+        "deadline_seconds_per_workload": 120,
+        "common_outer_includes_output_serialization_and_write": true,
+        "median_absolute_pair_relative_delta_max": 0.02,
+        "maximum_absolute_pair_relative_delta_max": 0.05,
+        "lcg_reset_seed_each_phase": true,
+        "common_outer_wall_exempt_from_O_no_probe_rule": true
+      },
+      "real_overhead_D_planned_only": {
+        "scheduled_or_authorized_by_this_spec": false,
+        "decoders": [
+          "V39",
+          "V46"
+        ],
+        "modes": {
+          "O": "existing_uninstrumented",
+          "D": "new_boundary_diagnostics"
+        },
+        "warmup_order": [
+          [
+            "V39",
+            "O"
+          ],
+          [
+            "V46",
+            "D"
+          ],
+          [
+            "V46",
+            "O"
+          ],
+          [
+            "V39",
+            "D"
+          ]
+        ],
+        "blocks": [
+          {
+            "block": 1,
+            "decoder_order": [
+              "V39",
+              "V46"
+            ],
+            "within_decoder_order": "OD"
+          },
+          {
+            "block": 2,
+            "decoder_order": [
+              "V46",
+              "V39"
+            ],
+            "within_decoder_order": "DO"
+          },
+          {
+            "block": 3,
+            "decoder_order": [
+              "V39",
+              "V46"
+            ],
+            "within_decoder_order": "OD"
+          },
+          {
+            "block": 4,
+            "decoder_order": [
+              "V46",
+              "V39"
+            ],
+            "within_decoder_order": "DO"
+          },
+          {
+            "block": 5,
+            "decoder_order": [
+              "V39",
+              "V46"
+            ],
+            "within_decoder_order": "OD"
+          },
+          {
+            "block": 6,
+            "decoder_order": [
+              "V46",
+              "V39"
+            ],
+            "within_decoder_order": "DO"
+          }
+        ],
+        "formal_pairs": 12,
+        "formal_entries": 24,
+        "warm_entries": 4,
+        "total_entries": 28,
+        "repeated_queries_including_warm": 1344,
+        "entry_and_query_sum_relative_delta_median_max": 0.02,
+        "entry_and_query_sum_relative_delta_max_max": 0.05,
+        "primary_local_absolute_delta_median_max_ns": 100000,
+        "primary_local_absolute_delta_max_ns": 500000,
+        "target_telemetry_sleep_seconds": 0.2,
+        "window_deadline_seconds": 1800,
+        "estimate_before_scheduling": true,
+        "calibrate_B_before_and_after_every_O_and_D_entry_including_warm": true,
+        "planned_calibration_B_invocations": 56,
+        "original_entry_gate_metric": "accounting.costs.entry_seconds from entry.json.seconds",
+        "other_preserved_boundaries": [
+          "run.total",
+          "entry_span"
+        ],
+        "instrumentation_entry_includes": [
+          "diagnostic_buffer_setup",
+          "run.total",
+          "diagnostic_serialization_write_flush",
+          "diagnostic_buffer_cleanup"
+        ],
+        "instrumentation_entry_excludes": [
+          "sampler_lifecycle_and_raw_output",
+          "process_start",
+          "source_preparation",
+          "pool_construction_and_close",
+          "capability_calibration"
+        ],
+        "sampler_order": [
+          "start_and_first_capture",
+          "instrumentation_entry_start",
+          "body_and_diagnostic_output",
+          "instrumentation_entry_end",
+          "stop_and_last_capture"
+        ]
+      },
+      "statistics": {
+        "percentiles": "nearest_rank_ceil_p_times_n_1_based",
+        "median": "mean_of_middle_two_for_even_n",
+        "pair_direction": "D_minus_O",
+        "gate_relative": "abs(D-O)/O; O > 0",
+        "retain_all_pairs_and_warmups": true,
+        "retry_until_pass": false,
+        "choose_lower_overhead_pairs": false
+      },
+      "fail_states": [
+        "rejected_structure",
+        "clock_capability_unconfirmed",
+        "cpu_resolution_insufficient",
+        "perturbation_not_accepted"
+      ],
+      "interpretation": {
+        "residual_label": "wall-minus-thread-CPU signed residual",
+        "pure_wait_attribution": false,
+        "backfill_v47_v48_wait": false,
+        "v46_adoption_evidence": false
+      }
+    },
+    "B_stop_rules": [
+      {
+        "when": "clock_missing_or_invalid_metadata",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "backward_clock_cross_thread_or_invalid_structure",
+        "status": "rejected_structure"
+      },
+      {
+        "when": "sample_cap_reached_without_wall_target",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "completed_round_has_fewer_than_10_positive_CPU_increments",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "declared_CPU_resolution_ceil_above_100000_ns",
+        "status": "cpu_resolution_insufficient"
+      },
+      {
+        "when": "complete_round_with_enough_positive_CPU_has_p95_above_100000_ns",
+        "status": "cpu_resolution_insufficient"
+      },
+      {
+        "when": "any_bracket_above_100000_ns",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "full_fixed_set_bracket_p99_above_50000_ns",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "any_sleep_actual_wall_below_40000000_ns",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "complete_ten_sleep_ratio_p90_above_0_10",
+        "status": "clock_capability_unconfirmed"
+      },
+      {
+        "when": "deadline_cancel_collection_or_persistence_incomplete",
+        "status": "clock_capability_unconfirmed"
+      }
+    ],
+    "B_deadline_scope": {
+      "seconds": 30,
+      "starts": "B_worker_environment_and_clock_metadata_acquisition",
+      "includes": [
+        "metadata",
+        "three_dense_rounds",
+        "ten_sleep_controls",
+        "within_attempt_statistics_and_decision",
+        "necessary_raw_evidence_persistence"
+      ],
+      "excludes": [
+        "source_preflight",
+        "tool_development_and_sealing",
+        "later_independent_audit",
+        "public_documentation_and_git_publication"
+      ],
+      "timeout_cannot_publish_pass": true,
+      "OS_return_at_exact_deadline_not_guaranteed": true,
+      "after_stop_no_more_calibration_stamps_cpu_samples_or_sleeps": true,
+      "necessary_final_wall_control_reads_separately_recorded": true
+    }
+  },
+  "future_order": [
+    "confirm_platform_runtime_scope_and_available_resources",
+    "prepare_new_S0_S1_methods_and_cases_then_seal_README_commit_push",
+    "execute_only_later_authorized_applicable_A_in_selected_environment_and_publish",
+    "separately_estimate_and_confirm_at_most_one_new_standalone_B_with_30_second_limit"
+  ],
+  "stop_conditions": [
+    "platform_or_permissions_unavailable_do_not_auto_fallback",
+    "source_build_or_Linux_dependency_missing_do_not_silently_change_version",
+    "identity_locking_output_or_persistence_failure_do_not_reduce_A",
+    "no_B_before_applicable_A_and_separate_confirmation",
+    "no_C_D_or_fixed48_scheduled"
+  ],
+  "actual_results": {
+    "Linux_build": null,
+    "Linux_A": null,
+    "Linux_B": null,
+    "clock_capability": null,
+    "overhead": null,
+    "runtime_estimate_seconds": null
+  },
+  "review": {
+    "status": "independent_integration_and_comparability_static_reviews_passed",
+    "corrected_reference": "V67 sys.executable child at lines485-486",
+    "descriptor_matches": 24,
+    "unique_bound_files": 21,
+    "document_links_checked": 27,
+    "V69_requirement_groups_exact_match": 5,
+    "frozen_V62_V69_unchanged": true,
+    "new_tests": 0,
+    "new_measurements": 0
+  }
+}

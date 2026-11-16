@@ -13,7 +13,7 @@
 
 ## Stage 12｜Linux環境可行性與接入提案（最新）
 
-V70核對14份官方來源，提案原生Ubuntu Server24.04／GA6.8，Windows上WSL2為條件次選；runtime為隔離的CPython3.12.10非PGO／非LTO release build。現機可用性與能力均未知，接著固定最小接入與可比限制；確認前不準備工具／案例，不新增量測。[平台與runtime評估](STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
+V70核對14份官方來源，提案原生Ubuntu Server24.04／GA6.8，Windows上WSL2為條件次選；runtime為隔離的CPython3.12.10非PGO／非LTO release build。已固定S0核心／S1真正typed合成入口兩層接入及7項可比限制，保留V69門檻。現機可用性與能力未知，待確認平台／runtime／準備範圍；工具／案例／量測均0。[完整可行性與確認提案](STAGE12_KNN_LINUX_FEASIBILITY_V70_20261116.md)
 
 ## Stage 12｜候選觀測來源可行性規格
 
