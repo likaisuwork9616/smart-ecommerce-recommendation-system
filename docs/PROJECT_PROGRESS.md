@@ -10,7 +10,8 @@
 | --- | --- |
 | 接入與案例 | 已實作 invocation-local adapter，原 V39／V27／V22 route、pair／SQL code object 保留；合成 48 筆與真 SQLite／checkpoint 案例 |
 | 封存 | 獨立靜態審閱完成；r1 封存 81 個具名案例（回歸 57／SQL 6／guard 15／入口 3）與方法／來源，先更新 README 並推送 |
-| 合成驗收 | 尚未執行；預定核對完整輸出、五檔／帳本 bytes、SQL／lazy fetch／watch／fault 與 cleanup |
+| 合成驗收 | 唯一一次正式 suite 的 81 項全過（57／6／15／3），失敗／錯誤／跳過 0；正式及獨立唯讀 audit 通過（103 組雜湊、81 個案例） |
+| 實際結果 | 原基線／O／D 五檔、48 筆完整 payload、142,166 bytes 帳本、工作量與操作 trace 相同；D 725 點／578 span／50 root，17 種故障 × 三模式例外及清理相符 |
 | 尚缺 | 真正 V39／V46 typed worker 接入、A16 B／D 完整判定仍待驗，不能宣稱完整 A 通過 |
 | 本輪限制 | 不做實機校準或原固定 48 筆重跑；實際刻度／開銷未知，暫不採用 V46 |
 

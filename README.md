@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V64 合成入口工具與案例已封存 | 81 項案例與方法／來源已封存（V63 回歸 57＋V64 新案例 24）；推送後才驗收，目前尚無測試結果，不做實機校準或原 48 筆重跑 |
+| Stage 12：session-kNN K1 | V64 wall／CPU 合成入口驗收完成 | 先封存推送再驗收，81 項全過；五檔／48 筆完整 payload／142,166 bytes 帳本與操作順序一致，17 種故障通過；未做校準或原 48 筆重跑 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,9 +33,9 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜wall／CPU 合成入口與操作一致性（最新）
 
-V64 承接 V62／V63，以單次呼叫的 clone 接入原 V39 policy → V27 runner → V22 完整入口，加入全新 48 筆合成資料、小型 SQLite 與真正 checkpoint 寫入／反讀。案例涵蓋完整 expected／precise／delta_hex、工作量、五個入口檔與帳本 bytes，以及 SQL／lazy fetch／watch／fault 順序；先封存工具與案例並推送，再執行驗收。**r1 已封存 81 個具名案例：V63 回歸 57、SQL 6、接入 guard 15、完整入口／故障矩陣 3；目前測試執行數仍為 0，沒有通過數或開銷結果。**
+V64 先封存工具與案例並推送，再執行唯一一次正式 suite：**81 項全過，失敗／錯誤／跳過均為 0**（V63 回歸 57／SQL 6／guard 15／入口 3）。原基線、O、D 經實際 V39 policy → V27 runner → V22 入口，五個輸出檔、48 筆完整 expected／precise／delta_hex、工作量與 **142,166 bytes 帳本全部相同**；SQL／lazy fetch／watch／fault 順序也一致。D 實際記下 725 點／578 span／50 root，17 種故障 × 三模式的例外身分、已提交 prefix 與清理均相符。正式及獨立唯讀重核通過（103 組雜湊、81 個具名案例相符），沒有重跑 suite。
 
-這輪只用假邊界時鐘；會執行合成 query／SQL／檔案操作，但不讀真實 model、不重跑原固定 48 筆，也不做實機校準。synthetic pool 只用來驗實際入口路由，真正 V39／V46 typed worker 接入與 A16 完整判定仍待完成，不能稱整個 A 關通過。維持暫不採用 V46。[方法、驗收界線與操作](docs/STAGE12_KNN_WALL_CPU_ENTRY_V64_20261116.md)
+這輪使用新合成資料與假邊界時鐘，確實執行了小型 SQL、query 及 checkpoint 檔案操作；假時間只驗接入，不代表實際耗時或開銷。原固定 48 筆、真實 model、實機校準及負載採樣均未執行。synthetic pool 證明路由保持一致，**真正 V39／V46 typed worker 接入與 A16 完整判定仍待驗，不能稱整個 A 關通過**。下一步先補這兩項合成驗收缺口；維持暫不採用 V46。[實際結果、界線與操作](docs/STAGE12_KNN_WALL_CPU_ENTRY_V64_20261116.md)
 
 ## Stage 12｜最小 wall／CPU 工具與假時鐘驗收
 
