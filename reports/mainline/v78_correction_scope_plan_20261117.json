@@ -1,0 +1,902 @@
+{
+  "schema": "v78_watch_exit_correction_scope_plan",
+  "date": "2026-11-17",
+  "status": "documentary_plan_awaiting_confirmation",
+  "source_descriptors": [
+    {
+      "path": "reports/mainline/v78_watch_exit_contract_20261117.json",
+      "bytes": 18964,
+      "sha256": "070f9d1a77eab291b28d40317a3900cdfc30a926f9fa75a543db89c863c02ea9"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    {
+      "path": "reports/mainline/v77_synthetic_acceptance_window1_20261117.json",
+      "bytes": 82554,
+      "sha256": "3e9f6dca648705771d22383bce3d90af1c40b6b71982f68b3927e88c64b55cee"
+    },
+    {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    {
+      "path": "reports/mainline/v77_fixture_seal_20261117.json",
+      "bytes": 18963,
+      "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 39315,
+      "sha256": "05efb3f3529a51c80213b09f3dd20057c346e6689294cbdac8440d3b0d74bc30"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v77.py",
+      "bytes": 18653,
+      "sha256": "f8328410d1d3733d254fd8f5bd04da06882b32b891298feb1cfafb6f597cdbd2"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 31157,
+      "sha256": "c6da248bf0b3d5ddb13473fe0b08e95fa0cdbd4374aef855de4588a224b24ef5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    }
+  ],
+  "recommendation": {
+    "next_scope": "Q0_role_exit_observation_source_and_minimum_integration_feasibility",
+    "reason": "V77 launch-exit identities differ from role-declared identities; watch-only repair cannot establish exact role exit evidence",
+    "confirmation_required_before_next_scope": true,
+    "Q0_completion_authorizes_implementation_or_suite": false,
+    "tool_version_and_API_selection": "deferred_until_Q0_and_separate_confirmation"
+  },
+  "correction_boundaries": [
+    {
+      "id": "D1",
+      "scope": "None-on-success watch adapter at new pipeline verify_full boundary",
+      "preserve": "original bound call, budget semantics, CP/worker/V2/V4/SQL bytes and10000 progress interval"
+    },
+    {
+      "id": "D2",
+      "scope": "candidate persistent Windows role process identity/exit observation with ready/ack",
+      "unknown": [
+        "actual_API",
+        "rights",
+        "lifetime",
+        "create_time_boot_normalization",
+        "rapid_exit_handling"
+      ],
+      "observed_capability": false
+    },
+    {
+      "id": "D3",
+      "scope": "explicit role vs generic_synthetic launch routing",
+      "business_role_fallback_to_generic": false,
+      "infer_role_from_log_filename": false
+    },
+    {
+      "id": "D4",
+      "scope": "versioned launcher/role receipts and externally closed evidence accepted by publisher/final_seal",
+      "old_receipts_rewritten": false,
+      "self_report_or_marker_is_OS_exit_proof": false
+    },
+    {
+      "id": "D5",
+      "scope": "retain all196 IDs and strengthen existing A12/A16/A20/A21/A23 assertions",
+      "A09_precise_contract_retained": true
+    },
+    {
+      "id": "D6",
+      "scope": "new versioned control/observation/test/catalog/seal/output namespace after separate confirmation",
+      "V77_window_reuse": false,
+      "original_fixtures_regenerated": false
+    }
+  ],
+  "Q0": {
+    "estimated_minutes": [
+      30,
+      60
+    ],
+    "stop_checkpoint_minutes": 60,
+    "platform_runtime_target_source": {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    "deliverables": [
+      "Q0-1 official source semantics ownership lifetime rights and rapid-exit limitations",
+      "Q0-2 exact identity normalization and ready-observer-ack-work-exit protocol",
+      "Q0-3 schema/path/whitelist and publisher/final_seal evidence closure",
+      "Q0-4 role/generic route differences and original196-case assertion mapping",
+      "Q0-5 selected candidate limits concrete future files/seals/acceptance/time/stop proposal"
+    ],
+    "allowed": [
+      "read_official_primary_documents",
+      "read_necessary_existing_launch_configuration_and_related_source_text",
+      "write_reviewable_specifications_and_source_descriptors",
+      "update_README_Traditional_Chinese_commit_push_main"
+    ],
+    "forbidden": [
+      "implement_tools_or_cases",
+      "import_or_execute_suite",
+      "launch_role_or_generic_probe_process",
+      "clock_calibration_or_performance_measurement",
+      "real_data_or_fixed48_reruns",
+      "Linux_installation_or_runtime_package_change"
+    ],
+    "documentary_feasibility_is_runtime_capability_pass": false,
+    "unresolved_live_requirements": "record_as_future_synthetic_validation_not_an_unapproved_probe"
+  },
+  "route_constraints": {
+    "role_calls": [
+      "pipeline",
+      "worker",
+      "publisher"
+    ],
+    "generic_case_ids": [
+      "A23.resource_process",
+      "A23.monitor_process",
+      "A23.descendant_timeout"
+    ],
+    "generic_requires_role_handshake": false,
+    "generic_receipts_may_claim_role_exit": false,
+    "existing_generic_exit_timeout_stop_expectations_preserved": true
+  },
+  "evidence_closure_constraints": {
+    "ready_candidate": "existing_three_field_role_identity_json",
+    "ack_and_observer_candidate": "dedicated_control/episodes_namespace_to_be_fixed_by_Q0",
+    "fault_marker": "existing_worker.log",
+    "EPISODE_FILES_no_blanket_expansion": true,
+    "required_bindings": [
+      "role_identity",
+      "request_sha256",
+      "episode",
+      "method_identity",
+      "file_descriptors"
+    ],
+    "publisher_and_final_seal_cover_external_role_evidence": true,
+    "whole_control_directory_immutable_claim": false,
+    "live_budget_control_files_separate_from_sealed_role_evidence": true
+  },
+  "future_implementation_and_acceptance_not_authorized": {
+    "estimated_minutes": [
+      100,
+      160
+    ],
+    "preparation_static_review_minutes": [
+      70,
+      120
+    ],
+    "seals_execution_receipt_README_Git_minutes": [
+      30,
+      40
+    ],
+    "preparation_stop_checkpoint_minutes": 120,
+    "complete_machine_range_minutes": [
+      2,
+      10
+    ],
+    "machine_range_status": "provisional_not_measured_not_extrapolated_from_V77_partial_failure",
+    "maximum_formal_windows": 1,
+    "suite_success_deadline_seconds": 900,
+    "work_child_limit_seconds": 120,
+    "work_child_bounded_by_formal_remaining": true,
+    "automatic_correction_or_retry": false,
+    "receipt_deadline_veto": true,
+    "cleanup_does_not_extend_success_deadline": true,
+    "separate_user_confirmation_required": true
+  },
+  "stop_rules": [
+    "Q0_no_source_basis_for_same_role_exit_or_exact_identity_normalization",
+    "Q0_requires_unapproved_probe_or60_minutes_without_reviewable_method",
+    "future_scope_requires_frozen_science_golden196IDs_or_threshold_changes",
+    "future_preparation120_minutes_without_complete_seals",
+    "unexpected_source_runtime_role_identity_or_ready_ack_mismatch",
+    "role_scientific_work_before_observer_ack",
+    "missing_exact_role_exit_or_fault_marker_or64_committed_prefix_blocks_second_recovery",
+    "unexpected_exception_timeout_or_missing_duplicate_skipped_required_case",
+    "future_only_window_failure_no_repair_rerun",
+    "quota_or_external_interruption_preserve_incomplete_state"
+  ],
+  "preserved_contract": {
+    "descriptor": {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    "methods": 34,
+    "case_ids": 196,
+    "families": 24,
+    "required_test_ids": [
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+    ],
+    "required_case_ids": [
+      "A01.profile.F-small",
+      "A01.profile.F-long",
+      "A01.profile.F-edge",
+      "A01.invalid_profile.real",
+      "A01.invalid_profile.166897",
+      "A01.invalid_profile.../F-small",
+      "A01.invalid_profile.None",
+      "A01.invalid_profile.129",
+      "A01.anchor.fixture_seal_sha256",
+      "A01.anchor.method_seal_sha256",
+      "A01.manifest.missing_profile",
+      "A01.manifest.real_profile",
+      "A01.manifest.forged_real_count",
+      "A01.manifest.caller_count_mismatch",
+      "A01.manifest.bool_count",
+      "A01.manifest.float_count",
+      "A01.manifest.bool_visitors",
+      "A01.manifest.wrong_draw_count",
+      "A01.manifest.bool_synthetic_marker",
+      "A01.manifest.outside_data_path",
+      "A01.manifest.absolute_path",
+      "A01.manifest.outside_source_path",
+      "A01.manifest.wrong_role",
+      "A01.path.../outside",
+      "A01.path./outside",
+      "A01.path.C:/outside",
+      "A01.path.dir/../input.txt",
+      "A01.path.dir\\input.txt",
+      "A01.alias.is_symlink",
+      "A01.alias.is_junction",
+      "A02.runtime",
+      "A02.missing_direct_source",
+      "A02.same_size_wrong_sha",
+      "A02.undeclared_dynamic",
+      "A03.full.F-small",
+      "A03.full.F-long",
+      "A03.full.F-edge",
+      "A04.fallback.no_supported_seed",
+      "A04.fallback.only_self_session_overlap",
+      "A04.fallback.no_positive_causal_vote",
+      "A04.neighbors.499",
+      "A04.neighbors.500",
+      "A04.neighbors.501",
+      "A04.ratio.0",
+      "A04.ratio.1",
+      "A04.ratio.2",
+      "A06.dataset/queries.csv.missing",
+      "A06.dataset/queries.csv.extra",
+      "A06.dataset/queries.csv.duplicate",
+      "A06.dataset/queries.csv.order",
+      "A06.P0/ranked_queries.csv.missing",
+      "A06.P0/ranked_queries.csv.extra",
+      "A06.P0/ranked_queries.csv.duplicate",
+      "A06.P0/ranked_queries.csv.order",
+      "A06.P0/query_metrics.csv.missing",
+      "A06.P0/query_metrics.csv.extra",
+      "A06.P0/query_metrics.csv.duplicate",
+      "A06.P0/query_metrics.csv.order",
+      "A06.P0/query_slices.csv.missing",
+      "A06.P0/query_slices.csv.extra",
+      "A06.P0/query_slices.csv.duplicate",
+      "A06.P0/query_slices.csv.order",
+      "A06.C1/queries.jsonl.missing",
+      "A06.C1/queries.jsonl.extra",
+      "A06.C1/queries.jsonl.duplicate",
+      "A06.C1/queries.jsonl.order",
+      "A06.D1/queries.jsonl.missing",
+      "A06.D1/queries.jsonl.extra",
+      "A06.D1/queries.jsonl.duplicate",
+      "A06.D1/queries.jsonl.order",
+      "A06.primary/queries.jsonl.missing",
+      "A06.primary/queries.jsonl.extra",
+      "A06.primary/queries.jsonl.duplicate",
+      "A06.primary/queries.jsonl.order",
+      "A09.same_size_database",
+      "A09.missing_database",
+      "A09.extra_journal",
+      "A09.source_changed",
+      "A09.foreign_reconstruction",
+      "A11.scientific.before_append",
+      "A11.scientific.query_verified",
+      "A11.scientific.payload_half_written",
+      "A11.scientific.after_payload_fsync",
+      "A11.scientific.before_manifest_commit",
+      "A11.scientific.after_manifest_commit",
+      "A12.invalid.wrong_prefix_key",
+      "A12.invalid.chunk_gap",
+      "A12.invalid.chain_sha",
+      "A13.global_replay",
+      "A13.bootstrap_draw",
+      "A13.after_stage_global",
+      "A14.primary.order",
+      "A14.primary.draw_sha256",
+      "A14.primary.query_denominator",
+      "A14.primary.rng_before",
+      "A14.primary.rng_after",
+      "A14.primary.delta",
+      "A14.primary.missing",
+      "A14.primary.extra",
+      "A14.C1.order",
+      "A14.C1.draw_sha256",
+      "A14.C1.query_denominator",
+      "A14.C1.rng_before",
+      "A14.C1.rng_after",
+      "A14.C1.missing",
+      "A14.C1.extra",
+      "A15.candidate.wrong_count",
+      "A15.candidate.bool_count",
+      "A15.candidate.float_count",
+      "A15.candidate.false_eof",
+      "A15.candidate.integer_eof",
+      "A15.candidate.string_eof",
+      "A15.candidate.wrong_ledger",
+      "A15.candidate.missing_stage",
+      "A15.candidate.wrong_run",
+      "A15.finalize.wrong_count",
+      "A15.finalize.bool_count",
+      "A15.finalize.float_count",
+      "A15.finalize.false_eof",
+      "A15.finalize.integer_eof",
+      "A15.finalize.string_eof",
+      "A15.finalize.wrong_ledger",
+      "A15.finalize.missing_stage",
+      "A15.finalize.wrong_run",
+      "A15.supersede.wrong_count",
+      "A15.supersede.bool_count",
+      "A15.supersede.float_count",
+      "A15.supersede.false_eof",
+      "A15.supersede.integer_eof",
+      "A15.supersede.string_eof",
+      "A15.supersede.wrong_ledger",
+      "A15.supersede.missing_stage",
+      "A15.supersede.wrong_run",
+      "A15.candidate.valid",
+      "A15.finalize.valid",
+      "A15.supersede.valid",
+      "A15.finalize.candidate_mismatch",
+      "A15.supersede.candidate_mismatch",
+      "A15.writer_required",
+      "A15.artificial_count_contract",
+      "A10.row_boundary_63_64_65",
+      "A10.time_boundary_120",
+      "A10.eof_short_tail",
+      "A11.payload_half_written",
+      "A11.after_payload_fsync",
+      "A11.before_manifest_commit",
+      "A11.after_manifest_commit",
+      "A12.prefix_crash_recovery",
+      "A16.alive",
+      "A16.nonzero",
+      "A16.pid_reused",
+      "A16.uncertain",
+      "A16.other_boot",
+      "A16.self_exit",
+      "A17.candidate_unknown_exit",
+      "A18.normal_exit_reentry",
+      "A19.normal_positions",
+      "A19.H1",
+      "A19.H2",
+      "A19.H3",
+      "A19.H4",
+      "A19.H5",
+      "A19.H6",
+      "A19.H7",
+      "A19.H8",
+      "A20.no_numeric_replay",
+      "A20.request",
+      "A20.request_deadline",
+      "A20.normal_boot",
+      "A20.observed_exit",
+      "A20.candidate_count",
+      "A20.query_stage",
+      "A20.payload_key",
+      "A20.global_roster",
+      "A20.aggregate_count",
+      "A20.cp_summary",
+      "A21.closed_manifest",
+      "A21.extra",
+      "A21.append",
+      "A21.missing",
+      "A21.live",
+      "A22.P9",
+      "A22.P10",
+      "A23.absolute",
+      "A23.downtime",
+      "A23.rollback",
+      "A23.rss",
+      "A23.disk",
+      "A23.temp",
+      "A23.monitor",
+      "A23.delivery",
+      "A23.path_scope",
+      "A23.resource_process",
+      "A23.monitor_process",
+      "A23.descendant_timeout",
+      "A24.intervals"
+    ],
+    "family_memberships": [
+      {
+        "id": "A01",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change"
+        ],
+        "required_case_ids": [
+          "A01.profile.F-small",
+          "A01.profile.F-long",
+          "A01.profile.F-edge",
+          "A01.invalid_profile.real",
+          "A01.invalid_profile.166897",
+          "A01.invalid_profile.../F-small",
+          "A01.invalid_profile.None",
+          "A01.invalid_profile.129",
+          "A01.anchor.fixture_seal_sha256",
+          "A01.anchor.method_seal_sha256",
+          "A01.manifest.missing_profile",
+          "A01.manifest.real_profile",
+          "A01.manifest.forged_real_count",
+          "A01.manifest.caller_count_mismatch",
+          "A01.manifest.bool_count",
+          "A01.manifest.float_count",
+          "A01.manifest.bool_visitors",
+          "A01.manifest.wrong_draw_count",
+          "A01.manifest.bool_synthetic_marker",
+          "A01.manifest.outside_data_path",
+          "A01.manifest.absolute_path",
+          "A01.manifest.outside_source_path",
+          "A01.manifest.wrong_role",
+          "A01.path.../outside",
+          "A01.path./outside",
+          "A01.path.C:/outside",
+          "A01.path.dir/../input.txt",
+          "A01.path.dir\\input.txt",
+          "A01.alias.is_symlink",
+          "A01.alias.is_junction"
+        ]
+      },
+      {
+        "id": "A02",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity"
+        ],
+        "required_case_ids": [
+          "A02.runtime",
+          "A02.missing_direct_source",
+          "A02.same_size_wrong_sha",
+          "A02.undeclared_dynamic"
+        ]
+      },
+      {
+        "id": "A03",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws"
+        ],
+        "required_case_ids": [
+          "A03.full.F-small",
+          "A03.full.F-long",
+          "A03.full.F-edge"
+        ]
+      },
+      {
+        "id": "A04",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback"
+        ],
+        "required_case_ids": [
+          "A04.fallback.no_supported_seed",
+          "A04.fallback.only_self_session_overlap",
+          "A04.fallback.no_positive_causal_vote",
+          "A04.neighbors.499",
+          "A04.neighbors.500",
+          "A04.neighbors.501",
+          "A04.ratio.0",
+          "A04.ratio.1",
+          "A04.ratio.2"
+        ]
+      },
+      {
+        "id": "A05",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery"
+        ],
+        "required_case_ids": [
+          "A03.full.F-long"
+        ]
+      },
+      {
+        "id": "A06",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order"
+        ],
+        "required_case_ids": [
+          "A06.dataset/queries.csv.missing",
+          "A06.dataset/queries.csv.extra",
+          "A06.dataset/queries.csv.duplicate",
+          "A06.dataset/queries.csv.order",
+          "A06.P0/ranked_queries.csv.missing",
+          "A06.P0/ranked_queries.csv.extra",
+          "A06.P0/ranked_queries.csv.duplicate",
+          "A06.P0/ranked_queries.csv.order",
+          "A06.P0/query_metrics.csv.missing",
+          "A06.P0/query_metrics.csv.extra",
+          "A06.P0/query_metrics.csv.duplicate",
+          "A06.P0/query_metrics.csv.order",
+          "A06.P0/query_slices.csv.missing",
+          "A06.P0/query_slices.csv.extra",
+          "A06.P0/query_slices.csv.duplicate",
+          "A06.P0/query_slices.csv.order",
+          "A06.C1/queries.jsonl.missing",
+          "A06.C1/queries.jsonl.extra",
+          "A06.C1/queries.jsonl.duplicate",
+          "A06.C1/queries.jsonl.order",
+          "A06.D1/queries.jsonl.missing",
+          "A06.D1/queries.jsonl.extra",
+          "A06.D1/queries.jsonl.duplicate",
+          "A06.D1/queries.jsonl.order",
+          "A06.primary/queries.jsonl.missing",
+          "A06.primary/queries.jsonl.extra",
+          "A06.primary/queries.jsonl.duplicate",
+          "A06.primary/queries.jsonl.order"
+        ]
+      },
+      {
+        "id": "A07",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime"
+        ],
+        "required_case_ids": []
+      },
+      {
+        "id": "A08",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild"
+        ],
+        "required_case_ids": []
+      },
+      {
+        "id": "A09",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity"
+        ],
+        "required_case_ids": [
+          "A09.same_size_database",
+          "A09.missing_database",
+          "A09.extra_journal",
+          "A09.source_changed",
+          "A09.foreign_reconstruction"
+        ]
+      },
+      {
+        "id": "A10",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append"
+        ],
+        "required_case_ids": [
+          "A10.row_boundary_63_64_65",
+          "A10.time_boundary_120",
+          "A10.eof_short_tail"
+        ]
+      },
+      {
+        "id": "A11",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content"
+        ],
+        "required_case_ids": [
+          "A11.scientific.before_append",
+          "A11.scientific.query_verified",
+          "A11.scientific.payload_half_written",
+          "A11.scientific.after_payload_fsync",
+          "A11.scientific.before_manifest_commit",
+          "A11.scientific.after_manifest_commit",
+          "A11.payload_half_written",
+          "A11.after_payload_fsync",
+          "A11.before_manifest_commit",
+          "A11.after_manifest_commit"
+        ]
+      },
+      {
+        "id": "A12",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery"
+        ],
+        "required_case_ids": [
+          "A12.invalid.wrong_prefix_key",
+          "A12.invalid.chunk_gap",
+          "A12.invalid.chain_sha",
+          "A12.prefix_crash_recovery"
+        ]
+      },
+      {
+        "id": "A13",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay"
+        ],
+        "required_case_ids": [
+          "A13.global_replay",
+          "A13.bootstrap_draw",
+          "A13.after_stage_global"
+        ]
+      },
+      {
+        "id": "A14",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count"
+        ],
+        "required_case_ids": [
+          "A14.primary.order",
+          "A14.primary.draw_sha256",
+          "A14.primary.query_denominator",
+          "A14.primary.rng_before",
+          "A14.primary.rng_after",
+          "A14.primary.delta",
+          "A14.primary.missing",
+          "A14.primary.extra",
+          "A14.C1.order",
+          "A14.C1.draw_sha256",
+          "A14.C1.query_denominator",
+          "A14.C1.rng_before",
+          "A14.C1.rng_after",
+          "A14.C1.missing",
+          "A14.C1.extra"
+        ]
+      },
+      {
+        "id": "A15",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts"
+        ],
+        "required_case_ids": [
+          "A15.candidate.wrong_count",
+          "A15.candidate.bool_count",
+          "A15.candidate.float_count",
+          "A15.candidate.false_eof",
+          "A15.candidate.integer_eof",
+          "A15.candidate.string_eof",
+          "A15.candidate.wrong_ledger",
+          "A15.candidate.missing_stage",
+          "A15.candidate.wrong_run",
+          "A15.finalize.wrong_count",
+          "A15.finalize.bool_count",
+          "A15.finalize.float_count",
+          "A15.finalize.false_eof",
+          "A15.finalize.integer_eof",
+          "A15.finalize.string_eof",
+          "A15.finalize.wrong_ledger",
+          "A15.finalize.missing_stage",
+          "A15.finalize.wrong_run",
+          "A15.supersede.wrong_count",
+          "A15.supersede.bool_count",
+          "A15.supersede.float_count",
+          "A15.supersede.false_eof",
+          "A15.supersede.integer_eof",
+          "A15.supersede.string_eof",
+          "A15.supersede.wrong_ledger",
+          "A15.supersede.missing_stage",
+          "A15.supersede.wrong_run",
+          "A15.candidate.valid",
+          "A15.finalize.valid",
+          "A15.supersede.valid",
+          "A15.finalize.candidate_mismatch",
+          "A15.supersede.candidate_mismatch",
+          "A15.writer_required",
+          "A15.artificial_count_contract"
+        ]
+      },
+      {
+        "id": "A16",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals"
+        ],
+        "required_case_ids": [
+          "A16.alive",
+          "A16.nonzero",
+          "A16.pid_reused",
+          "A16.uncertain",
+          "A16.other_boot",
+          "A16.self_exit"
+        ]
+      },
+      {
+        "id": "A17",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit"
+        ],
+        "required_case_ids": [
+          "A17.candidate_unknown_exit"
+        ]
+      },
+      {
+        "id": "A18",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry"
+        ],
+        "required_case_ids": [
+          "A18.normal_exit_reentry"
+        ]
+      },
+      {
+        "id": "A19",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes"
+        ],
+        "required_case_ids": [
+          "A19.normal_positions",
+          "A19.H1",
+          "A19.H2",
+          "A19.H3",
+          "A19.H4",
+          "A19.H5",
+          "A19.H6",
+          "A19.H7",
+          "A19.H8"
+        ]
+      },
+      {
+        "id": "A20",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay"
+        ],
+        "required_case_ids": [
+          "A20.no_numeric_replay",
+          "A20.request",
+          "A20.request_deadline",
+          "A20.normal_boot",
+          "A20.observed_exit",
+          "A20.candidate_count",
+          "A20.query_stage",
+          "A20.payload_key",
+          "A20.global_roster",
+          "A20.aggregate_count",
+          "A20.cp_summary"
+        ]
+      },
+      {
+        "id": "A21",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs"
+        ],
+        "required_case_ids": [
+          "A21.closed_manifest",
+          "A21.extra",
+          "A21.append",
+          "A21.missing",
+          "A21.live"
+        ]
+      },
+      {
+        "id": "A22",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly"
+        ],
+        "required_case_ids": [
+          "A22.P9",
+          "A22.P10"
+        ]
+      },
+      {
+        "id": "A23",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget"
+        ],
+        "required_case_ids": [
+          "A23.absolute",
+          "A23.downtime",
+          "A23.rollback",
+          "A23.rss",
+          "A23.disk",
+          "A23.temp",
+          "A23.monitor",
+          "A23.delivery",
+          "A23.path_scope",
+          "A23.resource_process",
+          "A23.monitor_process",
+          "A23.descendant_timeout"
+        ]
+      },
+      {
+        "id": "A24",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+        ],
+        "required_case_ids": [
+          "A24.intervals"
+        ]
+      }
+    ],
+    "fixture_seal": {
+      "path": "reports/mainline/v77_fixture_seal_20261117.json",
+      "bytes": 18963,
+      "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+    },
+    "golden_reference_original_draws_and_78_files_unchanged": true
+  },
+  "V77_state_unchanged": {
+    "status": "failed",
+    "subcases_passed": 147,
+    "subcases_failed": 1,
+    "subcases_unexecuted": 48,
+    "formal_windows_consumed": 1,
+    "formal_windows_remaining": 0
+  },
+  "this_round_execution": {
+    "new_tools": 0,
+    "new_cases": 0,
+    "suite_or_probe_runs": 0,
+    "new_measurements": 0,
+    "new_official_API_reviews": 0,
+    "real_reruns": 0,
+    "Linux_installations": 0,
+    "B_C_D_fixed48_runs": 0
+  },
+  "remaining_limits": {
+    "T_plan": null,
+    "reserved_test": "locked",
+    "V46_adopted": false,
+    "daily_reminder_budget_percent": 10,
+    "Dashboard": "deferred_until_applicability_confirmed"
+  },
+  "static_verification": {
+    "status": "passed_documentary_review_only",
+    "source_descriptors_verified": 11,
+    "required_methods_preserved_in_order": 34,
+    "required_case_ids_preserved_in_order": 196,
+    "family_memberships_preserved": 24,
+    "independent_watch_and_exit_scope_reviews": "passed",
+    "implementation_or_behavior_execution": false
+  }
+}

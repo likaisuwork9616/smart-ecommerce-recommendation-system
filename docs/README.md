@@ -13,7 +13,7 @@
 
 ## Stage 12｜V78 watch與角色退出精確規格（最新）
 
-只讀V77既有失敗，已列watch成功回None、角色精確退出及64筆prefix門檻；另發現啟動PID與角色PID錯位，不能靠tracked或exit數字替代退出來源。下一輪修正範圍與估時整理中，未新增執行。[契約與證據](STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md)
+只讀V77既有失敗，已列watch成功回None、角色精確退出及64筆prefix門檻；另發現啟動PID與角色PID錯位，不能靠tracked或exit數字替代退出來源。D1–D6修正邊界及停止條件已列，建議先確認30–60分鐘Q0可行性，後段工具／完整196窗口另確認；未新增執行。[契約與證據](STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md)
 
 ## Stage 12｜V77一次完整合成驗收（前輪）
 

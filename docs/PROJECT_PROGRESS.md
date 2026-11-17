@@ -8,9 +8,10 @@
 
 | 工作 | 狀態與實際結果 |
 | --- | --- |
-| 精確契約 | W回呼、E角色退出、P有效prefix門檻完成靜態審閱；32既有證據與36方法／schema相符 |
+| 精確契約 | W回呼、E角色退出、P有效prefix門檻完成靜態審閱；32既有證據與36方法描述＋1份schema相符 |
 | 新發現 | 啟動PID與角色宣告PID不相等；tracked membership不能證角色退出碼，不能僅修watch就直接完整重驗 |
-| 下一步與界線 | 修正邊界、停止與估時整理中；原golden／196案例保留，新工具／測試／量測／真實重跑0 |
+| 下一步與估時 | D1–D6修正邊界完成，建議先確認Q0觀測來源可行性30–60分鐘；後段工具／完整196驗收另確認，暫估100–160分鐘 |
+| 界線 | Q0亦尚未開始；原golden／196案例保留，新工具／測試／量測／真實重跑0 |
 
 [本輪規格與進度](STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md)
 
@@ -1033,7 +1034,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77保留原golden，唯一合成窗口147子案例通過／1失敗／48未執行，已停止；完整獨立反讀與K1−C1結論仍缺，T_plan未知，不裝Linux，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V78精確規格及Q0可行性提案完成待確認，完整獨立反讀與K1−C1結論仍缺，T_plan未知，不裝Linux，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
