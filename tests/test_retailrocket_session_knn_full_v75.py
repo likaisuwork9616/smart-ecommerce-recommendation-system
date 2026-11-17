@@ -543,7 +543,7 @@ class ExactCoreTests(unittest.TestCase):
             args = db, support, 'artificial', prepared.counts, prepared, at, history, current
             actual = worker.sql.predict(*args)
             self.assertEqual(actual, sql2.predict(*args))
-            self.assertEqual(actual, v1.predict(sessions, support, 'artificial', counts, catalog, at, history, current))
+            self.assertEqual(actual, v1.predict(sessions, support, 'artificial', counts, catalog, at, history, current, lambda: None))
             return actual
 
     def test_A04_hand_unknown_self_future_and_fallback(self):

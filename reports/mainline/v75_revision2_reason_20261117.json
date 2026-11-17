@@ -1,0 +1,49 @@
+{
+  "schema": "v75_single_formal_correction_reason",
+  "date": "2026-11-17",
+  "kind": "in_scope_new_implementation_fix",
+  "prior_method_seal_sha256": "bbaa8fc1b594f70b80c995a6c35f303a06b0151052d90bb6ce772731f18cc8d8",
+  "prior_fixture_seal_sha256": "54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a",
+  "failed_formal_revision": 1,
+  "next_formal_revision": 2,
+  "failure_receipt": {
+    "path": "reports/mainline/v75_synthetic_acceptance_revision1_20261117.json",
+    "bytes": 3364,
+    "sha256": "3a88233b6bfb12ccbd15bbe287cb17f5a412cd319cdc4c1b30fdc2686928c659"
+  },
+  "cause": "New A04 test adapter omitted the required frozen V1 predict watch argument.",
+  "change": "Supply the required no-op watch callback in the new artificial differential test.",
+  "changed_source": {
+    "path": "tests/test_retailrocket_session_knn_full_v75.py",
+    "old_sha256": "2dfc9fe6442e8143c1b67c41dddc91c7b2fb056a822affdcb64dbd150df316b1",
+    "new_sha256": "b909c4b30a80504fc03b4d8a090c4d06974ee2010b10828bc63361908573b778"
+  },
+  "required_methods": 34,
+  "required_subcases": 196,
+  "case_catalog_unchanged": {
+    "path": "docs/contracts/retailrocket_session_knn_cases_v75.json",
+    "bytes": 52301,
+    "sha256": "a8a3c80186bc2af3a53db1f93e4136b32996566d196b6c84b1dc64328b880330"
+  },
+  "fixture_manifests_unchanged": [
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/manifest.json",
+      "bytes": 25691,
+      "sha256": "dc6c46d5f3dfc41d0ad3088a90b0b4965c276a9a6f4a735499e11f78693bbc45"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/manifest.json",
+      "bytes": 24975,
+      "sha256": "e9167531d38817d814885542c1ed341b8df0457da4287c0f4ec1e1079c801ee3"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/manifest.json",
+      "bytes": 23840,
+      "sha256": "b2e2b870d18c2effa0ec0afa82b27276b15c5ef318206463ef798cb1efc8ae8a"
+    }
+  ],
+  "frozen_methods_scientific_rules_thresholds_unchanged": true,
+  "tests_run_during_correction": 0,
+  "one_formal_window_remaining": true,
+  "independent_signature_and_field_static_review": "passed"
+}

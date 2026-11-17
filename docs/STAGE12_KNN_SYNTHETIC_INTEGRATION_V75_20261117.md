@@ -15,7 +15,7 @@
 | 停止與證據 | 同run跨PID累積預算、假時鐘／資源與真程序清理；內層watchdog逾時會傳遞為不得補跑；失敗檔案保留在忽略目錄 |
 | 必要案例 | **34個測試方法、196個子案例ID、24個案例族**；正式runner逐一核對封存清單，缺漏／skip／意外失敗不能通過 |
 
-[目前工具封存收據（準備修訂2）](../reports/mainline/v75_tool_seal_revision2_20261117.json)保存35個方法／案例描述符、公開Stage8 schemas依賴、V74提案與runtime身分。現有Windows runtime核對為CPython3.12.10、NumPy2.5.4、psutil7.2.2、SQLite3.49.1、little endian，符合V73相容目標；這是身分核對，不是時鐘能力或成本校準。
+[目前工具封存收據（正式修正版）](../reports/mainline/v75_tool_seal_revision3_20261117.json)保存35個方法／案例描述符、公開Stage8 schemas依賴、V74提案與runtime身分。現有Windows runtime核對為CPython3.12.10、NumPy2.5.4、psutil7.2.2、SQLite3.49.1、little endian，符合V73相容目標；這是身分核對，不是時鐘能力或成本校準。
 
 人工資料規格固定F-small 7 queries／6 visitors、F-long 129／3（70／40／19）、F-edge 1／1及501鄰居；另有499／500／501與精確比率向量。generator只接受新的固定shop-mysql-runtime/v75/fixtures目錄；凍結V1與V2產出golden後才能建立fixture registry，候選不得製作自己的expected。公開只封存描述符與聚合狀態，人工原始檔、DB、程序日誌與故障證據全部留在Git忽略的shop-mysql-runtime/v75。
 
@@ -34,10 +34,10 @@
 3. 再核對額度及所有封存身分，使用下列正式入口。每版一次、900秒成功截止、子程序最多120秒且受剩餘預算限制；已確認最多初驗及必要的一次新工具／案例實作修正版。整窗或內層意外超時不補跑，來源權威不明不補跑。第二版必須另版封存、完整重驗，不拼接通過項。
 
 ```powershell
-.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_acceptance_v75 --revision 1 --method-sha <已封存工具SHA> --fixture-sha <已封存人工registry SHA>
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_acceptance_v75 --revision 2 --method-sha 6aeb842111fa8a7ac570807353dc8b1a9f22b33f7f7e5704708c0f5cc18cf393 --fixture-sha 028f69c5364b3a0a832b4e766dfe10d21a1f4fee03d8ef606f8fafafdf406881
 ```
 
-fixture registry已建立，正式命令尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在shop-mysql-runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
+fixture registry已建立；上列為唯一修正版命令，第2窗口尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在shop-mysql-runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
 
 V74的3–5小時為整體工作估計，機器驗收已含在內；不因額度、失敗或時間壓力縮減必要案例。每個可安全完成的小步驟後更新README並提交推送。額度不足時保留已封存內容與未完成項目，停在下一次執行前；不自行使用額度重設或購買額度。
 
@@ -62,13 +62,21 @@ V74的3–5小時為整體工作估計，機器驗收已含在內；不因額度
 
 窗口已依fail-fast停止，完整錯誤／stdout／stderr／required-case缺漏與程序證據保留。耗時只用於合成驗收期限，不是解碼、排名或完整入口效能。本次屬新案例實作錯誤，可用已確認範圍內僅一次修正版；須先修正並重新封存／推送，再以第2窗口完整重驗全部必要項目。第1版通過項不得拼接到第2版，第二版失敗即停止。
 
+## 第四步：唯一正式修正版已封存
+
+只修改新A04案例的一行呼叫，補上凍結V1 predict要求的`watch=lambda: None`；舊方法、科學規則、門檻、34個必要方法與196個子案例均未更動。凍結oracle簽章與其餘新案例的API／欄位完成只讀複核，修正期間沒有執行小樣本、單例或正式補跑。
+
+[修正原因與前版證據](../reports/mainline/v75_revision2_reason_20261117.json)、[正式修正版工具封存](../reports/mainline/v75_tool_seal_revision3_20261117.json)及[修正版人工registry](../reports/mainline/v75_fixture_seal_revision2_20261117.json)相互綁定。三組人工manifest與golden bytes完全沿用原封存內容，沒有重產或改expected；新registry只改綁修正版工具身分。
+
+上列第2窗口命令需在本步推送後才啟動，從頭執行全部必要案例。這是已確認範圍內唯一正式修正版；若再失敗、逾時或缺漏，保存結果並停止，不開第3窗口。
+
 ## 本輪進度
 
 | 步驟 | 狀態與實際結果 |
 | --- | --- |
 | 1. 工具與案例來源 | 已準備並靜態複核；35個方法／案例描述符、34方法／196子案例待執行 |
 | 2. 三組人工資料與golden封存 | 修正後三組皆已建立；78檔共8,043,982 bytes，凍結V1／V2核對並保存golden；V75候選未執行 |
-| 3. 有限合成驗收 | 第1窗口failed：5方法執行、4通過；34子案例通過／1失敗，剩餘未執行；保留一次修正版 |
+| 3. 有限合成驗收 | 第1窗口failed：5方法執行、4通過；34子案例通過／1失敗，剩餘未執行；唯一修正版已封存，待第2完整窗口 |
 | 真實研究／Linux／量測 | 全部0；保留測試locked、T_plan未知 |
 
 每日10%提醒的待資料與優先順序沿V71；Dashboard仍等待適用程度確認。本輪人工接入即使通過，也不代表真實166,897筆完整驗收、容量／成本或K1−C1結論完成。
