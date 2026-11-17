@@ -1,0 +1,39 @@
+{
+  "schema": "v77_fixture_binding_review",
+  "status": "sealed_registry_preserved_readonly_confirmation",
+  "error_type": "SourceAuthorityError",
+  "message": "Unsafe relative path",
+  "phase": "summary_display_after_registry_write",
+  "cause": "Temporary preparation command passed Windows str(Path) with backslash to strict POSIX-relative descriptor helper only while printing final summary. All source checks and registry write had already completed.",
+  "resolution": "Read existing registry with a normalized relative path; no tool/registry changes and no generation or suite rerun.",
+  "formal_windows_started": 0,
+  "source_identity_mismatch": false,
+  "fixture_registry": {
+    "path": "reports/mainline/v77_fixture_seal_20261117.json",
+    "bytes": 18963,
+    "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+  },
+  "verified_manifest_count": 3,
+  "verified_source_file_count": 78,
+  "verified_source_bytes": 8043982,
+  "private_failure_record": {
+    "path": "shop-mysql-runtime/v77/preparation_display_failure.json",
+    "bytes": 874,
+    "sha256": "20992c42cefb892c687a15e68be19fc8192c0179849b316ffb382e1e8881ea17"
+  },
+  "preserved_tool_excerpt": {
+    "path": "shop-mysql-runtime/v77/preparation_display_failure_tool_excerpt.json",
+    "bytes": 1171,
+    "sha256": "ff67261998c5fc2ef742427d86ffef1ea6a6630596d41fcc1bb982e72402170e"
+  },
+  "independent_readonly_verification": {
+    "status": "passed",
+    "method_descriptors": 36,
+    "manifests": 3,
+    "source_files": 78,
+    "source_bytes": 8043982,
+    "original_fixture_descriptors_equal": true,
+    "formal_window_absent": true,
+    "display_failure_sequence_basis": "original tool-call evidence plus preserved transcribed excerpt, not inferred from the retrospective summary alone"
+  }
+}

@@ -1,0 +1,507 @@
+{
+  "schema": "v77_artificial_fixture_registry",
+  "date": "2026-11-17",
+  "status": "original_V75_inputs_bound_to_V77_tools_before_only_window",
+  "method_seal_sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7",
+  "real_execution_enabled": false,
+  "fixtures": [
+    {
+      "fixture_id": "F-small",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-small",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-small/manifest.json",
+        "bytes": 25691,
+        "sha256": "dc6c46d5f3dfc41d0ad3088a90b0b4965c276a9a6f4a735499e11f78693bbc45"
+      },
+      "queries": 7,
+      "visitors": 6,
+      "files": 26,
+      "bytes": 2216565,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 7,
+        "singleton_sessions": 3,
+        "train_baskets": 11,
+        "basket_item_memberships": 14,
+        "distinct_session_item_memberships": 12,
+        "positive_support_items": 5,
+        "maximum_session_items": 3,
+        "maximum_posting_size": 4
+      }
+    },
+    {
+      "fixture_id": "F-long",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-long",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-long/manifest.json",
+        "bytes": 24975,
+        "sha256": "e9167531d38817d814885542c1ed341b8df0457da4287c0f4ec1e1079c801ee3"
+      },
+      "queries": 129,
+      "visitors": 3,
+      "files": 26,
+      "bytes": 3465659,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 7,
+        "singleton_sessions": 3,
+        "train_baskets": 11,
+        "basket_item_memberships": 14,
+        "distinct_session_item_memberships": 12,
+        "positive_support_items": 5,
+        "maximum_session_items": 3,
+        "maximum_posting_size": 4
+      }
+    },
+    {
+      "fixture_id": "F-edge",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-edge",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-edge/manifest.json",
+        "bytes": 23840,
+        "sha256": "b2e2b870d18c2effa0ec0afa82b27276b15c5ef318206463ef798cb1efc8ae8a"
+      },
+      "queries": 1,
+      "visitors": 1,
+      "files": 26,
+      "bytes": 2361758,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 501,
+        "singleton_sessions": 0,
+        "train_baskets": 501,
+        "basket_item_memberships": 1002,
+        "distinct_session_item_memberships": 1002,
+        "positive_support_items": 502,
+        "maximum_session_items": 2,
+        "maximum_posting_size": 501
+      }
+    }
+  ],
+  "parent_fixture_seals": [
+    {
+      "path": "reports/mainline/v75_fixture_seal_20261117.json",
+      "bytes": 2883,
+      "sha256": "54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a"
+    },
+    {
+      "path": "reports/mainline/v75_fixture_seal_revision2_20261117.json",
+      "bytes": 3035,
+      "sha256": "028f69c5364b3a0a832b4e766dfe10d21a1f4fee03d8ef606f8fafafdf406881"
+    }
+  ],
+  "preservation": {
+    "original_manifest_bytes_preserved": true,
+    "original_golden_reference_and_draw_bytes_preserved": true,
+    "verified_manifests": 3,
+    "verified_source_files": 78,
+    "verified_source_bytes": 8043982,
+    "new_generation_runs": 0,
+    "old_registries_fixture_descriptors_identical": true
+  },
+  "verified_source_descriptors": [
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/C1/bootstrap.jsonl",
+      "bytes": 1016971,
+      "sha256": "c0979ab950c0a21335d95b1df08daa8811026df15f31bf854ffef7599c4a2ca9"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/C1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "0e81d93a38085cda7d6a68c31af2a04857e92b92abf86087bb00a136b56cdf94"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/C1/queries.jsonl",
+      "bytes": 7524,
+      "sha256": "edb5aaee428973780c637189bcaad46f940c93cdf8c535b593cba485d1984624"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/C1/support.csv",
+      "bytes": 35,
+      "sha256": "aa3ac0ea23b53e157b7620ba6303f61025877408d4581f007a04440f4b201ef9"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/C1/train_sessions.jsonl",
+      "bytes": 517,
+      "sha256": "2a43df6d033440f797ec4858964d9dc4db360803d3579b2b22ac43427cdd1583"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/configuration.json",
+      "bytes": 21604,
+      "sha256": "9abe5f9e44e72d9947babe4661e9a05861bd4c3cdfbdc41ce85d2f1e3c88eaac"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/D1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "b052e9d27ebbe8dd52e3e4a4988f3412bd8cbe287776e9c84d2b52a0bfbfccd6"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/D1/queries.jsonl",
+      "bytes": 11125,
+      "sha256": "44febc25f74d22cac073fe5b0eef8c059da4b5be8fcf3bd7d65f7a3e1f5ce2ac"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/dataset/baskets.csv",
+      "bytes": 1288,
+      "sha256": "99d9d2fda089d9e1c2a2567cc255e1baa615ab6a4aa5aba7c1fb7907bf270b61"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/dataset/catalog.csv",
+      "bytes": 181,
+      "sha256": "c297a1ec45a9ca290ae456ee6d4995f61dbe8bc90f0d4a612bc14242d53784dd"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/dataset/queries.csv",
+      "bytes": 1468,
+      "sha256": "7d7a6de6696b35682cc8ee23ebe048b8e5380b1f5ecd57d998661563caa25d45"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/golden_records.jsonl",
+      "bytes": 25573,
+      "sha256": "d9fa979dc68d0d969c168f25768ec8e319ac00c82136be7e9c02ff27c9ba8bcc"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/P0/fit_audit.json",
+      "bytes": 25,
+      "sha256": "a9039f8649cb87fad973729ccaf464f72afcb3175bcfaecbcf6151c0d8a5618c"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/P0/item_counts.csv",
+      "bytes": 33,
+      "sha256": "2ba519fb58f2943fbc5da0d1bdd5d3f981408a89ab5653cffd375661835d2d74"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/P0/query_metrics.csv",
+      "bytes": 749,
+      "sha256": "1f4779ce45999b72f24162d874a12390caf27322a814240fd6a3c3ffd07b2e34"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/P0/query_slices.csv",
+      "bytes": 547,
+      "sha256": "969e037d26dc90fbc3e65b21383366fb84ee2112464a95e9acfb33b7eaea1fa0"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/P0/ranked_queries.csv",
+      "bytes": 1028,
+      "sha256": "574a5e31a37fd0affccd2b46553c6eca95c417c01ab5af709fa3440d24aa3aa0"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/aggregate.json",
+      "bytes": 31897,
+      "sha256": "5ac1e2123b827bce24c6fd070eda3c4ceb7286a9d018c769a006f9f5f8c5db37"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/bootstrap.jsonl",
+      "bytes": 1013215,
+      "sha256": "ef14d8d8d32308dfecafe2da2ee4852bfa0b9b1d1173fee28f83968071ae6ab8"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/fit_audit.json",
+      "bytes": 320,
+      "sha256": "4c7a84ede2b3a0bf0509de38465b3a813b66e861572cfc387194000983d5a0a5"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/oracle.sqlite",
+      "bytes": 28672,
+      "sha256": "e3c5fe594b072530e6ce56218afe63a08c444e8b3be2abb089b92764be827ce2"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/postings.jsonl",
+      "bytes": 356,
+      "sha256": "dc9ef105b1ec6b43edd4307577c5807d56fcf6651e5ccd08ec73f5acf8475897"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/queries.jsonl",
+      "bytes": 20020,
+      "sha256": "a4db986495ade489badcc4ee48973419548f753427bb670c98150a37272d8f42"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/sessions.jsonl",
+      "bytes": 265,
+      "sha256": "d6c318b173ef7b0c225f0abf453d7b17dc83c1137bc2b1ab2ea5f3e77f377883"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/primary/train_sessions.jsonl",
+      "bytes": 510,
+      "sha256": "b7a1f2dd79e9a6825f3265fca88c042d6d1936ea305dcd1a08567f4ef114ea50"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-small/reference.json",
+      "bytes": 32488,
+      "sha256": "7ad4a06e5fb997350345ef212b54184eb85bce9bea4f2b29d286abb8df2ecd03"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/C1/bootstrap.jsonl",
+      "bytes": 1021904,
+      "sha256": "358a28c4d7f55f8d39a154070d22f20027d6cbd4ca9c1a29d34e1eb445edbedb"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/C1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "0e81d93a38085cda7d6a68c31af2a04857e92b92abf86087bb00a136b56cdf94"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/C1/queries.jsonl",
+      "bytes": 138360,
+      "sha256": "9b9724ce0ad6e68a760c8e222d9e5fc008d385a7d800d9484263f57accb5c79f"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/C1/support.csv",
+      "bytes": 35,
+      "sha256": "aa3ac0ea23b53e157b7620ba6303f61025877408d4581f007a04440f4b201ef9"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/C1/train_sessions.jsonl",
+      "bytes": 517,
+      "sha256": "2a43df6d033440f797ec4858964d9dc4db360803d3579b2b22ac43427cdd1583"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/configuration.json",
+      "bytes": 20877,
+      "sha256": "7eeec104fa9606533b4c2b2ee1aea8b77b5e07f3088d6acc5f7db11625b437ac"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/D1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "b052e9d27ebbe8dd52e3e4a4988f3412bd8cbe287776e9c84d2b52a0bfbfccd6"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/D1/queries.jsonl",
+      "bytes": 203568,
+      "sha256": "4623aa8910beaf248b14a12828c88ce0be88c5f7b00b4139ff7c9a7f4f0872cb"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/dataset/baskets.csv",
+      "bytes": 6973,
+      "sha256": "d521ec1a06fa70e30248199c48973fa630e835404d4afe42b77305d7ea4e0969"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/dataset/catalog.csv",
+      "bytes": 181,
+      "sha256": "c297a1ec45a9ca290ae456ee6d4995f61dbe8bc90f0d4a612bc14242d53784dd"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/dataset/queries.csv",
+      "bytes": 13764,
+      "sha256": "7fd422cec46a82025176beb4ebe09c93c6bca09848cdf60511253638e7ba6618"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/golden_records.jsonl",
+      "bytes": 506171,
+      "sha256": "0a61dda32d4391cebc5faea0fc400f06f670e2496f3b973e7e0ba5857535eb2b"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/P0/fit_audit.json",
+      "bytes": 25,
+      "sha256": "a9039f8649cb87fad973729ccaf464f72afcb3175bcfaecbcf6151c0d8a5618c"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/P0/item_counts.csv",
+      "bytes": 33,
+      "sha256": "2ba519fb58f2943fbc5da0d1bdd5d3f981408a89ab5653cffd375661835d2d74"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/P0/query_metrics.csv",
+      "bytes": 10968,
+      "sha256": "4dde93a847f90328aff6ac0146b4b8249e2264aaace3a75cf96da135c6819305"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/P0/query_slices.csv",
+      "bytes": 8241,
+      "sha256": "cf0c51c09cd45bb990adcc035157bab02d926990c7b05ca400baebc6213a4ff4"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/P0/ranked_queries.csv",
+      "bytes": 17504,
+      "sha256": "c224c5a66fa86b3a899949c44f0b702973f941ed250afa4bcec41ed8ed71ba07"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/aggregate.json",
+      "bytes": 30241,
+      "sha256": "8e884fccf365545e47c33c6bbd8db81c99f14d622ba78566c044384c3b1d6902"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/bootstrap.jsonl",
+      "bytes": 1020898,
+      "sha256": "19b979921afa56d3d545a9740240aab61c0d22e3aa5def73b7feb591c8f661f2"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/fit_audit.json",
+      "bytes": 320,
+      "sha256": "4c7a84ede2b3a0bf0509de38465b3a813b66e861572cfc387194000983d5a0a5"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/oracle.sqlite",
+      "bytes": 36864,
+      "sha256": "4b598caefbf1153ee73e1dd4696c39cd1bc40a99795d19b7d301b97351500a7f"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/postings.jsonl",
+      "bytes": 356,
+      "sha256": "dc9ef105b1ec6b43edd4307577c5807d56fcf6651e5ccd08ec73f5acf8475897"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/queries.jsonl",
+      "bytes": 396038,
+      "sha256": "43b475f8b46093aa4f2b06f2ef3dda7438fe49c766beb17d1791422073881afc"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/sessions.jsonl",
+      "bytes": 265,
+      "sha256": "d6c318b173ef7b0c225f0abf453d7b17dc83c1137bc2b1ab2ea5f3e77f377883"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/primary/train_sessions.jsonl",
+      "bytes": 510,
+      "sha256": "b7a1f2dd79e9a6825f3265fca88c042d6d1936ea305dcd1a08567f4ef114ea50"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/reference.json",
+      "bytes": 30892,
+      "sha256": "24acc2c43a93a4bfdfeba0d1b3a8718e53d4b478fc779d1ab36f00bf11ed91e6"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/C1/bootstrap.jsonl",
+      "bytes": 950890,
+      "sha256": "d30eaebda06cd820b1e1cd9f3cb45e08e1bfac96310e3a474287fe0d11248041"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/C1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "f190cf94f0b34a48d4fb8c9f1e33bd91af106c4ab29c8d0627139c3d1074cc9c"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/C1/queries.jsonl",
+      "bytes": 1111,
+      "sha256": "88c38f4cb619857d935b1fee84eb2ea7e66639dde960a22087a10156b6933213"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/C1/support.csv",
+      "bytes": 3528,
+      "sha256": "0a62fde1058ea26d420b8594e9490d2827126053f4a55253cd586cb98c138527"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/C1/train_sessions.jsonl",
+      "bytes": 39972,
+      "sha256": "0c581318ba170a514d65e2fb4a63aa753b22c271555dc363df9f3b3f3e114a36"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/configuration.json",
+      "bytes": 19744,
+      "sha256": "ce856094b4c7d991713a5733ca5b476d52c3044840fda1041148515387ecc01a"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/D1/fit_audit.json",
+      "bytes": 77,
+      "sha256": "64497de9c885357a9423ffeb091b6b5e5ba10448a99ce6045e708166156f2808"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/D1/queries.jsonl",
+      "bytes": 1644,
+      "sha256": "ca0250fc2a50d636e67f71acd2d1f57bd622f893a6f97cb295be031008aca7d2"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/dataset/baskets.csv",
+      "bytes": 25260,
+      "sha256": "b172c1997ca6bdec744b12da6a1ea28c9b5270e1c4156554bcc4939f8aeb515d"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/dataset/catalog.csv",
+      "bytes": 5649,
+      "sha256": "32950fa6dd23a275a15919c7011d779bd9411d7d0625d000618977e18510bcf2"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/dataset/queries.csv",
+      "bytes": 868,
+      "sha256": "62c6116d48716eba2a86bf0a4d0642bd500f6a5b3e6065efb7eef0c90d79d8ab"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/golden_records.jsonl",
+      "bytes": 37702,
+      "sha256": "03305b2b15bf4dc9be34be98687a04911d4fcaf16c03c6f543416bbbb85b1a65"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/P0/fit_audit.json",
+      "bytes": 25,
+      "sha256": "a9039f8649cb87fad973729ccaf464f72afcb3175bcfaecbcf6151c0d8a5618c"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/P0/item_counts.csv",
+      "bytes": 3526,
+      "sha256": "8ac53ed074e5812b7de13d413e0a1ff391e9fe72b008479e26228cae9d868a63"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/P0/query_metrics.csv",
+      "bytes": 218,
+      "sha256": "ca7d079f5345436935908e8acf20035dada28a9ad0cf9c997c185dcde462c8d4"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/P0/query_slices.csv",
+      "bytes": 179,
+      "sha256": "be63b06f74368bfcea65f1a2de461a3370487c2d79fbad51e2bff7769064e8b1"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/P0/ranked_queries.csv",
+      "bytes": 255,
+      "sha256": "2200fcab71638b379aacb66541b5e2557764771ebf967843b51d78af3d375443"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/aggregate.json",
+      "bytes": 27589,
+      "sha256": "8619dc7410d108e8a3f2134179d775a3321cc76d29002ad7a67f11b971edbd06"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/bootstrap.jsonl",
+      "bytes": 948890,
+      "sha256": "ca017f5bca4033ad3d4f3d6ff9cf3a429ebcf7bf99bc98385c591ab58c2cd3ec"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/fit_audit.json",
+      "bytes": 331,
+      "sha256": "22825780ed6900cf4954b96d30897e38e13c1015613e15804fb380d022c7778e"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/oracle.sqlite",
+      "bytes": 131072,
+      "sha256": "9e295dc1a2ada36b8f0441b43889c172bf559e0045ce4514dc42f724369d608f"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/postings.jsonl",
+      "bytes": 36399,
+      "sha256": "0146f3c091a7a3008d0061eb4ad718d45bb1469b12bfdc43fa5da19030412e2e"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/queries.jsonl",
+      "bytes": 37105,
+      "sha256": "ca4b882da507793fa8526c5e1adc875663d81014c94fddadae8a89efaa24797c"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/sessions.jsonl",
+      "bytes": 21936,
+      "sha256": "9bda90f17b5a84e84258f9da8f3296f281c3a4bd2ca0b353722b2a435a728491"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/primary/train_sessions.jsonl",
+      "bytes": 39471,
+      "sha256": "4a461603484ddc1cf0f6a312ea6b0f620aa53964f2bde2e7b5ce3be621f22dee"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-edge/reference.json",
+      "bytes": 28240,
+      "sha256": "eb8b452e6856cd4e7700df50d681641e8d562825d38bc2bee75737f1cb64205f"
+    }
+  ],
+  "preparation": {
+    "source_methods_verified": 36,
+    "elapsed_seconds_for_preparation_checkpoint_only": 463.856768,
+    "deadline_checkpoint_minutes": 120,
+    "suite_imports": 0,
+    "formal_tests_executed": 0,
+    "formal_windows_started": 0
+  },
+  "real_measurements": 0,
+  "T_plan": null
+}

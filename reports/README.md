@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V77原人工來源重綁 | [原78檔新registry](mainline/v77_fixture_seal_20261117.json) · [摘要顯示拒絕紀錄](mainline/v77_fixture_binding_review_20261117.json)；原golden／draws不變，新生成0、正式窗0 |
 | V77工具與案例封存 | [方法來源與完整案例](mainline/v77_tool_seal_20261117.json)；36描述符／34方法／196子案例靜態複核，正式窗口尚未開始 |
 | V76下一輪完整合成計畫 | [版本接入／34方法映射／196子案例／停止與估時](mainline/v76_next_synthetic_acceptance_plan_20261117.json)；待確認的V77單窗900秒提案，不是工具seal或執行授權 |
 | V76缺DB精確修正 | [既有證據與待驗assertions](mainline/v76_missing_db_correction_spec_20261117.json)；窄例外／拒收位置／原證據保留；只是規格，舊兩窗仍failed，新測試0 |

@@ -30,17 +30,35 @@ runner 只接受 `--window 1`，正式目錄固定 `shop-mysql-runtime/v77/forma
 
 900 秒是成功截止，含必要收據保存；逾時後只允許安全清理及保存失敗證據，不能把清理延時算成通過。原 V75 兩窗仍 failed，不併入 V77 通過項，也不開 V75 第三窗。
 
+## 第二步：原人工來源已核對並重綁
+
+[新 fixture registry](../reports/mainline/v77_fixture_seal_20261117.json)沿用原三個 manifest 及 78 檔，共 8,043,982 bytes。兩版原 V75 registry 的 fixture 描述完全相同；golden、reference、原人工 2,000 draws 與原 generator 身分保留，沒有生成新資料或重抽 draws。來源、路徑、硬連結及新方法描述均已核對，並完成獨立唯讀複核。
+
+| 人工來源 | queries／visitors | 檔數／bytes |
+| --- | ---: | ---: |
+| F-small | 7／6 | 26／2,216,565 |
+| F-long | 129／3 | 26／3,465,659 |
+| F-edge | 1／1 | 26／2,361,758 |
+
+準備指令完成核對及 registry 寫入後，最後顯示摘要使用 Windows `str(Path)`，含反斜線，被只接受 POSIX 相對路徑的描述函式拒絕。此錯誤發生在摘要顯示，不是來源 SHA 不符；已保留[顯示拒絕與既存 registry 核對紀錄](../reports/mainline/v77_fixture_binding_review_20261117.json)，僅唯讀確認原寫入結果，未修改工具／registry、重產 fixture 或重開準備驗收。原工具呼叫是先後順序的執行依據；命令末段與 traceback 摘錄另保存在忽略路徑，標示為既有工具輸出的抄錄，並非重新執行或原生日誌。
+
+工具 seal SHA 為 `49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7`；fixture registry SHA 為 `afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353`。本步 README 與來源封存推送後，才能執行下列唯一正式命令；目前尚未開始，不能重複執行。
+
+```powershell
+.venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_acceptance_v77 --window 1 --method-sha 49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7 --fixture-sha afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353
+```
+
 ## 操作順序與本輪進度
 
 1. 封存工具、案例及來源閉包，更新 README／提交／推送。
 2. 核原三組人工來源，封存新 registry，更新 README／提交／推送。
-3. 以實際 seal SHA 執行唯一正式窗口；命令會在第二步封存後列明。
+3. 以第二步實際 seal SHA 執行唯一正式窗口；上列命令只能執行一次。
 4. 只讀反核該窗結果、來源、退出及期限否決，保存聚合報告與完整缺漏，更新 README／提交／推送；不補跑。
 
 | 步驟 | 目前狀態 |
 | --- | --- |
 | 工具與案例 | 已完成並通過靜態複核，待行為驗收 |
-| 原人工來源重綁 | 待第二步逐檔核對及封存 |
+| 原人工來源重綁 | 已核對三個 manifest／78 檔並封存；新生成 0，摘要顯示拒絕紀錄保留 |
 | 唯一正式窗口 | 尚未開始，0／1 |
 | 真實研究／量測 | 真實資料、原 48 筆、Linux、B／C／D 均未啟動 |
 

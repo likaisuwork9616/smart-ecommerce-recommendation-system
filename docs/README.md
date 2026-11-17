@@ -13,7 +13,7 @@
 
 ## Stage 12｜V77一次完整合成驗收（最新）
 
-V77工具與完整案例已封存並完成靜態複核，原golden／worker與196IDs保留。待重綁原人工來源後才開唯一900秒窗口；尚未載入suite或執行測試。失敗不補跑、真實資料不重跑。[工具、期限及本輪進度](STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
+V77工具與完整案例已封存並完成靜態複核，原golden／worker與196IDs保留。原三個manifest／78檔已核對及重綁，待本步推送後開唯一900秒窗口；尚未載入suite或執行測試。失敗不補跑、真實資料不重跑。[工具、期限及本輪進度](STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
 
 ## Stage 12｜缺 DB 精確修正與下輪規格（前輪）
 

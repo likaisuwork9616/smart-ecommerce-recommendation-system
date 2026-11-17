@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V77工具與案例已封存，待原來源重綁及一次驗收 | 36方法／案例描述符、34方法／196子案例靜態核對；原golden與worker保留，正式窗口0／1、T_plan未知 |
+| Stage 12：session-kNN K1 | V77工具與原人工來源已封存，待唯一正式驗收 | 36方法／案例描述符、34方法／196子案例靜態核對；原golden與worker保留，正式窗口0／1、T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -38,10 +38,10 @@ Smart E-Commerce Recommendation System
 | 本輪步驟 | 實際狀態 |
 | --- | --- |
 | 工具與案例封存 | 36個方法／案例描述符，34方法映射／196同序IDs／24族與六個新來源AST通過靜態及獨立複核；尚未執行測試 |
-| 原人工來源重綁 | 待逐檔核對原三組manifest／78檔，只重綁新方法SHA，不重產golden |
+| 原人工來源重綁 | 三個manifest／78檔共8,043,982 bytes全數相符，新registry封存；golden／reference／draws均沿用，新生成0 |
 | 唯一正式窗口 | 尚未開始，0／1；整套900秒，工作子程序120秒並受整窗剩餘限制；失敗不補跑 |
 
-先封存推送工具，再封存原來源registry後才執行全34方法／196子案例；不拼接V75通過項。新fixture、量測、Linux／B／C／D、原48筆及真實資料重跑均0；T_plan未知、V46暫不採用，每日10%與Dashboard優先順序不變。[工具、界線與操作順序](docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
+工具已先推送，新registry完成封存；本步推送後才執行全34方法／196子案例，不拼接V75通過項。準備指令在寫完registry後顯示摘要時被路徑格式檢查拒絕，已保留紀錄並唯讀確認既存registry，沒有改工具或重建資料。新fixture、量測、Linux／B／C／D、原48筆及真實資料重跑均0；T_plan未知、V46暫不採用，每日10%與Dashboard優先順序不變。[工具、界線與操作順序](docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
 
 ## Stage 12｜缺 DB 負例精確修正與下輪計畫（前輪）
 
