@@ -1,0 +1,437 @@
+{
+  "schema": "v78_watch_exit_contract_specification",
+  "date": "2026-11-17",
+  "status": "documentary_proposal_not_implemented_or_executed",
+  "source_descriptors": [
+    {
+      "path": "reports/mainline/v77_synthetic_acceptance_window1_20261117.json",
+      "bytes": 82554,
+      "sha256": "3e9f6dca648705771d22383bce3d90af1c40b6b71982f68b3927e88c64b55cee"
+    },
+    {
+      "path": "reports/mainline/v77_readonly_result_audit_20261117.json",
+      "bytes": 1090,
+      "sha256": "6f50bd8bf7d0568a5b66d814925b2c90623e8088a999c9e458a984dae32d8498"
+    },
+    {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    {
+      "path": "reports/mainline/v77_fixture_seal_20261117.json",
+      "bytes": 18963,
+      "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 39315,
+      "sha256": "05efb3f3529a51c80213b09f3dd20057c346e6689294cbdac8440d3b0d74bc30"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v77.py",
+      "bytes": 18653,
+      "sha256": "f8328410d1d3733d254fd8f5bd04da06882b32b891298feb1cfafb6f597cdbd2"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 31157,
+      "sha256": "c6da248bf0b3d5ddb13473fe0b08e95fa0cdbd4374aef855de4588a224b24ef5"
+    }
+  ],
+  "existing_failure_evidence": [
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/request.json",
+      "bytes": 317,
+      "sha256": "26a7c8e8bcc2ac66f69ecf34ca24b589018fc69ab9904751c5e1f0826dbb0d3a"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/result.json",
+      "bytes": 76443,
+      "sha256": "27e83f8110f6fbc4bdff8edbb41d19873fbeccb48d8ea3d8912b245103f0c06c"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/stderr.log",
+      "bytes": 5285,
+      "sha256": "29c8df70b2cce443ce7fb7ddcbd0d3f2505b181cae3e159bf3ae364d03cd507d"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/suite_result.json",
+      "bytes": 72753,
+      "sha256": "fa1dc811cd261798b55152775127c13682cdf0146719d88aaa61887fb8ed44bc"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/budget.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/outer-11396.json",
+      "bytes": 153,
+      "sha256": "177b8c5d0ba191ce92d9e6052ffe762426a76247ae47a331001bd4684258dd60"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/pipeline-2252.json",
+      "bytes": 153,
+      "sha256": "ad370a6e43f88faa12cc5b236c38d8ae0e3a6dc4847c8b747762d94a35297df8"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_exit.json",
+      "bytes": 839,
+      "sha256": "ccef42a14bfa1729d02f1505883acbc0ecff8937646e269e5cb7d18b146b4fca"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/budget.json",
+      "bytes": 201,
+      "sha256": "e8e95535f348cc6fb69f892cfe53ac8bdcf6fac780f79c73e9dc874835e518cc"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/independent.sqlite",
+      "bytes": 45056,
+      "sha256": "bc12d75e69488e9a1dcc41ab0c2a73fabb172cab82b300dba2f46c9ed4d49d87"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/payloads/37fe53ebdc6142edadfc926fd0d9f70a.jsonl",
+      "bytes": 97790,
+      "sha256": "09a03218b225fd1571b7ba63cbc8b4afb98f55e8e6d4b7db69d5971130df0be5"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/run.json",
+      "bytes": 24756,
+      "sha256": "ff521991ea52374b9fbc1d19361976e7018bdcc41b736dfeb8d08535f7428479"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/run_identity.json",
+      "bytes": 110,
+      "sha256": "811768cd0dcf278a131f12dfa382a7b29126697bf103f7fcbce9087cdf9ea82b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/sessions/25655200dbb249f488fb32f8fdd3c610.json",
+      "bytes": 214,
+      "sha256": "fb6bb86df9205a605ccb3e9ae8a75ed367a5ac7029768cdf60e9678b9d465237"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/sessions/25655200dbb249f488fb32f8fdd3c610.released.json",
+      "bytes": 302,
+      "sha256": "45f62b9081b70ebcc98f075183871745bfaffd789dde32c0a2a2c98fef6afd39"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/stages/reconstruction.json",
+      "bytes": 736,
+      "sha256": "09651d98ffdccc1061b2b541108994b964ab4bc097364788bc8f0c509aae915b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/writer_owner.json",
+      "bytes": 302,
+      "sha256": "45f62b9081b70ebcc98f075183871745bfaffd789dde32c0a2a2c98fef6afd39"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline.log",
+      "bytes": 960,
+      "sha256": "e288e42a1bc537188bdd3e12a356fab9738da5a1971040702c627576d9420ade"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_failure.json",
+      "bytes": 992,
+      "sha256": "52fd696d00da166466fc4f9b19a5f81427beb707fa181267621cb326c9f8509b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_identity.json",
+      "bytes": 77,
+      "sha256": "8cdb3c8d9de2f43604ed544827e0c15820341fe5f1756129bcba3a26531bf276"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/scenario.json",
+      "bytes": 52,
+      "sha256": "5ab87884a8a1a36e96840193a9a5c233448982e57680c4eb769c33dff82a00ef"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker.log",
+      "bytes": 1440,
+      "sha256": "ef5a55815011b67be5f79bdff143f5902bda2bb184ef3ac6164862c686333b8a"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_exit.json",
+      "bytes": 604,
+      "sha256": "1ed3a6713e47d90ba73de1a24e5867dd40e71397b2f7b4471f3f2abcb5a491a4"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_failure.json",
+      "bytes": 1465,
+      "sha256": "13e1c04686e0879ea9df5eea063ef88b38c2b4d783ec5f0dc3f172fd5359d656"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_identity.json",
+      "bytes": 77,
+      "sha256": "7308c0106674976e6233e150e5f7b87310684981edd0675617fd6c4141073dd4"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_sources.jsonl",
+      "bytes": 92,
+      "sha256": "973016c8745e0705ce698e1763403c76a5a4e1000ff9e51778a26ae628653c19"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/request.json",
+      "bytes": 24714,
+      "sha256": "4b066bab6111ddced15a739c4ac30cb149ed81f41700c2345846fe4efb3704d4"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/cases/A09-missing_database-cb86840122fd4c479d7e9e10e3376bd6/missing_database_evidence.json",
+      "bytes": 5965,
+      "sha256": "5a8284adbbd93888ba8b5e0edbc0b36b16d9e07dd04caac9a984d77b76526dda"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/readonly_process_status.json",
+      "bytes": 1336,
+      "sha256": "38d9582eb14ee4aecb21a4c4036d7b9ef2ce520ca92b3ad2ec984d0f80cc4dae"
+    }
+  ],
+  "readonly_verification": {
+    "unique_existing_evidence_files_matched": 32,
+    "sealed_method_descriptors_matched": 36,
+    "preparation_input_descriptors_matched": 1,
+    "process_queries_or_new_observations": 0,
+    "project_modules_imported": 0
+  },
+  "historical_V77": {
+    "status": "failed",
+    "elapsed_seconds": 94.04699999999866,
+    "methods_passed": 24,
+    "methods_failed": 1,
+    "methods_unexecuted": 9,
+    "subcases_passed": 147,
+    "subcases_failed": 1,
+    "subcases_unexecuted": 48,
+    "formal_windows_consumed": 1,
+    "formal_windows_remaining": 0
+  },
+  "observed_failure": {
+    "sql_error": "OperationalError: interrupted",
+    "committed_chunks": 0,
+    "uncommitted_payload_bytes": 97790,
+    "uncommitted_payload_newlines": 25,
+    "second_pipeline_call_executed": false,
+    "callback_internal_error_saved": false,
+    "dict_return_as_cause": "static_inference_not_independently_reproduced"
+  },
+  "saved_process_identity_comparison": [
+    {
+      "role": "worker",
+      "declared_identity": {
+        "boot_time": 134393480935000000,
+        "create_time": 1794890573.854319,
+        "pid": 24856
+      },
+      "observed_launch_identity": {
+        "boot_time": 134393480935000000,
+        "create_time": 1794890573.81986,
+        "pid": 20076
+      },
+      "identities_equal": false,
+      "declared_identity_present_in_tracked": true,
+      "tracked_count": 3,
+      "observed_launch_exit_code": 1,
+      "observed_launch_normal": false,
+      "observed_launch_stop_request": null,
+      "actual_role_exit_code_known": false,
+      "sources": [
+        {
+          "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_identity.json",
+          "bytes": 77,
+          "sha256": "7308c0106674976e6233e150e5f7b87310684981edd0675617fd6c4141073dd4"
+        },
+        {
+          "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_exit.json",
+          "bytes": 604,
+          "sha256": "1ed3a6713e47d90ba73de1a24e5867dd40e71397b2f7b4471f3f2abcb5a491a4"
+        }
+      ]
+    },
+    {
+      "role": "pipeline",
+      "declared_identity": {
+        "boot_time": 134393480935000000,
+        "create_time": 1794890572.5321152,
+        "pid": 2252
+      },
+      "observed_launch_identity": {
+        "boot_time": 134393480935000000,
+        "create_time": 1794890572.4995253,
+        "pid": 17572
+      },
+      "identities_equal": false,
+      "declared_identity_present_in_tracked": true,
+      "tracked_count": 6,
+      "observed_launch_exit_code": 1,
+      "observed_launch_normal": false,
+      "observed_launch_stop_request": null,
+      "actual_role_exit_code_known": false,
+      "sources": [
+        {
+          "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_identity.json",
+          "bytes": 77,
+          "sha256": "8cdb3c8d9de2f43604ed544827e0c15820341fe5f1756129bcba3a26531bf276"
+        },
+        {
+          "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_exit.json",
+          "bytes": 839,
+          "sha256": "ccef42a14bfa1729d02f1505883acbc0ecff8937646e269e5cb7d18b146b4fca"
+        }
+      ]
+    }
+  ],
+  "identity_interpretation": "Exit receipts identify the launched processes; tracked descendant membership does not prove the declared role exit code or launcher forwarding semantics.",
+  "watch_contract": {
+    "boundary": "new_pipeline_worker_to_unchanged_verify_full",
+    "underlying_call": "bound_store.check_budget()",
+    "calls_per_adapter_call": 1,
+    "arguments_unchanged": true,
+    "default_persist": false,
+    "normal_return": "exact_None",
+    "truthiness_of_return_forbidden": true,
+    "new_clock_reads_budget_reset_or_retry": false,
+    "direct_exception_identity_preserved": true,
+    "SQLite_boundary_exception_identity_required": false,
+    "progress_expression_normal_return": "exact_int_0",
+    "progress_interval_unchanged": 10000,
+    "covers": [
+      "readback_v2_reconstruction",
+      "full_worker_v75_query",
+      "original_global_path"
+    ],
+    "pure_contract_assertions_in_existing_case": "A12.prefix_crash_recovery",
+    "pure_expression_test_is_actual_SQLite_callback_test": false,
+    "actual_SQL_integration_requires_original_F_long_flow": true,
+    "evidence_outside_checkpoint_and_closed_episode": true,
+    "F_long_pass_proves_both_SQLite_callbacks_triggered": false,
+    "both_SQLite_callback_execution_claim_requires_separate_evidence": true
+  },
+  "exit_contract": {
+    "launcher_and_role_evidence_separate": true,
+    "role_ready_ack_before_scientific_work": true,
+    "persistent_same_role_identity_observation_required": true,
+    "identity_components": [
+      "pid",
+      "create_time",
+      "boot_time"
+    ],
+    "worker_role_expected_code": 9,
+    "worker_code_exact_int": true,
+    "worker_normal_observed": false,
+    "worker_stop_request": null,
+    "worker_failure_file_absent": true,
+    "pipeline_role_expected_code": 1,
+    "pipeline_failure_must_bind_worker_role_code9": true,
+    "launcher_forwarding_assumed": false,
+    "marker_location": "existing_worker.log",
+    "marker_fields": [
+      "role",
+      "role_identity_or_sealed_ready_ack_descriptor",
+      "episode",
+      "request_sha256",
+      "fault_point",
+      "occurrence",
+      "planned_exit_code"
+    ],
+    "marker_fault": "query_verified",
+    "marker_occurrence": 65,
+    "marker_flush_fsync_before_exit": true,
+    "marker_is_independent_exit_evidence": false,
+    "generic_RuntimeError_is_sufficient": false,
+    "tracked_membership_is_sufficient": false,
+    "all_observed_identities_stopped_required": true,
+    "unobserved_descendants_guaranteed_absent": false,
+    "all_exit_codes_exact_int_no_bool_float_string": true,
+    "marker_identity_equals_independently_observed_role": true
+  },
+  "prefix_and_recovery_contract": {
+    "snapshot_before_recovery": true,
+    "all_exit_gates_required_before_prefix_and_second_pipeline": true,
+    "committed_chunk": 0,
+    "committed_rows": 64,
+    "first_ordinal": 0,
+    "last_ordinal": 63,
+    "previous_sha256": null,
+    "same_run_payload_bytes_hash_row_boundaries_keys_and_golden_prefix_required": true,
+    "uncommitted_tail_may_exist_but_not_counted": true,
+    "second_pipeline_preserves_request_run_sources_deadline_and_budget": true,
+    "first_chunk_and_payload_unchanged": true,
+    "full_golden_rows": 129,
+    "original_draws": 2000,
+    "normal_role_exit_codes": {
+      "worker": 0,
+      "publisher": 0,
+      "pipeline": 0
+    },
+    "stopped_final_seal_required": true,
+    "all_normal_role_exit_codes_exact_int": true
+  },
+  "invariants": {
+    "original_golden_and_78_files_preserved": true,
+    "required_methods": 34,
+    "required_case_ids": 196,
+    "families": 24,
+    "frozen_CP_worker_V2_V4_SQL_unchanged": true,
+    "V77_failure_not_reclassified": true
+  },
+  "this_round_execution": {
+    "new_tools": 0,
+    "new_tests": 0,
+    "fixture_generation": 0,
+    "new_measurements": 0,
+    "real_reruns": 0,
+    "Linux_installations": 0,
+    "B_C_D_fixed48_runs": 0
+  },
+  "next_step": "finish_correction_scope_stop_rules_estimates_and_confirmation_proposal",
+  "static_review": {
+    "watch_boundary_and_saved_identity_interpretation": "reviewed",
+    "clarifications_applied": [
+      "all_role_exit_codes_exact_int",
+      "F_long_success_not_callback_coverage_or_historical_cause_proof",
+      "marker_binds_independently_observed_role_identity"
+    ],
+    "new_behavior_tests": 0,
+    "exit_and_prefix_review": "reviewed"
+  }
+}

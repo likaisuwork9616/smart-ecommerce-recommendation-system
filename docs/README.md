@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V77一次完整合成驗收（最新）
+## Stage 12｜V78 watch與角色退出精確規格（最新）
+
+只讀V77既有失敗，已列watch成功回None、角色精確退出及64筆prefix門檻；另發現啟動PID與角色PID錯位，不能靠tracked或exit數字替代退出來源。下一輪修正範圍與估時整理中，未新增執行。[契約與證據](STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md)
+
+## Stage 12｜V77一次完整合成驗收（前輪）
 
 V77先封存再執行唯一窗口，94.047秒failed；147子案例通過／1失敗／48未執行，已停止不補跑。A09精確拒收通過；A12真程序SQL interrupted，64筆有效prefix預期未成立。原golden／196IDs／worker與78檔保留，真實資料未重跑。[工具、期限及本輪進度](STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
 

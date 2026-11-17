@@ -713,3 +713,7 @@ tests/*v77.py text eol=lf
 docs/contracts/retailrocket_session_knn_cases_v77.json -text
 docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md text eol=lf
 reports/mainline/v77_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V78 saved-evidence watch/exit specification and planning receipts.
+docs/STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md text eol=lf
+reports/mainline/v78_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

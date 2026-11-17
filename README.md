@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V77唯一合成窗口未通過，已停止 | 94.047秒；147子案例通過／1失敗／48未執行，A09修正通過；真程序恢復／發布仍缺，T_plan未知 |
+| Stage 12：session-kNN K1 | V78 watch／退出精確規格整理中；V77仍failed | 已查啟動程序與角色身分錯位，退出來源待釐清；原golden／196案例保留，無新執行，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,19 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V77一次完整合成驗收（最新）
+## Stage 12｜V78 watch與退出精確規格（最新）
+
+V78只查V77既有失敗紀錄及相關原碼，已列watch正常回傳None／直接例外保留、角色退出與64筆prefix的前置驗證。另確認worker與pipeline的退出收據PID都不同於角色自報PID；tracked包含角色不足以把啟動程序的退出碼歸給角色，不能只加exit=9判定。
+
+| 本輪工作 | 狀態與實際發現 |
+| --- | --- |
+| 既有證據與契約 | 32個既有證據檔及36方法／1份schema描述相符；W／E／P規格完成靜態複核，原失敗不改判 |
+| 下一輪修正與估時 | 整理中；必須先釐清角色退出觀測來源，不直接重跑完整套件 |
+| 執行界線 | 原golden／196子案例保留；本輪新工具、測試、程序觀測、量測及真實重跑均0 |
+
+完整SQL流程即使未來通過，也不單獨證明兩個SQLite callback皆被觸發或舊窗因果。K1完整驗收與T_plan仍缺，V46暫不採用，每日10%與Dashboard優先順序不變。[精確契約與證據界線](docs/STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md)
+
+## Stage 12｜V77一次完整合成驗收（前輪）
 
 V77已先封存推送工具與原人工來源，再執行唯一正式窗口；**94.047秒failed，已停止且不補跑**。原golden、全部196個子案例與科學worker均保留，沒有重產資料或真實重跑。
 

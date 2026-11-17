@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V78回呼與角色退出契約 | [既有證據／W／E／P精確規則](mainline/v78_watch_exit_contract_20261117.json)；兩個角色身分與啟動收據不符，僅文件規格、新測試0 |
 | V77唯一正式窗口結果 | [結果／缺漏／保存證據](mainline/v77_synthetic_acceptance_window1_20261117.json) · [唯讀反核](mainline/v77_readonly_result_audit_20261117.json)；94.047秒failed，147通過／1失敗／48未執行，A09通過、A12真程序未過，已停止無補跑 |
 | V77原人工來源重綁 | [原78檔新registry](mainline/v77_fixture_seal_20261117.json) · [摘要顯示拒絕紀錄](mainline/v77_fixture_binding_review_20261117.json)；原golden／draws不變，新生成0；封存時尚未開窗 |
 | V77工具與案例封存 | [方法來源與完整案例](mainline/v77_tool_seal_20261117.json)；36描述符／34方法／196子案例靜態複核；封存時尚未開窗 |
