@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V74最小接入、人工案例與估時已列，待確認 | 主要166,897列validation與2,000列bootstrap已產出；六元件／24案例族／八關卡待實作，準備與合成驗收估3–5小時；未新增量測或重跑，T_plan未知 |
+| Stage 12：session-kNN K1 | V75人工接入工具與案例來源已準備，尚未執行 | 已確認範圍內封存34方法／196子案例；人工資料／golden與有限驗收接續，真實完整反讀與成本仍缺，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,13 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜K1最小接入與人工驗收規格（最新）
+## Stage 12｜K1人工完整接入與有限驗收（最新）
+
+V75已依使用者確認準備五個工具、三個測試模組及必要案例契約，完成來源／案例／恢復與停止條件的靜態複核。工具封存涵蓋35個方法／案例描述符；34個測試方法、196個子案例對應24個案例族。現有Windows runtime符合V73相容目標。這一步尚未產生人工資料或執行測試，不能稱接入已通過。
+
+接著以已封存generator準備F-small、F-long（129筆／3人）及F-edge與凍結V1／V2 golden，再封存人工registry並推送，之後才做每版900秒、最多兩版的有限合成驗收；意外超時不補跑，額度不足先保存進度暫停。真實全量仍關閉，Linux／B／C／D／原48筆／新實測均0，T_plan仍未知，V46暫不採用。[本輪來源、案例與操作順序](docs/STAGE12_KNN_SYNTHETIC_INTEGRATION_V75_20261117.md)
+
+## Stage 12｜K1最小接入與人工驗收規格（前輪）
 
 V74依V73整理六個最小責任元件、人工request／輸出契約與G0–G7驗收關卡。未來工具只接受已封存人工bundle，人工N與真實166,897筆分開；新CP子類保留原完整檢查後核queries語義，涵蓋candidate／finalize／orphan恢復。首次candidate不要求自己先存在，所有完成守門均在同一writer鎖內。已列三組人工資料及24個案例族，逐一對應內容／恢復／來源／發布／期限與帳法；129筆人工完整流只證接入語義，不代表真實166,897筆通過。
 

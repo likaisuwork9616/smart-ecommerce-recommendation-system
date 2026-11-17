@@ -695,3 +695,10 @@ reports/mainline/v73_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V74 minimum integration, case catalog and confirmation plan.
 docs/STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md text eol=lf
 reports/mainline/v74_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V75 sealed synthetic source bytes and documentary receipts.
+scripts/*v75.py text eol=lf
+tests/*v75.py text eol=lf
+docs/contracts/retailrocket_session_knn_cases_v75.json -text
+docs/STAGE12_KNN_SYNTHETIC_INTEGRATION_V75_20261117.md text eol=lf
+reports/mainline/v75_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
