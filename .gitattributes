@@ -702,3 +702,7 @@ tests/*v75.py text eol=lf
 docs/contracts/retailrocket_session_knn_cases_v75.json -text
 docs/STAGE12_KNN_SYNTHETIC_INTEGRATION_V75_20261117.md text eol=lf
 reports/mainline/v75_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V76 documentary correction and next acceptance plan.
+docs/STAGE12_KNN_MISSING_DB_PLAN_V76_20261117.md text eol=lf
+reports/mainline/v76_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

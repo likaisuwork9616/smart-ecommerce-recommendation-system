@@ -1,0 +1,262 @@
+{
+  "schema": "v76_missing_database_correction_specification",
+  "date": "2026-11-17",
+  "status": "documentary_proposal_not_implemented_or_executed",
+  "source_descriptors": [
+    {
+      "path": "reports/mainline/v75_synthetic_acceptance_revision1_20261117.json",
+      "bytes": 3364,
+      "sha256": "3a88233b6bfb12ccbd15bbe287cb17f5a412cd319cdc4c1b30fdc2686928c659"
+    },
+    {
+      "path": "reports/mainline/v75_synthetic_acceptance_revision2_20261117.json",
+      "bytes": 11633,
+      "sha256": "900c81c464e2aa6c9238bb198df7be86193f0c11d316848b3cb470b59baccede"
+    },
+    {
+      "path": "reports/mainline/v75_tool_seal_revision3_20261117.json",
+      "bytes": 9660,
+      "sha256": "6aeb842111fa8a7ac570807353dc8b1a9f22b33f7f7e5704708c0f5cc18cf393"
+    },
+    {
+      "path": "reports/mainline/v75_fixture_seal_20261117.json",
+      "bytes": 2883,
+      "sha256": "54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a"
+    },
+    {
+      "path": "reports/mainline/v75_fixture_seal_revision2_20261117.json",
+      "bytes": 3035,
+      "sha256": "028f69c5364b3a0a832b4e766dfe10d21a1f4fee03d8ef606f8fafafdf406881"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v75.json",
+      "bytes": 52301,
+      "sha256": "a8a3c80186bc2af3a53db1f93e4136b32996566d196b6c84b1dc64328b880330"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_v75.py",
+      "bytes": 32470,
+      "sha256": "b909c4b30a80504fc03b4d8a090c4d06974ee2010b10828bc63361908573b778"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    }
+  ],
+  "existing_private_evidence_descriptors": [
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/request.json",
+      "bytes": 319,
+      "sha256": "3b5808ad72f8827850dd8daeb1eb71534d088cc8a204104dbb415a2d5e4e2372"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/result.json",
+      "bytes": 47257,
+      "sha256": "08f4bb682ed24a695425334be70040b6f9f0feaafefa3b70ebafae3e6820e375"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/stderr.log",
+      "bytes": 4789,
+      "sha256": "1e39598588a2a5ba682d76cae2293fd9f4d6d605aff66a58d40e53fee70569ce"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/suite_result.json",
+      "bytes": 44812,
+      "sha256": "eb14df9d71970239ae62e4e8a66620d780de187e1629195b3573e9c538710bbe"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    }
+  ],
+  "failed_case_artifact_descriptors": [
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/budget.json",
+      "bytes": 168,
+      "sha256": "3419dd34337f18e971967f44fadc79d9c1ea24b8a2aa84177223a2532b4bffa7"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/missing-db-preserved.sqlite",
+      "bytes": 36864,
+      "sha256": "40764506fee27166b9d006abd547626ec733cc5584aaadfcc3f7baa967b533b7"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/run.json",
+      "bytes": 25456,
+      "sha256": "0f714a19ac5babcfa7b318c2c6baeeb1fb00f22f1fb1c2f084e4c95d224a464b"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/run_identity.json",
+      "bytes": 110,
+      "sha256": "f8832307f2957725bcf4870b3daea1ea891c58843b6f7856db9752cc6d32c695"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/sessions/6e79dbf4100148788a2760d434777238.json",
+      "bytes": 180,
+      "sha256": "5326f35d4d003695e086b2bcfe131add730f7b7055efb8127168340dcfc7200d"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/sessions/6e79dbf4100148788a2760d434777238.released.json",
+      "bytes": 267,
+      "sha256": "694dc328fc2298f99dc2990e6e002e1c65e4439440ef34143499aaff6318befa"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/stages/reconstruction.json",
+      "bytes": 736,
+      "sha256": "aa9e93ea510a8b10e5a4b23544c418cac1679ce7273b6593204fd9960a620255"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/writer_owner.json",
+      "bytes": 267,
+      "sha256": "694dc328fc2298f99dc2990e6e002e1c65e4439440ef34143499aaff6318befa"
+    }
+  ],
+  "readonly_verification": {
+    "sealed_method_descriptors_matched": 35,
+    "saved_private_formal_descriptors_matched": 6,
+    "fixture_manifests_matched": 3,
+    "original_fixture_files_matched": 78,
+    "original_fixture_bytes": 8043982,
+    "preserved_database_matches_reconstruction_seal": true,
+    "absent_relative_paths": [
+      "independent.sqlite",
+      "candidate.json",
+      "acceptance.json",
+      "integrity_failed.json",
+      "stages/queries.json",
+      "stages/global.json",
+      "stages/bootstrap.json"
+    ],
+    "ledger": {
+      "chunks": 0,
+      "last_key": null,
+      "last_manifest_sha256": null,
+      "records": 0
+    },
+    "writer_owner_state": "released",
+    "writer_owner_exception": "InjectedFailure",
+    "scope": "existing_saved_bytes_and_source_text_only_no_checkpoint_open_no_project_import"
+  },
+  "historical_second_window": {
+    "status": "failed",
+    "elapsed_seconds": 38.0630000000001,
+    "methods_run": 13,
+    "methods_passed": 12,
+    "methods_unexecuted": 21,
+    "subcases_executed": 76,
+    "subcases_passed": 75,
+    "subcases_failed": 1,
+    "subcases_unexecuted": 120,
+    "formal_windows_consumed": 2,
+    "formal_windows_remaining": 0
+  },
+  "root_cause": {
+    "case_id": "A09.missing_database",
+    "test_expected_types": [
+      "ValueError",
+      "IntegrityError"
+    ],
+    "observed_type": "FileNotFoundError",
+    "observed_message_winerror": 2,
+    "phase": "writer_enter_recovery_before_yield",
+    "cp_frame_sequence": [
+      "writer",
+      "recover",
+      "get_stage",
+      "verify_sources",
+      "descriptor"
+    ],
+    "prior_owner_receipt_is_this_failure_receipt": false,
+    "errno_and_filename_fields_saved_natively": false,
+    "historical_result_reclassified_as_pass": false
+  },
+  "proposed_change": {
+    "only_semantic_case_change": "A09.missing_database",
+    "other_A09_expected_types_unchanged": true,
+    "exact_exception_type": "FileNotFoundError",
+    "errno": "ENOENT",
+    "filename": "normalized_current_case_run/independent.sqlite",
+    "windows_winerror": 2,
+    "open_store_must_succeed": true,
+    "phase": "writer_enter_recovery_before_yield",
+    "cp_frame_sequence": [
+      "writer",
+      "recover",
+      "get_stage",
+      "verify_sources",
+      "descriptor"
+    ],
+    "capture_traceback_inside_narrow_except": true,
+    "verify_full_call_count": 0,
+    "capture_before_and_after_artifact_descriptors": true,
+    "preserved_database_equals_original_bytes_and_sealed_hash": true,
+    "science_run_stage_ledger_and_prior_session_owner_unchanged": true,
+    "new_database_or_success_or_query_artifact_forbidden": true,
+    "new_session_or_release_or_recovery_receipt_forbidden_for_this_released_owner_case": true,
+    "budget_atomic_replace_allowed_with_identity_and_monotonic_deadline_semantics": true,
+    "require_integrity_failed_marker": false,
+    "evidence_outside_checkpoint": true,
+    "verify_full_count_scope": "second_reopen_run_attempt_after_initial_injected_failure_only",
+    "verify_full_counter_location": "new_test_helper_inside_writer_immediately_before_unchanged_call_no_module_monkeypatch",
+    "verify_full_call_forwarding": "preserve_original_arguments_return_and_exception",
+    "fixed_fake_clock_budget_expectation": {
+      "consumed_seconds": 0,
+      "last_utc_epoch": 1000,
+      "run_identity_deadline_budget_unchanged": true,
+      "stop_requested_absent": true,
+      "atomic_replace_and_mtime_change_allowed": true
+    }
+  },
+  "invariants": {
+    "original_golden_preserved": true,
+    "required_methods": 34,
+    "required_subcases": 196,
+    "case_families": 24,
+    "frozen_CP_V1_V2_V4_unchanged": true,
+    "no_broad_OSError_or_Exception_expectation": true,
+    "no_passing_cases_spliced_across_windows": true
+  },
+  "limits": {
+    "new_code_changes": 0,
+    "new_tests": 0,
+    "new_fixture_generation": 0,
+    "new_measurements": 0,
+    "real_reruns": 0,
+    "Linux_installations": 0,
+    "B_C_D_fixed48_runs": 0,
+    "T_plan": null,
+    "V46_adopted": false
+  },
+  "next_step": "complete_new_round_scope_stop_rules_and_estimates_then_obtain_user_confirmation_before_preparation_or_execution",
+  "independent_static_review": {
+    "status": "reviewed_and_clarifications_applied",
+    "clarifications": [
+      "second_attempt_only_counter",
+      "fixed_fake_clock_budget_values",
+      "formal_window_limit_not_account_quota"
+    ],
+    "behavior_acceptance_executed": false
+  }
+}
