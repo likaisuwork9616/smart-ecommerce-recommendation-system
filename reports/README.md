@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V75正式第1窗口 | [失敗收據與未完成項目](mainline/v75_synthetic_acceptance_revision1_20261117.json)；10.812秒，4方法／34子案例通過，A04接入錯誤停止；非整關通過 |
 | V75人工資料與golden | [三組bundle／78檔描述符](mainline/v75_fixture_seal_20261117.json)；凍結V1／V2參照準備完成，V75候選與正式驗收未執行 |
 | V75準備路徑修正 | [初次拒收與保留證據](mainline/v75_preparation_path_correction_20261117.json) · [準備修訂2工具封存](mainline/v75_tool_seal_revision2_20261117.json)；正式窗口尚未開始 |
 | V75人工工具來源封存 | [35方法描述符／34方法與196子案例](mainline/v75_tool_seal_20261117.json)；已確認且只完成靜態準備，人工資料／測試執行尚未開始 |

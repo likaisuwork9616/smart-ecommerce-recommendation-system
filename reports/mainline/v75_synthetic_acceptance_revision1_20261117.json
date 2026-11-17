@@ -1,0 +1,93 @@
+{
+  "schema": "v75_public_synthetic_acceptance_result",
+  "date": "2026-11-17",
+  "formal_revision": 1,
+  "status": "failed",
+  "method_seal_sha256": "bbaa8fc1b594f70b80c995a6c35f303a06b0151052d90bb6ce772731f18cc8d8",
+  "fixture_seal_sha256": "54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a",
+  "elapsed_seconds": 10.811999999999898,
+  "elapsed_use": "synthetic_acceptance_deadline_only_not_performance",
+  "unexpected_timeout": false,
+  "source_authority_error": false,
+  "required_methods": 34,
+  "required_subcases": 196,
+  "methods_run": 5,
+  "methods_passed": 4,
+  "methods_unexecuted": 29,
+  "subcases_executed": 35,
+  "subcases_passed": 34,
+  "subcases_failed": 1,
+  "subcases_unexecuted": 161,
+  "failures": 0,
+  "errors": 1,
+  "skips": 0,
+  "failed_cases": [
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids (case_id='A04.neighbors.499', neighbors=499)",
+      "type": "TypeError",
+      "reason": "predict() missing 1 required positional argument: 'watch'"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "failed_subcase"
+    }
+  ],
+  "private_evidence": [
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/request.json",
+      "bytes": 319,
+      "sha256": "08ebcf40ed7ebef35d44b3a1f172fdc27e8eea97e15d8151316fc980898416e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/result.json",
+      "bytes": 29948,
+      "sha256": "67864c8864926ddea6d34bdf55d073ea30b3564bf59272a4cb44c80ed3470316"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/stderr.log",
+      "bytes": 2267,
+      "sha256": "1c1cbf58a51c7806746a1d36745af7e867e43cd9ef4c7b0d67cb7ff55b645f98"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/suite_result.json",
+      "bytes": 28032,
+      "sha256": "8388d93981805b8e8af4279629b98596b613b5b0b602743a1fad926b4c062918"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision1/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    }
+  ],
+  "decision": "failed_stop_preserve_evidence_one_in_scope_test_adapter_correction_still_available",
+  "real_full_acceptance": false,
+  "real_measurements": 0,
+  "Linux_installations": 0,
+  "C_D_fixed48_real_runs": 0,
+  "T_plan": null,
+  "reserved_test": "locked",
+  "V46_adopted": false
+}
