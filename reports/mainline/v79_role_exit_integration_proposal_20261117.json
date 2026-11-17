@@ -1,0 +1,1646 @@
+{
+  "schema": "v79_q0_role_exit_minimal_integration_proposal",
+  "date": "2026-11-17",
+  "status": "q0_complete_conditional_documentary_feasibility_not_implemented_or_executed",
+  "q0": {
+    "start_local": "2026-11-17T14:50:47+08:00",
+    "cutoff_local": "2026-11-17T15:50:47+08:00",
+    "limit_minutes": 60,
+    "completed_local": "2026-11-17T15:22:31+08:00",
+    "conclusion": "conditional_concrete_method_not_runtime_pass",
+    "administrative_elapsed_seconds": 1904,
+    "elapsed_usage": "Q0 documentary work only; not program performance or machine calibration",
+    "within_60_minute_cutoff": true
+  },
+  "source_descriptors": [
+    {
+      "path": "reports/mainline/v79_role_exit_sources_20261117.json",
+      "bytes": 15090,
+      "sha256": "d1d59a59c555bc83517b23541ba44e6ce4bddbb8806fe4d9c191e4067cfdc3ac"
+    },
+    {
+      "path": "reports/mainline/v78_watch_exit_contract_20261117.json",
+      "bytes": 18964,
+      "sha256": "070f9d1a77eab291b28d40317a3900cdfc30a926f9fa75a543db89c863c02ea9"
+    },
+    {
+      "path": "reports/mainline/v78_correction_scope_plan_20261117.json",
+      "bytes": 34650,
+      "sha256": "b816b23048329a479f87c6342d0882427b5f70966446361c63f868f9924c6589"
+    },
+    {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    {
+      "path": "reports/mainline/v77_fixture_seal_20261117.json",
+      "bytes": 18963,
+      "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 39315,
+      "sha256": "05efb3f3529a51c80213b09f3dd20057c346e6689294cbdac8440d3b0d74bc30"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v77.py",
+      "bytes": 18653,
+      "sha256": "f8328410d1d3733d254fd8f5bd04da06882b32b891298feb1cfafb6f597cdbd2"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_bundle_v77.py",
+      "bytes": 18887,
+      "sha256": "1eec73001050477b2156fa5f7ec631805116c4a77094227ce811f2dea82264be"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 31157,
+      "sha256": "c6da248bf0b3d5ddb13473fe0b08e95fa0cdbd4374aef855de4588a224b24ef5"
+    }
+  ],
+  "additional_official_sources": [
+    {
+      "id": "PY04",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Lib/subprocess.py",
+      "locator": "Handle / Popen._execute_child / _internal_poll / _wait",
+      "supports": "Popen stores original CreateProcess hp in owned Handle; private borrowed int adapter proposed",
+      "limit": "CPython3.12.10 private interface; no local capability pass; borrower must not Close/Detach",
+      "accessed_date": "2026-11-17"
+    },
+    {
+      "id": "MS13",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentprocess",
+      "locator": "Return value / Remarks",
+      "supports": "Self pseudo handle for ready native identity; not transferable process observer",
+      "limit": "Do not close pseudo handle; not independent role-exit evidence",
+      "accessed_date": "2026-11-17"
+    }
+  ],
+  "selected_method": {
+    "backend": "windows_held_role_process_handle_v1_proposal",
+    "new_service": false,
+    "change_interpreter": false,
+    "roles": {
+      "pipeline": "outer",
+      "worker": "pipeline",
+      "publisher": "pipeline"
+    },
+    "launcher_origin": "borrow original int(Popen._handle), retain strong Popen reference; verify PID/raw ticks from original hp; no reopen-by-PID substitution",
+    "owned_handles": "OpenProcess role/intermediate nodes 0x00101000 noninheritable; exact one close after pending wait completes",
+    "borrowed_handles": "Popen retains ownership; observer never Close/Detach/rewrap owned handle; fail on private-interface mismatch",
+    "role_identity": "legacy3fields unchanged; ready raw creation canonical uint64 decimal string; exact mapped float; same frozen boot",
+    "exit": "same held handle signal then API-success DWORD exact int; signal259 rejected; no code from marker/launcher/tracked/PID absence",
+    "ancestry": "role=root exact identity or full fresh parent chain to original launcher; hold each handle; exact raw ticks/legacy identity/same boot/nonsignaled and parent creation<=child; re-read fresh edges before ack; non-atomic trusted-code scope",
+    "uncertain": "no ack/science; preserve failure/null role code; no retry/fallback/elevation"
+  },
+  "routing": {
+    "role_calls": [
+      "outer->pipeline",
+      "pipeline->worker",
+      "pipeline->publisher"
+    ],
+    "generic_case_ids": [
+      "A23.resource_process",
+      "A23.monitor_process",
+      "A23.descendant_timeout"
+    ],
+    "business_role_generic_fallback": false,
+    "infer_role_from_log_or_failure_filename": false
+  },
+  "protocol": {
+    "namespace": "control/episodes/<episode>/roles/<role>/",
+    "internal_identity": "internal/episodes/<episode>/<role>_identity.json",
+    "allowed_roles": [
+      "pipeline",
+      "worker",
+      "publisher"
+    ],
+    "files": [
+      {
+        "name": "launch.json",
+        "writer": "observer",
+        "binds": [
+          "schema",
+          "role",
+          "episode",
+          "nonce",
+          "request_descriptor",
+          "method_seal_descriptor",
+          "fixture_seal_descriptor",
+          "command_fingerprint",
+          "observer_identity"
+        ]
+      },
+      {
+        "name": "ready.json",
+        "writer": "role",
+        "binds": [
+          "launch_descriptor",
+          "nonce",
+          "identity_descriptor",
+          "native_pid",
+          "raw_creation_ticks_decimal"
+        ]
+      },
+      {
+        "name": "ack.json",
+        "writer": "observer",
+        "binds": [
+          "launch_descriptor",
+          "ready_descriptor",
+          "identity_descriptor",
+          "launcher_identity",
+          "role_identity",
+          "observer_identity",
+          "raw_creation",
+          "backend",
+          "rights",
+          "fresh_ancestry_before_after",
+          "pre_ack_nonsignaled"
+        ]
+      },
+      {
+        "name": "exit_observation.json",
+        "writer": "observer",
+        "binds": [
+          "launch_ready_ack_descriptors",
+          "state",
+          "same_handle_signal",
+          "query_api_success",
+          "role_code_or_null",
+          "launcher_identity_and_code",
+          "stop",
+          "deadline_veto",
+          "failure_descriptor",
+          "tracked",
+          "observed_time"
+        ]
+      },
+      {
+        "name": "delivery_veto.json",
+        "writer": "observer",
+        "optional": true,
+        "failure_only": true,
+        "write_once": true,
+        "binds": [
+          "request",
+          "episode",
+          "role",
+          "observation_and_receipt_descriptors",
+          "phase",
+          "deadline",
+          "reason",
+          "original_error"
+        ]
+      }
+    ],
+    "write_once": true,
+    "internal_episode_files_unchanged": true,
+    "ack_before": [
+      "_reenter",
+      "CP_open_or_writer",
+      "SQL",
+      "fault_injection",
+      "scientific_work"
+    ],
+    "unconfirmed_missing_or_bad_observation": "null role code; diagnostic only; never normal success",
+    "receipt_projection": "versioned worker_exit/publisher_exit/pipeline_exit: role identity/code and separate launcher plus observation descriptor; exact duplicate fields; historical V77 never rewritten",
+    "normal_delivery_condition": "role exact int0 AND launcher exact int0 AND no failure/stop/veto AND live post-write ticket; planned nonzero delivered observation carried by structured exception, not normal return",
+    "final_veto_path": "control/final_delivery_veto.json",
+    "veto_absence_proves_success": false
+  },
+  "publication": {
+    "publisher_prefix": "completed worker/historical roles full observation plus current pipeline/publisher launch-ready-ack; no self-exit cycle",
+    "prefix_checks": [
+      "before_H7",
+      "after_H8"
+    ],
+    "allowed_later_suffix": [
+      "current_publisher_exit",
+      "current_pipeline_exit",
+      "failure_only_delivery_veto_always_defeats_acceptance"
+    ],
+    "finalizer": "verify exact external whitelist and unchanged prefix; no missing expected roles; seal every external descriptor plus internal; all observed stopped",
+    "recovered_worker": "candidate identity must uniquely match original episode observation; CP normal_worker_exit supervisor equals original pipeline role; raw proof and post-ticket controlled-flow evidence both required",
+    "A20_clone": "preserve original request/run/episode/nonce/protocol bytes, run-root-relative descriptors; do not rebind command fingerprint or ack after cloning",
+    "mutable_exclusions": [
+      "control/budgets",
+      "control/case_evidence"
+    ],
+    "case_evidence": "individually sealed by formal runner, never treated as OS role observation",
+    "deadline_delivery": {
+      "order": [
+        "write observation and role receipt",
+        "reread and verify",
+        "close owned handles, verify cleanup",
+        "original request/budget/resource/formal/work-child guard checks",
+        "after guard budget persistence read fresh UTC and monotonic",
+        "issue live in-memory delivery ticket with no further IO in same delivery"
+      ],
+      "ticket_serializable": false,
+      "ticket_binding": [
+        "observer identity",
+        "request",
+        "episode",
+        "role",
+        "source closure",
+        "immutable observation descriptors"
+      ],
+      "normal_handoff_requires_ticket": [
+        "CP finalize for freshly observed worker",
+        "pipeline_result",
+        "external final seal delivery"
+      ],
+      "veto_paths": [
+        "control/episodes/<ep>/roles/<role>/delivery_veto.json",
+        "control/final_delivery_veto.json"
+      ],
+      "veto_priority": "always defeats code0 or seal; absence alone proves nothing; failure to save veto is still failure",
+      "completed_episode": "never disk code0 alone; current outer live ticket required; A18 frozen normal_worker_exit is subsequent controlled-flow evidence after worker ticket, with unique raw role proof",
+      "A22_P10": "existing same-outer recovery retains live ticket; cross-outer restart with lost ticket and unconfirmed P10 receipt is unknown/rejected",
+      "outer_formal_authority": "actual formal entry outcome plus complete suite_result, all observed stopped, within900 seconds and all role/final/formal veto checks; raw final_seal alone is not formal success",
+      "final_write_self_certification": false,
+      "ticket_validation": "same object identity in original live observer private registry plus all bindings; not isinstance/equal fields; caller-created/JSON objects rejected; trusted-code scope only"
+    },
+    "immutable_external_extra_paths": [
+      "control/final_delivery_veto.json"
+    ],
+    "readonly_expected": "separate no-write audit; original same-outer A21 may use retained ticket; cross-outer reads compare bytes/chain plus saved formal authority, absent authority => delivery unknown; never mint ticket, reseal, reset deadline or start role"
+  },
+  "case_contract": {
+    "descriptor": {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    "required_test_ids": [
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+      "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+      "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+    ],
+    "required_case_ids": [
+      "A01.profile.F-small",
+      "A01.profile.F-long",
+      "A01.profile.F-edge",
+      "A01.invalid_profile.real",
+      "A01.invalid_profile.166897",
+      "A01.invalid_profile.../F-small",
+      "A01.invalid_profile.None",
+      "A01.invalid_profile.129",
+      "A01.anchor.fixture_seal_sha256",
+      "A01.anchor.method_seal_sha256",
+      "A01.manifest.missing_profile",
+      "A01.manifest.real_profile",
+      "A01.manifest.forged_real_count",
+      "A01.manifest.caller_count_mismatch",
+      "A01.manifest.bool_count",
+      "A01.manifest.float_count",
+      "A01.manifest.bool_visitors",
+      "A01.manifest.wrong_draw_count",
+      "A01.manifest.bool_synthetic_marker",
+      "A01.manifest.outside_data_path",
+      "A01.manifest.absolute_path",
+      "A01.manifest.outside_source_path",
+      "A01.manifest.wrong_role",
+      "A01.path.../outside",
+      "A01.path./outside",
+      "A01.path.C:/outside",
+      "A01.path.dir/../input.txt",
+      "A01.path.dir\\input.txt",
+      "A01.alias.is_symlink",
+      "A01.alias.is_junction",
+      "A02.runtime",
+      "A02.missing_direct_source",
+      "A02.same_size_wrong_sha",
+      "A02.undeclared_dynamic",
+      "A03.full.F-small",
+      "A03.full.F-long",
+      "A03.full.F-edge",
+      "A04.fallback.no_supported_seed",
+      "A04.fallback.only_self_session_overlap",
+      "A04.fallback.no_positive_causal_vote",
+      "A04.neighbors.499",
+      "A04.neighbors.500",
+      "A04.neighbors.501",
+      "A04.ratio.0",
+      "A04.ratio.1",
+      "A04.ratio.2",
+      "A06.dataset/queries.csv.missing",
+      "A06.dataset/queries.csv.extra",
+      "A06.dataset/queries.csv.duplicate",
+      "A06.dataset/queries.csv.order",
+      "A06.P0/ranked_queries.csv.missing",
+      "A06.P0/ranked_queries.csv.extra",
+      "A06.P0/ranked_queries.csv.duplicate",
+      "A06.P0/ranked_queries.csv.order",
+      "A06.P0/query_metrics.csv.missing",
+      "A06.P0/query_metrics.csv.extra",
+      "A06.P0/query_metrics.csv.duplicate",
+      "A06.P0/query_metrics.csv.order",
+      "A06.P0/query_slices.csv.missing",
+      "A06.P0/query_slices.csv.extra",
+      "A06.P0/query_slices.csv.duplicate",
+      "A06.P0/query_slices.csv.order",
+      "A06.C1/queries.jsonl.missing",
+      "A06.C1/queries.jsonl.extra",
+      "A06.C1/queries.jsonl.duplicate",
+      "A06.C1/queries.jsonl.order",
+      "A06.D1/queries.jsonl.missing",
+      "A06.D1/queries.jsonl.extra",
+      "A06.D1/queries.jsonl.duplicate",
+      "A06.D1/queries.jsonl.order",
+      "A06.primary/queries.jsonl.missing",
+      "A06.primary/queries.jsonl.extra",
+      "A06.primary/queries.jsonl.duplicate",
+      "A06.primary/queries.jsonl.order",
+      "A09.same_size_database",
+      "A09.missing_database",
+      "A09.extra_journal",
+      "A09.source_changed",
+      "A09.foreign_reconstruction",
+      "A11.scientific.before_append",
+      "A11.scientific.query_verified",
+      "A11.scientific.payload_half_written",
+      "A11.scientific.after_payload_fsync",
+      "A11.scientific.before_manifest_commit",
+      "A11.scientific.after_manifest_commit",
+      "A12.invalid.wrong_prefix_key",
+      "A12.invalid.chunk_gap",
+      "A12.invalid.chain_sha",
+      "A13.global_replay",
+      "A13.bootstrap_draw",
+      "A13.after_stage_global",
+      "A14.primary.order",
+      "A14.primary.draw_sha256",
+      "A14.primary.query_denominator",
+      "A14.primary.rng_before",
+      "A14.primary.rng_after",
+      "A14.primary.delta",
+      "A14.primary.missing",
+      "A14.primary.extra",
+      "A14.C1.order",
+      "A14.C1.draw_sha256",
+      "A14.C1.query_denominator",
+      "A14.C1.rng_before",
+      "A14.C1.rng_after",
+      "A14.C1.missing",
+      "A14.C1.extra",
+      "A15.candidate.wrong_count",
+      "A15.candidate.bool_count",
+      "A15.candidate.float_count",
+      "A15.candidate.false_eof",
+      "A15.candidate.integer_eof",
+      "A15.candidate.string_eof",
+      "A15.candidate.wrong_ledger",
+      "A15.candidate.missing_stage",
+      "A15.candidate.wrong_run",
+      "A15.finalize.wrong_count",
+      "A15.finalize.bool_count",
+      "A15.finalize.float_count",
+      "A15.finalize.false_eof",
+      "A15.finalize.integer_eof",
+      "A15.finalize.string_eof",
+      "A15.finalize.wrong_ledger",
+      "A15.finalize.missing_stage",
+      "A15.finalize.wrong_run",
+      "A15.supersede.wrong_count",
+      "A15.supersede.bool_count",
+      "A15.supersede.float_count",
+      "A15.supersede.false_eof",
+      "A15.supersede.integer_eof",
+      "A15.supersede.string_eof",
+      "A15.supersede.wrong_ledger",
+      "A15.supersede.missing_stage",
+      "A15.supersede.wrong_run",
+      "A15.candidate.valid",
+      "A15.finalize.valid",
+      "A15.supersede.valid",
+      "A15.finalize.candidate_mismatch",
+      "A15.supersede.candidate_mismatch",
+      "A15.writer_required",
+      "A15.artificial_count_contract",
+      "A10.row_boundary_63_64_65",
+      "A10.time_boundary_120",
+      "A10.eof_short_tail",
+      "A11.payload_half_written",
+      "A11.after_payload_fsync",
+      "A11.before_manifest_commit",
+      "A11.after_manifest_commit",
+      "A12.prefix_crash_recovery",
+      "A16.alive",
+      "A16.nonzero",
+      "A16.pid_reused",
+      "A16.uncertain",
+      "A16.other_boot",
+      "A16.self_exit",
+      "A17.candidate_unknown_exit",
+      "A18.normal_exit_reentry",
+      "A19.normal_positions",
+      "A19.H1",
+      "A19.H2",
+      "A19.H3",
+      "A19.H4",
+      "A19.H5",
+      "A19.H6",
+      "A19.H7",
+      "A19.H8",
+      "A20.no_numeric_replay",
+      "A20.request",
+      "A20.request_deadline",
+      "A20.normal_boot",
+      "A20.observed_exit",
+      "A20.candidate_count",
+      "A20.query_stage",
+      "A20.payload_key",
+      "A20.global_roster",
+      "A20.aggregate_count",
+      "A20.cp_summary",
+      "A21.closed_manifest",
+      "A21.extra",
+      "A21.append",
+      "A21.missing",
+      "A21.live",
+      "A22.P9",
+      "A22.P10",
+      "A23.absolute",
+      "A23.downtime",
+      "A23.rollback",
+      "A23.rss",
+      "A23.disk",
+      "A23.temp",
+      "A23.monitor",
+      "A23.delivery",
+      "A23.path_scope",
+      "A23.resource_process",
+      "A23.monitor_process",
+      "A23.descendant_timeout",
+      "A24.intervals"
+    ],
+    "families": [
+      {
+        "id": "A01",
+        "title": "人工入口隔離",
+        "required_scenarios": "合法bundle；缺人工標記、real profile、任意N／偽造166897、路徑越界及symlink／junction別名逃逸。負例用人工哨兵檔，不讀真實資料。",
+        "acceptance_evidence": "合法人工N才放行；負例在科學資料讀取／spawn前拒絕，無真實全量通過狀態。",
+        "gates": [
+          "G0"
+        ],
+        "differences": [
+          "D0",
+          "D2"
+        ],
+        "phases": [
+          "P0"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B0",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change"
+        ],
+        "required_case_ids": [
+          "A01.profile.F-small",
+          "A01.profile.F-long",
+          "A01.profile.F-edge",
+          "A01.invalid_profile.real",
+          "A01.invalid_profile.166897",
+          "A01.invalid_profile.../F-small",
+          "A01.invalid_profile.None",
+          "A01.invalid_profile.129",
+          "A01.anchor.fixture_seal_sha256",
+          "A01.anchor.method_seal_sha256",
+          "A01.manifest.missing_profile",
+          "A01.manifest.real_profile",
+          "A01.manifest.forged_real_count",
+          "A01.manifest.caller_count_mismatch",
+          "A01.manifest.bool_count",
+          "A01.manifest.float_count",
+          "A01.manifest.bool_visitors",
+          "A01.manifest.wrong_draw_count",
+          "A01.manifest.bool_synthetic_marker",
+          "A01.manifest.outside_data_path",
+          "A01.manifest.absolute_path",
+          "A01.manifest.outside_source_path",
+          "A01.manifest.wrong_role",
+          "A01.path.../outside",
+          "A01.path./outside",
+          "A01.path.C:/outside",
+          "A01.path.dir/../input.txt",
+          "A01.path.dir\\input.txt",
+          "A01.alias.is_symlink",
+          "A01.alias.is_junction"
+        ]
+      },
+      {
+        "id": "A02",
+        "title": "方法與runtime身分",
+        "required_scenarios": "完整封存描述符；漏直接helper、未宣告dynamic target、同大小方法變更及runtime不符。",
+        "acceptance_evidence": "不符即拒絕；已匯入模組或祖先報告不能替代直接來源。",
+        "gates": [
+          "G0",
+          "G4"
+        ],
+        "differences": [
+          "D0",
+          "D6"
+        ],
+        "phases": [
+          "P0"
+        ],
+        "source_positions": [
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "H7",
+          "H8"
+        ],
+        "recovery_branches": [],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity"
+        ],
+        "required_case_ids": [
+          "A02.runtime",
+          "A02.missing_direct_source",
+          "A02.same_size_wrong_sha",
+          "A02.undeclared_dynamic"
+        ]
+      },
+      {
+        "id": "A03",
+        "title": "手算與四臂",
+        "required_scenarios": "F-small含完整history、current／next、targets及可達分母。",
+        "acceptance_evidence": "完整payload、Decimal字串、binary delta對封存golden一致，不只top10。",
+        "gates": [
+          "G1"
+        ],
+        "differences": [
+          "D2"
+        ],
+        "phases": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B0"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws"
+        ],
+        "required_case_ids": [
+          "A03.full.F-small",
+          "A03.full.F-long",
+          "A03.full.F-edge"
+        ]
+      },
+      {
+        "id": "A04",
+        "title": "V4精確核心邊界",
+        "required_scenarios": "F-edge涵蓋499／500／501鄰居、ties、unknown／self／future／fallback、未約分比例、大ID、近等比率及4096-bit Fraction回退。",
+        "acceptance_evidence": "新呼叫點對凍結oracle／V2結果；保留完整pool、零票補集與精確排序。",
+        "gates": [
+          "G1"
+        ],
+        "differences": [
+          "D2"
+        ],
+        "phases": [
+          "P4"
+        ],
+        "source_positions": [],
+        "recovery_branches": [],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+          "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback"
+        ],
+        "required_case_ids": [
+          "A04.fallback.no_supported_seed",
+          "A04.fallback.only_self_session_overlap",
+          "A04.fallback.no_positive_causal_vote",
+          "A04.neighbors.499",
+          "A04.neighbors.500",
+          "A04.neighbors.501",
+          "A04.ratio.0",
+          "A04.ratio.1",
+          "A04.ratio.2"
+        ]
+      },
+      {
+        "id": "A05",
+        "title": "完整流與三chunk",
+        "required_scenarios": "F-long的129筆／3 visitors，原序無selected ordinals；假時鐘未達120秒。",
+        "acceptance_evidence": "完整129筆、64／64／1 chunks、逐筆golden、七路EOF、四required stages與完整發布成立。",
+        "gates": [
+          "G1",
+          "G2",
+          "G5"
+        ],
+        "differences": [
+          "D2",
+          "D3",
+          "D4",
+          "D8"
+        ],
+        "phases": [
+          "P0",
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7",
+          "P8",
+          "P9",
+          "P10"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B0"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery"
+        ],
+        "required_case_ids": [
+          "A03.full.F-long"
+        ]
+      },
+      {
+        "id": "A06",
+        "title": "七路配對與角色",
+        "required_scenarios": "七路各自缺列、多列、重複／錯序／錯key；reserved角色放不可解碼內容。",
+        "acceptance_evidence": "配對／EOF異常拒收；非允許角色先分流而不解碼；無新candidate或最終成功。",
+        "gates": [
+          "G0",
+          "G1"
+        ],
+        "differences": [
+          "D2",
+          "D4"
+        ],
+        "phases": [
+          "P3",
+          "P4",
+          "P5"
+        ],
+        "source_positions": [],
+        "recovery_branches": [],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order"
+        ],
+        "required_case_ids": [
+          "A06.dataset/queries.csv.missing",
+          "A06.dataset/queries.csv.extra",
+          "A06.dataset/queries.csv.duplicate",
+          "A06.dataset/queries.csv.order",
+          "A06.P0/ranked_queries.csv.missing",
+          "A06.P0/ranked_queries.csv.extra",
+          "A06.P0/ranked_queries.csv.duplicate",
+          "A06.P0/ranked_queries.csv.order",
+          "A06.P0/query_metrics.csv.missing",
+          "A06.P0/query_metrics.csv.extra",
+          "A06.P0/query_metrics.csv.duplicate",
+          "A06.P0/query_metrics.csv.order",
+          "A06.P0/query_slices.csv.missing",
+          "A06.P0/query_slices.csv.extra",
+          "A06.P0/query_slices.csv.duplicate",
+          "A06.P0/query_slices.csv.order",
+          "A06.C1/queries.jsonl.missing",
+          "A06.C1/queries.jsonl.extra",
+          "A06.C1/queries.jsonl.duplicate",
+          "A06.C1/queries.jsonl.order",
+          "A06.D1/queries.jsonl.missing",
+          "A06.D1/queries.jsonl.extra",
+          "A06.D1/queries.jsonl.duplicate",
+          "A06.D1/queries.jsonl.order",
+          "A06.primary/queries.jsonl.missing",
+          "A06.primary/queries.jsonl.extra",
+          "A06.primary/queries.jsonl.duplicate",
+          "A06.primary/queries.jsonl.order"
+        ]
+      },
+      {
+        "id": "A07",
+        "title": "cache生命週期",
+        "required_scenarios": "命中／未命中、完整target count差異、Decimal context變更、返回dict被改、同run新attempt。",
+        "acceptance_evidence": "值與fallback保持凍結語義，防返回副本污染；每attempt重建cache，不作checkpoint。",
+        "gates": [
+          "G1",
+          "G2"
+        ],
+        "differences": [
+          "D2",
+          "D3"
+        ],
+        "phases": [
+          "P3",
+          "P4",
+          "P7"
+        ],
+        "source_positions": [],
+        "recovery_branches": [],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime"
+        ],
+        "required_case_ids": []
+      },
+      {
+        "id": "A08",
+        "title": "fresh與未封存DB",
+        "required_scenarios": "正常重建；建立中斷留下DB／journal；別run的舊DB。",
+        "acceptance_evidence": "完整support／sessions／postings／lineage／fit audit及integrity／close／seal；半成品保留再fresh，拒借別run。",
+        "gates": [
+          "G1",
+          "G2"
+        ],
+        "differences": [
+          "D1",
+          "D5"
+        ],
+        "phases": [
+          "P2"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B0",
+          "B1"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild"
+        ],
+        "required_case_ids": []
+      },
+      {
+        "id": "A09",
+        "title": "sealed DB身分",
+        "required_scenarios": "有效同run；同大小DB竄改、缺artifact、多journal、來源／runtime變更。",
+        "acceptance_evidence": "僅完整有效seal可復用；負例在query前拒絕，檔案存在不足。",
+        "gates": [
+          "G0",
+          "G2"
+        ],
+        "differences": [
+          "D1",
+          "D3",
+          "D5"
+        ],
+        "phases": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B2",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity"
+        ],
+        "required_case_ids": [
+          "A09.same_size_database",
+          "A09.missing_database",
+          "A09.extra_journal",
+          "A09.source_changed",
+          "A09.foreign_reconstruction"
+        ]
+      },
+      {
+        "id": "A10",
+        "title": "64／120安全邊界",
+        "required_scenarios": "假時鐘下第63／64／65筆；query內跨120秒；EOF短尾段。",
+        "acceptance_evidence": "只在完整query安全點提交；EOF可flush不足64筆，不宣稱兩分鐘損失上限。",
+        "gates": [
+          "G2"
+        ],
+        "differences": [
+          "D3",
+          "D4"
+        ],
+        "phases": [
+          "P4",
+          "P5"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B2"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append"
+        ],
+        "required_case_ids": [
+          "A10.row_boundary_63_64_65",
+          "A10.time_boundary_120",
+          "A10.eof_short_tail"
+        ]
+      },
+      {
+        "id": "A11",
+        "title": "append／commit故障",
+        "required_scenarios": "append前後、payload半寫、fsync後manifest前、manifest後latest前。",
+        "acceptance_evidence": "未提交尾段保留重算；已提交鏈可越過舊latest恢復；最終科學bytes等於不中斷golden。",
+        "gates": [
+          "G2"
+        ],
+        "differences": [
+          "D3",
+          "D4"
+        ],
+        "phases": [
+          "P4",
+          "P5"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B2"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content"
+        ],
+        "required_case_ids": [
+          "A11.scientific.before_append",
+          "A11.scientific.query_verified",
+          "A11.scientific.payload_half_written",
+          "A11.scientific.after_payload_fsync",
+          "A11.scientific.before_manifest_commit",
+          "A11.scientific.after_manifest_commit",
+          "A11.payload_half_written",
+          "A11.after_payload_fsync",
+          "A11.before_manifest_commit",
+          "A11.after_manifest_commit"
+        ]
+      },
+      {
+        "id": "A12",
+        "title": "真程序prefix恢復",
+        "required_scenarios": "F-long已提交64筆後於pending query強退；另測錯prefix key／gap／chain SHA。",
+        "acceptance_evidence": "只跳有效64筆，重算尾段到129；損壞拒收，不以source-only位置或子集ordinal代替prefix。",
+        "gates": [
+          "G2",
+          "G6"
+        ],
+        "differences": [
+          "D3",
+          "D7"
+        ],
+        "phases": [
+          "P1",
+          "P3",
+          "P4",
+          "P5"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B2",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery"
+        ],
+        "required_case_ids": [
+          "A12.invalid.wrong_prefix_key",
+          "A12.invalid.chunk_gap",
+          "A12.invalid.chain_sha",
+          "A12.prefix_crash_recovery"
+        ]
+      },
+      {
+        "id": "A13",
+        "title": "P6合併單元中斷",
+        "required_scenarios": "Fold中、原draw中、global seal後bootstrap seal前中斷。",
+        "acceptance_evidence": "每次完整重啟P6並核舊部分seal一致；無draw checkpoint，最終對golden一致。",
+        "gates": [
+          "G1",
+          "G2"
+        ],
+        "differences": [
+          "D4"
+        ],
+        "phases": [
+          "P6"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B3"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay"
+        ],
+        "required_case_ids": [
+          "A13.global_replay",
+          "A13.bootstrap_draw",
+          "A13.after_stage_global"
+        ]
+      },
+      {
+        "id": "A14",
+        "title": "人工原始2000 draws",
+        "required_scenarios": "改順序、draw SHA、query denominator、RNG前後state、delta、缺／多draw。",
+        "acceptance_evidence": "由原check_bootstrap核恰2000筆及aggregate；負例拒收，不能重抽或改用self-reference。",
+        "gates": [
+          "G1"
+        ],
+        "differences": [
+          "D4"
+        ],
+        "phases": [
+          "P6"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B3",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count"
+        ],
+        "required_case_ids": [
+          "A14.primary.order",
+          "A14.primary.draw_sha256",
+          "A14.primary.query_denominator",
+          "A14.primary.rng_before",
+          "A14.primary.rng_after",
+          "A14.primary.delta",
+          "A14.primary.missing",
+          "A14.primary.extra",
+          "A14.C1.order",
+          "A14.C1.draw_sha256",
+          "A14.C1.query_denominator",
+          "A14.C1.rng_before",
+          "A14.C1.rng_after",
+          "A14.C1.missing",
+          "A14.C1.extra"
+        ]
+      },
+      {
+        "id": "A15",
+        "title": "鎖內queries語義",
+        "required_scenarios": "合法；缺stage、錯N／bool／float N、EOF false／非bool、run／ledger／candidate錯配；open後writer鎖前改stage。P7／P8／B4逐一涵蓋。",
+        "acceptance_evidence": "同步改人工hash／引用讓負例確實到新guard；同鎖核當次完整摘要。首次write_candidate不要求candidate先存在；既存candidate由原finalize／supersede核對。",
+        "gates": [
+          "G3"
+        ],
+        "differences": [
+          "D4",
+          "D8"
+        ],
+        "phases": [
+          "P7",
+          "P8"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B4",
+          "B5",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+          "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts"
+        ],
+        "required_case_ids": [
+          "A15.candidate.wrong_count",
+          "A15.candidate.bool_count",
+          "A15.candidate.float_count",
+          "A15.candidate.false_eof",
+          "A15.candidate.integer_eof",
+          "A15.candidate.string_eof",
+          "A15.candidate.wrong_ledger",
+          "A15.candidate.missing_stage",
+          "A15.candidate.wrong_run",
+          "A15.finalize.wrong_count",
+          "A15.finalize.bool_count",
+          "A15.finalize.float_count",
+          "A15.finalize.false_eof",
+          "A15.finalize.integer_eof",
+          "A15.finalize.string_eof",
+          "A15.finalize.wrong_ledger",
+          "A15.finalize.missing_stage",
+          "A15.finalize.wrong_run",
+          "A15.supersede.wrong_count",
+          "A15.supersede.bool_count",
+          "A15.supersede.float_count",
+          "A15.supersede.false_eof",
+          "A15.supersede.integer_eof",
+          "A15.supersede.string_eof",
+          "A15.supersede.wrong_ledger",
+          "A15.supersede.missing_stage",
+          "A15.supersede.wrong_run",
+          "A15.candidate.valid",
+          "A15.finalize.valid",
+          "A15.supersede.valid",
+          "A15.finalize.candidate_mismatch",
+          "A15.supersede.candidate_mismatch",
+          "A15.writer_required",
+          "A15.artificial_count_contract"
+        ]
+      },
+      {
+        "id": "A16",
+        "title": "退出與程序身分",
+        "required_scenarios": "candidate存在但worker活著、exit非0、PID重用、權限未知、初次異boot且無可信正常退出。",
+        "acceptance_evidence": "均不得acceptance；只有獨立記錄的真正正常退出才可完成，不能由candidate推定。",
+        "gates": [
+          "G3",
+          "G6"
+        ],
+        "differences": [
+          "D7",
+          "D8"
+        ],
+        "phases": [
+          "P7",
+          "P8"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B4",
+          "B5",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals"
+        ],
+        "required_case_ids": [
+          "A16.alive",
+          "A16.nonzero",
+          "A16.pid_reused",
+          "A16.uncertain",
+          "A16.other_boot",
+          "A16.self_exit"
+        ]
+      },
+      {
+        "id": "A17",
+        "title": "candidate後真程序強退",
+        "required_scenarios": "寫candidate後強退，缺normal-exit收據。",
+        "acceptance_evidence": "保留orphan與未知退出；確認舊程序不活後，新worker完整重播P6、產新candidate並正常退出；不借舊exit碼。",
+        "gates": [
+          "G2",
+          "G3",
+          "G6"
+        ],
+        "differences": [
+          "D7",
+          "D8"
+        ],
+        "phases": [
+          "P7",
+          "P8"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B4"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit"
+        ],
+        "required_case_ids": [
+          "A17.candidate_unknown_exit"
+        ]
+      },
+      {
+        "id": "A18",
+        "title": "正常退出後finalize中斷",
+        "required_scenarios": "normal_worker_exit已保存，acceptance原子提交前故障。",
+        "acceptance_evidence": "只重入supervisor finalize，保留退出收據，不supersede、不重啟科學worker、不重設預算。",
+        "gates": [
+          "G2",
+          "G3"
+        ],
+        "differences": [
+          "D7",
+          "D8"
+        ],
+        "phases": [
+          "P8"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B5"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry"
+        ],
+        "required_case_ids": [
+          "A18.normal_exit_reentry"
+        ]
+      },
+      {
+        "id": "A19",
+        "title": "八個來源核對位置",
+        "required_scenarios": "正常trace；H1–H8各前方同大小來源變更；恢復分episode。",
+        "acceptance_evidence": "正常六CP＋兩publisher核對位置與phase正確；每個變更拒收，恢復／失敗次數如實另記。",
+        "gates": [
+          "G4",
+          "G7"
+        ],
+        "differences": [
+          "D6",
+          "D9"
+        ],
+        "phases": [
+          "P1",
+          "P7",
+          "P8",
+          "P9"
+        ],
+        "source_positions": [
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "H7",
+          "H8"
+        ],
+        "recovery_branches": [],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes"
+        ],
+        "required_case_ids": [
+          "A19.normal_positions",
+          "A19.H1",
+          "A19.H2",
+          "A19.H3",
+          "A19.H4",
+          "A19.H5",
+          "A19.H6",
+          "A19.H7",
+          "A19.H8"
+        ]
+      },
+      {
+        "id": "A20",
+        "title": "publisher原始證據",
+        "required_scenarios": "改request／candidate／CP／stage／ledger／roster計數或摘要；測試專用spy令predict或global／draw數值重播即失敗。",
+        "acceptance_evidence": "原證據矛盾拒收，負例須到新proof檢查；合法proof的排名／數值重播呼叫0，不只信摘要。",
+        "gates": [
+          "G4",
+          "G7"
+        ],
+        "differences": [
+          "D8",
+          "D9"
+        ],
+        "phases": [
+          "P9"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B6",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay"
+        ],
+        "required_case_ids": [
+          "A20.no_numeric_replay",
+          "A20.request",
+          "A20.request_deadline",
+          "A20.normal_boot",
+          "A20.observed_exit",
+          "A20.candidate_count",
+          "A20.query_stage",
+          "A20.payload_key",
+          "A20.global_roster",
+          "A20.aggregate_count",
+          "A20.cp_summary"
+        ]
+      },
+      {
+        "id": "A21",
+        "title": "停態與完整集合",
+        "required_scenarios": "pipeline／publisher緩衝日誌關閉；活writer、新檔、漏檔、封存後append／bytes變更、外部finalseal。",
+        "acceptance_evidence": "合法晚flush納入最終集合；壞例拒收，無自含hash；封存後內部bytes不變。",
+        "gates": [
+          "G5"
+        ],
+        "differences": [
+          "D8"
+        ],
+        "phases": [
+          "P10"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B6",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs"
+        ],
+        "required_case_ids": [
+          "A21.closed_manifest",
+          "A21.extra",
+          "A21.append",
+          "A21.missing",
+          "A21.live"
+        ]
+      },
+      {
+        "id": "A22",
+        "title": "CP完成後外層恢復",
+        "required_scenarios": "CP acceptance後P9／P10中斷或外部公開提交前故障；另測整套成功後重入。",
+        "acceptance_evidence": "只補缺發布；CP／科學bytes不變、worker／ranking／draw重播0；完成後禁止再執行，允許唯讀核對。",
+        "gates": [
+          "G2",
+          "G5"
+        ],
+        "differences": [
+          "D8"
+        ],
+        "phases": [
+          "P9",
+          "P10"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B6",
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly"
+        ],
+        "required_case_ids": [
+          "A22.P9",
+          "A22.P10"
+        ]
+      },
+      {
+        "id": "A23",
+        "title": "期限資源與監督",
+        "required_scenarios": "假時鐘deadline、含離線總預算、UTC rollback；假RSS／磁碟／TEMP警報與監控失敗，涵蓋P9／P10。",
+        "acceptance_evidence": "安全點停止；停止請求與實際退出分列，清理所記錄子程序；不宣稱Job Object，不新增成功、不延長或重設預算。",
+        "gates": [
+          "G6"
+        ],
+        "differences": [
+          "D5",
+          "D7",
+          "D9"
+        ],
+        "phases": [
+          "P0",
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7",
+          "P8",
+          "P9",
+          "P10"
+        ],
+        "source_positions": [],
+        "recovery_branches": [
+          "B7"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget"
+        ],
+        "required_case_ids": [
+          "A23.absolute",
+          "A23.downtime",
+          "A23.rollback",
+          "A23.rss",
+          "A23.disk",
+          "A23.temp",
+          "A23.monitor",
+          "A23.delivery",
+          "A23.path_scope",
+          "A23.resource_process",
+          "A23.monitor_process",
+          "A23.descendant_timeout"
+        ]
+      },
+      {
+        "id": "A24",
+        "title": "互斥帳與有號餘額",
+        "required_scenarios": "假事件樹rank⊂verify、commit⊂append／tail、P6子段、H calls、監督重疊、signed bridge與恢復episode。",
+        "acceptance_evidence": "已知人工區間各算一次且依帳法守恆；有號餘額不截零，未知不稱CPU等待；不產生實機成本或T_plan。",
+        "gates": [
+          "G7"
+        ],
+        "differences": [
+          "D9"
+        ],
+        "phases": [
+          "P0",
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7",
+          "P8",
+          "P9",
+          "P10"
+        ],
+        "source_positions": [
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "H7",
+          "H8"
+        ],
+        "recovery_branches": [
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6"
+        ],
+        "status": "prepared_source_not_executed",
+        "required_test_ids": [
+          "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+        ],
+        "required_case_ids": [
+          "A24.intervals"
+        ]
+      }
+    ],
+    "module_names": [
+      "tests/test_retailrocket_session_knn_full_v77.py",
+      "tests/test_retailrocket_session_knn_full_worker_v77.py",
+      "tests/test_retailrocket_session_knn_pipeline_v77.py"
+    ],
+    "required_counts": {
+      "methods": 34,
+      "subcases": 196,
+      "families": 24,
+      "modules": 3
+    },
+    "additional_assertions_by_existing_case": {
+      "A12.prefix_crash_recovery": [
+        "V78 W1-W7 fake checker under same case before role work",
+        "worker role exact int9 + marker query_verified65 + no worker_failure/stop",
+        "pipeline role exact int1 tied to worker observation9 non-timeout",
+        "E1-E6 before64-prefix snapshot; then same-request129/2000 recovery"
+      ],
+      "A16.alive": [
+        "pre-ack signaled refusal; role code while alive is unconfirmed; original CP alive refusal"
+      ],
+      "A16.nonzero": [
+        "exact int DWORD0/1/9; reject bool,float,string; signaled259 preserved then rejected; original nonzero refusal"
+      ],
+      "A16.pid_reused": [
+        "raw ticks/PID/legacy identity mismatch; original launcher handle binding; fresh parent chain mismatch"
+      ],
+      "A16.uncertain": [
+        "Open/GetProcessId/GetProcessTimes/wait/GetExitCodeProcess failure, missing ack or lost handle => unknown/null; original uncertain refusal"
+      ],
+      "A16.other_boot": [
+        "frozen boot mismatch/read failure rejects; no tolerance or new boot ID"
+      ],
+      "A16.self_exit": [
+        "observer cannot equal role; self marker cannot certify exit"
+      ],
+      "A20.request": [
+        "cross request/episode/nonce/method/fixture binding rejection; clone external evidence"
+      ],
+      "A20.request_deadline": [
+        "same original request deadline; role receipt not standalone delivery success"
+      ],
+      "A20.normal_boot": [
+        "CP normal exit must trace independent historical role proof and exact boot"
+      ],
+      "A20.observed_exit": [
+        "missing/changed ack/observation or role-launcher substitution rejected"
+      ],
+      "A20.no_numeric_replay": [
+        "external proof audit does not rerun rank/global/draw"
+      ],
+      "A21.closed_manifest": [
+        "closed internal + external protocol evidence; publisher prefix and predefined suffix",
+        "explicit optional role veto and final veto namespace; late veto invalidates seal"
+      ],
+      "A21.extra": [
+        "extra external role/file/episode rejected"
+      ],
+      "A21.append": [
+        "changed publisher prefix or late append rejected"
+      ],
+      "A21.missing": [
+        "missing protocol or declared role observation rejected"
+      ],
+      "A21.live": [
+        "all observed including ancestry stopped; owned handles closed once on failure; borrowed Popen handle never closed by adapter"
+      ],
+      "A23.absolute": [
+        "pre-Popen120 and formal900 remaining bounds include handshake and delivery"
+      ],
+      "A23.downtime": [
+        "same original deadline/remaining budget; no handshake reset"
+      ],
+      "A23.rollback": [
+        "preserve original rollback rejection and same budget semantics"
+      ],
+      "A23.delivery": [
+        "pre-ack no science; late code0 cannot override stop",
+        "observation/receipt writes and guard budget writes crossing deadline produce no live ticket",
+        "fresh post-guard clocks; all role/final/formal vetoes take precedence; missing ticket cannot be reconstructed from JSON",
+        "write completed but observer interrupted before ticket => unknown/no normal handoff"
+      ],
+      "A23.path_scope": [
+        "closed external namespace; no symlink/alias/traversal"
+      ],
+      "A23.resource_process": [
+        "explicit generic_synthetic route; preserve original resource-stop expectations"
+      ],
+      "A23.monitor_process": [
+        "explicit generic route even if artificial failure filename says worker; preserve monitor failure"
+      ],
+      "A23.descendant_timeout": [
+        "explicit generic route; preserve stop/timeout/tracked descendant expectations"
+      ],
+      "A22.P10": [
+        "preserve existing same-outer retry without scientific replay using retained live delivery ticket; no claim of cross-outer crash recovery"
+      ],
+      "A18.normal_exit_reentry": [
+        "unique original role observation and pipeline supervisor binding; frozen normal_worker_exit remains unchanged and traces post-worker-ticket CP control flow"
+      ]
+    },
+    "other_cases": "all original assertions and family membership remain, including precise A09 correction; A17/A18/A19/A22 adapt evidence without weakening meaning",
+    "new_case_ids": 0,
+    "preseal_executions": 0
+  },
+  "future_scope": {
+    "preparation": [
+      "versioned native observer helper",
+      "versioned pipeline/bundle/runner",
+      "three versioned test modules and mapped catalog",
+      "source closure includes native helper and fake backend",
+      "new tool seal and original fixture rebind seal",
+      "README and progress/docs"
+    ],
+    "frozen": [
+      "CP",
+      "V75 worker",
+      "V75 fixture generator and78 files",
+      "V2/V4/SQL",
+      "original golden/manifest/reference/draws",
+      "all V77 historical sources and receipts"
+    ],
+    "next_confirmation_recommended": "prepare and seal only; no acceptance execution; stop at120 minutes if not completely sealed",
+    "formal_confirmation_separate": true,
+    "formal_window_maximum": 1,
+    "formal_window_seconds": 900,
+    "work_child_seconds": 120,
+    "child_budget_starts": "before Popen including ready/ack, work, exit, evidence delivery",
+    "no_retry": true,
+    "no_real_data": true
+  },
+  "estimate": {
+    "kind": "engineering_estimate_not_measurement",
+    "preparation_static_review_minutes": [
+      100,
+      160
+    ],
+    "seal_single_window_audit_readme_git_minutes": [
+      30,
+      40
+    ],
+    "total_minutes": [
+      130,
+      200
+    ],
+    "preparation_hard_checkpoint_minutes": 120,
+    "overrun_policy": "stop incomplete at120; estimate does not extend authorization",
+    "machine_only_minutes": [
+      2,
+      10
+    ],
+    "machine_estimate_unverified": true,
+    "do_not_extrapolate_v77_partial": true
+  },
+  "stop_conditions": [
+    "no concrete Q0 solution by60 minutes",
+    "preparation incomplete at120 minutes",
+    "uncertain API/private runtime/identity/raw ticks/boot/ancestry/ack",
+    "closed evidence failure or source change",
+    "missing duplicate skipped required case",
+    "deadline stop failure before normal handoff",
+    "one formal failure no correction/rerun",
+    "quota or external interruption preserve state"
+  ],
+  "scope": {
+    "new_implementation": 0,
+    "project_imports_or_suite_execution": 0,
+    "role_or_test_process_launches": 0,
+    "live_process_api_probes": 0,
+    "new_measurements": 0,
+    "real_data_reruns": 0,
+    "linux_install": 0,
+    "original196_preserved": true,
+    "old_v77_status_unchanged": true,
+    "real_T_plan": null
+  },
+  "static_verification": {
+    "status": "passed_documentary_review_and_descriptor_checks",
+    "source_descriptors_rechecked": 10,
+    "required_test_methods_same_order": 34,
+    "required_case_ids_same_order": 196,
+    "family_memberships_unchanged": 24,
+    "modules_unchanged": 3,
+    "existing_cases_with_added_assertion_responsibility": 27,
+    "local_document_links_resolved": true,
+    "reviews": [
+      "Win32 official semantics, deadline tail-write closure and unmeasured limits",
+      "psutil normalization, fresh ancestry and original Popen handle ownership",
+      "role/generic integration, publisher/final closure, live ticket validity, readonly branch and cross-outer recovery boundary"
+    ],
+    "not_runtime_or_synthetic_acceptance": true
+  },
+  "remaining_evidence_gaps": [
+    "Windows API rights/FFI/private Popen compatibility not executed",
+    "raw FILETIME to psutil float and frozen boot runtime compatibility not executed",
+    "all196 synthetic cases and actual role handshake/cleanup unexecuted",
+    "cross-outer-crash P10 delivery acknowledgment is not covered by minimal same-outer case; separate design required",
+    "real full K1 readback and T_plan unknown"
+  ]
+}

@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V79 Q0最小接入與下一輪邊界 | [角色handle／協定／交付／原196案例映射](mainline/v79_role_exit_integration_proposal_20261117.json)；補2份官方來源、27既有case責任；同outer P10可規劃，跨outer恢復未知；未實作或驗收 |
 | V79 Q0官方來源與身分相容 | [20份官方文件／tag原碼及118次原描述核對](mainline/v79_role_exit_sources_20261117.json)；附條件handle候選，boot內部格式限制保留，未實作或執行 |
 | V78修正範圍與分階段計畫 | [D1–D6／Q0／停止與估時](mainline/v78_correction_scope_plan_20261117.json)；先提30–60分鐘Q0，無工具或執行授權，原34方法／196案例保留 |
 | V78回呼與角色退出契約 | [既有證據／W／E／P精確規則](mainline/v78_watch_exit_contract_20261117.json)；兩個角色身分與啟動收據不符，僅文件規格、新測試0 |

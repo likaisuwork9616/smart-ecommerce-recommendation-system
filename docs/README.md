@@ -11,9 +11,9 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V79 Q0角色退出來源可行性（最新）
+## Stage 12｜V79 Q0角色退出來源與最小接入（最新）
 
-20份官方文件／tag原碼支持「角色工作前持有同一handle、signal後讀exit」的候選方法；已固定FILETIME轉換與boot私有格式限制。118次原來源描述核對相符，原golden／196案例保留；最小接入閉合規格整理中，未實作或驗收。[Q0來源與限制](STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
+Q0已在60分鐘界線內形成附條件具體方案；22份官方來源、角色handle／ready-ack、三角色與generic路由、外部證據閉合及post-write ticket／veto均完成靜態複核。原196案例保留，跨outer崩潰P10交付確認另缺；未實作或驗收。下一輪建議只準備封存、120分鐘檢點，窗口另確認。[完整規格、估時與限制](STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
 
 ## Stage 12｜V78 watch與角色退出精確規格（前輪）
 

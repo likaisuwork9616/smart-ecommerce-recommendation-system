@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V79 Q0來源評估完成，最小接入規格整理中 | 已有持續角色handle的官方語義依據；身分相容限制已列，尚未實作或驗收；V77仍failed，T_plan未知 |
+| Stage 12：session-kNN K1 | V79 Q0附條件可行方案完成；工具待另確認 | 角色handle／握手／外部閉合與交付守門已列；跨outer崩潰的P10恢復仍缺，尚未實作或驗收；V77仍failed，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,16 +33,19 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜V79 Q0角色退出可行性（最新）
 
-V79依V78只查官方文件、既有原碼與配置，已找到附條件的候選方案：真正角色工作前，監督者先取得並持續保留其Windows process handle；同一handle確定終止後才讀角色碼。launcher退出碼分欄，不回填V77。
+V79以31分44秒的文件作業在60分鐘界線內完成Q0，已有附條件的具體方案：保留原Windows／`.venv`，真正角色工作前先完成ready／ack，監督者持續握住同一角色handle，確定終止後才讀退出碼；launcher原handle與角色分開綁定。這是文件可行性，尚未實作或通過現場驗收。
 
 | 本輪步驟 | 狀態與實際結果 |
 | --- | --- |
-| 觀測來源與身分 | 已整理20份官方文件／tag原碼；固定FILETIME整數轉換順序，保留舊CP三欄與嚴格相等，明列boot內部格式限制 |
-| 原來源保留 | 36方法描述、1份schema、3個manifest與78人工檔共118次描述核對相符；34方法／196案例／24族保留 |
-| 最小接入與交付 | 整理中；握手、角色／泛用分流及publisher／final seal閉合須一併固定 |
+| 官方來源與身分 | 第一階段20份、接入補2份官方文件／tag原碼；FILETIME精確映射、boot內部格式及Popen私有介面限制完成靜態複核 |
+| 最小接入與交付 | 三角色／generic分流、fresh啟動鏈、publisher前綴／final seal閉合、post-write活ticket與veto規格完成；不能只憑code0或磁碟seal判成功 |
+| 原來源與案例 | 118次方法／schema／manifest／人工檔描述核對相符；原34方法／196同序IDs／24族保留，27個既有case列新增assertions責任 |
+| 剩餘缺口 | 現場權限／FFI／身分相容、真正三角色接入與196案未驗；同outer P10原期待保留，跨outer崩潰恢復另缺獨立交付確認 |
 | 本輪界線 | 新工具、案例執行、角色／測試程序、即時程序API探測、量測及真實重跑均0 |
 
-本輪14:50:47開始，15:50:47仍無明確方案即停；文件可行不等於現場接入通過，實作及合成驗收仍須另確認。K1完整驗收及T_plan仍未知，V46暫不採用，每日10%與Dashboard優先順序不變。[Q0來源與限制](docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
+下一輪建議**只準備並封存工具與原案例，120分鐘仍未封存即停，不執行驗收**；需另確認。全部工具／整合／一次窗口與收尾工作估130–200分鐘，其中準備100–160分鐘，既定120分鐘檢點不放寬，因此不保證當輪能封存。正式完整196窗口仍須另授權，最多900秒、每工作子程序120秒、失敗不補跑；均為規劃而非實測。
+
+原golden與V77失敗判定不變；K1完整驗收及T_plan仍未知，V46暫不採用，每日10%與Dashboard優先順序不變。[Q0具體方案、來源與限制](docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
 
 ## Stage 12｜V78 watch與退出精確規格（前輪）
 

@@ -8,12 +8,13 @@
 
 | 工作 | 狀態與實際結果 |
 | --- | --- |
-| 官方觀測來源 | 已有持續同一角色handle、signal後讀碼的附條件方案；20份來源，尚未實機驗證 |
-| 身分與保留 | raw FILETIME另存、舊CP三欄不變；boot私有語義限制保留，118次描述相符，196案例未改 |
-| 接入與下一步 | 握手／路由／外部證據閉合規格整理中；Q0最多60分鐘，實作與窗口另確認 |
-| 界線 | 未新增工具、案例執行、程序API探測、量測或真實重跑；原V77 failed不變 |
+| 官方來源與身分 | 22份官方來源支持持續角色handle候選；raw ticks／舊float、boot私有格式、Popen原handle借用均完成靜態複核 |
+| 最小接入 | ready／ack、fresh啟動鏈、角色／generic分流、publisher／final seal閉合、post-write活ticket與veto已固定；文件可行、未實機通過 |
+| 原來源與案例 | 118次描述核對相符；34方法／196同序IDs／24族保留，27既有case增補assertions責任，不新增case事件 |
+| 缺口與下一步 | P10同outer重入保留；跨outer崩潰交付確認仍缺。建議先另確認準備封存120分鐘檢點、不開窗；完整工程估130–200分鐘，不代表延長上限 |
+| 界線 | 60分鐘內形成Q0方案即停；未新增工具、案例執行、程序API探測、量測或真實重跑；V77 failed不變 |
 
-[本輪來源與進度](STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
+[本輪來源、接入與進度](STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
 
 ## Stage 12 第 89 輪｜V78 watch與角色退出契約
 
@@ -1045,7 +1046,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V79 Q0官方來源評估完成，最小接入規格整理中；尚未實作或驗收，完整獨立反讀與K1−C1結論仍缺，T_plan未知，不裝Linux，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V79 Q0附條件方案完成，跨outer P10交付仍缺，工具／窗口待另確認；尚未實作或驗收，完整獨立反讀與K1−C1結論仍缺，T_plan未知，不裝Linux，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
