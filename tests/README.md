@@ -1,6 +1,6 @@
 # 測試與驗證
 
-V77三個新測試模組保留全部34方法／196子案例，只修A09缺DB精確拒收判定並更新版本接入。靜態及獨立複核通過，尚未執行；只能由唯一正式runner在完整封存後載入，不做單例預跑。見[本輪工具與進度](../docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)。
+V77保留全部34方法／196子案例，先封存後唯一窗口94.047秒failed；147通過／1失敗／48未執行。A09精確拒收通過，A12真程序prefix未過；窗口已用完，不做單例或完整補跑。見[本輪工具與進度](../docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)。
 
 Stage 12 V39：核心40項（850向量含322內容差分）與完整整合165項全通。整合含core21／worker56／publisher18／未改snapshot18／V34 15／原oracle19＋ownership12＋時點6；98.602秒，129要求映射到成功ID。人工14帳本672次科學bytes核對、新程序pub、原late時點、失敗poison、兩root發佈、weaklease即時釋放及停態log全驗。Eligibility邊界不冒稱oracle拒絕；無真實查詢或加速比例。[核心收據](../reports/stage12/retailrocket_session_knn_v39_typed_core_acceptance_20261110.json) · [完整驗收](../reports/stage12/retailrocket_session_knn_v39_typed_acceptance_20261110.json) · [方法](../docs/STAGE12_KNN_LATE_TYPED_V39_20261110.md)
 

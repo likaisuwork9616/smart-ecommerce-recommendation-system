@@ -1,0 +1,1404 @@
+{
+  "schema": "v77_public_synthetic_acceptance_result",
+  "date": "2026-11-17",
+  "formal_window": 1,
+  "status": "failed",
+  "method_seal_sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7",
+  "fixture_seal_sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353",
+  "elapsed_seconds": 94.04699999999866,
+  "elapsed_use": "synthetic_acceptance_deadline_only_not_performance",
+  "outer_command_exit_code": 1,
+  "unexpected_timeout": false,
+  "source_authority_error": false,
+  "deadline_veto_present": false,
+  "required_methods": 34,
+  "required_subcases": 196,
+  "methods_run": 25,
+  "methods_passed": 24,
+  "methods_failed": 1,
+  "methods_unexecuted": 9,
+  "subcases_executed": 148,
+  "subcases_passed": 147,
+  "subcases_failed": 1,
+  "subcases_unexecuted": 48,
+  "failures": 1,
+  "errors": 0,
+  "skips": 0,
+  "failed_cases": [
+    {
+      "id": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery (case_id='A12.prefix_crash_recovery')",
+      "message": "0 != 64",
+      "type": "AssertionError"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery",
+      "status": "failed_subcase"
+    }
+  ],
+  "subcases": [
+    {
+      "case_id": "A01.manifest.missing_profile",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.missing_profile', mutation='missing_profile')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.real_profile",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.real_profile', mutation='real_profile')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.forged_real_count",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.forged_real_count', mutation='forged_real_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.caller_count_mismatch",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.caller_count_mismatch', mutation='caller_count_mismatch')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.bool_count",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.bool_count', mutation='bool_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.float_count",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.float_count', mutation='float_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.bool_visitors",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.bool_visitors', mutation='bool_visitors')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.wrong_draw_count",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.wrong_draw_count', mutation='wrong_draw_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.bool_synthetic_marker",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.bool_synthetic_marker', mutation='bool_synthetic_marker')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.outside_data_path",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.outside_data_path', mutation='outside_data_path')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.absolute_path",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.absolute_path', mutation='absolute_path')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.outside_source_path",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.outside_source_path', mutation='outside_source_path')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.manifest.wrong_role",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads (case_id='A01.manifest.wrong_role', mutation='wrong_role')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.path.../outside",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.path.../outside', path='../outside')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.path./outside",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.path./outside', path='/outside')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.path.C:/outside",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.path.C:/outside', path='C:/outside')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.path.dir/../input.txt",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.path.dir/../input.txt', path='dir/../input.txt')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.path.dir\\input.txt",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.path.dir\\\\input.txt', path='dir\\\\input.txt')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.alias.is_symlink",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.alias.is_symlink', alias='is_symlink')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.alias.is_junction",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change (case_id='A01.alias.is_junction', alias='is_junction')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.profile.F-small",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.profile.F-small', profile='F-small')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.profile.F-long",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.profile.F-long', profile='F-long')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.profile.F-edge",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.profile.F-edge', profile='F-edge')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.invalid_profile.real",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.invalid_profile.real', invalid_profile='real')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.invalid_profile.166897",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.invalid_profile.166897', invalid_profile='166897')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.invalid_profile.../F-small",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.invalid_profile.../F-small', invalid_profile='../F-small')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.invalid_profile.None",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.invalid_profile.None', invalid_profile=None)",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.invalid_profile.129",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.invalid_profile.129', invalid_profile=129)",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.anchor.fixture_seal_sha256",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.anchor.fixture_seal_sha256', anchor='fixture_seal_sha256')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A01.anchor.method_seal_sha256",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor (case_id='A01.anchor.method_seal_sha256', anchor='method_seal_sha256')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "case_id": "A02.runtime",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity (case_id='A02.runtime', mutation='runtime')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A02.missing_direct_source",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity (case_id='A02.missing_direct_source', mutation='missing_direct_source')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A02.same_size_wrong_sha",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity (case_id='A02.same_size_wrong_sha', mutation='same_size_wrong_sha')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A02.undeclared_dynamic",
+      "id": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity (case_id='A02.undeclared_dynamic', mutation='undeclared_dynamic')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.neighbors.499",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids (case_id='A04.neighbors.499', neighbors=499)",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.neighbors.500",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids (case_id='A04.neighbors.500', neighbors=500)",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.neighbors.501",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids (case_id='A04.neighbors.501', neighbors=501)",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.fallback.no_supported_seed",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback (case_id='A04.fallback.no_supported_seed', reason='no_supported_seed')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.fallback.only_self_session_overlap",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback (case_id='A04.fallback.only_self_session_overlap', reason='only_self_session_overlap')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.fallback.no_positive_causal_vote",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback (case_id='A04.fallback.no_positive_causal_vote', reason='no_positive_causal_vote')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.ratio.0",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback (case_id='A04.ratio.0')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.ratio.1",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback (case_id='A04.ratio.1')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A04.ratio.2",
+      "id": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback (case_id='A04.ratio.2')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "status": "passed"
+    },
+    {
+      "case_id": "A03.full.F-small",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws (case_id='A03.full.F-small', profile='F-small')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "status": "passed"
+    },
+    {
+      "case_id": "A03.full.F-long",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws (case_id='A03.full.F-long', profile='F-long')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "status": "passed"
+    },
+    {
+      "case_id": "A03.full.F-edge",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws (case_id='A03.full.F-edge', profile='F-edge')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.dataset/queries.csv.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.dataset/queries.csv.missing', stream='dataset/queries.csv', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.dataset/queries.csv.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.dataset/queries.csv.extra', stream='dataset/queries.csv', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.dataset/queries.csv.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.dataset/queries.csv.duplicate', stream='dataset/queries.csv', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.dataset/queries.csv.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.dataset/queries.csv.order', stream='dataset/queries.csv', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/ranked_queries.csv.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/ranked_queries.csv.missing', stream='P0/ranked_queries.csv', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/ranked_queries.csv.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/ranked_queries.csv.extra', stream='P0/ranked_queries.csv', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/ranked_queries.csv.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/ranked_queries.csv.duplicate', stream='P0/ranked_queries.csv', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/ranked_queries.csv.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/ranked_queries.csv.order', stream='P0/ranked_queries.csv', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_metrics.csv.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_metrics.csv.missing', stream='P0/query_metrics.csv', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_metrics.csv.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_metrics.csv.extra', stream='P0/query_metrics.csv', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_metrics.csv.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_metrics.csv.duplicate', stream='P0/query_metrics.csv', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_metrics.csv.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_metrics.csv.order', stream='P0/query_metrics.csv', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_slices.csv.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_slices.csv.missing', stream='P0/query_slices.csv', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_slices.csv.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_slices.csv.extra', stream='P0/query_slices.csv', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_slices.csv.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_slices.csv.duplicate', stream='P0/query_slices.csv', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.P0/query_slices.csv.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.P0/query_slices.csv.order', stream='P0/query_slices.csv', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.C1/queries.jsonl.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.C1/queries.jsonl.missing', stream='C1/queries.jsonl', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.C1/queries.jsonl.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.C1/queries.jsonl.extra', stream='C1/queries.jsonl', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.C1/queries.jsonl.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.C1/queries.jsonl.duplicate', stream='C1/queries.jsonl', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.C1/queries.jsonl.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.C1/queries.jsonl.order', stream='C1/queries.jsonl', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.D1/queries.jsonl.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.D1/queries.jsonl.missing', stream='D1/queries.jsonl', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.D1/queries.jsonl.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.D1/queries.jsonl.extra', stream='D1/queries.jsonl', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.D1/queries.jsonl.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.D1/queries.jsonl.duplicate', stream='D1/queries.jsonl', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.D1/queries.jsonl.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.D1/queries.jsonl.order', stream='D1/queries.jsonl', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.primary/queries.jsonl.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.primary/queries.jsonl.missing', stream='primary/queries.jsonl', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.primary/queries.jsonl.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.primary/queries.jsonl.extra', stream='primary/queries.jsonl', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.primary/queries.jsonl.duplicate",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.primary/queries.jsonl.duplicate', stream='primary/queries.jsonl', mutation='duplicate')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A06.primary/queries.jsonl.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order (case_id='A06.primary/queries.jsonl.order', stream='primary/queries.jsonl', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "case_id": "A09.same_size_database",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.same_size_database', mutation='same_size_database')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A09.missing_database",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.missing_database', mutation='missing_database')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A09.extra_journal",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.extra_journal', mutation='extra_journal')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A09.source_changed",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.source_changed', mutation='source_changed')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A09.foreign_reconstruction",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.foreign_reconstruction', mutation='foreign_reconstruction')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.before_append",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.before_append', point='before_append')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.query_verified",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.query_verified', point='query_verified')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.payload_half_written",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.payload_half_written', point='payload_half_written')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.after_payload_fsync",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.after_payload_fsync', point='after_payload_fsync')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.before_manifest_commit",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.before_manifest_commit', point='before_manifest_commit')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.scientific.after_manifest_commit",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults (case_id='A11.scientific.after_manifest_commit', point='after_manifest_commit')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "status": "passed"
+    },
+    {
+      "case_id": "A12.invalid.wrong_prefix_key",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused (case_id='A12.invalid.wrong_prefix_key', mutation='wrong_prefix_key')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "status": "passed"
+    },
+    {
+      "case_id": "A12.invalid.chunk_gap",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused (case_id='A12.invalid.chunk_gap', mutation='chunk_gap')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "status": "passed"
+    },
+    {
+      "case_id": "A12.invalid.chain_sha",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused (case_id='A12.invalid.chain_sha', mutation='chain_sha')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "status": "passed"
+    },
+    {
+      "case_id": "A13.global_replay",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay (case_id='A13.global_replay', point='global_replay')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "status": "passed"
+    },
+    {
+      "case_id": "A13.bootstrap_draw",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay (case_id='A13.bootstrap_draw', point='bootstrap_draw')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "status": "passed"
+    },
+    {
+      "case_id": "A13.after_stage_global",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay (case_id='A13.after_stage_global', point='after_stage_global')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.order', role='primary', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.draw_sha256",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.draw_sha256', role='primary', mutation='draw_sha256')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.query_denominator",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.query_denominator', role='primary', mutation='query_denominator')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.rng_before",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.rng_before', role='primary', mutation='rng_before')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.rng_after",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.rng_after', role='primary', mutation='rng_after')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.delta",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.delta', role='primary', mutation='delta')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.missing', role='primary', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.primary.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.primary.extra', role='primary', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.order",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.order', role='C1', mutation='order')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.draw_sha256",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.draw_sha256', role='C1', mutation='draw_sha256')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.query_denominator",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.query_denominator', role='C1', mutation='query_denominator')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.rng_before",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.rng_before', role='C1', mutation='rng_before')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.rng_after",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.rng_after', role='C1', mutation='rng_after')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.missing",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.missing', role='C1', mutation='missing')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A14.C1.extra",
+      "id": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count (case_id='A14.C1.extra', role='C1', mutation='extra')",
+      "parent": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "status": "passed"
+    },
+    {
+      "case_id": "A10.row_boundary_63_64_65",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail (case_id='A10.row_boundary_63_64_65')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "status": "passed"
+    },
+    {
+      "case_id": "A10.eof_short_tail",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail (case_id='A10.eof_short_tail')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "status": "passed"
+    },
+    {
+      "case_id": "A10.time_boundary_120",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append (case_id='A10.time_boundary_120')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.payload_half_written",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content (case_id='A11.payload_half_written')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.after_payload_fsync",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content (case_id='A11.after_payload_fsync')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.before_manifest_commit",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content (case_id='A11.before_manifest_commit')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "status": "passed"
+    },
+    {
+      "case_id": "A11.after_manifest_commit",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content (case_id='A11.after_manifest_commit')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.valid",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage (case_id='A15.candidate.valid')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.valid",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage (case_id='A15.finalize.valid')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.valid",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage (case_id='A15.supersede.valid')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.wrong_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.wrong_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.bool_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.bool_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.float_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.float_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.false_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.false_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.integer_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.integer_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.string_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.string_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.wrong_ledger",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.wrong_ledger')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.missing_stage",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.missing_stage')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.candidate.wrong_run",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.candidate.wrong_run')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.wrong_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.wrong_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.bool_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.bool_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.float_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.float_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.false_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.false_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.integer_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.integer_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.string_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.string_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.wrong_ledger",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.wrong_ledger')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.missing_stage",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.missing_stage')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.wrong_run",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.finalize.wrong_run')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.wrong_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.wrong_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.bool_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.bool_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.float_count",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.float_count')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.false_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.false_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.integer_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.integer_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.string_eof",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.string_eof')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.wrong_ledger",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.wrong_ledger')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.missing_stage",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.missing_stage')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.wrong_run",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open (case_id='A15.supersede.wrong_run')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.finalize.candidate_mismatch",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded (case_id='A15.finalize.candidate_mismatch')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.supersede.candidate_mismatch",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded (case_id='A15.supersede.candidate_mismatch')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.writer_required",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts (case_id='A15.writer_required')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "status": "passed"
+    },
+    {
+      "case_id": "A15.artificial_count_contract",
+      "id": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts (case_id='A15.artificial_count_contract')",
+      "parent": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "status": "passed"
+    },
+    {
+      "case_id": "A12.prefix_crash_recovery",
+      "id": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery (case_id='A12.prefix_crash_recovery')",
+      "parent": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery",
+      "status": "failed"
+    }
+  ],
+  "missing_test_ids": [
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+    "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+  ],
+  "missing_required_case_ids": [
+    "A12.prefix_crash_recovery",
+    "A16.alive",
+    "A16.nonzero",
+    "A16.other_boot",
+    "A16.pid_reused",
+    "A16.self_exit",
+    "A16.uncertain",
+    "A17.candidate_unknown_exit",
+    "A18.normal_exit_reentry",
+    "A19.H1",
+    "A19.H2",
+    "A19.H3",
+    "A19.H4",
+    "A19.H5",
+    "A19.H6",
+    "A19.H7",
+    "A19.H8",
+    "A19.normal_positions",
+    "A20.aggregate_count",
+    "A20.candidate_count",
+    "A20.cp_summary",
+    "A20.global_roster",
+    "A20.no_numeric_replay",
+    "A20.normal_boot",
+    "A20.observed_exit",
+    "A20.payload_key",
+    "A20.query_stage",
+    "A20.request",
+    "A20.request_deadline",
+    "A21.append",
+    "A21.closed_manifest",
+    "A21.extra",
+    "A21.live",
+    "A21.missing",
+    "A22.P10",
+    "A22.P9",
+    "A23.absolute",
+    "A23.delivery",
+    "A23.descendant_timeout",
+    "A23.disk",
+    "A23.downtime",
+    "A23.monitor",
+    "A23.monitor_process",
+    "A23.path_scope",
+    "A23.resource_process",
+    "A23.rollback",
+    "A23.rss",
+    "A23.temp",
+    "A24.intervals"
+  ],
+  "unexecuted_case_ids": [
+    "A16.alive",
+    "A16.nonzero",
+    "A16.pid_reused",
+    "A16.uncertain",
+    "A16.other_boot",
+    "A16.self_exit",
+    "A17.candidate_unknown_exit",
+    "A18.normal_exit_reentry",
+    "A19.normal_positions",
+    "A19.H1",
+    "A19.H2",
+    "A19.H3",
+    "A19.H4",
+    "A19.H5",
+    "A19.H6",
+    "A19.H7",
+    "A19.H8",
+    "A20.no_numeric_replay",
+    "A20.request",
+    "A20.request_deadline",
+    "A20.normal_boot",
+    "A20.observed_exit",
+    "A20.candidate_count",
+    "A20.query_stage",
+    "A20.payload_key",
+    "A20.global_roster",
+    "A20.aggregate_count",
+    "A20.cp_summary",
+    "A21.closed_manifest",
+    "A21.extra",
+    "A21.append",
+    "A21.missing",
+    "A21.live",
+    "A22.P9",
+    "A22.P10",
+    "A23.absolute",
+    "A23.downtime",
+    "A23.rollback",
+    "A23.rss",
+    "A23.disk",
+    "A23.temp",
+    "A23.monitor",
+    "A23.delivery",
+    "A23.path_scope",
+    "A23.resource_process",
+    "A23.monitor_process",
+    "A23.descendant_timeout",
+    "A24.intervals"
+  ],
+  "missing_list_definition": "49 missing passes =1 failed +48 unexecuted; not49 unexecuted",
+  "A09_precise_rejection": {
+    "status": "passed",
+    "evidence": {
+      "path": "shop-mysql-runtime/v77/cases/A09-missing_database-cb86840122fd4c479d7e9e10e3376bd6/missing_database_evidence.json",
+      "bytes": 5965,
+      "sha256": "5a8284adbbd93888ba8b5e0edbc0b36b16d9e07dd04caac9a984d77b76526dda"
+    },
+    "exception_type": "FileNotFoundError",
+    "errno": 2,
+    "winerror": 2,
+    "target_basename": "independent.sqlite",
+    "frozen_cp_functions": [
+      "writer",
+      "recover",
+      "get_stage",
+      "verify_sources",
+      "descriptor"
+    ],
+    "open_store_succeeded": true,
+    "second_attempt_verify_full_calls": [],
+    "fixed_budget_before_equals_after": true,
+    "independent_readonly_artifact_check": "matched_saved_snapshots_and_preserved_database_no_success_receipts"
+  },
+  "A12_saved_failure": {
+    "run_root": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993",
+    "scenario": {
+      "worker_after": 65,
+      "worker_fault": "query_verified"
+    },
+    "worker_error_type": "OperationalError",
+    "worker_error_message": "interrupted",
+    "worker_timeout_stop": false,
+    "worker_exit_code": 1,
+    "worker_normal_observed": false,
+    "worker_stop_request": null,
+    "pipeline_error_type": "RuntimeError",
+    "pipeline_error_message": "Synthetic child did not exit normally: 1",
+    "expected_injected_exit_code": 9,
+    "committed_chunk_files": 0,
+    "uncommitted_payload_descriptor": {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/payloads/37fe53ebdc6142edadfc926fd0d9f70a.jsonl",
+      "bytes": 97790,
+      "sha256": "09a03218b225fd1571b7ba63cbc8b4afb98f55e8e6d4b7db69d5971130df0be5"
+    },
+    "uncommitted_payload_newline_count": 25,
+    "uncommitted_lines_are_verified_prefix": false,
+    "second_pipeline_recovery_call_reached": false,
+    "candidate_exists": false,
+    "acceptance_exists": false,
+    "final_seal_exists": false,
+    "evidence_of_64_committed_records_deleted_by_recovery": false
+  },
+  "watch_integration_static_inference": {
+    "status": "plausible_source_level_cause_not_independently_reproduced",
+    "pipeline_watch": "watch=store.check_budget",
+    "checkpoint_return": "nonempty_dict(consumed_seconds,remaining_seconds)",
+    "sqlite_progress_callback": "lambda:(watch() or 0)",
+    "observed_error_consistent_with_return_mismatch": true,
+    "callback_internal_exception_saved": false,
+    "same_watch_binding_existed_in_V75": true,
+    "source_locations": [
+      {
+        "path": "scripts/retailrocket_session_knn_pipeline_v77.py",
+        "line": 493
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_pipeline_v75.py",
+        "line": 481
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+        "line": 373
+      },
+      {
+        "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+        "line": 146
+      }
+    ],
+    "no_post_failure_fix_or_reproduction": true
+  },
+  "private_formal_evidence": [
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/request.json",
+      "bytes": 317,
+      "sha256": "26a7c8e8bcc2ac66f69ecf34ca24b589018fc69ab9904751c5e1f0826dbb0d3a"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/result.json",
+      "bytes": 76443,
+      "sha256": "27e83f8110f6fbc4bdff8edbb41d19873fbeccb48d8ea3d8912b245103f0c06c"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/stderr.log",
+      "bytes": 5285,
+      "sha256": "29c8df70b2cce443ce7fb7ddcbd0d3f2505b181cae3e159bf3ae364d03cd507d"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/suite_result.json",
+      "bytes": 72753,
+      "sha256": "fa1dc811cd261798b55152775127c13682cdf0146719d88aaa61887fb8ed44bc"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/formal/window1/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    }
+  ],
+  "failed_run_evidence": [
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/budget.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/outer-11396.json",
+      "bytes": 153,
+      "sha256": "177b8c5d0ba191ce92d9e6052ffe762426a76247ae47a331001bd4684258dd60"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/budgets/pipeline-2252.json",
+      "bytes": 153,
+      "sha256": "ad370a6e43f88faa12cc5b236c38d8ae0e3a6dc4847c8b747762d94a35297df8"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/control/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_exit.json",
+      "bytes": 839,
+      "sha256": "ccef42a14bfa1729d02f1505883acbc0ecff8937646e269e5cb7d18b146b4fca"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/budget.json",
+      "bytes": 201,
+      "sha256": "e8e95535f348cc6fb69f892cfe53ac8bdcf6fac780f79c73e9dc874835e518cc"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/independent.sqlite",
+      "bytes": 45056,
+      "sha256": "bc12d75e69488e9a1dcc41ab0c2a73fabb172cab82b300dba2f46c9ed4d49d87"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/payloads/37fe53ebdc6142edadfc926fd0d9f70a.jsonl",
+      "bytes": 97790,
+      "sha256": "09a03218b225fd1571b7ba63cbc8b4afb98f55e8e6d4b7db69d5971130df0be5"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/run.json",
+      "bytes": 24756,
+      "sha256": "ff521991ea52374b9fbc1d19361976e7018bdcc41b736dfeb8d08535f7428479"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/run_identity.json",
+      "bytes": 110,
+      "sha256": "811768cd0dcf278a131f12dfa382a7b29126697bf103f7fcbce9087cdf9ea82b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/sessions/25655200dbb249f488fb32f8fdd3c610.json",
+      "bytes": 214,
+      "sha256": "fb6bb86df9205a605ccb3e9ae8a75ed367a5ac7029768cdf60e9678b9d465237"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/sessions/25655200dbb249f488fb32f8fdd3c610.released.json",
+      "bytes": 302,
+      "sha256": "45f62b9081b70ebcc98f075183871745bfaffd789dde32c0a2a2c98fef6afd39"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/stages/reconstruction.json",
+      "bytes": 736,
+      "sha256": "09651d98ffdccc1061b2b541108994b964ab4bc097364788bc8f0c509aae915b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/writer.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/cp/writer_owner.json",
+      "bytes": 302,
+      "sha256": "45f62b9081b70ebcc98f075183871745bfaffd789dde32c0a2a2c98fef6afd39"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline.log",
+      "bytes": 960,
+      "sha256": "e288e42a1bc537188bdd3e12a356fab9738da5a1971040702c627576d9420ade"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_failure.json",
+      "bytes": 992,
+      "sha256": "52fd696d00da166466fc4f9b19a5f81427beb707fa181267621cb326c9f8509b"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/pipeline_identity.json",
+      "bytes": 77,
+      "sha256": "8cdb3c8d9de2f43604ed544827e0c15820341fe5f1756129bcba3a26531bf276"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/scenario.json",
+      "bytes": 52,
+      "sha256": "5ab87884a8a1a36e96840193a9a5c233448982e57680c4eb769c33dff82a00ef"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker.log",
+      "bytes": 1440,
+      "sha256": "ef5a55815011b67be5f79bdff143f5902bda2bb184ef3ac6164862c686333b8a"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_exit.json",
+      "bytes": 604,
+      "sha256": "1ed3a6713e47d90ba73de1a24e5867dd40e71397b2f7b4471f3f2abcb5a491a4"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_failure.json",
+      "bytes": 1465,
+      "sha256": "13e1c04686e0879ea9df5eea063ef88b38c2b4d783ec5f0dc3f172fd5359d656"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_identity.json",
+      "bytes": 77,
+      "sha256": "7308c0106674976e6233e150e5f7b87310684981edd0675617fd6c4141073dd4"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/episodes/a339f49f7a6a4ffe8a23ffc32b197bd2/worker_sources.jsonl",
+      "bytes": 92,
+      "sha256": "973016c8745e0705ce698e1763403c76a5a4e1000ff9e51778a26ae628653c19"
+    },
+    {
+      "path": "shop-mysql-runtime/v77/runs/tests-8ded965275b4452fa91186806b5e01cb/A12-prefix-43f5358b768342d1afcf019f415d8993/internal/request.json",
+      "bytes": 24714,
+      "sha256": "4b066bab6111ddced15a739c4ac30cb149ed81f41700c2345846fe4efb3704d4"
+    }
+  ],
+  "post_window_process_check": {
+    "path": "shop-mysql-runtime/v77/readonly_process_status.json",
+    "bytes": 1336,
+    "sha256": "38d9582eb14ee4aecb21a4c4036d7b9ef2ce520ca92b3ad2ec984d0f80cc4dae"
+  },
+  "observed_process_identities": 9,
+  "observed_process_identities_still_running": 0,
+  "unobserved_descendants_guaranteed_absent": false,
+  "readonly_verification": {
+    "method_descriptors_matched": 36,
+    "preparation_inputs_matched": 1,
+    "parent_plan_descriptors_matched": 3,
+    "fixture_manifests_matched": 3,
+    "original_fixture_files_matched": 78,
+    "original_fixture_bytes": 8043982,
+    "independent_counts_sources_A09_and_process_review_passed": true,
+    "project_worker_or_suite_reexecuted": false
+  },
+  "decision": "stop_after_only_authorized_window_no_correction_or_retry",
+  "formal_windows_consumed": 1,
+  "formal_windows_remaining": 0,
+  "new_tests_after_failure": 0,
+  "new_fixture_generation": 0,
+  "real_full_acceptance": false,
+  "real_measurements": 0,
+  "Linux_installations": 0,
+  "B_C_D_fixed48_real_runs": 0,
+  "T_plan": null,
+  "reserved_test": "locked",
+  "V46_adopted": false,
+  "next_recommendation": "First use saved failure evidence to specify watch return contract and precise injected-exit verification; seek new scope before any further synthetic execution."
+}

@@ -13,7 +13,7 @@
 
 ## Stage 12｜V77一次完整合成驗收（最新）
 
-V77工具與完整案例已封存並完成靜態複核，原golden／worker與196IDs保留。原三個manifest／78檔已核對及重綁，待本步推送後開唯一900秒窗口；尚未載入suite或執行測試。失敗不補跑、真實資料不重跑。[工具、期限及本輪進度](STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
+V77先封存再執行唯一窗口，94.047秒failed；147子案例通過／1失敗／48未執行，已停止不補跑。A09精確拒收通過；A12真程序SQL interrupted，64筆有效prefix預期未成立。原golden／196IDs／worker與78檔保留，真實資料未重跑。[工具、期限及本輪進度](STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
 
 ## Stage 12｜缺 DB 精確修正與下輪規格（前輪）
 

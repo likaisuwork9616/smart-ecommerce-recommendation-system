@@ -1,0 +1,34 @@
+{
+  "schema": "v77_readonly_final_result_audit",
+  "date": "2026-11-17",
+  "status": "report_consistent_acceptance_still_failed",
+  "public_result": {
+    "path": "reports/mainline/v77_synthetic_acceptance_window1_20261117.json",
+    "bytes": 82554,
+    "sha256": "3e9f6dca648705771d22383bce3d90af1c40b6b71982f68b3927e88c64b55cee"
+  },
+  "descriptor_checks": 33,
+  "unique_evidence_files": 32,
+  "method_outcomes": {
+    "passed": 24,
+    "failed": 1,
+    "unexecuted": 9
+  },
+  "case_outcomes": {
+    "passed": 147,
+    "failed": 1,
+    "unexecuted": 48
+  },
+  "missing_passes_include_failed_case": 49,
+  "A09_saved_evidence_matches_current_artifacts": true,
+  "A12_saved_evidence_matches_public_summary": true,
+  "watch_cause_is_static_inference_not_reproduced": true,
+  "independent_result_and_failure_reviews_passed": true,
+  "observed_identities_still_running": 0,
+  "unobserved_descendants_guaranteed_absent": false,
+  "original_sources_preserved": true,
+  "formal_windows_consumed": 1,
+  "formal_windows_remaining": 0,
+  "post_failure_tests_or_reproduction": 0,
+  "real_reruns": 0
+}
