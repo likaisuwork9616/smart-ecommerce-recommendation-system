@@ -706,3 +706,10 @@ reports/mainline/v75_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V76 documentary correction and next acceptance plan.
 docs/STAGE12_KNN_MISSING_DB_PLAN_V76_20261117.md text eol=lf
 reports/mainline/v76_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V77 single-window tools, cases and synthetic receipts.
+scripts/*v77.py text eol=lf
+tests/*v77.py text eol=lf
+docs/contracts/retailrocket_session_knn_cases_v77.json -text
+docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md text eol=lf
+reports/mainline/v77_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

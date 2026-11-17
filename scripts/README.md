@@ -1,5 +1,7 @@
 # 程式與操作入口
 
+V77新增bundle／pipeline／唯一正式runner，原worker_v75與fixture保留；先封存工具與原來源registry才執行，尚未開窗。見[本輪操作與界線](../docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)。
+
 所有命令都從專案根目錄執行，使用 `.venv` 的 Python。環境安裝與資料庫設定見[本機建置](../docs/LOCAL_SETUP.md)，目前結論見[專案首頁](../README.md)，報告對應見[報告索引](../reports/README.md)。
 
 ## 先選擇要做的工作

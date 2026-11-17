@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V76缺DB修正及V77完整合成計畫已列，待確認 | 原golden／34方法／196子案例保留；擬單窗15分鐘、工作80–140分鐘；V75仍failed，未改程式或新驗收，T_plan未知 |
+| Stage 12：session-kNN K1 | V77工具與案例已封存，待原來源重綁及一次驗收 | 36方法／案例描述符、34方法／196子案例靜態核對；原golden與worker保留，正式窗口0／1、T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,19 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜缺 DB 負例精確修正與下輪計畫（最新）
+## Stage 12｜V77一次完整合成驗收（最新）
+
+依已確認V76計畫，V77已準備三個新控制模組、三個測試模組及完整案例契約。原worker_v75、凍結CP／V1／V2／V4、原golden與全部196個子案例保留；唯一案例判定修正為缺DB負例的精確例外、拒收位置及前後證據。
+
+| 本輪步驟 | 實際狀態 |
+| --- | --- |
+| 工具與案例封存 | 36個方法／案例描述符，34方法映射／196同序IDs／24族與六個新來源AST通過靜態及獨立複核；尚未執行測試 |
+| 原人工來源重綁 | 待逐檔核對原三組manifest／78檔，只重綁新方法SHA，不重產golden |
+| 唯一正式窗口 | 尚未開始，0／1；整套900秒，工作子程序120秒並受整窗剩餘限制；失敗不補跑 |
+
+先封存推送工具，再封存原來源registry後才執行全34方法／196子案例；不拼接V75通過項。新fixture、量測、Linux／B／C／D、原48筆及真實資料重跑均0；T_plan未知、V46暫不採用，每日10%與Dashboard優先順序不變。[工具、界線與操作順序](docs/STAGE12_KNN_SYNTHETIC_ACCEPTANCE_V77_20261117.md)
+
+## Stage 12｜缺 DB 負例精確修正與下輪計畫（前輪）
 
 V76只讀既有紀錄，確認缺DB在凍結CP的writer恢復、尚未進入verify_full前被拒收。新案例預期例外不完整；擬只修正A09.missing_database，精確核對FileNotFoundError、ENOENT、目標檔與拒收鏈，保留原DB／seal／帳本且不得產生成功收據。其餘A09期待、golden與全部196個子案例不變；程式尚未修改或執行。
 
