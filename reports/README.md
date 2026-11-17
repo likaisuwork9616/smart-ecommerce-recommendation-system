@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V75最終有限驗收 | [第2窗口失敗與完整缺漏清單](mainline/v75_synthetic_acceptance_revision2_20261117.json)；38.063秒，12方法／75子案例通過；兩窗已用完並停止，不是整關成功 |
 | V75唯一正式修正版 | [修正原因](mainline/v75_revision2_reason_20261117.json) · [工具](mainline/v75_tool_seal_revision3_20261117.json) · [人工registry](mainline/v75_fixture_seal_revision2_20261117.json)；僅補新案例watch參數，完整清單與golden不變，尚未重驗 |
 | V75正式第1窗口 | [失敗收據與未完成項目](mainline/v75_synthetic_acceptance_revision1_20261117.json)；10.812秒，4方法／34子案例通過，A04接入錯誤停止；非整關通過 |
 | V75人工資料與golden | [三組bundle／78檔描述符](mainline/v75_fixture_seal_20261117.json)；凍結V1／V2參照準備完成，V75候選與正式驗收未執行 |

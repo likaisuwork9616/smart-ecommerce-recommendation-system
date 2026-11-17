@@ -1,0 +1,289 @@
+{
+  "schema": "v75_public_synthetic_acceptance_result",
+  "date": "2026-11-17",
+  "formal_revision": 2,
+  "status": "failed",
+  "method_seal_sha256": "6aeb842111fa8a7ac570807353dc8b1a9f22b33f7f7e5704708c0f5cc18cf393",
+  "fixture_seal_sha256": "028f69c5364b3a0a832b4e766dfe10d21a1f4fee03d8ef606f8fafafdf406881",
+  "elapsed_seconds": 38.0630000000001,
+  "elapsed_use": "synthetic_acceptance_deadline_only_not_performance",
+  "unexpected_timeout": false,
+  "source_authority_error": false,
+  "required_methods": 34,
+  "required_subcases": 196,
+  "methods_run": 13,
+  "methods_passed": 12,
+  "methods_unexecuted": 21,
+  "subcases_executed": 76,
+  "subcases_passed": 75,
+  "subcases_failed": 1,
+  "subcases_unexecuted": 120,
+  "failures": 0,
+  "errors": 1,
+  "skips": 0,
+  "failed_cases": [
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A09_sealed_database_and_source_integrity (case_id='A09.missing_database', mutation='missing_database')",
+      "type": "FileNotFoundError",
+      "reason": "A09 intentionally removed the sealed DB. Frozen CP raised FileNotFoundError in stage artifact verification; the new test expected ValueError/IntegrityError only."
+    }
+  ],
+  "readonly_failed_case_state": {
+    "candidate_exists": false,
+    "acceptance_exists": false,
+    "independent_database_missing": true,
+    "removed_database_preserved": true,
+    "reconstruction_stage_present": true
+  },
+  "readonly_state_scope": "saved_artifact_presence_only_not_a_reexecuted_test",
+  "outcomes": [
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild",
+      "status": "passed"
+    },
+    {
+      "id": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "status": "failed_subcase"
+    }
+  ],
+  "missing_test_ids": [
+    "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+    "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+    "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+    "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+    "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A12_true_process_prefix_recovery",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A16_exit_and_identity_refusals",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A19_source_positions_and_same_size_changes",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+    "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+  ],
+  "missing_required_case_ids": [
+    "A09.extra_journal",
+    "A09.foreign_reconstruction",
+    "A09.missing_database",
+    "A09.source_changed",
+    "A10.eof_short_tail",
+    "A10.row_boundary_63_64_65",
+    "A10.time_boundary_120",
+    "A11.after_manifest_commit",
+    "A11.after_payload_fsync",
+    "A11.before_manifest_commit",
+    "A11.payload_half_written",
+    "A11.scientific.after_manifest_commit",
+    "A11.scientific.after_payload_fsync",
+    "A11.scientific.before_append",
+    "A11.scientific.before_manifest_commit",
+    "A11.scientific.payload_half_written",
+    "A11.scientific.query_verified",
+    "A12.invalid.chain_sha",
+    "A12.invalid.chunk_gap",
+    "A12.invalid.wrong_prefix_key",
+    "A12.prefix_crash_recovery",
+    "A13.after_stage_global",
+    "A13.bootstrap_draw",
+    "A13.global_replay",
+    "A14.C1.draw_sha256",
+    "A14.C1.extra",
+    "A14.C1.missing",
+    "A14.C1.order",
+    "A14.C1.query_denominator",
+    "A14.C1.rng_after",
+    "A14.C1.rng_before",
+    "A14.primary.delta",
+    "A14.primary.draw_sha256",
+    "A14.primary.extra",
+    "A14.primary.missing",
+    "A14.primary.order",
+    "A14.primary.query_denominator",
+    "A14.primary.rng_after",
+    "A14.primary.rng_before",
+    "A15.artificial_count_contract",
+    "A15.candidate.bool_count",
+    "A15.candidate.false_eof",
+    "A15.candidate.float_count",
+    "A15.candidate.integer_eof",
+    "A15.candidate.missing_stage",
+    "A15.candidate.string_eof",
+    "A15.candidate.valid",
+    "A15.candidate.wrong_count",
+    "A15.candidate.wrong_ledger",
+    "A15.candidate.wrong_run",
+    "A15.finalize.bool_count",
+    "A15.finalize.candidate_mismatch",
+    "A15.finalize.false_eof",
+    "A15.finalize.float_count",
+    "A15.finalize.integer_eof",
+    "A15.finalize.missing_stage",
+    "A15.finalize.string_eof",
+    "A15.finalize.valid",
+    "A15.finalize.wrong_count",
+    "A15.finalize.wrong_ledger",
+    "A15.finalize.wrong_run",
+    "A15.supersede.bool_count",
+    "A15.supersede.candidate_mismatch",
+    "A15.supersede.false_eof",
+    "A15.supersede.float_count",
+    "A15.supersede.integer_eof",
+    "A15.supersede.missing_stage",
+    "A15.supersede.string_eof",
+    "A15.supersede.valid",
+    "A15.supersede.wrong_count",
+    "A15.supersede.wrong_ledger",
+    "A15.supersede.wrong_run",
+    "A15.writer_required",
+    "A16.alive",
+    "A16.nonzero",
+    "A16.other_boot",
+    "A16.pid_reused",
+    "A16.self_exit",
+    "A16.uncertain",
+    "A17.candidate_unknown_exit",
+    "A18.normal_exit_reentry",
+    "A19.H1",
+    "A19.H2",
+    "A19.H3",
+    "A19.H4",
+    "A19.H5",
+    "A19.H6",
+    "A19.H7",
+    "A19.H8",
+    "A19.normal_positions",
+    "A20.aggregate_count",
+    "A20.candidate_count",
+    "A20.cp_summary",
+    "A20.global_roster",
+    "A20.no_numeric_replay",
+    "A20.normal_boot",
+    "A20.observed_exit",
+    "A20.payload_key",
+    "A20.query_stage",
+    "A20.request",
+    "A20.request_deadline",
+    "A21.append",
+    "A21.closed_manifest",
+    "A21.extra",
+    "A21.live",
+    "A21.missing",
+    "A22.P10",
+    "A22.P9",
+    "A23.absolute",
+    "A23.delivery",
+    "A23.descendant_timeout",
+    "A23.disk",
+    "A23.downtime",
+    "A23.monitor",
+    "A23.monitor_process",
+    "A23.path_scope",
+    "A23.resource_process",
+    "A23.rollback",
+    "A23.rss",
+    "A23.temp",
+    "A24.intervals"
+  ],
+  "private_evidence": [
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/request.json",
+      "bytes": 319,
+      "sha256": "3b5808ad72f8827850dd8daeb1eb71534d088cc8a204104dbb415a2d5e4e2372"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/result.json",
+      "bytes": 47257,
+      "sha256": "08f4bb682ed24a695425334be70040b6f9f0feaafefa3b70ebafae3e6820e375"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/stderr.log",
+      "bytes": 4789,
+      "sha256": "1e39598588a2a5ba682d76cae2293fd9f4d6d605aff66a58d40e53fee70569ce"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/suite_result.json",
+      "bytes": 44812,
+      "sha256": "eb14df9d71970239ae62e4e8a66620d780de187e1629195b3573e9c538710bbe"
+    },
+    {
+      "path": "shop-mysql-runtime/v75/formal/revision2/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    }
+  ],
+  "failed_case_preserved_database": {
+    "path": "shop-mysql-runtime/v75/cases/A09-missing_database-6991f401aa6b4a0ba1471080283fb1bf/run/missing-db-preserved.sqlite",
+    "bytes": 36864,
+    "sha256": "40764506fee27166b9d006abd547626ec733cc5584aaadfcc3f7baa967b533b7"
+  },
+  "decision": "failed_two_formal_windows_exhausted_stop_no_third_window",
+  "formal_windows_consumed": 2,
+  "formal_windows_remaining": 0,
+  "second_result_independent_of_first_passes": true,
+  "new_tests_after_failure": 0,
+  "real_full_acceptance": false,
+  "real_measurements": 0,
+  "Linux_installations": 0,
+  "C_D_fixed48_real_runs": 0,
+  "T_plan": null,
+  "reserved_test": "locked",
+  "V46_adopted": false,
+  "next_recommendation": "Define a separate correction plan for the expected FileNotFoundError refusal while retaining rejection phase and absent-success evidence; do not silently extend this run."
+}
