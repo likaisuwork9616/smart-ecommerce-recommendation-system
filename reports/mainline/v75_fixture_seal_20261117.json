@@ -1,0 +1,88 @@
+{
+  "schema": "v75_artificial_fixture_registry",
+  "date": "2026-11-17",
+  "revision": 1,
+  "status": "artificial_inputs_and_independent_goldens_prepared_candidate_not_executed",
+  "method_seal_sha256": "bbaa8fc1b594f70b80c995a6c35f303a06b0151052d90bb6ce772731f18cc8d8",
+  "real_execution_enabled": false,
+  "fixtures": [
+    {
+      "fixture_id": "F-small",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-small",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-small/manifest.json",
+        "bytes": 25691,
+        "sha256": "dc6c46d5f3dfc41d0ad3088a90b0b4965c276a9a6f4a735499e11f78693bbc45"
+      },
+      "queries": 7,
+      "visitors": 6,
+      "files": 26,
+      "bytes": 2216565,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 7,
+        "singleton_sessions": 3,
+        "train_baskets": 11,
+        "basket_item_memberships": 14,
+        "distinct_session_item_memberships": 12,
+        "positive_support_items": 5,
+        "maximum_session_items": 3,
+        "maximum_posting_size": 4
+      }
+    },
+    {
+      "fixture_id": "F-long",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-long",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-long/manifest.json",
+        "bytes": 24975,
+        "sha256": "e9167531d38817d814885542c1ed341b8df0457da4287c0f4ec1e1079c801ee3"
+      },
+      "queries": 129,
+      "visitors": 3,
+      "files": 26,
+      "bytes": 3465659,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 7,
+        "singleton_sessions": 3,
+        "train_baskets": 11,
+        "basket_item_memberships": 14,
+        "distinct_session_item_memberships": 12,
+        "positive_support_items": 5,
+        "maximum_session_items": 3,
+        "maximum_posting_size": 4
+      }
+    },
+    {
+      "fixture_id": "F-edge",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-edge",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-edge/manifest.json",
+        "bytes": 23840,
+        "sha256": "b2e2b870d18c2effa0ec0afa82b27276b15c5ef318206463ef798cb1efc8ae8a"
+      },
+      "queries": 1,
+      "visitors": 1,
+      "files": 26,
+      "bytes": 2361758,
+      "bootstrap_replicates": 2000,
+      "golden_agreement": "frozen_V1_V2_aggregate_and_V2_full_payload",
+      "training": {
+        "train_sessions": 501,
+        "singleton_sessions": 0,
+        "train_baskets": 501,
+        "basket_item_memberships": 1002,
+        "distinct_session_item_memberships": 1002,
+        "positive_support_items": 502,
+        "maximum_session_items": 2,
+        "maximum_posting_size": 501
+      }
+    }
+  ],
+  "formal_tests_executed": 0,
+  "real_measurements": 0,
+  "T_plan": null
+}

@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V75人工資料與golden | [三組bundle／78檔描述符](mainline/v75_fixture_seal_20261117.json)；凍結V1／V2參照準備完成，V75候選與正式驗收未執行 |
 | V75準備路徑修正 | [初次拒收與保留證據](mainline/v75_preparation_path_correction_20261117.json) · [準備修訂2工具封存](mainline/v75_tool_seal_revision2_20261117.json)；正式窗口尚未開始 |
 | V75人工工具來源封存 | [35方法描述符／34方法與196子案例](mainline/v75_tool_seal_20261117.json)；已確認且只完成靜態準備，人工資料／測試執行尚未開始 |
 | V74最小接入規格 | [六元件／人工request／八關卡](mainline/v74_k1_minimal_integration_spec_20261116.json)；確認前不建立工具或執行驗收 |

@@ -37,16 +37,31 @@
 .venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_acceptance_v75 --revision 1 --method-sha <已封存工具SHA> --fixture-sha <已封存人工registry SHA>
 ```
 
-目前fixture registry尚未建立，以上命令尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在shop-mysql-runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
+fixture registry已建立，正式命令尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在shop-mysql-runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
 
 V74的3–5小時為整體工作估計，機器驗收已含在內；不因額度、失敗或時間壓力縮減必要案例。每個可安全完成的小步驟後更新README並提交推送。額度不足時保留已封存內容與未完成項目，停在下一次執行前；不自行使用額度重設或購買額度。
+
+## 第二步：人工資料與獨立golden已封存
+
+修正後的準備成功建立三組人工bundle，並由凍結V1／V2核對完整aggregate，保存V2逐筆golden。這是準備獨立參照，不是V75候選通過，也沒有啟動正式驗收窗口。
+
+| 人工bundle | queries／visitors | 封存檔案數 | bytes |
+| --- | ---: | ---: | ---: |
+| F-small | 7／6 | 26 | 2,216,565 |
+| F-long | 129／3 | 26 | 3,465,659 |
+| F-edge | 1／1 | 26 | 2,361,758 |
+| 合計 | 三組各有原人工2,000 draws | 78 | 8,043,982 |
+
+[人工registry封存](../reports/mainline/v75_fixture_seal_20261117.json)綁定工具準備修訂2及三個manifest，各manifest列出完整角色／bytes／SHA白名單。78個人工檔案均完成描述符核對，沒有公開原始列、DB或本機golden內容。
+
+固定工具SHA為`bbaa8fc1b594f70b80c995a6c35f303a06b0151052d90bb6ce772731f18cc8d8`；人工registry SHA為`54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a`。本步README與registry推送後，才可開正式第1窗口；目前正式窗口仍0。
 
 ## 本輪進度
 
 | 步驟 | 狀態與實際結果 |
 | --- | --- |
 | 1. 工具與案例來源 | 已準備並靜態複核；35個方法／案例描述符、34方法／196子案例待執行 |
-| 2. 三組人工資料與golden封存 | 初次準備被路徑檢查拒絕；已改用canonical忽略目錄並重新封存，待推送後準備 |
+| 2. 三組人工資料與golden封存 | 修正後三組皆已建立；78檔共8,043,982 bytes，凍結V1／V2核對並保存golden；V75候選未執行 |
 | 3. 有限合成驗收 | 0個正式窗口、0個測試執行，未宣稱通過 |
 | 真實研究／Linux／量測 | 全部0；保留測試locked、T_plan未知 |
 
