@@ -717,3 +717,7 @@ reports/mainline/v77_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V78 saved-evidence watch/exit specification and planning receipts.
 docs/STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md text eol=lf
 reports/mainline/v78_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V79 Q0 documentary feasibility and integration proposals.
+docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md text eol=lf
+reports/mainline/v79_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

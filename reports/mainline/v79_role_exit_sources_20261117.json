@@ -1,0 +1,342 @@
+{
+  "schema": "v79_q0_role_exit_source_feasibility",
+  "date": "2026-11-17",
+  "status": "conditional_documentary_candidate_not_implemented_or_executed",
+  "q0": {
+    "start_local": "2026-11-17T14:50:47+08:00",
+    "cutoff_local": "2026-11-17T15:50:47+08:00",
+    "limit_minutes": 60,
+    "rule": "If no concrete solution at cutoff stop and preserve gaps; implementation and tests require separate confirmation"
+  },
+  "official_sources": [
+    {
+      "id": "MS01",
+      "title": "OpenProcess",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess",
+      "locator": "Parameters / Return value",
+      "supports": "Open local process by PID; noninheritable handle; access check and NULL/GetLastError",
+      "limit": "No guarantee requested rights succeed",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS02",
+      "title": "Process Security and Access Rights",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights",
+      "locator": "SYNCHRONIZE / PROCESS_QUERY_LIMITED_INFORMATION",
+      "supports": "Minimum proposed rights 0x00100000 | 0x1000 = 0x00101000",
+      "limit": "No all-access, debug privilege or elevation proposed",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS03",
+      "title": "GetProcessId",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocessid",
+      "locator": "Parameters / Return value / Remarks",
+      "supports": "PID from handle; limited-query permitted",
+      "limit": "PID uniqueness only until termination",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS04",
+      "title": "GetProcessTimes",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes",
+      "locator": "Parameters / Return value",
+      "supports": "Creation FILETIME from handle; limited-query permitted",
+      "limit": "API success required; pre-exit exit-time undefined; no CPU measurement proposed",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS05",
+      "title": "FILETIME",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime",
+      "locator": "Members / Remarks",
+      "supports": "64-bit timestamp in 100 ns units since 1601 UTC",
+      "limit": "Representation unit is not actual resolution or global uniqueness",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS06",
+      "title": "WaitForSingleObject",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject",
+      "locator": "Parameters / Return value",
+      "supports": "Zero or finite wait; WAIT_OBJECT_0 signaled; WAIT_FAILED needs error",
+      "limit": "Windows8+ low-power excluded from timeout; closing while waiting undefined",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS07",
+      "title": "GetExitCodeProcess",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getexitcodeprocess",
+      "locator": "Return value / Remarks",
+      "supports": "BOOL API status separate from DWORD exit; query after signal",
+      "limit": "STILL_ACTIVE259 not liveness test; signaled259 retained then rejected by scenario",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS08",
+      "title": "Process Handles and Identifiers",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/process-handles-and-identifiers",
+      "locator": "Process handles lifetime",
+      "supports": "Opened handle remains valid until close even after process termination",
+      "limit": "Do not reopen by old PID; self pseudo handle not transferable",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS09",
+      "title": "Terminating a Process",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process",
+      "locator": "Termination effects",
+      "supports": "Exit status set and process object signaled; externally held object persists",
+      "limit": "Parent termination does not automatically terminate descendants",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS10",
+      "title": "CloseHandle",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-closehandle",
+      "locator": "Remarks",
+      "supports": "Close successful real handle once through one owner",
+      "limit": "Closing does not terminate target; no double-close or pending wait close",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS11",
+      "title": "Kernel Objects",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/kernel-objects",
+      "locator": "Handle ownership",
+      "supports": "Handle belongs to holder process",
+      "limit": "Serialized handle number is not restartable observation proof",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "MS12",
+      "title": "NtQuerySystemInformation",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntquerysysteminformation",
+      "locator": "SYSTEM_TIMEOFDAY_INFORMATION / Remarks",
+      "supports": "Public time-of-day layout is opaque Reserved1[48]; internal API subject to change",
+      "limit": "Does not publicly guarantee numeric class3 or first8bytes BootTime",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PS01",
+      "title": "psutil FILETIME conversion",
+      "url": "https://github.com/giampaolo/psutil/blob/release-7.2.2/psutil/arch/windows/init.c",
+      "locator": "_to_unix_time / psutil_FiletimeToUnixTime / psutil_LargeIntegerToUnixTime",
+      "supports": "Integer combine and integer epoch subtraction before double conversion and division",
+      "limit": "Tag source is not installed native-binary provenance",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PS02",
+      "title": "psutil Windows process primitives",
+      "url": "https://github.com/giampaolo/psutil/blob/release-7.2.2/psutil/arch/windows/proc.c",
+      "locator": "psutil_proc_times / psutil_ppid_map",
+      "supports": "GetProcessTimes creation path; Toolhelp parent PID map",
+      "limit": "Parent snapshot is non-atomic evidence of chain",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PS03",
+      "title": "psutil process-info fallback",
+      "url": "https://github.com/giampaolo/psutil/blob/release-7.2.2/psutil/arch/windows/proc_info.c",
+      "locator": "psutil_proc_info",
+      "supports": "SystemProcessInformation CreateTime uses same LargeInteger conversion",
+      "limit": "Fallback remains source interpretation, no runtime probe",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PS04",
+      "title": "psutil Windows Python wrapper",
+      "url": "https://github.com/giampaolo/psutil/blob/release-7.2.2/psutil/_pswindows.py",
+      "locator": "Process.create_time / Process.wait",
+      "supports": "Permission fallback for create time; process wait may have no exit code",
+      "limit": "Do not use late wait/PID disappearance to fill exact role code",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PS05",
+      "title": "psutil Process identity and ancestry",
+      "url": "https://github.com/giampaolo/psutil/blob/release-7.2.2/psutil/__init__.py",
+      "locator": "Process.parent / parents / ppid / create_time",
+      "supports": "Windows ppid cached; parent checks new child time and parent<=child",
+      "limit": "Fresh objects/snapshots required for pre-ack recheck; no atomic ancestry guarantee",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PY01",
+      "title": "CPython venvlauncher project",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/PCbuild/venvlauncher.vcxproj",
+      "locator": "VENV_REDIRECT / launcher.c build input",
+      "supports": "venv launcher compiles redirect variant of PC/launcher.c",
+      "limit": "Does not prove exact V77 executables",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PY02",
+      "title": "CPython launcher implementation",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/PC/launcher.c",
+      "locator": "VENV_REDIRECT / run_child",
+      "supports": "Can create child, wait and relay its exit code",
+      "limit": "Plausible launcher mechanism only; not historical role exit proof",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    },
+    {
+      "id": "PY03",
+      "title": "CPython path initialization",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Modules/getpath.py",
+      "locator": "ENV___PYVENV_LAUNCHER__",
+      "supports": "Environment launcher path can affect executable path",
+      "limit": "sys.executable string does not prove identical OS PID",
+      "accessed_date": "2026-11-17",
+      "kind": "official_documentation_or_tagged_project_source"
+    }
+  ],
+  "local_source_descriptors": [
+    {
+      "path": "docs/STAGE12_KNN_WATCH_EXIT_SPEC_V78_20261117.md",
+      "bytes": 16773,
+      "sha256": "c92cecec951bf85baff7a31e344d69095c9305c27c8800237f1e529093bb6195"
+    },
+    {
+      "path": "reports/mainline/v78_watch_exit_contract_20261117.json",
+      "bytes": 18964,
+      "sha256": "070f9d1a77eab291b28d40317a3900cdfc30a926f9fa75a543db89c863c02ea9"
+    },
+    {
+      "path": "reports/mainline/v78_correction_scope_plan_20261117.json",
+      "bytes": 34650,
+      "sha256": "b816b23048329a479f87c6342d0882427b5f70966446361c63f868f9924c6589"
+    },
+    {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    {
+      "path": "reports/mainline/v77_fixture_seal_20261117.json",
+      "bytes": 18963,
+      "sha256": "afa494940682ebd2d52c63ed50dbf8bb00914bb1762eb992b34df9f7f3996353"
+    },
+    {
+      "path": "reports/mainline/v77_synthetic_acceptance_window1_20261117.json",
+      "bytes": 82554,
+      "sha256": "3e9f6dca648705771d22383bce3d90af1c40b6b71982f68b3927e88c64b55cee"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 39315,
+      "sha256": "05efb3f3529a51c80213b09f3dd20057c346e6689294cbdac8440d3b0d74bc30"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v77.py",
+      "bytes": 31157,
+      "sha256": "c6da248bf0b3d5ddb13473fe0b08e95fa0cdbd4374aef855de4588a224b24ef5"
+    },
+    {
+      "path": ".venv/pyvenv.cfg",
+      "bytes": 338,
+      "sha256": "98cd6b99ce997241ebb1f1f1364aa9865e5b881eafbf6e6ad65431d0b86671b2"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil/__init__.py",
+      "bytes": 92363,
+      "sha256": "7b6a0675824eb1fa2ff0cb1eb36e358dc454703e51dfa4e9a0e6ccd26a159f0c"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil/_pswindows.py",
+      "bytes": 36466,
+      "sha256": "0bbd52dcb214735be4168d11a2ae192d5bc7265c8cf72c611179476479687f54"
+    },
+    {
+      "path": ".venv/Lib/site-packages/psutil-7.2.2.dist-info/METADATA",
+      "bytes": 22729,
+      "sha256": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b"
+    }
+  ],
+  "candidate": {
+    "method": "pre_ack_held_windows_process_handle_v1_proposal",
+    "rights_decimal": 1052672,
+    "rights_hex": "0x00101000",
+    "inherit_handle": false,
+    "identity": "keep CP exact three fields; external ready binds raw creation and identity descriptor",
+    "raw_creation_serialization": "canonical unsigned decimal string, no sign/leading zeros/float; reject outside uint64 or before Unix epoch",
+    "legacy_create_time_mapping": "float(raw_ticks - 116444736000000000) / 10000000.0",
+    "exit_condition": "same held handle WAIT_OBJECT_0 then successful GetExitCodeProcess",
+    "exit_type": "exact Python int normalized from DWORD, never bool/float/string",
+    "boot_contract": "frozen CP compatibility only; private layout not official stable boot identifier",
+    "fallback": "none; missing/uncertain role proof fails closed"
+  },
+  "preservation": {
+    "case_contract": {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    "methods": 34,
+    "case_ids": 196,
+    "families": 24,
+    "original_golden_and_draws": "unchanged; no regeneration",
+    "old_v77_status": "failed_147_pass_1_fail_48_unexecuted",
+    "descriptor_checks": {
+      "methods": 36,
+      "schema_inputs": 1,
+      "fixture_manifests": 3,
+      "fixture_files": 78,
+      "all_match": true
+    }
+  },
+  "scope": {
+    "new_implementation": 0,
+    "new_case_execution": 0,
+    "role_or_test_process_launches": 0,
+    "live_process_api_probes": 0,
+    "new_measurements": 0,
+    "real_data_reruns": 0,
+    "linux_install": 0,
+    "real_T_plan": null
+  },
+  "remaining_this_q0": [
+    "concrete protocol and launch-relation rule",
+    "role/generic routing",
+    "publisher/final seal closure and case mapping",
+    "future scope stops estimate and separate approval"
+  ],
+  "static_review": {
+    "status": "passed_documentary_source_review",
+    "reviews": [
+      "Win32 official semantics and limitations",
+      "psutil identity normalization and launcher source boundaries"
+    ],
+    "local_source_descriptors_rechecked": 14,
+    "not_a_runtime_or_case_acceptance": true
+  }
+}

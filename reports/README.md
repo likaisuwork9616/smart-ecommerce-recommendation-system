@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V79 Q0官方來源與身分相容 | [20份官方文件／tag原碼及118次原描述核對](mainline/v79_role_exit_sources_20261117.json)；附條件handle候選，boot內部格式限制保留，未實作或執行 |
 | V78修正範圍與分階段計畫 | [D1–D6／Q0／停止與估時](mainline/v78_correction_scope_plan_20261117.json)；先提30–60分鐘Q0，無工具或執行授權，原34方法／196案例保留 |
 | V78回呼與角色退出契約 | [既有證據／W／E／P精確規則](mainline/v78_watch_exit_contract_20261117.json)；兩個角色身分與啟動收據不符，僅文件規格、新測試0 |
 | V77唯一正式窗口結果 | [結果／缺漏／保存證據](mainline/v77_synthetic_acceptance_window1_20261117.json) · [唯讀反核](mainline/v77_readonly_result_audit_20261117.json)；94.047秒failed，147通過／1失敗／48未執行，A09通過、A12真程序未過，已停止無補跑 |

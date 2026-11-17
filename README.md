@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V78精確規格完成，Q0觀測來源可行性待確認 | 啟動程序與角色退出碼不能直接等同；建議先30–60分鐘Q0，不實作或重驗；V77仍failed，T_plan未知 |
+| Stage 12：session-kNN K1 | V79 Q0來源評估完成，最小接入規格整理中 | 已有持續角色handle的官方語義依據；身分相容限制已列，尚未實作或驗收；V77仍failed，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,20 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V78 watch與退出精確規格（最新）
+## Stage 12｜V79 Q0角色退出可行性（最新）
+
+V79依V78只查官方文件、既有原碼與配置，已找到附條件的候選方案：真正角色工作前，監督者先取得並持續保留其Windows process handle；同一handle確定終止後才讀角色碼。launcher退出碼分欄，不回填V77。
+
+| 本輪步驟 | 狀態與實際結果 |
+| --- | --- |
+| 觀測來源與身分 | 已整理20份官方文件／tag原碼；固定FILETIME整數轉換順序，保留舊CP三欄與嚴格相等，明列boot內部格式限制 |
+| 原來源保留 | 36方法描述、1份schema、3個manifest與78人工檔共118次描述核對相符；34方法／196案例／24族保留 |
+| 最小接入與交付 | 整理中；握手、角色／泛用分流及publisher／final seal閉合須一併固定 |
+| 本輪界線 | 新工具、案例執行、角色／測試程序、即時程序API探測、量測及真實重跑均0 |
+
+本輪14:50:47開始，15:50:47仍無明確方案即停；文件可行不等於現場接入通過，實作及合成驗收仍須另確認。K1完整驗收及T_plan仍未知，V46暫不採用，每日10%與Dashboard優先順序不變。[Q0來源與限制](docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md)
+
+## Stage 12｜V78 watch與退出精確規格（前輪）
 
 V78只查V77既有失敗紀錄及相關原碼，已列watch正常回傳None／直接例外保留、角色退出與64筆prefix的前置驗證。另確認worker與pipeline的退出收據PID都不同於角色自報PID；tracked包含角色不足以把啟動程序的退出碼歸給角色，不能只加exit=9判定。
 
