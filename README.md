@@ -35,7 +35,7 @@ Smart E-Commerce Recommendation System
 
 V75已依使用者確認準備五個工具、三個測試模組及必要案例契約，完成來源／案例／恢復與停止條件的靜態複核。工具封存涵蓋35個方法／案例描述符；34個測試方法、196個子案例對應24個案例族。現有Windows runtime符合V73相容目標。這一步尚未產生人工資料或執行測試，不能稱接入已通過。
 
-接著以已封存generator準備F-small、F-long（129筆／3人）及F-edge與凍結V1／V2 golden，再封存人工registry並推送，之後才做每版900秒、最多兩版的有限合成驗收；意外超時不補跑，額度不足先保存進度暫停。真實全量仍關閉，Linux／B／C／D／原48筆／新實測均0，T_plan仍未知，V46暫不採用。[本輪來源、案例與操作順序](docs/STAGE12_KNN_SYNTHETIC_INTEGRATION_V75_20261117.md)
+第一次人工資料準備被路徑檢查擋下，確認`.runtime`是既有junction；已保留失敗證據，工具改用實際忽略目錄`shop-mysql-runtime/v75`並封存準備修訂2，未放寬別名限制。目前人工資料完成0組、正式窗口0。接著以修訂後已封存generator準備F-small、F-long（129筆／3人）及F-edge與凍結V1／V2 golden，再封存人工registry並推送，之後才做每版900秒、最多兩版的有限合成驗收；意外超時不補跑，額度不足先保存進度暫停。真實全量仍關閉，Linux／B／C／D／原48筆／新實測均0，T_plan仍未知，V46暫不採用。[本輪來源、案例與操作順序](docs/STAGE12_KNN_SYNTHETIC_INTEGRATION_V75_20261117.md)
 
 ## Stage 12｜K1最小接入與人工驗收規格（前輪）
 

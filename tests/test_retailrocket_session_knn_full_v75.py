@@ -28,7 +28,7 @@ from scripts import retailrocket_session_knn_sql_v2 as sql2
 from tests.test_retailrocket_session_knn_checkpoint_v2 import FakeClock, FakeProcesses
 
 ROOT = Path(__file__).resolve().parents[1]
-TEST_ROOT = ROOT / '.runtime' / 'v75' / 'cases'
+TEST_ROOT = ROOT / 'shop-mysql-runtime' / 'v75' / 'cases'
 STREAMS = ('dataset/queries.csv', 'P0/ranked_queries.csv', 'P0/query_metrics.csv',
            'P0/query_slices.csv', 'C1/queries.jsonl', 'D1/queries.jsonl', 'primary/queries.jsonl')
 

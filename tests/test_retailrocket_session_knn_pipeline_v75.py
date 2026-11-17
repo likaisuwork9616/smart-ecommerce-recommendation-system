@@ -65,7 +65,7 @@ class PipelineCases(unittest.TestCase):
     def setUpClass(cls):
         cls.small = _admit('F-small')
         cls.long = _admit('F-long')
-        cls.work = ROOT / '.runtime' / 'v75' / 'runs' / ('tests-' + uuid.uuid4().hex)
+        cls.work = ROOT / 'shop-mysql-runtime' / 'v75' / 'runs' / ('tests-' + uuid.uuid4().hex)
         cls.work.mkdir(parents=True)
 
     def folder(self, name):
@@ -436,8 +436,8 @@ class PipelineCases(unittest.TestCase):
             with self.assertRaises(cp.BudgetExceeded):
                 pipeline.Deadline(request, base / 'finalizer.json', clock=clock).check()
         with self.subTest(case_id='A23.path_scope'):
-            for value in (ROOT / '.runtime' / 'v75' / 'fixtures' / 'bad',
-                          ROOT / '.runtime' / 'v75' / 'formal' / 'bad'):
+            for value in (ROOT / 'shop-mysql-runtime' / 'v75' / 'fixtures' / 'bad',
+                          ROOT / 'shop-mysql-runtime' / 'v75' / 'formal' / 'bad'):
                 with self.assertRaises(cp.IntegrityError): pipeline._folder(value)
         for cause in ('resource_process', 'monitor_process'):
             with self.subTest(case_id='A23.' + cause):

@@ -71,7 +71,7 @@ def key(ordinal):
 
 class WorkerGuardCases(unittest.TestCase):
     def setUp(self):
-        self.root = Path(__file__).resolve().parents[1] / '.runtime' / 'v75' / 'cases' / ('guard-' + uuid.uuid4().hex)
+        self.root = Path(__file__).resolve().parents[1] / 'shop-mysql-runtime' / 'v75' / 'cases' / ('guard-' + uuid.uuid4().hex)
         self.root.mkdir(parents=True, exist_ok=False)
         self.serial = 0
         # Preserve every artificial run, tampered stage and failure receipt.

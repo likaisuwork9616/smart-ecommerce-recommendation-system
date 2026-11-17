@@ -15,11 +15,17 @@
 | 停止與證據 | 同run跨PID累積預算、假時鐘／資源與真程序清理；內層watchdog逾時會傳遞為不得補跑；失敗檔案保留在忽略目錄 |
 | 必要案例 | **34個測試方法、196個子案例ID、24個案例族**；正式runner逐一核對封存清單，缺漏／skip／意外失敗不能通過 |
 
-[工具封存收據](../reports/mainline/v75_tool_seal_20261117.json)保存35個方法／案例描述符、公開Stage8 schemas依賴、V74提案與runtime身分。現有Windows runtime核對為CPython3.12.10、NumPy2.5.4、psutil7.2.2、SQLite3.49.1、little endian，符合V73相容目標；這是身分核對，不是時鐘能力或成本校準。
+[目前工具封存收據（準備修訂2）](../reports/mainline/v75_tool_seal_revision2_20261117.json)保存35個方法／案例描述符、公開Stage8 schemas依賴、V74提案與runtime身分。現有Windows runtime核對為CPython3.12.10、NumPy2.5.4、psutil7.2.2、SQLite3.49.1、little endian，符合V73相容目標；這是身分核對，不是時鐘能力或成本校準。
 
-人工資料規格固定F-small 7 queries／6 visitors、F-long 129／3（70／40／19）、F-edge 1／1及501鄰居；另有499／500／501與精確比率向量。generator只接受新的固定.runtime/v75/fixtures目錄；凍結V1與V2產出golden後才能建立fixture registry，候選不得製作自己的expected。公開只封存描述符與聚合狀態，人工原始檔、DB、程序日誌與故障證據全部留在Git忽略的.runtime/v75。
+人工資料規格固定F-small 7 queries／6 visitors、F-long 129／3（70／40／19）、F-edge 1／1及501鄰居；另有499／500／501與精確比率向量。generator只接受新的固定shop-mysql-runtime/v75/fixtures目錄；凍結V1與V2產出golden後才能建立fixture registry，候選不得製作自己的expected。公開只封存描述符與聚合狀態，人工原始檔、DB、程序日誌與故障證據全部留在Git忽略的shop-mysql-runtime/v75。
 
 為避免worker載入舊實驗入口，直接來源盤點採新stdlib AST函式（依V34文字調整），不匯入舊entry取得方法清單。正常H1–H8核對位置另有trace；各程序重新admission的來源核對也屬實際工作，不能把八個位置當成全流程唯一八次讀取，更不能由此推出真實成本。
+
+## 人工資料準備的路徑修正
+
+第一次準備在generator路徑檢查即拒絕，0組人工資料完成、0個正式窗口；錯誤紀錄完整保留。唯讀檢查確認現有`.runtime`是指向`shop-mysql-runtime`的junction，因此新工具改用實際Git忽略目錄`shop-mysql-runtime/v75`，繼續拒絕別名／越界路徑。這是新工具路徑接入修正，未改科學規則、門檻或196個必要子案例。
+
+[準備失敗與修正收據](../reports/mainline/v75_preparation_path_correction_20261117.json)及[初版工具封存](../reports/mainline/v75_tool_seal_20261117.json)均保留；準備修訂2重新封存後才繼續建立fixture。正式驗收尚未開始，沒有消耗正式修正版額度。最多兩個正式窗口的限制不變。
 
 ## 執行順序與限制
 
@@ -31,7 +37,7 @@
 .venv/Scripts/python.exe -B -m scripts.run_retailrocket_session_knn_acceptance_v75 --revision 1 --method-sha <已封存工具SHA> --fixture-sha <已封存人工registry SHA>
 ```
 
-目前fixture registry尚未建立，以上命令尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在.runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
+目前fixture registry尚未建立，以上命令尚未執行。runner不會以現場重算hash自行放行；正式子程序只繼承已核准SHA。各版的開始標記、stdout／stderr及結果保存在shop-mysql-runtime/v75/formal/revision1或revision2，不覆寫既有窗口；必要case ID必須實際出現在通過證據。若保存收據跨過期限，另存deadline veto，公開彙總必須採用該否決結果。
 
 V74的3–5小時為整體工作估計，機器驗收已含在內；不因額度、失敗或時間壓力縮減必要案例。每個可安全完成的小步驟後更新README並提交推送。額度不足時保留已封存內容與未完成項目，停在下一次執行前；不自行使用額度重設或購買額度。
 
@@ -40,7 +46,7 @@ V74的3–5小時為整體工作估計，機器驗收已含在內；不因額度
 | 步驟 | 狀態與實際結果 |
 | --- | --- |
 | 1. 工具與案例來源 | 已準備並靜態複核；35個方法／案例描述符、34方法／196子案例待執行 |
-| 2. 三組人工資料與golden封存 | 尚未建立，待本步推送後準備 |
+| 2. 三組人工資料與golden封存 | 初次準備被路徑檢查拒絕；已改用canonical忽略目錄並重新封存，待推送後準備 |
 | 3. 有限合成驗收 | 0個正式窗口、0個測試執行，未宣稱通過 |
 | 真實研究／Linux／量測 | 全部0；保留測試locked、T_plan未知 |
 

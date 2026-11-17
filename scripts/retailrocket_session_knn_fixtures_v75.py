@@ -25,7 +25,7 @@ from scripts import run_retailrocket_session_knn_v1 as entry
 from tests.test_retailrocket_session_knn import fixture_inputs
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIVATE = ROOT / '.runtime' / 'v75'
+PRIVATE = ROOT / 'shop-mysql-runtime' / 'v75'
 PROFILES = {'F-small': (7, 6), 'F-long': (129, 3), 'F-edge': (1, 1)}
 
 
@@ -193,7 +193,7 @@ def prepare_bundle(destination, profile='F-small'):
     expected_root = (PRIVATE / 'fixtures' / profile).resolve()
     if destination != expected_root or destination.exists() or not destination.is_relative_to(ROOT.resolve()):
         raise ValueError('Only a fresh fixed V75 artificial destination is allowed')
-    for parent in (ROOT / '.runtime', PRIVATE, PRIVATE / 'fixtures'):
+    for parent in (ROOT / 'shop-mysql-runtime', PRIVATE, PRIVATE / 'fixtures'):
         if parent.exists() and (parent.is_symlink() or
                                getattr(parent, 'is_junction', lambda: False)()):
             raise ValueError('Artificial fixture parent cannot be a link or junction')

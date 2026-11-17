@@ -19,7 +19,7 @@ import traceback
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIVATE = ROOT / ".runtime" / "v75" / "formal"
+PRIVATE = ROOT / "shop-mysql-runtime" / "v75" / "formal"
 TEST_MODULES = (
     "tests.test_retailrocket_session_knn_full_v75",
     "tests.test_retailrocket_session_knn_full_worker_v75",

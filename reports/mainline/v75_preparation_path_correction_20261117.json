@@ -1,0 +1,18 @@
+{
+  "schema": "v75_preparation_path_correction",
+  "date": "2026-11-17",
+  "status": "preparation_failure_preserved_no_formal_window_started",
+  "prior_tool_seal_sha256": "a70d0c02134bf377978e568038639cbf66077060a0e752c6777f31e833ef0245",
+  "reason": "The existing .runtime path is a junction to shop-mysql-runtime; use the canonical ignored directory and retain alias rejection.",
+  "previous_namespace": ".runtime/v75",
+  "canonical_namespace": "shop-mysql-runtime/v75",
+  "failure_evidence": {
+    "path": "shop-mysql-runtime/v75/fixture_preparation_failure.json",
+    "bytes": 493,
+    "sha256": "44cce5923f3295a8c51dc20170fb1eb73eff454a9c4e5fbb5863dbf3c423de90"
+  },
+  "artificial_bundles_completed": 0,
+  "formal_windows_started": 0,
+  "formal_correction_slot_consumed": false,
+  "scientific_rules_thresholds_and_case_scope_unchanged": true
+}

@@ -1,0 +1,271 @@
+{
+  "schema": "v75_synthetic_tool_seal",
+  "date": "2026-11-17",
+  "revision": 1,
+  "status": "canonical_private_path_corrected_sources_sealed_not_executed",
+  "authorization": {
+    "received": true,
+    "source": "current_user_message",
+    "scope": "V74_tools_fixtures_then_bounded_synthetic_acceptance",
+    "pause_if_quota_insufficient": true
+  },
+  "real_execution_enabled": false,
+  "runtime": {
+    "system": "Windows",
+    "implementation": "CPython",
+    "python": "3.12.10",
+    "byteorder": "little",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "sqlite_version": "3.49.1"
+  },
+  "source_seeds": [
+    "scripts/retailrocket_session_knn_bundle_v75.py",
+    "scripts/retailrocket_session_knn_fixtures_v75.py",
+    "scripts/retailrocket_session_knn_full_worker_v75.py",
+    "scripts/retailrocket_session_knn_pipeline_v75.py",
+    "scripts/run_retailrocket_session_knn_acceptance_v75.py",
+    "tests/test_retailrocket_session_knn_full_v75.py",
+    "tests/test_retailrocket_session_knn_full_worker_v75.py",
+    "tests/test_retailrocket_session_knn_pipeline_v75.py"
+  ],
+  "dynamic_seeds": [],
+  "methods": [
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v75.json",
+      "bytes": 52301,
+      "sha256": "a8a3c80186bc2af3a53db1f93e4136b32996566d196b6c84b1dc64328b880330"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "scripts/archive_retailrocket_three_arm_v1.py",
+      "bytes": 25498,
+      "sha256": "4aa9fdb7babb6dcb75e3deeb8245f12a43e735c5da5a0309daebc6a4f31411de"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_v1.py",
+      "bytes": 13257,
+      "sha256": "db934967ef305ea41dba0c44fcf3642f7f80dcfdc53cd2e017fb8b22134586bf"
+    },
+    {
+      "path": "scripts/prepare_retailrocket_session_knn_v1.py",
+      "bytes": 12565,
+      "sha256": "f5e7e93d4ec8537ae5367d3f11e4f66b1259bb37e6a92744546e399639d960fd"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence.py",
+      "bytes": 9464,
+      "sha256": "b47f9f1ddaa803d41b6cfc29bd4c343bd6ad061b99c4244aca27e2ff670892eb"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_io.py",
+      "bytes": 12142,
+      "sha256": "83603ccef44dd4caa9ecb2f7f110f051ca5b6179b3ac8fba963b99d137791e24"
+    },
+    {
+      "path": "scripts/retailrocket_directed.py",
+      "bytes": 10384,
+      "sha256": "52f72ed8e8f573371b35ea34276beeb45f071912f46a2903e7f34ecd75b21174"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "scripts/retailrocket_popularity.py",
+      "bytes": 11506,
+      "sha256": "c9e44bf53d73df61bea8b88dd4d99a2551756182edc14c592675fa26f0d01dc9"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_io.py",
+      "bytes": 6678,
+      "sha256": "ab8a4dc2e9f4f680e05021983726fd566cdeeb1395362e16146c766ed52416c2"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn.py",
+      "bytes": 10745,
+      "sha256": "53f58d0fb438dd966591f0edadfe3e7c135478e558d3d81c1565ca4636511465"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_bundle_v75.py",
+      "bytes": 18959,
+      "sha256": "324b54fd7dcc0779a815030aad0cd644e83b02c320f68394d76f66cf5d58da64"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost.py",
+      "bytes": 9196,
+      "sha256": "fe1316e37aa5a17ec41cef5e59c707afc0264c015bb86fa2ee776120c6128863"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_evaluation.py",
+      "bytes": 8053,
+      "sha256": "0eef1b2f74c83f2698ab6839c1a00629aa3f7cad15975472c15e4f897aac23df"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_fixtures_v75.py",
+      "bytes": 15761,
+      "sha256": "de9fb76ba5f06125a21c322cc38b2429084ee5829d48f511bb7adc4b2b7ab780"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_io.py",
+      "bytes": 10841,
+      "sha256": "7ce4c7e6a800ee2db55860150dcba99d47bbc0e6a29f2168d9c7f19756163e9b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_oracle.py",
+      "bytes": 14292,
+      "sha256": "3699f0bc6b5906eaad376ba5cdf677b77e8049fb1499acd8c0a056ad8caa6462"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v75.py",
+      "bytes": 38536,
+      "sha256": "c4c15fad0734c1f4b263deaeee4eb08f875971c2ae8de1400869b43a834f11e2"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v75.py",
+      "bytes": 17008,
+      "sha256": "d0ecf7d5a6c339f88276d215d391a116d17dd4e757d6b78931cbb0f49e16f434"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v1.py",
+      "bytes": 16464,
+      "sha256": "c5c81352c32b465cc3f67e807df28ebd778e46ffe9cdb9e8f735fe2b1ea728b7"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn.py",
+      "bytes": 20857,
+      "sha256": "5e55d59c350987ffc334d3ddc944de4965f130665432e22a14d3579053b3f07f"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_v75.py",
+      "bytes": 32456,
+      "sha256": "2dfc9fe6442e8143c1b67c41dddc91c7b2fb056a822affdcb64dbd150df316b1"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 15084,
+      "sha256": "527b7d765f1e4b4b722f6eaa312ed08b3c5300d0e7425fb866963527ea33cf57"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v75.py",
+      "bytes": 31157,
+      "sha256": "00975fece33d11f28ea75da740ded6b61bb8f8870bf50b91aa766ab37f2fa4dd"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_validation.py",
+      "bytes": 17481,
+      "sha256": "ba8def181e5018a7accfec59c3abb3563b79f5abf8e2ce163935e77dfae54164"
+    }
+  ],
+  "preparation_inputs": [
+    {
+      "path": "reports/stage8/retailrocket_build_v1_specification.json",
+      "bytes": 9331,
+      "sha256": "67dfbf1e5d1a9e8ad0903bcb5c4f8043635b6356f521eda7ce1723b6441fc37c"
+    }
+  ],
+  "parent_plan": [
+    {
+      "path": "reports/mainline/v74_k1_minimal_integration_spec_20261116.json",
+      "bytes": 8974,
+      "sha256": "25076c8bfdda65f50b9d82055bf45c8c019369fd3f0b90ae12776d3806660896"
+    },
+    {
+      "path": "reports/mainline/v74_k1_cases_time_plan_20261116.json",
+      "bytes": 26633,
+      "sha256": "725c1cb96e45afd86c5be99a9eb3d02c71fd35e635ae22f6b239a019b90093a6"
+    }
+  ],
+  "case_contract": {
+    "path": "docs/contracts/retailrocket_session_knn_cases_v75.json",
+    "bytes": 52301,
+    "sha256": "a8a3c80186bc2af3a53db1f93e4136b32996566d196b6c84b1dc64328b880330"
+  },
+  "required_test_methods": 34,
+  "required_subcases": 196,
+  "case_families": 24,
+  "limits": {
+    "formal_windows_per_revision": 1,
+    "max_formal_revisions": 2,
+    "success_deadline_seconds": 900,
+    "subprocess_watchdog_seconds_max": 120,
+    "retry_after_unexpected_timeout": false,
+    "real_full_T_plan": null
+  },
+  "static_checks": {
+    "AST_files": 8,
+    "case_ids_exact_and_unique": true,
+    "source_closure_verified": true,
+    "independent_review_passed": true,
+    "runtime_matches_V73_target": true
+  },
+  "scope": {
+    "new_fixture_bundles_created": 0,
+    "tests_executed": 0,
+    "formal_windows_started": 0,
+    "real_measurements": 0,
+    "Linux_installations": 0,
+    "C_D_fixed48_full_real_runs": 0,
+    "reserved_test": "locked",
+    "V46_adopted": false,
+    "fixture_preparation_attempts": 1,
+    "fixture_preparation_failures": 1
+  },
+  "preparation_revision": 2,
+  "prior_tool_seal_sha256": "a70d0c02134bf377978e568038639cbf66077060a0e752c6777f31e833ef0245",
+  "preparation_correction": {
+    "path": "reports/mainline/v75_preparation_path_correction_20261117.json",
+    "bytes": 849,
+    "sha256": "306ccddb26c4338dddaa0525521c6c1db324b2f24ed7b78ea579d0c2e979d272"
+  }
+}

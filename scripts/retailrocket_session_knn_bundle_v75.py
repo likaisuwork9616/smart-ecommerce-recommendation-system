@@ -96,7 +96,8 @@ def _anchor(value, env_name):
 
 
 def _sealed_document(name, sha):
-    candidates = [name, name.replace("_20261117.json", "_revision2_20261117.json")]
+    candidates = [name, name.replace("_20261117.json", "_revision2_20261117.json"),
+                  name.replace("_20261117.json", "_revision3_20261117.json")]
     for candidate in candidates:
         if not safe_path(ROOT, candidate).is_file():
             continue
@@ -273,7 +274,7 @@ def admit(fixture_id, *, fixture_seal_sha256=None, method_seal_sha256=None):
         raise SourceAuthorityError("Fixture was not sealed for this acceptance")
     record = matches[0]
     root_name = _relative(record["bundle_root"])
-    prefix = ".runtime/v75/fixtures/" + fixture_id
+    prefix = "shop-mysql-runtime/v75/fixtures/" + fixture_id
     if root_name != prefix and not root_name.startswith(prefix + "/"):
         raise SourceAuthorityError("Fixture root outside registered artificial namespace")
     bundle_root = safe_path(ROOT, root_name)

@@ -79,8 +79,8 @@ def _folder(folder):
         name = path.relative_to(ROOT).as_posix()
     except ValueError as error:
         raise cp.IntegrityError('V75 output escaped repository') from error
-    if not name.startswith('.runtime/v75/runs/'):
-        raise cp.IntegrityError('V75 output must be below .runtime/v75/runs')
+    if not name.startswith('shop-mysql-runtime/v75/runs/'):
+        raise cp.IntegrityError('V75 output must be below shop-mysql-runtime/v75/runs')
     return bundle.safe_path(ROOT, name)
 
 
