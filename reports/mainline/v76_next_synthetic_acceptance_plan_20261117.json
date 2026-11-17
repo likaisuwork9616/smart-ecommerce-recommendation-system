@@ -1,0 +1,1069 @@
+{
+  "schema": "v76_next_synthetic_acceptance_plan",
+  "date": "2026-11-17",
+  "status": "proposal_awaiting_confirmation_not_an_execution_authorization",
+  "proposed_implementation_version": "V77",
+  "source_descriptors": [
+    {
+      "path": "reports/mainline/v76_missing_db_correction_spec_20261117.json",
+      "bytes": 9939,
+      "sha256": "f4fab8c2dda8811829de9d0ff45a0d547d0555ff54c1dec7ba9c1be17990cafe"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v75.json",
+      "bytes": 52301,
+      "sha256": "a8a3c80186bc2af3a53db1f93e4136b32996566d196b6c84b1dc64328b880330"
+    },
+    {
+      "path": "docs/STAGE12_KNN_MINIMAL_INTEGRATION_SPEC_V74_20261116.md",
+      "bytes": 22854,
+      "sha256": "2951bbdbae79a8d9a9be948f07f218edb43b0fc6d69e10b7c20166bb59fdb3ff"
+    },
+    {
+      "path": "reports/mainline/v75_synthetic_acceptance_revision1_20261117.json",
+      "bytes": 3364,
+      "sha256": "3a88233b6bfb12ccbd15bbe287cb17f5a412cd319cdc4c1b30fdc2686928c659"
+    },
+    {
+      "path": "reports/mainline/v75_synthetic_acceptance_revision2_20261117.json",
+      "bytes": 11633,
+      "sha256": "900c81c464e2aa6c9238bb198df7be86193f0c11d316848b3cb470b59baccede"
+    },
+    {
+      "path": "reports/mainline/v75_tool_seal_revision3_20261117.json",
+      "bytes": 9660,
+      "sha256": "6aeb842111fa8a7ac570807353dc8b1a9f22b33f7f7e5704708c0f5cc18cf393"
+    },
+    {
+      "path": "reports/mainline/v75_fixture_seal_20261117.json",
+      "bytes": 2883,
+      "sha256": "54506fa4dc3b455c114165eede9cf2486ee1f080393db0339d2c41e56db65f5a"
+    },
+    {
+      "path": "reports/mainline/v75_fixture_seal_revision2_20261117.json",
+      "bytes": 3035,
+      "sha256": "028f69c5364b3a0a832b4e766dfe10d21a1f4fee03d8ef606f8fafafdf406881"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_bundle_v75.py",
+      "bytes": 18959,
+      "sha256": "324b54fd7dcc0779a815030aad0cd644e83b02c320f68394d76f66cf5d58da64"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v75.py",
+      "bytes": 38536,
+      "sha256": "c4c15fad0734c1f4b263deaeee4eb08f875971c2ae8de1400869b43a834f11e2"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v75.py",
+      "bytes": 17008,
+      "sha256": "d0ecf7d5a6c339f88276d215d391a116d17dd4e757d6b78931cbb0f49e16f434"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_fixtures_v75.py",
+      "bytes": 15761,
+      "sha256": "de9fb76ba5f06125a21c322cc38b2429084ee5829d48f511bb7adc4b2b7ab780"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_v75.py",
+      "bytes": 32470,
+      "sha256": "b909c4b30a80504fc03b4d8a090c4d06974ee2010b10828bc63361908573b778"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 15084,
+      "sha256": "527b7d765f1e4b4b722f6eaa312ed08b3c5300d0e7425fb866963527ea33cf57"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v75.py",
+      "bytes": 31157,
+      "sha256": "00975fece33d11f28ea75da740ded6b61bb8f8870bf50b91aa766ab37f2fa4dd"
+    }
+  ],
+  "required_confirmation": "prepare_versioned_control_tools_and_cases_then_seal_and_push_before_at_most_one_complete_synthetic_acceptance_window",
+  "planned_new_files": [
+    "scripts/retailrocket_session_knn_bundle_v77.py",
+    "scripts/retailrocket_session_knn_pipeline_v77.py",
+    "scripts/run_retailrocket_session_knn_acceptance_v77.py",
+    "tests/test_retailrocket_session_knn_full_v77.py",
+    "tests/test_retailrocket_session_knn_full_worker_v77.py",
+    "tests/test_retailrocket_session_knn_pipeline_v77.py",
+    "docs/contracts/retailrocket_session_knn_cases_v77.json"
+  ],
+  "mechanical_change_allowlist": [
+    "new_tool_and_registry_seal_fixed_names_schema_and_SHA_anchors",
+    "new_control_imports_dynamic_child_entry_and_environment_names",
+    "new_output_namespace_and_version_labels",
+    "one_window_runner_and_explicit_parent_method_ID_mapping",
+    "new_actual_source_closure_and_case_contract_binding"
+  ],
+  "only_semantic_case_correction": "A09.missing_database_as_v76_correction_spec",
+  "preserve_unchanged": [
+    "frozen_CP_V1_V2_V4",
+    "worker_v75_bytes",
+    "V75_tools_contracts_results_and_failed_case_artifacts",
+    "all_original_fixture_manifest_source_golden_reference_and_draw_bytes",
+    "V75_fixture_manifest_schema_generator_oracle_and_original_roots",
+    "other_case_expectations_faults_thresholds_and_order"
+  ],
+  "forbidden": [
+    "new_fixture_generation_or_oracle_generation",
+    "golden_expected_or_draw_changes",
+    "patch_old_modules_to_bypass_admission",
+    "source_hash_self_authorization",
+    "V75_revision3_window_or_start_marker_reset",
+    "preseal_case_execution_or_A09_trial",
+    "passing_case_splice_across_windows",
+    "automatic_repair_or_second_window",
+    "real_data_or_fixed48_rerun",
+    "Linux_installation_or_B_C_D_measurement"
+  ],
+  "existing_fixture_descriptors_identical_across_original_registries": true,
+  "fixture_reuse": [
+    {
+      "fixture_id": "F-small",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-small",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-small/manifest.json",
+        "bytes": 25691,
+        "sha256": "dc6c46d5f3dfc41d0ad3088a90b0b4965c276a9a6f4a735499e11f78693bbc45"
+      },
+      "files": 26,
+      "bytes": 2216565,
+      "queries": 7,
+      "visitors": 6,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "fixture_id": "F-long",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-long",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-long/manifest.json",
+        "bytes": 24975,
+        "sha256": "e9167531d38817d814885542c1ed341b8df0457da4287c0f4ec1e1079c801ee3"
+      },
+      "files": 26,
+      "bytes": 3465659,
+      "queries": 129,
+      "visitors": 3,
+      "bootstrap_replicates": 2000
+    },
+    {
+      "fixture_id": "F-edge",
+      "bundle_root": "shop-mysql-runtime/v75/fixtures/F-edge",
+      "manifest": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-edge/manifest.json",
+        "bytes": 23840,
+        "sha256": "b2e2b870d18c2effa0ec0afa82b27276b15c5ef318206463ef798cb1efc8ae8a"
+      },
+      "files": 26,
+      "bytes": 2361758,
+      "queries": 1,
+      "visitors": 1,
+      "bootstrap_replicates": 2000
+    }
+  ],
+  "fixture_rebinding": "new_registry_binds_new_method_seal_SHA_only_original_source_descriptors_and_provenance_retained",
+  "new_private_roots": {
+    "cases": "shop-mysql-runtime/v77/cases",
+    "runs": "shop-mysql-runtime/v77/runs",
+    "formal": "shop-mysql-runtime/v77/formal/window1"
+  },
+  "public_namespace": "reports/mainline/v77_*_YYYYMMDD.json",
+  "required_methods": 34,
+  "required_subcases": 196,
+  "required_families": 24,
+  "module_groups": [
+    {
+      "original_path": "tests/test_retailrocket_session_knn_full_v75.py",
+      "proposed_path": "tests/test_retailrocket_session_knn_full_v77.py",
+      "required_methods": 17,
+      "required_subcases": 106
+    },
+    {
+      "original_path": "tests/test_retailrocket_session_knn_full_worker_v75.py",
+      "proposed_path": "tests/test_retailrocket_session_knn_full_worker_v77.py",
+      "required_methods": 7,
+      "required_subcases": 41
+    },
+    {
+      "original_path": "tests/test_retailrocket_session_knn_pipeline_v75.py",
+      "proposed_path": "tests/test_retailrocket_session_knn_pipeline_v77.py",
+      "required_methods": 10,
+      "required_subcases": 49
+    }
+  ],
+  "method_id_mapping": [
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_manifest_semantics_before_science_reads"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A03_A05_complete_payloads_and_original_draws"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A09_sealed_database_and_source_integrity",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A09_sealed_database_and_source_integrity"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A13_combined_global_and_original_draw_replay",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A13_combined_global_and_original_draw_replay"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A14_original_draw_identity_and_complete_count",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.FullContentTests.test_A14_original_draw_identity_and_complete_count"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_no_eligible_positive_neighbor"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback",
+      "proposed": "tests.test_retailrocket_session_knn_full_v77.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_count_boundary_and_eof_tail"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content",
+      "proposed": "tests.test_retailrocket_session_knn_full_worker_v77.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A12_true_process_prefix_recovery",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A12_true_process_prefix_recovery"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A16_exit_and_identity_refusals",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A16_exit_and_identity_refusals"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A17_true_process_candidate_unknown_exit"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A19_source_positions_and_same_size_changes",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A19_source_positions_and_same_size_changes"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget"
+    },
+    {
+      "original": "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge",
+      "proposed": "tests.test_retailrocket_session_knn_pipeline_v77.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+    }
+  ],
+  "required_case_ids": [
+    "A01.profile.F-small",
+    "A01.profile.F-long",
+    "A01.profile.F-edge",
+    "A01.invalid_profile.real",
+    "A01.invalid_profile.166897",
+    "A01.invalid_profile.../F-small",
+    "A01.invalid_profile.None",
+    "A01.invalid_profile.129",
+    "A01.anchor.fixture_seal_sha256",
+    "A01.anchor.method_seal_sha256",
+    "A01.manifest.missing_profile",
+    "A01.manifest.real_profile",
+    "A01.manifest.forged_real_count",
+    "A01.manifest.caller_count_mismatch",
+    "A01.manifest.bool_count",
+    "A01.manifest.float_count",
+    "A01.manifest.bool_visitors",
+    "A01.manifest.wrong_draw_count",
+    "A01.manifest.bool_synthetic_marker",
+    "A01.manifest.outside_data_path",
+    "A01.manifest.absolute_path",
+    "A01.manifest.outside_source_path",
+    "A01.manifest.wrong_role",
+    "A01.path.../outside",
+    "A01.path./outside",
+    "A01.path.C:/outside",
+    "A01.path.dir/../input.txt",
+    "A01.path.dir\\input.txt",
+    "A01.alias.is_symlink",
+    "A01.alias.is_junction",
+    "A02.runtime",
+    "A02.missing_direct_source",
+    "A02.same_size_wrong_sha",
+    "A02.undeclared_dynamic",
+    "A03.full.F-small",
+    "A03.full.F-long",
+    "A03.full.F-edge",
+    "A04.fallback.no_supported_seed",
+    "A04.fallback.only_self_session_overlap",
+    "A04.fallback.no_positive_causal_vote",
+    "A04.neighbors.499",
+    "A04.neighbors.500",
+    "A04.neighbors.501",
+    "A04.ratio.0",
+    "A04.ratio.1",
+    "A04.ratio.2",
+    "A06.dataset/queries.csv.missing",
+    "A06.dataset/queries.csv.extra",
+    "A06.dataset/queries.csv.duplicate",
+    "A06.dataset/queries.csv.order",
+    "A06.P0/ranked_queries.csv.missing",
+    "A06.P0/ranked_queries.csv.extra",
+    "A06.P0/ranked_queries.csv.duplicate",
+    "A06.P0/ranked_queries.csv.order",
+    "A06.P0/query_metrics.csv.missing",
+    "A06.P0/query_metrics.csv.extra",
+    "A06.P0/query_metrics.csv.duplicate",
+    "A06.P0/query_metrics.csv.order",
+    "A06.P0/query_slices.csv.missing",
+    "A06.P0/query_slices.csv.extra",
+    "A06.P0/query_slices.csv.duplicate",
+    "A06.P0/query_slices.csv.order",
+    "A06.C1/queries.jsonl.missing",
+    "A06.C1/queries.jsonl.extra",
+    "A06.C1/queries.jsonl.duplicate",
+    "A06.C1/queries.jsonl.order",
+    "A06.D1/queries.jsonl.missing",
+    "A06.D1/queries.jsonl.extra",
+    "A06.D1/queries.jsonl.duplicate",
+    "A06.D1/queries.jsonl.order",
+    "A06.primary/queries.jsonl.missing",
+    "A06.primary/queries.jsonl.extra",
+    "A06.primary/queries.jsonl.duplicate",
+    "A06.primary/queries.jsonl.order",
+    "A09.same_size_database",
+    "A09.missing_database",
+    "A09.extra_journal",
+    "A09.source_changed",
+    "A09.foreign_reconstruction",
+    "A11.scientific.before_append",
+    "A11.scientific.query_verified",
+    "A11.scientific.payload_half_written",
+    "A11.scientific.after_payload_fsync",
+    "A11.scientific.before_manifest_commit",
+    "A11.scientific.after_manifest_commit",
+    "A12.invalid.wrong_prefix_key",
+    "A12.invalid.chunk_gap",
+    "A12.invalid.chain_sha",
+    "A13.global_replay",
+    "A13.bootstrap_draw",
+    "A13.after_stage_global",
+    "A14.primary.order",
+    "A14.primary.draw_sha256",
+    "A14.primary.query_denominator",
+    "A14.primary.rng_before",
+    "A14.primary.rng_after",
+    "A14.primary.delta",
+    "A14.primary.missing",
+    "A14.primary.extra",
+    "A14.C1.order",
+    "A14.C1.draw_sha256",
+    "A14.C1.query_denominator",
+    "A14.C1.rng_before",
+    "A14.C1.rng_after",
+    "A14.C1.missing",
+    "A14.C1.extra",
+    "A15.candidate.wrong_count",
+    "A15.candidate.bool_count",
+    "A15.candidate.float_count",
+    "A15.candidate.false_eof",
+    "A15.candidate.integer_eof",
+    "A15.candidate.string_eof",
+    "A15.candidate.wrong_ledger",
+    "A15.candidate.missing_stage",
+    "A15.candidate.wrong_run",
+    "A15.finalize.wrong_count",
+    "A15.finalize.bool_count",
+    "A15.finalize.float_count",
+    "A15.finalize.false_eof",
+    "A15.finalize.integer_eof",
+    "A15.finalize.string_eof",
+    "A15.finalize.wrong_ledger",
+    "A15.finalize.missing_stage",
+    "A15.finalize.wrong_run",
+    "A15.supersede.wrong_count",
+    "A15.supersede.bool_count",
+    "A15.supersede.float_count",
+    "A15.supersede.false_eof",
+    "A15.supersede.integer_eof",
+    "A15.supersede.string_eof",
+    "A15.supersede.wrong_ledger",
+    "A15.supersede.missing_stage",
+    "A15.supersede.wrong_run",
+    "A15.candidate.valid",
+    "A15.finalize.valid",
+    "A15.supersede.valid",
+    "A15.finalize.candidate_mismatch",
+    "A15.supersede.candidate_mismatch",
+    "A15.writer_required",
+    "A15.artificial_count_contract",
+    "A10.row_boundary_63_64_65",
+    "A10.time_boundary_120",
+    "A10.eof_short_tail",
+    "A11.payload_half_written",
+    "A11.after_payload_fsync",
+    "A11.before_manifest_commit",
+    "A11.after_manifest_commit",
+    "A12.prefix_crash_recovery",
+    "A16.alive",
+    "A16.nonzero",
+    "A16.pid_reused",
+    "A16.uncertain",
+    "A16.other_boot",
+    "A16.self_exit",
+    "A17.candidate_unknown_exit",
+    "A18.normal_exit_reentry",
+    "A19.normal_positions",
+    "A19.H1",
+    "A19.H2",
+    "A19.H3",
+    "A19.H4",
+    "A19.H5",
+    "A19.H6",
+    "A19.H7",
+    "A19.H8",
+    "A20.no_numeric_replay",
+    "A20.request",
+    "A20.request_deadline",
+    "A20.normal_boot",
+    "A20.observed_exit",
+    "A20.candidate_count",
+    "A20.query_stage",
+    "A20.payload_key",
+    "A20.global_roster",
+    "A20.aggregate_count",
+    "A20.cp_summary",
+    "A21.closed_manifest",
+    "A21.extra",
+    "A21.append",
+    "A21.missing",
+    "A21.live",
+    "A22.P9",
+    "A22.P10",
+    "A23.absolute",
+    "A23.downtime",
+    "A23.rollback",
+    "A23.rss",
+    "A23.disk",
+    "A23.temp",
+    "A23.monitor",
+    "A23.delivery",
+    "A23.path_scope",
+    "A23.resource_process",
+    "A23.monitor_process",
+    "A23.descendant_timeout",
+    "A24.intervals"
+  ],
+  "family_membership_preserved": [
+    {
+      "id": "A01",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_registered_and_invalid_profiles_and_anchor",
+        "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_manifest_semantics_before_science_reads",
+        "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A01_path_alias_escape_and_same_size_source_change"
+      ],
+      "required_case_ids": [
+        "A01.profile.F-small",
+        "A01.profile.F-long",
+        "A01.profile.F-edge",
+        "A01.invalid_profile.real",
+        "A01.invalid_profile.166897",
+        "A01.invalid_profile.../F-small",
+        "A01.invalid_profile.None",
+        "A01.invalid_profile.129",
+        "A01.anchor.fixture_seal_sha256",
+        "A01.anchor.method_seal_sha256",
+        "A01.manifest.missing_profile",
+        "A01.manifest.real_profile",
+        "A01.manifest.forged_real_count",
+        "A01.manifest.caller_count_mismatch",
+        "A01.manifest.bool_count",
+        "A01.manifest.float_count",
+        "A01.manifest.bool_visitors",
+        "A01.manifest.wrong_draw_count",
+        "A01.manifest.bool_synthetic_marker",
+        "A01.manifest.outside_data_path",
+        "A01.manifest.absolute_path",
+        "A01.manifest.outside_source_path",
+        "A01.manifest.wrong_role",
+        "A01.path.../outside",
+        "A01.path./outside",
+        "A01.path.C:/outside",
+        "A01.path.dir/../input.txt",
+        "A01.path.dir\\input.txt",
+        "A01.alias.is_symlink",
+        "A01.alias.is_junction"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A02",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.AdmissionTests.test_A02_runtime_closure_and_direct_source_identity"
+      ],
+      "required_case_ids": [
+        "A02.runtime",
+        "A02.missing_direct_source",
+        "A02.same_size_wrong_sha",
+        "A02.undeclared_dynamic"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A03",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A03_A05_complete_payloads_and_original_draws"
+      ],
+      "required_case_ids": [
+        "A03.full.F-small",
+        "A03.full.F-long",
+        "A03.full.F-edge"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A04",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_hand_unknown_self_future_and_fallback",
+        "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_no_eligible_positive_neighbor",
+        "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_exact_cutoff_499_500_501_and_large_ids",
+        "tests.test_retailrocket_session_knn_full_v75.ExactCoreTests.test_A04_near_equal_ratios_and_fraction_scale_fallback"
+      ],
+      "required_case_ids": [
+        "A04.fallback.no_supported_seed",
+        "A04.fallback.only_self_session_overlap",
+        "A04.fallback.no_positive_causal_vote",
+        "A04.neighbors.499",
+        "A04.neighbors.500",
+        "A04.neighbors.501",
+        "A04.ratio.0",
+        "A04.ratio.1",
+        "A04.ratio.2"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A05",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A03_A05_complete_payloads_and_original_draws",
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A12_true_process_prefix_recovery"
+      ],
+      "required_case_ids": [
+        "A03.full.F-long"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A06",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A06_seven_stream_missing_extra_duplicate_and_order"
+      ],
+      "required_case_ids": [
+        "A06.dataset/queries.csv.missing",
+        "A06.dataset/queries.csv.extra",
+        "A06.dataset/queries.csv.duplicate",
+        "A06.dataset/queries.csv.order",
+        "A06.P0/ranked_queries.csv.missing",
+        "A06.P0/ranked_queries.csv.extra",
+        "A06.P0/ranked_queries.csv.duplicate",
+        "A06.P0/ranked_queries.csv.order",
+        "A06.P0/query_metrics.csv.missing",
+        "A06.P0/query_metrics.csv.extra",
+        "A06.P0/query_metrics.csv.duplicate",
+        "A06.P0/query_metrics.csv.order",
+        "A06.P0/query_slices.csv.missing",
+        "A06.P0/query_slices.csv.extra",
+        "A06.P0/query_slices.csv.duplicate",
+        "A06.P0/query_slices.csv.order",
+        "A06.C1/queries.jsonl.missing",
+        "A06.C1/queries.jsonl.extra",
+        "A06.C1/queries.jsonl.duplicate",
+        "A06.C1/queries.jsonl.order",
+        "A06.D1/queries.jsonl.missing",
+        "A06.D1/queries.jsonl.extra",
+        "A06.D1/queries.jsonl.duplicate",
+        "A06.D1/queries.jsonl.order",
+        "A06.primary/queries.jsonl.missing",
+        "A06.primary/queries.jsonl.extra",
+        "A06.primary/queries.jsonl.duplicate",
+        "A06.primary/queries.jsonl.order"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A07",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A07_cached_terms_context_copy_and_attempt_lifetime"
+      ],
+      "required_case_ids": [],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A08",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A08_fresh_model_and_unsealed_database_rebuild"
+      ],
+      "required_case_ids": [],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A09",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A09_sealed_database_and_source_integrity"
+      ],
+      "required_case_ids": [
+        "A09.same_size_database",
+        "A09.missing_database",
+        "A09.extra_journal",
+        "A09.source_changed",
+        "A09.foreign_reconstruction"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A10",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_count_boundary_and_eof_tail",
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A10_time_boundary_only_at_completed_append"
+      ],
+      "required_case_ids": [
+        "A10.row_boundary_63_64_65",
+        "A10.time_boundary_120",
+        "A10.eof_short_tail"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A11",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A11_scientific_payload_recovery_after_atomic_faults",
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A11_atomic_faults_preserve_and_recover_contiguous_content"
+      ],
+      "required_case_ids": [
+        "A11.scientific.before_append",
+        "A11.scientific.query_verified",
+        "A11.scientific.payload_half_written",
+        "A11.scientific.after_payload_fsync",
+        "A11.scientific.before_manifest_commit",
+        "A11.scientific.after_manifest_commit",
+        "A11.payload_half_written",
+        "A11.after_payload_fsync",
+        "A11.before_manifest_commit",
+        "A11.after_manifest_commit"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A12",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A12_invalid_committed_prefix_is_not_reused",
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A12_true_process_prefix_recovery"
+      ],
+      "required_case_ids": [
+        "A12.invalid.wrong_prefix_key",
+        "A12.invalid.chunk_gap",
+        "A12.invalid.chain_sha",
+        "A12.prefix_crash_recovery"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A13",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A13_combined_global_and_original_draw_replay"
+      ],
+      "required_case_ids": [
+        "A13.global_replay",
+        "A13.bootstrap_draw",
+        "A13.after_stage_global"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A14",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_v75.FullContentTests.test_A14_original_draw_identity_and_complete_count"
+      ],
+      "required_case_ids": [
+        "A14.primary.order",
+        "A14.primary.draw_sha256",
+        "A14.primary.query_denominator",
+        "A14.primary.rng_before",
+        "A14.primary.rng_after",
+        "A14.primary.delta",
+        "A14.primary.missing",
+        "A14.primary.extra",
+        "A14.C1.order",
+        "A14.C1.draw_sha256",
+        "A14.C1.query_denominator",
+        "A14.C1.rng_before",
+        "A14.C1.rng_after",
+        "A14.C1.missing",
+        "A14.C1.extra"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A15",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_reject_semantic_and_parent_faults_after_open",
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_all_paths_accept_valid_current_locked_stage",
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_candidate_mismatch_is_not_accepted_or_superseded",
+        "tests.test_retailrocket_session_knn_full_worker_v75.WorkerGuardCases.test_A15_writer_required_and_artificial_exact_counts"
+      ],
+      "required_case_ids": [
+        "A15.candidate.wrong_count",
+        "A15.candidate.bool_count",
+        "A15.candidate.float_count",
+        "A15.candidate.false_eof",
+        "A15.candidate.integer_eof",
+        "A15.candidate.string_eof",
+        "A15.candidate.wrong_ledger",
+        "A15.candidate.missing_stage",
+        "A15.candidate.wrong_run",
+        "A15.finalize.wrong_count",
+        "A15.finalize.bool_count",
+        "A15.finalize.float_count",
+        "A15.finalize.false_eof",
+        "A15.finalize.integer_eof",
+        "A15.finalize.string_eof",
+        "A15.finalize.wrong_ledger",
+        "A15.finalize.missing_stage",
+        "A15.finalize.wrong_run",
+        "A15.supersede.wrong_count",
+        "A15.supersede.bool_count",
+        "A15.supersede.float_count",
+        "A15.supersede.false_eof",
+        "A15.supersede.integer_eof",
+        "A15.supersede.string_eof",
+        "A15.supersede.wrong_ledger",
+        "A15.supersede.missing_stage",
+        "A15.supersede.wrong_run",
+        "A15.candidate.valid",
+        "A15.finalize.valid",
+        "A15.supersede.valid",
+        "A15.finalize.candidate_mismatch",
+        "A15.supersede.candidate_mismatch",
+        "A15.writer_required",
+        "A15.artificial_count_contract"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A16",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A16_exit_and_identity_refusals"
+      ],
+      "required_case_ids": [
+        "A16.alive",
+        "A16.nonzero",
+        "A16.pid_reused",
+        "A16.uncertain",
+        "A16.other_boot",
+        "A16.self_exit"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A17",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A17_true_process_candidate_unknown_exit"
+      ],
+      "required_case_ids": [
+        "A17.candidate_unknown_exit"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A18",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry"
+      ],
+      "required_case_ids": [
+        "A18.normal_exit_reentry"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A19",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A19_source_positions_and_same_size_changes"
+      ],
+      "required_case_ids": [
+        "A19.normal_positions",
+        "A19.H1",
+        "A19.H2",
+        "A19.H3",
+        "A19.H4",
+        "A19.H5",
+        "A19.H6",
+        "A19.H7",
+        "A19.H8"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A20",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay"
+      ],
+      "required_case_ids": [
+        "A20.no_numeric_replay",
+        "A20.request",
+        "A20.request_deadline",
+        "A20.normal_boot",
+        "A20.observed_exit",
+        "A20.candidate_count",
+        "A20.query_stage",
+        "A20.payload_key",
+        "A20.global_roster",
+        "A20.aggregate_count",
+        "A20.cp_summary"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A21",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs"
+      ],
+      "required_case_ids": [
+        "A21.closed_manifest",
+        "A21.extra",
+        "A21.append",
+        "A21.missing",
+        "A21.live"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A22",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly"
+      ],
+      "required_case_ids": [
+        "A22.P9",
+        "A22.P10"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A23",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget"
+      ],
+      "required_case_ids": [
+        "A23.absolute",
+        "A23.downtime",
+        "A23.rollback",
+        "A23.rss",
+        "A23.disk",
+        "A23.temp",
+        "A23.monitor",
+        "A23.delivery",
+        "A23.path_scope",
+        "A23.resource_process",
+        "A23.monitor_process",
+        "A23.descendant_timeout"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    },
+    {
+      "id": "A24",
+      "required_test_ids": [
+        "tests.test_retailrocket_session_knn_pipeline_v75.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+      ],
+      "required_case_ids": [
+        "A24.intervals"
+      ],
+      "method_mapping_applied_at_new_catalog": true
+    }
+  ],
+  "sequence": [
+    "user_confirmation",
+    "prepare_allowed_changes_and_static_review_only",
+    "seal_tools_cases_closure_then_README_commit_push",
+    "verify_original_fixture_bytes_and_rebind_registry_then_README_commit_push",
+    "one_complete_formal_window",
+    "readonly_receipt_and_stop_evidence_audit_then_README_commit_push"
+  ],
+  "static_gate": [
+    "AST_no_suite_import_or_execution",
+    "all_34_method_bijection_and_class_method_suffix_unchanged",
+    "all_196_exact_case_IDs_no_add_drop_duplicate",
+    "all_24_family_memberships_preserved",
+    "actual_direct_recursive_and_dynamic_source_closure",
+    "strict_original_manifest_and_source_identity",
+    "mechanical_diff_allowlist_and_precise_A09_expectations",
+    "deadline_and_full_verdict_review"
+  ],
+  "formal_limits": {
+    "maximum_windows": 1,
+    "automatic_correction_windows": 0,
+    "success_deadline_seconds": 900,
+    "child_timeout_seconds_maximum": 120,
+    "child_also_bounded_by_remaining_window": true,
+    "start_marker_reuse": false,
+    "fail_fast": true,
+    "receipt_deadline_veto": true,
+    "safe_cleanup_and_failure_evidence_may_exceed_success_deadline": true,
+    "OS_return_within_900_seconds_guaranteed": false
+  },
+  "stop_rules": [
+    "preparation_scope_requires_scientific_or_golden_or_ID_or_threshold_change",
+    "preparation_reaches_120_minutes_without_complete_seals",
+    "unexpected_source_runtime_path_or_authority_mismatch",
+    "unexpected_case_failure_or_wrong_rejection_evidence",
+    "missing_duplicate_skipped_expectedFailure_or_unexpectedSuccess_ID",
+    "unexpected_inner_or_global_timeout",
+    "unconfirmed_child_identity_exit_or_stop",
+    "missing_required_artifact_receipt_or_deadline_veto",
+    "quota_or_external_interruption_preserve_incomplete_no_rerun"
+  ],
+  "expected_negative_faults": "preserve_original_case_contract_expected_injected_failures_including_A23_timeout_semantics_not_reclassify_unexpected_formal_timeout",
+  "success_requires": [
+    "same_window_all_34_methods_and_196_subcases_passed",
+    "no_missing_or_duplicate_or_skipped_required_evidence",
+    "source_identity_and_full_outputs_consistent",
+    "required_process_exit_and_stopped_delivery_proved",
+    "necessary_receipts_within_success_deadline_and_no_veto"
+  ],
+  "estimates_minutes": {
+    "control_case_preparation_and_static_review": [
+      60,
+      100
+    ],
+    "seals_execution_receipts_README_Git": [
+      20,
+      40
+    ],
+    "total_work": [
+      80,
+      140
+    ],
+    "machine_execution_included_in_total": [
+      2,
+      10
+    ],
+    "preparation_stop_checkpoint": 120
+  },
+  "estimate_basis": "engineering_scope_estimate_machine_range_retains_unverified_V74_estimate_not_extrapolated_from_V75_early_failures_not_a_new_measurement",
+  "incomplete_prior_state": {
+    "V75_windows_consumed": 2,
+    "V75_windows_remaining": 0,
+    "V75_status": "failed",
+    "second_window_passed_methods": 12,
+    "second_window_passed_subcases": 75,
+    "second_window_failed_subcases": 1,
+    "second_window_unexecuted_methods": 21,
+    "second_window_unexecuted_subcases": 120
+  },
+  "this_round_execution": {
+    "tool_or_case_implementation": 0,
+    "new_tests": 0,
+    "fixture_generation": 0,
+    "new_measurements": 0,
+    "real_reruns": 0,
+    "Linux_installations": 0,
+    "B_C_D_fixed48_runs": 0
+  },
+  "remaining_limits": {
+    "real_full_acceptance": false,
+    "T_plan": null,
+    "reserved_test": "locked",
+    "V46_adopted": false,
+    "daily_reminder_budget_percent": 10,
+    "Dashboard": "deferred_until_applicability_confirmed"
+  },
+  "static_verification": {
+    "status": "passed_documentary_checks_only",
+    "source_descriptors_verified": 16,
+    "exact_ordered_case_IDs_verified": 196,
+    "bijective_method_mapping_verified": 34,
+    "family_memberships_verified": 24,
+    "original_registry_fixture_descriptors_identical": true,
+    "independent_plan_review": "passed",
+    "independent_A09_consistency_review": "passed",
+    "suite_imported_or_executed": false
+  }
+}

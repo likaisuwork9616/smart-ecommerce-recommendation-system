@@ -4,17 +4,18 @@
 
 名稱含 `specification` 的檔案是該輪事前規格，`verification`／`preflight` 多為合成測試或準備查核，`acceptance`／`audit` 是對既有產物的獨立核對；只有實際訓練或描述報告含研究數字。測試數與metadata核對數不能當成模型效能。
 
-`mainline/`保存V71主線盤點／優先順序、V72成本／來源／恢復對照、V73具體方法／階段責任提案及V74最小接入／人工案例／估時規格，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
+`mainline/`保存V71主線盤點／優先順序、V72成本／來源／恢復對照、V73具體方法／階段責任提案、V74最小接入／人工案例／估時規格、V75工具／人工參照與兩窗失敗收據，以及V76缺DB修正／下一輪提案，沒有新增模型成績。上方Stage12數量與下方歷史明細原列至V39；後續各輪以[文件導覽](../docs/README.md)及首頁最新進度為準。
 
 ## 從哪份報告開始
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V76下一輪完整合成計畫 | [版本接入／34方法映射／196子案例／停止與估時](mainline/v76_next_synthetic_acceptance_plan_20261117.json)；待確認的V77單窗900秒提案，不是工具seal或執行授權 |
 | V76缺DB精確修正 | [既有證據與待驗assertions](mainline/v76_missing_db_correction_spec_20261117.json)；窄例外／拒收位置／原證據保留；只是規格，舊兩窗仍failed，新測試0 |
 | V75最終有限驗收 | [第2窗口失敗與完整缺漏清單](mainline/v75_synthetic_acceptance_revision2_20261117.json)；38.063秒，12方法／75子案例通過；兩窗已用完並停止，不是整關成功 |
-| V75唯一正式修正版 | [修正原因](mainline/v75_revision2_reason_20261117.json) · [工具](mainline/v75_tool_seal_revision3_20261117.json) · [人工registry](mainline/v75_fixture_seal_revision2_20261117.json)；僅補新案例watch參數，完整清單與golden不變，尚未重驗 |
+| V75唯一正式修正版 | [修正原因](mainline/v75_revision2_reason_20261117.json) · [工具](mainline/v75_tool_seal_revision3_20261117.json) · [人工registry](mainline/v75_fixture_seal_revision2_20261117.json)；僅補新案例watch參數，完整清單與golden不變；其後第2窗failed |
 | V75正式第1窗口 | [失敗收據與未完成項目](mainline/v75_synthetic_acceptance_revision1_20261117.json)；10.812秒，4方法／34子案例通過，A04接入錯誤停止；非整關通過 |
-| V75人工資料與golden | [三組bundle／78檔描述符](mainline/v75_fixture_seal_20261117.json)；凍結V1／V2參照準備完成，V75候選與正式驗收未執行 |
+| V75人工資料與golden | [三組bundle／78檔描述符](mainline/v75_fixture_seal_20261117.json)；凍結V1／V2參照準備完成；其後V75兩個正式窗口均failed |
 | V75準備路徑修正 | [初次拒收與保留證據](mainline/v75_preparation_path_correction_20261117.json) · [準備修訂2工具封存](mainline/v75_tool_seal_revision2_20261117.json)；正式窗口尚未開始 |
 | V75人工工具來源封存 | [35方法描述符／34方法與196子案例](mainline/v75_tool_seal_20261117.json)；已確認且只完成靜態準備，人工資料／測試執行尚未開始 |
 | V74最小接入規格 | [六元件／人工request／八關卡](mainline/v74_k1_minimal_integration_spec_20261116.json)；確認前不建立工具或執行驗收 |
