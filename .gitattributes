@@ -721,3 +721,9 @@ reports/mainline/v78_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V79 Q0 documentary feasibility and integration proposals.
 docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md text eol=lf
 reports/mainline/v79_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V80 tool, case and preparation seal bytes.
+scripts/*v80.py text eol=lf
+tests/*v80.py text eol=lf
+docs/contracts/retailrocket_session_knn_cases_v80.json -text
+reports/mainline/v80_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

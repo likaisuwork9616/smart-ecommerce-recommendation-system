@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V79 Q0附條件可行方案完成；工具待另確認 | 角色handle／握手／外部閉合與交付守門已列；跨outer崩潰的P10恢復仍缺，尚未實作或驗收；V77仍failed，T_plan未知 |
+| Stage 12：session-kNN K1 | V80 已開始準備，角色觀測模組完成靜態核對 | 角色handle／握手／外部閉合與交付守門已列；跨outer崩潰的P10恢復仍缺，尚未實作或驗收；V77仍failed，T_plan未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V79 Q0角色退出可行性（最新）
+## Stage 12｜V80 工具與原案例準備（最新）
+
+V80 依 V79 方案準備工具與原 196 個子案例。120 分鐘自 2026-11-18 10:34 起算，屆時尚未封存即停。合成驗收窗口本輪不開。
+
+| 步驟 | 目前結果 |
+| --- | --- |
+| 角色觀測模組 | 已加入 Windows handle 觀測、原啟動身分綁定及可替換的後端。Python 語法靜態核對通過，現場權限與 API 行為待驗 |
+| 接入、原案例與封存 | 準備中，保留原 golden、34 個方法及 196 個子案例 |
+
+## Stage 12｜V79 Q0角色退出可行性（前輪）
 
 V79以31分44秒的文件作業在60分鐘界線內完成Q0，已有附條件的具體方案：保留原Windows／`.venv`，真正角色工作前先完成ready／ack，監督者持續握住同一角色handle，確定終止後才讀退出碼；launcher原handle與角色分開綁定。這是文件可行性，尚未實作或通過現場驗收。
 
