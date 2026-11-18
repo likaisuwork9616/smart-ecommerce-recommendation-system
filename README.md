@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V80 工具與原案例封存完成，正式窗口待授權 | 三角色觀測、watch 與發布接入已完成靜態核對。跨 outer 崩潰的 P10 恢復仍缺，V77 維持原失敗判定，T_plan 未知 |
+| Stage 12：session-kNN K1 | V80 唯一合成驗收已獲授權，開窗前核對完成 | 三角色觀測、watch 與發布接入已完成靜態核對。跨 outer 崩潰的 P10 恢復仍缺，V77 維持原失敗判定，T_plan 未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V80 工具與原案例準備（最新）
+## Stage 12｜V80 唯一合成驗收（最新）
+
+| 本輪步驟 | 結果 |
+| --- | --- |
+| 開窗前核對 | 兩份封存 SHA-256 符合，靜態重建相同。唯一窗口、授權檔與 V80 執行目錄在預檢時均未建立 |
+| 原 196 子案例 | 已授權一次正式驗收，預檢階段執行數 0。沿用原 golden，A12 查角色退出碼與已提交 64 筆前綴再判恢復 |
+
+整窗成功截止 900 秒，每個工作子程序至多 120 秒，失敗或逾時不補跑。本輪只用人工資料。[開窗前核對收據](reports/mainline/v80_acceptance_preflight_20261118.json)
+
+## Stage 12｜V80 工具與原案例準備（前一步）
 
 V80 依 V79 方案完成工具與原 196 個子案例封存，於 2026-11-18 10:34 開始後的 120 分鐘內完成。本輪執行案例 0，正式窗口仍完整可用。
 
