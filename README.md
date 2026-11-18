@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V86 封存假案例 23／23 通過 | 10 個時鐘、13 個檔案身分案例通過。原 golden 與 196 案執行後反查相符，V80 最後拒取持有者仍未知 |
+| Stage 12：session-kNN K1 | V87 跨程序時鐘資格規格完成 | V86 的 23 個假案例已通過。V87 已列時鐘合成案例與判定，檔案資格規格待完成，原生執行為 0 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,15 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V86 封存假案例驗收（最新）
+## Stage 12｜V87 Windows 原生證據來源資格規格（最新）
+
+| 步驟 | 結果 |
+| --- | --- |
+| QPC／QPF 跨程序 | 擬定雙向各 8 輪、共 64 組讀值。必須有可嚴格分隔的因果正例，近界保留未知。時鐘階段上限 30 秒 |
+
+目前只有規格，工具、原生探測、實機量測、真實角色接入及正式驗收均為 0。接著補同一 `fd` 的 FileIdInfo 與全窗停止條件。[V87 規格](docs/STAGE12_KNN_WINDOWS_NATIVE_QUALIFICATION_V87_20261118.md)
+
+## Stage 12｜V86 封存假案例驗收（前輪）
 
 | 步驟 | 結果 |
 | --- | --- |

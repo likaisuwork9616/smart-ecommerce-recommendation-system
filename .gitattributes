@@ -754,3 +754,6 @@ reports/mainline/v85_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 
 # Preserve V86 fake-case verification and execution receipts.
 reports/mainline/v86_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the V87 qualification proposal.
+docs/STAGE12_KNN_WINDOWS_NATIVE_QUALIFICATION_V87_20261118.md text eol=lf
