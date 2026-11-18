@@ -2,7 +2,19 @@
 
 Smart E-Commerce Recommendation System
 
-以 Olist 電商資料練習資料建置、SQL、商業分析、延遲／評論預測與 RFM 顧客分析，再延伸至 Retailrocket 推薦系統、API 與前端。資料環境、SQL 與 EDA 初版已完成；延遲預測與評論低評分預測已整理成離線研究交付，正式適用仍待新資料；RFM 的 Olist v2／G2／G3 與 UCI v1 跨期描述已整理為離線研究交付，UCI v1 結果已封存；小組支援與營運限制保留。Retailrocket v1資料建置與P0一次真實train擬合、完整validation及獨立反讀已完成；共現 C1 已完成一次 train 擬合、完整 validation 與 P0 配對、2000次bootstrap及獨立反讀，C1／P0研究交付與證據保存亦完成；Stage 11 已完成一次真實 D1 train 擬合、完整三臂 validation／2,000 次主要 bootstrap 與獨立逐筆驗收，三臂研究交付、適用說明與證據保存亦完成；validation 已曝光、預留回溯測試仍 locked，API與前端尚未開始。
+使用 Olist 歷史訂單研究商業分析、配送延遲、評論與顧客分群，並以 Retailrocket 的瀏覽紀錄比較商品推薦方法。熱門、共現與有向相鄰三種推薦法已完成離線開發驗證和獨立核對，預留回溯測試仍鎖定。現在可以從本機網頁選一件商品，查看共現推薦的前十名。
+
+## 開啟商品推薦網頁
+
+在已備妥 Stage 10 本機模型的專案根目錄執行以下指令，看到網址後開啟[商品推薦頁面](http://127.0.0.1:8765/)。預設會展示一個商品，也可以點選其他範例或輸入商品編號。終端機按 `Ctrl+C` 結束自行啟動的服務。
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.serve_c1_demo
+```
+
+可查 198,946 件匿名商品。排名沿用 C1 在 2015-08-01 00:00 UTC 前的訓練資料，依其他商品和你選的商品出現在同一次瀏覽的次數排序。共現證據不足十件時依原規則補入熱門商品，逐筆顯示推薦來源。商品 ID、共同瀏覽次數與排名來自本機模型，適用於歷史瀏覽展示。
+
+啟動會比對 Stage 10 公開收據與本機的 `support.csv`、`oracle.sqlite`、P0 的 `development/item_counts.csv`。只有 GitHub 程式碼的環境需先從自己的 Stage 10 保存包還原這三份檔案到原路徑。服務只監聽本機；可用 `--port` 指定其他連接埠。[模型與保存包位置](docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md#證據保存與-shop-內位置)
 
 ## GitHub 提交身分整理（2026-11-06）
 
@@ -10,7 +22,7 @@ Smart E-Commerce Recommendation System
 
 ## 目前進度
 
-**2026-11-18 主線調整**　K1 驗收暫停。每日 10% 延遲提醒重查資料後仍待上游交付。本機 9 份 Olist CSV 與下載 ZIP 的雜湊都符合先前已查的版本，指定交接目錄尚無新資料。下一項展示使用已驗收的 C1 共現推薦。延遲 Dashboard 繼續等待適用性驗證。[本輪資料來源與可取得性](docs/PROJECT_PROGRESS.md#daily10-source-check)
+**2026-11-18 主線調整**　K1 驗收暫停。每日 10% 延遲提醒重查資料後仍待上游交付。本機 9 份 Olist CSV 與下載 ZIP 的雜湊都符合先前已查的版本，指定交接目錄尚無新資料。C1 共現推薦已提供本機互動網頁。延遲 Dashboard 繼續等待適用性驗證。[本輪資料來源與可取得性](docs/PROJECT_PROGRESS.md#daily10-source-check)
 
 | 階段 | 狀態 | 現有成果 |
 | --- | --- | --- |
@@ -27,7 +39,7 @@ Smart E-Commerce Recommendation System
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
 | Stage 12：session-kNN K1 | 驗收暫停 | V87 兩項規格已完成，原生執行為 0。K1 與 C1 的完整比較仍待驗收 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
-| Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
+| Stage 14–15：API、前端 | C1 本機展示可操作 | Python 標準庫 JSON API 與瀏覽器前端可查商品、顯示前十名。正式商店串接與部署尚待規劃 |
 
 目前已整理 Stage 6–12 的程式、凍結規格、測試與聚合報告。Stage 12 的唯一一次整輪執行依時限停止時，主要 K1 validation 與 bootstrap 輸出已產出，但完整獨立反讀未完成；後續另授權反讀也未取得完整驗收，仍無正式K1−C1比較結論。原48筆的工程比較與成本判定不能當成全量成績。原始資料、本機模型及逐筆執行證據留在 Git 忽略路徑，不隨 repository 提交。
 

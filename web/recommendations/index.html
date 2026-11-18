@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>商品推薦 · Retailrocket</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#query">跳到商品查詢</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="./" aria-label="Retailrocket 推薦首頁">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <a class="source-link" href="#credits">資料來源 <span aria-hidden="true">↘</span></a>
+    </div>
+  </header>
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">商品推薦</h1>
+        <p>選一件商品，看看訪客在同一次瀏覽中還看了什麼。</p>
+      </div>
+      <div class="snapshot" hidden id="snapshot">
+        <span class="snapshot-label">歷史資料截點</span>
+        <time id="as-of"></time>
+      </div>
+    </section>
+    <div class="workspace">
+      <section class="query-panel" id="query" aria-labelledby="query-heading">
+        <h2 id="query-heading">查詢商品</h2>
+        <form id="query-form">
+          <label for="item-input">商品編號</label>
+          <div class="field">
+            <span aria-hidden="true">#</span>
+            <input id="item-input" name="item_id" type="text" inputmode="numeric"
+              autocomplete="off" spellcheck="false" maxlength="20" placeholder="輸入匿名商品 ID" required>
+          </div>
+          <button class="submit" type="submit">查看推薦 <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="examples" id="examples" hidden>
+          <h3>範例商品</h3>
+          <div id="example-list" class="example-list" aria-label="範例商品"></div>
+        </div>
+        <p class="query-note" id="catalog-note" hidden></p>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-heading">
+        <div class="results-header">
+          <div>
+            <h2 id="results-heading">推薦排名</h2>
+            <p id="results-caption" class="results-caption">等待商品查詢</p>
+          </div>
+          <span id="result-count" class="result-count" hidden></span>
+        </div>
+        <div id="result-body" aria-busy="true"></div>
+        <p class="sr-only" id="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+        <noscript><p class="state">請啟用 JavaScript 以查詢商品推薦。</p></noscript>
+      </section>
+    </div>
+  </main>
+  <footer class="container credits" id="credits">
+    <p>資料來源　<a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+    <p>本頁依歷史瀏覽紀錄計算商品共現排名。資料集使用匿名商品編號。</p>
+  </footer>
+</body>
+</html>
