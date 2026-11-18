@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V87 跨程序時鐘資格規格完成 | V86 的 23 個假案例已通過。V87 已列時鐘合成案例與判定，檔案資格規格待完成，原生執行為 0 |
+| Stage 12：session-kNN K1 | V87 兩項原生資格規格完成，待確認 | V86 的 23 個假案例已通過。V87 已固定時鐘、同 `fd` 檔案案例與停止條件，原生執行為 0，V80 最後拒取持有者仍未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -36,8 +36,10 @@ Smart E-Commerce Recommendation System
 | 步驟 | 結果 |
 | --- | --- |
 | QPC／QPF 跨程序 | 擬定雙向各 8 輪、共 64 組讀值。必須有可嚴格分隔的因果正例，近界保留未知。時鐘階段上限 30 秒 |
+| 同一 `fd` 的 FileIdInfo | 擬驗重疊同檔、同內容異檔、世代中斷與換檔、路徑拒判及同次錯誤。限定受控本機 NTFS 合成目錄，檔案階段上限 70 秒 |
+| 停止與估時 | 待確認後工具準備估 60–90 分鐘，120 分鐘未封存即停。原生窗口另待確認，估 25–75 秒，含收束上限 120 秒，失敗不補跑 |
 
-目前只有規格，工具、原生探測、實機量測、真實角色接入及正式驗收均為 0。接著補同一 `fd` 的 FileIdInfo 與全窗停止條件。[V87 規格](docs/STAGE12_KNN_WINDOWS_NATIVE_QUALIFICATION_V87_20261118.md)
+本輪只訂規格。原 golden 和 196 個子案例已反核，工具、原生探測、實機量測、真實角色接入及正式驗收均為 0。確認後才準備工具與封存合成案例。[V87 完整規格](docs/STAGE12_KNN_WINDOWS_NATIVE_QUALIFICATION_V87_20261118.md)
 
 ## Stage 12｜V86 封存假案例驗收（前輪）
 
