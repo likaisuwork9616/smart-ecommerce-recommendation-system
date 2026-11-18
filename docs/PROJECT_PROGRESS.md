@@ -9,8 +9,10 @@
 | 步驟 | 結果 |
 | --- | --- |
 | 執行前核對 | V85 收據和 12 份來源與錨點逐一比對 SHA-256。23 個方法符合名單，原 golden 與 196 案都相符。執行案例 0 |
+| 假驗收 | 按封存順序執行一次，10 個時鐘與 13 個檔案身分案例全通過，失敗、錯誤、跳過及未執行均 0。逐案結果及退出碼 0 已保存 |
+| 執行後反查 | 原 golden 與 196 案符合封存。原生探測、量測、角色接入與正式重跑均為 0，實際共同時鐘與 guard 世代資格仍待驗 |
 
-[執行前核對收據](../reports/mainline/v86_v85_fake_case_precheck_20261118.json)
+[執行前核對收據](../reports/mainline/v86_v85_fake_case_precheck_20261118.json) · [逐案結果](../reports/mainline/v86_v85_fake_case_acceptance_20261118.json)
 
 ## Stage 12 第 97 輪｜V85 獨立時鐘與鎖檔身分介面
 
@@ -1126,7 +1128,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要 validation／bootstrap 輸出已產出，工程方法與比較證據已保存 | V77 與 V80 各自唯一合成窗口均為 147 案通過／1 失敗／48 未執行。V80 停於 A12 發布。V83 的 18 個假案例通過，V84 固定 Windows 候選來源，V85 封存獨立介面及 23 個未執行假案例，最後一次拒取持有者仍未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，預留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要 validation／bootstrap 輸出已產出，工程方法與比較證據已保存 | V77 與 V80 各自唯一合成窗口均為 147 案通過／1 失敗／48 未執行。V80 停於 A12 發布。V83 的 18 個假案例通過，V84 固定 Windows 候選來源，V86 跑完 V85 封存的 23 個假案例且全通過。最後一次拒取持有者仍未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，預留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 

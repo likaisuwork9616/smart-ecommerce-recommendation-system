@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V86 封存假案例結果 | [23 個逐案結果、退出碼及執行後反查](mainline/v86_v85_fake_case_acceptance_20261118.json)，23 通過／0 失敗／0 錯誤／0 跳過，正式案例執行 0 |
 | V86 假案例執行前核對 | [V85 收據 SHA-256、23 個方法名單與原 golden 反查](mainline/v86_v85_fake_case_precheck_20261118.json)，此步執行案例 0 |
 | V85 獨立介面與假案例封存 | [來源 SHA-256、23 個假案例名單及原封存反核](mainline/v85_windows_source_interfaces_seal_20261118.json)，案例與原生呼叫皆 0 |
 | V84 Windows 鎖檔實體與資格驗收 | [12 份官方來源、檔案世代及接合門檻](mainline/v84_windows_file_identity_qualification_20261118.json)，同 fd 的 FileIdInfo 為文件候選，未實作或探測 |

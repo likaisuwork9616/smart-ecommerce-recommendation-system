@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V85 獨立時鐘與鎖檔身分介面（最新）
+## Stage 12｜V86 封存假案例驗收（最新）
+
+先核對並推送來源 SHA-256，再按封存名單執行一次。10 個時鐘與 13 個檔案身分案例全數通過。執行後原 golden 與 196 案符合封存。[執行前核對](../reports/mainline/v86_v85_fake_case_precheck_20261118.json) · [逐案結果](../reports/mainline/v86_v85_fake_case_acceptance_20261118.json)
+
+## Stage 12｜V85 獨立時鐘與鎖檔身分介面（前輪）
 
 QPC／QPF 與同一 `fd` 的 FileIdInfo 已有獨立介面和 23 個封存假案例。靜態核對完成，案例執行 0，原 golden 與 196 案符合封存。[本輪範圍](STAGE12_KNN_WINDOWS_SOURCE_INTERFACES_V85_20261118.md)
 
