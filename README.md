@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V85 兩個 Windows 證據介面與 23 個假案例已封存 | 靜態核對完成，案例執行 0，原 golden 與 196 案符合既有封存。V80 最後拒取持有者仍未知，正式結果為 147 通過、1 失敗、48 未執行 |
+| Stage 12：session-kNN K1 | V86 封存假案例執行前核對完成 | V85 收據、12 份來源與錨點、23 個假案例名單皆相符。原 golden 與 196 案符合封存，V80 最後拒取持有者仍未知 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V85 獨立時鐘與鎖檔身分介面（最新）
+## Stage 12｜V86 封存假案例驗收（最新）
+
+| 步驟 | 結果 |
+| --- | --- |
+| 執行前核對 | V85 封存收據的 SHA-256 相符，3 份來源、2 份相依與 7 份來源錨點全數相符。從語法樹比對 10 個時鐘和 13 個檔案身分方法 |
+| 原資料反查 | 原 196 案、A12 golden、38 份方法來源、3 份 manifest 與 78 個人工檔符合封存 |
+
+這一步執行案例 0。推送核對收據後，才用已核對的來源執行這 23 個假案例。[執行前核對收據](reports/mainline/v86_v85_fake_case_precheck_20261118.json)
+
+## Stage 12｜V85 獨立時鐘與鎖檔身分介面（前輪）
 
 | 步驟 | 結果 |
 | --- | --- |

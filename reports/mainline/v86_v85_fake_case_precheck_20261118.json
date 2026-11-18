@@ -1,0 +1,75 @@
+{
+  "schema": "v86_v85_fake_case_precheck",
+  "status": "verified_before_fake_execution",
+  "seal_commit": "002ded8e4385b3f42bda6db9e6850ff36c5d457e",
+  "seal_descriptor": {
+    "path": "reports/mainline/v85_windows_source_interfaces_seal_20261118.json",
+    "bytes": 7664,
+    "sha256": "37260a26c581e1bb5244bc445d85da9b3b86418578e646aacf63795fec766c96"
+  },
+  "verified_source_counts": {
+    "new_sources": 3,
+    "local_dependencies": 2,
+    "anchors": 7
+  },
+  "original_preservation": {
+    "v80_case_catalog": {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    },
+    "required_case_ids": 196,
+    "required_test_methods": 34,
+    "case_families": 24,
+    "v80_method_source_descriptors_verified": 38,
+    "original_fixture_manifests_verified": 3,
+    "original_fixture_files_verified": 78,
+    "original_fixture_file_bytes_verified": 8043982,
+    "a12_golden_verified": {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/golden_records.jsonl",
+      "bytes": 506171,
+      "sha256": "0a61dda32d4391cebc5faea0fc400f06f670e2496f3b973e7e0ba5857535eb2b"
+    },
+    "v80_case_outcomes": {
+      "passed": 147,
+      "failed": 1,
+      "unexecuted": 48
+    },
+    "v80_formal_windows_remaining": 0
+  },
+  "verified_methods_by_class": {
+    "FakeFileIdTests": 13,
+    "FakeQpcTests": 10
+  },
+  "verified_test_ids": [
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_32bit_high_bit_handle_retains_unsigned_value",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_borrows_same_fd_and_preserves_all_identity_bits",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_comparison_checks_high_file_id_bits_and_full_volume_serial",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_fd_rebound_after_query_cannot_be_borrowed_again",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_file_id_api_failure_preserves_winerror_without_fallback",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_file_id_error_stays_available_if_open_changes_afterward",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_foreign_or_ambiguous_file_paths_are_not_admitted",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_independent_role_opens_can_share_one_file_generation",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_missing_winerror_does_not_reuse_a_failure_code",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_open_generation_or_handle_change_during_capture_fails_closed",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_rejects_fd_mismatch_closed_stream_and_unusable_handles",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_reply_must_contain_exact_full_file_id_info_and_a_usably_distinct_id",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_same_identity_requires_common_scope_path_and_generation_proof",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_missing_clock_proof_leaves_causal_order_unknown",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_native_failure_preserves_error_and_stops_frequency_first",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_raw_counter_and_rate_are_exact_above_float_precision",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_rejects_inversion_or_frequency_change_in_same_process",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_rejects_unusable_ticks_or_frequency",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_reversed_attempt_bounds_are_inconsistent",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_shared_origin_preserves_fractional_ticks_with_outward_rounding",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_synthetic_cross_role_interval_strictly_contains_attempt",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_touching_or_one_tick_apart_cannot_establish_containment",
+    "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_unqualified_sample_or_invalid_margins_have_no_bounds"
+  ],
+  "local_runner": {
+    "path": "shop-mysql-runtime/v86/fake/run1/verify_and_run.py",
+    "bytes": 9897,
+    "sha256": "d89c87fb6a7e4f76fa8889656fa394656034fabd4cd02807cecc3ecceb41a930"
+  },
+  "case_methods_executed": 0
+}
