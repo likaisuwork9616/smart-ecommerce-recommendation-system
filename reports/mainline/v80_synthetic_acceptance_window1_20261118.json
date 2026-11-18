@@ -1,0 +1,735 @@
+{
+  "schema": "v80_synthetic_acceptance_window1_result",
+  "date": "2026-11-18",
+  "status": "incomplete_timeout",
+  "window": 1,
+  "entry_exit_code": 1,
+  "suite_launcher_exit_code": 1,
+  "elapsed_seconds": 128.75,
+  "started_utc": "2026-11-18T03:05:45.144258+00:00",
+  "success_limit_seconds": 900,
+  "work_child_limit_seconds": 120,
+  "whole_window_deadline_veto": false,
+  "unexpected_timeout": true,
+  "source_authority_error": false,
+  "formal_windows_consumed": 1,
+  "formal_windows_remaining": 0,
+  "post_failure_case_runs": 0,
+  "real_data_reruns": 0,
+  "real_full_acceptance": false,
+  "T_plan": null,
+  "preflight": {
+    "path": "reports/mainline/v80_acceptance_preflight_20261118.json",
+    "bytes": 1248,
+    "sha256": "92930058ab9a854a0313f0d6012b8a91009a1229c0a1bd3cc0ec33d4ed0af9b6"
+  },
+  "seal_anchors": {
+    "method_seal_sha256": "78eabd6ebafe53dc74672b61f4108db622aba524690864764b2463d6a64bc4d7",
+    "fixture_seal_sha256": "909d291fd1c148ebdad9e5ec8d622f157150832d57874e72f1a6fb2fc3404d5e",
+    "authorization_sha256": "b6d5c503497531023c1cc79bd808aefb05682dbc7ed5b58de6f08578b9e4afbd"
+  },
+  "method_outcomes": {
+    "passed": 24,
+    "failed": 1,
+    "unexecuted": 9
+  },
+  "case_outcomes": {
+    "passed": 147,
+    "failed": 1,
+    "unexecuted": 48
+  },
+  "nonpassing_methods": [
+    {
+      "id": "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A12_true_process_prefix_recovery",
+      "status": "failed_subcase"
+    }
+  ],
+  "nonpassing_cases": [
+    {
+      "case_id": "A12.prefix_crash_recovery",
+      "id": "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A12_true_process_prefix_recovery (case_id='A12.prefix_crash_recovery')",
+      "parent": "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A12_true_process_prefix_recovery",
+      "status": "failed"
+    }
+  ],
+  "error_details": [
+    {
+      "id": "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A12_true_process_prefix_recovery (case_id='A12.prefix_crash_recovery')",
+      "message": "Synthetic descendant deadline/watchdog failure",
+      "type": "TimeoutError"
+    }
+  ],
+  "unexecuted_method_ids": [
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A16_exit_and_identity_refusals",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A17_true_process_candidate_unknown_exit",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A18_recorded_normal_exit_finalize_reentry",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A19_source_positions_and_same_size_changes",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A20_publisher_raw_proof_and_no_numeric_replay",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A21_stopped_complete_manifest_and_buffered_logs",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A22_publication_only_recovery_and_completed_readonly",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A23_fake_deadline_resource_and_cross_process_budget",
+    "tests.test_retailrocket_session_knn_pipeline_v80.PipelineCases.test_A24_synthetic_exclusive_accounting_and_signed_bridge"
+  ],
+  "unexecuted_case_ids": [
+    "A16.alive",
+    "A16.nonzero",
+    "A16.pid_reused",
+    "A16.uncertain",
+    "A16.other_boot",
+    "A16.self_exit",
+    "A17.candidate_unknown_exit",
+    "A18.normal_exit_reentry",
+    "A19.normal_positions",
+    "A19.H1",
+    "A19.H2",
+    "A19.H3",
+    "A19.H4",
+    "A19.H5",
+    "A19.H6",
+    "A19.H7",
+    "A19.H8",
+    "A20.no_numeric_replay",
+    "A20.request",
+    "A20.request_deadline",
+    "A20.normal_boot",
+    "A20.observed_exit",
+    "A20.candidate_count",
+    "A20.query_stage",
+    "A20.payload_key",
+    "A20.global_roster",
+    "A20.aggregate_count",
+    "A20.cp_summary",
+    "A21.closed_manifest",
+    "A21.extra",
+    "A21.append",
+    "A21.missing",
+    "A21.live",
+    "A22.P9",
+    "A22.P10",
+    "A23.absolute",
+    "A23.downtime",
+    "A23.rollback",
+    "A23.rss",
+    "A23.disk",
+    "A23.temp",
+    "A23.monitor",
+    "A23.delivery",
+    "A23.path_scope",
+    "A23.resource_process",
+    "A23.monitor_process",
+    "A23.descendant_timeout",
+    "A24.intervals"
+  ],
+  "missing_pass_count_includes_failure": 49,
+  "outcomes_by_module": [
+    {
+      "path": "tests/test_retailrocket_session_knn_full_v80.py",
+      "methods": {
+        "passed": 17
+      },
+      "cases": {
+        "passed": 106
+      }
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_worker_v80.py",
+      "methods": {
+        "passed": 7
+      },
+      "cases": {
+        "passed": 41
+      }
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v80.py",
+      "methods": {
+        "failed_subcase": 1,
+        "unexecuted": 9
+      },
+      "cases": {
+        "failed": 1,
+        "unexecuted": 48
+      }
+    }
+  ],
+  "A09": {
+    "status": "passed",
+    "second_attempt_verify_full_calls": 0,
+    "evidence": {
+      "path": "shop-mysql-runtime/v80/cases/A09-missing_database-2adbac3997f944bca731c39fa6dda49b/missing_database_evidence.json",
+      "bytes": 5965,
+      "sha256": "b4d6755139a0cb33716a02c13b91f500f121eeabbc6c1584a6aaa3f57712582f"
+    }
+  },
+  "A12": {
+    "case_status": "failed_on_second_pipeline_entry",
+    "pre_recovery_gate": {
+      "status": "passed",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/case_evidence/A12.prefix_crash_recovery/pre_recovery.json",
+        "bytes": 2712,
+        "sha256": "a62a1799919aac3bd74c19be57dd343e44c8bb3504c4ecdf0e5af2c574d5206b"
+      },
+      "query_verified_occurrence": 65,
+      "observed_roles": {
+        "pipeline": {
+          "state": "observed",
+          "role_exit_code": 1,
+          "launcher_exit_code": 1,
+          "same_handle_signaled": true,
+          "query_succeeded": true,
+          "stop_request": null,
+          "observation": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/pipeline/exit_observation.json",
+            "bytes": 1876,
+            "sha256": "cd3658c6930be2ac736fda087bf69d25a588bfbc09499e087552f8f35874946b"
+          },
+          "receipt": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/pipeline_exit.json",
+            "bytes": 1296,
+            "sha256": "ea78ed19dfddca0a54618e27babb15cad39de4e338010d0c6218adacb9a05afa"
+          },
+          "veto": null
+        },
+        "worker": {
+          "state": "observed",
+          "role_exit_code": 9,
+          "launcher_exit_code": 9,
+          "same_handle_signaled": true,
+          "query_succeeded": true,
+          "stop_request": null,
+          "observation": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/worker/exit_observation.json",
+            "bytes": 1467,
+            "sha256": "4cf8fb84f0ac93548492fec31e1185f1433985ac7d7862413760e0160c0e696b"
+          },
+          "receipt": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/worker_exit.json",
+            "bytes": 891,
+            "sha256": "bf8d07c7a3e8d19cc6e72eb31596bfe39ff71efc600e9657dcc4c082e87a477e"
+          },
+          "veto": null
+        }
+      },
+      "committed_prefix_records": 64,
+      "first_ordinal": 0,
+      "last_ordinal": 63,
+      "prefix_sha256": "c38a6c6c16134441ae21d69f099412d6b811ea41972b8738b7f3843982c1118a",
+      "prefix_bytes_unchanged_and_matches_original_golden": true
+    },
+    "second_entry": {
+      "observed_roles": {
+        "pipeline": {
+          "state": "observed",
+          "role_exit_code": 1,
+          "launcher_exit_code": 1,
+          "same_handle_signaled": true,
+          "query_succeeded": true,
+          "stop_request": null,
+          "observation": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/exit_observation.json",
+            "bytes": 2190,
+            "sha256": "af6ff741101886664ef5926210edacfc237f8e0ffff28c67070ae21c46065cd3"
+          },
+          "receipt": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/pipeline_exit.json",
+            "bytes": 1610,
+            "sha256": "000d467fad25da5271806ca64e606cbac75f045076043f898632d561e049e5f6"
+          },
+          "veto": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/delivery_veto.json",
+            "bytes": 765,
+            "sha256": "e6b194e7a9c9b2955d08984633a5d137656e37d9b1872cc081fc1b7a35cce4ca"
+          }
+        },
+        "publisher": {
+          "state": "unconfirmed",
+          "role_exit_code": null,
+          "launcher_exit_code": 15,
+          "same_handle_signaled": false,
+          "query_succeeded": false,
+          "stop_request": {
+            "reason": "BudgetExceeded",
+            "requested_utc": 1794971273.4280655
+          },
+          "observation": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/exit_observation.json",
+            "bytes": 1665,
+            "sha256": "379145d1b87b5cabe7e327b650d8bd4ab0c0de2d2868590718f8dc405d7018b9"
+          },
+          "receipt": null,
+          "veto": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/delivery_veto.json",
+            "bytes": 599,
+            "sha256": "72b843fa4842a6e632c90a43a0af470732e1abe5bf6198516c7f3dabdcf80849"
+          }
+        },
+        "worker": {
+          "state": "observed",
+          "role_exit_code": 0,
+          "launcher_exit_code": 0,
+          "same_handle_signaled": true,
+          "query_succeeded": true,
+          "stop_request": null,
+          "observation": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/exit_observation.json",
+            "bytes": 1472,
+            "sha256": "a6c95d5bd950d138378c587a101fa5ab37925b88f665ba1ff92c5cf352150889"
+          },
+          "receipt": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/worker_exit.json",
+            "bytes": 895,
+            "sha256": "570fddf4f478a0e2853ef2432db848ba7ce037c2cab9c047be1bb326fd2df50e"
+          },
+          "veto": null
+        }
+      },
+      "committed_payloads_match_original_full_golden": true,
+      "golden": {
+        "path": "shop-mysql-runtime/v75/fixtures/F-long/golden_records.jsonl",
+        "bytes": 506171,
+        "sha256": "0a61dda32d4391cebc5faea0fc400f06f670e2496f3b973e7e0ba5857535eb2b"
+      },
+      "chunks": [
+        {
+          "count": 64,
+          "manifest": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000000.json",
+            "bytes": 391,
+            "sha256": "53e25050593b5a80eec467a53343abe232ec8960b0559535afa5106b7a773aab"
+          },
+          "payload": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/dc9d2556492b4344a11bf460997451ad.jsonl",
+            "bytes": 251143,
+            "sha256": "c38a6c6c16134441ae21d69f099412d6b811ea41972b8738b7f3843982c1118a"
+          }
+        },
+        {
+          "count": 64,
+          "manifest": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000001.json",
+            "bytes": 455,
+            "sha256": "eb7ee2c3aef47fb2f7587aed97ea5381ab53b8687d402f142d07103453a511cf"
+          },
+          "payload": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/402c5aae61354d248e487c3e5638cc26.jsonl",
+            "bytes": 250974,
+            "sha256": "ccf8bee24cf26efc28dbeabe8bd63805c732014f1fd8feaf62beeb96b4dd3b48"
+          }
+        },
+        {
+          "count": 1,
+          "manifest": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000002.json",
+            "bytes": 453,
+            "sha256": "4693746cea033d0396fd0c351dea5f8b1a35f1da281918998c938c37e76abd2e"
+          },
+          "payload": {
+            "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/c5bfbef8609c46f4b4327e1916ef6f73.jsonl",
+            "bytes": 4054,
+            "sha256": "d047fcdf3f82aa01703d7c95c532c510e4bcd7707cb3f4b796b726e33d678ae1"
+          }
+        }
+      ],
+      "records": 129,
+      "bootstrap_replicates": 2000,
+      "checkpoint_acceptance_receipt": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/acceptance.json",
+        "bytes": 1102,
+        "sha256": "e54aaba7a8394ebc0eb2090bf730450a1ab653f17ec3ea3307c7d4f6fbb09898"
+      },
+      "publisher_source_checks": [
+        "H7"
+      ],
+      "publisher_proof_present": false,
+      "final_seal_present": false,
+      "phase": "pipeline polling resumed publisher",
+      "child_error_type": "BudgetExceeded",
+      "child_error_message": "Cumulative budget state lock unavailable",
+      "windows_lock_error": "PermissionError errno 13 -> WriterBusy -> BudgetExceeded",
+      "request_seconds_remaining_at_publisher_stop": 86.050627,
+      "lock_holder_or_cause_independently_established": false,
+      "cleanup_noted_writer_still_alive_in_exception": true
+    }
+  },
+  "observed_stop": {
+    "raw_formal_observed": 19,
+    "union_observed": 20,
+    "post_window_no_such_process": 20,
+    "unobserved_descendants_guaranteed_absent": false,
+    "evidence": {
+      "path": "shop-mysql-runtime/v80/post_window_observed_identity_check.json",
+      "bytes": 2506,
+      "sha256": "522475f5acdfb5c7c52711c8b200205ae4478058fbb5b8027920b86338da3eee"
+    }
+  },
+  "preservation": {
+    "original_manifests_matched": 3,
+    "original_artificial_files_matched": 78,
+    "original_artificial_bytes": 8043982,
+    "tool_and_case_descriptors_matched": 38,
+    "preparation_inputs_matched": 1
+  },
+  "independent_readonly_reviews": [
+    "formal authority, counts and source seals",
+    "A12 role receipts and byte-exact committed prefix/full golden",
+    "A09 exact missing DB rejection"
+  ],
+  "saved_evidence_descriptors": [
+    {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/golden_records.jsonl",
+      "bytes": 506171,
+      "sha256": "0a61dda32d4391cebc5faea0fc400f06f670e2496f3b973e7e0ba5857535eb2b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/cases/A09-missing_database-2adbac3997f944bca731c39fa6dda49b/missing_database_evidence.json",
+      "bytes": 5965,
+      "sha256": "b4d6755139a0cb33716a02c13b91f500f121eeabbc6c1584a6aaa3f57712582f"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/entry_exit.json",
+      "bytes": 443,
+      "sha256": "acc9feada21d73fb0d0bde3ceb218a9ce7f278d989fea7f3182196ba0842019e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/request.json",
+      "bytes": 521,
+      "sha256": "9aeb6ab0cf1ad65d1e4f433a06342d39f17b761dc3b7dc68b6e2f8e3c8087ab6"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/result.json",
+      "bytes": 78118,
+      "sha256": "3d85b1f949a9defabd1745262007d2902cc5dcc5b85eea4391375f9ddbd6f458"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/stderr.log",
+      "bytes": 5751,
+      "sha256": "3e36e589a45b179c655627976f07c466d6cf2ef47ae7351c8f6d6ec78a556cd5"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/suite_result.json",
+      "bytes": 73143,
+      "sha256": "6ded032b529bbc61ed4650c8fe7492d68f974599042b07bc969222062f3dabed"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal/window1/suite_started.json",
+      "bytes": 39,
+      "sha256": "bfe8b3eec34239cec1be1010fb4110786d8e45dd17d0910990bc6b3799eca16d"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/formal_authorization.json",
+      "bytes": 395,
+      "sha256": "b6d5c503497531023c1cc79bd808aefb05682dbc7ed5b58de6f08578b9e4afbd"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/post_window_observed_identity_check.json",
+      "bytes": 2506,
+      "sha256": "522475f5acdfb5c7c52711c8b200205ae4478058fbb5b8027920b86338da3eee"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/outer-20180.json",
+      "bytes": 153,
+      "sha256": "84ed188c8aadab33525b0c3429c10eb324f2e2abeea6cc7d79f5a89bd000804b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/pipeline-3916.json",
+      "bytes": 153,
+      "sha256": "13b3fe8d1b86b128b0250e5d1b2cf1109cd7b9ed82aa2a48964f065990b96c20"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/pipeline-4996.json",
+      "bytes": 153,
+      "sha256": "deebcb6dae91785bf86843b6db32f014fb241de3099ad982d1a296a42c48d890"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/publisher-17936.json",
+      "bytes": 153,
+      "sha256": "27b78389f1232b8c39f76b0069473e794016a008152624df1ee2fe54945e896a"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/worker-12092.json",
+      "bytes": 154,
+      "sha256": "b2b2dc8a76beab423fa0c99ab9af529a7b9d791ef825c36afa7e8406b36b263d"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/worker-19292.json",
+      "bytes": 154,
+      "sha256": "ff75983015c59f091f659a35ea4b2655de8dfe0c2da3a3255d63ca00a21c713d"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/case_evidence/A12.prefix_crash_recovery/pre_recovery.json",
+      "bytes": 2712,
+      "sha256": "a62a1799919aac3bd74c19be57dd343e44c8bb3504c4ecdf0e5af2c574d5206b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/pipeline_exit.json",
+      "bytes": 1610,
+      "sha256": "000d467fad25da5271806ca64e606cbac75f045076043f898632d561e049e5f6"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/ack.json",
+      "bytes": 1416,
+      "sha256": "a584ae88571f9b9f6761e5ab6d7582b5e5210ac48d23565300f85c4ea12f8824"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/delivery_veto.json",
+      "bytes": 765,
+      "sha256": "e6b194e7a9c9b2955d08984633a5d137656e37d9b1872cc081fc1b7a35cce4ca"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/exit_observation.json",
+      "bytes": 2190,
+      "sha256": "af6ff741101886664ef5926210edacfc237f8e0ffff28c67070ae21c46065cd3"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/launch.json",
+      "bytes": 778,
+      "sha256": "64183def0c53498c3d17c34f45382f86e231f1e5fc606c3817d8336ecc1f03c4"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/ready.json",
+      "bytes": 486,
+      "sha256": "96a400ab5b00328a8ec59f387f20e7b88be6bcf5787f115b15d628e9d794c0e0"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/ack.json",
+      "bytes": 1419,
+      "sha256": "47dfa2f04a00383d8e0bb305233ad37ef78a5e7a634b89b237dac18d1fb27732"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/delivery_veto.json",
+      "bytes": 599,
+      "sha256": "72b843fa4842a6e632c90a43a0af470732e1abe5bf6198516c7f3dabdcf80849"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/exit_observation.json",
+      "bytes": 1665,
+      "sha256": "379145d1b87b5cabe7e327b650d8bd4ab0c0de2d2868590718f8dc405d7018b9"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/launch.json",
+      "bytes": 779,
+      "sha256": "439d9a8511027d848493d77d521c673c60b1ebd779774caacea97b6f8ff1ab06"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/ready.json",
+      "bytes": 489,
+      "sha256": "fd9e53b46b60d70361f3fc6d56d4beac83d98b33dbe4ab9c557f26df7f05ba0f"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/ack.json",
+      "bytes": 1414,
+      "sha256": "34a9b63ef4b972e9ba4840625e658627595cf9020275d16e2461b114e4683023"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/exit_observation.json",
+      "bytes": 1472,
+      "sha256": "a6c95d5bd950d138378c587a101fa5ab37925b88f665ba1ff92c5cf352150889"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/launch.json",
+      "bytes": 776,
+      "sha256": "e90752ae0f63ae37aec5fb3257bce6c1bc41fe3dbf437d6a3e668a22dbcacbf3"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/ready.json",
+      "bytes": 483,
+      "sha256": "3134c11997a399a05cd92bd16d45211cf2b1ceb79d5f6af0da277348c6a275fd"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/pipeline_exit.json",
+      "bytes": 1296,
+      "sha256": "ea78ed19dfddca0a54618e27babb15cad39de4e338010d0c6218adacb9a05afa"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/pipeline/ack.json",
+      "bytes": 1416,
+      "sha256": "8ad6bb8aa3d58a9ff56ad1659e0a1e971c963855ae587c7dc69fbd0a33e6cf50"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/pipeline/exit_observation.json",
+      "bytes": 1876,
+      "sha256": "cd3658c6930be2ac736fda087bf69d25a588bfbc09499e087552f8f35874946b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/pipeline/launch.json",
+      "bytes": 778,
+      "sha256": "872c77d381adbcaa8c0b7ad569f93ae10c0b12ae60c0ad97435763982c45638b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/pipeline/ready.json",
+      "bytes": 486,
+      "sha256": "e894995592bf96b09d1b5442313ae5c979a1571c5a33fffe8b27f0cf2bb60f95"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/worker/ack.json",
+      "bytes": 1410,
+      "sha256": "0db75803fc8034f3571035eed65a878cabe1653227633ef69430b6f9f0cc972b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/worker/exit_observation.json",
+      "bytes": 1467,
+      "sha256": "4cf8fb84f0ac93548492fec31e1185f1433985ac7d7862413760e0160c0e696b"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/worker/launch.json",
+      "bytes": 776,
+      "sha256": "3c7e7375367d0ae42890d0d8055c509f7838c28da464fda723a3e395040b8247"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/693aba622fd54d9fa70a0d05c0014038/roles/worker/ready.json",
+      "bytes": 483,
+      "sha256": "11764a48ea6ec78e116f3706e1232ebb73f072930bfabe83aaa11cf2196c64cd"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/acceptance.json",
+      "bytes": 1102,
+      "sha256": "e54aaba7a8394ebc0eb2090bf730450a1ab653f17ec3ea3307c7d4f6fbb09898"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/candidate.json",
+      "bytes": 31997,
+      "sha256": "e33f35c503629105b1fd43b5c9c0c0ebc243bdad3f346827c91d77cef4b091b1"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000000.json",
+      "bytes": 391,
+      "sha256": "53e25050593b5a80eec467a53343abe232ec8960b0559535afa5106b7a773aab"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000001.json",
+      "bytes": 455,
+      "sha256": "eb7ee2c3aef47fb2f7587aed97ea5381ab53b8687d402f142d07103453a511cf"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/chunks/00000002.json",
+      "bytes": 453,
+      "sha256": "4693746cea033d0396fd0c351dea5f8b1a35f1da281918998c938c37e76abd2e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/latest.json",
+      "bytes": 231,
+      "sha256": "50b321258bb7dc58d9c31e961278bcc8a865cdcd74a656b59346db41a861ae51"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/normal_worker_exit.json",
+      "bytes": 261,
+      "sha256": "83ddc9fafb8b4b75ac47da8972eafb1b85b0670b0648a39a8d4126942531925a"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/402c5aae61354d248e487c3e5638cc26.jsonl",
+      "bytes": 250974,
+      "sha256": "ccf8bee24cf26efc28dbeabe8bd63805c732014f1fd8feaf62beeb96b4dd3b48"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/c5bfbef8609c46f4b4327e1916ef6f73.jsonl",
+      "bytes": 4054,
+      "sha256": "d047fcdf3f82aa01703d7c95c532c510e4bcd7707cb3f4b796b726e33d678ae1"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/payloads/dc9d2556492b4344a11bf460997451ad.jsonl",
+      "bytes": 251143,
+      "sha256": "c38a6c6c16134441ae21d69f099412d6b811ea41972b8738b7f3843982c1118a"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/run.json",
+      "bytes": 24756,
+      "sha256": "4f8ea29584b66b076051ee6e11fdd2464df0bfa6380838c75f9dd538a4fd8cbb"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/stages/bootstrap.json",
+      "bytes": 404,
+      "sha256": "01d5cbae1169c0d47ca7a0cad4c5affb79abfdf25e0b19be4d5d694781eda4e5"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/stages/global.json",
+      "bytes": 366,
+      "sha256": "42c946806013f3ce8efbe9c868badb1416b31a8ebcb00ae37c17098aadf1dbf0"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/stages/queries.json",
+      "bytes": 317,
+      "sha256": "ea185a5a68186327297015f8f6b596a3df9c0ef9efc44168cd554ab3b5184e49"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/cp/stages/reconstruction.json",
+      "bytes": 736,
+      "sha256": "67c1a32ba08eba66a8f652912a3aa4510454e669d2e05e6c973824c20bb80986"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/pipeline_failure.json",
+      "bytes": 2753,
+      "sha256": "7b6fbf78d1e8d549dc4a8f2368038fc62cb007060452b9c0b1675bdeaffb8c7e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/pipeline_identity.json",
+      "bytes": 77,
+      "sha256": "f42ecee823228f4e7f4858e9f56da2b767b3cf81f5304e3bd3d473d9bf751125"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/publisher_identity.json",
+      "bytes": 78,
+      "sha256": "c1c1ecd0b7275ff82819b9dce56ad5586565bdd84d167324e038b2aa6024eb7f"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/publisher_sources.jsonl",
+      "bytes": 46,
+      "sha256": "0deb8525e3f769d38d788a0f5a3b545bc31094c1e03bc075606e4c77d01f1b80"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/scenario.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/worker_exit.json",
+      "bytes": 895,
+      "sha256": "570fddf4f478a0e2853ef2432db848ba7ce037c2cab9c047be1bb326fd2df50e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/worker_identity.json",
+      "bytes": 78,
+      "sha256": "5b8f1c7806b38b15eebf148c5a6cf4d3c78e954f14932b80d5aeb5e65c25ece9"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/pipeline_failure.json",
+      "bytes": 1460,
+      "sha256": "d11621f660ce9e3d3a07b1e4a77a4f5357e3adb2d87439f223f98c549712dd4e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/pipeline_identity.json",
+      "bytes": 77,
+      "sha256": "e26979f3b153e4ba633f51427a364adcd2b10d5d731e5a7aa9e5732d40fbed38"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/scenario.json",
+      "bytes": 52,
+      "sha256": "5ab87884a8a1a36e96840193a9a5c233448982e57680c4eb769c33dff82a00ef"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/worker.log",
+      "bytes": 760,
+      "sha256": "826800fe4f1c32e26f1b8572075effacc732cadc90f0ec9e64a321edbb955263"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/worker_exit.json",
+      "bytes": 891,
+      "sha256": "bf8d07c7a3e8d19cc6e72eb31596bfe39ff71efc600e9657dcc4c082e87a477e"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/693aba622fd54d9fa70a0d05c0014038/worker_identity.json",
+      "bytes": 77,
+      "sha256": "01a4589484a6088d8469cdf05c4d61569d03f93489fe3a3df20e13125ba72fac"
+    },
+    {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/request.json",
+      "bytes": 24714,
+      "sha256": "51aa0ec3ffa5ccf798cdda5f483881fe40ed6768b7019c01533ad91f7ec00051"
+    }
+  ]
+}
