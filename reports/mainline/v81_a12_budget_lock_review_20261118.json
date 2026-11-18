@@ -1,0 +1,328 @@
+{
+  "schema": "v81_a12_budget_state_lock_saved_evidence_review",
+  "date": "2026-11-18",
+  "status": "readonly_review_complete_exact_failed_attempt_owner_unresolved",
+  "source_commit": "20f329e417df6c9d0c950ad82fee95d8b3156f93",
+  "v80_public_result": {
+    "path": "reports/mainline/v80_synthetic_acceptance_window1_20261118.json",
+    "bytes": 36180,
+    "sha256": "2935151ada544b0939799b2f32fc9ff4a6f6c4c3df1bfab5fe8295f36385c137"
+  },
+  "v80_tool_seal": {
+    "path": "reports/mainline/v80_tool_seal_20261118.json",
+    "bytes": 10759,
+    "sha256": "78eabd6ebafe53dc74672b61f4108db622aba524690864764b2463d6a64bc4d7"
+  },
+  "frozen_source_descriptors": [
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 73833,
+      "sha256": "007e522a5cde351851d53dbe5a77d78e2575c60343548d6436c017a5e05581a5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v80.py",
+      "bytes": 28207,
+      "sha256": "ce055c48231ed6d16614f89e36b7cefa001516d246fb720cb61e55704808e42e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 65368,
+      "sha256": "692d4acb1377760c4ff06817623d8838a2c6d8dc800323c29a27d3aaf1f52212"
+    }
+  ],
+  "verified_prior_raw_descriptors": 71,
+  "run": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047",
+  "second_episode": "4b1585d34c3448b293862abaf9d59a80",
+  "canonical_request_sha256": "51aa0ec3ffa5ccf798cdda5f483881fe40ed6768b7019c01533ad91f7ec00051",
+  "request_budget_seconds": 120,
+  "lock": {
+    "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/budget.guard",
+    "windows_region": {
+      "offset": 0,
+      "length": 1
+    },
+    "retry_sleep_seconds_configured": 0.005,
+    "lock_attempt_loop_cutoff_monotonic_seconds": 1,
+    "alternate_cutoff": "request_utc_deadline",
+    "scope": "same run across roles and episodes",
+    "distinct_checkpoint_writer_lock": "internal/cp/writer.guard"
+  },
+  "role_identity_binding": {
+    "outer": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971148.341441,
+      "pid": 20180
+    },
+    "pipeline": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971250.1963902,
+      "pid": 3916
+    },
+    "publisher": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971265.0136757,
+      "pid": 17936
+    },
+    "worker": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971252.1136196,
+      "pid": 12092
+    },
+    "pipeline_launcher": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971250.1623988,
+      "pid": 11584
+    },
+    "publisher_launcher": {
+      "boot_time": 134394411435000000,
+      "create_time": 1794971264.9747329,
+      "pid": 6272
+    },
+    "evidence": [
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/ack.json",
+        "bytes": 1416,
+        "sha256": "a584ae88571f9b9f6761e5ab6d7582b5e5210ac48d23565300f85c4ea12f8824"
+      },
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/ack.json",
+        "bytes": 1419,
+        "sha256": "47dfa2f04a00383d8e0bb305233ad37ef78a5e7a634b89b237dac18d1fb27732"
+      },
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/ack.json",
+        "bytes": 1414,
+        "sha256": "34a9b63ef4b972e9ba4840625e658627595cf9020275d16e2461b114e4683023"
+      }
+    ]
+  },
+  "saved_timeline": [
+    {
+      "event": "request_creation",
+      "role": "run",
+      "utc_epoch": 1794971239.478693,
+      "taipei": "2026-11-18T11:07:19.478693+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/request.json",
+        "bytes": 24714,
+        "sha256": "51aa0ec3ffa5ccf798cdda5f483881fe40ed6768b7019c01533ad91f7ec00051"
+      }
+    },
+    {
+      "event": "resumed_pipeline_launch_begin",
+      "role": "outer",
+      "utc_epoch": 1794971250.1246483,
+      "taipei": "2026-11-18T11:07:30.124648+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/exit_observation.json",
+        "bytes": 2190,
+        "sha256": "af6ff741101886664ef5926210edacfc237f8e0ffff28c67070ae21c46065cd3"
+      }
+    },
+    {
+      "event": "resumed_worker_exit_observed",
+      "role": "pipeline",
+      "utc_epoch": 1794971261.0557199,
+      "taipei": "2026-11-18T11:07:41.055720+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/worker/exit_observation.json",
+        "bytes": 1472,
+        "sha256": "a6c95d5bd950d138378c587a101fa5ab37925b88f665ba1ff92c5cf352150889"
+      },
+      "role_exit_code": 0
+    },
+    {
+      "event": "publisher_launch_begin",
+      "role": "pipeline",
+      "utc_epoch": 1794971264.8565366,
+      "taipei": "2026-11-18T11:07:44.856537+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/exit_observation.json",
+        "bytes": 1665,
+        "sha256": "379145d1b87b5cabe7e327b650d8bd4ab0c0de2d2868590718f8dc405d7018b9"
+      }
+    },
+    {
+      "event": "last_published_state_clock_sample",
+      "role": "pipeline",
+      "utc_epoch": 1794971272.3853683,
+      "taipei": "2026-11-18T11:07:52.385368+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/pipeline-3916.json",
+        "bytes": 153,
+        "sha256": "13b3fe8d1b86b128b0250e5d1b2cf1109cd7b9ed82aa2a48964f065990b96c20"
+      },
+      "saved_consumed_seconds": 32.91739583015442
+    },
+    {
+      "event": "last_published_state_clock_sample",
+      "role": "publisher",
+      "utc_epoch": 1794971273.3903384,
+      "taipei": "2026-11-18T11:07:53.390338+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/publisher-17936.json",
+        "bytes": 153,
+        "sha256": "27b78389f1232b8c39f76b0069473e794016a008152624df1ee2fe54945e896a"
+      },
+      "saved_consumed_seconds": 33.91626654243464
+    },
+    {
+      "event": "unpublished_inner_temp_clock_sample",
+      "role": "publisher",
+      "utc_epoch": 1794971273.4226022,
+      "taipei": "2026-11-18T11:07:53.422602+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/publisher-17936.json.4bc0ad49072d4d509b934eed4babc5f2.tmp.552ede6194144fafac7ebd378826238a.tmp",
+        "bytes": 153,
+        "sha256": "1f992bd82ff1ccf37aff1bf6b3bace707ab88038f2c6b287b9d824faa42db044"
+      },
+      "saved_consumed_seconds": 33.94726654243459
+    },
+    {
+      "event": "publisher_stop_requested",
+      "role": "pipeline",
+      "utc_epoch": 1794971273.4280655,
+      "taipei": "2026-11-18T11:07:53.428066+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/exit_observation.json",
+        "bytes": 1665,
+        "sha256": "379145d1b87b5cabe7e327b650d8bd4ab0c0de2d2868590718f8dc405d7018b9"
+      }
+    },
+    {
+      "event": "last_published_state_clock_sample",
+      "role": "outer",
+      "utc_epoch": 1794971273.5833395,
+      "taipei": "2026-11-18T11:07:53.583339+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/outer-20180.json",
+        "bytes": 153,
+        "sha256": "84ed188c8aadab33525b0c3429c10eb324f2e2abeea6cc7d79f5a89bd000804b"
+      },
+      "saved_consumed_seconds": 34.10464644432068
+    },
+    {
+      "event": "resumed_pipeline_exit_observed",
+      "role": "outer",
+      "utc_epoch": 1794971273.5961611,
+      "taipei": "2026-11-18T11:07:53.596161+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/exit_observation.json",
+        "bytes": 2190,
+        "sha256": "af6ff741101886664ef5926210edacfc237f8e0ffff28c67070ae21c46065cd3"
+      },
+      "role_exit_code": 1
+    },
+    {
+      "event": "original_request_utc_deadline",
+      "role": "run",
+      "utc_epoch": 1794971359.478693,
+      "taipei": "2026-11-18T11:09:19.478693+08:00",
+      "evidence": {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/request.json",
+        "bytes": 24714,
+        "sha256": "51aa0ec3ffa5ccf798cdda5f483881fe40ed6768b7019c01533ad91f7ec00051"
+      }
+    }
+  ],
+  "unpublished_temp": {
+    "evidence": {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/publisher-17936.json.4bc0ad49072d4d509b934eed4babc5f2.tmp.552ede6194144fafac7ebd378826238a.tmp",
+      "bytes": 153,
+      "sha256": "1f992bd82ff1ccf37aff1bf6b3bace707ab88038f2c6b287b9d824faa42db044"
+    },
+    "guard_file": {
+      "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/budgets/budget.guard",
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    "both_first_fingerprinted_in_v81_not_in_v80_71_descriptors": true,
+    "canonical_json_and_request_match": true,
+    "expected_outer_temp_present": false,
+    "publisher_published_state_is_earlier": true,
+    "read_by_budget_state_glob": false,
+    "normal_path_implication": "publisher passed lock acquisition and reached in-lock state sampling and inner temporary file write at this historical point",
+    "exact_last_failed_attempt_holder_proven": false,
+    "unlock_or_stall_syscall_proven": false,
+    "owner_field_in_guard_file": false
+  },
+  "failure": {
+    "failing_role": "pipeline",
+    "phase": "polling publisher after ack",
+    "source_trace_anchor": "pipeline_v80.py:920 -> 876 -> 737 -> 422 -> 408 -> checkpoint_v2.py:167",
+    "sequence": [
+      "msvcrt.locking PermissionError errno 13",
+      "WriterBusy",
+      "BudgetExceeded: Cumulative budget state lock unavailable",
+      "outer TimeoutError: Synthetic descendant deadline/watchdog failure"
+    ],
+    "acquisition_failed_before_yield": true,
+    "lock_holder_in_error": false,
+    "branch_explicitly_recorded": false,
+    "best_supported_branch": "per-acquisition monotonic retry cutoff, not observed directly",
+    "v80_result": "incomplete_timeout",
+    "formal_elapsed_seconds": 128.75,
+    "whole_window_veto": false,
+    "publisher_source_positions": [
+      "H7"
+    ],
+    "role_codes": {
+      "publisher": null,
+      "publisher_launcher": 15,
+      "resumed_pipeline": 1
+    },
+    "failure_and_veto_evidence": [
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/pipeline_failure.json",
+        "bytes": 2753,
+        "sha256": "7b6fbf78d1e8d549dc4a8f2368038fc62cb007060452b9c0b1675bdeaffb8c7e"
+      },
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/publisher/delivery_veto.json",
+        "bytes": 599,
+        "sha256": "72b843fa4842a6e632c90a43a0af470732e1abe5bf6198516c7f3dabdcf80849"
+      },
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/control/episodes/4b1585d34c3448b293862abaf9d59a80/roles/pipeline/delivery_veto.json",
+        "bytes": 765,
+        "sha256": "e6b194e7a9c9b2955d08984633a5d137656e37d9b1872cc081fc1b7a35cce4ca"
+      },
+      {
+        "path": "shop-mysql-runtime/v80/runs/tests-03d2be514b7d46f08f8bcf71e3d32833/A12-prefix-eeb75d11083d434fba597766431f9047/internal/episodes/4b1585d34c3448b293862abaf9d59a80/publisher_sources.jsonl",
+        "bytes": 46,
+        "sha256": "0deb8525e3f769d38d788a0f5a3b545bc31094c1e03bc075606e4c77d01f1b80"
+      }
+    ]
+  },
+  "existing_utc_deltas": {
+    "stop_minus_unpublished_sample_ms": 5.463,
+    "stop_minus_pipeline_published_sample_seconds": 1.042697,
+    "outer_published_sample_after_stop_ms": 155.274,
+    "request_utc_seconds_left_at_stop": 86.050627,
+    "differences_between_saved_samples_not_new_measurement_or_lock_duration": true
+  },
+  "not_established": [
+    "owner of exact last failed lock call",
+    "owner of each retry or continuous ownership",
+    "actual retry count or monotonic wait",
+    "exact completion or stall phase of flush/fsync/close/replace",
+    "specific trigger for each errno13 or filesystem latency"
+  ],
+  "scope": {
+    "source_edits": 0,
+    "process_probes": 0,
+    "new_measurements": 0,
+    "acceptance_reruns": 0,
+    "real_data_reruns": 0,
+    "original_v80_result_unchanged": true
+  },
+  "review": [
+    "independent source-path review",
+    "independent record, temporary file and timing review"
+  ]
+}

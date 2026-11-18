@@ -22,4 +22,38 @@
 
 恢復 worker 的角色握手亦共用 `budget.guard`，但接下來的科學工作用 `internal/cp/writer.guard` 與 CP `budget.json`。pipeline 的 `store.finalize` 也用 CP writer，完成後才啟動 publisher。publisher 讀 CP 使用 `_load()`，沒有取 CP writer 鎖。`writer_owner.json` 對應 CP writer，無法當作 `control/budgets/budget.guard` 的持有者收據。[worker 與 CP finalize](../scripts/retailrocket_session_knn_pipeline_v80.py#L1115) · [CP writer](../scripts/retailrocket_session_knn_checkpoint_v2.py#L294) · [publisher 唯讀 CP](../scripts/retailrocket_session_knn_pipeline_v80.py#L586)
 
-以上四份 V80 原始程式與測試文字的 bytes／SHA-256 均符合 V80 工具 seal。以下階段另核對既有狀態檔、失敗收據及未發布暫存。
+以上四份 V80 原始程式與測試文字的 bytes／SHA-256 均符合 V80 工具 seal。
+
+## 第二步：對齊留存時間線和未發布暫存
+
+**能定位 pipeline 被拒取鎖的路徑，也能把 publisher 持鎖定位到停止前的一個取樣點。最後一次拒取當下的持有者仍無法確定。** 角色 ack 將 outer PID 20180 綁到第二次 pipeline 3916，再將 pipeline 3916 綁到 publisher 17936。launcher PID 11584 和 6272 分開保存。原 request 的建立時間為台北 11:07:19.478693，UTC 截止換算為台北 11:09:19.478693，原請求上限 120 秒。[角色身分、原檔描述與時間線](../reports/mainline/v81_a12_budget_lock_review_20261118.json)
+
+下表時間均為 2026-11-18 台北時間。`last_utc` 是已取得鎖後的取樣時間，早於寫檔與釋放。停止請求時間是監督者捕捉錯誤後記錄的時間，晚於最後一次拒取。
+
+| 已保存時間 | 角色 | 可核對的錨點 |
+| --- | --- | --- |
+| 11:07:30.124648 | outer | 開始第二次 pipeline 監督 |
+| 11:07:41.055720 | pipeline | 已觀測恢復 worker 角色退出 `0` |
+| 11:07:44.856537 | pipeline | 開始監督 publisher |
+| 11:07:52.385368 | pipeline | 最後一筆已發布狀態的鎖內時間樣本 |
+| 11:07:53.390338 | publisher | 最後一筆已發布狀態的鎖內時間樣本 |
+| 11:07:53.422602 | publisher | 雙層暫存中的未發布鎖內時間樣本 |
+| 11:07:53.428066 | pipeline | 為 publisher 記錄 `BudgetExceeded` 停止請求 |
+| 11:07:53.583339 | outer | 後續一筆已發布狀態的鎖內時間樣本 |
+| 11:07:53.596161 | outer | 觀測第二次 pipeline 角色退出 `1`，交付因子程序期限錯誤遭否決 |
+
+### 暫存檔能證明哪一段持鎖
+
+在相同 run 的 `control/budgets` 找到 `publisher-17936.json.<uuid>.tmp.<uuid>.tmp`。原樣 153 bytes，SHA-256 為 `1f992bd82ff1ccf37aff1bf6b3bace707ab88038f2c6b287b9d824faa42db044`。檔名符合 `_check_locked` 呼叫 `cp.atomic_json` 時產生的兩層暫存，內容與 CP 的 canonical JSON 格式及該 A12 request SHA-256 相符。其 `last_utc=1794971273.4226022`，晚於正式 `publisher-17936.json` 的取樣。對應外層暫存未留存，正式檔仍是較早一筆。依既有檔案與凍結原碼，publisher 已在這次取樣時取得鎖，也留下內層暫存的完整 bytes。`*.json` 帳本讀取不採用這筆未發布狀態。
+
+用存下的兩筆 UTC 相減，該樣本比 publisher 停止請求早約 5.463 毫秒。停止請求並未記錄最後一次 `LK_NBLCK` 的時刻，而且暫存檔沒有解鎖時間。這個差值不能用來判最後一次拒取時誰持有，不能用來估計 publisher 單次持鎖多久，也無法分辨內層寫入在 flush、fsync、關檔或換檔的哪一段中止。H7 已保存、H8 未保存，無法定位到 `audit_saved` 的哪一次 `watch()`。outer 之後有一筆成功發布，只表明它後來仍能進入鎖內。
+
+本輪先反核 V80 已列的 71 個檔案均相符，再對 `budget.guard` 與這份雙層暫存新增查核描述。這兩檔未列入原 71 個描述。`budget.guard` 的內容只有字元 `0`，沒有所有權帳本。補充暫存的完整路徑、雜湊與舊快照差異列在[反查收據](../reports/mainline/v81_a12_budget_lock_review_20261118.json)。
+
+### 期限錯誤能解釋到哪裡
+
+歷史 traceback 的第二次 `_launch_role` 在輪詢 publisher 時執行 `check()`，由 `msvcrt.locking` 回報 `PermissionError`（errno 13），進而被轉成 `WriterBusy` 與 `BudgetExceeded: Cumulative budget state lock unavailable`。`WriterBusy` 的訊息是 CP 對 `OSError` 的通用包裝，沒有指出鎖持有者，亦未保存逐次 `WinError`。上層因 pipeline failure 的 `timeout_stop=true` 將它傳為子程序 `TimeoutError`，正式窗口因此判為 `incomplete_timeout`。publisher 的角色退出碼仍未知，`15` 是它的 launcher 退出碼。
+
+`_state_lock` 的兩個停止條件為該次取鎖迴圈從起點經過至少 1 秒，或 request UTC 已到期。停止請求時 UTC 截止仍餘約 86.051 秒，整窗也無 900 秒 deadline veto。保存順序最支持**約 1 秒的取鎖重試上限**。pipeline 最後一筆 `last_utc` 到停止請求相差約 1.043 秒，其中包含不同語意的取樣與錯誤傳遞，不能當成實測等待。收據未保存選中的分支、實際嘗試次數或該次 monotonic 起訖，也沒有每次獲鎖、釋鎖的事件。因此現有資料仍不足以歸因為同一程序連續持鎖、特定 I/O 呼叫延滯或其他個別爭鎖情形。
+
+V80 正式判定維持原樣。若後續要確認精確持有者及等待原因，先訂每次取鎖開始、成功、失敗和釋放的記錄欄位，區分鎖內寫檔各階段與兩種停止條件，再另定驗證範圍。

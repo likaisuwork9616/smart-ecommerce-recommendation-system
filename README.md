@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V81 預算鎖路徑反查完成，既有時間線核對中 | A12 已驗角色退出與 64 筆前綴，恢復至 129 筆 golden。第二次入口卡在預算狀態鎖，147 個子案例通過、1 失敗、48 未執行，T_plan 未知 |
+| Stage 12：session-kNN K1 | V81 預算鎖反查完成，V80 發布仍未交付 | 第二次 pipeline 等候 publisher 時取鎖失敗。找到停止前的 publisher 持鎖樣本，最後一次拒取的持有者未定。V80 結果維持 147 通過、1 失敗、48 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,12 +33,15 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜V81 A12 預算狀態鎖反查（最新）
 
+A12 第二次 pipeline 在等候 publisher 時被拒取鎖，尚未進入該次持鎖區。現有證據最支持約 1 秒的單次取鎖重試上限，停止請求時距原 UTC 截止仍有 86.051 秒。
+
 | 本輪步驟 | 結果 |
 | --- | --- |
-| 原碼路徑 | outer、pipeline 與 publisher 共用 run 內 `control/budgets/budget.guard`。確認持鎖包含各角色狀態檔讀寫、fsync 與換檔，角色等候與 CP writer 在不同邊界 |
-| 既有時間線 | 核對中。準備對齊第二次 pipeline 失敗、publisher 狀態與 outer 後續收據 |
+| 原碼路徑 | outer、pipeline 與 publisher 共用 `budget.guard`。已畫清持鎖讀寫、fsync、兩次換檔、釋放與 CP writer 的分界 |
+| 既有時間線 | 71 份已保存描述相符。另找到 publisher 未發布的雙層暫存，支持它在停止前約 5.463 毫秒的取樣時持鎖 |
+| 能否定案 | 最後一次拒取瞬間的持有者、持鎖多久與寫入卡在哪一步仍未知。UTC 差值源自既有資料 |
 
-本輪只讀既有檔案，程式修正、新量測與重跑皆 0。[原碼路徑與反查](docs/STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md)
+本輪程式修正、新量測與重跑皆 0，V80 正式結果維持原判定。[路徑與反查結論](docs/STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md) · [時間線與檔案描述](reports/mainline/v81_a12_budget_lock_review_20261118.json)
 
 ## Stage 12｜V80 唯一合成驗收（前輪）
 

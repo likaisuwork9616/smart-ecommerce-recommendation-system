@@ -8,8 +8,10 @@
 
 | 步驟 | 結果 |
 | --- | --- |
-| 原碼路徑 | 四份 V80 來源描述相符。已列 outer、pipeline、publisher 共用的位元組鎖、角色查詢切點與 CP writer 的分界 |
-| 既有收據 | 已定位失敗呼叫於第二次 pipeline 的 publisher 監督輪詢，時間線與鎖所有權證據整理中 |
+| 原碼路徑 | 四份 V80 來源描述相符。已列 outer、pipeline、publisher 共用位元組鎖的接入、持鎖與釋放，另分出 CP writer |
+| 既有收據 | 71 份舊描述相符，另核對 `budget.guard` 和 publisher 雙層暫存。可定位 publisher 在停止前約 5.463 毫秒取樣時持鎖 |
+| 期限判定 | 最支持約 1 秒取鎖重試上限。精確最後拒取的持有者、持鎖長度與 I/O 階段仍未知 |
+| 執行界線 | 只讀 V80 原碼與存檔，程式修正、新量測及重跑 0 |
 
 [本輪反查](STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md)
 
@@ -1076,7 +1078,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V80 唯一窗口於 A12 發布失敗。前置退出與 64 筆恢復證據成立，147 案通過／1 失敗／48 未執行。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，不裝Linux，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V80 唯一窗口於 A12 發布失敗，147 案通過／1 失敗／48 未執行。V81 定位取鎖路徑及停止前 publisher 持鎖樣本，最終拒取持有者未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，不裝Linux，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 
