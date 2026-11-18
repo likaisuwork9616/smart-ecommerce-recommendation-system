@@ -10,6 +10,8 @@ Smart E-Commerce Recommendation System
 
 ## 目前進度
 
+**2026-11-18 主線調整**　K1 驗收暫停。每日 10% 延遲提醒重查資料後仍待上游交付。本機 9 份 Olist CSV 與下載 ZIP 的雜湊都符合先前已查的版本，指定交接目錄尚無新資料。下一項展示使用已驗收的 C1 共現推薦。延遲 Dashboard 繼續等待適用性驗證。[本輪資料來源與可取得性](docs/PROJECT_PROGRESS.md#daily10-source-check)
+
 | 階段 | 狀態 | 現有成果 |
 | --- | --- | --- |
 | Stage 1：資料與環境 | 完成 | Olist 九份 CSV、MySQL、Jupyter 與本機啟動工具 |
@@ -23,7 +25,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V87 兩項原生資格規格完成，待確認 | V86 的 23 個假案例已通過。V87 已固定時鐘、同 `fd` 檔案案例與停止條件，原生執行為 0，V80 最後拒取持有者仍未知 |
+| Stage 12：session-kNN K1 | 驗收暫停 | V87 兩項規格已完成，原生執行為 0。K1 與 C1 的完整比較仍待驗收 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
