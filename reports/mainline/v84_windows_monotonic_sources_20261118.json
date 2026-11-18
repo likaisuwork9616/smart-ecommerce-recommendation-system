@@ -1,0 +1,149 @@
+{
+  "schema": "v84_windows_monotonic_official_source_review",
+  "date": "2026-11-18",
+  "status": "documentary_qpc_candidate_not_runtime_qualified",
+  "local_sources": [
+    {
+      "path": "reports/mainline/v83_fake_lock_evidence_acceptance_20261118.json",
+      "bytes": 5526,
+      "sha256": "438020825d73687221b09a706b6d1b2dfafc5a15509e734b77719a431cfa6d0b"
+    },
+    {
+      "path": "reports/mainline/v82_a12_budget_lock_evidence_spec_20261118.json",
+      "bytes": 12084,
+      "sha256": "b3a1148fcc898d0d4d47e2c5c48cb839f5d0af740213b97f2f6eac0fc400ca85"
+    },
+    {
+      "path": "reports/mainline/v80_tool_seal_20261118.json",
+      "bytes": 10759,
+      "sha256": "78eabd6ebafe53dc74672b61f4108db622aba524690864764b2463d6a64bc4d7"
+    },
+    {
+      "path": "reports/mainline/v80_fixture_seal_20261118.json",
+      "bytes": 18511,
+      "sha256": "909d291fd1c148ebdad9e5ec8d622f157150832d57874e72f1a6fb2fc3404d5e"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 73833,
+      "sha256": "007e522a5cde351851d53dbe5a77d78e2575c60343548d6436c017a5e05581a5"
+    },
+    {
+      "path": "docs/STAGE12_KNN_ROLE_EXIT_FEASIBILITY_V79_20261117.md",
+      "bytes": 29766,
+      "sha256": "9c751061a5c250d1723508b3e322ab2836cd6bb7db3d7b2f6bf0544a80cc8294"
+    }
+  ],
+  "official_sources": [
+    {
+      "id": "CP01",
+      "title": "CPython 3.12.10 pytime.c",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Python/pytime.c",
+      "locator": "py_get_monotonic_clock / py_get_win_perf_counter / _PyTime_MulDiv",
+      "supports": "Windows GetTickCount64 and QPC/QPF implementations are distinct; integer ns conversion",
+      "limit": "Tagged source interpretation, not a live binary capability check",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CP02",
+      "title": "CPython 3.12.10 timemodule.c",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Modules/timemodule.c",
+      "locator": "get_monotonic / get_perf_counter and ns wrappers",
+      "supports": "Python float or exact int ns wrappers route to the corresponding implementation",
+      "limit": "ns representation does not prove resolution",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CP03",
+      "title": "CPython 3.12.10 time documentation",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Doc/library/time.rst",
+      "locator": "monotonic / perf_counter / get_clock_info",
+      "supports": "System-wide semantics, perf_counter on Windows since3.10, undefined reference point",
+      "limit": "No universal ordering precision or cross-host result",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CP04",
+      "title": "Python 3.13 perf_counter change",
+      "url": "https://docs.python.org/3.13/library/time.html#time.perf_counter",
+      "locator": "3.13 change note",
+      "supports": "Same clock as monotonic documented from3.13",
+      "limit": "Do not backport this claim to3.12.10",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS01",
+      "title": "GetTickCount64",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount64",
+      "locator": "Return value / Remarks",
+      "supports": "System-start milliseconds and typical 10–16ms resolution",
+      "limit": "Typical resolution is not a worst-case uncertainty bound",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS02",
+      "title": "QueryPerformanceCounter",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/profileapi/nf-profileapi-queryperformancecounter",
+      "locator": "Syntax / Parameters",
+      "supports": "Read exact integral QPC counter",
+      "limit": "No UTC or process-exit meaning",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS03",
+      "title": "QueryPerformanceFrequency",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/profileapi/nf-profileapi-queryperformancefrequency",
+      "locator": "Remarks",
+      "supports": "Fixed at boot and consistent across processors on that system",
+      "limit": "Equal QPF does not establish same boot or source",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS04",
+      "title": "Acquiring high-resolution time stamps",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps",
+      "locator": "General FAQ / Hardware characteristics",
+      "supports": "Same system domain, cross-thread ordering ambiguous within one tick, sleep elapsed and no external sync",
+      "limit": "Resolution and one-tick ordering ambiguity do not bound wrapper or scheduling effects",
+      "accessed": "2026-11-18"
+    }
+  ],
+  "versioned_clock_paths": {
+    "original_deadline": "V80 time.monotonic() and UTC; Windows CPython3.12.10 monotonic uses GetTickCount64",
+    "diagnostic_candidate": "native QueryPerformanceCounter raw integer ticks and QueryPerformanceFrequency exact integer Hz",
+    "conditional_alternative": "separately qualified pinned CPython3.12.10 perf_counter_ns with QPC conversion bounds; never mixed"
+  },
+  "scope_of_comparison": [
+    "same admitted Windows system or VM instance and uninterrupted boot interval",
+    "exact QPC backend and QPF, capture ID and real role identity",
+    "no cross-host comparison, no UTC conversion",
+    "old CP boot field is compatibility only",
+    "one native tick pairwise ambiguity is not a total bound",
+    "take exact rational conversion with outward rounding and common origin if V83 integer ns interface used"
+  ],
+  "pending_gates": {
+    "C1": "pinned runtime and actual API plus same positive QPF; original deadline operands and short-circuit preserved",
+    "C2": "predeclared bidirectional causality handoff on isolated synthetic processes; strictly separable positives; ambiguous stays unknown",
+    "C3": "fake exact conversion and refusal cases; expanded attempt and narrowed hold strict containment only after clock qualification"
+  },
+  "preserved": {
+    "formal_methods": 34,
+    "original_cases": 196,
+    "families": 24,
+    "original_manifest_hashes_match": 3,
+    "original_artificial_file_hashes_match": 78,
+    "original_golden_preserved": true
+  },
+  "execution": {
+    "tool_implementation": 0,
+    "native_probes": 0,
+    "process_launches": 0,
+    "new_measurements": 0,
+    "formal_acceptance_reruns": 0
+  }
+}

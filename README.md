@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V83 假鎖工具已封存，18 個假案例全數通過 | 已驗短路、原請求到期、換手與缺失紀錄。V80 最後一次拒取的持有者仍未知，原正式結果維持 147 通過、1 失敗、48 未執行 |
+| Stage 12：session-kNN K1 | V84 跨程序時鐘來源已核對，鎖檔規格整理中 | 已驗短路、原請求到期、換手與缺失紀錄。V80 最後一次拒取的持有者仍未知，原正式結果維持 147 通過、1 失敗、48 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V83 A12 假鎖證據工具與驗收（最新）
+## Stage 12｜V84 Windows 時鐘與鎖檔實體來源（最新）
+
+| 步驟 | 進度 |
+| --- | --- |
+| 跨程序時鐘 | 確認 Windows CPython 3.12.10 的 `monotonic_ns` 使用 GetTickCount64，`perf_counter_ns` 使用 QPC。候選採原生 QPC／QPF 記事件，已列共同域、tick 歧義與區間規則 |
+| 鎖檔身分與驗收 | 整理中。本輪未實作、探測、量測或重跑，原 golden 和 196 案的封存描述相符 |
+
+[官方來源與可比條件](docs/STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
+
+## Stage 12｜V83 A12 假鎖證據工具與驗收（前輪）
 
 | 步驟 | 結果 |
 | --- | --- |
