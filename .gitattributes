@@ -727,3 +727,7 @@ scripts/*v80.py text eol=lf
 tests/*v80.py text eol=lf
 docs/contracts/retailrocket_session_knn_cases_v80.json -text
 reports/mainline/v80_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V81 read-only lock analysis and saved evidence descriptions.
+docs/STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md text eol=lf
+reports/mainline/v81_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
