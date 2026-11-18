@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V85 獨立介面與假案例封存 | [來源 SHA-256、23 個假案例名單及原封存反核](mainline/v85_windows_source_interfaces_seal_20261118.json)，案例與原生呼叫皆 0 |
 | V84 Windows 鎖檔實體與資格驗收 | [12 份官方來源、檔案世代及接合門檻](mainline/v84_windows_file_identity_qualification_20261118.json)，同 fd 的 FileIdInfo 為文件候選，未實作或探測 |
 | V84 Windows 單調時鐘來源 | [8 份官方文件、原碼與待驗條件](mainline/v84_windows_monotonic_sources_20261118.json)，QPC／QPF 為文件候選，未探測或量測 |
 | V83 封存後假驗收 | [18 個假案例結果與原始收據描述](mainline/v83_fake_lock_evidence_acceptance_20261118.json)，18 通過／0 失敗，正式案例執行 0 |

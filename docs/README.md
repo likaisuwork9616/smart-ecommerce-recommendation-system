@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V84 Windows 時鐘與鎖檔實體來源（最新）
+## Stage 12｜V85 獨立時鐘與鎖檔身分介面（最新）
+
+QPC／QPF 與同一 `fd` 的 FileIdInfo 已有獨立介面和 23 個封存假案例。靜態核對完成，案例執行 0，原 golden 與 196 案符合封存。[本輪範圍](STAGE12_KNN_WINDOWS_SOURCE_INTERFACES_V85_20261118.md)
+
+## Stage 12｜V84 Windows 時鐘與鎖檔實體來源（前輪）
 
 已核對封存 CPython 3.12.10 與 Win32 官方來源。提出原生 QPC／QPF、原 fd 的 FileIdInfo 及 7 個待驗關卡，工具與現場資格仍待確認。[完整規格](STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
 

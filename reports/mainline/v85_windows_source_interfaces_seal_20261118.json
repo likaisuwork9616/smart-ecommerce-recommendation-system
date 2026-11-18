@@ -1,0 +1,151 @@
+{
+  "schema": "v85_windows_source_interfaces_static_seal",
+  "date": "2026-11-18",
+  "status": "prepared_statically_sealed_not_executed",
+  "scope": "injected_qpc_qpf_and_same_fd_file_id_info_only",
+  "interface_commit": "faaea66c555e3e26396f91bf6edd5f6dcaa83c5e",
+  "new_source_descriptors": [
+    {
+      "path": "scripts/retailrocket_session_knn_qpc_v85.py",
+      "bytes": 6086,
+      "sha256": "0e9365a5d2f0d6359fed7953b2920a50cf7a9b839a0d5065db3c1d60b5888c05"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_file_identity_v85.py",
+      "bytes": 8854,
+      "sha256": "38987d4a1a5c849b8077b3c59cbfe26a9da9e7aa3829be9ff5a767012dea1c8e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_windows_sources_v85.py",
+      "bytes": 19397,
+      "sha256": "53456ea2b1a44aa2afeb555e83aa27be73af48bd7641bbbba4bf32b1d5f9d6cb"
+    }
+  ],
+  "existing_local_dependency_descriptors": [
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_lock_owner_v83.py",
+      "bytes": 6417,
+      "sha256": "7a6a6064ca2735b61267f44b586de65689f233d369090473aff13c02cd657904"
+    }
+  ],
+  "source_anchors": [
+    {
+      "path": "docs/STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md",
+      "bytes": 15184,
+      "sha256": "40257bad70ee3df675252b6afe116d81227ffb02ca0f1000055a941f0af6b0c3"
+    },
+    {
+      "path": "reports/mainline/v84_windows_monotonic_sources_20261118.json",
+      "bytes": 6579,
+      "sha256": "7b4da6304c06625808b3995a85933aaed9292de2b344086aaaa463ed58837971"
+    },
+    {
+      "path": "reports/mainline/v84_windows_file_identity_qualification_20261118.json",
+      "bytes": 10543,
+      "sha256": "f1051108224c4306a5460094dbd11e2df831f8dc1a8259d87655113871ab49f0"
+    },
+    {
+      "path": "reports/mainline/v83_lock_evidence_tool_seal_20261118.json",
+      "bytes": 5518,
+      "sha256": "b5fbf737f94d6ff8b9515acd9519a65b92307c430cfbc23d1b98da31de30dd20"
+    },
+    {
+      "path": "reports/mainline/v80_tool_seal_20261118.json",
+      "bytes": 10759,
+      "sha256": "78eabd6ebafe53dc74672b61f4108db622aba524690864764b2463d6a64bc4d7"
+    },
+    {
+      "path": "reports/mainline/v80_fixture_seal_20261118.json",
+      "bytes": 18511,
+      "sha256": "909d291fd1c148ebdad9e5ec8d622f157150832d57874e72f1a6fb2fc3404d5e"
+    },
+    {
+      "path": "reports/mainline/v80_synthetic_acceptance_window1_20261118.json",
+      "bytes": 36180,
+      "sha256": "2935151ada544b0939799b2f32fc9ff4a6f6c4c3df1bfab5fe8295f36385c137"
+    }
+  ],
+  "static_checks": {
+    "source_parsed_as_python_ast": true,
+    "imports_reviewed_without_importing_modules": true,
+    "no_native_binding_or_default_backend": true,
+    "fake_case_constructor_arguments_and_expected_branches_reviewed": true,
+    "new_python_sources_use_lf": true,
+    "tests_init_file_present": false,
+    "fake_test_module_id": "tests.test_retailrocket_session_knn_windows_sources_v85",
+    "fake_test_methods_by_class": {
+      "FakeFileIdTests": 13,
+      "FakeQpcTests": 10
+    },
+    "fake_test_method_ids": [
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_32bit_high_bit_handle_retains_unsigned_value",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_borrows_same_fd_and_preserves_all_identity_bits",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_comparison_checks_high_file_id_bits_and_full_volume_serial",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_fd_rebound_after_query_cannot_be_borrowed_again",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_file_id_api_failure_preserves_winerror_without_fallback",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_file_id_error_stays_available_if_open_changes_afterward",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_foreign_or_ambiguous_file_paths_are_not_admitted",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_independent_role_opens_can_share_one_file_generation",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_missing_winerror_does_not_reuse_a_failure_code",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_open_generation_or_handle_change_during_capture_fails_closed",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_rejects_fd_mismatch_closed_stream_and_unusable_handles",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_reply_must_contain_exact_full_file_id_info_and_a_usably_distinct_id",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeFileIdTests.test_same_identity_requires_common_scope_path_and_generation_proof",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_missing_clock_proof_leaves_causal_order_unknown",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_native_failure_preserves_error_and_stops_frequency_first",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_raw_counter_and_rate_are_exact_above_float_precision",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_rejects_inversion_or_frequency_change_in_same_process",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_rejects_unusable_ticks_or_frequency",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_reversed_attempt_bounds_are_inconsistent",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_shared_origin_preserves_fractional_ticks_with_outward_rounding",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_synthetic_cross_role_interval_strictly_contains_attempt",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_touching_or_one_tick_apart_cannot_establish_containment",
+      "tests.test_retailrocket_session_knn_windows_sources_v85.FakeQpcTests.test_unqualified_sample_or_invalid_margins_have_no_bounds"
+    ]
+  },
+  "original_preservation": {
+    "v80_case_catalog": {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    },
+    "required_case_ids": 196,
+    "required_test_methods": 34,
+    "case_families": 24,
+    "v80_method_source_descriptors_verified": 38,
+    "original_fixture_manifests_verified": 3,
+    "original_fixture_files_verified": 78,
+    "original_fixture_file_bytes_verified": 8043982,
+    "a12_golden_verified": {
+      "path": "shop-mysql-runtime/v75/fixtures/F-long/golden_records.jsonl",
+      "bytes": 506171,
+      "sha256": "0a61dda32d4391cebc5faea0fc400f06f670e2496f3b973e7e0ba5857535eb2b"
+    },
+    "v80_case_outcomes": {
+      "passed": 147,
+      "failed": 1,
+      "unexecuted": 48
+    },
+    "v80_formal_windows_remaining": 0
+  },
+  "execution": {
+    "fake_case_methods_executed": 0,
+    "native_calls": 0,
+    "runtime_measurements": 0,
+    "real_role_integrations": 0,
+    "formal_suite_windows_started": 0,
+    "formal_subcases_executed": 0,
+    "real_data_reruns": 0
+  },
+  "pending": {
+    "fake_execution_authorized": false,
+    "native_source_qualification": "unverified",
+    "guard_generation_continuity": "unverified",
+    "a12_last_rejected_attempt_holder": "unknown"
+  }
+}
