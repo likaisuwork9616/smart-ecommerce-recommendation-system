@@ -1,0 +1,102 @@
+{
+  "schema": "v83_fake_lock_evidence_acceptance",
+  "date": "2026-11-18",
+  "status": "passed",
+  "scope": "sealed_offline_fake_clock_fake_lock_only",
+  "seal": {
+    "path": "reports/mainline/v83_lock_evidence_tool_seal_20261118.json",
+    "bytes": 5518,
+    "sha256": "b5fbf737f94d6ff8b9515acd9519a65b92307c430cfbc23d1b98da31de30dd20"
+  },
+  "sealed_and_pushed_source_commit": "0785d1abaa1a3f9bb83cffcb115ac27e40020867",
+  "entry_exit_code": 0,
+  "case_counts": {
+    "required": 18,
+    "started": 18,
+    "passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "unexecuted": 0,
+    "by_group": {
+      "FakeOwnershipTests": 9,
+      "FakeRetryTests": 9
+    }
+  },
+  "passed_test_ids": [
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_boundaries_crossing_and_error_expansion_stay_unknown",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_handoff_is_classified_per_retry",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_incomplete_coverage_or_unverified_clock_fails_closed",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_interrupted_hold_is_bounded_by_the_last_proven_held_sample",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_missing_failed_call_or_unproved_hold_keeps_owner_unknown",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_nonconflict_reason_does_not_change_historical_holder",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_overlapping_guaranteed_exclusive_holds_are_inconsistent",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_scope_and_launcher_identity_cannot_fill_the_role_record",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_unique_strict_containment_confirms_holder_not_conflict",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_acquire_success_does_not_evaluate_retry_predicates",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_exact_second_short_circuits_poison_utc",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_failed_unlock_is_not_saved_as_success",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_failed_write_is_recorded_before_unlock_and_skips_later_write",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_original_utc_deadline_at_equality_before_one_second",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_overflow_preserves_prefix_and_marks_missing_evidence",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_retries_keep_the_original_monotonic_origin",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_retry_then_acquire_preserves_write_and_unlock_order",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_unrelated_acquire_error_does_not_retry_or_release"
+  ],
+  "outcomes": {
+    "one_second_short_circuit": "exactly 1 second selects retry cap and never reads scripted UTC",
+    "original_request_expiry": "before 1 second a scripted UTC sample equal to the deadline selects original request cutoff",
+    "handoff": "independent synthetic attempts identify publisher then outer under the same fake lock and clock",
+    "missing_evidence": "missing boundaries or incomplete coverage remain unknown, overlapping exclusive holds remain inconsistent, and buffer overflow records the missing tail",
+    "mock_write_and_release": "ordered mock writes and unlock tested including write failure, release failure and unrelated acquire error"
+  },
+  "limitations": [
+    "owner model consumes supplied fake physical-lock, clock and coverage attestations",
+    "no live lock observation, role event wiring, or perturbation result",
+    "V80 final failed-attempt owner remains unknown"
+  ],
+  "preservation": {
+    "original_methods": 34,
+    "original_case_ids": 196,
+    "original_families": 24,
+    "original_tool_and_case_descriptors_rechecked": 38,
+    "original_manifest_descriptors_rechecked": 3,
+    "original_artificial_file_descriptors_rechecked": 78,
+    "original_golden_and_draws_match_sealed_hashes": true,
+    "v80_saved_evidence_descriptors_rechecked": 71,
+    "v80_case_outcomes": {
+      "passed": 147,
+      "failed": 1,
+      "unexecuted": 48
+    }
+  },
+  "scope_counts": {
+    "real_role_integration": 0,
+    "native_lock_or_process_probe_calls": 0,
+    "performance_measurements": 0,
+    "formal_windows_started": 0,
+    "formal_cases_run": 0,
+    "real_data_reruns": 0
+  },
+  "raw_receipts": [
+    {
+      "path": "shop-mysql-runtime/v83/fake_validation/run1/entry_exit.json",
+      "bytes": 241,
+      "sha256": "283015ae664934580e12396657d5d1aaff3036fa110fa6faec1ad7432c0cd5d6"
+    },
+    {
+      "path": "shop-mysql-runtime/v83/fake_validation/run1/result.stdout.json",
+      "bytes": 7375,
+      "sha256": "5b8b88fec6285840f1514f3b75b788fe3ab6fdc7af4b5c45293ef2364944f3f1"
+    },
+    {
+      "path": "shop-mysql-runtime/v83/fake_validation/run1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_result_review": {
+    "status": "matched_sealed_roster_and_raw_receipts",
+    "original_case_catalog_byte_identical_to_preparation_baseline": true,
+    "no_formal_cases_run": true
+  }
+}

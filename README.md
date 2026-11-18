@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V83 假鎖工具與案例已封存，待驗證 | 固定持有者判定、短路期限分支及 9 組待驗門檻。V80 最後一次拒取的持有者仍未知，147 通過、1 失敗、48 未執行 |
+| Stage 12：session-kNN K1 | V83 假鎖工具已封存，18 個假案例全數通過 | 已驗短路、原請求到期、換手與缺失紀錄。V80 最後一次拒取的持有者仍未知，原正式結果維持 147 通過、1 失敗、48 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,15 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V83 A12 假鎖證據工具（最新）
+## Stage 12｜V83 A12 假鎖證據工具與驗收（最新）
 
 | 步驟 | 結果 |
 | --- | --- |
-| 工具與假案例封存 | 兩個離線工具、固定 runner 及 18 個假案例已完成靜態核對並寫入封存收據 |
-| 原證據保留 | V80 的 38 個來源與案例描述、3 份 manifest 與 78 個人工檔相符。原 196 子案例及原 golden 保留 |
-| 假案例執行 | 封存階段執行數 0。待推送後才驗 1 秒短路、請求截止、鎖換手與證據缺失 |
+| 工具與案例封存 | 兩個離線工具、固定 runner 及 18 個假案例先封存推送，封存前執行 0 |
+| 封存後假驗收 | **18 通過／0 失敗／0 跳過**。正好 1 秒時 UTC 未求值，未滿 1 秒時原請求恰到期會選 UTC 分支 |
+| 持有者與缺失 | 同一假鎖換手後逐次確認。缺界線或覆蓋回報未知，排他區間矛盾拒判。假寫入和解鎖失敗保留原錯誤 |
+| 邊界 | 原 golden、原 196 案和 V80 既有結果反核一致。真實角色接入、原生鎖呼叫、實機量測及正式驗收皆 0 |
 
-本輪驗的是假的時鐘、鎖和輸入紀錄，範圍不含真實角色、實機量測及正式驗收。[操作與限制](docs/STAGE12_KNN_FAKE_LOCK_EVIDENCE_V83_20261118.md) · [工具封存](reports/mainline/v83_lock_evidence_tool_seal_20261118.json)
+V83 驗到假輸入的判定與記錄。實際共同時鐘與鎖實體綁定仍待驗，V80 最後一次拒取的持有者仍未知。[操作與結果](docs/STAGE12_KNN_FAKE_LOCK_EVIDENCE_V83_20261118.md) · [封存](reports/mainline/v83_lock_evidence_tool_seal_20261118.json) · [假驗收收據](reports/mainline/v83_fake_lock_evidence_acceptance_20261118.json)
 
 ## Stage 12｜V82 A12 預算鎖證據與驗收規格（前輪）
 

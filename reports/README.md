@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V83 封存後假驗收 | [18 個假案例結果與原始收據描述](mainline/v83_fake_lock_evidence_acceptance_20261118.json)，18 通過／0 失敗，正式案例執行 0 |
 | V83 假鎖工具與案例封存 | [工具、18 個假案例與原封存描述](mainline/v83_lock_evidence_tool_seal_20261118.json)，封存前執行數 0 |
 | V82 A12 預算鎖證據規格 | [事件欄位、持有者規則與 9 組待驗門檻](mainline/v82_a12_budget_lock_evidence_spec_20261118.json)，保留原短路判定，本輪未執行 |
 | V81 A12 預算狀態鎖反查 | [既有 UTC 時間線、未發布暫存及取鎖錯誤](mainline/v81_a12_budget_lock_review_20261118.json)，定位 publisher 曾在停止附近持鎖，保留最後一次拒取持有者未知 |
