@@ -731,3 +731,7 @@ reports/mainline/v80_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V81 read-only lock analysis and saved evidence descriptions.
 docs/STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md text eol=lf
 reports/mainline/v81_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V82 documentary lock evidence and acceptance specifications.
+docs/STAGE12_KNN_BUDGET_LOCK_EVIDENCE_SPEC_V82_20261118.md text eol=lf
+reports/mainline/v82_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

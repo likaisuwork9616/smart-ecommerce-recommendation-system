@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V81 預算鎖反查完成，V80 發布仍未交付 | 第二次 pipeline 等候 publisher 時取鎖失敗。找到停止前的 publisher 持鎖樣本，最後一次拒取的持有者未定。V80 結果維持 147 通過、1 失敗、48 未執行 |
+| Stage 12：session-kNN K1 | V82 取鎖事件欄位已訂，判定與驗收規格整理中 | 第二次 pipeline 等候 publisher 時取鎖失敗。找到停止前的 publisher 持鎖樣本，最後一次拒取的持有者未定。V80 結果維持 147 通過、1 失敗、48 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -31,7 +31,16 @@ Smart E-Commerce Recommendation System
 
 各輪做了什麼、實際結果與限制見[專案進度](docs/PROJECT_PROGRESS.md)；方法文件依階段整理在[文件導覽](docs/README.md)。
 
-## Stage 12｜V81 A12 預算狀態鎖反查（最新）
+## Stage 12｜V82 A12 預算鎖證據規格（最新）
+
+| 本輪步驟 | 進度 |
+| --- | --- |
+| 事件欄位 | 已列 outer、pipeline、publisher 與 worker 握手的共用鎖範圍。每次取鎖、重試、逐步寫入與釋放使用可對齊的角色身分、鎖實體及時鐘欄位 |
+| 判定與驗收 | 整理中，將分開定義持有者與鎖衝突歸因、1 秒重試上限與原請求 UTC 截止 |
+
+本輪只寫規格，尚無實作、量測或重跑。[欄位與範圍](docs/STAGE12_KNN_BUDGET_LOCK_EVIDENCE_SPEC_V82_20261118.md)
+
+## Stage 12｜V81 A12 預算狀態鎖反查（前輪）
 
 A12 第二次 pipeline 在等候 publisher 時被拒取鎖，尚未進入該次持鎖區。現有證據最支持約 1 秒的單次取鎖重試上限，停止請求時距原 UTC 截止仍有 86.051 秒。
 
