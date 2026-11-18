@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V82 A12 預算鎖證據規格 | [事件欄位、持有者規則與 9 組待驗門檻](mainline/v82_a12_budget_lock_evidence_spec_20261118.json)，保留原短路判定，本輪未執行 |
 | V81 A12 預算狀態鎖反查 | [既有 UTC 時間線、未發布暫存及取鎖錯誤](mainline/v81_a12_budget_lock_review_20261118.json)，定位 publisher 曾在停止附近持鎖，保留最後一次拒取持有者未知 |
 | V80 唯一窗口結果 | [失敗、未執行清單與 A12 反核](mainline/v80_synthetic_acceptance_window1_20261118.json)，128.75 秒，147 通過／1 失敗／48 未執行。驗到 64 筆前綴及 129 筆完整內容，發布未交付 |
 | V80 唯一窗口開窗前核對 | [封存 SHA-256 與未使用窗口](mainline/v80_acceptance_preflight_20261118.json)，預檢階段執行案例 0 |

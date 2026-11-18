@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V81 A12 預算狀態鎖反查（最新）
+## Stage 12｜V82 A12 預算鎖證據與驗收規格（最新）
+
+已訂各角色鎖事件欄位、保守持有者判定及 1 秒／原請求 UTC 的短路證據。9 組待驗門檻完成靜態審閱，工具與實際觀測尚待另定範圍。[完整規格](STAGE12_KNN_BUDGET_LOCK_EVIDENCE_SPEC_V82_20261118.md)
+
+## Stage 12｜V81 A12 預算狀態鎖反查（前輪）
 
 用 V80 原碼及留存收據確認三角色共用 `budget.guard`。publisher 暫存顯示停止前的持鎖取樣，最後一次拒取的持有者仍未知。未修改或重跑。[路徑與反查結論](STAGE12_KNN_BUDGET_LOCK_REVIEW_V81_20261118.md)
 

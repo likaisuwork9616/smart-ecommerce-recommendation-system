@@ -1,0 +1,417 @@
+{
+  "schema": "v82_a12_budget_lock_evidence_acceptance_spec",
+  "date": "2026-11-18",
+  "status": "documentary_specification_only",
+  "sources": [
+    {
+      "path": "reports/mainline/v81_a12_budget_lock_review_20261118.json",
+      "bytes": 14353,
+      "sha256": "5166a721aa893accd17f25ff4c4fdbbf660eaf5432ef9c27453fc49ac20e5583"
+    },
+    {
+      "path": "reports/mainline/v80_synthetic_acceptance_window1_20261118.json",
+      "bytes": 36180,
+      "sha256": "2935151ada544b0939799b2f32fc9ff4a6f6c4c3df1bfab5fe8295f36385c137"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 73833,
+      "sha256": "007e522a5cde351851d53dbe5a77d78e2575c60343548d6436c017a5e05581a5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v80.py",
+      "bytes": 28207,
+      "sha256": "ce055c48231ed6d16614f89e36b7cefa001516d246fb720cb61e55704808e42e"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 65368,
+      "sha256": "692d4acb1377760c4ff06817623d8838a2c6d8dc800323c29a27d3aaf1f52212"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    }
+  ],
+  "scope": {
+    "lock": "control/budgets/budget.guard",
+    "range": {
+      "offset": 0,
+      "length": 1,
+      "exclusive": true
+    },
+    "target": "A12 second entry before the first outer budget check through stop or final delivery",
+    "historical_case_outcomes": {
+      "passed": 147,
+      "failed": 1,
+      "unexecuted": 48
+    },
+    "required_methods_preserved": 34,
+    "required_subcases_preserved": 196,
+    "families_preserved": 24,
+    "new_tool_or_case_implementation": 0,
+    "measurements": 0,
+    "acceptance_reruns": 0,
+    "process_or_clock_probes": 0,
+    "real_data_reruns": 0
+  },
+  "role_coverage": {
+    "outer": [
+      "pre_entry",
+      "pipeline_launch_and_ready",
+      "pipeline_native_admission",
+      "pipeline_poll",
+      "delivery_or_failure",
+      "finalizer_if_reached"
+    ],
+    "pipeline": [
+      "role_ready_ack",
+      "worker_supervision",
+      "checkpoint_finalize_guard",
+      "publisher_launch_and_ready",
+      "publisher_native_admission",
+      "publisher_poll",
+      "publisher_delivery_or_failure"
+    ],
+    "publisher": [
+      "role_ready_ack",
+      "after_H7",
+      "per_record_with_ordinal",
+      "before_H8",
+      "before_proof"
+    ],
+    "other_shared_participants": [
+      "worker_ready_ack",
+      "any other same-lock observer or supported exclusion"
+    ],
+    "scope_bindings": [
+      "pre-episode event carries request and invocation ID",
+      "later episode binding is append-only",
+      "prove initial boundary closure or mark gaps",
+      "CP writer.guard is distinct",
+      "formal runner is distinct from outer"
+    ]
+  },
+  "event_common_fields": {
+    "authority": [
+      "schema",
+      "capture_id",
+      "formal_window_id",
+      "tool_seal_sha256",
+      "fixture_seal_sha256",
+      "canonical_request_sha256",
+      "run_id",
+      "entry_id",
+      "episode_id_or_pending"
+    ],
+    "process": [
+      "role",
+      "pid",
+      "create_time",
+      "boot_identity",
+      "role_receipt_descriptor",
+      "supervised_role_if_any",
+      "separate_launcher_identity_if_any"
+    ],
+    "lock": [
+      "relative_guard_path",
+      "physical_file_identity",
+      "file_generation",
+      "offset",
+      "length",
+      "exclusive_nonblocking_mode",
+      "local_open_id"
+    ],
+    "sequence": [
+      "producer_sequence",
+      "guard_instance_id",
+      "check_id",
+      "call_site",
+      "attempt_index_if_any",
+      "hold_id_if_acquired"
+    ],
+    "time": [
+      "event_sample",
+      "unit",
+      "clock_domain",
+      "boot_scope",
+      "cross_process_capability_ref",
+      "lower_error_bound",
+      "upper_error_bound",
+      "true_predicate_operands_separate"
+    ],
+    "result": [
+      "operation",
+      "begin_or_end",
+      "success_failure_or_unobserved",
+      "original_exception_type",
+      "errno_or_null",
+      "winerror_or_null",
+      "error_wrapper_chain",
+      "receipt_descriptors",
+      "missing_reason_if_null"
+    ]
+  },
+  "event_groups": [
+    {
+      "events": [
+        "guard_open",
+        "guard_init"
+      ],
+      "specific": [
+        "call_bounds",
+        "physical_identity",
+        "open_id",
+        "seed_required_and_result"
+      ]
+    },
+    {
+      "events": [
+        "lock_loop_begin"
+      ],
+      "specific": [
+        "original_post_open_seed_monotonic_origin",
+        "retry_seconds_1",
+        "sleep_request_seconds_0.005",
+        "request_utc_deadline"
+      ]
+    },
+    {
+      "events": [
+        "lock_attempt_begin",
+        "lock_attempt_end"
+      ],
+      "specific": [
+        "bounds_and_capture_layer",
+        "attempt_index",
+        "native_or_wrapper_result",
+        "raw_cause",
+        "hold_id_after_success"
+      ]
+    },
+    {
+      "events": [
+        "retry_decision",
+        "retry_sleep"
+      ],
+      "specific": [
+        "original_operands",
+        "actual_selected_branch",
+        "evaluation_flags",
+        "same_origin",
+        "sleep_request",
+        "observed_wakeup_or_unknown"
+      ]
+    },
+    {
+      "events": [
+        "state_read",
+        "state_sample"
+      ],
+      "specific": [
+        "hold_id",
+        "published_state_roster",
+        "request_match",
+        "utc_mono_samples",
+        "budget_components",
+        "intended_state_path"
+      ]
+    },
+    {
+      "events": [
+        "state_write"
+      ],
+      "specific": [
+        "hold_id",
+        "write_id",
+        "operation_bounds_results",
+        "temp_and_target_paths",
+        "bytes_and_observed_completion"
+      ],
+      "operations": [
+        "create_inner",
+        "write",
+        "flush",
+        "fsync",
+        "close_inner",
+        "replace_inner_to_outer",
+        "replace_outer_to_published"
+      ]
+    },
+    {
+      "events": [
+        "guard_result"
+      ],
+      "specific": [
+        "inner_guard_stage",
+        "request_identity",
+        "rollback",
+        "original_utc_and_cumulative_checks",
+        "state_published_or_unknown",
+        "optional_resource_callback"
+      ]
+    },
+    {
+      "events": [
+        "unlock_begin",
+        "unlock_end",
+        "guard_close"
+      ],
+      "specific": [
+        "hold_id_when_exists",
+        "open_id",
+        "bounds",
+        "raw_failure_or_success",
+        "no_unlock_for_final_failure_to_acquire"
+      ]
+    },
+    {
+      "events": [
+        "stop_received",
+        "role_exit_observed",
+        "delivery_result"
+      ],
+      "specific": [
+        "separate_request_and_os_observation",
+        "last_known_hold",
+        "missing_tail_status",
+        "source_check_and_attempt_links",
+        "veto_link",
+        "outer_exception_link"
+      ]
+    }
+  ],
+  "retention": {
+    "outside_original_budget_scan": true,
+    "no_sampling_of_attempts": true,
+    "bounded_per_role_buffers": true,
+    "diagnostic_io_serialization_flush_hash_and_extra_lock_inside_existing_lock": false,
+    "normal_tail_counts_and_exact_sequence": true,
+    "preserve_prefix_and_flag_loss_or_kill": true,
+    "quietly_mark_unknown_evidence_complete": false,
+    "ownerless_release_inferred_from_exit": false,
+    "measure_perturbation_only_under_later_scope": true
+  },
+  "owner_judgment": {
+    "preconditions": [
+      "exact physical lock + generation + byte range",
+      "actual role identities",
+      "verified common monotonic clock and bounded error",
+      "closed evidence and known competing participants",
+      "actual rejected call identified"
+    ],
+    "failure_interval": "[call_begin_lower, failure_return_upper] includes uncertainty",
+    "guaranteed_hold_interval": "[success_return_upper, earliest_possible_release_begin_lower] or last_proven_held_lower with continuous evidence",
+    "confirmed_rule": "exactly one continuous hold strictly contains entire expanded failed call bracket",
+    "unknown_on": [
+      "partial or equality boundary",
+      "gaps / bad integrity",
+      "incomparable clock",
+      "changed file generation",
+      "insufficient role or release evidence",
+      "no unique candidate"
+    ],
+    "inconsistent_on": "overlapping guaranteed exclusive holds",
+    "per_attempt": true,
+    "conflict_classification_separate": true,
+    "errno13_or_WriterBusy_alone_confirms_conflict": false,
+    "historical_v81_temporary_file_does_not_supply_failed_attempt_bracket": true
+  },
+  "timeout_judgment": {
+    "context": "actual WriterBusy path only, original monotonic origin created after open and seed",
+    "priority": [
+      {
+        "decision": "lock_retry_monotonic_limit",
+        "when": "decision_mono - loop_start_mono >= 1.0",
+        "utc_evaluated": false,
+        "utc_sample": null,
+        "utc_predicate": null
+      },
+      {
+        "decision": "lock_retry_request_utc_deadline",
+        "when": "delta < 1.0 and sampled_utc >= request_deadline_utc",
+        "utc_evaluated": true,
+        "utc_predicate": true
+      },
+      {
+        "decision": "retry",
+        "when": "delta < 1.0 and sampled_utc < request_deadline_utc",
+        "utc_evaluated": true,
+        "utc_predicate": false,
+        "requested_sleep_seconds": 0.005
+      }
+    ],
+    "success_does_not_evaluate_retry_predicates": true,
+    "keep_null_unevaluated_distinct_from_missing": true,
+    "add_predicate_clock_reads_for_logging": false,
+    "other_stages": [
+      "open/seed/seek errors",
+      "lock held guard request UTC and cumulative expiry at original point",
+      "post-unlock delivery checks with fresh samples and limit sources/ ties",
+      "original resource refusal",
+      "outer wrapped timeout and delivery veto linked to origin"
+    ],
+    "no_deadline_reset_on_new_attempt_or_episode": true,
+    "success_limit_seconds": 900,
+    "work_child_limit_seconds": 120
+  },
+  "planned_criteria": [
+    {
+      "id": "E1",
+      "intent": "complete event and write sequence for normal and rejection-then-success"
+    },
+    {
+      "id": "E2",
+      "intent": "operation failure, killed process, overflow, missing or inconsistent records are detected"
+    },
+    {
+      "id": "E3",
+      "intent": "preserve order, operands and branches under identical scripted inputs and prohibit new in-lock diagnostic IO; real perturbation gate separately scoped"
+    },
+    {
+      "id": "O1",
+      "intent": "strict inclusion confirms owner, equality/partial/expanded uncertainty does not"
+    },
+    {
+      "id": "O2",
+      "intent": "retry handoff and lock/role/clock-domain mismatch or overlap"
+    },
+    {
+      "id": "O3",
+      "intent": "known in-lock anchor retained, unknown unlock/hold tail and independent conflict classification"
+    },
+    {
+      "id": "T1",
+      "intent": "exact one second and short circuit UTC, below cutoff retry with same origin"
+    },
+    {
+      "id": "T2",
+      "intent": "UTC exact deadline below one second and successful acquire bypasses WriterBusy checks"
+    },
+    {
+      "id": "T3",
+      "intent": "locked state and unlocked delivery deadlines separately, propagated to outer authority"
+    }
+  ],
+  "acceptance_boundaries": [
+    "documentary review done",
+    "synthetic clocks, backends and artifact failures only after preparation authorization",
+    "real acquisition or perturbation evidence only in separately scoped window",
+    "no new passed case recorded",
+    "actual owner/cause stays unknown if capability or coverage is missing"
+  ],
+  "documentary_review": {
+    "status": "passed",
+    "reviews": [
+      "independent owner interval, clock comparability, coverage and interrupted release review",
+      "independent source short-circuit, deadline and planned acceptance review"
+    ],
+    "new_execution": 0
+  }
+}
