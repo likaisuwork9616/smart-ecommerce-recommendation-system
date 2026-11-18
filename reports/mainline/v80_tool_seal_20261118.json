@@ -1,0 +1,302 @@
+{
+  "schema": "v80_synthetic_tool_seal",
+  "date": "2026-11-18",
+  "status": "prepared_and_statically_sealed_awaiting_separate_window_authorization",
+  "formal_execution_authorized": false,
+  "real_execution_enabled": false,
+  "runtime": {
+    "system": "Windows",
+    "implementation": "CPython",
+    "python": "3.12.10",
+    "byteorder": "little",
+    "numpy": "2.5.4",
+    "psutil": "7.2.2",
+    "sqlite_version": "3.49.1"
+  },
+  "runtime_provenance": {
+    "saved_target": {
+      "path": "reports/mainline/v77_tool_seal_20261117.json",
+      "bytes": 10611,
+      "sha256": "49668e4cd23a48759b4337eefd14dfb5c2b32e4204c3d0ed860f61abc22936e7"
+    },
+    "checked_text_declarations": [
+      {
+        "path": ".venv/pyvenv.cfg",
+        "bytes": 338,
+        "sha256": "98cd6b99ce997241ebb1f1f1364aa9865e5b881eafbf6e6ad65431d0b86671b2"
+      },
+      {
+        "path": ".venv/Lib/site-packages/numpy-2.5.4.dist-info/METADATA",
+        "bytes": 6635,
+        "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403"
+      },
+      {
+        "path": ".venv/Lib/site-packages/psutil-7.2.2.dist-info/METADATA",
+        "bytes": 22729,
+        "sha256": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b"
+      }
+    ],
+    "observed_current_runtime": false
+  },
+  "source_seeds": [
+    "scripts/retailrocket_session_knn_bundle_v80.py",
+    "scripts/retailrocket_session_knn_pipeline_v80.py",
+    "scripts/retailrocket_session_knn_role_observer_v80.py",
+    "scripts/run_retailrocket_session_knn_acceptance_v80.py",
+    "scripts/seal_retailrocket_session_knn_preparation_v80.py",
+    "scripts/retailrocket_session_knn_full_worker_v75.py",
+    "scripts/retailrocket_session_knn_fixtures_v75.py",
+    "tests/test_retailrocket_session_knn_full_v80.py",
+    "tests/test_retailrocket_session_knn_full_worker_v80.py",
+    "tests/test_retailrocket_session_knn_pipeline_v80.py"
+  ],
+  "dynamic_seeds": [
+    "scripts/retailrocket_session_knn_pipeline_v80.py",
+    "scripts/run_retailrocket_session_knn_acceptance_v80.py",
+    "tests/test_retailrocket_session_knn_full_v80.py",
+    "tests/test_retailrocket_session_knn_full_worker_v80.py",
+    "tests/test_retailrocket_session_knn_pipeline_v80.py"
+  ],
+  "methods": [
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+      "bytes": 62582,
+      "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "scripts/archive_retailrocket_three_arm_v1.py",
+      "bytes": 25498,
+      "sha256": "4aa9fdb7babb6dcb75e3deeb8245f12a43e735c5da5a0309daebc6a4f31411de"
+    },
+    {
+      "path": "scripts/freeze_retailrocket_session_knn_v1.py",
+      "bytes": 13257,
+      "sha256": "db934967ef305ea41dba0c44fcf3642f7f80dcfdc53cd2e017fb8b22134586bf"
+    },
+    {
+      "path": "scripts/prepare_retailrocket_session_knn_v1.py",
+      "bytes": 12565,
+      "sha256": "f5e7e93d4ec8537ae5367d3f11e4f66b1259bb37e6a92744546e399639d960fd"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence.py",
+      "bytes": 9464,
+      "sha256": "b47f9f1ddaa803d41b6cfc29bd4c343bd6ad061b99c4244aca27e2ff670892eb"
+    },
+    {
+      "path": "scripts/retailrocket_cooccurrence_io.py",
+      "bytes": 12142,
+      "sha256": "83603ccef44dd4caa9ecb2f7f110f051ca5b6179b3ac8fba963b99d137791e24"
+    },
+    {
+      "path": "scripts/retailrocket_directed.py",
+      "bytes": 10384,
+      "sha256": "52f72ed8e8f573371b35ea34276beeb45f071912f46a2903e7f34ecd75b21174"
+    },
+    {
+      "path": "scripts/retailrocket_directed_oracle.py",
+      "bytes": 29601,
+      "sha256": "331b6addad9220396ff1cba49d308ea127a54a658d6a4f2c57bc8210005f4d99"
+    },
+    {
+      "path": "scripts/retailrocket_popularity.py",
+      "bytes": 11506,
+      "sha256": "c9e44bf53d73df61bea8b88dd4d99a2551756182edc14c592675fa26f0d01dc9"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_io.py",
+      "bytes": 6678,
+      "sha256": "ab8a4dc2e9f4f680e05021983726fd566cdeeb1395362e16146c766ed52416c2"
+    },
+    {
+      "path": "scripts/retailrocket_popularity_oracle.py",
+      "bytes": 15478,
+      "sha256": "159bb0a605cb518b5e76371b9efee42c125a5b29f97583b5ca42118c53801142"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn.py",
+      "bytes": 10745,
+      "sha256": "53f58d0fb438dd966591f0edadfe3e7c135478e558d3d81c1565ca4636511465"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_bundle_v80.py",
+      "bytes": 21835,
+      "sha256": "c32b77b68a64625ced036b1a8c48a0459ab6f71fd0a87bbe8859b0d956fdda81"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checks_v4.py",
+      "bytes": 10128,
+      "sha256": "20f6e9211ddda287f184c5ea1ad04685060a8596fd8a2272b10bdb93c95a9b2d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_cost.py",
+      "bytes": 9196,
+      "sha256": "fe1316e37aa5a17ec41cef5e59c707afc0264c015bb86fa2ee776120c6128863"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_evaluation.py",
+      "bytes": 8053,
+      "sha256": "0eef1b2f74c83f2698ab6839c1a00629aa3f7cad15975472c15e4f897aac23df"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_fixtures_v75.py",
+      "bytes": 15761,
+      "sha256": "de9fb76ba5f06125a21c322cc38b2429084ee5829d48f511bb7adc4b2b7ab780"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_full_worker_v75.py",
+      "bytes": 17598,
+      "sha256": "05b6320fc59aed11006b4bc302724791825bdd955e7b042a5a1fedf2b23ad4cc"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_io.py",
+      "bytes": 10841,
+      "sha256": "7ce4c7e6a800ee2db55860150dcba99d47bbc0e6a29f2168d9c7f19756163e9b"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_oracle.py",
+      "bytes": 14292,
+      "sha256": "3699f0bc6b5906eaad376ba5cdf677b77e8049fb1499acd8c0a056ad8caa6462"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 73833,
+      "sha256": "007e522a5cde351851d53dbe5a77d78e2575c60343548d6436c017a5e05581a5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback.py",
+      "bytes": 20452,
+      "sha256": "3cdb1a6030c0e06cc89f0dc4f722ab9531255b137d702d6271e538024ce5745f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_readback_v2.py",
+      "bytes": 16792,
+      "sha256": "f66f70181a349b494d8b2df2ea5359b005dd5571e666889eb926bc3d40b5efe1"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_role_observer_v80.py",
+      "bytes": 19077,
+      "sha256": "57e446063f4dedab9d8f02eda188d99009fd2b16561c36e3987d67c99ec166e9"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v2.py",
+      "bytes": 10909,
+      "sha256": "d735fd8a0d2c93949263b81bb958fe5f341a31c61a170be85016f52d53abf8be"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_sql_v4.py",
+      "bytes": 10877,
+      "sha256": "6e48aa075c75d13c127e76e2204687be0d1255d94f6c61b8e44fd9210f20607d"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_acceptance_v80.py",
+      "bytes": 28207,
+      "sha256": "ce055c48231ed6d16614f89e36b7cefa001516d246fb720cb61e55704808e42e"
+    },
+    {
+      "path": "scripts/run_retailrocket_session_knn_v1.py",
+      "bytes": 16464,
+      "sha256": "c5c81352c32b465cc3f67e807df28ebd778e46ffe9cdb9e8f735fe2b1ea728b7"
+    },
+    {
+      "path": "scripts/seal_retailrocket_session_knn_preparation_v80.py",
+      "bytes": 15000,
+      "sha256": "c7b85c342ef70f4f1f081d97a337e32ffea3e1c2dd05a555ea550918d2e5bce0"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn.py",
+      "bytes": 20857,
+      "sha256": "5e55d59c350987ffc334d3ddc944de4965f130665432e22a14d3579053b3f07f"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 26902,
+      "sha256": "21f59cfb21b659258e6c0882559d63badac6c574dbd6982d45531eea9af76c79"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_v80.py",
+      "bytes": 40638,
+      "sha256": "321adc4e98555d9f85bacfc69aa06a23fdbe31aeb75a14a49cf28fe62a8fe80a"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_full_worker_v80.py",
+      "bytes": 15084,
+      "sha256": "eb25ba744a28b0d1dfc65ab830d3434789b83709c152c7d6ba57817ae7b50691"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 65368,
+      "sha256": "692d4acb1377760c4ff06817623d8838a2c6d8dc800323c29a27d3aaf1f52212"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_validation.py",
+      "bytes": 17481,
+      "sha256": "ba8def181e5018a7accfec59c3abb3563b79f5abf8e2ce163935e77dfae54164"
+    }
+  ],
+  "preparation_inputs": [
+    {
+      "path": "reports/stage8/retailrocket_build_v1_specification.json",
+      "bytes": 9331,
+      "sha256": "67dfbf1e5d1a9e8ad0903bcb5c4f8043635b6356f521eda7ce1723b6441fc37c"
+    }
+  ],
+  "parent_plan": {
+    "path": "reports/mainline/v79_role_exit_integration_proposal_20261117.json",
+    "bytes": 61097,
+    "sha256": "8045ddd0657b9a49166d3a68173d2c7c919cad82cfbc38fa51063a40ffd617ec"
+  },
+  "case_contract": {
+    "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+    "bytes": 66855,
+    "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+  },
+  "parent_case_contract": {
+    "path": "docs/contracts/retailrocket_session_knn_cases_v77.json",
+    "bytes": 62582,
+    "sha256": "86eb3f5120f7cf7f37d788a6801bf2671d616a5c4ca700ffe9a4639e2f970363"
+  },
+  "required_test_methods": 34,
+  "required_subcases": 196,
+  "case_families": 24,
+  "limits": {
+    "maximum_formal_windows": 1,
+    "automatic_correction_windows": 0,
+    "success_deadline_seconds": 900,
+    "work_child_watchdog_seconds_max": 120,
+    "retry_allowed": false,
+    "preparation_checkpoint_minutes": 120,
+    "real_full_T_plan": null
+  },
+  "static_checks": {
+    "source_closure_python_files": 36,
+    "ordered_catalog_ids_verified": true,
+    "methods_families_and_modules_verified": true,
+    "A09_refusal_and_evidence_AST_preserved": true,
+    "V77_methods_and_preparation_descriptors_rechecked": 37
+  },
+  "scope": {
+    "new_fixture_generation": 0,
+    "suite_imports": 0,
+    "tests_executed": 0,
+    "formal_windows_started": 0,
+    "live_process_api_probes": 0,
+    "real_measurements": 0,
+    "real_data_reruns": 0
+  }
+}

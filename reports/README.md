@@ -10,6 +10,7 @@
 
 | 想確認的問題 | 閱讀順序 |
 | --- | --- |
+| V80 工具與原案例封存 | [工具封存](mainline/v80_tool_seal_20261118.json)與 [原人工來源封存](mainline/v80_fixture_seal_20261118.json)，涵蓋 38 個工具與案例描述符、34 個方法、196 個同序子案例、24 族、3 份 manifest 與 78 個人工檔。正式窗口待授權 |
 | V79 Q0最小接入與下一輪邊界 | [角色handle／協定／交付／原196案例映射](mainline/v79_role_exit_integration_proposal_20261117.json)；補2份官方來源、27既有case責任；同outer P10可規劃，跨outer恢復未知；未實作或驗收 |
 | V79 Q0官方來源與身分相容 | [20份官方文件／tag原碼及118次原描述核對](mainline/v79_role_exit_sources_20261117.json)；附條件handle候選，boot內部格式限制保留，未實作或執行 |
 | V78修正範圍與分階段計畫 | [D1–D6／Q0／停止與估時](mainline/v78_correction_scope_plan_20261117.json)；先提30–60分鐘Q0，無工具或執行授權，原34方法／196案例保留 |
