@@ -1,0 +1,233 @@
+{
+  "schema": "v84_windows_file_identity_and_joint_qualification_proposal",
+  "date": "2026-11-18",
+  "status": "documentary_sources_selected_actual_qualification_pending",
+  "clock_source_review": {
+    "path": "reports/mainline/v84_windows_monotonic_sources_20261118.json",
+    "bytes": 6579,
+    "sha256": "7b4da6304c06625808b3995a85933aaed9292de2b344086aaaa463ed58837971"
+  },
+  "local_sources": [
+    {
+      "path": "reports/mainline/v80_synthetic_acceptance_window1_20261118.json",
+      "bytes": 36180,
+      "sha256": "2935151ada544b0939799b2f32fc9ff4a6f6c4c3df1bfab5fe8295f36385c137"
+    },
+    {
+      "path": "reports/mainline/v82_a12_budget_lock_evidence_spec_20261118.json",
+      "bytes": 12084,
+      "sha256": "b3a1148fcc898d0d4d47e2c5c48cb839f5d0af740213b97f2f6eac0fc400ca85"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_checkpoint_v2.py",
+      "bytes": 32514,
+      "sha256": "e28d607865bf681b8f46f4514805c04e3ee900df403f072ab9d513cc97d49f5f"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_pipeline_v80.py",
+      "bytes": 73833,
+      "sha256": "007e522a5cde351851d53dbe5a77d78e2575c60343548d6436c017a5e05581a5"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_bundle_v80.py",
+      "bytes": 21835,
+      "sha256": "c32b77b68a64625ced036b1a8c48a0459ab6f71fd0a87bbe8859b0d956fdda81"
+    }
+  ],
+  "official_sources": [
+    {
+      "id": "MS05",
+      "title": "GetFileInformationByHandleEx",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getfileinformationbyhandleex",
+      "locator": "Parameters / Return value / class table",
+      "supports": "FileIdInfo 0x12 returns FILE_ID_INFO on the supplied handle, success or GetLastError",
+      "limit": "Driver and OS dependent; no local support observed",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS06",
+      "title": "FILE_ID_INFO",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-file_id_info",
+      "locator": "Members / Requirements",
+      "supports": "Full volume serial plus 128-bit identifier compares open handles to same file on one computer",
+      "limit": "No cross-computer or eternal generation identity; client requirements table differs from enumeration",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS07",
+      "title": "FILE_ID_128",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-file_id_128",
+      "locator": "Syntax / Members",
+      "supports": "Opaque 16 identifier bytes",
+      "limit": "Do not reinterpret as GUID or lose byte order",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS08",
+      "title": "FILE_INFO_BY_HANDLE_CLASS",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ne-minwinbase-file_info_by_handle_class",
+      "locator": "FileIdInfo",
+      "supports": "Documents FileIdInfo and Windows8 / Server2012 minimum for class",
+      "limit": "Version table alone does not qualify a driver, fs or local bitness",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CRT01",
+      "title": "CRT _get_osfhandle",
+      "url": "https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/get-osfhandle?view=msvc-170",
+      "locator": "Return value / Remarks",
+      "supports": "Borrow OS handle already owned by given CRT descriptor",
+      "limit": "Invalid sentinel is not a file; never CloseHandle borrowed result",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CP05",
+      "title": "Python 3.12 msvcrt",
+      "url": "https://docs.python.org/3.12/library/msvcrt.html#msvcrt.get_osfhandle",
+      "locator": "get_osfhandle",
+      "supports": "Python maps fd to native handle",
+      "limit": "Query on the very fd used by locking; preserve original stream owner",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CRT02",
+      "title": "CRT _locking",
+      "url": "https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/locking?view=msvc-170",
+      "locator": "Remarks / mode table",
+      "supports": "Current pointer starts byte range; LK_NBLCK returns error if rejected; LK_UNLCK releases",
+      "limit": "CRT 1s retries for LK_LOCK and LK_RLCK, not V80 LK_NBLCK; failure does not report owner",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS09",
+      "title": "BY_HANDLE_FILE_INFORMATION",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/ns-fileapi-by_handle_file_information",
+      "locator": "nFileIndex fields / Remarks",
+      "supports": "Legacy file ID is filesystem-specific and can be reused; ReFS 64-bit ID not guaranteed unique",
+      "limit": "No fallback from native 128-bit guarantee",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "CP06",
+      "title": "CPython 3.12.10 Windows fstat",
+      "url": "https://github.com/python/cpython/blob/v3.12.10/Python/fileutils.c",
+      "locator": "_Py_fstat_noraise / _Py_attribute_data_to_stat",
+      "supports": "FileIdInfo can fail while fstat succeeds with legacy fields",
+      "limit": "Python stat tuple cannot prove native FileIdInfo success",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS10",
+      "title": "MS-FSCC 128-bit file ID",
+      "url": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/98860416-1caf-4c80-a9ab-8d61e1ccf5a5",
+      "locator": "2.1.10 128-bit file ID",
+      "supports": "Protocol supports volume uniqueness/lifetime guidance and zero/all-FF invalid identification sentinels",
+      "limit": "Use conservative rejection, not universal assertion about Win32 provider return encoding",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS11",
+      "title": "Win32 File Handles",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/file-handles",
+      "locator": "File lifetime and independent opens",
+      "supports": "Independent opens can use distinct handle and open file objects for same data",
+      "limit": "Handle integer or object-pointer inequality does not reject same on-disk file",
+      "accessed": "2026-11-18"
+    },
+    {
+      "id": "MS12",
+      "title": "GetVolumeInformationByHandleW",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getvolumeinformationbyhandlew",
+      "locator": "Parameters / lpVolumeSerialNumber",
+      "supports": "Same-handle file system and volume context; returns DWORD serial parameter",
+      "limit": "Supplementary metadata only, not the FILE_ID_INFO 64-bit serial replacement",
+      "accessed": "2026-11-18"
+    }
+  ],
+  "proposed_sources": {
+    "event_clock": "native QPC exact integer ticks and QPF exact positive integer Hz",
+    "lock_identity": "GetFileInformationByHandleEx(FileIdInfo=0x12) on borrowed original CRT guard fd handle",
+    "native_fields": {
+      "volume_serial_bits": 64,
+      "file_id_bytes": 16,
+      "serialization": "fixed length hex, preserve opaque ID byte order"
+    },
+    "scope": "admitted local Windows host and boot, controlled regular file default stream, same verified provider and live generation, actual role and open ID",
+    "lock_region": {
+      "offset": 0,
+      "length": 1
+    },
+    "original_guards_preserved": [
+      "time.monotonic and UTC operands",
+      "WriterBusy short circuit",
+      "seek(0)",
+      "LK_NBLCK and LK_UNLCK",
+      "CRT ownership and original open/access/sharing"
+    ],
+    "support_not_observed": [
+      "actual volume/fs and driver",
+      "native API support and type widths",
+      "same-fd custody in prepared adapter",
+      "cross-process clock and file continuity"
+    ]
+  },
+  "generation_rules": [
+    "match full serial and 128-bit ID on same admitted host",
+    "bind original opened fd and actual role + open ID",
+    "independent live opens can have different handles and match file identity",
+    "controlled admitted generation and continuity required even when IDs equal",
+    "known replacement, deletion/recreation or remount splits generations; missing continuity leaves unknown",
+    "alias equality does not bypass canonical path policy",
+    "no path reopen, legacy stat/64-bit ID or pointer fallback",
+    "invalid or missing native ID or provider proof -> unknown"
+  ],
+  "qualification_gates": {
+    "C1": "clock source/runtime/window, exact QPF and retained deadline operands",
+    "C2": "separately authorized bidirectional causal synthetic comparison including separated positive and ambiguous refusal",
+    "C3": "fake tick conversion/strict intervals/different clock rejection",
+    "F1": "fake native ABI and high bits, same borrowed fd, no reopen or close, error and reuse refusal",
+    "F2": "separately authorized two overlapping synthetic independent opens on same live local generation, same-content difference and replacement/alias refusal; receipt proves locality, regular stream filesystem/provider and volume from admitted handles; only this tested location qualifies",
+    "J1": "both sources qualify plus role/request/same byte range/generation/full evidence, V82 strict unique containment or unknown; conflict confirmed separately",
+    "J2": "separate observation perturbation and retention under original guards and no new in-lock diagnostic IO"
+  },
+  "future_authorization": {
+    "next_proposed": "prepare and seal independent source interfaces and fake cases only after user confirmation",
+    "native_capability": "separately scope isolated synthetic program pair / scratch file, time, stop and handling first",
+    "production_roles": false,
+    "formal_cases": false,
+    "new_measurements_now": false
+  },
+  "historical": {
+    "original_golden_and_fixture_descriptors_match": true,
+    "formal_methods": 34,
+    "formal_case_ids": 196,
+    "families": 24,
+    "v80_last_failed_attempt_owner": "unknown",
+    "v80_case_outcomes": {
+      "passed": 147,
+      "failed": 1,
+      "unexecuted": 48
+    }
+  },
+  "execution": {
+    "tool_implementation": 0,
+    "native_probes": 0,
+    "process_launches": 0,
+    "new_measurements": 0,
+    "formal_acceptance_reruns": 0,
+    "real_data_reruns": 0
+  },
+  "documentary_review": {
+    "status": "passed",
+    "scope": [
+      "independent CPython clock and QPC uncertainty review",
+      "independent handle identity, provider and generation review"
+    ],
+    "not_runtime_qualification": true
+  }
+}

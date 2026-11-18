@@ -6,12 +6,13 @@
 
 ## Stage 12 第 96 輪｜V84 Windows 時鐘與鎖檔實體來源
 
-| 步驟 | 進度 |
+| 步驟 | 結果 |
 | --- | --- |
-| 官方時鐘語義 | 8 份官方文件與原碼。確認 3.12.10 的兩種 Windows 底層來源，選原生 QPC／QPF 作事件候選 |
-| 檔案身分與驗收 | 整理中。本輪未做工具、原生 API 探測、量測或重跑，原 golden／196 案保留 |
+| 時鐘 | 確認 Windows CPython 3.12.10 的 GetTickCount64 與 QPC 分線。選原生 QPC／QPF 作候選，原 V80 期限操作數另保留 |
+| 鎖檔 | 同 fd 借用 handle 的 FileIdInfo 具官方語義，完整 ID 加本機 provider 與連續世代仍待驗。7 個資格與接合關卡完成靜態審閱 |
+| 邊界 | 只讀 20 份官方文件與原碼。工具待確認，原生探測、量測和正式重跑 0，原 golden／196 案保留 |
 
-[可比條件](STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
+[官方語義與待驗條件](STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
 
 ## Stage 12 第 95 輪｜V83 A12 假鎖證據工具與驗收
 
@@ -1107,7 +1108,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 9：熱門baseline與完整候選評估 | v1規格／實作、一次train fit及完整validation獨立反讀 | 166,897 query，NDCG@10 0.001681829、HitRate 0.418222%；test locked，0最終重估 |
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
-| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V80 唯一窗口於 A12 發布失敗，147 案通過／1 失敗／48 未執行。V81 定位取鎖與 publisher 持鎖樣本，V82 固定證據與期限規格，V83 的 18 個假案例通過，最後一次拒取持有者仍未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，不裝Linux，保留測試鎖定 |
+| Stage 12：session-kNN K1 | 主要validation／bootstrap輸出已產出；工程方法與比較證據已保存 | V77唯一合成窗口147子案例通過／1失敗／48未執行，已停止；V80 唯一窗口於 A12 發布失敗，147 案通過／1 失敗／48 未執行。V81 定位取鎖與 publisher 持鎖樣本，V82 固定證據與期限規格，V83 的 18 個假案例通過，V84 固定 Windows 時鐘與檔案身分候選，最後一次拒取持有者仍未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，不裝Linux，保留測試鎖定 |
 | Stage 13：其他推薦研究 | 後續依問題另立規格 | 尚未開始 |
 | Stage 14–15：API 與前端 | FastAPI、JavaScript／AJAX 串接 | 尚未開始 |
 

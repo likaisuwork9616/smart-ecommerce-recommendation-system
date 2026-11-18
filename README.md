@@ -23,7 +23,7 @@ Smart E-Commerce Recommendation System
 | Stage 9：熱門baseline與評估 | P0一次真實開發與完整反讀完成 | validation 166,897 query；NDCG@10 0.001681829、HitRate 0.418222%；預留測試locked |
 | Stage 10：共現推薦 | 離線研究交付與證據保存完成 | 完整配對／bootstrap／獨立反讀；C1 NDCG 0.106400714；冷商品、小組及回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；P0／C1 原狀、test locked，冷商品／小組／回溯限制保留 |
-| Stage 12：session-kNN K1 | V84 跨程序時鐘來源已核對，鎖檔規格整理中 | 已驗短路、原請求到期、換手與缺失紀錄。V80 最後一次拒取的持有者仍未知，原正式結果維持 147 通過、1 失敗、48 未執行 |
+| Stage 12：session-kNN K1 | V84 Windows 時鐘與鎖檔候選規格完成 | QPC／QPF 與原 fd 的 FileIdInfo 已完成官方語義核對和待驗條件。V80 最後拒取持有者未知，正式結果維持 147 通過、1 失敗、48 未執行 |
 | Stage 13：其他推薦研究 | 尚未開始 | 依後續問題另立規格 |
 | Stage 14–15：API、前端 | 尚未開始 | FastAPI、JavaScript／AJAX 串接 |
 
@@ -33,12 +33,13 @@ Smart E-Commerce Recommendation System
 
 ## Stage 12｜V84 Windows 時鐘與鎖檔實體來源（最新）
 
-| 步驟 | 進度 |
+| 步驟 | 結果 |
 | --- | --- |
-| 跨程序時鐘 | 確認 Windows CPython 3.12.10 的 `monotonic_ns` 使用 GetTickCount64，`perf_counter_ns` 使用 QPC。候選採原生 QPC／QPF 記事件，已列共同域、tick 歧義與區間規則 |
-| 鎖檔身分與驗收 | 整理中。本輪未實作、探測、量測或重跑，原 golden 和 196 案的封存描述相符 |
+| 跨程序時鐘 | 確認 Windows CPython 3.12.10 的 `monotonic_ns` 使用 GetTickCount64，`perf_counter_ns` 使用 QPC。擬用原生 QPC／QPF 記事件，保留同一開機與 tick 歧義的限制 |
+| 鎖檔實體 | 擬由原 `fd` 借用 handle，以 FileIdInfo 的完整 64 位元磁碟區序號與 128 位元 ID 比對。須另核本機 provider 與檔案世代，路徑和舊 ID 不能補缺 |
+| 待驗關卡 | 20 份官方文件／原碼完成核對，7 個資格與接合關卡完成靜態審閱。兩項來源要各自驗，V82 持有者仍須符合區間與覆蓋 |
 
-[官方來源與可比條件](docs/STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
+原 golden、196 個子案例和 V80 歷史結果保留。本輪工具、原生 API 探測、量測及重跑皆 0。下一步需確認後才準備並封存獨立介面與假案例，原生能力另定範圍。[完整規格](docs/STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md) · [時鐘來源](reports/mainline/v84_windows_monotonic_sources_20261118.json) · [檔案身分來源與接合](reports/mainline/v84_windows_file_identity_qualification_20261118.json)
 
 ## Stage 12｜V83 A12 假鎖證據工具與驗收（前輪）
 

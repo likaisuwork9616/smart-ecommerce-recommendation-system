@@ -11,7 +11,11 @@
 | 商業分析成果 | [Stage 3 商業分析](STAGE3_BUSINESS_ANALYSIS.md) | 八張 EDA 圖與訂單、營收、配送等指標定義 |
 | 資料表關聯 | [Olist 核心 ERD](olist_core_erd.png) | 訂單、商品、付款、評論與賣家等資料表關係 |
 
-## Stage 12｜V83 A12 假鎖證據工具與驗收（最新）
+## Stage 12｜V84 Windows 時鐘與鎖檔實體來源（最新）
+
+已核對封存 CPython 3.12.10 與 Win32 官方來源。提出原生 QPC／QPF、原 fd 的 FileIdInfo 及 7 個待驗關卡，工具與現場資格仍待確認。[完整規格](STAGE12_KNN_WINDOWS_LOCK_SOURCES_V84_20261118.md)
+
+## Stage 12｜V83 A12 假鎖證據工具與驗收（前輪）
 
 先封存後執行，18 個假案例全通過。涵蓋期限兩分支、換手與缺失證據，保留原 golden 及 196 案，沒有接入真實角色或開正式窗口。[本輪操作與結果](STAGE12_KNN_FAKE_LOCK_EVIDENCE_V83_20261118.md)
 
