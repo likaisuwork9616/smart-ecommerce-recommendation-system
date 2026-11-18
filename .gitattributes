@@ -735,3 +735,9 @@ reports/mainline/v81_*.json -text whitespace=blank-at-eol,blank-at-eof,space-bef
 # Preserve V82 documentary lock evidence and acceptance specifications.
 docs/STAGE12_KNN_BUDGET_LOCK_EVIDENCE_SPEC_V82_20261118.md text eol=lf
 reports/mainline/v82_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve V83 fake lock tools, cases and evidence receipts.
+scripts/*v83.py text eol=lf
+tests/*v83.py text eol=lf
+docs/STAGE12_KNN_FAKE_LOCK_EVIDENCE_V83_20261118.md text eol=lf
+reports/mainline/v83_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

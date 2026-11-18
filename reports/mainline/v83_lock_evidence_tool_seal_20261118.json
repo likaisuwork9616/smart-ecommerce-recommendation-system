@@ -1,0 +1,111 @@
+{
+  "schema": "v83_fake_lock_evidence_tool_seal",
+  "date": "2026-11-18",
+  "status": "sealed_before_fake_validation",
+  "scope": "fake_clock_fake_lock_only",
+  "test_module": "tests.test_retailrocket_session_knn_lock_evidence_v83",
+  "test_ids": [
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_boundaries_crossing_and_error_expansion_stay_unknown",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_handoff_is_classified_per_retry",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_incomplete_coverage_or_unverified_clock_fails_closed",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_interrupted_hold_is_bounded_by_the_last_proven_held_sample",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_missing_failed_call_or_unproved_hold_keeps_owner_unknown",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_nonconflict_reason_does_not_change_historical_holder",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_overlapping_guaranteed_exclusive_holds_are_inconsistent",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_scope_and_launcher_identity_cannot_fill_the_role_record",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeOwnershipTests.test_unique_strict_containment_confirms_holder_not_conflict",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_acquire_success_does_not_evaluate_retry_predicates",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_exact_second_short_circuits_poison_utc",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_failed_unlock_is_not_saved_as_success",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_failed_write_is_recorded_before_unlock_and_skips_later_write",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_original_utc_deadline_at_equality_before_one_second",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_overflow_preserves_prefix_and_marks_missing_evidence",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_retries_keep_the_original_monotonic_origin",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_retry_then_acquire_preserves_write_and_unlock_order",
+    "tests.test_retailrocket_session_knn_lock_evidence_v83.FakeRetryTests.test_unrelated_acquire_error_does_not_retry_or_release"
+  ],
+  "source_descriptors": [
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "scripts/accept_retailrocket_session_knn_lock_evidence_v83.py",
+      "bytes": 4578,
+      "sha256": "e83e088fce85ba160c50a4f35d8298008a3a1d5b6b9df7a9cf6e6dda134c6dce"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_lock_owner_v83.py",
+      "bytes": 6417,
+      "sha256": "7a6a6064ca2735b61267f44b586de65689f233d369090473aff13c02cd657904"
+    },
+    {
+      "path": "scripts/retailrocket_session_knn_lock_trace_v83.py",
+      "bytes": 5270,
+      "sha256": "ee9962e4f2f7b133979a58bede00caf22036e84f0c2da382e831793ddeebe217"
+    },
+    {
+      "path": "tests/test_retailrocket_session_knn_lock_evidence_v83.py",
+      "bytes": 19277,
+      "sha256": "dba1d5abcdaf9678090d75d922d30ed0cd05f712937eeca1736f39598f726c79"
+    }
+  ],
+  "parent_descriptors": [
+    {
+      "path": "reports/mainline/v82_a12_budget_lock_evidence_spec_20261118.json",
+      "bytes": 12084,
+      "sha256": "b3a1148fcc898d0d4d47e2c5c48cb839f5d0af740213b97f2f6eac0fc400ca85"
+    },
+    {
+      "path": "reports/mainline/v80_synthetic_acceptance_window1_20261118.json",
+      "bytes": 36180,
+      "sha256": "2935151ada544b0939799b2f32fc9ff4a6f6c4c3df1bfab5fe8295f36385c137"
+    },
+    {
+      "path": "reports/mainline/v80_tool_seal_20261118.json",
+      "bytes": 10759,
+      "sha256": "78eabd6ebafe53dc74672b61f4108db622aba524690864764b2463d6a64bc4d7"
+    },
+    {
+      "path": "reports/mainline/v80_fixture_seal_20261118.json",
+      "bytes": 18511,
+      "sha256": "909d291fd1c148ebdad9e5ec8d622f157150832d57874e72f1a6fb2fc3404d5e"
+    },
+    {
+      "path": "docs/contracts/retailrocket_session_knn_cases_v80.json",
+      "bytes": 66855,
+      "sha256": "ebfd2fff5f514022f6a91bf3180ef9f7030f69e5264fcd60d7527d363806371d"
+    }
+  ],
+  "preservation": {
+    "original_formal_methods": 34,
+    "original_case_ids": 196,
+    "original_families": 24,
+    "v80_source_descriptors_matched": 38,
+    "original_manifest_count": 3,
+    "original_artificial_files": 78,
+    "original_artificial_bytes": 8043982,
+    "original_golden_and_draws_covered_by_fixture_hashes": true
+  },
+  "static_checks": {
+    "AST_parse": 5,
+    "only_stdlib_and_sealed_fake_local_imports": true,
+    "empty_scripts_initializer_bound": true,
+    "no_tests_initializer": true,
+    "independent_retry_source_review": true
+  },
+  "capability_scope": {
+    "injected_clocks_and_locks": true,
+    "held_interval_comparison_on_supplied_fake_evidence": true,
+    "native_lock_backend": false,
+    "role_integration": false,
+    "lifecycle_actual_clock": false,
+    "formal_window_authority": false
+  },
+  "executed_before_seal": {
+    "fake_cases": 0,
+    "formal_cases": 0,
+    "real_measurements": 0
+  }
+}
