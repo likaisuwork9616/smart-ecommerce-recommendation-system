@@ -6,10 +6,14 @@ const input = element("item-input");
 const body = element("result-body");
 const count = element("result-count");
 const exampleList = element("example-list");
+const matches = element("search-matches");
+const searchStatus = element("search-status");
 const announcement = element("announcement");
 const numericFormat = new Intl.NumberFormat("zh-TW");
 let activeRequest;
 let lastQuery;
+let searchTimer;
+let searchRequest;
 
 function make(tag, className, value) {
   const node = document.createElement(tag);
@@ -94,6 +98,50 @@ function syncAddress(itemId) {
   window.history.replaceState(null, "", url);
 }
 
+function clearSearch() {
+  clearTimeout(searchTimer);
+  searchRequest?.abort();
+  matches.replaceChildren();
+  matches.hidden = true;
+  searchStatus.textContent = "";
+}
+
+async function findItems(prefix, signal) {
+  try {
+    const params = new URLSearchParams({ prefix });
+    const response = await fetch("/api/catalog?" + params, { signal });
+    if (!response.ok) throw new Error("catalog");
+    const data = await response.json();
+    if (signal.aborted) return;
+    const items = data.items.slice(0, 8);
+    for (const item of items) {
+      const id = String(item.item_id);
+      const button = make("button", "search-match", "#" + id);
+      button.type = "button";
+      button.dataset.itemId = id;
+      button.setAttribute("aria-label", "查看符合編號的商品 " + id + " 的推薦");
+      matches.append(button);
+    }
+    matches.hidden = items.length === 0;
+    searchStatus.textContent = items.length
+      ? "顯示 " + items.length + " 件符合的商品"
+      : "找不到以 " + prefix + " 開頭的商品。";
+  } catch {
+    if (!signal.aborted) searchStatus.textContent = "暫時無法搜尋，可輸入完整編號查看推薦。";
+  }
+}
+
+function scheduleSearch() {
+  input.setCustomValidity("");
+  clearSearch();
+  const prefix = input.value.trim();
+  if (!/^[0-9]{2,20}$/.test(prefix)) return;
+  searchRequest = new AbortController();
+  const { signal } = searchRequest;
+  searchStatus.textContent = "正在搜尋商品…";
+  searchTimer = setTimeout(() => findItems(prefix, signal), 180);
+}
+
 async function loadItem(rawId) {
   const itemId = String(rawId).trim();
   if (!/^[0-9]{1,20}$/.test(itemId)) {
@@ -101,6 +149,7 @@ async function loadItem(rawId) {
     input.reportValidity();
     return;
   }
+  clearSearch();
   input.setCustomValidity("");
   input.value = itemId;
   lastQuery = itemId;
@@ -163,7 +212,10 @@ async function initialize() {
     const catalog = await response.json();
     showSnapshot(catalog.as_of);
     renderExamples(catalog.items);
-    if (!lastQuery && catalog.items.length) {
+    if (!lastQuery && input.value.trim()) {
+      body.setAttribute("aria-busy", "false");
+      setState("選擇商品或輸入完整編號以查看推薦。");
+    } else if (!lastQuery && catalog.items.length) {
       loadItem(catalog.items[0].item_id);
     } else if (!lastQuery) {
       body.setAttribute("aria-busy", "false");
@@ -180,11 +232,23 @@ async function initialize() {
   }
 }
 
-input.addEventListener("input", () => input.setCustomValidity(""));
+input.addEventListener("input", scheduleSearch);
+input.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowDown" && matches.firstElementChild) {
+    event.preventDefault();
+    matches.firstElementChild.focus();
+  }
+});
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   loadItem(input.value);
 });
 exampleList.addEventListener("click", onItemClick);
+matches.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-item-id]");
+  if (!button) return;
+  input.focus();
+  loadItem(button.dataset.itemId);
+});
 body.addEventListener("click", onItemClick);
 initialize();

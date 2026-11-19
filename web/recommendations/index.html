@@ -38,10 +38,14 @@
           <div class="field">
             <span aria-hidden="true">#</span>
             <input id="item-input" name="item_id" type="text" inputmode="numeric"
-              autocomplete="off" spellcheck="false" maxlength="20" placeholder="輸入匿名商品 ID" required>
+              autocomplete="off" spellcheck="false" maxlength="20" placeholder="輸入匿名商品 ID"
+              aria-describedby="search-hint" required>
           </div>
           <button class="submit" type="submit">查看推薦 <span aria-hidden="true">→</span></button>
         </form>
+        <p id="search-hint" class="search-hint">輸入開頭兩碼以上可找商品，完整編號可直接查詢。</p>
+        <p id="search-status" class="search-status" role="status" aria-atomic="true"></p>
+        <div id="search-matches" class="search-matches" role="group" aria-label="符合編號的商品" hidden></div>
         <div class="examples" id="examples" hidden>
           <h3>範例商品</h3>
           <div id="example-list" class="example-list" aria-label="範例商品"></div>
