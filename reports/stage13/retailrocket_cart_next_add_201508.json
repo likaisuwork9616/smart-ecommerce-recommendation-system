@@ -1,0 +1,131 @@
+{
+  "study": "next distinct-item add-to-cart at the immediately following cart timestamp",
+  "role": "2015-08 exposed development validation",
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0,
+  "source_database": {
+    "path": "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+    "bytes": 1734836224,
+    "sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503"
+  },
+  "source_report_sha256": {
+    "docs/contracts/retailrocket_recommendation_v1.json": "5b98958ab1695a1f50b9917d6a08a91aa0b299dd6378a6ec3bf5402827def9d0",
+    "reports/stage10/retailrocket_c1_p0_v1_research_release.json": "88e436e59f18277e10d8f17234b906b0e6f759ad2a55b3c4b02649656dd0f44d",
+    "reports/stage13/retailrocket_cart_support_train.json": "a6ada3f7b73469d36bbcd0ebcaafd3e14f85b90c1138f2360d3758bd3aa9111b"
+  },
+  "windows_utc_start_inclusive_end_exclusive": {
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "rules": {
+    "session": "Clip to each window. Group canonical views/adds by visitor, split only at activity gaps over 30 minutes.",
+    "query": "One query per distinct item added at a timestamp. Other simultaneous adds do not define an order.",
+    "target": "All distinct items except the seed at the next strictly later add timestamp in the same session. No skipping same-item-only next adds.",
+    "candidates": "Only items observed added during training, excluding the seed. Unknown August targets remain in the denominator.",
+    "coadd": "At least 2 distinct visitors must support an unordered in-session pair. Rank by support descending, numeric item ID ascending. Return up to 10 without filling.",
+    "popular": "Canonical training add event count descending, numeric item ID ascending. Take up to 10 after excluding the seed.",
+    "hit": "At least one ranked item is in the next-add target set. An empty list is a miss on scorable queries."
+  },
+  "training": {
+    "visitors": 955923,
+    "sessions": 1183241,
+    "cart_sessions": 29467,
+    "events": {
+      "view": 1823388,
+      "addtocart": 46303
+    },
+    "distinct_items": {
+      "view": 198946,
+      "addtocart": 18303
+    },
+    "distinct_pairs_before_threshold": 47768,
+    "qualifying_pairs": 1511,
+    "seeds_with_neighbors": 1056,
+    "seeds_with_ten_neighbors": 68,
+    "qualifying_pairs_sha256": "121f9c7451d8b562baa8ed7ab0b460f48a9bd97a1f4be02d3f730acd523afad0",
+    "popular_counts_sha256": "0741cfa8df0334035424300edead1a45c10687bb761762a164bb4be4635b3b7e"
+  },
+  "activity": {
+    "visitors": 311106,
+    "sessions": 367986,
+    "cart_sessions": 9449,
+    "view_events": 533880,
+    "addtocart_events": 14725,
+    "cart_timestamps": 14725,
+    "multi_item_cart_timestamps": 0
+  },
+  "all_cart_opportunities": {
+    "queries": 14725,
+    "no_later_cart": 9449,
+    "next_cart_only_seed": 1010,
+    "coadd": {
+      "with_recommendations": 1839,
+      "full_ten": 255,
+      "coverage": 0.12488964346349746
+    },
+    "popular": {
+      "with_recommendations": 14725,
+      "full_ten": 14725,
+      "coverage": 1.0
+    },
+    "query_targets_and_rankings_sha256": "2b6ee3f8ea1205125bea059c2303558260ec69f69ebe48635a9f29edb8d0ddbc"
+  },
+  "scorable": {
+    "queries": 4266,
+    "visitors": 1334,
+    "sessions": 1696,
+    "multiple_target_queries": 0,
+    "seed_absent_from_training_carts": 1622,
+    "all_targets_absent_from_training_carts": 1679,
+    "coadd": {
+      "with_recommendations": 597,
+      "full_ten": 88,
+      "coverage": 0.139943741209564,
+      "hit_queries": 110,
+      "hit_rate_all": 0.025785278949835913,
+      "hit_rate_when_recommended": 0.18425460636515914
+    },
+    "popular": {
+      "with_recommendations": 4266,
+      "full_ten": 4266,
+      "coverage": 1.0,
+      "hit_queries": 30,
+      "hit_rate_all": 0.007032348804500703,
+      "hit_rate_when_recommended": 0.007032348804500703
+    },
+    "paired_hits": {
+      "both": 10,
+      "coadd_only": 100,
+      "popular_only": 20,
+      "neither": 4136
+    },
+    "on_coadd_covered_queries": {
+      "queries": 597,
+      "coadd_hit_queries": 110,
+      "popular_hit_queries": 14
+    },
+    "query_targets_and_rankings_sha256": "234d83a47b8c11bceb0487eddf964f055a90d960097ea6d9064caeadccfccb28"
+  },
+  "independent_verification": {
+    "status": "passed",
+    "method": "Independent SQL reconstruction from canonicalized source raw rows in the training and August windows",
+    "matched_sections": [
+      "training",
+      "activity",
+      "all_cart_opportunities",
+      "scorable"
+    ],
+    "matched_sha256": {
+      "qualifying_pairs": "121f9c7451d8b562baa8ed7ab0b460f48a9bd97a1f4be02d3f730acd523afad0",
+      "popular_counts": "0741cfa8df0334035424300edead1a45c10687bb761762a164bb4be4635b3b7e",
+      "all_cart_opportunities": "2b6ee3f8ea1205125bea059c2303558260ec69f69ebe48635a9f29edb8d0ddbc",
+      "scorable": "234d83a47b8c11bceb0487eddf964f055a90d960097ea6d9064caeadccfccb28"
+    }
+  }
+}
