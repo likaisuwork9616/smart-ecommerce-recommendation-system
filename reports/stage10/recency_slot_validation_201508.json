@@ -1,0 +1,38 @@
+{
+  "role": "2015-08 exposed development validation",
+  "baseline": "C1",
+  "rule": "latest eligible same-session view through query time; numeric ascending item ID on ties; replace rank 10 only if absent",
+  "receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "source_sha256": {
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/oracle.sqlite": "e6f283a7cbe0c3c242a3123e9d11d6490f3302b58baf96890330c163a31fbd32",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl": "2218dc863ed5770f0f481c4e99d53c1744f72fb692a8fbc8c97300ef4ff0e1f3"
+  },
+  "roster_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "counts": {
+    "queries": 166897,
+    "c1_hits": 30072,
+    "recency_hits": 69391,
+    "gained": 40238,
+    "lost": 919,
+    "selected_from_earlier_basket": 2916
+  },
+  "list_changes": {
+    "replaced_rank10": 151080,
+    "no_eligible_item": 2889,
+    "already_in_top10": 12928
+  },
+  "metrics": {
+    "c1": {
+      "ndcg": 0.10640071437048426,
+      "mrr": 0.0836641142892903,
+      "hit_rate": 0.18018298711181147
+    },
+    "recency": {
+      "ndcg": 0.17450036913032715,
+      "mrr": 0.10722295597008744,
+      "hit_rate": 0.41577140391978284
+    }
+  },
+  "net_extra_hit_queries": 39319,
+  "mean_ndcg_at_10_difference": 0.06809965475984289
+}
