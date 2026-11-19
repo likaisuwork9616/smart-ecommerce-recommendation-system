@@ -21,6 +21,8 @@
 
 瀏覽資料來自 Roman Zykov／Retailrocket 的 *Retailrocket recommender system dataset* v2（CC BY-NC-SA 4.0）。上圖節錄自本專案以該資料計算的回放統計。[資料來源與授權紀錄](docs/STAGE8_RETAILROCKET_SOURCE_AND_CONTRACT_V1.md#來源版本與授權)
 
+在兩張榜單都猜錯的 136,481 次查詢中，有 **41,540 次（30.44%）** 是訪客重看本次已瀏覽、訓練時也曾出現的商品，而共現模型對實際下一步的商品都沒有給正分。下一步值得驗證的是，留一個推薦名額給最近看過的商品，扣掉被擠出榜的命中後還能補回多少。[四種漏推情況與計算方式](docs/PROJECT_PROGRESS.md#replay-miss-audit)
+
 ## 從訂單到顧客，三個分析問題
 
 | 問題 | 專案做了什麼、看到了什麼 | 查看成果 |
