@@ -43,7 +43,7 @@
 
 本機互動版可切換案例，查看原商品編號與當時的瀏覽紀錄。[本機新增命中案例](http://127.0.0.1:8765/replay?case=recency_gained) · [本機擠掉原有命中案例](http://127.0.0.1:8765/replay?case=recency_lost)
 
-**K1 驗收暫緩。** 單改第十名已在這個開發窗提高命中率與排名分數。後續若要驗證近鄰模型能否把正確商品排到更前面，可恢復 K1 完整驗收，保留原 C1 對照，另與這個單席規則比較。9 月預留測試仍鎖定。[逐筆比較方式與驗算](docs/PROJECT_PROGRESS.md#recency-slot-validation) · [實測數字](reports/stage10/recency_slot_validation_201508.json) · [先前的漏推分析](docs/PROJECT_PROGRESS.md#replay-miss-audit)
+單改第十名已在這個開發窗提高命中率與排名分數。近鄰模型 K1 的驗算已重啟，主要比較仍採原共現榜 C1，另以單席規則作描述性參照。9 月預留測試仍鎖定。[單席規則實測](reports/stage10/recency_slot_validation_201508.json) · [K1 驗算方式](docs/STAGE12_K1_AUGUST_READBACK_20261119.md)
 
 ## 從訂單到顧客，三個分析問題
 
@@ -59,7 +59,7 @@
 | --- | --- |
 | 推薦展示 | GitHub 可直接看換第十名的兩張案例圖、回放截圖與開發驗證結果。本機可查 198,946 件匿名商品，也可切換六個回放案例。 |
 | 其他人也加入購物車 | 已完成訓練資料盤點。若一對商品至少由兩個不同匿名訪客共同加購，18,303 件曾被加購的商品中，有 1,056 件能列出至少一個關聯商品，68 件能列滿十個。下一步是用 8 月加購紀錄驗證這些配對。[資料覆蓋與驗證建議](docs/PROJECT_PROGRESS.md#cart-support) |
-| K1 近鄰推薦 | 驗收暫停，與共現模型的完整比較仍待驗收。 |
+| K1 近鄰推薦 | 已核定八月 166,897 筆全量驗算方式。上次產出的推薦與抽樣檔已保存，逐筆排名及整體效果待本輪核對。[比較方式與驗收範圍](docs/STAGE12_K1_AUGUST_READBACK_20261119.md) |
 | 每日 10% 延遲提醒 | 等待每日完整訂單名冊、資料首次可查時間、歷史版本及日結對帳。收到後再驗證固定 10% 提醒預算的適用性。[資料交接明細](docs/PROJECT_PROGRESS.md#daily10-source-check) |
 
 [專案進度](docs/PROJECT_PROGRESS.md) · [分階段文件索引](docs/README.md) · [完整實驗與操作紀錄](docs/PROJECT_ARCHIVE.md)
