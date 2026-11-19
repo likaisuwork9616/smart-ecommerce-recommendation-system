@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>推薦回放 · Retailrocket</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/replay.css">
+  <script src="/replay.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#page-title">跳到推薦回放</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="/" aria-label="Retailrocket 推薦首頁">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <nav class="site-pages" aria-label="主要導覽">
+        <a href="/">商品查詢</a>
+        <a href="/replay" aria-current="page">推薦回放</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">推薦回放</h1>
+        <p>對照兩份前十名清單，看看有沒有猜中訪客接著看的商品。</p>
+      </div>
+    </section>
+    <div id="load-state" class="load-state">
+      <p id="load-message" role="status">正在讀取已驗證的歷史瀏覽紀錄…</p>
+      <button id="retry" type="button" hidden>重新載入</button>
+    </div>
+    <noscript><p>請啟用 JavaScript 以切換歷史案例。</p></noscript>
+    <div id="replay" hidden>
+      <fieldset class="case-picker">
+        <legend>選擇案例</legend>
+        <div class="case-options" id="case-options"></div>
+      </fieldset>
+      <dl class="query-context">
+        <div><dt>推薦時間</dt><dd><time id="query-time"></time></dd></div>
+        <div id="history-context"><dt>截至當時看過的不同商品</dt><dd class="id-list" id="history-items"></dd></div>
+      </dl>
+      <div class="replay-grid">
+        <div class="ranking-panel">
+          <table class="replay-table">
+            <caption class="sr-only">同一次瀏覽的兩種推薦排名</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="place">名次</th>
+                <th scope="col">熱門榜<span class="outcome" id="p0-outcome"></span></th>
+                <th scope="col">共現模型<span class="outcome" id="c1-outcome"></span></th>
+              </tr>
+            </thead>
+            <tbody id="ranked-items"></tbody>
+          </table>
+        </div>
+        <section class="actual-panel" aria-labelledby="actual-heading">
+          <h2 id="actual-heading">訪客接著看了</h2>
+          <p class="id-list" id="target-items"></p>
+          <p class="actual-note">任一商品出現在推薦前十名，就算命中這次瀏覽。</p>
+        </section>
+      </div>
+      <p class="selection-note">每種結果取開發驗證名冊中第一筆。2015 年 8 月全體 166,897 次查詢的前十名命中率，熱門榜為 0.42%，共現模型為 18.02%。<a href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整比較</a></p>
+      <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
+    </div>
+  </main>
+  <footer class="container credits">
+    <p>資料來源　<a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+    <p>本頁對照歷史瀏覽紀錄與已驗證的推薦排名。資料集使用匿名商品編號。</p>
+  </footer>
+</body>
+</html>

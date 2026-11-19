@@ -1,0 +1,53 @@
+.case-picker { margin: 0; padding: 0; min-width: 0; border: 0; }
+.case-picker legend { margin-bottom: 9px; padding: 0; color: var(--muted); font-size: .9rem; font-weight: 650; }
+.case-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.case-option { position: relative; cursor: pointer; }
+.case-option input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.case-option span { display: block; padding: 8px 15px; border: 1px solid #9bac9f; border-radius: 7px; font-size: .95rem; font-weight: 600; background: var(--surface); }
+.case-option input:checked + span { color: white; background: var(--green); border-color: var(--green); }
+.case-option input:focus-visible + span { outline: 3px solid #d16c29; outline-offset: 2px; }
+.case-option:hover span { border-color: var(--green); }
+.query-context { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 36px; margin: 24px 0 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.query-context dt { color: var(--muted); font-size: .875rem; }
+.query-context dd { margin: 3px 0 0; font: 600 .95rem/1.5 var(--mono); overflow-wrap: anywhere; }
+.id-list { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
+.replay-grid { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(220px, 1fr); grid-template-areas: "ranking actual"; align-items: start; gap: 18px; }
+.ranking-panel { grid-area: ranking; min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.replay-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
+.replay-table thead th { padding: 16px 14px; background: #e8efe7; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 1.15rem; }
+.replay-table .place { width: 64px; vertical-align: middle; font-size: .875rem; color: var(--muted); }
+.outcome { display: block; margin-top: 3px; color: var(--muted); font-size: .875rem; font-weight: 500; }
+.outcome.has-hit { color: var(--green); font-weight: 700; }
+.replay-table tbody th, .replay-table tbody td { padding: 9px 14px; border-bottom: 1px solid #e0e6dd; }
+.replay-table tbody th { font: 500 .875rem var(--mono); color: var(--muted); }
+.replay-table tbody tr:last-child > * { border-bottom: 0; }
+.replay-table td { vertical-align: middle; }
+.replay-table tr > :last-child { border-left: 1px solid var(--line); }
+.replay-table td.is-hit { background: #e9f6d5; color: var(--green); }
+.replay-id { font: 600 1rem/1.4 var(--mono); overflow-wrap: anywhere; }
+.rank-label { display: inline-block; margin-left: 8px; font-size: .8125rem; color: var(--muted); }
+.hit-label { font-weight: 700; color: var(--green); }
+.actual-panel { grid-area: actual; background: var(--green); color: white; padding: 22px; border-radius: 14px; }
+.actual-panel h2 { font-size: 1.15rem; }
+.actual-panel .id-list { color: var(--mint); margin-block: 10px 15px; font: 700 clamp(1.2rem, 2.7vw, 2rem)/1.2 var(--mono); overflow-wrap: anywhere; }
+.actual-note { color: #dcebe3; font-size: .9rem; line-height: 1.6; }
+.selection-note { margin: 18px 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.selection-note a { margin-left: .4em; text-underline-offset: .2em; }
+.load-state { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.load-state button { margin-top: 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--green); padding: 6px 12px; }
+@media (max-width: 760px) {
+  .replay-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "actual" "ranking"; gap: 12px; }
+  .actual-panel { padding: 14px 16px; }
+  .actual-panel .id-list { margin-block: 6px; }
+  .query-context { margin-block: 18px 14px; }
+}
+@media (max-width: 490px) {
+  .case-options { gap: 6px; }
+  .case-option span { padding: 6px 9px; font-size: .875rem; }
+  .query-context { gap: 10px; }
+  .replay-table .place { width: 42px; }
+  .replay-table thead th, .replay-table tbody td, .replay-table tbody th { padding: 8px 7px; }
+  .replay-table thead th { font-size: 1rem; }
+  .rank-label { display: block; margin-left: 0; }
+  .replay-id { font-size: .9rem; }
+}

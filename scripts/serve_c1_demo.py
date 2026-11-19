@@ -1,4 +1,4 @@
-"""Serve the local, single-item C1 research demo on loopback."""
+"""Serve the local C1 product lookup and historical validation replay."""
 import argparse
 import json
 import sqlite3
@@ -9,6 +9,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 from scripts.c1_demo_model import C1DemoModel
+from scripts.c1_demo_replay import ReplayLibrary
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,10 +20,14 @@ ASSETS = {
     "/index.html": ("index.html", "text/html"),
     "/styles.css": ("styles.css", "text/css"),
     "/app.js": ("app.js", "text/javascript"),
+    "/replay": ("replay.html", "text/html"),
+    "/replay/": ("replay.html", "text/html"),
+    "/replay.css": ("replay.css", "text/css"),
+    "/replay.js": ("replay.js", "text/javascript"),
 }
 
 
-def handler_for(model: C1DemoModel):
+def handler_for(model: C1DemoModel, replay: ReplayLibrary | None = None):
     class Handler(BaseHTTPRequestHandler):
         def send_bytes(self, status, content_type, body):
             self.send_response(status)
@@ -44,6 +49,15 @@ def handler_for(model: C1DemoModel):
             if url.path in ASSETS:
                 filename, content_type = ASSETS[url.path]
                 self.send_bytes(HTTPStatus.OK, content_type, (WEB / filename).read_bytes())
+                return
+
+            if url.path == "/api/replay":
+                if replay is None:
+                    self.json_response(HTTPStatus.SERVICE_UNAVAILABLE, {
+                        "error": "本機缺少可核對的 Stage 10 回放資料。還原保存包後請重新啟動服務。"
+                    })
+                else:
+                    self.json_response(HTTPStatus.OK, replay.payload())
                 return
 
             query = parse_qs(url.query, keep_blank_values=True)
@@ -78,7 +92,12 @@ def main():
     args = parser.parse_args()
     try:
         model = C1DemoModel.load(ROOT)
-        server = ThreadingHTTPServer(("127.0.0.1", args.port), handler_for(model))
+        try:
+            replay = ReplayLibrary.load(ROOT)
+        except (OSError, ValueError, KeyError) as exc:
+            replay = None
+            print(f"回放資料無法載入。商品查詢仍可使用。\n{exc}", file=sys.stderr)
+        server = ThreadingHTTPServer(("127.0.0.1", args.port), handler_for(model, replay))
     except (OSError, ValueError, KeyError) as exc:
         sys.exit(f"無法啟動推薦展示。請確認 Stage 10 研究檔案與連接埠。\n{exc}")
     with server:
