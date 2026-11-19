@@ -20,3 +20,19 @@
 全量驗算器從原始訓練 baskets 建立對應表，用整數比較分數並累計票數。另用原版獨立 SQL 從原始 baskets 重建所有訓練 session，再用既有 SQL／Fraction 算法重算固定的 33 筆查詢。查詢位置從第一筆到最後一筆等距取樣，從零起算為 `i × (166897 − 1) // 32`，`i` 由 0 至 32。這 33 筆是額外交叉檢查，全量驗算仍須逐筆覆蓋 166,897 筆。
 
 若時限允許，再以另一套密集陣列驗算器逐筆掃過所有訓練 session 與商品目錄，記錄實際完成筆數及整體耗時。所有核對使用相同的 500 鄰居、時間界線、候選、平手規則與原始輸出。執行監督器每半秒抽查工作程序樹的記憶體及剩餘時間，資源與停止收據保存在本機。
+
+### 在本機重現
+
+使用專案的 Python 環境與已下載且通過雜湊核對的 Stage 8–12 資料。每次驗算使用新的 Git 忽略目錄，所有階段共用同一截止時間。完成一個階段才進到下一個。
+
+```powershell
+$k1Run = 'shop-mysql-runtime/verification/k1-august-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
+$k1Until = [datetimeoffset]::UtcNow.AddHours(3).ToString('o')
+foreach ($k1Stage in @('sources_before','predictions','cohort','sql_witness','dense','aggregate','sources_after')) {
+    .venv\Scripts\python.exe -B -m scripts.run_k1_august_readback_v1 $k1Stage --out $k1Run --deadline-utc $k1Until
+    if ($LASTEXITCODE -ne 0) { throw "K1 驗算停在 $k1Stage" }
+}
+.venv\Scripts\python.exe -B -m scripts.summarize_k1_august_readback_v1 --out $k1Run --report "$k1Run/summary.json"
+```
+
+密集驗算器以 SciPy 1.18.1 與 NumPy 2.5.4 逐列計算交集，再逐項核對商品票數與零分候選。票數總和超過 32 位元無號整數可表示的範圍時，改用任意精度整數。四個基本驗算階段與舊入口的合成回歸共通過 62 項測試；密集驗算器及公開報告另外通過 12 項測試。
