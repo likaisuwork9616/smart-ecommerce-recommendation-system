@@ -37,12 +37,15 @@
 .replay-table td { vertical-align: middle; }
 .replay-table tr > :last-child { border-left: 1px solid var(--line); }
 .replay-table td.is-hit { background: #e9f6d5; color: var(--green); }
+.replay-table td.empty-rank { color: var(--muted); }
 .replay-id { font: 600 1rem/1.4 var(--mono); overflow-wrap: anywhere; }
 .rank-label { display: inline-block; margin-left: 8px; font-size: .8125rem; color: var(--muted); }
 .hit-label { font-weight: 700; color: var(--green); }
 .actual-panel { grid-area: actual; background: var(--green); color: white; padding: 22px; border-radius: 14px; }
 .actual-panel h2 { font-size: 1.15rem; }
 .actual-panel .id-list { color: var(--mint); margin-block: 10px 15px; font: 700 clamp(1.2rem, 2.7vw, 2rem)/1.2 var(--mono); overflow-wrap: anywhere; }
+#cart-seed { margin-bottom: 15px; padding-bottom: 13px; border-bottom: 1px solid #668b80; }
+#seed-item { margin-bottom: 0; color: white; font-size: 1.2rem; }
 .actual-note { color: #dcebe3; font-size: .9rem; line-height: 1.6; }
 .slot-comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
 .slot-item, .slot-comparison .actual-panel { padding: 16px 18px; border-radius: 12px; }
@@ -76,4 +79,7 @@
   .replay-table thead th { font-size: 1rem; }
   .rank-label { display: block; margin-left: 0; }
   .replay-id { font-size: .9rem; }
+}
+@media (max-width: 360px) {
+  .cart-case-outcome { display: block; white-space: nowrap; }
 }

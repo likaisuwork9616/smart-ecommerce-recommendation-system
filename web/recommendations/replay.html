@@ -27,16 +27,17 @@
     <section class="intro" aria-labelledby="page-title">
       <div>
         <h1 id="page-title">推薦回放</h1>
-        <p>對照兩份前十名清單，看看有沒有猜中訪客接著看的商品。</p>
+        <p id="intro-description">對照兩份前十名清單，看看有沒有猜中訪客接著看的商品。</p>
       </div>
     </section>
     <nav class="replay-modes" aria-label="選擇比較方式">
       <a id="baseline-link" href="/replay?case=c1_only">熱門榜與共現模型</a>
       <a id="recency-link" href="/replay?case=recency_gained">最近看過留一席</a>
       <a id="k1-link" href="/replay?case=k1_vs_c1_k1_only">近鄰 K1 與共現 C1</a>
+      <a id="cart-link" href="/replay?case=cart_hit">其他人也加入購物車</a>
     </nav>
     <div id="load-state" class="load-state">
-      <p id="load-message" role="status">正在讀取已驗證的歷史瀏覽紀錄…</p>
+      <p id="load-message" role="status">正在讀取已驗證的歷史紀錄…</p>
       <button id="retry" type="button" hidden>重新載入</button>
     </div>
     <noscript><p>請啟用 JavaScript 以切換歷史案例。</p></noscript>
@@ -71,7 +72,7 @@
       <div class="replay-grid" id="baseline-comparison">
         <div class="ranking-panel">
           <table class="replay-table">
-            <caption class="sr-only">同一次瀏覽的兩種推薦排名</caption>
+            <caption class="sr-only" id="ranking-caption">同一次瀏覽的兩種推薦排名</caption>
             <thead>
               <tr>
                 <th scope="col" class="place">名次</th>
@@ -83,9 +84,13 @@
           </table>
         </div>
         <section class="actual-panel" aria-labelledby="actual-heading">
+          <div id="cart-seed" hidden>
+            <h2>訪客剛加入購物車</h2>
+            <p class="id-list" id="seed-item"></p>
+          </div>
           <h2 id="actual-heading">訪客接著看了</h2>
           <p class="id-list" id="target-items"></p>
-          <p class="actual-note">任一商品出現在推薦前十名，就算命中這次瀏覽。</p>
+          <p class="actual-note" id="actual-note">任一商品出現在推薦前十名，就算命中這次瀏覽。</p>
         </section>
       </div>
       <p class="selection-note"><a id="report-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整開發驗證報告</a></p>
@@ -96,7 +101,7 @@
     <p>資料來源　<a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-    <p>本頁對照歷史瀏覽紀錄與已驗證的推薦排名。資料集使用匿名商品編號。</p>
+    <p>本頁對照歷史瀏覽、加購紀錄與已驗證的推薦排名。資料集使用匿名商品編號。</p>
   </footer>
 </body>
 </html>

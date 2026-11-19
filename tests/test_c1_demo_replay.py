@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from contextlib import closing
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.c1_demo_model import EDGES
 from scripts.c1_demo_replay import K1_QUERIES, K1_REPORT, QUERIES, RELEASE, ReplayLibrary
@@ -135,6 +136,26 @@ class ReplayTest(unittest.TestCase):
         payload = ReplayLibrary.load(self.root).payload()
         self.assertNotIn("k1", payload)
         self.assertEqual(payload["total_queries"], 5)
+
+    def test_cart_uses_its_own_denominator_alongside_view_replays(self):
+        self.save_k1_fixture()
+        cart = {"total_queries": 3, "cases": [{"id": "hit", "count": 1}, {"id": "miss", "count": 2}]}
+        with patch("scripts.c1_demo_replay.load_cart_replay", return_value=cart) as loader:
+            payload = ReplayLibrary.load(self.root).payload()
+        loader.assert_called_once_with(self.root)
+        self.assertEqual(payload["cart"], cart)
+        self.assertEqual(payload["total_queries"], 5)
+        self.assertEqual(payload["k1"]["total_queries"], 5)
+
+    def test_missing_or_invalid_cart_preserves_view_replays(self):
+        self.save_k1_fixture()
+        for error in (FileNotFoundError("missing cart cases"), ValueError("changed cart digest")):
+            with self.subTest(reason=type(error).__name__):
+                with patch("scripts.c1_demo_replay.load_cart_replay", side_effect=error):
+                    payload = ReplayLibrary.load(self.root).payload()
+                self.assertNotIn("cart", payload)
+                self.assertEqual(payload["total_queries"], 5)
+                self.assertEqual([case["id"] for case in payload["k1"]["cases"]], ["k1_only", "c1_only"])
 
     def test_k1_rejects_recorded_rank_and_mismatched_control(self):
         for mutate in (lambda rows: rows[3]["terms"]["K1"].update(first_hit_rank=10),

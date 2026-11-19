@@ -1,0 +1,39 @@
+{
+  "scope": "August 2015 development queries with a next add of another item and two nonempty lists",
+  "selection": "First coadd hit and first coadd miss in the accepted query order, regardless of the popular result",
+  "validation_report": "reports/stage13/retailrocket_cart_next_add_201508.json",
+  "validation_report_sha256": "91637c1f1c709ff8c06b507f41379f8837d2f9d989545e67e433da1ecd337ebb",
+  "local_examples": "shop-mysql-runtime/retailrocket_cart_replay_201508/cases.json",
+  "local_examples_sha256": "50dc7a96ecad467f2334da876803b7c431469e466a31450184242e9443aacda9",
+  "total_queries": 597,
+  "cases": [
+    {
+      "id": "hit",
+      "count": 110,
+      "cohort_position": 3,
+      "coadd": {
+        "list_size": 10,
+        "hit_ranks": [
+          2
+        ]
+      },
+      "popular": {
+        "list_size": 10,
+        "hit_ranks": []
+      }
+    },
+    {
+      "id": "miss",
+      "count": 487,
+      "cohort_position": 1,
+      "coadd": {
+        "list_size": 7,
+        "hit_ranks": []
+      },
+      "popular": {
+        "list_size": 10,
+        "hit_ranks": []
+      }
+    }
+  ]
+}

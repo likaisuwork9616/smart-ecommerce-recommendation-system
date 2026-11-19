@@ -139,7 +139,8 @@ class ListCounts:
         return result
 
 
-def evaluate(rows, model):
+def evaluate(rows, model, observe_scorable=None):
+    """Score all August opportunities and optionally expose each labeled row in report order."""
     activity = dict.fromkeys(("visitors", "sessions", "cart_sessions", "view_events", "addtocart_events",
                               "cart_timestamps", "multi_item_cart_timestamps"), 0)
     opportunities = {arm: ListCounts() for arm in ARMS}
@@ -164,7 +165,8 @@ def evaluate(rows, model):
                     total += 1
                     targets = successor - {seed}
                     coadd, popular = model.rank(seed)
-                    record = [visitor, t, seed, sorted(targets, key=int), coadd, popular]
+                    ordered_targets = sorted(targets, key=int)
+                    record = [visitor, t, seed, ordered_targets, coadd, popular]
                     digest_row(all_digest, record)
                     opportunities["coadd"].add(coadd)
                     opportunities["popular"].add(popular)
@@ -184,6 +186,8 @@ def evaluate(rows, model):
                     scored["popular"].add(popular, popular_hit)
                     paired[outcomes[coadd_hit, popular_hit]] += 1
                     popular_hits_on_covered += bool(coadd) and popular_hit
+                    if observe_scorable is not None:
+                        observe_scorable(t, seed, ordered_targets, coadd, popular)
             valid_sessions += valid > before
     if (sum(paired.values()) != valid or total != no_later + repeat_only + valid
             or paired["both"] + paired["coadd_only"] != scored["coadd"].hit_queries
@@ -214,7 +218,7 @@ def sha(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def audit(root=ROOT):
+def audit(root=ROOT, observe_scorable=None):
     root = Path(root)
     receipt = json.loads((root / RECEIPT).read_bytes())
     source = next(r for r in receipt["external_dependencies"] if r["path"] == DB)
@@ -244,7 +248,7 @@ def audit(root=ROOT):
         }
         if any(model.training[k] != v for k, v in expected.items()):
             raise ValueError("Rebuilt training support differs from the original train-only inventory")
-        august = evaluate(activity_rows(db, "validation", *WINDOWS["validation"]), model)
+        august = evaluate(activity_rows(db, "validation", *WINDOWS["validation"]), model, observe_scorable)
     if sha(path) != binding["sha256"]:
         raise ValueError("Source bytes changed during evaluation")
     result = {

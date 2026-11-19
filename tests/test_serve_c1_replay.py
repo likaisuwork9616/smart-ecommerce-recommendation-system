@@ -7,7 +7,7 @@ from unittest.mock import MagicMock
 
 from scripts.c1_demo_model import C1DemoModel
 from scripts.c1_demo_replay import ReplayLibrary
-from scripts.serve_c1_demo import handler_for
+from scripts.serve_c1_demo import WEB, handler_for
 
 
 class ReplayRoutesTest(unittest.TestCase):
@@ -33,9 +33,26 @@ class ReplayRoutesTest(unittest.TestCase):
 
     def test_serves_selected_cases(self):
         replay = MagicMock(spec=ReplayLibrary)
-        replay.payload.return_value = {"cases": [{"id": "neither"}]}
+        replay.payload.return_value = {
+            "cases": [{"id": "neither"}],
+            "cart": {"total_queries": 3, "cases": [{"id": "hit", "count": 1}, {"id": "miss", "count": 2}]},
+        }
         self.assertEqual(self.get(self.open_server(replay), "/api/replay"),
                          (200, replay.payload.return_value))
+
+    def test_cart_deep_links_serve_the_replay_page(self):
+        port = self.open_server()
+        page = (WEB / "replay.html").read_bytes()
+        for case in ("cart_hit", "cart_miss"):
+            with self.subTest(case=case):
+                connection = HTTPConnection("127.0.0.1", port, timeout=3)
+                try:
+                    connection.request("GET", "/replay?case=" + case)
+                    response = connection.getresponse()
+                    self.assertEqual(response.status, 200)
+                    self.assertEqual(response.read(), page)
+                finally:
+                    connection.close()
 
     def test_missing_replay_does_not_disable_product_lookup(self):
         port = self.open_server()
