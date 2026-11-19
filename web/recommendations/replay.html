@@ -30,6 +30,10 @@
         <p>對照兩份前十名清單，看看有沒有猜中訪客接著看的商品。</p>
       </div>
     </section>
+    <nav class="replay-modes" aria-label="選擇比較方式">
+      <a id="baseline-link" href="/replay?case=c1_only">熱門榜與共現模型</a>
+      <a id="recency-link" href="/replay?case=recency_gained">最近看過留一席</a>
+    </nav>
     <div id="load-state" class="load-state">
       <p id="load-message" role="status">正在讀取已驗證的歷史瀏覽紀錄…</p>
       <button id="retry" type="button" hidden>重新載入</button>
@@ -37,16 +41,33 @@
     <noscript><p>請啟用 JavaScript 以切換歷史案例。</p></noscript>
     <div id="replay" hidden>
       <fieldset class="case-picker">
-        <legend>選擇回放案例</legend>
+        <legend id="case-legend">選擇回放案例</legend>
         <p class="validation-period" id="validation-period"></p>
         <div class="case-options" id="case-options"></div>
       </fieldset>
       <p class="case-summary" id="case-summary" hidden></p>
+      <section class="slot-comparison" id="slot-comparison" aria-label="第十名替換前後與實際瀏覽" hidden>
+        <div class="slot-item">
+          <h2>原共現榜第十名</h2>
+          <p class="slot-id" id="original-tenth"></p>
+          <p id="original-result" class="outcome"></p>
+        </div>
+        <div class="slot-item">
+          <h2>換入第十名的最近商品</h2>
+          <p class="slot-id" id="revised-tenth"></p>
+          <p id="revised-result" class="outcome"></p>
+        </div>
+        <div class="actual-panel">
+          <h2>訪客接著看了</h2>
+          <p class="id-list" id="slot-targets"></p>
+        </div>
+      </section>
       <dl class="query-context">
         <div><dt>推薦時間</dt><dd><time id="query-time"></time></dd></div>
+        <div id="recent-context" hidden><dt>換入商品最近瀏覽時間</dt><dd><time id="recent-time"></time></dd></div>
         <div id="history-context"><dt>截至當時看過的不同商品</dt><dd class="id-list" id="history-items"></dd></div>
       </dl>
-      <div class="replay-grid">
+      <div class="replay-grid" id="baseline-comparison">
         <div class="ranking-panel">
           <table class="replay-table">
             <caption class="sr-only">同一次瀏覽的兩種推薦排名</caption>
@@ -66,7 +87,7 @@
           <p class="actual-note">任一商品出現在推薦前十名，就算命中這次瀏覽。</p>
         </section>
       </div>
-      <p class="selection-note"><a href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整開發驗證報告</a></p>
+      <p class="selection-note"><a id="report-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整開發驗證報告</a></p>
       <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
     </div>
   </main>

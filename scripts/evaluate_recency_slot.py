@@ -7,8 +7,7 @@ from collections import Counter
 from contextlib import closing
 from pathlib import Path
 
-from scripts.c1_demo_model import EDGES, RELEASE
-from scripts.c1_demo_replay import QUERIES
+from scripts.c1_demo_model import EDGES, QUERIES, RELEASE
 from scripts.retailrocket_popularity import Catalog, K, Sum, metric_terms
 
 

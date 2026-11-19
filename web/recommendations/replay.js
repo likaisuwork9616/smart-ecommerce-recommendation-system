@@ -12,7 +12,11 @@ const caseLabels = {
   p0_only: "僅熱門榜命中",
   neither: "兩者皆未命中",
   both: "兩者皆命中",
+  recency_gained: "新增命中",
+  recency_lost: "擠掉原有命中",
 };
+const requestedCase = new URLSearchParams(window.location.search).get("case");
+const recencyMode = requestedCase === "recency_gained" || requestedCase === "recency_lost";
 
 function itemIds(ids) {
   return ids.map((id) => {
@@ -45,14 +49,8 @@ function addPrediction(row, arm, index, isFallback) {
   if (isFallback) badge(cell, "熱門補位", "rank-label");
 }
 
-function renderCase(entry) {
-  const time = byId("query-time");
-  time.dateTime = entry.query_time;
-  time.textContent = entry.query_time.replace("T", " ").replace("Z", " UTC");
-  byId("history-context").hidden = !entry.history.length;
-  byId("history-items").replaceChildren(...itemIds(entry.history));
+function renderRanking(entry) {
   byId("target-items").replaceChildren(...itemIds(entry.targets));
-
   setOutcome(byId("p0-outcome"), entry.p0);
   setOutcome(byId("c1-outcome"), entry.c1);
   const tbody = byId("ranked-items");
@@ -67,20 +65,58 @@ function renderCase(entry) {
     addPrediction(row, entry.p0, index, false);
     addPrediction(row, entry.c1, index, index >= positiveSlots);
   }
+}
+
+function setTime(element, timestamp) {
+  element.dateTime = timestamp;
+  element.textContent = timestamp.replace("T", " ").replace("Z", " UTC");
+}
+
+function renderCase(entry) {
+  setTime(byId("query-time"), entry.query_time);
+  byId("history-context").hidden = !entry.history.length;
+  byId("history-items").replaceChildren(...itemIds(entry.history));
+  if (recencyMode) {
+    setTime(byId("recent-time"), entry.recent_time);
+    byId("original-tenth").textContent = "#" + entry.c1.items[9];
+    byId("revised-tenth").textContent = "#" + entry.recency.items[9];
+    setOutcome(byId("original-result"), entry.c1);
+    setOutcome(byId("revised-result"), entry.recency);
+    byId("slot-targets").replaceChildren(...itemIds(entry.targets));
+  } else {
+    renderRanking(entry);
+  }
   byId("announcement").textContent = caseLabels[entry.id] + "，排名與實際瀏覽已更新。";
 }
 
 function showCases(data) {
-  const entries = data.cases;
-  const total = data.total_queries;
+  const group = recencyMode ? data.recency : data;
+  if (!group || !group.cases.length) {
+    byId("load-message").textContent = recencyMode
+      ? "目前無法載入最近商品的回放案例。請確認本機回放資料齊全後重新啟動服務。"
+      : "目前沒有可回放的歷史案例。";
+    byId("retry").hidden = false;
+    return;
+  }
+  const entries = recencyMode
+    ? group.cases.map((entry) => ({ ...entry, id: "recency_" + entry.id }))
+    : group.cases;
+  const total = group.total_queries;
   const hasCounts = Number.isSafeInteger(total) && total > 0
-    && Number.isSafeInteger(data.net_additional_hits) && entries.every((entry) => Number.isSafeInteger(entry.count));
+    && Number.isSafeInteger(group.net_additional_hits) && entries.every((entry) => Number.isSafeInteger(entry.count));
   byId("validation-period").textContent = hasCounts
     ? "2015 年 8 月開發驗證共 " + number.format(total) + " 次查詢。選一種結果，可回放該類的第一筆紀錄。"
     : "選一種結果可回放該類的第一筆紀錄。重新啟動本機服務後可查看全體次數與占比。";
-  const params = new URLSearchParams(window.location.search);
-  const selected = entries.find((entry) => entry.id === params.get("case")) || entries[0];
+  const selected = entries.find((entry) => entry.id === requestedCase) || entries[0];
   const choices = byId("case-options");
+  byId("slot-comparison").hidden = !recencyMode;
+  byId("baseline-comparison").hidden = recencyMode;
+  byId("recent-context").hidden = !recencyMode;
+  if (recencyMode) {
+    byId("case-legend").textContent = "選擇命中變化";
+    choices.classList.add("slot-options");
+    byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/598900c/docs/PROJECT_PROGRESS.md#recency-slot-validation";
+  }
   choices.replaceChildren();
   for (const entry of entries) {
     const label = document.createElement("label");
@@ -117,17 +153,22 @@ function showCases(data) {
     choices.append(label);
   }
   if (hasCounts) {
-    const counts = new Map(entries.map((entry) => [entry.id, entry.count]));
-    const both = counts.get("both") || 0;
-    const popular = (counts.get("p0_only") || 0) + both;
-    const cooccurrence = (counts.get("c1_only") || 0) + both;
-    const net = data.net_additional_hits;
     const summary = byId("case-summary");
-    summary.textContent = "前十名命中率為熱門榜 " + percent.format(popular / total)
-      + "、共現模型 " + percent.format(cooccurrence / total) + "。";
+    if (recencyMode) {
+      summary.textContent = "前九名沿用原共現榜，最近看過且可推薦的商品若未上榜，就換入第十名。";
+    } else {
+      const counts = new Map(entries.map((entry) => [entry.id, entry.count]));
+      const both = counts.get("both") || 0;
+      const popular = (counts.get("p0_only") || 0) + both;
+      const cooccurrence = (counts.get("c1_only") || 0) + both;
+      summary.textContent = "前十名命中率為熱門榜 " + percent.format(popular / total)
+        + "、共現模型 " + percent.format(cooccurrence / total) + "。";
+    }
+    const net = group.net_additional_hits;
     const difference = document.createElement("strong");
     difference.textContent = net === 0 ? "兩種方法的總命中次數相同。"
-      : "共現模型比熱門榜淨" + (net > 0 ? "多" : "少") + "命中 " + number.format(Math.abs(net)) + " 次。";
+      : (recencyMode ? "留一席比原共現榜淨" : "共現模型比熱門榜淨")
+        + (net > 0 ? "多" : "少") + "命中 " + number.format(Math.abs(net)) + " 次。";
     summary.append(difference);
     summary.hidden = false;
   }
@@ -148,10 +189,6 @@ async function loadReplay() {
     }
     if (!response.ok) throw new Error("replay unavailable");
     const data = await response.json();
-    if (!data.cases.length) {
-      byId("load-message").textContent = "目前沒有可回放的歷史案例。";
-      return;
-    }
     showCases(data);
   } catch {
     byId("load-message").textContent = "無法載入回放。請確認本機服務與 Stage 10 驗證紀錄可用後重試。";
@@ -159,5 +196,6 @@ async function loadReplay() {
   }
 }
 
+byId(recencyMode ? "recency-link" : "baseline-link").setAttribute("aria-current", "page");
 byId("retry").addEventListener("click", loadReplay);
 loadReplay();

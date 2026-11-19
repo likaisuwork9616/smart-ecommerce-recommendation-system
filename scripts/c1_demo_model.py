@@ -11,6 +11,7 @@ from pathlib import Path
 RELEASE = "reports/stage10/retailrocket_c1_p0_v1_research_release.json"
 C1 = "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1"
 EDGES = f"{C1}/oracle.sqlite"
+QUERIES = f"{C1}/queries.jsonl"
 SUPPORT = f"{C1}/support.csv"
 POPULARITY = "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv"
 

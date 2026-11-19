@@ -1,7 +1,11 @@
+.replay-modes { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 0 20px; border-bottom: 1px solid var(--line); }
+.replay-modes a { padding: 6px 2px 9px; color: var(--muted); font-weight: 650; text-decoration: none; border-bottom: 3px solid transparent; }
+.replay-modes a[aria-current="page"], .replay-modes a:hover { color: var(--green); border-bottom-color: var(--green); }
 .case-picker { margin: 0; padding: 0; min-width: 0; border: 0; }
 .case-picker legend { padding: 0; font-size: 1.1rem; font-weight: 700; }
 .validation-period { margin: 5px 0 13px; color: var(--muted); font-size: .94rem; }
 .case-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.case-options.slot-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .case-option { position: relative; cursor: pointer; }
 .case-option input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .case-card { display: grid; gap: 6px; height: 100%; padding: 12px 16px; border: 1px solid #9bac9f; border-radius: 8px; background: var(--surface); }
@@ -40,6 +44,13 @@
 .actual-panel h2 { font-size: 1.15rem; }
 .actual-panel .id-list { color: var(--mint); margin-block: 10px 15px; font: 700 clamp(1.2rem, 2.7vw, 2rem)/1.2 var(--mono); overflow-wrap: anywhere; }
 .actual-note { color: #dcebe3; font-size: .9rem; line-height: 1.6; }
+.slot-comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.slot-item, .slot-comparison .actual-panel { padding: 16px 18px; border-radius: 12px; }
+.slot-item { border: 1px solid var(--line); background: var(--surface); }
+.slot-item:has(.has-hit) { background: #e9f6d5; border-color: #9aaf8d; }
+.slot-item h2, .slot-comparison .actual-panel h2 { font-size: 1rem; }
+.slot-comparison .actual-panel { grid-area: auto; }
+.slot-id, .slot-comparison .actual-panel .id-list { margin: 8px 0 4px; font: 700 clamp(1.25rem, 2.4vw, 1.8rem)/1.3 var(--mono); overflow-wrap: anywhere; }
 .selection-note { margin: 18px 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .selection-note a { text-underline-offset: .2em; }
 .load-state { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
@@ -50,6 +61,10 @@
   .actual-panel { padding: 14px 16px; }
   .actual-panel .id-list { margin-block: 6px; }
   .query-context { margin-block: 18px 14px; }
+  .slot-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
+  .slot-item, .slot-comparison .actual-panel { padding: 12px; }
+  .slot-comparison .actual-panel { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; }
+  .slot-comparison .actual-panel .id-list { margin: 0; }
 }
 @media (max-width: 490px) {
   .case-options { gap: 6px; }
