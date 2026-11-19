@@ -1,0 +1,169 @@
+{
+  "scope": "training-only support inventory; no validation, reserved-test or ranking scores",
+  "source_database": {
+    "path": "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+    "bytes": 1734836224,
+    "sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503"
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "train_utc_start_inclusive_end_exclusive": [
+    "2015-05-04T00:00:00Z",
+    "2015-08-01T00:00:00Z"
+  ],
+  "session_rule": "group each anonymous visitor's canonical views and add-to-cart events; split only at gaps over 30 minutes; clip to the training window",
+  "pair_rule": "unordered distinct added items in the same inferred session; one vote per session or per anonymous visitor as labelled",
+  "coverage_rule": "training distinct seed items and event occurrences with at least the indicated number of different co-add neighbors; no ranking or historical availability replay",
+  "counts": {
+    "events": {
+      "view": 1823388,
+      "addtocart": 46303
+    },
+    "distinct_items": {
+      "view": 198946,
+      "addtocart": 18303
+    },
+    "anonymous_visitors": 955923,
+    "cart_visitors": 25336,
+    "multi_item_cart_visitors": 4048,
+    "sessions": 1183241,
+    "cart_sessions": 29467,
+    "multi_item_cart_sessions": 5401,
+    "maximum_distinct_cart_items_in_one_session": 91,
+    "maximum_pair_occurrences_in_one_session": 4095,
+    "all_pair_occurrences": 50132,
+    "cart_sessions_potentially_clipped_at_window_start": 18,
+    "cart_sessions_potentially_clipped_at_window_end": 7,
+    "pair_support_by_session": [
+      {
+        "minimum_support": 1,
+        "unordered_pairs": 47768,
+        "at_least_1_neighbors": {
+          "cart_items": 11324,
+          "cart_events": 35415,
+          "view_items": 11185,
+          "view_events": 535733
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 3004,
+          "cart_events": 15508,
+          "view_items": 2964,
+          "view_events": 213228
+        }
+      },
+      {
+        "minimum_support": 2,
+        "unordered_pairs": 1775,
+        "at_least_1_neighbors": {
+          "cart_items": 1214,
+          "cart_events": 8712,
+          "view_items": 1213,
+          "view_events": 96332
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 73,
+          "cart_events": 1010,
+          "view_items": 73,
+          "view_events": 6831
+        }
+      },
+      {
+        "minimum_support": 3,
+        "unordered_pairs": 341,
+        "at_least_1_neighbors": {
+          "cart_items": 268,
+          "cart_events": 3085,
+          "view_items": 268,
+          "view_events": 25604
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 3,
+          "cart_events": 192,
+          "view_items": 3,
+          "view_events": 1500
+        }
+      },
+      {
+        "minimum_support": 5,
+        "unordered_pairs": 43,
+        "at_least_1_neighbors": {
+          "cart_items": 48,
+          "cart_events": 1257,
+          "view_items": 48,
+          "view_events": 7703
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 0,
+          "cart_events": 0,
+          "view_items": 0,
+          "view_events": 0
+        }
+      }
+    ],
+    "pair_support_by_distinct_visitor": [
+      {
+        "minimum_support": 1,
+        "unordered_pairs": 47768,
+        "at_least_1_neighbors": {
+          "cart_items": 11324,
+          "cart_events": 35415,
+          "view_items": 11185,
+          "view_events": 535733
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 3004,
+          "cart_events": 15508,
+          "view_items": 2964,
+          "view_events": 213228
+        }
+      },
+      {
+        "minimum_support": 2,
+        "unordered_pairs": 1511,
+        "at_least_1_neighbors": {
+          "cart_items": 1056,
+          "cart_events": 7869,
+          "view_items": 1055,
+          "view_events": 86146
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 68,
+          "cart_events": 846,
+          "view_items": 68,
+          "view_events": 5754
+        }
+      },
+      {
+        "minimum_support": 3,
+        "unordered_pairs": 266,
+        "at_least_1_neighbors": {
+          "cart_items": 206,
+          "cart_events": 2642,
+          "view_items": 206,
+          "view_events": 21049
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 3,
+          "cart_events": 192,
+          "view_items": 3,
+          "view_events": 1500
+        }
+      },
+      {
+        "minimum_support": 5,
+        "unordered_pairs": 35,
+        "at_least_1_neighbors": {
+          "cart_items": 38,
+          "cart_events": 1124,
+          "view_items": 38,
+          "view_events": 6802
+        },
+        "at_least_10_neighbors": {
+          "cart_items": 0,
+          "cart_events": 0,
+          "view_items": 0,
+          "view_events": 0
+        }
+      }
+    ]
+  }
+}
