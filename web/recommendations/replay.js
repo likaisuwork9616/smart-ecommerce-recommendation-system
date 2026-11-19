@@ -1,6 +1,12 @@
 "use strict";
 
 const byId = (id) => document.getElementById(id);
+const number = new Intl.NumberFormat("zh-TW");
+const percent = new Intl.NumberFormat("zh-TW", {
+  style: "percent",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 const caseLabels = {
   c1_only: "僅共現模型命中",
   p0_only: "僅熱門榜命中",
@@ -64,7 +70,14 @@ function renderCase(entry) {
   byId("announcement").textContent = caseLabels[entry.id] + "，排名與實際瀏覽已更新。";
 }
 
-function showCases(entries) {
+function showCases(data) {
+  const entries = data.cases;
+  const total = data.total_queries;
+  const hasCounts = Number.isSafeInteger(total) && total > 0
+    && Number.isSafeInteger(data.net_additional_hits) && entries.every((entry) => Number.isSafeInteger(entry.count));
+  byId("validation-period").textContent = hasCounts
+    ? "2015 年 8 月開發驗證共 " + number.format(total) + " 次查詢。選一種結果，可回放該類的第一筆紀錄。"
+    : "選一種結果可回放該類的第一筆紀錄。重新啟動本機服務後可查看全體次數與占比。";
   const params = new URLSearchParams(window.location.search);
   const selected = entries.find((entry) => entry.id === params.get("case")) || entries[0];
   const choices = byId("case-options");
@@ -83,10 +96,40 @@ function showCases(entries) {
       window.history.replaceState(null, "", url);
       renderCase(entry);
     });
-    const caption = document.createElement("span");
-    caption.textContent = caseLabels[entry.id];
-    label.append(radio, caption);
+    const card = document.createElement("span");
+    card.className = "case-card";
+    const title = document.createElement("span");
+    title.className = "case-title";
+    title.id = "case-title-" + entry.id;
+    title.textContent = caseLabels[entry.id];
+    radio.setAttribute("aria-labelledby", title.id);
+    card.append(title);
+    if (hasCounts) {
+      const stats = document.createElement("span");
+      stats.className = "case-stats";
+      stats.id = "case-stats-" + entry.id;
+      badge(stats, percent.format(entry.count / total), "case-percent");
+      badge(stats, number.format(entry.count) + " 次", "case-count");
+      radio.setAttribute("aria-describedby", stats.id);
+      card.append(stats);
+    }
+    label.append(radio, card);
     choices.append(label);
+  }
+  if (hasCounts) {
+    const counts = new Map(entries.map((entry) => [entry.id, entry.count]));
+    const both = counts.get("both") || 0;
+    const popular = (counts.get("p0_only") || 0) + both;
+    const cooccurrence = (counts.get("c1_only") || 0) + both;
+    const net = data.net_additional_hits;
+    const summary = byId("case-summary");
+    summary.textContent = "前十名命中率為熱門榜 " + percent.format(popular / total)
+      + "、共現模型 " + percent.format(cooccurrence / total) + "。";
+    const difference = document.createElement("strong");
+    difference.textContent = net === 0 ? "兩種方法的總命中次數相同。"
+      : "共現模型比熱門榜淨" + (net > 0 ? "多" : "少") + "命中 " + number.format(Math.abs(net)) + " 次。";
+    summary.append(difference);
+    summary.hidden = false;
   }
   renderCase(selected);
   byId("load-state").hidden = true;
@@ -109,7 +152,7 @@ async function loadReplay() {
       byId("load-message").textContent = "目前沒有可回放的歷史案例。";
       return;
     }
-    showCases(data.cases);
+    showCases(data);
   } catch {
     byId("load-message").textContent = "無法載入回放。請確認本機服務與 Stage 10 驗證紀錄可用後重試。";
     byId("retry").hidden = false;

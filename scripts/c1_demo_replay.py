@@ -1,4 +1,4 @@
-"""Select examples from the accepted Stage 10 paired development rankings."""
+"""Count paired Stage 10 development outcomes and keep one example of each."""
 import hashlib
 import json
 import os
@@ -17,14 +17,13 @@ CASES = {
 }
 
 
-def replay_case(row, case_id):
+def replay_case(row):
     # The other two key fields identify the visitor and session; omit them.
     when = datetime.fromtimestamp(row["key"][2] / 1000, tz=timezone.utc)
     if (when.year, when.month) != (2015, 8):
         raise ValueError("回放查詢超出開發驗證月份。")
     targets = set(row["targets"])
     case = {
-        "id": case_id,
         "query_time": when.isoformat(timespec="milliseconds").replace("+00:00", "Z"),
         "history": row["history"],
         "targets": row["targets"],
@@ -40,13 +39,19 @@ def replay_case(row, case_id):
         ):
             raise ValueError("回放命中名次與既有驗收值不符。")
         case[arm.lower()] = {"items": items, "hit_ranks": hit_ranks}
+    outcome = (bool(case["p0"]["hit_ranks"]), bool(case["c1"]["hit_ranks"]))
+    case["id"] = CASES[outcome]
     case["c1"]["zero_fill_slots"] = row["predictions"]["C1"]["zero_fill_slots"]
     return case
 
 
 class ReplayLibrary:
-    def __init__(self, cases):
-        self._cases = cases
+    def __init__(self, examples, counts):
+        self._payload = {
+            "cases": [{**examples[name], "count": count} for name, count in counts.items() if count],
+            "total_queries": sum(counts.values()),
+            "net_additional_hits": counts["c1_only"] - counts["p0_only"],
+        }
 
     @classmethod
     def load(cls, root: Path):
@@ -56,22 +61,20 @@ class ReplayLibrary:
         if source is None:
             raise ValueError("Stage 10 公開收據缺少配對查詢的來源。")
         found = {}
+        counts = dict.fromkeys(CASES.values(), 0)
         with (root / QUERIES).open("rb") as stream:
             if (os.fstat(stream.fileno()).st_size != source["bytes"]
                     or hashlib.file_digest(stream, "sha256").hexdigest() != source["sha256"]):
                 raise ValueError("本機回放來源與 Stage 10 封存收據不符。")
             stream.seek(0)
             for line in stream:
-                row = json.loads(line)
-                outcome = tuple(row["terms"][arm]["hits"] > 0 for arm in ("P0", "C1"))
-                name = CASES[outcome]
-                if name not in found:
-                    found[name] = replay_case(row, name)
-                    if len(found) == len(CASES):
-                        break
+                case = replay_case(json.loads(line))
+                name = case["id"]
+                counts[name] += 1
+                found.setdefault(name, case)
         if not found:
             raise ValueError("配對查詢檔沒有回放案例。")
-        return cls([found[name] for name in CASES.values() if name in found])
+        return cls(found, counts)
 
     def payload(self):
-        return {"cases": self._cases}
+        return self._payload

@@ -46,15 +46,19 @@ class ReplayTest(unittest.TestCase):
 
     def test_first_of_each_outcome_and_only_public_fields(self):
         self.save_source([
-            saved_query(["99"], fallback=True), saved_query(["18", "12", "99"]), saved_query(["19"]),
-            saved_query(["4", "11"]), saved_query(["8"]),
+            saved_query(["99"], fallback=True), saved_query(["18", "12", "99"]),
+            saved_query(["4", "11"]), saved_query(["8"]), saved_query(["19"]),
         ])
         library = ReplayLibrary.load(self.root)
         self.queries.unlink()  # Serving the selected cases needs no further file I/O.
-        cases = library.payload()["cases"]
+        payload = library.payload()
+        cases = payload["cases"]
         self.assertEqual([case["id"] for case in cases], ["c1_only", "p0_only", "neither", "both"])
+        self.assertEqual([case["count"] for case in cases], [2, 1, 1, 1])
+        self.assertEqual(payload["total_queries"], 5)
+        self.assertEqual(payload["net_additional_hits"], 1)
         hit, p0_only, miss, both = cases
-        self.assertEqual(set(hit), {"id", "query_time", "history", "targets", "p0", "c1"})
+        self.assertEqual(set(hit), {"id", "count", "query_time", "history", "targets", "p0", "c1"})
         self.assertEqual(hit["query_time"], "2015-08-01T00:00:00.123Z")
         self.assertEqual(hit["history"], ["31", "32"])
         self.assertEqual(hit["targets"], ["18", "12", "99"])
@@ -67,8 +71,12 @@ class ReplayTest(unittest.TestCase):
         self.assertNotIn("private", json.dumps(cases))
 
     def test_outcomes_with_no_example_are_omitted(self):
-        self.save_source([saved_query(["99"])])
-        self.assertEqual([case["id"] for case in ReplayLibrary.load(self.root).payload()["cases"]], ["neither"])
+        self.save_source([saved_query(["99"]), saved_query(["1", "3"])])
+        payload = ReplayLibrary.load(self.root).payload()
+        self.assertEqual([(case["id"], case["count"]) for case in payload["cases"]],
+                         [("p0_only", 1), ("neither", 1)])
+        self.assertEqual(payload["total_queries"], 2)
+        self.assertEqual(payload["net_additional_hits"], -1)
 
     def test_checks_even_the_unselected_tail_against_the_receipt(self):
         self.save_source([saved_query([x]) for x in ("12", "4", "99")] + [saved_query(["5", "13"]), saved_query(["98"])])
@@ -80,7 +88,7 @@ class ReplayTest(unittest.TestCase):
     def test_rejects_inconsistent_recorded_rank(self):
         row = saved_query(["13"])
         row["terms"]["C1"]["first_hit_rank"] = 1
-        self.save_source([row])
+        self.save_source([saved_query([x]) for x in ("12", "4", "99")] + [saved_query(["5", "13"]), row])
         with self.assertRaisesRegex(ValueError, "命中名次"):
             ReplayLibrary.load(self.root)
 

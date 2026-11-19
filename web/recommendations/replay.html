@@ -37,9 +37,11 @@
     <noscript><p>請啟用 JavaScript 以切換歷史案例。</p></noscript>
     <div id="replay" hidden>
       <fieldset class="case-picker">
-        <legend>選擇案例</legend>
+        <legend>選擇回放案例</legend>
+        <p class="validation-period" id="validation-period"></p>
         <div class="case-options" id="case-options"></div>
       </fieldset>
+      <p class="case-summary" id="case-summary" hidden></p>
       <dl class="query-context">
         <div><dt>推薦時間</dt><dd><time id="query-time"></time></dd></div>
         <div id="history-context"><dt>截至當時看過的不同商品</dt><dd class="id-list" id="history-items"></dd></div>
@@ -64,7 +66,7 @@
           <p class="actual-note">任一商品出現在推薦前十名，就算命中這次瀏覽。</p>
         </section>
       </div>
-      <p class="selection-note">每種結果取開發驗證名冊中第一筆。2015 年 8 月全體 166,897 次查詢的前十名命中率，熱門榜為 0.42%，共現模型為 18.02%。<a href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整比較</a></p>
+      <p class="selection-note"><a href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/35be8c7/docs/STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md">查看完整開發驗證報告</a></p>
       <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
     </div>
   </main>
