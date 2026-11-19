@@ -33,6 +33,7 @@
     <nav class="replay-modes" aria-label="選擇比較方式">
       <a id="baseline-link" href="/replay?case=c1_only">熱門榜與共現模型</a>
       <a id="recency-link" href="/replay?case=recency_gained">最近看過留一席</a>
+      <a id="k1-link" href="/replay?case=k1_vs_c1_k1_only">近鄰 K1 與共現 C1</a>
     </nav>
     <div id="load-state" class="load-state">
       <p id="load-message" role="status">正在讀取已驗證的歷史瀏覽紀錄…</p>
@@ -74,8 +75,8 @@
             <thead>
               <tr>
                 <th scope="col" class="place">名次</th>
-                <th scope="col">熱門榜<span class="outcome" id="p0-outcome"></span></th>
-                <th scope="col">共現模型<span class="outcome" id="c1-outcome"></span></th>
+                <th scope="col"><span id="left-model">熱門榜</span><span class="outcome" id="left-outcome"></span></th>
+                <th scope="col"><span id="right-model">共現模型</span><span class="outcome" id="c1-outcome"></span></th>
               </tr>
             </thead>
             <tbody id="ranked-items"></tbody>

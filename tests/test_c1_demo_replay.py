@@ -7,7 +7,7 @@ from contextlib import closing
 from pathlib import Path
 
 from scripts.c1_demo_model import EDGES
-from scripts.c1_demo_replay import QUERIES, RELEASE, ReplayLibrary
+from scripts.c1_demo_replay import K1_QUERIES, K1_REPORT, QUERIES, RELEASE, ReplayLibrary
 
 
 POPULAR = [str(i) for i in range(1, 11)]
@@ -80,6 +80,70 @@ class ReplayTest(unittest.TestCase):
                          [("p0_only", 1), ("neither", 1)])
         self.assertEqual(payload["total_queries"], 2)
         self.assertEqual(payload["net_additional_hits"], -1)
+
+    def save_k1_fixture(self, mutate=None):
+        k1_items = [str(n) for n in range(21, 31)]
+        paired = []
+        original = []
+        for offset, targets in enumerate((["99"], ["17", "28"], ["14"], ["22", "29"], ["25"])):
+            ref = saved_query(targets)
+            ref["key"][2] += offset
+            original.append(ref)
+            ranks = [i for i, item in enumerate(k1_items, 1) if item in targets]
+            paired.append(dict(ref, predictions={**ref["predictions"], "K1": {
+                "ids": k1_items, "selected_neighbors": ["private"], "zero_fill_slots": 1}},
+                terms={**ref["terms"], "K1": {"hits": len(ranks), "target_count": len(targets),
+                                               "first_hit_rank": ranks[0] if ranks else None}}))
+        self.save_source(original)
+        path = self.root / K1_QUERIES
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if mutate:
+            mutate(paired)
+        data = b"".join(json.dumps(row).encode() + b"\n" for row in paired)
+        path.write_bytes(data)
+        main = {"queries": 5, "paired_hit_queries_K1_vs_C1": {"c1_only": 1, "k1_only": 2, "neither": 1, "both": 1},
+                "net_extra_hit_queries_K1_minus_C1": 1, "arms": {"C1": {"hit_queries": 2}, "K1": {"hit_queries": 3}}}
+        report = {"status": "august_development_semantic_readback_passed",
+                  "scope": {"evaluation_utc_ms": [1438387200000, 1441065600000]},
+                  "cohort": {"queries": 5, "queries_sha256": hashlib.sha256(data).hexdigest()},
+                  "results": {"main": main}}
+        report_path = self.root / K1_REPORT
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report), encoding="utf-8")
+        return path
+
+    def test_k1_compares_both_top_tens_on_the_first_exclusive_examples(self):
+        source = self.save_k1_fixture()
+        library = ReplayLibrary.load(self.root)
+        source.unlink()
+        group = library.payload()["k1"]
+        self.assertEqual((group["total_queries"], group["net_additional_hits"]), (5, 1))
+        k1, c1 = group["cases"]
+        self.assertEqual([(case["id"], case["count"]) for case in (k1, c1)], [("k1_only", 2), ("c1_only", 1)])
+        self.assertEqual((k1["targets"], k1["k1"]["hit_ranks"], k1["c1"]["hit_ranks"]), (["22", "29"], [2, 9], []))
+        self.assertEqual((c1["targets"], c1["k1"]["hit_ranks"], c1["c1"]["hit_ranks"]), (["14"], [], [4]))
+        for case in (k1, c1):
+            self.assertEqual(case["c1"], {"items": RELATED, "hit_ranks": case["c1"]["hit_ranks"], "zero_fill_slots": 0})
+            self.assertEqual(case["k1"]["items"], [str(n) for n in range(21, 31)])
+            self.assertEqual(case["k1"]["zero_fill_slots"], 1)
+        self.assertNotIn("private", json.dumps(group))
+
+    def test_changed_k1_tail_disables_only_k1(self):
+        path = self.save_k1_fixture()
+        with path.open("ab") as stream:
+            stream.write(b" ")
+        payload = ReplayLibrary.load(self.root).payload()
+        self.assertNotIn("k1", payload)
+        self.assertEqual(payload["total_queries"], 5)
+
+    def test_k1_rejects_recorded_rank_and_mismatched_control(self):
+        for mutate in (lambda rows: rows[3]["terms"]["K1"].update(first_hit_rank=10),
+                       lambda rows: rows[2].update(targets=["99"])):
+            with self.subTest(mutate=mutate):
+                self.save_k1_fixture(mutate)
+                payload = ReplayLibrary.load(self.root).payload()
+                self.assertNotIn("k1", payload)
+                self.assertEqual(payload["total_queries"], 5)
 
     def save_recency_fixture(self):
         # Two retained hits change the number of matching items but not the query outcome.
