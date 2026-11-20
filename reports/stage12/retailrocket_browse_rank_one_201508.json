@@ -1,0 +1,20 @@
+{
+  "role": "2015-08 exposed development validation",
+  "reference_reports": [
+    "reports/stage12/k1_august_readback_20261119.json",
+    "reports/stage10/recency_slot_validation_201508.json"
+  ],
+  "accepted_august_rankings_sha256": "c4ae3432e2d6eeb4b1fd7ae95ad060192aee4ec4113f69fda90cfa9b45f1a157",
+  "accepted_august_roster_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "queries": 166897,
+  "first_rank_matches": {
+    "P0": 33,
+    "C1": 7837,
+    "D1": 7457,
+    "K1": 40849,
+    "C1+recency": 7837
+  },
+  "queries_with_ten_distinct_items_per_method": 166897,
+  "recency_rank_one": "Equal to C1 because the published rule changes only rank 10",
+  "reserved_test_ranked_queries": 0
+}
