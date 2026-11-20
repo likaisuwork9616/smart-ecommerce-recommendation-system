@@ -12,6 +12,7 @@ from scripts.cart_replay_examples import load_cart_replay
 from scripts.cart_popular_fill_replay import load_cart_fill_replay
 from scripts.c1_demo_model import EDGES, QUERIES, RELEASE
 from scripts.evaluate_recency_slot import history_catalog, most_recent, reserve_slot
+from scripts.purchase_popular_fill_replay import load_purchase_fill_replay
 from scripts.retailrocket_popularity import K
 
 
@@ -221,6 +222,7 @@ class ReplayLibrary:
         for group, label, load in (
             ("cart", "共同加購", load_cart_replay),
             ("cart_fill", "熱門補位", load_cart_fill_replay),
+            ("purchase_fill", "共同購買補位", load_purchase_fill_replay),
         ):
             try:
                 library._payload[group] = load(root)

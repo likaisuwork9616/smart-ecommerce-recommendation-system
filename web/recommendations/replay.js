@@ -41,6 +41,12 @@ const comparisons = {
     labels: { empty: "空榜補位命中", short: "短榜補位命中" },
     unavailable: "目前無法載入熱門補位案例。請建立本機補位回放檔，再重新啟動服務。",
   },
+  purchase_fill: {
+    prefix: "purchase_fill_",
+    arms: ["cobuy", "popular", "popular_fill"],
+    labels: { short_gain: "短榜補位新增命中", popular_later: "原熱門榜命中後移" },
+    unavailable: "目前無法載入購買補位案例。請建立本機購買回放檔，再重新啟動服務。",
+  },
 };
 const requestedCase = new URLSearchParams(window.location.search).get("case");
 const mode = Object.keys(comparisons).find((key) => {
@@ -49,7 +55,9 @@ const mode = Object.keys(comparisons).find((key) => {
 }) || "baseline";
 const comparison = comparisons[mode];
 const cartMode = mode === "cart" || mode === "cart_fill";
-const sourceLabels = { coadd: "共同加購", popular: "熱門補位" };
+const purchaseMode = mode === "purchase_fill";
+const transactionMode = cartMode || purchaseMode;
+const sourceLabels = { coadd: "共同加購", cobuy: "共同購買", popular: "熱門補位" };
 
 function itemIds(ids) {
   return ids.map((id) => {
@@ -61,9 +69,10 @@ function itemIds(ids) {
 
 function setOutcome(element, arm) {
   const ranks = arm.hit_ranks;
-  const miss = cartMode ? "未命中" : "前十名未命中";
-  const length = cartMode ? (arm.items.length ? "共 " + arm.items.length + " 件 · " : "空榜 · ") : "";
-  element.textContent = length + (ranks.length ? "第 " + ranks.join("、") + " 名命中" : miss);
+  const miss = transactionMode ? "未命中" : "前十名未命中";
+  const length = transactionMode ? (arm.items.length ? "共 " + arm.items.length + " 件 · " : "空榜 · ") : "";
+  const hit = purchaseMode ? "第 " + ranks[0] + " 名首次命中" : "第 " + ranks.join("、") + " 名命中";
+  element.textContent = length + (ranks.length ? hit : miss);
   element.classList.toggle("has-hit", ranks.length > 0);
 }
 
@@ -74,7 +83,7 @@ function badge(cell, label, className) {
   cell.append(span);
 }
 
-function addPrediction(row, arm, index) {
+function addPrediction(row, arm, index, armName) {
   const cell = row.insertCell();
   if (index >= arm.items.length) {
     cell.className = "empty-rank";
@@ -85,31 +94,33 @@ function addPrediction(row, arm, index) {
   badge(cell, "#" + arm.items[index], "replay-id");
   if (arm.hit_ranks.includes(index + 1)) {
     cell.classList.add("is-hit");
-    badge(cell, "命中", "rank-label hit-label");
+    const first = purchaseMode && index + 1 === arm.hit_ranks[0];
+    badge(cell, first ? "首次命中" : "命中", "rank-label hit-label");
   }
   const source = arm.sources?.[index];
   if (source) {
-    badge(cell, sourceLabels[source], "rank-label rank-source");
+    const label = purchaseMode && armName === "popular" ? "熱門購買" : sourceLabels[source];
+    badge(cell, label, "rank-label rank-source");
   } else if (index >= arm.items.length - (arm.zero_fill_slots ?? 0)) {
     badge(cell, "熱門補位", "rank-label");
   }
 }
 
 function renderRanking(entry) {
-  const [left, right] = comparison.arms.map((arm) => entry[arm]);
+  const rankings = comparison.arms.map((arm) => entry[arm]);
+  const outcomes = ["left-outcome", "c1-outcome", "filled-outcome"];
   byId("target-items").replaceChildren(...itemIds(entry.targets));
-  setOutcome(byId("left-outcome"), left);
-  setOutcome(byId("c1-outcome"), right);
+  rankings.forEach((ranking, i) => setOutcome(byId(outcomes[i]), ranking));
   const tbody = byId("ranked-items");
   tbody.replaceChildren();
-  for (let index = 0; index < Math.max(left.items.length, right.items.length); index++) {
+  const length = Math.max(...rankings.map((ranking) => ranking.items.length));
+  for (let index = 0; index < length; index++) {
     const row = tbody.insertRow();
     const rank = document.createElement("th");
     rank.scope = "row";
     rank.textContent = String(index + 1).padStart(2, "0");
     row.append(rank);
-    addPrediction(row, left, index);
-    addPrediction(row, right, index);
+    rankings.forEach((ranking, i) => addPrediction(row, ranking, index, comparison.arms[i]));
   }
 }
 
@@ -119,11 +130,11 @@ function setTime(element, timestamp) {
 }
 
 function renderCase(entry) {
-  setTime(byId("query-time"), entry.query_time);
+  if (!purchaseMode) setTime(byId("query-time"), entry.query_time);
   const history = entry.history ?? [];
   byId("history-context").hidden = !history.length;
   byId("history-items").replaceChildren(...itemIds(history));
-  if (cartMode) byId("seed-item").replaceChildren(...itemIds([entry.seed]));
+  if (transactionMode) byId("seed-item").replaceChildren(...itemIds([entry.seed]));
   if (mode === "recency") {
     setTime(byId("recent-time"), entry.recent_time);
     byId("original-tenth").textContent = "#" + entry.c1.items[9];
@@ -134,8 +145,9 @@ function renderCase(entry) {
   } else {
     renderRanking(entry);
   }
+  const activity = purchaseMode ? "同筆交易商品" : cartMode ? "實際加購" : "實際瀏覽";
   byId("announcement").textContent = (comparison.titlePrefix ?? "") + comparison.labels[entry.id]
-    + (cartMode ? "，排名與實際加購已更新。" : "，排名與實際瀏覽已更新。");
+    + "，排名與" + activity + "已更新。";
 }
 
 function showCases(data) {
@@ -147,10 +159,13 @@ function showCases(data) {
   }
   const entries = group.cases;
   const total = group.total_queries;
-  const hasCounts = Number.isSafeInteger(total) && total > 0
-    && Number.isSafeInteger(group.net_additional_hits) && entries.every((entry) => Number.isSafeInteger(entry.count));
+  const hasCounts = (purchaseMode || (Number.isSafeInteger(total) && total > 0
+    && Number.isSafeInteger(group.net_additional_hits))) && entries.every((entry) => Number.isSafeInteger(entry.count));
   const period = byId("validation-period");
-  if (mode === "cart_fill" && hasCounts) {
+  if (purchaseMode && hasCounts) {
+    period.textContent = "2015 年 8 月共 " + number.format(group.scorable_queries) + " 次同筆交易查詢。其中 "
+      + number.format(group.overlap_queries) + " 次同時發生短榜新增命中與熱門榜命中後移。以下展示兩筆不同查詢。";
+  } else if (mode === "cart_fill" && hasCounts) {
     period.textContent = "2015 年 8 月的 " + number.format(group.scorable_queries) + " 次可評分查詢中，共新增 "
       + number.format(total) + " 次命中。兩個按鈕的占比以新增命中為分母，各回放該類的第一筆。";
   } else if (hasCounts) {
@@ -165,10 +180,14 @@ function showCases(data) {
   const choices = byId("case-options");
   byId("slot-comparison").hidden = mode !== "recency";
   byId("baseline-comparison").hidden = mode === "recency";
+  byId("baseline-comparison").classList.toggle("purchase-replay", purchaseMode);
+  byId("query-context").hidden = purchaseMode;
+  byId("third-header").hidden = !purchaseMode;
   byId("recent-context").hidden = mode !== "recency";
-  byId("cart-seed").hidden = !cartMode;
+  byId("cart-seed").hidden = !transactionMode;
   choices.classList.toggle("two-options", mode !== "baseline");
   choices.classList.toggle("cart-fill-options", mode === "cart_fill");
+  choices.classList.toggle("purchase-case-options", purchaseMode);
   if (mode === "recency") {
     byId("case-legend").textContent = "選擇命中變化";
     byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/598900c/docs/PROJECT_PROGRESS.md#recency-slot-validation";
@@ -176,6 +195,14 @@ function showCases(data) {
     byId("left-model").textContent = "近鄰模型 K1";
     byId("right-model").textContent = "共現模型 C1";
     byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/0d53e4f/docs/STAGE12_K1_AUGUST_READBACK_20261119.md";
+  } else if (purchaseMode) {
+    byId("left-model").textContent = "原共同購買";
+    byId("right-model").textContent = "原熱門購買";
+    byId("seed-heading").textContent = "查詢起點商品";
+    byId("actual-heading").textContent = "同筆交易實際購買的其他商品";
+    byId("actual-note").textContent = "每份榜單只要有一件同筆交易的其他商品，就算命中。";
+    byId("ranking-caption").textContent = "同筆交易的三份推薦榜單";
+    byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/1654d7c/docs/PROJECT_PROGRESS.md#purchase-popular-fill";
   } else if (cartMode) {
     const filled = mode === "cart_fill";
     byId("left-model").textContent = filled ? "補位前" : "共同加購榜";
@@ -220,7 +247,7 @@ function showCases(data) {
       const stats = document.createElement("span");
       stats.className = "case-stats";
       stats.id = "case-stats-" + caseId;
-      badge(stats, percent.format(entry.count / total), "case-percent");
+      if (!purchaseMode) badge(stats, percent.format(entry.count / total), "case-percent");
       badge(stats, number.format(entry.count) + " 次", "case-count");
       radio.setAttribute("aria-describedby", stats.id);
       card.append(stats);
@@ -240,6 +267,8 @@ function showCases(data) {
         + " 次，熱門加購榜猜中 " + number.format(group.popular_hit_queries) + " 次。";
     } else if (mode === "cart_fill") {
       summary.textContent = "共同加購商品留在原位，再按熱門加購順序補入未上榜的商品。";
+    } else if (purchaseMode) {
+      summary.textContent = "短榜新增命中與只補空榜比較，命中後移與原熱門購買榜比較。";
     } else {
       const counts = new Map(entries.map((entry) => [entry.id, entry.count]));
       const both = counts.get("both") || 0;
@@ -248,7 +277,7 @@ function showCases(data) {
       summary.textContent = "前十名命中率為熱門榜 " + percent.format(popular / total)
         + "、共現模型 " + percent.format(cooccurrence / total) + "。";
     }
-    if (!cartMode) {
+    if (!transactionMode) {
       const net = group.net_additional_hits;
       const difference = document.createElement("strong");
       difference.textContent = net === 0 ? "兩種方法的總命中次數相同。"
@@ -268,7 +297,7 @@ async function loadReplay() {
   try {
     const response = await fetch("/api/replay");
     if (response.status === 503) {
-      byId("load-message").textContent = cartMode ? comparison.unavailable
+      byId("load-message").textContent = transactionMode ? comparison.unavailable
         : "本機缺少可核對的 Stage 10 回放資料。請還原保存包並重新啟動服務。";
       byId("retry").hidden = false;
       return;
@@ -277,14 +306,16 @@ async function loadReplay() {
     const data = await response.json();
     showCases(data);
   } catch {
-    byId("load-message").textContent = cartMode ? comparison.unavailable
+    byId("load-message").textContent = transactionMode ? comparison.unavailable
       : "無法載入回放。請確認本機服務與 Stage 10 驗證紀錄可用後重試。";
     byId("retry").hidden = false;
   }
 }
 
 byId(mode + "-link").setAttribute("aria-current", "page");
-if (mode === "cart_fill") {
+if (purchaseMode) {
+  byId("intro-description").textContent = "並排對照共同購買、熱門購買與補位後的榜單，查看同筆交易實際買的其他商品。";
+} else if (mode === "cart_fill") {
   byId("intro-description").textContent = "並排看原共同加購榜和補滿十席後的榜單，找出補位猜中的商品。";
 } else if (mode === "cart") {
   byId("intro-description").textContent = "訪客剛把商品加入購物車，兩份推薦榜單猜中了他接著加的商品嗎？";

@@ -12,13 +12,15 @@ from scripts.evaluate_purchase_baskets import ROOT, study as purchase_baseline
 BASELINE = "reports/stage13/retailrocket_purchase_basket_201508.json"
 
 
-def study(root=ROOT):
+def study(root=ROOT, observe_scorable=None):
     root = Path(root)
     baseline_bytes = (root / BASELINE).read_bytes()
     rows = []
 
     def capture(seed, targets, cobuy, popular):
         rows.append((seed, targets, cobuy, popular))
+        if observe_scorable is not None:
+            observe_scorable(seed, targets, cobuy, popular)
 
     baseline = purchase_baseline(root, observe_scorable=capture)
     if baseline != json.loads(baseline_bytes):

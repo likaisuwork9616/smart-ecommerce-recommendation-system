@@ -32,6 +32,10 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 .\.venv\Scripts\python.exe -m scripts.evaluate_purchase_popular_fill --report reports/stage13/retailrocket_purchase_popular_fill_201508.json
 ```
 
+**購買補位回放**從同一批 1,477 筆的驗證順序，取第一筆短榜新增命中（第 201 筆），再取另一筆原熱門榜命中後移（第 407 筆）。兩類各有 4 筆，逐筆核對後確認是同一組。示範的兩筆以同一商品為起點，但實際同筆交易的其他商品分別有 4 件與 1 件。兩筆原共同購買榜皆只列 1 件且未命中，原熱門購買榜第 2 名首次命中，保留共同購買項目再補滿後在第 3 名首次命中。公開收據只保留案例序號、件數、名次與校驗值。[短榜回放](http://127.0.0.1:8765/replay?case=purchase_fill_short_gain) · [名次後移回放](http://127.0.0.1:8765/replay?case=purchase_fill_popular_later) · [公開收據](../reports/stage13/retailrocket_purchase_popular_fill_replay_201508.json)
+
+用原始交易的獨立 SQL 核對兩種情況的重疊、案例選取、三榜共 42 個商品席位、各席來源與同筆交易的其他商品。瀏覽器在 1,280、780、390、320 像素寬均可切換，重整後保留網址指定的案例。原有十二個回放和商品查詢入口已檢查，相關自動測試共 41 項通過。
+
 <a id="purchase-basket-validation"></a>
 
 ## 2026-11-20｜「其他人也買了」的同筆交易驗證
@@ -1432,7 +1436,7 @@ rank-only 與 paired 成本重疊，不能相加。人工形狀的鄰居分布�
 | Stage 10：共現推薦 | 單次train、完整配對／bootstrap／獨立驗收及研究交付 | C1 NDCG 0.106400714；結果證據包CRC／SHA驗收完成，冷商品／小組／回溯限制保留，P0原狀、test locked |
 | Stage 11：有向相鄰關聯 D1 | 三臂研究交付、適用說明與證據保存完成 | D1 NDCG@10 0.099799771，D1−C1 差 -0.006600944，95% 區間 [-0.007511893, -0.005716747]；validation 已曝光，P0／C1 原狀、test locked |
 | Stage 12：session-kNN K1 | 主要 validation／bootstrap 輸出已產出，工程方法與比較證據已保存 | V77 與 V80 各自唯一合成窗口均為 147 案通過／1 失敗／48 未執行。V80 停於 A12 發布。V86 的 23 個封存假案例全通過，V87 訂原生來源合成資格規格，待確認才準備工具。最後一次拒取持有者仍未知。完整獨立反讀與 K1−C1 結論仍缺，T_plan 未知，預留測試鎖定 |
-| Stage 13：其他推薦研究 | 其他人也加入購物車、其他人也買了 | [八月加購補位驗證與回放](#cart-popular-fill)與[購買補位驗證](#purchase-popular-fill)完成。購買補滿命中 113／1,477 次，比原熱門購買榜多 19 次。 |
+| Stage 13：其他推薦研究 | 其他人也加入購物車、其他人也買了 | [八月加購補位](#cart-popular-fill)與[購買補位](#purchase-popular-fill)已完成驗證及回放。購買補滿命中 113／1,477 次，比原熱門購買榜多 19 次。 |
 | Stage 14–15：API 與前端 | 本機 HTTP API、商品查詢、推薦回放與 GitHub 作品集 | 本機第一版可操作。原規劃的正式商店串接與部署仍待開發 |
 
 Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料與設定保留在專案內的 `shop-mysql-runtime/`，`.runtime/` 為既有相容連結，不屬於 Python 虛擬環境。原始資料、模型與本機設定由 Git 忽略；GitHub 保存可重現的程式、文件、Notebook 及聚合報告。操作見[本機環境指南](LOCAL_SETUP.md)。
@@ -1447,7 +1451,7 @@ Python 套件安裝在專案 `.venv/`；MySQL 是獨立服務，程式、資料�
 | Stage 7 | 延遲模型適用程度尚未確認 | 先固定每日10%預算改善延遲辨識，確認適用程度後再做 Dashboard 視覺化 |
 | Stage 8–11 | 資料、P0／C1／D1開發驗收及研究交付已完成；適用限制與已曝光validation保留 | 保留既有證據，不能將工程優化當成新的研究成績 |
 | Stage 12 | K1 的開發輸出已保存，完整獨立驗收待完成；V87 已訂出 Windows 原生來源驗證規格 | [最近商品留一席](#recency-slot-validation)在開發窗淨增 39,319 次命中，K1 暫緩。若要研究前段名次的增益，可從[最新工程規格](STAGE12_KNN_WINDOWS_NATIVE_QUALIFICATION_V87_20261118.md)接續 |
-| Stage 13 | 共同購買配對只覆蓋八月 4.14% 的商品查詢 | [購買補位](#purchase-popular-fill)在八月多命中 19 次，可用原榜有配對的案例展示來源與名次如何改變。 |
+| Stage 13 | 共同購買配對只覆蓋八月 4.14% 的商品查詢 | [購買補位回放](#purchase-popular-fill)可逐席辨識來源與首次命中名次。下一步可做成 GitHub 首頁對照圖。 |
 
 ## Stage 11：D1 候選與比較研究歷程
 

@@ -1,0 +1,44 @@
+{
+  "scope": "August 2015 development same-transaction purchase queries",
+  "selection": "First short-list fill gain, then first distinct query with a later first hit than the original popularity list",
+  "validation_report": "reports/stage13/retailrocket_purchase_popular_fill_201508.json",
+  "validation_report_sha256": "af6d87f225c49e9e914768baf7334d79feae4fa29082dfec55d70672876e6626",
+  "local_examples": "shop-mysql-runtime/retailrocket_purchase_popular_fill_replay_201508/cases.json",
+  "local_examples_sha256": "05d17d7d1698972a15424d155bf2cfa5ccc21fbcf4a4ac05bb00dd08eefca96e",
+  "scorable_queries": 1477,
+  "overlap_queries": 4,
+  "cases": [
+    {
+      "id": "short_gain",
+      "count": 4,
+      "cohort_position": 201,
+      "target_count": 4,
+      "list_sizes": {
+        "cobuy": 1,
+        "popular": 10,
+        "popular_fill": 10
+      },
+      "first_hit_ranks": {
+        "cobuy": null,
+        "popular": 2,
+        "popular_fill": 3
+      }
+    },
+    {
+      "id": "popular_later",
+      "count": 4,
+      "cohort_position": 407,
+      "target_count": 1,
+      "list_sizes": {
+        "cobuy": 1,
+        "popular": 10,
+        "popular_fill": 10
+      },
+      "first_hit_ranks": {
+        "cobuy": null,
+        "popular": 2,
+        "popular_fill": 3
+      }
+    }
+  ]
+}

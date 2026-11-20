@@ -25,6 +25,8 @@
 .query-context dd { margin: 3px 0 0; font: 600 .95rem/1.5 var(--mono); overflow-wrap: anywhere; }
 .id-list { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
 .replay-grid { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(220px, 1fr); grid-template-areas: "ranking actual"; align-items: start; gap: 18px; }
+.purchase-replay { margin-top: 20px; }
+.purchase-replay .replay-table tr > :nth-child(3) { border-left: 1px solid var(--line); }
 .ranking-panel { grid-area: ranking; min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
 .replay-table { width: 100%; table-layout: fixed; border-collapse: collapse; text-align: left; }
 .replay-table thead th { padding: 16px 14px; background: #e8efe7; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 1.15rem; }
@@ -80,8 +82,13 @@
   .replay-table thead th { font-size: 1rem; }
   .rank-label { display: block; margin-left: 0; }
   .replay-id { font-size: .9rem; }
+  .purchase-replay .replay-table .place { width: 34px; }
+  .purchase-replay .replay-table th, .purchase-replay .replay-table td { padding-inline: 5px; }
+  .purchase-replay .replay-table thead th { font-size: .8125rem; }
+  .purchase-replay .outcome { font-size: .75rem; text-wrap: balance; }
 }
 @media (max-width: 360px) {
   .cart-case-outcome { display: block; white-space: nowrap; }
   .cart-fill-options .case-stats { flex-direction: column; gap: 0; }
+  .purchase-case-options .case-title { text-wrap: balance; }
 }

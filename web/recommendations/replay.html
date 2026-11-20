@@ -36,6 +36,7 @@
       <a id="k1-link" href="/replay?case=k1_vs_c1_k1_only">近鄰 K1 與共現 C1</a>
       <a id="cart-link" href="/replay?case=cart_hit">其他人也加入購物車</a>
       <a id="cart_fill-link" href="/replay?case=cart_fill_empty">共同加購＋熱門補位</a>
+      <a id="purchase_fill-link" href="/replay?case=purchase_fill_short_gain">共同購買＋熱門補位</a>
     </nav>
     <div id="load-state" class="load-state">
       <p id="load-message" role="status">正在讀取已驗證的歷史紀錄…</p>
@@ -65,7 +66,7 @@
           <p class="id-list" id="slot-targets"></p>
         </div>
       </section>
-      <dl class="query-context">
+      <dl class="query-context" id="query-context">
         <div><dt>推薦時間</dt><dd><time id="query-time"></time></dd></div>
         <div id="recent-context" hidden><dt>換入商品最近瀏覽時間</dt><dd><time id="recent-time"></time></dd></div>
         <div id="history-context"><dt>截至當時看過的不同商品</dt><dd class="id-list" id="history-items"></dd></div>
@@ -79,6 +80,7 @@
                 <th scope="col" class="place">名次</th>
                 <th scope="col"><span id="left-model">熱門榜</span><span class="outcome" id="left-outcome"></span></th>
                 <th scope="col"><span id="right-model">共現模型</span><span class="outcome" id="c1-outcome"></span></th>
+                <th scope="col" id="third-header" hidden><span>補位後</span><span class="outcome" id="filled-outcome"></span></th>
               </tr>
             </thead>
             <tbody id="ranked-items"></tbody>
@@ -86,7 +88,7 @@
         </div>
         <section class="actual-panel" aria-labelledby="actual-heading">
           <div id="cart-seed" hidden>
-            <h2>訪客剛加入購物車</h2>
+            <h2 id="seed-heading">訪客剛加入購物車</h2>
             <p class="id-list" id="seed-item"></p>
           </div>
           <h2 id="actual-heading">訪客接著看了</h2>
@@ -102,7 +104,7 @@
     <p>資料來源　<a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-    <p>本頁對照歷史瀏覽、加購紀錄與已驗證的推薦排名。資料集使用匿名商品編號。</p>
+    <p>本頁對照歷史瀏覽、加購與交易紀錄，以及已驗證的推薦排名。資料集使用匿名商品編號。</p>
   </footer>
 </body>
 </html>
