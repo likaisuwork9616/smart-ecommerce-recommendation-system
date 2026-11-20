@@ -1,0 +1,126 @@
+{
+  "study": "Other items recorded under the same transaction key as one known item",
+  "role": "2015-08 development validation",
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0,
+  "source_database": {
+    "path": "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+    "bytes": 1734836224,
+    "sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503"
+  },
+  "windows_utc_start_inclusive_end_exclusive": {
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "canonical_raw_check": "Matched deduplicated raw transaction rows within each allowed window",
+  "transaction_groups_crossing_train_and_validation": 0,
+  "rules": {
+    "basket": "One group per anonymous visitor key and transaction key; distinct item IDs, without timestamp order.",
+    "cobuy": "Unordered pairs within a group; at least two distinct supporting visitors, counted once each. Sort by votes descending, numeric item ID ascending.",
+    "popular": "Number of training transaction groups containing the item. Sort by count descending, numeric item ID ascending.",
+    "query": "One query per distinct seed item per group; remove it from both top tens. Only groups with other distinct items are scored. Unknown targets stay in the denominator.",
+    "hit": "At least one other item in the same group is ranked. MRR@10 is the mean reciprocal rank of the first hit, with misses scored zero."
+  },
+  "training": {
+    "canonical_transaction_rows": 15373,
+    "transaction_groups": 12095,
+    "anonymous_visitors": 8031,
+    "distinct_transaction_keys": 12095,
+    "distinct_items": 8957,
+    "item_occurrences_in_transaction_groups": 15280,
+    "groups_with_at_least_two_distinct_items": 1830,
+    "max_items_in_group": 31,
+    "groups_spanning_multiple_timestamps": 1196,
+    "max_timestamp_span_ms": 19321969,
+    "observed_pairs": 6590,
+    "qualified_pairs": 186,
+    "qualified_pairs_sha256": "8dda54191a4004e215c80dd2e43f5447b0cb576ab4af940f13122b07e41efe36",
+    "seeds_with_at_least_one_neighbor": 177,
+    "seeds_with_ten_neighbors": 0
+  },
+  "august": {
+    "canonical_transaction_rows": 4632,
+    "transaction_groups": 3660,
+    "anonymous_visitors": 2498,
+    "distinct_transaction_keys": 3660,
+    "distinct_items": 3324,
+    "item_occurrences_in_transaction_groups": 4613,
+    "groups_with_at_least_two_distinct_items": 524,
+    "max_items_in_group": 21,
+    "groups_spanning_multiple_timestamps": 373,
+    "max_timestamp_span_ms": 332621
+  },
+  "all_item_occurrences": {
+    "queries": 4613,
+    "cobuy": {
+      "with_recommendations": 191,
+      "full_ten": 0,
+      "coverage": 0.04140472577498374
+    },
+    "popular": {
+      "with_recommendations": 4613,
+      "full_ten": 4613,
+      "coverage": 1.0
+    }
+  },
+  "scorable": {
+    "queries": 1477,
+    "all_targets_absent_from_training": 540,
+    "cobuy": {
+      "with_recommendations": 118,
+      "full_ten": 0,
+      "coverage": 0.07989167230873392,
+      "hit_queries": 33,
+      "hit_rate_all": 0.02234258632362898,
+      "hit_rate_when_recommended": 0.2796610169491525,
+      "first_hit_counts_rank_1_to_10": [
+        27,
+        5,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mrr_at_10": 0.020198600767321145
+    },
+    "popular": {
+      "with_recommendations": 1477,
+      "full_ten": 1477,
+      "coverage": 1.0,
+      "hit_queries": 94,
+      "hit_rate_all": 0.06364251861882193,
+      "hit_rate_when_recommended": 0.06364251861882193,
+      "first_hit_counts_rank_1_to_10": [
+        32,
+        36,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "mrr_at_10": 0.03956969833747085
+    },
+    "paired_hits": {
+      "both": 14,
+      "cobuy_only": 19,
+      "popular_only": 80,
+      "neither": 1364
+    },
+    "popular_hits_on_cobuy_covered_queries": 18
+  },
+  "queries_targets_and_rankings_sha256": "69f3f08e48103223034075f0cc8d27b8f0abd79992959352d2eaa3642dab0e38"
+}
