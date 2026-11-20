@@ -40,6 +40,7 @@
 .replay-table td.empty-rank { color: var(--muted); }
 .replay-id { font: 600 1rem/1.4 var(--mono); overflow-wrap: anywhere; }
 .rank-label { display: inline-block; margin-left: 8px; font-size: .8125rem; color: var(--muted); }
+.rank-source { white-space: nowrap; }
 .hit-label { font-weight: 700; color: var(--green); }
 .actual-panel { grid-area: actual; background: var(--green); color: white; padding: 22px; border-radius: 14px; }
 .actual-panel h2 { font-size: 1.15rem; }
@@ -82,4 +83,5 @@
 }
 @media (max-width: 360px) {
   .cart-case-outcome { display: block; white-space: nowrap; }
+  .cart-fill-options .case-stats { flex-direction: column; gap: 0; }
 }

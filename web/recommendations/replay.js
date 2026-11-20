@@ -35,6 +35,12 @@ const comparisons = {
     labels: { hit: "命中", miss: "未命中" },
     unavailable: "目前無法載入八月加購案例。請確認本機有已核對的加購回放檔，再重新啟動服務。",
   },
+  cart_fill: {
+    prefix: "cart_fill_",
+    arms: ["coadd", "popular_fill"],
+    labels: { empty: "空榜補位命中", short: "短榜補位命中" },
+    unavailable: "目前無法載入熱門補位案例。請建立本機補位回放檔，再重新啟動服務。",
+  },
 };
 const requestedCase = new URLSearchParams(window.location.search).get("case");
 const mode = Object.keys(comparisons).find((key) => {
@@ -42,6 +48,8 @@ const mode = Object.keys(comparisons).find((key) => {
   return requestedCase?.startsWith(prefix) && Object.hasOwn(labels, requestedCase.slice(prefix.length));
 }) || "baseline";
 const comparison = comparisons[mode];
+const cartMode = mode === "cart" || mode === "cart_fill";
+const sourceLabels = { coadd: "共同加購", popular: "熱門補位" };
 
 function itemIds(ids) {
   return ids.map((id) => {
@@ -53,8 +61,8 @@ function itemIds(ids) {
 
 function setOutcome(element, arm) {
   const ranks = arm.hit_ranks;
-  const miss = mode === "cart" ? "未命中" : "前十名未命中";
-  const length = mode === "cart" ? "共 " + arm.items.length + " 件 · " : "";
+  const miss = cartMode ? "未命中" : "前十名未命中";
+  const length = cartMode ? (arm.items.length ? "共 " + arm.items.length + " 件 · " : "空榜 · ") : "";
   element.textContent = length + (ranks.length ? "第 " + ranks.join("、") + " 名命中" : miss);
   element.classList.toggle("has-hit", ranks.length > 0);
 }
@@ -79,7 +87,10 @@ function addPrediction(row, arm, index) {
     cell.classList.add("is-hit");
     badge(cell, "命中", "rank-label hit-label");
   }
-  if (index >= arm.items.length - (arm.zero_fill_slots ?? 0)) {
+  const source = arm.sources?.[index];
+  if (source) {
+    badge(cell, sourceLabels[source], "rank-label rank-source");
+  } else if (index >= arm.items.length - (arm.zero_fill_slots ?? 0)) {
     badge(cell, "熱門補位", "rank-label");
   }
 }
@@ -112,7 +123,7 @@ function renderCase(entry) {
   const history = entry.history ?? [];
   byId("history-context").hidden = !history.length;
   byId("history-items").replaceChildren(...itemIds(history));
-  if (mode === "cart") byId("seed-item").replaceChildren(...itemIds([entry.seed]));
+  if (cartMode) byId("seed-item").replaceChildren(...itemIds([entry.seed]));
   if (mode === "recency") {
     setTime(byId("recent-time"), entry.recent_time);
     byId("original-tenth").textContent = "#" + entry.c1.items[9];
@@ -124,7 +135,7 @@ function renderCase(entry) {
     renderRanking(entry);
   }
   byId("announcement").textContent = (comparison.titlePrefix ?? "") + comparison.labels[entry.id]
-    + (mode === "cart" ? "，排名與實際加購已更新。" : "，排名與實際瀏覽已更新。");
+    + (cartMode ? "，排名與實際加購已更新。" : "，排名與實際瀏覽已更新。");
 }
 
 function showCases(data) {
@@ -139,7 +150,10 @@ function showCases(data) {
   const hasCounts = Number.isSafeInteger(total) && total > 0
     && Number.isSafeInteger(group.net_additional_hits) && entries.every((entry) => Number.isSafeInteger(entry.count));
   const period = byId("validation-period");
-  if (hasCounts) {
+  if (mode === "cart_fill" && hasCounts) {
+    period.textContent = "2015 年 8 月的 " + number.format(group.scorable_queries) + " 次可評分查詢中，共新增 "
+      + number.format(total) + " 次命中。兩個按鈕的占比以新增命中為分母，各回放該類的第一筆。";
+  } else if (hasCounts) {
     period.textContent = mode === "cart"
       ? "2015 年 8 月開發驗證中，有 " + number.format(total) + " 次能核對下一步加購，兩榜也都有推薦。"
         + "依驗證查詢順序，各回放共同加購榜命中與未命中的第一筆。"
@@ -152,8 +166,9 @@ function showCases(data) {
   byId("slot-comparison").hidden = mode !== "recency";
   byId("baseline-comparison").hidden = mode === "recency";
   byId("recent-context").hidden = mode !== "recency";
-  byId("cart-seed").hidden = mode !== "cart";
+  byId("cart-seed").hidden = !cartMode;
   choices.classList.toggle("two-options", mode !== "baseline");
+  choices.classList.toggle("cart-fill-options", mode === "cart_fill");
   if (mode === "recency") {
     byId("case-legend").textContent = "選擇命中變化";
     byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/598900c/docs/PROJECT_PROGRESS.md#recency-slot-validation";
@@ -161,13 +176,16 @@ function showCases(data) {
     byId("left-model").textContent = "近鄰模型 K1";
     byId("right-model").textContent = "共現模型 C1";
     byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/0d53e4f/docs/STAGE12_K1_AUGUST_READBACK_20261119.md";
-  } else if (mode === "cart") {
-    byId("left-model").textContent = "共同加購榜";
-    byId("right-model").textContent = "熱門加購榜";
+  } else if (cartMode) {
+    const filled = mode === "cart_fill";
+    byId("left-model").textContent = filled ? "補位前" : "共同加購榜";
+    byId("right-model").textContent = filled ? "補位後" : "熱門加購榜";
     byId("actual-heading").textContent = "訪客接著加入購物車";
     byId("actual-note").textContent = "下一個加購時點的其他商品，只要有一件在榜上，這份推薦就算命中。";
     byId("ranking-caption").textContent = "同一次加購的兩種推薦排名，最多十名";
-    byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/a3597dc/docs/PROJECT_PROGRESS.md#cart-august-validation";
+    byId("report-link").href = filled
+      ? "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/3a1647a/docs/PROJECT_PROGRESS.md#cart-popular-fill"
+      : "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/a3597dc/docs/PROJECT_PROGRESS.md#cart-august-validation";
   }
   choices.replaceChildren();
   for (const entry of entries) {
@@ -220,6 +238,8 @@ function showCases(data) {
       summary.textContent = "至少兩位不同訪客曾在各自的購物過程中一起加購這對商品，才會列入共同加購榜。"
         + "在這 " + number.format(total) + " 次裡，共同加購榜猜中 " + number.format(group.coadd_hit_queries)
         + " 次，熱門加購榜猜中 " + number.format(group.popular_hit_queries) + " 次。";
+    } else if (mode === "cart_fill") {
+      summary.textContent = "共同加購商品留在原位，再按熱門加購順序補入未上榜的商品。";
     } else {
       const counts = new Map(entries.map((entry) => [entry.id, entry.count]));
       const both = counts.get("both") || 0;
@@ -228,7 +248,7 @@ function showCases(data) {
       summary.textContent = "前十名命中率為熱門榜 " + percent.format(popular / total)
         + "、共現模型 " + percent.format(cooccurrence / total) + "。";
     }
-    if (mode !== "cart") {
+    if (!cartMode) {
       const net = group.net_additional_hits;
       const difference = document.createElement("strong");
       difference.textContent = net === 0 ? "兩種方法的總命中次數相同。"
@@ -248,7 +268,7 @@ async function loadReplay() {
   try {
     const response = await fetch("/api/replay");
     if (response.status === 503) {
-      byId("load-message").textContent = mode === "cart" ? comparison.unavailable
+      byId("load-message").textContent = cartMode ? comparison.unavailable
         : "本機缺少可核對的 Stage 10 回放資料。請還原保存包並重新啟動服務。";
       byId("retry").hidden = false;
       return;
@@ -257,14 +277,16 @@ async function loadReplay() {
     const data = await response.json();
     showCases(data);
   } catch {
-    byId("load-message").textContent = mode === "cart" ? comparison.unavailable
+    byId("load-message").textContent = cartMode ? comparison.unavailable
       : "無法載入回放。請確認本機服務與 Stage 10 驗證紀錄可用後重試。";
     byId("retry").hidden = false;
   }
 }
 
 byId(mode + "-link").setAttribute("aria-current", "page");
-if (mode === "cart") {
+if (mode === "cart_fill") {
+  byId("intro-description").textContent = "並排看原共同加購榜和補滿十席後的榜單，找出補位猜中的商品。";
+} else if (mode === "cart") {
   byId("intro-description").textContent = "訪客剛把商品加入購物車，兩份推薦榜單猜中了他接著加的商品嗎？";
 }
 byId("retry").addEventListener("click", loadReplay);

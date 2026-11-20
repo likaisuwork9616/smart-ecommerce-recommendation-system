@@ -137,13 +137,15 @@ def evaluate(rows):
     }
 
 
-def study(root=ROOT):
+def study(root=ROOT, observe_scorable=None):
     root = Path(root)
     baseline_bytes = (root / BASELINE).read_bytes()
     rows = []
 
-    def capture(_timestamp, seed, targets, coadd, popular):
+    def capture(timestamp, seed, targets, coadd, popular):
         rows.append((seed, frozenset(targets), coadd, popular))
+        if observe_scorable is not None:
+            observe_scorable(timestamp, seed, targets, coadd, popular)
 
     source = audit(root, observe_scorable=capture)
     if source != json.loads(baseline_bytes):

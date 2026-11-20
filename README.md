@@ -104,6 +104,13 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 14,725 次加購機會都能列滿十件，其中 12,886 次（87.51%）會全部使用熱門商品。八月補位驗證有逐席記錄來源，九月保留測試繼續封存。[補位方法與逐名次統計](docs/PROJECT_PROGRESS.md#cart-popular-fill) · [八月補位報告](reports/stage13/retailrocket_cart_popular_fill_201508.json)
 
+在本機推薦回放選「共同加購＋熱門補位」，可以並排查看原榜、補滿後的十席、訪客實際下一件與命中名次。每個有商品的席位都標示「共同加購」或「熱門補位」。兩例各取該類在八月驗證順序中的第一筆，次數與占比以 **20 次新增命中**為分母。
+
+| 本機補位回放 | 占新增命中 | 這一筆的變化 |
+| --- | ---: | --- |
+| [空榜補位命中](http://127.0.0.1:8765/replay?case=cart_fill_empty) | 16 次（80%） | 原榜為空，補入 10 件熱門商品後，第 3 名猜中實際下一件。 |
+| [短榜補位命中](http://127.0.0.1:8765/replay?case=cart_fill_short) | 4 次（20%） | 原本只列 1 件。保留第 1 名、補入 9 件後，第 2 名猜中實際下一件。 |
+
 <a id="cart-replay-cards"></a>
 
 ### 回放兩次實際加購
@@ -133,8 +140,8 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | GitHub 首頁可直接看 K1 與 C1 各自命中、最近商品換入第十名，以及共同加購榜命中與未命中的案例對照圖。本機可查 198,946 件匿名商品，並切換八個瀏覽案例與兩個加購案例。 |
-| 其他人也加入購物車 | 原榜的兩例本機回放與 GitHub 對照圖已完成。八月補位驗證將前十名命中由 110 次增至 130 次，全部加購機會都能列滿十件。[補位驗證](docs/PROJECT_PROGRESS.md#cart-popular-fill) · [原榜案例](docs/PROJECT_PROGRESS.md#cart-replay) |
+| 推薦展示 | GitHub 首頁可直接看 K1 與 C1 各自命中、最近商品換入第十名，以及共同加購榜命中與未命中的案例對照圖。本機可查 198,946 件匿名商品，並切換八個瀏覽案例與四個加購案例。 |
+| 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。本機可切換空榜補位與短榜補位的新增命中案例，逐席查看來源。原榜的兩例保留 GitHub 對照圖。[補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) · [原榜案例](docs/PROJECT_PROGRESS.md#cart-replay) |
 | K1 近鄰推薦 | 八月 166,897 筆開發查詢完成獨立驗算，K1 比 C1 淨多命中 47,620 次。可在首頁直接查看兩者成效與限制。[八月驗算紀錄](docs/STAGE12_K1_AUGUST_READBACK_20261119.md) |
 | 每日 10% 延遲提醒 | 等待每日完整訂單名冊、資料首次可查時間、歷史版本及日結對帳。收到後再驗證固定 10% 提醒預算的適用性。[資料交接明細](docs/PROJECT_PROGRESS.md#daily10-source-check) |
 
@@ -148,6 +155,12 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.cart_replay_examples
+```
+
+首次建立兩筆熱門補位回放時，使用同一份 Stage 8 本機事件資料庫，執行下列指令。[補位案例核對紀錄](reports/stage13/retailrocket_cart_popular_fill_replay_201508.json)
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.cart_popular_fill_replay
 ```
 
 啟動本機網頁服務。

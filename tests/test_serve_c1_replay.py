@@ -36,6 +36,7 @@ class ReplayRoutesTest(unittest.TestCase):
         replay.payload.return_value = {
             "cases": [{"id": "neither"}],
             "cart": {"total_queries": 3, "cases": [{"id": "hit", "count": 1}, {"id": "miss", "count": 2}]},
+            "cart_fill": {"total_queries": 2, "cases": [{"id": "empty", "count": 1}, {"id": "short", "count": 1}]},
         }
         self.assertEqual(self.get(self.open_server(replay), "/api/replay"),
                          (200, replay.payload.return_value))
@@ -43,7 +44,7 @@ class ReplayRoutesTest(unittest.TestCase):
     def test_cart_deep_links_serve_the_replay_page(self):
         port = self.open_server()
         page = (WEB / "replay.html").read_bytes()
-        for case in ("cart_hit", "cart_miss"):
+        for case in ("cart_hit", "cart_miss", "cart_fill_empty", "cart_fill_short"):
             with self.subTest(case=case):
                 connection = HTTPConnection("127.0.0.1", port, timeout=3)
                 try:

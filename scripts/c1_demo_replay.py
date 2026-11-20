@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from scripts.cart_replay_examples import load_cart_replay
+from scripts.cart_popular_fill_replay import load_cart_fill_replay
 from scripts.c1_demo_model import EDGES, QUERIES, RELEASE
 from scripts.evaluate_recency_slot import history_catalog, most_recent, reserve_slot
 from scripts.retailrocket_popularity import K
@@ -217,10 +218,14 @@ class ReplayLibrary:
             except (OSError, ValueError, KeyError, TypeError, IndexError) as exc:
                 print(f"K1 回放無法載入：{exc}", file=sys.stderr)
 
-        try:
-            library._payload["cart"] = load_cart_replay(root)
-        except (OSError, ValueError, KeyError, TypeError, IndexError) as exc:
-            print(f"共同加購回放無法載入：{exc}", file=sys.stderr)
+        for group, label, load in (
+            ("cart", "共同加購", load_cart_replay),
+            ("cart_fill", "熱門補位", load_cart_fill_replay),
+        ):
+            try:
+                library._payload[group] = load(root)
+            except (OSError, ValueError, KeyError, TypeError, IndexError) as exc:
+                print(f"{label}回放無法載入：{exc}", file=sys.stderr)
         return library
 
     def payload(self):

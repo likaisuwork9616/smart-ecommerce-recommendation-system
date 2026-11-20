@@ -83,12 +83,15 @@ def build_cart_replay(root=ROOT):
 
 def load_cart_replay(root=ROOT):
     """Read only the two checked examples. The web server never needs to score a query."""
-    root = Path(root)
-    receipt = json.loads((root / RECEIPT).read_bytes())
-    certified = (root / REPORT).read_bytes()
+    return load_verified_examples(Path(root), REPORT, RECEIPT, EXAMPLES)
+
+
+def load_verified_examples(root, report_path, receipt_path, examples_path):
+    receipt = json.loads((root / receipt_path).read_bytes())
+    certified = (root / report_path).read_bytes()
     if receipt["validation_report_sha256"] != hashlib.sha256(certified).hexdigest():
         raise ValueError("加購回放收據與八月開發驗證報告不符。")
-    data = (root / EXAMPLES).read_bytes()
+    data = (root / examples_path).read_bytes()
     if receipt["local_examples_sha256"] != hashlib.sha256(data).hexdigest():
         raise ValueError("本機加購案例與核對過的範例不符，請重新建立。")
     return json.loads(data)
@@ -97,9 +100,13 @@ def load_cart_replay(root=ROOT):
 def restore(root=ROOT):
     root = Path(root)
     data, receipt = build_cart_replay(root)
-    if json.loads((root / RECEIPT).read_bytes()) != receipt:
+    return restore_verified_examples(root, RECEIPT, EXAMPLES, data, receipt)
+
+
+def restore_verified_examples(root, receipt_path, examples_path, data, receipt):
+    if json.loads((root / receipt_path).read_bytes()) != receipt:
         raise ValueError("重新擷取的加購案例與已發布的收據不符。")
-    path = root / EXAMPLES
+    path = root / examples_path
     path.parent.mkdir(exist_ok=True, parents=True)
     output = NamedTemporaryFile(dir=path.parent, delete=False)
     temp = Path(output.name)

@@ -1,0 +1,32 @@
+{
+  "scope": "August 2015 development next-cart queries",
+  "selection": "First gained hit with an empty co-add list and first gained hit with a short nonempty co-add list in verified query order",
+  "validation_report": "reports/stage13/retailrocket_cart_popular_fill_201508.json",
+  "validation_report_sha256": "005c192fce8d8038fbede2fab355db1b65e27e175b7fd5cfdd31fd47857785ca",
+  "local_examples": "shop-mysql-runtime/retailrocket_cart_popular_fill_replay_201508/cases.json",
+  "local_examples_sha256": "a331c0390f292263a4f6eed697f7a84e5e91e372543f6f56112f3d21b487b50e",
+  "scorable_queries": 4266,
+  "gain_queries": 20,
+  "cases": [
+    {
+      "id": "empty",
+      "count": 16,
+      "cohort_position": 159,
+      "coadd_slots": 0,
+      "popular_fill_slots": 10,
+      "hit_ranks_after_fill": [
+        3
+      ]
+    },
+    {
+      "id": "short",
+      "count": 4,
+      "cohort_position": 952,
+      "coadd_slots": 1,
+      "popular_fill_slots": 9,
+      "hit_ranks_after_fill": [
+        2
+      ]
+    }
+  ]
+}
