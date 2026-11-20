@@ -15,11 +15,11 @@ ARMS = ("coadd", "popular", "empty_fallback", "popular_fill")
 COVERAGE = ("empty", "short", "full")
 
 
-def popular_fill(coadd, popular):
-    """Preserve the co-add prefix and provenance for every emitted slot."""
-    shared = set(coadd)
-    remaining = TOP_K - len(coadd)
-    prefix = [(item, "coadd") for item in coadd]
+def popular_fill(related, popular, *, original="coadd"):
+    """Preserve the original prefix and provenance for every emitted slot."""
+    shared = set(related)
+    remaining = TOP_K - len(related)
+    prefix = [(item, original) for item in related]
     filler = [(item, "popular") for item in popular if item not in shared]
     return prefix + filler[:remaining]
 
@@ -56,7 +56,7 @@ def compare(old_ranks, new_ranks):
     return changes
 
 
-def verify_fill(rows, expected_digest):
+def verify_fill(rows, expected_digest, *, original="coadd"):
     """Reconstruct all mixed ranks and source labels using SQL anti-join and rank."""
     with closing(sqlite3.connect(":memory:")) as db:
         db.executescript("""
@@ -85,9 +85,9 @@ def verify_fill(rows, expected_digest):
                        ROW_NUMBER() OVER (PARTITION BY query ORDER BY arm, position) AS slot
                 FROM retained
             )
-            SELECT query, slot, item, CASE WHEN arm = 0 THEN 'coadd' ELSE 'popular' END
+            SELECT query, slot, item, CASE WHEN arm = 0 THEN ? ELSE 'popular' END
             FROM numbered WHERE slot <= ? ORDER BY query, slot
-        """, (TOP_K,))
+        """, (original, TOP_K))
         digest = hashlib.sha256()
         for row in recomputed:
             digest_row(digest, row)
@@ -95,15 +95,16 @@ def verify_fill(rows, expected_digest):
         raise ValueError("SQL reconstruction disagrees with the mixed ranks or their source labels")
 
 
-def evaluate(rows):
-    ranks = {arm: [] for arm in ARMS}
-    bands = {band: {"queries": 0, "hit_queries": dict.fromkeys(ARMS, 0)} for band in COVERAGE}
-    slots = dict.fromkeys(("coadd", "popular"), 0)
+def evaluate(rows, *, original="coadd"):
+    arms = (original, *ARMS[1:])
+    ranks = {arm: [] for arm in arms}
+    bands = {band: {"queries": 0, "hit_queries": dict.fromkeys(arms, 0)} for band in COVERAGE}
+    slots = dict.fromkeys((original, "popular"), 0)
     first_hit_sources = dict.fromkeys(slots, 0)
     mixed_digest = hashlib.sha256()
 
-    for query, (seed, truth, coadd, popular) in enumerate(rows, 1):
-        mixed = popular_fill(coadd, popular)
+    for query, (seed, truth, related, popular) in enumerate(rows, 1):
+        mixed = popular_fill(related, popular, original=original)
         items = [item for item, _ in mixed]
         if len(items) != TOP_K or len(set(items)) != TOP_K or seed in items:
             raise ValueError("A mixed list is not ten distinct items excluding the seed")
@@ -111,10 +112,10 @@ def evaluate(rows):
             slots[source] += 1
             digest_row(mixed_digest, (query, slot, item, source))
 
-        lists = (coadd, popular, coadd or popular, items)
-        band = "full" if len(coadd) == TOP_K else "short" if coadd else "empty"
+        lists = (related, popular, related or popular, items)
+        band = "full" if len(related) == TOP_K else "short" if related else "empty"
         bands[band]["queries"] += 1
-        for arm, ranking in zip(ARMS, lists, strict=True):
+        for arm, ranking in zip(arms, lists, strict=True):
             rank = first_hit(ranking, truth)
             ranks[arm].append(rank)
             bands[band]["hit_queries"][arm] += rank is not None
@@ -124,12 +125,12 @@ def evaluate(rows):
             first_hit_sources[mixed[hit - 1][1]] += 1
 
     digest = mixed_digest.hexdigest()
-    verify_fill(rows, digest)
+    verify_fill(rows, digest, original=original)
     return {
         "queries": len(rows),
-        "arms": {arm: summarize(ranks[arm]) for arm in ARMS},
-        "by_original_coadd_list_size": bands,
-        "popular_fill_vs": {arm: compare(ranks[arm], ranks["popular_fill"]) for arm in ARMS[:-1]},
+        "arms": {arm: summarize(ranks[arm]) for arm in arms},
+        f"by_original_{original}_list_size": bands,
+        "popular_fill_vs": {arm: compare(ranks[arm], ranks["popular_fill"]) for arm in arms[:-1]},
         "popular_fill_slots_by_source": slots,
         "popular_fill_first_hits_by_source": first_hit_sources,
         "mixed_query_slot_item_and_source_sha256": digest,

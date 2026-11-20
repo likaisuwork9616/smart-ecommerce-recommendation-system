@@ -22,7 +22,12 @@ class PurchaseBasketTests(unittest.TestCase):
     def test_scores_other_items_in_same_basket_and_keeps_unknown_targets(self):
         august = [("a", "x", ("1", "2", "10")), ("b", "y", ("50",)),
                   ("b", "z", ("51", "52"))]
-        result = evaluate(august, {"1": ("2", "10"), "2": ("10",)}, ["1", "2", "10", "3"])
+        observed = []
+
+        def capture(seed, targets, cobuy, popular):
+            observed.append((seed, targets, cobuy, popular))
+
+        result = evaluate(august, {"1": ("2", "10"), "2": ("10",)}, ["1", "2", "10", "3"], capture)
         self.assertEqual(result["all_item_occurrences"]["queries"], 6)
         scored = result["scorable"]
         self.assertEqual(scored["queries"], 5)
@@ -31,6 +36,8 @@ class PurchaseBasketTests(unittest.TestCase):
         self.assertEqual(scored["cobuy"]["hit_queries"], 2)
         self.assertEqual(scored["popular"]["hit_queries"], 3)
         self.assertEqual(scored["paired_hits"], {"both": 2, "cobuy_only": 0, "popular_only": 1, "neither": 2})
+        self.assertEqual([row[0] for row in observed], ["1", "2", "10", "51", "52"])
+        self.assertEqual(observed[0], ("1", {"2", "10"}, ("2", "10"), ["2", "10", "3"]))
 
     def test_reader_matches_dedup_and_excludes_other_roles_and_windows(self):
         db = sqlite3.connect(":memory:")

@@ -88,7 +88,7 @@ def build_lists(baskets):
     }
 
 
-def evaluate(baskets, ranked, popular):
+def evaluate(baskets, ranked, popular, observe_scorable=None):
     popularity = set(popular)
     prefix = popular[:TOP_K + 1]
     all_lists = {name: ListCounts() for name in ("cobuy", "popular")}
@@ -112,6 +112,8 @@ def evaluate(baskets, ranked, popular):
             if not targets:
                 continue
             eligible += 1
+            if observe_scorable is not None:
+                observe_scorable(seed, truth, cobuy, baseline)
             unknown_targets += popularity.isdisjoint(truth)
             hits = []
             for name, ranking in (("cobuy", cobuy), ("popular", baseline)):
@@ -144,7 +146,7 @@ def evaluate(baskets, ranked, popular):
     }
 
 
-def study(root=ROOT):
+def study(root=ROOT, observe_scorable=None):
     root = Path(root)
     release = json.loads((root / RECEIPT).read_bytes())
     source = next(entry for entry in release["external_dependencies"] if entry["path"] == DB)
@@ -167,7 +169,7 @@ def study(root=ROOT):
     if overlap:
         raise ValueError("Transaction groups cross the training and validation boundary")
     ranked, popular, training_support = build_lists(train)
-    result = evaluate(august, ranked, popular)
+    result = evaluate(august, ranked, popular, observe_scorable)
     if (result["all_item_occurrences"]["queries"] != august_counts["item_occurrences_in_transaction_groups"]
             or result["scorable"]["queries"] != result["all_item_occurrences"]["queries"]
             - (august_counts["transaction_groups"] - august_counts["groups_with_at_least_two_distinct_items"])):

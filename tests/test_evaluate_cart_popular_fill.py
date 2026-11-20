@@ -33,6 +33,14 @@ class PopularCartFillTests(unittest.TestCase):
         self.assertEqual(result["popular_fill_vs"]["popular"]["later"], 1)
         self.assertEqual(result["popular_fill_first_hits_by_source"], {"coadd": 1, "popular": 0})
 
+    def test_purchase_prefix_and_popularity_keep_distinct_sources(self):
+        popular = [str(item) for item in range(1, 11)]
+        result = evaluate([("99", {"1"}, ("8", "2"), popular)], original="cobuy")
+        self.assertEqual(result["by_original_cobuy_list_size"]["short"]["queries"], 1)
+        self.assertEqual(result["arms"]["popular_fill"]["first_hit_counts_rank_1_to_10"][2], 1)
+        self.assertEqual(result["popular_fill_slots_by_source"], {"cobuy": 2, "popular": 8})
+        self.assertEqual(result["popular_fill_vs"]["popular"]["later"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
