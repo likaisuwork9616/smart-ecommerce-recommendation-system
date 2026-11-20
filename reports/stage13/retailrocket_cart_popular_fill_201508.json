@@ -1,0 +1,169 @@
+{
+  "study": "Keep co-add order and fill remaining top-ten slots with frozen popular-cart candidates",
+  "role": "2015-08 exposed development validation",
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0,
+  "baseline_report": "reports/stage13/retailrocket_cart_next_add_201508.json",
+  "baseline_report_sha256": "91637c1f1c709ff8c06b507f41379f8837d2f9d989545e67e433da1ecd337ebb",
+  "windows_utc_start_inclusive_end_exclusive": {
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "rules": {
+    "empty_fallback": "Use co-add unchanged when it is nonempty. Use the original popular top ten for an empty co-add list.",
+    "popular_fill": "Keep every co-add item and its original rank. Append the first distinct items from the original popular top ten until there are ten items. The original lists already exclude the seed.",
+    "mrr_at_10": "Average reciprocal rank of the first target in the top ten, with zero for a miss.",
+    "paired_rank_changes": "Earlier, same and later count only queries with a hit in both compared lists."
+  },
+  "all_cart_opportunities": {
+    "queries": 14725,
+    "original_coadd_empty": 12886,
+    "original_coadd_short_nonempty": 1584,
+    "original_coadd_full_ten": 255,
+    "popular_fill_full_ten": 14725
+  },
+  "scorable": {
+    "queries": 4266,
+    "arms": {
+      "coadd": {
+        "hit_queries": 110,
+        "hit_rate_at_10": 0.025785278949835913,
+        "mrr_at_10": 0.015783623185170303,
+        "first_hit_counts_rank_1_to_10": [
+          47,
+          20,
+          13,
+          13,
+          6,
+          4,
+          2,
+          3,
+          2,
+          0
+        ]
+      },
+      "popular": {
+        "hit_queries": 30,
+        "hit_rate_at_10": 0.007032348804500703,
+        "mrr_at_10": 0.004505819361656211,
+        "first_hit_counts_rank_1_to_10": [
+          14,
+          6,
+          3,
+          2,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0
+        ]
+      },
+      "empty_fallback": {
+        "hit_queries": 126,
+        "hit_rate_at_10": 0.029535864978902954,
+        "mrr_at_10": 0.017450457288713264,
+        "first_hit_counts_rank_1_to_10": [
+          50,
+          24,
+          16,
+          15,
+          7,
+          4,
+          4,
+          4,
+          2,
+          0
+        ]
+      },
+      "popular_fill": {
+        "hit_queries": 130,
+        "hit_rate_at_10": 0.030473511486169714,
+        "mrr_at_10": 0.017848957054301638,
+        "first_hit_counts_rank_1_to_10": [
+          50,
+          27,
+          16,
+          15,
+          8,
+          4,
+          4,
+          4,
+          2,
+          0
+        ]
+      }
+    },
+    "by_original_coadd_list_size": {
+      "empty": {
+        "queries": 3669,
+        "hit_queries": {
+          "coadd": 0,
+          "popular": 16,
+          "empty_fallback": 16,
+          "popular_fill": 16
+        }
+      },
+      "short": {
+        "queries": 509,
+        "hit_queries": {
+          "coadd": 81,
+          "popular": 13,
+          "empty_fallback": 81,
+          "popular_fill": 85
+        }
+      },
+      "full": {
+        "queries": 88,
+        "hit_queries": {
+          "coadd": 29,
+          "popular": 1,
+          "empty_fallback": 29,
+          "popular_fill": 29
+        }
+      }
+    },
+    "popular_fill_vs": {
+      "coadd": {
+        "gain": 20,
+        "loss": 0,
+        "earlier": 0,
+        "same": 110,
+        "later": 0,
+        "both_miss": 4136
+      },
+      "popular": {
+        "gain": 100,
+        "loss": 0,
+        "earlier": 2,
+        "same": 24,
+        "later": 4,
+        "both_miss": 4136
+      },
+      "empty_fallback": {
+        "gain": 4,
+        "loss": 0,
+        "earlier": 0,
+        "same": 126,
+        "later": 0,
+        "both_miss": 4136
+      }
+    },
+    "popular_fill_slots_by_source": {
+      "coadd": 2298,
+      "popular": 40362
+    },
+    "popular_fill_first_hits_by_source": {
+      "coadd": 110,
+      "popular": 20
+    },
+    "mixed_query_slot_item_and_source_sha256": "306e239c174c65da20be23c2d220211e00e5e8990fda55f4be283f1b679d3468",
+    "independent_sql_verified_ranked_slots": 42660
+  }
+}
