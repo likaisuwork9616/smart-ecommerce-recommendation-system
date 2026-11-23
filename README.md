@@ -10,7 +10,7 @@
 
 ![2015 年 8 月開發驗證。瀏覽 C1 留一席命中 69,391 次，K1 近鄰命中 77,692 次，淨增 8,301 次，命中率差的 95% 區間為 +4.618 至 +5.312 個百分點。加購由只補空榜的 126 次增至補滿十席的 130 次，淨增 4 次，區間 +0.022 至 +0.200 個百分點。購買由只補空榜的 109 次增至補滿十席的 113 次，淨增 4 次，區間 +0.062 至 +0.562 個百分點。正式驗收待獨立名冊，九月保留測試繼續封存。](docs/images/recommendation-default-paired-august.png)
 
-圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [瀏覽失誤分析](#august-browse-miss-analysis) · [K1 留一席測試](#august-k1-recency-slot) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [瀏覽失誤分析](#august-browse-miss-analysis) · [K1 留一席對照圖](#k1-recency-replay) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## 推薦回放｜兩張榜單各猜中幾次？
 
@@ -240,7 +240,13 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 #### 補位前後的兩筆回放
 
-在本機推薦回放切換「K1 也留一席」，可並排查看兩張前十名榜單，以及原本第十名、換入的最近商品和訪客實際接著看的商品。兩例依八月封存名冊順序各取第一筆。[案例選取與核對紀錄](reports/mainline/recommendation_k1_recency_replay_20261123.json)
+兩張圖各取八月封存名冊中該類的第一筆，並排顯示補位前後的前十名。圖中共用商品代號，讓原第十名、換入商品和訪客實際接著看的商品能直接對照。[案例選取與核對紀錄](reports/mainline/recommendation_k1_recency_replay_20261123.json)
+
+![新增命中。原 K1 前十名依序為 A、B、C、D、E、F、G、H、I、J。留一席後前九名相同，第十名由 J 換成 K。訪客接著看商品 K，補位後在第十名命中。](docs/images/k1-recency-slot-gain.png)
+
+![擠掉原有命中。原 K1 前十名依序為 L、M、N、O、P、Q、R、S、T、U。留一席後前九名相同，第十名由 U 換成 V。訪客接著看商品 U，原榜第十名命中，補位後未命中。](docs/images/k1-recency-slot-loss.png)
+
+圖卡改繪自 Roman Zykov／Retailrocket 的八月開發案例。下表可點開本機回放。[資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖卡授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 | 本機案例 | 八月名冊位置 | 原 K1 | K1 留一席後 |
 | --- | ---: | --- | --- |
