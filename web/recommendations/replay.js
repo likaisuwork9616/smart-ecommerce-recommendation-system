@@ -17,6 +17,7 @@ const comparisons = {
   },
   recency: {
     prefix: "recency_",
+    arms: ["c1", "recency"],
     labels: { gained: "新增命中", lost: "擠掉原有命中" },
     netLabel: "留一席比原共現榜淨",
     unavailable: "目前無法載入最近商品的回放案例。請確認本機回放資料齊全後重新啟動服務。",
@@ -27,6 +28,13 @@ const comparisons = {
     labels: { k1_only: "只有 K1 命中", c1_only: "只有 C1 命中" },
     netLabel: "K1 比 C1 淨",
     unavailable: "目前無法載入 K1 回放案例。請確認本機有已驗收的八月 K1 開發查詢與報告，再重新啟動服務。",
+  },
+  k1_recency: {
+    prefix: "k1_recency_",
+    arms: ["k1", "k1_recency"],
+    labels: { gained: "新增命中", lost: "擠掉原有命中" },
+    netLabel: "留一席比原 K1 淨",
+    unavailable: "目前無法載入 K1 留一席的八月案例。請建立本機回放檔，再重新啟動服務。",
   },
   cart: {
     prefix: "cart_",
@@ -54,6 +62,8 @@ const mode = Object.keys(comparisons).find((key) => {
   return requestedCase?.startsWith(prefix) && Object.hasOwn(labels, requestedCase.slice(prefix.length));
 }) || "baseline";
 const comparison = comparisons[mode];
+const k1SlotMode = mode === "k1_recency";
+const slotMode = mode === "recency" || k1SlotMode;
 const cartMode = mode === "cart" || mode === "cart_fill";
 const purchaseMode = mode === "purchase_fill";
 const transactionMode = cartMode || purchaseMode;
@@ -97,6 +107,10 @@ function addPrediction(row, arm, index, armName) {
     const first = purchaseMode && index + 1 === arm.hit_ranks[0];
     badge(cell, first ? "首次命中" : "命中", "rank-label hit-label");
   }
+  if (k1SlotMode && index === 9) {
+    cell.classList.add("slot-replacement");
+    badge(cell, armName === "k1" ? "原第十名" : "換入", "rank-label slot-change-label");
+  }
   const source = arm.sources?.[index];
   if (source) {
     const label = purchaseMode && armName === "popular" ? "熱門購買" : sourceLabels[source];
@@ -109,7 +123,7 @@ function addPrediction(row, arm, index, armName) {
 function renderRanking(entry) {
   const rankings = comparison.arms.map((arm) => entry[arm]);
   const outcomes = ["left-outcome", "c1-outcome", "filled-outcome"];
-  byId("target-items").replaceChildren(...itemIds(entry.targets));
+  if (!slotMode) byId("target-items").replaceChildren(...itemIds(entry.targets));
   rankings.forEach((ranking, i) => setOutcome(byId(outcomes[i]), ranking));
   const tbody = byId("ranked-items");
   tbody.replaceChildren();
@@ -135,16 +149,17 @@ function renderCase(entry) {
   byId("history-context").hidden = !history.length;
   byId("history-items").replaceChildren(...itemIds(history));
   if (transactionMode) byId("seed-item").replaceChildren(...itemIds([entry.seed]));
-  if (mode === "recency") {
-    setTime(byId("recent-time"), entry.recent_time);
-    byId("original-tenth").textContent = "#" + entry.c1.items[9];
-    byId("revised-tenth").textContent = "#" + entry.recency.items[9];
-    setOutcome(byId("original-result"), entry.c1);
-    setOutcome(byId("revised-result"), entry.recency);
+  if (slotMode) {
+    const [original, revised] = comparison.arms.map((arm) => entry[arm]);
+    byId("recent-context").hidden = !entry.recent_time;
+    if (entry.recent_time) setTime(byId("recent-time"), entry.recent_time);
+    byId("original-tenth").textContent = "#" + original.items[9];
+    byId("revised-tenth").textContent = "#" + revised.items[9];
+    setOutcome(byId("original-result"), original);
+    setOutcome(byId("revised-result"), revised);
     byId("slot-targets").replaceChildren(...itemIds(entry.targets));
-  } else {
-    renderRanking(entry);
   }
+  if (mode !== "recency") renderRanking(entry);
   const activity = purchaseMode ? "同筆交易商品" : cartMode ? "實際加購" : "實際瀏覽";
   byId("announcement").textContent = (comparison.titlePrefix ?? "") + comparison.labels[entry.id]
     + "，排名與" + activity + "已更新。";
@@ -152,7 +167,7 @@ function renderCase(entry) {
 
 function showCases(data) {
   const group = mode === "baseline" ? data : data[mode];
-  if (!group || !group.cases.length) {
+  if (!group?.cases?.length) {
     byId("load-message").textContent = comparison.unavailable;
     byId("retry").hidden = false;
     return;
@@ -178,19 +193,28 @@ function showCases(data) {
   }
   const selected = entries.find((entry) => comparison.prefix + entry.id === requestedCase) || entries[0];
   const choices = byId("case-options");
-  byId("slot-comparison").hidden = mode !== "recency";
+  byId("slot-comparison").hidden = !slotMode;
   byId("baseline-comparison").hidden = mode === "recency";
   byId("baseline-comparison").classList.toggle("purchase-replay", purchaseMode);
+  byId("baseline-comparison").classList.toggle("slot-ranking", k1SlotMode);
+  byId("ranking-actual").hidden = k1SlotMode;
   byId("query-context").hidden = purchaseMode;
   byId("third-header").hidden = !purchaseMode;
-  byId("recent-context").hidden = mode !== "recency";
   byId("cart-seed").hidden = !transactionMode;
   choices.classList.toggle("two-options", mode !== "baseline");
   choices.classList.toggle("cart-fill-options", mode === "cart_fill");
   choices.classList.toggle("purchase-case-options", purchaseMode);
-  if (mode === "recency") {
+  if (slotMode) {
     byId("case-legend").textContent = "選擇命中變化";
-    byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/598900c/docs/PROJECT_PROGRESS.md#recency-slot-validation";
+    if (k1SlotMode) {
+      byId("original-tenth-heading").textContent = "原 K1 第十名";
+      byId("left-model").textContent = "原 K1";
+      byId("right-model").textContent = "K1 留一席後";
+      byId("ranking-caption").textContent = "同一次瀏覽的 K1 補位前後排名";
+      byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/main/reports/mainline/recommendation_k1_recency_slot_20261123.json";
+    } else {
+      byId("report-link").href = "https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system/blob/598900c/docs/PROJECT_PROGRESS.md#recency-slot-validation";
+    }
   } else if (mode === "k1") {
     byId("left-model").textContent = "近鄰模型 K1";
     byId("right-model").textContent = "共現模型 C1";
@@ -257,8 +281,9 @@ function showCases(data) {
   }
   if (hasCounts) {
     const summary = byId("case-summary");
-    if (mode === "recency") {
-      summary.textContent = "前九名沿用原共現榜，最近看過且可推薦的商品若未上榜，就換入第十名。";
+    if (slotMode) {
+      const originalName = k1SlotMode ? "原 K1" : "原共現榜";
+      summary.textContent = "前九名沿用" + originalName + "，最近看過且可推薦的商品若未上榜，就換入第十名。";
     } else if (mode === "k1") {
       summary.textContent = "K1 找出看過相似商品的歷史瀏覽紀錄，依相似程度替商品投票。C1 依商品的共同瀏覽紀錄推薦。";
     } else if (mode === "cart") {
@@ -297,7 +322,7 @@ async function loadReplay() {
   try {
     const response = await fetch("/api/replay");
     if (response.status === 503) {
-      byId("load-message").textContent = transactionMode ? comparison.unavailable
+      byId("load-message").textContent = transactionMode || k1SlotMode ? comparison.unavailable
         : "本機缺少可核對的 Stage 10 回放資料。請還原保存包並重新啟動服務。";
       byId("retry").hidden = false;
       return;
@@ -306,7 +331,7 @@ async function loadReplay() {
     const data = await response.json();
     showCases(data);
   } catch {
-    byId("load-message").textContent = transactionMode ? comparison.unavailable
+    byId("load-message").textContent = transactionMode || k1SlotMode ? comparison.unavailable
       : "無法載入回放。請確認本機服務與 Stage 10 驗證紀錄可用後重試。";
     byId("retry").hidden = false;
   }
@@ -319,6 +344,8 @@ if (purchaseMode) {
   byId("intro-description").textContent = "並排看原共同加購榜和補滿十席後的榜單，找出補位猜中的商品。";
 } else if (mode === "cart") {
   byId("intro-description").textContent = "訪客剛把商品加入購物車，兩份推薦榜單猜中了他接著加的商品嗎？";
+} else if (k1SlotMode) {
+  byId("intro-description").textContent = "並排看 K1 留一席前後的前十名，對照第十名換了什麼，以及訪客接著看了什麼。";
 }
 byId("retry").addEventListener("click", loadReplay);
 loadReplay();

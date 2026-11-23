@@ -25,6 +25,7 @@
 .query-context dd { margin: 3px 0 0; font: 600 .95rem/1.5 var(--mono); overflow-wrap: anywhere; }
 .id-list { display: flex; flex-wrap: wrap; gap: .25rem .75rem; }
 .replay-grid { display: grid; grid-template-columns: minmax(0, 2.4fr) minmax(220px, 1fr); grid-template-areas: "ranking actual"; align-items: start; gap: 18px; }
+.replay-grid.slot-ranking { grid-template-columns: minmax(0, 1fr); grid-template-areas: "ranking"; }
 .purchase-replay { margin-top: 20px; }
 .purchase-replay .replay-table tr > :nth-child(3) { border-left: 1px solid var(--line); }
 .ranking-panel { grid-area: ranking; min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
@@ -39,11 +40,13 @@
 .replay-table td { vertical-align: middle; }
 .replay-table tr > :last-child { border-left: 1px solid var(--line); }
 .replay-table td.is-hit { background: #e9f6d5; color: var(--green); }
+.replay-table td.slot-replacement:not(.is-hit) { background: #f4eee1; }
 .replay-table td.empty-rank { color: var(--muted); }
 .replay-id { font: 600 1rem/1.4 var(--mono); overflow-wrap: anywhere; }
 .rank-label { display: inline-block; margin-left: 8px; font-size: .8125rem; color: var(--muted); }
 .rank-source { white-space: nowrap; }
 .hit-label { font-weight: 700; color: var(--green); }
+.slot-change-label { font-weight: 650; color: #6b4b23; }
 .actual-panel { grid-area: actual; background: var(--green); color: white; padding: 22px; border-radius: 14px; }
 .actual-panel h2 { font-size: 1.15rem; }
 .actual-panel .id-list { color: var(--mint); margin-block: 10px 15px; font: 700 clamp(1.2rem, 2.7vw, 2rem)/1.2 var(--mono); overflow-wrap: anywhere; }

@@ -1,0 +1,34 @@
+{
+  "scope": "August 2015 development browsing queries",
+  "selection": "First gained hit and first lost hit in frozen query order",
+  "validation_report": "reports/mainline/recommendation_k1_recency_slot_20261123.json",
+  "validation_report_sha256": "293de46b5ff02612116c6c39bc58c61a0eb113d0a379160334f06e6d97c30fb9",
+  "ordered_query_keys_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "local_examples": "shop-mysql-runtime/retailrocket_k1_recency_replay_201508/cases.json",
+  "local_examples_sha256": "f3152b12c8323bfe771370fb5f6b385af1e55bce9882e13ab7018b3666ba41fe",
+  "total_queries": 166897,
+  "cases": [
+    {
+      "id": "gained",
+      "count": 2635,
+      "cohort_position": 149,
+      "target_count": 1,
+      "hit_ranks_before": [],
+      "hit_ranks_after": [
+        10
+      ]
+    },
+    {
+      "id": "lost",
+      "count": 69,
+      "cohort_position": 1640,
+      "target_count": 1,
+      "hit_ranks_before": [
+        10
+      ],
+      "hit_ranks_after": []
+    }
+  ],
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

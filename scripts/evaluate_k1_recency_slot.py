@@ -12,10 +12,10 @@ from scripts.verify_recommendation_acceptance_august import browse_query_details
 MISS_REPORT = "reports/mainline/recommendation_browse_miss_analysis_20261123.json"
 
 
-def evaluate(rows):
+def evaluate(rows, *, observe_change=None):
     original_ranks, revised_ranks = [], []
     changes = dict.fromkeys(("no_eligible_recent_item", "recent_item_already_in_top10", "replaced_rank_10"), 0)
-    for _, targets, candidate, _, _, recent, _ in rows:
+    for position, (key, targets, candidate, _, _, recent, _) in enumerate(rows, 1):
         original = [item for item, _ in candidate]
         revised = reserve_slot(original, recent)
         require(len(revised) == len(set(revised)) == TOP_K and revised[:-1] == original[:-1],
@@ -26,8 +26,12 @@ def evaluate(rows):
             changes["recent_item_already_in_top10"] += 1
         else:
             changes["replaced_rank_10"] += 1
-        original_ranks.append(first_hit(original, targets))
-        revised_ranks.append(first_hit(revised, targets))
+        original_rank = first_hit(original, targets)
+        revised_rank = first_hit(revised, targets)
+        original_ranks.append(original_rank)
+        revised_ranks.append(revised_rank)
+        if observe_change is not None and ((original_rank is None) != (revised_rank is None)):
+            observe_change(position, key[2], targets, original, revised, original_rank, revised_rank)
 
     original = summarize(original_ranks)
     revised = summarize(revised_ranks)
@@ -49,7 +53,7 @@ def evaluate(rows):
     }
 
 
-def study():
+def study(*, observe_change=None):
     policy = json.loads(FREEZE.read_bytes())
     frozen = policy["scenarios"]["browse"]
     window = [AUGUST_START, SEPTEMBER_START]
@@ -60,7 +64,7 @@ def study():
             and published["reserved_test_ranked_queries"] == diagnostic["reserved_test_ranked_queries"] == 0
             and diagnostic["ordered_query_keys_sha256"] == roster["ordered_query_keys_sha256"],
             "Existing evidence differs from the frozen August cohort")
-    result = evaluate(browse_query_details(frozen, *window))
+    result = evaluate(browse_query_details(frozen, *window), observe_change=observe_change)
     expected = published["scenarios"]["browse"]
     original = result["original_k1"]
     previous_k1 = expected["arms"]["candidate"]

@@ -236,6 +236,17 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 逐筆對照**新增命中 2,635 次、擠掉 69 次，淨增 2,566 次**。命中率增加 1.54 個百分點，MRR@10 增加 0.00153748。前九名逐筆保持原位，兩種方法都命中的查詢也保留原首次命中名次。這是八月開發結果，正式採用仍待獨立名冊，九月保留測試繼續封存。[完整成對結果](reports/mainline/recommendation_k1_recency_slot_20261123.json)
 
+<a id="k1-recency-replay"></a>
+
+#### 補位前後的兩筆回放
+
+在本機推薦回放切換「K1 也留一席」，可並排查看兩張前十名榜單，以及原本第十名、換入的最近商品和訪客實際接著看的商品。兩例依八月封存名冊順序各取第一筆。[案例選取與核對紀錄](reports/mainline/recommendation_k1_recency_replay_20261123.json)
+
+| 本機案例 | 八月名冊位置 | 原 K1 | K1 留一席後 |
+| --- | ---: | --- | --- |
+| [新增命中](http://127.0.0.1:8765/replay?case=k1_recency_gained) | 第 149 筆 | 前十名未命中 | 換入商品在第十名命中 |
+| [擠掉原有命中](http://127.0.0.1:8765/replay?case=k1_recency_lost) | 第 1,640 筆 | 第十名命中 | 原命中商品被換出 |
+
 ## 從訂單到顧客，三個分析問題
 
 | 問題 | 專案做了什麼、看到了什麼 | 查看成果 |
@@ -248,7 +259,7 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | 公開展示可切換兩個匿名商品的三種榜單。本機可搜尋 199,125 件訓練商品，也可查看八個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [本機啟動方式](#開啟商品推薦網頁) |
+| 推薦展示 | 公開展示可切換兩個匿名商品的三種榜單。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |
@@ -274,6 +285,12 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 ### 準備本機推薦回放
 
 瀏覽回放使用 Stage 10 保存包。K1 案例另需從本機 Stage 12 保存包還原 `shop-mysql-runtime/retailrocket_session_knn_paired_v1/queries.jsonl`。[回放來源與啟動說明](docs/PROJECT_ARCHIVE.md#開啟商品推薦網頁) · [K1 八月驗收報告](reports/stage12/k1_august_readback_20261119.json)
+
+備妥上述八月保存包後，執行以下命令建立 K1 留一席回放檔。程式會核對全量統計與兩例收據，再將商品編號及榜單存到本機。[K1 留一席回放](#k1-recency-replay)
+
+```powershell
+.\.venv\Scripts\python.exe -B -m scripts.k1_recency_replay
+```
 
 首次建立加購回放時，備妥訓練盤點使用的 Stage 8 本機事件資料庫，在專案根目錄執行下列指令。程式會依八月驗證報告核對兩例，將商品編號與榜單存入本機。之後可直接啟動服務。[加購案例核對紀錄](reports/stage13/retailrocket_cart_replay_201508.json)
 

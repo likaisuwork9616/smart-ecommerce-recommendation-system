@@ -12,6 +12,7 @@ from urllib.parse import parse_qs, urlsplit
 from scripts.basket_demo_model import BasketDemoModel
 from scripts.c1_demo_model import C1DemoModel
 from scripts.c1_demo_replay import ReplayLibrary
+from scripts.k1_recency_replay import load_k1_recency_replay
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +31,8 @@ ASSETS = {
 }
 
 
-def handler_for(model: C1DemoModel, replay: ReplayLibrary | None = None, baskets: BasketDemoModel | None = None):
+def handler_for(model: C1DemoModel, replay: ReplayLibrary | None = None, baskets: BasketDemoModel | None = None,
+                *, k1_recency=None):
     def seen_in_browse(item_id):
         return any(item["item_id"] == item_id for item in model.search(item_id, limit=1))
 
@@ -60,12 +62,15 @@ def handler_for(model: C1DemoModel, replay: ReplayLibrary | None = None, baskets
                 return
 
             if url.path == "/api/replay":
-                if replay is None:
+                if replay is None and k1_recency is None:
                     self.json_response(HTTPStatus.SERVICE_UNAVAILABLE, {
                         "error": "本機缺少可核對的 Stage 10 回放資料。還原保存包後請重新啟動服務。"
                     })
                 else:
-                    self.json_response(HTTPStatus.OK, replay.payload())
+                    payload = dict(replay.payload()) if replay is not None else {}
+                    if k1_recency is not None:
+                        payload["k1_recency"] = k1_recency
+                    self.json_response(HTTPStatus.OK, payload)
                 return
 
             query = parse_qs(url.query, keep_blank_values=True)
@@ -138,7 +143,13 @@ def main():
         except (OSError, ValueError, KeyError) as exc:
             replay = None
             print(f"回放資料無法載入。商品查詢仍可使用。\n{exc}", file=sys.stderr)
-        server = ThreadingHTTPServer(("127.0.0.1", args.port), handler_for(model, replay, baskets))
+        try:
+            k1_recency = load_k1_recency_replay(ROOT)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            k1_recency = None
+            print(f"K1 留一席回放無法載入：{exc}", file=sys.stderr)
+        server = ThreadingHTTPServer(("127.0.0.1", args.port),
+                                     handler_for(model, replay, baskets, k1_recency=k1_recency))
     except (OSError, ValueError, KeyError) as exc:
         sys.exit(f"無法啟動推薦展示。請確認 Stage 10 研究檔案與連接埠。\n{exc}")
     with server:

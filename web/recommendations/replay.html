@@ -34,6 +34,7 @@
       <a id="baseline-link" href="/replay?case=c1_only">熱門榜與共現模型</a>
       <a id="recency-link" href="/replay?case=recency_gained">最近看過留一席</a>
       <a id="k1-link" href="/replay?case=k1_vs_c1_k1_only">近鄰 K1 與共現 C1</a>
+      <a id="k1_recency-link" href="/replay?case=k1_recency_gained">K1 也留一席</a>
       <a id="cart-link" href="/replay?case=cart_hit">其他人也加入購物車</a>
       <a id="cart_fill-link" href="/replay?case=cart_fill_empty">共同加購＋熱門補位</a>
       <a id="purchase_fill-link" href="/replay?case=purchase_fill_short_gain">共同購買＋熱門補位</a>
@@ -52,7 +53,7 @@
       <p class="case-summary" id="case-summary" hidden></p>
       <section class="slot-comparison" id="slot-comparison" aria-label="第十名替換前後與實際瀏覽" hidden>
         <div class="slot-item">
-          <h2>原共現榜第十名</h2>
+          <h2 id="original-tenth-heading">原共現榜第十名</h2>
           <p class="slot-id" id="original-tenth"></p>
           <p id="original-result" class="outcome"></p>
         </div>
@@ -86,7 +87,7 @@
             <tbody id="ranked-items"></tbody>
           </table>
         </div>
-        <section class="actual-panel" aria-labelledby="actual-heading">
+        <section class="actual-panel" id="ranking-actual" aria-labelledby="actual-heading">
           <div id="cart-seed" hidden>
             <h2 id="seed-heading">訪客剛加入購物車</h2>
             <p class="id-list" id="seed-item"></p>
