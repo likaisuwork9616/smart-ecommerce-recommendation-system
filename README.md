@@ -2,6 +2,14 @@
 
 一位訪客看完一件商品，接下來會點哪一件？這個專案用 Retailrocket 的歷史瀏覽紀錄比較熱門榜、共現與近鄰推薦，也用 Olist 訂單與 UCI 零售資料研究品類銷售與顧客行為。
 
+<a id="august-paired-results"></a>
+
+## 八月推薦成對結果
+
+![2015 年 8 月開發驗證。瀏覽 C1 留一席命中 69,391 次，K1 近鄰命中 77,692 次，淨增 8,301 次，命中率差的 95% 區間為 +4.618 至 +5.312 個百分點。加購由只補空榜的 126 次增至補滿十席的 130 次，淨增 4 次，區間 +0.022 至 +0.200 個百分點。購買由只補空榜的 109 次增至補滿十席的 113 次，淨增 4 次，區間 +0.062 至 +0.562 個百分點。正式驗收待獨立名冊，九月保留測試繼續封存。](docs/images/recommendation-default-paired-august.png)
+
+圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 ## 推薦回放｜兩張榜單各猜中幾次？
 
 在 2015 年 8 月的 **166,897 次開發驗證查詢**中，每次都推薦十件商品。熱門榜猜中 **698 次（0.42%）**，依商品共同瀏覽紀錄排序的共現模型猜中 **30,072 次（18.02%）**。共現模型淨多猜中 **29,374 次**。最常見的結果仍是兩份榜單都沒猜中，占 **81.78%**。
