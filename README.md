@@ -2,6 +2,8 @@
 
 一位訪客看完一件商品，接下來會點哪一件？這個專案用 Retailrocket 的歷史瀏覽紀錄比較熱門榜、共現與近鄰推薦，也用 Olist 訂單與 UCI 零售資料研究品類銷售與顧客行為。
 
+**[開啟互動推薦展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選擇兩個已核對的匿名商品，切換瀏覽、加購與購買，查看前十名和每席來源。可直接用瀏覽器操作。
+
 <a id="august-paired-results"></a>
 
 ## 八月推薦成對結果
@@ -218,7 +220,7 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | GitHub 首頁可直接看瀏覽、加購與購買的對照圖。本機可搜尋 199,125 件訓練商品，在同一頁切換三種推薦，也可查看八個瀏覽、四個加購與兩個購買回放案例。[本機啟動方式](#開啟商品推薦網頁) |
+| 推薦展示 | 公開展示可切換兩個匿名商品的三種榜單。本機可搜尋 199,125 件訓練商品，也可查看八個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |
