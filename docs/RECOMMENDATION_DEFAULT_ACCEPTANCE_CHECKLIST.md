@@ -104,7 +104,7 @@ if ($LASTEXITCODE -ne 0) { throw '八月證據比對失敗' }
 
 ## 正式驗收的執行順序
 
-目前可執行入口對應八月。正式版需要另行驗收能讀取獲准名冊並成對計分的入口，把上表的固定排名程式接上後，先用合成資料及八月結果核對。正式入口負責核對日期、角色與輸出校驗。
+成對計分入口已可讀取已整理的名冊與兩榜，並以合成資料及八月結果核對。正式執行前仍須取得另一份獲准的名冊，接上該來源的排名與查詢產生流程，核對資料和訓練來源後才出分。[計分入口與核對命令](#paired-scorer)
 
 若選擇已封存的九月窗口，正式規格須先處理與既有 P0 最終重擬合、測試角色和使用紀錄關卡的關係，再取得明確執行授權。這份清單固定的是原訓練窗的模型。若既有關卡要求重擬合，需另存模型版本、校驗值及比較規格，再進行首筆評分。[既有預留測試關卡](STAGE10_RETAILROCKET_C1_P0_RESEARCH_HANDOFF_V1.md#預留測試維持鎖定)
 
@@ -115,3 +115,42 @@ if ($LASTEXITCODE -ne 0) { throw '八月證據比對失敗' }
 5. **保存證據後決定採用。** 保存凍結 commit、正式入口版本、資料批准與指紋、兩個分母、成對數值與逐項判定。原始查詢帳本留在私有目錄，公開報告用彙總值和校驗值。全部門檻通過才進入預設切換決策，缺資料或門檻未過時維持已驗收的展示方式。
 
 八月先驗門檻的比較順序與公式見[預設推薦採用門檻](RECOMMENDATION_DEFAULT_ACCEPTANCE.md)。
+
+<a id="paired-scorer"></a>
+
+## 成對計分入口
+
+用以下命令重現合成情境與八月成對結果。八月入口只使用已封存的瀏覽開發榜單，以及 SQLite 的訓練和八月查詢。它會核對已發布的名冊指紋、兩榜分母、命中和首次命中，再計算新基準的訪客抽樣區間。
+
+合成檢查共 13 項，全數通過。八月的三組比較各完成 2,000 次訪客抽樣，涵蓋 62,235 位瀏覽、1,334 位加購、383 位購買可評分訪客。報告保存逐項門檻、兩榜首次命中分布與每席來源的彙總，角色為八月開發驗證。[實際成對報告](../reports/mainline/recommendation_default_paired_august_20261123.json)
+
+```powershell
+$python = '.\.venv\Scripts\python.exe'
+& $python -B -m unittest tests.test_score_recommendation_acceptance
+if ($LASTEXITCODE -ne 0) { throw '合成驗證失敗' }
+$run = '.runtime/verification/default-paired-' + [guid]::NewGuid().ToString('N')
+New-Item -ItemType Directory -Path $run -ErrorAction Stop | Out-Null
+& $python -B -m scripts.verify_recommendation_acceptance_august | Set-Content -Encoding utf8NoBOM "$run/august.json"
+if ($LASTEXITCODE -ne 0) { throw '八月成對計分核對失敗' }
+```
+
+收到正式資料後，由來源負責方或具資料使用權的人確認場景、資料版本、UTC 窗及評分用途，並保存可追溯的同意紀錄。從已核准的來源產生以下檔案，留在同一個 Git 忽略目錄。名冊在產生兩榜前固定。瀏覽、加購、購買各用一份清單，識別碼為非負整數。
+
+| 檔案 | 必備內容 |
+| --- | --- |
+| 清單 `manifest.json` | `schema` 為 `recommendation_default_pairs_v1`，`role` 為 `retained`，`scenario` 為 `browse`、`cart` 或 `purchase`。記錄 `source_version`、`approval_ref`、`window_utc_ms`（起訖兩個毫秒，左含右不含）、`frozen_training_commit`、`coverage_queries` 和 `scorable_queries`。 `roster`、`rankings`、`catalog` 各填 `{"file":"檔名.jsonl","sha256":"檔案 SHA-256"}`。 |
+| 覆蓋名冊 JSONL | 每行一個物件，含上表所定的三欄 `key`、`query_ms`、`through_ms` 與 `targets`。瀏覽與加購的 `through_ms` 為用來定義目標的下一時點，缺下一時點的加購可沿用當前時間。購買用該交易群組的最早與最晚毫秒。 `targets` 是去重後的非空商品陣列，無法評分時用 `null`。 |
+| 兩榜 JSONL | 每行依名冊原順序提供同一 `key` 和 `candidate`、`baseline`。榜單是依名次排列的 `[商品 ID, 來源]` 陣列，空榜用 `[]`。瀏覽來源為 `knn`、`cooccurrence`、`recency` 或 `popular`，加購用 `coadd` 或 `popular`，購買用 `cobuy` 或 `popular`。 |
+| 資格目錄 JSONL | 每行為 `[商品 ID, 首次具資格的 UTC 毫秒]`。瀏覽用嚴格早於查詢的首次瀏覽時間。加購與購買只收錄固定訓練窗內有對應行為的商品。 |
+
+執行前核對資料同意紀錄與名冊版本，保存取數規則、兩榜的訓練指紋，以及計分入口 commit。工具核對清單、窗界、列鍵、共同目標、商品資格與檔案 SHA-256。來源授權、交易完整性和兩榜確實由固定模型產生，需以取數與產榜收據查證。此入口拒絕用已封存的九月窗口評分。
+
+```powershell
+$packet = Read-Host '輸入已核准名冊的 manifest.json 路徑'
+$approvalRef = Read-Host '輸入該名冊的授權紀錄識別碼'
+$formal = '.runtime/verification/default-retained-' + [guid]::NewGuid().ToString('N')
+New-Item -ItemType Directory -Path $formal -ErrorAction Stop | Out-Null
+& .\.venv\Scripts\python.exe -B -m scripts.score_recommendation_acceptance --manifest $packet --approval-ref $approvalRef |
+    Set-Content -Encoding utf8NoBOM "$formal/result.json"
+if ($LASTEXITCODE -ne 0) { throw '正式名冊計分失敗' }
+```

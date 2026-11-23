@@ -1,0 +1,320 @@
+{
+  "role": "2015-08 exposed development validation",
+  "window_utc_ms": [
+    1438387200000,
+    1441065600000
+  ],
+  "frozen_training_commit": "cf975e5593e6e82b5169f991e5b20b9086ff26d4",
+  "published_point_metrics_match": true,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0,
+  "formal_scored_queries": 0,
+  "scenarios": {
+    "browse": {
+      "coverage_queries": 166897,
+      "scorable_queries": 166897,
+      "arms": {
+        "candidate": {
+          "with_any": 166897,
+          "with_ten": 166897,
+          "any_rate": 1.0,
+          "full_ten_rate": 1.0,
+          "hit_queries": 77692,
+          "hit_rate_at_10": 0.46550866702217536,
+          "rank_one_hits": 40849,
+          "hit_rate_at_1": 0.2447557475568764,
+          "mrr_at_10": 0.3154452808123935,
+          "first_hit_counts_rank_1_to_10": [
+            40849,
+            12972,
+            6937,
+            4378,
+            3214,
+            2636,
+            2092,
+            1813,
+            1559,
+            1242
+          ],
+          "slots_by_source": {
+            "knn": 1409848,
+            "popular": 259122
+          },
+          "queries_by_source": {
+            "knn": 159915,
+            "popular": 35286
+          },
+          "first_hits_by_source": {
+            "knn": 77664,
+            "popular": 28
+          }
+        },
+        "baseline": {
+          "with_any": 166897,
+          "with_ten": 166897,
+          "any_rate": 1.0,
+          "full_ten_rate": 1.0,
+          "hit_queries": 69391,
+          "hit_rate_at_10": 0.41577140391978284,
+          "rank_one_hits": 7837,
+          "hit_rate_at_1": 0.04695710528050234,
+          "mrr_at_10": 0.10722295597008744,
+          "first_hit_counts_rank_1_to_10": [
+            7837,
+            5109,
+            3815,
+            3068,
+            2547,
+            1944,
+            1718,
+            1426,
+            1372,
+            40555
+          ],
+          "slots_by_source": {
+            "cooccurrence": 1271194,
+            "popular": 246696,
+            "recency": 151080
+          },
+          "queries_by_source": {
+            "cooccurrence": 150578,
+            "popular": 33918,
+            "recency": 151080
+          },
+          "first_hits_by_source": {
+            "cooccurrence": 29149,
+            "popular": 4,
+            "recency": 40238
+          }
+        }
+      },
+      "paired_first_hit_changes": {
+        "gain": 14677,
+        "loss": 6376,
+        "earlier": 44175,
+        "same": 3364,
+        "later": 15476,
+        "both_miss": 82829
+      },
+      "visitor_bootstrap": {
+        "visitors": 62235,
+        "replicates": 2000,
+        "seed": 20261120,
+        "hit_rate_delta_95_percentile": [
+          0.04617958450817599,
+          0.05311707552779969
+        ]
+      },
+      "gates": {
+        "full_ten": true,
+        "hit_at_1": true,
+        "hit_at_10_delta": true,
+        "mrr_at_10_delta": true,
+        "hit_at_10_ci": true
+      },
+      "all_gates_pass": true
+    },
+    "cart": {
+      "coverage_queries": 14725,
+      "scorable_queries": 4266,
+      "arms": {
+        "candidate": {
+          "with_any": 14725,
+          "with_ten": 14725,
+          "any_rate": 1.0,
+          "full_ten_rate": 1.0,
+          "hit_queries": 130,
+          "hit_rate_at_10": 0.030473511486169714,
+          "rank_one_hits": 50,
+          "hit_rate_at_1": 0.011720581340834505,
+          "mrr_at_10": 0.017848957054301638,
+          "first_hit_counts_rank_1_to_10": [
+            50,
+            27,
+            16,
+            15,
+            8,
+            4,
+            4,
+            4,
+            2,
+            0
+          ],
+          "slots_by_source": {
+            "coadd": 6563,
+            "popular": 140687
+          },
+          "queries_by_source": {
+            "coadd": 1839,
+            "popular": 14470
+          },
+          "first_hits_by_source": {
+            "coadd": 110,
+            "popular": 20
+          }
+        },
+        "baseline": {
+          "with_any": 14725,
+          "with_ten": 13141,
+          "any_rate": 1.0,
+          "full_ten_rate": 0.8924278438030561,
+          "hit_queries": 126,
+          "hit_rate_at_10": 0.029535864978902954,
+          "rank_one_hits": 50,
+          "hit_rate_at_1": 0.011720581340834505,
+          "mrr_at_10": 0.017450457288713268,
+          "first_hit_counts_rank_1_to_10": [
+            50,
+            24,
+            16,
+            15,
+            7,
+            4,
+            4,
+            4,
+            2,
+            0
+          ],
+          "slots_by_source": {
+            "coadd": 6563,
+            "popular": 128860
+          },
+          "queries_by_source": {
+            "coadd": 1839,
+            "popular": 12886
+          },
+          "first_hits_by_source": {
+            "coadd": 110,
+            "popular": 16
+          }
+        }
+      },
+      "paired_first_hit_changes": {
+        "gain": 4,
+        "loss": 0,
+        "earlier": 0,
+        "same": 126,
+        "later": 0,
+        "both_miss": 4136
+      },
+      "visitor_bootstrap": {
+        "visitors": 1334,
+        "replicates": 2000,
+        "seed": 20261120,
+        "hit_rate_delta_95_percentile": [
+          0.0002164783936150411,
+          0.001999238894236034
+        ]
+      },
+      "gates": {
+        "full_ten": true,
+        "hit_at_1": true,
+        "hit_at_10_delta": true,
+        "mrr_at_10_delta": true,
+        "hit_at_10_ci": true
+      },
+      "all_gates_pass": true
+    },
+    "purchase": {
+      "coverage_queries": 4613,
+      "scorable_queries": 1477,
+      "arms": {
+        "candidate": {
+          "with_any": 4613,
+          "with_ten": 4613,
+          "any_rate": 1.0,
+          "full_ten_rate": 1.0,
+          "hit_queries": 113,
+          "hit_rate_at_10": 0.07650643195666892,
+          "rank_one_hits": 59,
+          "hit_rate_at_1": 0.03994583615436696,
+          "mrr_at_10": 0.055028962611901,
+          "first_hit_counts_rank_1_to_10": [
+            59,
+            27,
+            26,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "slots_by_source": {
+            "cobuy": 805,
+            "popular": 45325
+          },
+          "queries_by_source": {
+            "cobuy": 191,
+            "popular": 4613
+          },
+          "first_hits_by_source": {
+            "cobuy": 33,
+            "popular": 80
+          }
+        },
+        "baseline": {
+          "with_any": 4613,
+          "with_ten": 4422,
+          "any_rate": 1.0,
+          "full_ten_rate": 0.9585952742250162,
+          "hit_queries": 109,
+          "hit_rate_at_10": 0.07379823967501693,
+          "rank_one_hits": 59,
+          "hit_rate_at_1": 0.03994583615436696,
+          "mrr_at_10": 0.054126231851350334,
+          "first_hit_counts_rank_1_to_10": [
+            59,
+            27,
+            22,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "slots_by_source": {
+            "cobuy": 805,
+            "popular": 44220
+          },
+          "queries_by_source": {
+            "cobuy": 191,
+            "popular": 4422
+          },
+          "first_hits_by_source": {
+            "cobuy": 33,
+            "popular": 76
+          }
+        }
+      },
+      "paired_first_hit_changes": {
+        "gain": 4,
+        "loss": 0,
+        "earlier": 0,
+        "same": 109,
+        "later": 0,
+        "both_miss": 1364
+      },
+      "visitor_bootstrap": {
+        "visitors": 383,
+        "replicates": 2000,
+        "seed": 20261120,
+        "hit_rate_delta_95_percentile": [
+          0.0006183530754959327,
+          0.005618065254159969
+        ]
+      },
+      "gates": {
+        "full_ten": true,
+        "hit_at_1": true,
+        "hit_at_10_delta": true,
+        "mrr_at_10_delta": true,
+        "hit_at_10_ci": true
+      },
+      "all_gates_pass": true
+    }
+  }
+}
