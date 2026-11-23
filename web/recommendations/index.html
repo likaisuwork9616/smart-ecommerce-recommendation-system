@@ -26,7 +26,7 @@
     <section class="intro" aria-labelledby="page-title">
       <div>
         <h1 id="page-title">商品推薦</h1>
-        <p>選一件商品，看看訪客在同一次瀏覽中還看了什麼。</p>
+        <p>選一件商品，切換瀏覽、加購與購買推薦。</p>
       </div>
       <div class="snapshot" hidden id="snapshot">
         <span class="snapshot-label">歷史資料截點</span>
@@ -64,6 +64,14 @@
           </div>
           <span id="result-count" class="result-count" hidden></span>
         </div>
+        <div class="scenario-picker">
+          <div class="scenario-options" id="scenario-options" role="group" aria-label="推薦類型">
+            <button type="button" data-scenario="browse" aria-pressed="true">其他人也看了</button>
+            <button type="button" data-scenario="cart" aria-pressed="false"><span>其他人也</span><span>加入購物車</span></button>
+            <button type="button" data-scenario="purchase" aria-pressed="false">其他人也買了</button>
+          </div>
+          <p class="scenario-note" id="scenario-note" hidden>開發候選，正式採用待獨立名冊驗收。</p>
+        </div>
         <div id="result-body" aria-busy="true"></div>
         <p class="sr-only" id="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
         <noscript><p class="state">請啟用 JavaScript 以查詢商品推薦。</p></noscript>
@@ -74,7 +82,7 @@
     <p>資料來源　<a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
-    <p>本頁依歷史瀏覽紀錄計算商品共現排名。資料集使用匿名商品編號。</p>
+    <p>本頁依歷史瀏覽、加購與購買紀錄計算推薦。資料集使用匿名商品編號。</p>
   </footer>
 </body>
 </html>

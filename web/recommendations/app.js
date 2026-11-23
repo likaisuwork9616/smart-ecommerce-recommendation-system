@@ -9,7 +9,18 @@ const exampleList = element("example-list");
 const matches = element("search-matches");
 const searchStatus = element("search-status");
 const announcement = element("announcement");
+const scenarioOptions = element("scenario-options");
+const scenarioButtons = [...scenarioOptions.querySelectorAll("button[data-scenario]")];
 const numericFormat = new Intl.NumberFormat("zh-TW");
+const sourceLabels = {
+  cooccurrence: "共同瀏覽",
+  coadd: "共同加購",
+  cobuy: "共同購買",
+  popular: "熱門補位",
+  popularity: "熱門補位",
+};
+const popularSources = new Set(["popular", "popularity"]);
+let selectedScenario = "browse";
 let activeRequest;
 let lastQuery;
 let searchTimer;
@@ -43,9 +54,18 @@ function updateExamples(itemId) {
   }
 }
 
-function renderResults(data) {
+function selectScenario(scenario) {
+  selectedScenario = scenario;
+  for (const button of scenarioButtons) {
+    button.setAttribute("aria-pressed", String(button.dataset.scenario === scenario));
+  }
+  element("scenario-note").hidden = scenario === "browse";
+}
+
+function renderResults(data, scenario) {
   const rows = data.recommendations;
   const itemId = String(data.item_id);
+  const label = scenarioButtons.find((button) => button.dataset.scenario === scenario).textContent;
   showSnapshot(data.as_of);
   updateExamples(itemId);
   element("results-caption").textContent = "商品 #" + itemId;
@@ -54,7 +74,7 @@ function renderResults(data) {
     return;
   }
   const table = make("table", "ranking");
-  table.append(make("caption", "sr-only", "商品 #" + itemId + " 的推薦結果"));
+  table.append(make("caption", "sr-only", "商品 #" + itemId + " · " + label));
   const headerRow = table.createTHead().insertRow();
   for (const name of ["排名", "商品編號", "推薦依據"]) {
     const heading = make("th", "", name);
@@ -62,7 +82,7 @@ function renderResults(data) {
     headerRow.append(heading);
   }
   const tableBody = table.createTBody();
-  const hasFallback = rows.some((row) => row.source === "popularity");
+  const fallbackCount = rows.filter((row) => popularSources.has(row.source)).length;
   for (const item of rows) {
     const row = tableBody.insertRow();
     row.insertCell().append(make("span", "rank", String(item.rank).padStart(2, "0")));
@@ -72,29 +92,38 @@ function renderResults(data) {
     itemButton.setAttribute("aria-label", "查看商品 " + item.item_id + " 的推薦");
     row.insertCell().append(itemButton);
     const basis = row.insertCell();
-    if (item.source === "cooccurrence") {
-      basis.append(make("span", "basis", "共同瀏覽"));
-      if (Number.isSafeInteger(item.co_sessions) && item.co_sessions > 0) {
-        basis.append(make("span", "support", numericFormat.format(item.co_sessions) + " 次"));
-      }
-    } else if (item.source === "popularity") {
-      basis.append(make("span", "basis popularity", "熱門補位"));
-    } else {
-      basis.textContent = "來源未提供";
+    const cssClass = popularSources.has(item.source) ? "basis popularity" : "basis";
+    basis.append(make("span", cssClass, sourceLabels[item.source] ?? "來源未提供"));
+    if (item.source === "cooccurrence" && Number.isSafeInteger(item.co_sessions) && item.co_sessions > 0) {
+      basis.append(make("span", "support", numericFormat.format(item.co_sessions) + " 次"));
     }
   }
-  const note = hasFallback
-    ? "共現商品不足時，依歷史熱門排行補足。點選商品編號可繼續探索。"
-    : "共同瀏覽次數是兩件商品同時出現在同一次瀏覽紀錄中的次數。點選商品編號可繼續探索。";
-  body.replaceChildren(table, make("p", "table-note", note));
+  let note;
+  if (scenario === "browse") {
+    note = fallbackCount
+      ? "共現商品不足時，依歷史熱門排行補足。"
+      : "共同瀏覽次數是兩件商品同時出現在同一次瀏覽紀錄中的次數。";
+  } else {
+    const event = scenario === "cart" ? "加購" : "購買";
+    if (fallbackCount === rows.length) {
+      note = "這件商品的共同" + event + "榜為空，依訓練期熱門" + event + "排行補位。";
+    } else if (fallbackCount) {
+      note = "共同" + event + "保留原名次，其餘依訓練期熱門" + event + "排行補位。";
+    } else {
+      note = "共同" + event + "依支持訪客數排序。";
+    }
+  }
+  body.replaceChildren(table, make("p", "table-note", note + "點選商品編號可繼續探索。"));
   count.textContent = rows.length + " 件商品";
   count.hidden = false;
-  announcement.textContent = "商品 " + itemId + " 的 " + rows.length + " 件推薦已載入。";
+  announcement.textContent = "商品 " + itemId + " 的「" + label + "」已載入 " + rows.length + " 件。";
 }
 
-function syncAddress(itemId) {
+function syncAddress(itemId, scenario) {
   const url = new URL(window.location.href);
   url.searchParams.set("item_id", itemId);
+  if (scenario === "browse") url.searchParams.delete("scenario");
+  else url.searchParams.set("scenario", scenario);
   window.history.replaceState(null, "", url);
 }
 
@@ -108,7 +137,7 @@ function clearSearch() {
 
 async function findItems(prefix, signal) {
   try {
-    const params = new URLSearchParams({ prefix });
+    const params = new URLSearchParams({ prefix, scope: "product" });
     const response = await fetch("/api/catalog?" + params, { signal });
     if (!response.ok) throw new Error("catalog");
     const data = await response.json();
@@ -142,7 +171,7 @@ function scheduleSearch() {
   searchTimer = setTimeout(() => findItems(prefix, signal), 180);
 }
 
-async function loadItem(rawId) {
+async function loadItem(rawId, preserveInput = false) {
   const itemId = String(rawId).trim();
   if (!/^[0-9]{1,20}$/.test(itemId)) {
     input.setCustomValidity("請輸入由數字組成的商品編號。");
@@ -151,8 +180,10 @@ async function loadItem(rawId) {
   }
   clearSearch();
   input.setCustomValidity("");
-  input.value = itemId;
+  if (!preserveInput) input.value = itemId;
   lastQuery = itemId;
+  const scenario = selectedScenario;
+  syncAddress(itemId, scenario);
   activeRequest?.abort();
   const controller = new AbortController();
   activeRequest = controller;
@@ -161,20 +192,15 @@ async function loadItem(rawId) {
   body.setAttribute("aria-busy", "true");
   setState("正在查詢商品 #" + itemId + " 的推薦…");
   try {
-    const params = new URLSearchParams({ item_id: itemId });
+    const params = new URLSearchParams({ item_id: itemId, scenario });
     const response = await fetch("/api/recommendations?" + params, { signal: controller.signal });
-    if (activeRequest !== controller) return;
-    if (!response.ok) {
-      const error = response.status === 404 || response.status === 400 || response.status === 422
-        ? "找不到這個歷史商品編號，請檢查後重試，或選一件範例商品。"
-        : "推薦資料暫時無法載入，請稍後重新查詢。";
-      setState(error, true);
-      return;
-    }
     const data = await response.json();
     if (activeRequest !== controller) return;
-    renderResults(data);
-    syncAddress(String(data.item_id));
+    if (!response.ok) {
+      setState(data.error ?? "推薦資料暫時無法載入，請稍後重新查詢。", true);
+      return;
+    }
+    renderResults(data, scenario);
   } catch (error) {
     if (error.name !== "AbortError" && activeRequest === controller) {
       setState("無法讀取推薦資料，請確認服務已啟動後重試。", true);
@@ -204,10 +230,13 @@ function onItemClick(event) {
 
 async function initialize() {
   setState("正在載入商品資料…");
-  const requested = new URLSearchParams(window.location.search).get("item_id");
+  const params = new URLSearchParams(window.location.search);
+  const requested = params.get("item_id");
+  const mode = scenarioButtons.find((button) => button.dataset.scenario === params.get("scenario"));
+  if (mode) selectScenario(mode.dataset.scenario);
   if (requested && /^[0-9]{1,20}$/.test(requested)) loadItem(requested);
   try {
-    const response = await fetch("/api/catalog");
+    const response = await fetch("/api/catalog?scope=product");
     if (!response.ok) throw new Error("catalog");
     const catalog = await response.json();
     showSnapshot(catalog.as_of);
@@ -242,6 +271,12 @@ input.addEventListener("keydown", (event) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   loadItem(input.value);
+});
+scenarioOptions.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-scenario]");
+  if (!button || button.dataset.scenario === selectedScenario) return;
+  selectScenario(button.dataset.scenario);
+  if (lastQuery) loadItem(lastQuery, true);
 });
 exampleList.addEventListener("click", onItemClick);
 matches.addEventListener("click", (event) => {

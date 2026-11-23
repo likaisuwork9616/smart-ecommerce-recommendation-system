@@ -218,7 +218,7 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | GitHub 首頁可直接看瀏覽、加購與購買的對照圖。本機可查 198,946 件匿名商品，並切換八個瀏覽、四個加購與兩個購買案例。 |
+| 推薦展示 | GitHub 首頁可直接看瀏覽、加購與購買的對照圖。本機可搜尋 199,125 件訓練商品，在同一頁切換三種推薦，也可查看八個瀏覽、四個加購與兩個購買回放案例。[本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |
@@ -229,7 +229,21 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 
 ## 開啟商品推薦網頁
 
-先備妥專案虛擬環境與 Stage 10 模型及回放檔案。K1 案例另需從本機 Stage 12 保存包還原 `shop-mysql-runtime/retailrocket_session_knn_paired_v1/queries.jsonl`。[模型檔案與啟動說明](docs/PROJECT_ARCHIVE.md#開啟商品推薦網頁) · [K1 八月驗收報告](reports/stage12/k1_august_readback_20261119.json)
+先備妥專案虛擬環境與 Stage 10 商品查詢模型。[模型檔案與啟動說明](docs/PROJECT_ARCHIVE.md#開啟商品推薦網頁)
+
+要查詢加購和購買推薦，將已驗證的 Stage 8 事件資料庫還原到 `shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite`。服務啟動時用 2015-05-04 至 2015-08-01 前的固定 UTC 訓練資料建立兩種推薦索引，並核對既有訓練報告。[加購報告](reports/stage13/retailrocket_cart_next_add_201508.json) · [購買報告](reports/stage13/retailrocket_purchase_basket_201508.json)
+
+啟動本機網頁服務。
+
+```powershell
+.\.venv\Scripts\python.exe -m scripts.serve_c1_demo
+```
+
+開啟[本機商品查詢](http://127.0.0.1:8765/)，輸入商品編號或點選範例，再選「其他人也看了」、「其他人也加入購物車」或「其他人也買了」。加購與購買先保留共同榜原名次，再依各自的熱門榜補到十席，並標明每席來源。無共同配對時，全榜由熱門商品補位。這兩種榜單是開發候選，正式採用待獨立名冊驗收，九月保留測試繼續封存。
+
+### 準備本機推薦回放
+
+瀏覽回放使用 Stage 10 保存包。K1 案例另需從本機 Stage 12 保存包還原 `shop-mysql-runtime/retailrocket_session_knn_paired_v1/queries.jsonl`。[回放來源與啟動說明](docs/PROJECT_ARCHIVE.md#開啟商品推薦網頁) · [K1 八月驗收報告](reports/stage12/k1_august_readback_20261119.json)
 
 首次建立加購回放時，備妥訓練盤點使用的 Stage 8 本機事件資料庫，在專案根目錄執行下列指令。程式會依八月驗證報告核對兩例，將商品編號與榜單存入本機。之後可直接啟動服務。[加購案例核對紀錄](reports/stage13/retailrocket_cart_replay_201508.json)
 
@@ -249,10 +263,4 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 .\.venv\Scripts\python.exe -m scripts.purchase_popular_fill_replay
 ```
 
-啟動本機網頁服務。
-
-```powershell
-.\.venv\Scripts\python.exe -m scripts.serve_c1_demo
-```
-
-服務啟動後可開啟[本機商品查詢](http://127.0.0.1:8765/)或[本機推薦回放](http://127.0.0.1:8765/replay)。
+準備好案例後，啟動或重啟服務，再開啟[本機推薦回放](http://127.0.0.1:8765/replay)。
