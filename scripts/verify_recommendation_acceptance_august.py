@@ -34,7 +34,7 @@ def browse_slots(prediction, evidence):
             for item, (numerator, _) in zip(prediction["ids"], prediction["scores"], strict=True)]
 
 
-def browse_rows(frozen, start, end):
+def browse_query_details(frozen, start, end):
     inputs = {item["path"]: item for item in frozen["private_inputs"]}
     history = (ROOT / EDGES).resolve()
     with history.open("rb") as stream:
@@ -58,16 +58,27 @@ def browse_rows(frozen, start, end):
             candidate = browse_slots(neighbor, "knn")
             baseline = browse_slots(cooc, "cooccurrence")
             recent, _ = most_recent(db, catalog, visitor, session, when)
-            revised = reserve_slot(cooc["ids"], recent)
-            if revised != cooc["ids"]:
+            original = cooc["ids"]
+            revised = reserve_slot(original, recent)
+            if revised != original:
                 baseline[-1] = (revised[-1], "recency")
             for arm in (candidate, baseline):
                 items = {item for item, _ in arm}
                 require(len(arm) == len(items) == cart.TOP_K and
                         all(catalog.contains(i, when) for i in items), "August browse list is ineligible")
-            yield (int(visitor), session, when), set(c1["targets"]), candidate, baseline
+            targets = set(c1["targets"])
+            reachable = sum(catalog.contains(item, when) for item in targets)
+            require(targets and reachable == c1["reachable_targets"] == k1["reachable_targets"]
+                    and catalog.size(when) == c1["candidate_count"] == k1["candidate_count"],
+                    "August browse catalog eligibility differs")
+            yield (int(visitor), session, when), targets, candidate, baseline, original, recent, reachable
     require(key_digest.hexdigest() == frozen["development_roster"]["ordered_query_keys_sha256"],
             "August browse roster differs")
+
+
+def browse_rows(frozen, start, end):
+    for key, targets, candidate, baseline, *_ in browse_query_details(frozen, start, end):
+        yield key, targets, candidate, baseline
 
 
 def basket_pair(related, popular, source):

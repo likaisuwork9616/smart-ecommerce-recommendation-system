@@ -4,6 +4,12 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## 2026-11-23｜拆解八月瀏覽失誤
+
+從封存的 166,897 筆榜單重建 K1、原 C1 與 C1 留一席的命中。6,376 筆只有 C1 留一席榜猜中，其中 3,742 筆原 C1 就命中、2,634 筆靠留一席才命中。82,829 筆雙失中有 77,143 筆在查詢當下至少一件目標商品可推薦。K1 漏掉但最近合格商品是目標的 2,635 筆，高於原 K1 第十名首次命中的 1,242 筆，值得實測 K1 單席替換及 MRR@10。九月保留測試繼續封存。[README 拆分結果](../README.md#august-browse-miss-analysis) · [聚合報告](../reports/mainline/recommendation_browse_miss_analysis_20261123.json)
+
+備妥八月私有保存包後，可用 `.\.venv\Scripts\python.exe -B -m scripts.analyze_august_browse_misses` 重現。[保存包與來源校驗清單](RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md)
+
 ## 2026-11-23｜從 GitHub 首頁開啟互動推薦展示
 
 公開頁用同一套商品代號展示兩個已核對的商品。A 的瀏覽、加購、購買分別有 10、1、1 席共同配對，其餘由該情境的熱門榜補位。B 在三種情境都由熱門榜補滿十席。六張榜共 60 席逐一核對，並驗證鍵盤切換、案例連結、八月成效圖與 390／320 像素手機版。GitHub Pages 從 `main` 的 `docs` 發布，公開案例只保留代號、名次和來源。九月保留測試繼續封存。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [八月成效對照圖](../README.md#august-paired-results)

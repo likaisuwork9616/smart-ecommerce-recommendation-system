@@ -10,7 +10,7 @@
 
 ![2015 年 8 月開發驗證。瀏覽 C1 留一席命中 69,391 次，K1 近鄰命中 77,692 次，淨增 8,301 次，命中率差的 95% 區間為 +4.618 至 +5.312 個百分點。加購由只補空榜的 126 次增至補滿十席的 130 次，淨增 4 次，區間 +0.022 至 +0.200 個百分點。購買由只補空榜的 109 次增至補滿十席的 113 次，淨增 4 次，區間 +0.062 至 +0.562 個百分點。正式驗收待獨立名冊，九月保留測試繼續封存。](docs/images/recommendation-default-paired-august.png)
 
-圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [瀏覽失誤分析](#august-browse-miss-analysis) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## 推薦回放｜兩張榜單各猜中幾次？
 
@@ -207,6 +207,21 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 | 購買 | 共同購買優先，熱門補滿／只補空榜 | 比基準至少高 0.10 個百分點 | 至少等於基準 | 7.38% → 7.65% | +0.062 至 +0.562 |
 
 成對計分入口在八月重現了三組比較。以訪客為單位做 2,000 次抽樣後，三組命中率增益的 95% 區間下限均高於零。加購和購買各多命中四次。這些是已看過的開發資料，正式採用仍須在另一份獲准名冊通過同一套門檻。九月保留測試繼續封存。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [驗收清單與重跑命令](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md) · [完整門檻與原榜比較](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE.md)
+
+<a id="august-browse-miss-analysis"></a>
+
+### 八月瀏覽失誤分析
+
+逐筆核對同一批 166,897 次開發查詢的 K1、原 C1 與 C1 留一席榜單。可推薦指商品首次被瀏覽的時間早於查詢。下一個時點有多件實際瀏覽商品時，只要其中一件符合資格，就計為有可推薦目標。
+
+| 查詢群組 | 拆分結果 | 筆數 | 占該群組 |
+| --- | --- | ---: | ---: |
+| 只有 C1 留一席榜命中的 6,376 筆 | 原 C1 就命中 | 3,742 | 58.69% |
+| 同上 | 靠留一席才命中 | 2,634 | 41.31% |
+| K1 與 C1 留一席都未命中的 82,829 筆 | 當時至少有一件目標商品可推薦 | 77,143 | 93.14% |
+| 同上 | 當時所有目標商品均未進入可推薦目錄 | 5,686 | 6.86% |
+
+**值得接著驗「K1 也留一席」。** K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。原 K1 有 1,242 筆到第十名才首次命中，這是替換第十名時可能擠掉的命中上限。下一輪可保留 K1 前九名，只在最近合格商品尚未上榜時替換第十名，再實測新增、失去與 MRR@10。正式驗收待獨立名冊，九月保留測試繼續封存。[完整失誤分析報告](reports/mainline/recommendation_browse_miss_analysis_20261123.json)
 
 ## 從訂單到顧客，三個分析問題
 

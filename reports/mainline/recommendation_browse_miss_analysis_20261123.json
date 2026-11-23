@@ -1,0 +1,77 @@
+{
+  "study": "Browse missed-query diagnosis from frozen rankings",
+  "role": "2015-08 exposed development validation",
+  "window_utc_start_inclusive_end_exclusive_ms": [
+    1438387200000,
+    1441065600000
+  ],
+  "frozen_training_commit": "cf975e5593e6e82b5169f991e5b20b9086ff26d4",
+  "ordered_query_keys_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "references": [
+    "reports/mainline/recommendation_default_paired_august_20261123.json",
+    "reports/stage10/recency_slot_validation_201508.json"
+  ],
+  "eligible_target_rule": "An item's first recorded view is strictly before the query time.",
+  "query_target_rule": "Every distinct item at the next observed viewing time in the same session.",
+  "recency_opportunity_rule": "Count K1 misses where the existing recency rule selects a target, and count all K1 first hits at rank 10 as the maximum hit-loss exposure.",
+  "queries": 166897,
+  "paired_first_hit_changes": {
+    "gain": 14677,
+    "loss": 6376,
+    "earlier": 44175,
+    "same": 3364,
+    "later": 15476,
+    "both_miss": 82829
+  },
+  "first_hit_counts_rank_1_to_10": {
+    "candidate": [
+      40849,
+      12972,
+      6937,
+      4378,
+      3214,
+      2636,
+      2092,
+      1813,
+      1559,
+      1242
+    ],
+    "baseline": [
+      7837,
+      5109,
+      3815,
+      3068,
+      2547,
+      1944,
+      1718,
+      1426,
+      1372,
+      40555
+    ]
+  },
+  "original_c1_and_recency_counts": {
+    "c1_hits": 30072,
+    "recency_hits": 69391,
+    "gained": 40238,
+    "lost": 919
+  },
+  "baseline_only": {
+    "queries": 6376,
+    "original_c1_also_hit": 3742,
+    "only_hit_after_recency_slot": 2634
+  },
+  "both_miss": {
+    "queries": 82829,
+    "at_least_one_target_eligible": 77143,
+    "all_targets_eligible": 77143,
+    "some_targets_eligible": 0,
+    "no_targets_eligible": 5686
+  },
+  "recency_opportunity": {
+    "k1_misses_with_selected_recent_item_as_target": 2635,
+    "k1_first_hits_at_rank_10": 1242
+  },
+  "k1_with_recency_rankings_generated": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
