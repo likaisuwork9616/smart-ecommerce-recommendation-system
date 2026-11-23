@@ -4,6 +4,16 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="august-personalization-audit"></a>
+
+## 2026-11-23｜盤點八月瀏覽查詢可用的加購與購買紀錄
+
+逐筆比對封存的 166,897 筆瀏覽查詢。以同一匿名訪客在暖身、訓練及八月開發期間的合格事件為來源，嚴格使用查詢時間以前的加購與交易商品紀錄。29,549 筆有至少一種紀錄，涉及 3,063 位去重訪客。28,793 筆有至少一件行為商品可接上既有 C1 瀏覽共現配對，其中 19,315 筆 K1 留一席未命中。各組合計與原 K1 的 89,205 筆、K1 留一席的 86,639 筆未命中相符。[分組結果](../README.md#august-personalization-signals) · [聚合報告](../reports/mainline/recommendation_august_personalization_signals_20261123.json)
+
+每個訪客鍵、事件類型的最早時間，以及最早有共現配對的時間，均與同窗有效原始事件的 SQL 最小值核對相符。18 項相關測試通過，涵蓋同毫秒排除、訪客跨組去重與名冊範圍。本輪完成開發資料的訊號盤點。正式驗收待獨立名冊，九月保留測試繼續封存。
+
+備妥凍結的八月榜單與來源資料庫後，在專案根目錄執行 `.\.venv\Scripts\python.exe -B -m scripts.audit_august_personalization_signals`，終端機會輸出聚合 JSON。[保存包清單](RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md) · [重現程式](../scripts/audit_august_personalization_signals.py)
+
 ## 2026-11-23｜把 K1 留一席回放加入公開互動展示
 
 公開展示可在「三種推薦」與「K1 也留一席」之間切換。K1 的兩筆八月案例沿用圖卡代號，新增命中是第十名由 J 換成 K、訪客接著看 K。擠掉命中是 U 換成 V、訪客接著看 U。兩例 40 席依八月回放收據核對，與原有瀏覽、加購、購買的 60 席一同通過瀏覽器檢查，包含案例連結、鍵盤切換及 390／320 像素手機版。正式採用待獨立名冊，九月保留測試繼續封存。[公開回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/) · [首頁圖卡](../README.md#k1-recency-replay)

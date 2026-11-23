@@ -1,0 +1,98 @@
+{
+  "study": "Prior cart and purchase signal coverage on the frozen August browsing queries",
+  "role": "2015-08 exposed development validation",
+  "window_utc_start_inclusive_end_exclusive_ms": [
+    1438387200000,
+    1441065600000
+  ],
+  "history_windows_utc_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "ordered_query_keys_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "source_database": {
+    "path": "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+    "bytes": 1734836224,
+    "sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503"
+  },
+  "references": [
+    "reports/mainline/recommendation_default_freeze_20261120.json",
+    "docs/contracts/retailrocket_recommendation_v1.json",
+    "reports/stage12/k1_august_readback_20261119.json",
+    "reports/mainline/recommendation_k1_recency_slot_20261123.json"
+  ],
+  "rules": {
+    "history": "Same anonymous visitor key across the scoped windows. Add and transaction timestamps must be strictly earlier than the query.",
+    "groups": "Any prior purchase takes precedence. Otherwise categorize as prior cart or browsing only. A visitor can appear in multiple groups.",
+    "c1_pair": "At least one prior cart or purchase item has a distinct co-view neighbor in the frozen training graph. This measures usable input coverage for that graph.",
+    "miss": "No item in the next view basket is present in the existing top ten.",
+    "eligible_target": "At least one next view item belongs to the existing query-time catalog."
+  },
+  "all_browse_queries": {
+    "queries": 166897,
+    "original_k1_misses": 89205,
+    "k1_recency_misses": 86639,
+    "queries_with_c1_pair": 28793,
+    "k1_recency_misses_with_c1_pair": 19315,
+    "k1_recency_misses_with_c1_pair_and_eligible_target": 18698,
+    "visitors": 62235,
+    "visitors_with_c1_pair": 2914
+  },
+  "any_prior_cart_or_purchase": {
+    "queries": 29549,
+    "original_k1_misses": 20588,
+    "k1_recency_misses": 19773,
+    "queries_with_c1_pair": 28793,
+    "k1_recency_misses_with_c1_pair": 19315,
+    "k1_recency_misses_with_c1_pair_and_eligible_target": 18698,
+    "visitors": 3063,
+    "visitors_with_c1_pair": 2914
+  },
+  "by_prior_history": {
+    "browse_only": {
+      "queries": 137348,
+      "original_k1_misses": 68617,
+      "k1_recency_misses": 66866,
+      "queries_with_c1_pair": 0,
+      "k1_recency_misses_with_c1_pair": 0,
+      "k1_recency_misses_with_c1_pair_and_eligible_target": 0,
+      "visitors": 61130,
+      "visitors_with_c1_pair": 0
+    },
+    "cart_without_purchase": {
+      "queries": 13121,
+      "original_k1_misses": 7805,
+      "k1_recency_misses": 7562,
+      "queries_with_c1_pair": 12563,
+      "k1_recency_misses_with_c1_pair": 7195,
+      "k1_recency_misses_with_c1_pair_and_eligible_target": 6901,
+      "visitors": 2406,
+      "visitors_with_c1_pair": 2279
+    },
+    "purchase": {
+      "queries": 16428,
+      "original_k1_misses": 12783,
+      "k1_recency_misses": 12211,
+      "queries_with_c1_pair": 16230,
+      "k1_recency_misses_with_c1_pair": 12120,
+      "k1_recency_misses_with_c1_pair_and_eligible_target": 11797,
+      "visitors": 845,
+      "visitors_with_c1_pair": 814
+    }
+  },
+  "independent_signal_clock_check": "All qualified minima matched SQL minima from valid raw events in the same windows.",
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
