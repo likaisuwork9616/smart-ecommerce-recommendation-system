@@ -4,6 +4,12 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+## 2026-11-23｜八月全量測試 K1 也留一席
+
+逐筆比較同一批 166,897 筆封存 K1 查詢。第十名共替換 17,592 筆，新增 2,635 次命中、擠掉 69 次，淨增 2,566 次。前十名命中由 77,692 增至 80,258，MRR@10 由 0.31544528 提高到 0.31698276。兩榜在第 1 至第 9 名的首次命中數相同。結果可供日後在獲准的獨立名冊比較，九月保留測試繼續封存。[README 結果](../README.md#august-k1-recency-slot) · [聚合報告](../reports/mainline/recommendation_k1_recency_slot_20261123.json)
+
+備妥八月私有保存包後，可用 `.\.venv\Scripts\python.exe -B -m scripts.evaluate_k1_recency_slot` 重跑。[保存包與來源校驗清單](RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md)
+
 ## 2026-11-23｜拆解八月瀏覽失誤
 
 從封存的 166,897 筆榜單重建 K1、原 C1 與 C1 留一席的命中。6,376 筆只有 C1 留一席榜猜中，其中 3,742 筆原 C1 就命中、2,634 筆靠留一席才命中。82,829 筆雙失中有 77,143 筆在查詢當下至少一件目標商品可推薦。K1 漏掉但最近合格商品是目標的 2,635 筆，高於原 K1 第十名首次命中的 1,242 筆，值得實測 K1 單席替換及 MRR@10。九月保留測試繼續封存。[README 拆分結果](../README.md#august-browse-miss-analysis) · [聚合報告](../reports/mainline/recommendation_browse_miss_analysis_20261123.json)

@@ -1,0 +1,67 @@
+{
+  "study": "Reserve K1 rank 10 for the most recent eligible viewed item",
+  "role": "2015-08 exposed development validation",
+  "window_utc_start_inclusive_end_exclusive_ms": [
+    1438387200000,
+    1441065600000
+  ],
+  "frozen_training_commit": "cf975e5593e6e82b5169f991e5b20b9086ff26d4",
+  "ordered_query_keys_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "references": [
+    "reports/mainline/recommendation_default_paired_august_20261123.json",
+    "reports/mainline/recommendation_browse_miss_analysis_20261123.json"
+  ],
+  "rule": "Preserve K1 ranks 1 to 9. Replace rank 10 only if the most recent eligible item in the session is absent from the top ten. Eligibility requires a first view strictly before the query. Equal-time items are ordered by numeric ID.",
+  "queries": 166897,
+  "list_changes": {
+    "no_eligible_recent_item": 2889,
+    "recent_item_already_in_top10": 146416,
+    "replaced_rank_10": 17592
+  },
+  "original_k1": {
+    "hit_queries": 77692,
+    "hit_rate_at_10": 0.46550866702217536,
+    "mrr_at_10": 0.3154452808123935,
+    "first_hit_counts_rank_1_to_10": [
+      40849,
+      12972,
+      6937,
+      4378,
+      3214,
+      2636,
+      2092,
+      1813,
+      1559,
+      1242
+    ]
+  },
+  "k1_with_recency": {
+    "hit_queries": 80258,
+    "hit_rate_at_10": 0.4808834191147834,
+    "mrr_at_10": 0.31698275602165427,
+    "first_hit_counts_rank_1_to_10": [
+      40849,
+      12972,
+      6937,
+      4378,
+      3214,
+      2636,
+      2092,
+      1813,
+      1559,
+      3808
+    ]
+  },
+  "paired_first_hit_changes": {
+    "gain": 2635,
+    "loss": 69,
+    "earlier": 0,
+    "same": 77623,
+    "later": 0,
+    "both_miss": 86570
+  },
+  "net_extra_hit_queries": 2566,
+  "mrr_at_10_delta": 0.0015374752092607857,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

@@ -10,7 +10,7 @@
 
 ![2015 年 8 月開發驗證。瀏覽 C1 留一席命中 69,391 次，K1 近鄰命中 77,692 次，淨增 8,301 次，命中率差的 95% 區間為 +4.618 至 +5.312 個百分點。加購由只補空榜的 126 次增至補滿十席的 130 次，淨增 4 次，區間 +0.022 至 +0.200 個百分點。購買由只補空榜的 109 次增至補滿十席的 113 次，淨增 4 次，區間 +0.062 至 +0.562 個百分點。正式驗收待獨立名冊，九月保留測試繼續封存。](docs/images/recommendation-default-paired-august.png)
 
-圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [瀏覽失誤分析](#august-browse-miss-analysis) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+圖表改繪自 Roman Zykov／Retailrocket 的資料，區間按訪客抽樣 2,000 次估計。[八月成對報告](reports/mainline/recommendation_default_paired_august_20261123.json) · [瀏覽失誤分析](#august-browse-miss-analysis) · [K1 留一席測試](#august-k1-recency-slot) · [正式採用門檻](#recommendation-default-acceptance) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## 推薦回放｜兩張榜單各猜中幾次？
 
@@ -221,7 +221,20 @@ K1 從訓練資料找出最多 500 段看過相似商品的瀏覽紀錄，再依
 | K1 與 C1 留一席都未命中的 82,829 筆 | 當時至少有一件目標商品可推薦 | 77,143 | 93.14% |
 | 同上 | 當時所有目標商品均未進入可推薦目錄 | 5,686 | 6.86% |
 
-**值得接著驗「K1 也留一席」。** K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。原 K1 有 1,242 筆到第十名才首次命中，這是替換第十名時可能擠掉的命中上限。下一輪可保留 K1 前九名，只在最近合格商品尚未上榜時替換第十名，再實測新增、失去與 MRR@10。正式驗收待獨立名冊，九月保留測試繼續封存。[完整失誤分析報告](reports/mainline/recommendation_browse_miss_analysis_20261123.json)
+K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。原 K1 有 1,242 筆到第十名才首次命中，這是替換第十名時可能擠掉的命中上限。[完整失誤分析報告](reports/mainline/recommendation_browse_miss_analysis_20261123.json)
+
+<a id="august-k1-recency-slot"></a>
+
+### K1 也留一席
+
+用八月全部 166,897 筆查詢比較原 K1 與留一席。保留前九名，最近看過且可推薦的商品尚未上榜才替換第十名，共替換 17,592 筆。
+
+| 方法 | 前十名命中 | 命中率 | MRR@10 |
+| --- | ---: | ---: | ---: |
+| 原 K1 | 77,692 | 46.55% | 0.31544528 |
+| K1 也留一席 | 80,258 | 48.09% | 0.31698276 |
+
+逐筆對照**新增命中 2,635 次、擠掉 69 次，淨增 2,566 次**。命中率增加 1.54 個百分點，MRR@10 增加 0.00153748。前九名逐筆保持原位，兩種方法都命中的查詢也保留原首次命中名次。這是八月開發結果，正式採用仍待獨立名冊，九月保留測試繼續封存。[完整成對結果](reports/mainline/recommendation_k1_recency_slot_20261123.json)
 
 ## 從訂單到顧客，三個分析問題
 
