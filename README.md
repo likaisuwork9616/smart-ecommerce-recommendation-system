@@ -2,7 +2,7 @@
 
 一位訪客看完一件商品，接下來會點哪一件？這個專案用 Retailrocket 的歷史瀏覽紀錄比較熱門榜、共現與近鄰推薦，也用 Olist 訂單與 UCI 零售資料研究品類銷售與顧客行為。
 
-**[開啟互動推薦展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選擇兩個已核對的匿名商品，切換瀏覽、加購與購買，查看前十名和每席來源。可直接用瀏覽器操作。
+**[開啟互動推薦展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選擇兩個已核對的匿名商品，切換瀏覽、加購與購買，查看前十名和每席來源。也可直接開啟 **[K1 也留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)**，切換新增命中和擠掉原有命中的案例。
 
 <a id="august-paired-results"></a>
 
@@ -240,7 +240,7 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 #### 補位前後的兩筆回放
 
-兩張圖各取八月封存名冊中該類的第一筆，並排顯示補位前後的前十名。圖中共用商品代號，讓原第十名、換入商品和訪客實際接著看的商品能直接對照。[案例選取與核對紀錄](reports/mainline/recommendation_k1_recency_replay_20261123.json)
+兩例各取八月封存名冊中該類的第一筆。公開回放與下方圖卡的商品代號一致，可並排查看補位前後的前十名，以及原本第十名、換入商品與實際下一件。[新增命中](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/?case=gained) · [擠掉原有命中](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/?case=lost) · [案例核對紀錄](reports/mainline/recommendation_k1_recency_replay_20261123.json)
 
 ![新增命中。原 K1 前十名依序為 A、B、C、D、E、F、G、H、I、J。留一席後前九名相同，第十名由 J 換成 K。訪客接著看商品 K，補位後在第十名命中。](docs/images/k1-recency-slot-gain.png)
 
@@ -265,7 +265,7 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | 公開展示可切換兩個匿名商品的三種榜單。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [本機啟動方式](#開啟商品推薦網頁) |
+| 推薦展示 | 公開展示可切換兩個匿名商品的瀏覽、加購與購買榜單，也能看兩筆 K1 留一席回放。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [K1 回放與圖卡](#k1-recency-replay) · [本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |

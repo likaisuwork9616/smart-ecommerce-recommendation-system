@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="切換 K1 留一席的兩筆八月回放，比較補位前後的前十名和實際下一件商品。">
+  <meta name="theme-color" content="#f3f6ee">
+  <title>K1 也留一席｜Retailrocket 互動推薦展示</title>
+  <link rel="stylesheet" href="../recommendation-demo/demo.css">
+  <script src="../recommendation-demo/k1-recency.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#demo">跳到互動展示</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <a class="repo-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system">GitHub 專案</a>
+    </div>
+  </header>
+
+  <main class="frame">
+    <nav class="showcase-nav" aria-label="互動推薦展示">
+      <a href="../">三種推薦</a>
+      <a href="./" aria-current="page">K1 也留一席</a>
+    </nav>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <h1 id="title">K1 也留一席</h1>
+        <p class="intro-copy">最近看過且仍可推薦的商品若未進前十名，就換掉第十名。</p>
+      </div>
+      <div class="snapshot">
+        <span>開發驗證月份</span>
+        <time datetime="2015-08">2015 年 8 月</time>
+      </div>
+    </section>
+
+    <div class="demo recency-demo" id="demo">
+      <section class="case-picker" aria-labelledby="case-heading">
+        <h2 id="case-heading">選擇回放案例</h2>
+        <div class="case-buttons" id="case-buttons" role="group" aria-label="K1 留一席案例">
+          <button type="button" data-case="gained" aria-pressed="true" disabled>
+            <span><strong>新增命中</strong><span data-count></span></span>
+          </button>
+          <button type="button" data-case="lost" aria-pressed="false" disabled>
+            <span><strong>擠掉原有命中</strong><span data-count></span></span>
+          </button>
+        </div>
+      </section>
+
+      <a class="analysis-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system#august-k1-recency-slot">
+        <span><strong>K1 留一席的八月成效</strong><span>166,897 筆開發查詢的成對結果與案例圖。</span></span>
+      </a>
+
+      <section class="results" aria-labelledby="ranking-title" aria-busy="true" id="results">
+        <div class="results-header">
+          <div>
+            <p id="case-label"></p>
+            <h2 id="ranking-title">補位前後的前十名</h2>
+          </div>
+        </div>
+        <p class="message" id="message" role="status">正在載入匿名回放…</p>
+        <div id="ranking-content" hidden>
+          <dl class="recency-summary">
+            <div><dt>原本第十名</dt><dd id="original-tenth"></dd></div>
+            <div><dt>換入商品</dt><dd id="replacement"></dd></div>
+            <div><dt>實際下一件</dt><dd id="actual-next"></dd></div>
+          </dl>
+          <table class="ranking recency-ranking">
+            <caption class="sr-only">原 K1 與留一席後的排名和命中情形</caption>
+            <thead>
+              <tr>
+                <th scope="col">名次</th>
+                <th scope="col">原 K1<span class="recency-outcome" id="before-outcome"></span></th>
+                <th scope="col">K1 留一席後<span class="recency-outcome" id="after-outcome"></span></th>
+              </tr>
+            </thead>
+            <tbody id="ranking-rows"></tbody>
+          </table>
+        </div>
+        <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
+        <noscript><p class="message">啟用 JavaScript 即可切換案例，也可以直接查看八月結果與案例圖。</p></noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer class="frame credits">
+    <p>商品代號沿用 GitHub 首頁對照圖。正式採用待獨立名冊，九月保留測試繼續封存。</p>
+    <p><a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+  </footer>
+</body>
+</html>
