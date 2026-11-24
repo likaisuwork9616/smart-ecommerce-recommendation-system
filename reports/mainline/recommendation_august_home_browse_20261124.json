@@ -1,0 +1,140 @@
+{
+  "study": "Fixed homepage browse ranking against August new visitors' first viewed items",
+  "role": "2015-08 development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "frozen_sources_sha256": {
+    "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv": "def7a6d1ea99e86fa75b5cad2669c88f0280c588fb08a04c7dbc18ac1f999f89",
+    "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503"
+  },
+  "homepage_snapshot": "docs/recommendation-demo/popularity.json",
+  "rules": {
+    "roster": "One observation per August-active visitor with an August view and no qualified event of any kind in warmup or train. The train group includes visitors seen in both earlier roles.",
+    "ranking": "Same frozen top ten for each visitor, by training view count descending, numeric item ID ascending for ties.",
+    "target": "All distinct items viewed at the visitor's earliest August view timestamp. A hit is any overlap, counted once at the best matching rank.",
+    "first_activity": "A view tied with a cart or purchase at the earliest activity time belongs to first_activity_includes_view."
+  },
+  "august_active_visitors": 311128,
+  "by_observed_history": {
+    "seen_in_train": {
+      "active": 22745,
+      "with_view": 22711,
+      "without_view": 34
+    },
+    "seen_in_warmup_only": {
+      "active": 55,
+      "with_view": 55,
+      "without_view": 0
+    },
+    "first_observed_in_august": {
+      "active": 288328,
+      "with_view": 287437,
+      "without_view": 891
+    }
+  },
+  "scored_visitors": 287437,
+  "scored_visitor_first_view_targets_sha256": "80030f5531050a8192b36da99d995ccc2b97ee80d500f7bc16e5d8aa044c52fc",
+  "by_first_august_activity": {
+    "first_activity_includes_view": {
+      "visitors": 286895,
+      "hits_at_10": 1475
+    },
+    "activity_precedes_first_view": {
+      "visitors": 542,
+      "hits_at_10": 2
+    }
+  },
+  "first_view_timestamp": {
+    "total_distinct_items_across_visitors": 287450,
+    "max_distinct_items": 3,
+    "multiple_distinct_items": 12,
+    "multiple_distinct_items_with_hit": 0,
+    "multiple_top_ten_items": 0
+  },
+  "hit_at_k": {
+    "1": {
+      "hits": 225,
+      "rate": 0.0007827802266235732
+    },
+    "5": {
+      "hits": 911,
+      "rate": 0.003169390162018112
+    },
+    "10": {
+      "hits": 1477,
+      "rate": 0.005138517309880078
+    }
+  },
+  "misses_at_10": 285960,
+  "first_hit_by_rank": [
+    {
+      "rank": 1,
+      "public_item": "23",
+      "visitors": 225
+    },
+    {
+      "rank": 2,
+      "public_item": "24",
+      "visitors": 10
+    },
+    {
+      "rank": 3,
+      "public_item": "25",
+      "visitors": 219
+    },
+    {
+      "rank": 4,
+      "public_item": "26",
+      "visitors": 157
+    },
+    {
+      "rank": 5,
+      "public_item": "11",
+      "visitors": 300
+    },
+    {
+      "rank": 6,
+      "public_item": "27",
+      "visitors": 57
+    },
+    {
+      "rank": 7,
+      "public_item": "28",
+      "visitors": 115
+    },
+    {
+      "rank": 8,
+      "public_item": "29",
+      "visitors": 265
+    },
+    {
+      "rank": 9,
+      "public_item": "16",
+      "visitors": 15
+    },
+    {
+      "rank": 10,
+      "public_item": "30",
+      "visitors": 114
+    }
+  ],
+  "limits": "First observed within the dataset. No homepage exposures or referral paths are recorded; this measures offline first-view overlap.",
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
