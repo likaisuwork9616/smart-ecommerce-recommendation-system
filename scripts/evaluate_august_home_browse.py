@@ -46,6 +46,19 @@ def visitor_rows(db, windows):
     """, (*windows["validation"], *windows["train"], *windows["warmup"]))
 
 
+def grouped_visitors(rows):
+    """Yield one row per August visitor, collecting first-view items for new visitors."""
+    for visitor, events in groupby(rows, key=itemgetter(0)):
+        _, history, activity_at, view_at, first_item = next(events)
+        targets = set()
+        if history == "first_observed_in_august" and view_at is not None:
+            if first_item is None:
+                raise ValueError("First view has no matching qualified item")
+            targets.add(first_item)
+            targets.update(row[4] for row in events)
+        yield visitor, history, activity_at, view_at, targets
+
+
 def score(rows, ranking):
     rank_of = {item: rank for rank, (item, _) in enumerate(ranking, 1)}
     if len(ranking) != TOP_K or len(rank_of) != TOP_K:
@@ -56,16 +69,12 @@ def score(rows, ranking):
     multi_item = multi_item_hits = multiple_hits = 0
     total_target_items = max_target_items = 0
     roster = hashlib.sha256()
-    for visitor, events in groupby(rows, key=itemgetter(0)):
-        _, history, activity_at, view_at, first_item = next(events)
+    for visitor, history, activity_at, view_at, targets in grouped_visitors(rows):
         counts = by_history[history]
         counts["active"] += 1
         counts["without_view" if view_at is None else "with_view"] += 1
-        if history != "first_observed_in_august" or view_at is None:
+        if not targets:
             continue
-        if first_item is None:
-            raise ValueError("First view has no matching qualified item")
-        targets = {first_item, *(row[4] for row in events)}
         total_target_items += len(targets)
         max_target_items = max(max_target_items, len(targets))
         digest_row(roster, [visitor, view_at, sorted(targets, key=int)])
@@ -102,7 +111,7 @@ def score(rows, ranking):
     }
 
 
-def study():
+def load_study_inputs():
     public = json.loads(HOMEPAGE.read_bytes())
     if rebuild_homepage() != public:
         raise ValueError("Homepage lists differ from the verified training release")
@@ -116,6 +125,11 @@ def study():
     if (windows["train"] != WINDOWS["train"] or windows["validation"] != WINDOWS["validation"]
             or windows["warmup"] != (1430611200000, windows["train"][0])):
         raise ValueError("The frozen training, warm-up or August window has changed")
+    return ranking, scope, windows
+
+
+def study():
+    ranking, scope, windows = load_study_inputs()
     release = json.loads((ROOT / RELEASE).read_bytes())
     uri = (ROOT / DB).resolve().as_uri() + "?mode=ro&immutable=1"
     with closing(sqlite3.connect(uri, uri=True)) as db:

@@ -1,0 +1,139 @@
+{
+  "study": "Training first-view visitor popularity vs. homepage browse event popularity",
+  "role": "August 2015 development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "baseline_report": "reports/mainline/recommendation_august_home_browse_20261124.json",
+  "homepage_snapshot": "docs/recommendation-demo/popularity.json",
+  "training_rule": "Only train visitors with a view and no qualified warmup event. Each distinct item at the first view timestamp receives one vote from that visitor. Sort by votes descending, then numeric item ID ascending. Freeze the top ten before August.",
+  "training": {
+    "visitors_with_first_view": 952637,
+    "visitors_with_multiple_first_items": 33,
+    "distinct_first_view_items": 171066,
+    "visitor_item_votes": 952672
+  },
+  "candidate_ranking": [
+    {
+      "rank": 1,
+      "training_first_view_visitors": 1572,
+      "baseline_rank": 1,
+      "baseline_public_alias": "23"
+    },
+    {
+      "rank": 2,
+      "training_first_view_visitors": 1119,
+      "baseline_rank": 3,
+      "baseline_public_alias": "25"
+    },
+    {
+      "rank": 3,
+      "training_first_view_visitors": 1020,
+      "baseline_rank": 4,
+      "baseline_public_alias": "26"
+    },
+    {
+      "rank": 4,
+      "training_first_view_visitors": 865,
+      "baseline_rank": 8,
+      "baseline_public_alias": "29"
+    },
+    {
+      "rank": 5,
+      "training_first_view_visitors": 856,
+      "baseline_rank": 6,
+      "baseline_public_alias": "27"
+    },
+    {
+      "rank": 6,
+      "training_first_view_visitors": 699,
+      "baseline_rank": null,
+      "baseline_public_alias": null
+    },
+    {
+      "rank": 7,
+      "training_first_view_visitors": 606,
+      "baseline_rank": 2,
+      "baseline_public_alias": "24"
+    },
+    {
+      "rank": 8,
+      "training_first_view_visitors": 591,
+      "baseline_rank": null,
+      "baseline_public_alias": null
+    },
+    {
+      "rank": 9,
+      "training_first_view_visitors": 581,
+      "baseline_rank": null,
+      "baseline_public_alias": null
+    },
+    {
+      "rank": 10,
+      "training_first_view_visitors": 580,
+      "baseline_rank": 5,
+      "baseline_public_alias": "11"
+    }
+  ],
+  "candidate_rank_item_votes_sha256": "fb6f3b0849c159264b241d24f0a3c7e2621fcb7d807597d132d924c4eba10d28",
+  "shared_items_in_top_ten": 7,
+  "scoring_rule": "One observation per archived August visitor. Any first-view item in a top ten is a hit. Fingerprint ordered visitor, first view time, numerically sorted targets, then best rank for each arm (null for miss).",
+  "paired": {
+    "scored_visitors": 287437,
+    "scored_visitor_first_view_targets_sha256": "80030f5531050a8192b36da99d995ccc2b97ee80d500f7bc16e5d8aa044c52fc",
+    "paired_best_ranks_sha256": "40cdf50895b8af354415efd7a8f94e6d89075bb8466099750f88e9b742901cb6",
+    "both_hit": 1233,
+    "candidate_only_gained": 361,
+    "baseline_only_lost": 244,
+    "both_missed": 285599,
+    "net_hits": 117,
+    "gained_by_candidate_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      250,
+      0,
+      30,
+      81,
+      0
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      115,
+      0,
+      15,
+      114
+    ],
+    "baseline": {
+      "hits_at_10": 1477,
+      "hit_rate_at_10": 0.005138517309880078
+    },
+    "candidate": {
+      "hits_at_10": 1594,
+      "hit_rate_at_10": 0.005545563027724336
+    },
+    "hit_rate_change_percentage_points": 0.040704571784425804
+  },
+  "limits": "First observed within the dataset. No homepage exposures or referral paths are recorded; this measures offline first-view overlap.",
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
