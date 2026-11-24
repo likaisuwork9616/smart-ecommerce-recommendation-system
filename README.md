@@ -4,6 +4,8 @@
 
 **[開啟首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選瀏覽、加購或購買榜，點任一商品就能看它的十件推薦。從加購榜點進去會先看到「其他人也加入購物車」，也能切到共同瀏覽或共同購買，逐席查看哪些商品來自共同配對、哪些由熱門榜補位。[商品 11 的加購推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=cart&from=cart)
 
+**[並排看八月新訪客的兩張榜](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/home-first-view/)**。比對原熱門瀏覽榜和整張首看榜的前十名，看哪些商品讓 361 位訪客新增命中，又有哪些商品換出後失去 244 位原有命中。展示首頁預設仍是原熱門瀏覽榜。
+
 另外兩個[匿名商品案例](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/)可對照有共同配對和全靠熱門補位的差異。[K1 留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)可比較換掉第十名後新增與失去命中的兩筆案例。
 
 ### 首頁熱門商品怎麼排？
@@ -108,6 +110,8 @@
 ### 新訪客首頁達到什麼門檻才換榜？
 
 **整張首看榜在八月兩項門檻都通過，首頁仍沿用原熱門瀏覽榜。** 八月是訂門檻時已看過的開發資料。是否換榜要等獨立名冊驗收，目前正式評分 **0 人**，九月保留測試繼續封存。
+
+打開互動展示可並排看完整前十名，也可以勾選「只看有增減的名次」。首看榜第 6 名商品 221 新增 250 人，第 8 名商品 222 新增 30 人，第 9 名商品 157 新增 81 人。換出原榜第 7 名商品 28、第 9 名商品 16 與第 10 名商品 30，分別失去 115、15、114 人。其餘七件商品兩榜都有，可查看各自在另一榜的名次。[打開兩榜逐席對照](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/home-first-view/)
 
 ![2015 年八月開發名冊共 287,437 位新訪客。原熱門瀏覽榜命中 1,477 人，整張首看榜命中 1,594 人。新增 361 人、失去 244 人，淨增 117 人，超過這批名冊所需的 58 人。命中率差 +0.04070 個百分點，成對 95% 區間為 +0.02366 至 +0.05775 個百分點，下限大於零。](docs/images/home-first-view-acceptance-august.png)
 

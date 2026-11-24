@@ -16,7 +16,7 @@ ALIAS_DIGEST = "71d57cebf30a704b917b772e4976c7f0e0f668f918353b7ab320e1961b6fb0fa
 OUTPUT = ROOT / "docs/recommendation-demo/popular-products.json"
 
 
-def product_cards(home, legacy_aliases, browsing, baskets):
+def product_cards_with_aliases(home, legacy_aliases, browsing, baskets):
     aliases = dict(legacy_aliases)
     original_ids = {alias: item for item, alias in aliases.items()}
     next_number = max(int(alias) for alias in original_ids if alias.isdecimal()) + 1
@@ -41,16 +41,25 @@ def product_cards(home, legacy_aliases, browsing, baskets):
                 public_rows.append([aliases[target], source])
             rankings[mode] = public_rows
         cards[seed] = {"item": seed, "rankings": rankings}
+    return cards, aliases
+
+
+def product_cards(home, legacy_aliases, browsing, baskets):
+    cards, _ = product_cards_with_aliases(home, legacy_aliases, browsing, baskets)
     return cards
 
 
-def export(receipt):
+def load_product_inputs(receipt):
     aliases = json.loads(receipt.read_bytes())["aliases"]
     encoded = json.dumps(aliases, sort_keys=True, separators=(",", ":")).encode("ascii")
     if hashlib.sha256(encoded).hexdigest() != ALIAS_DIGEST:
         raise ValueError("Private aliases differ from the verified original product cases")
     home = json.loads(HOME_POPULARITY.read_bytes())
-    return product_cards(home, aliases, C1DemoModel.load(ROOT), BasketDemoModel.load(ROOT))
+    return home, aliases, C1DemoModel.load(ROOT), BasketDemoModel.load(ROOT)
+
+
+def export(receipt):
+    return product_cards(*load_product_inputs(receipt))
 
 
 def main():

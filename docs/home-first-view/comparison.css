@@ -1,0 +1,36 @@
+.impact-net { display: flex; align-items: baseline; gap: .4rem; margin: .9rem 0 .6rem; color: var(--leaf); }
+.impact-net strong { font: 700 clamp(2.5rem, 4.5vw, 3.4rem)/1 var(--mono); letter-spacing: -.06em; }
+.impact-counts { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin: .85rem 0 0; }
+.impact-counts dt { color: #cbe0cd; font-size: .875rem; }
+.impact-counts dd { margin: .1rem 0 0; font: 700 1.12rem/1.45 var(--mono); }
+.impact-sample, .decision { margin-top: .9rem; color: #e4f0e4; font-size: .94rem; }
+.decision { padding-top: .8rem; border-top: 1px solid #638175; }
+.decision strong { display: block; color: #fff; }
+.first-view-demo .results-header h2 { margin: 0; }
+.filter { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; cursor: pointer; font-size: .9rem; color: var(--forest); font-weight: 650; }
+.filter input { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--forest); }
+.comparison { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.rank-column { width: 4.2rem; }
+.comparison td, .comparison th { padding: .6rem .9rem; text-align: left; vertical-align: middle; }
+.comparison thead th { background: #edf3eb; border-block: 1px solid var(--line); color: var(--ink); font-size: 1rem; }
+.comparison thead th:first-child { font-size: .85rem; }
+.comparison small, .comparison .detail { display: block; color: var(--muted); font-size: .83rem; line-height: 1.45; }
+.comparison small { margin-top: .12rem; font-weight: 550; }
+.comparison tbody th, .comparison tbody td { border-bottom: 1px solid #e0e8df; }
+.comparison td + td, .comparison thead th:last-child { border-left: 1px solid var(--line); }
+.comparison th:first-child { text-align: center; }
+.comparison .item { font-weight: 750; }
+.comparison .gain { background: var(--shared-bg); }
+.comparison .gain .detail { color: var(--shared-text); font-weight: 700; }
+.comparison .loss { background: var(--popular-bg); }
+.comparison .loss .detail { color: var(--popular-text); font-weight: 700; }
+@media (max-width: 760px) {
+  .first-view-demo { grid-template-areas: "cases" "results" "analysis"; }
+  .impact-counts { display: flex; gap: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .rank-column { width: 2.6rem; }
+  .comparison td, .comparison th { padding: .5rem .4rem; }
+  .comparison thead th { font-size: .92rem; }
+  .first-view-demo .results-header { row-gap: .1rem; }
+}

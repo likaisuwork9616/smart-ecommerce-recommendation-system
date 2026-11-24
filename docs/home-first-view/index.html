@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="並排比較八月新訪客的熱門瀏覽榜與首看榜，逐席查看換榜新增與失去的命中。">
+  <meta name="theme-color" content="#f3f6ee">
+  <title>新訪客首看榜｜Retailrocket 互動推薦展示</title>
+  <link rel="stylesheet" href="../recommendation-demo/demo.css">
+  <link rel="stylesheet" href="./comparison.css">
+  <script src="./comparison.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#rankings">跳到兩榜前十名</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <a class="repo-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system">GitHub 專案</a>
+    </div>
+  </header>
+
+  <main class="frame">
+    <nav class="showcase-nav" aria-label="互動推薦展示">
+      <a href="../">首頁熱門商品</a>
+      <a href="./" aria-current="page">新訪客首看榜</a>
+      <a href="../products/">商品推薦案例</a>
+      <a href="../k1-recency/">K1 也留一席</a>
+    </nav>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <h1 id="title">新訪客首看榜</h1>
+        <p class="intro-copy">兩張榜有哪些商品不同？逐席查看換榜後新增與失去的首看命中。</p>
+      </div>
+      <div class="snapshot">
+        <span>開發驗證月份</span>
+        <time datetime="2015-08">2015 年 8 月</time>
+      </div>
+    </section>
+
+    <div class="demo first-view-demo">
+      <section class="case-picker impact" aria-labelledby="impact-heading">
+        <h2 id="impact-heading">換成首看榜的得失</h2>
+        <div id="impact-values" hidden>
+          <p class="impact-net"><span>淨增</span> <strong id="net"></strong> 人</p>
+          <dl class="impact-counts">
+            <div><dt>新增命中</dt><dd id="gained"></dd></div>
+            <div><dt>失去命中</dt><dd id="lost"></dd></div>
+          </dl>
+          <p class="impact-sample" id="sample"></p>
+        </div>
+        <p class="decision"><strong>首頁沿用原熱門瀏覽榜。</strong>八月曾用於訂門檻，正式換榜要等獨立名冊再驗。</p>
+      </section>
+
+      <a class="analysis-link" href="../images/home-first-view-acceptance-august.png">
+        <img src="../images/home-first-view-acceptance-august.png" width="88" height="85" alt="">
+        <span><strong>查看八月成效對照圖</strong><span>命中率差、成對 95% 區間與兩項換榜門檻。</span></span>
+      </a>
+
+      <section class="results" id="rankings" aria-labelledby="ranking-heading" aria-busy="true">
+        <div class="results-header">
+          <h2 id="ranking-heading">兩榜前十名</h2>
+          <label class="filter"><input type="checkbox" id="only-changes" aria-controls="ranking-rows" disabled>只看有增減的名次</label>
+        </div>
+        <p class="message" id="message" role="status">正在載入兩張榜單…</p>
+        <noscript><p class="ranking-note">請啟用 JavaScript 查看榜單，或直接開啟八月成效對照圖。</p></noscript>
+        <div id="ranking-content" hidden>
+          <table class="comparison">
+            <caption class="sr-only">八月新訪客首看，按相同名次並排比較兩榜的商品與命中得失</caption>
+            <colgroup><col class="rank-column"><col><col></colgroup>
+            <thead>
+              <tr>
+                <th scope="col">名次</th>
+                <th scope="col">原熱門瀏覽榜<small id="baseline-hits"></small></th>
+                <th scope="col">整張首看榜<small id="candidate-hits"></small></th>
+              </tr>
+            </thead>
+            <tbody id="ranking-rows"></tbody>
+          </table>
+          <p class="ranking-note">只有首看榜命中的訪客算新增，只有原榜命中的算失去。同一人首次瀏覽多件商品時，歸到命中榜單裡名次最前的商品，每人只算一次。</p>
+        </div>
+      </section>
+    </div>
+    <p class="sr-only" id="announcement" role="status"></p>
+  </main>
+
+  <footer class="frame credits">
+    <p>兩榜都用 2015 年 8 月 1 日前的資料。原榜按瀏覽事件數排名，首看榜按訓練期新訪客首次瀏覽時看過的商品計票。九月保留測試繼續封存。</p>
+    <p><a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+  </footer>
+</body>
+</html>
