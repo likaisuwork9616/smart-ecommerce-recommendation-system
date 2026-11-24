@@ -1,0 +1,178 @@
+{
+  "study": "August browse-only vs weighted prior cart and purchase C1 rankings",
+  "role": "2015-08 exposed development validation",
+  "reference_audit": "reports/mainline/recommendation_august_personalization_signals_20261123.json",
+  "freeze": "reports/mainline/recommendation_default_freeze_20261120.json",
+  "frozen_training_commit": "cf975e5593e6e82b5169f991e5b20b9086ff26d4",
+  "history_windows_utc_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "ordered_query_keys_sha256": "bc16d8c8830ac03da6c5416812df75cb6150b9f7e822f207e5710db8088facb2",
+  "frozen_inputs": [
+    "shop-mysql-runtime/retailrocket_dataset_v1/builder.sqlite",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/oracle.sqlite",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/support.csv",
+    "shop-mysql-runtime/retailrocket_popularity_v1/development/item_counts.csv",
+    "shop-mysql-runtime/retailrocket_cooccurrence_paired_v1/queries.jsonl"
+  ],
+  "rules": {
+    "history": "Same visitor across warmup, training and August, including all views through the current basket. Cart and transaction event times must be strictly earlier than the query.",
+    "weights_by_distinct_visitor_item_event_type": {
+      "browse_only": {
+        "view": 1,
+        "addtocart": 0,
+        "transaction": 0
+      },
+      "weighted_actions": {
+        "view": 1,
+        "addtocart": 3,
+        "transaction": 5
+      }
+    },
+    "rank": "Sum seed weight times training co-view session pair count divided by seed session support. Break ties and fill zero scores by frozen view popularity, then ascending numeric item ID. Eligible items must have a strictly prior first view.",
+    "target": "Any item in the next strictly later view basket in the same session. MRR uses the reciprocal of the first hit rank, zero on a miss.",
+    "usable_signal": "At least one prior cart or purchase item has a distinct co-view neighbor in the frozen training graph. This measures usable input coverage for that graph."
+  },
+  "all_queries": {
+    "queries": 166897,
+    "visitors": 62235,
+    "changed_top_tens": 25164,
+    "browse_only": {
+      "hit_queries": 29413,
+      "hit_rate_at_10": 0.17623444399839422,
+      "mrr_at_10": 0.08021041587193166,
+      "first_hit_counts_rank_1_to_10": [
+        7368,
+        5014,
+        3638,
+        2980,
+        2494,
+        2004,
+        1792,
+        1488,
+        1432,
+        1203
+      ]
+    },
+    "weighted_actions": {
+      "hit_queries": 29019,
+      "hit_rate_at_10": 0.1738737065375651,
+      "mrr_at_10": 0.07901024118002255,
+      "first_hit_counts_rank_1_to_10": [
+        7247,
+        4945,
+        3569,
+        2982,
+        2426,
+        2012,
+        1736,
+        1502,
+        1406,
+        1194
+      ]
+    },
+    "first_hit_changes": {
+      "gain": 336,
+      "loss": 730,
+      "earlier": 469,
+      "same": 27530,
+      "later": 684,
+      "both_miss": 137148
+    },
+    "net_extra_hits": -394,
+    "mrr_at_10_difference": -0.0012001746919091116,
+    "visitor_bootstrap": {
+      "visitors": 62235,
+      "replicates": 2000,
+      "seed": 20261120,
+      "hit_rate_delta_95_percentile": [
+        -0.0029419251587482057,
+        -0.0017862708440353407
+      ]
+    }
+  },
+  "with_usable_signal": {
+    "queries": 28793,
+    "visitors": 2914,
+    "changed_top_tens": 25164,
+    "browse_only": {
+      "hit_queries": 2660,
+      "hit_rate_at_10": 0.09238356544993574,
+      "mrr_at_10": 0.038401019537927815,
+      "first_hit_counts_rank_1_to_10": [
+        575,
+        385,
+        331,
+        245,
+        270,
+        190,
+        203,
+        163,
+        158,
+        140
+      ]
+    },
+    "weighted_actions": {
+      "hit_queries": 2266,
+      "hit_rate_at_10": 0.0786996839509603,
+      "mrr_at_10": 0.03144427465008856,
+      "first_hit_counts_rank_1_to_10": [
+        454,
+        316,
+        262,
+        247,
+        202,
+        198,
+        147,
+        177,
+        132,
+        131
+      ]
+    },
+    "first_hit_changes": {
+      "gain": 336,
+      "loss": 730,
+      "earlier": 469,
+      "same": 777,
+      "later": 684,
+      "both_miss": 25797
+    },
+    "net_extra_hits": -394,
+    "mrr_at_10_difference": -0.006956744887839254,
+    "visitor_bootstrap": {
+      "visitors": 2914,
+      "replicates": 2000,
+      "seed": 20261120,
+      "hit_rate_delta_95_percentile": [
+        -0.018383347622430653,
+        -0.009945543497005199
+      ]
+    }
+  },
+  "any_prior_action": {
+    "queries": 29549,
+    "visitors": 3063
+  },
+  "same_view_history_checked_against_archived_c1": 109705,
+  "ordered_query_and_paired_top_tens_sha256": "b3afab8205d050fe82c80eb30169f25105856a3bb257f5d04c431b19fa9b5669",
+  "sampled_paired_top_tens": {
+    "rule": "Every 5000th roster position starting at 1, plus 166897 (one-based).",
+    "queries": 35,
+    "sha256": "0148dd41669bfe6717f1c353c07f4ca128235f23658e8443e8340fb3b0c9e12a"
+  },
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
