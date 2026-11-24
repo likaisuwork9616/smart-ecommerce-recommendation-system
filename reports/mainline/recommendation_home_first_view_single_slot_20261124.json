@@ -1,0 +1,276 @@
+{
+  "study": "Replace only browse rank ten with the first training first-view item outside the original ten",
+  "role": "July and August 2015 retrospective development backtests",
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "ranking_rule": "Keep browse ranks 1-9. Scan the frozen first-view top ten in order, skipping all original browse top-ten items. Put the first remaining item at rank ten. If none remains, keep the original list.",
+  "scoring_rule": "Within each month use one observation per new visitor with a view. Score all distinct targets at the first view timestamp at the best matching rank. Visitors and targets are identical across all three lists.",
+  "fingerprint_rule": "In visitor text order, hash the visitor, first view timestamp, numerically sorted targets, and best ranks in baseline/single/full order (null for a miss). Hit pattern bits use that same arm order; 1 means a hit.",
+  "months": {
+    "2015-07": {
+      "utc_windows_start_inclusive_end_exclusive": {
+        "warmup": [
+          "2015-05-03T00:00:00Z",
+          "2015-05-04T00:00:00Z"
+        ],
+        "train": [
+          "2015-05-04T00:00:00Z",
+          "2015-07-01T00:00:00Z"
+        ],
+        "validation": [
+          "2015-07-01T00:00:00Z",
+          "2015-08-01T00:00:00Z"
+        ]
+      },
+      "scoring_ledger_role": "train",
+      "archived_pair": "reports/mainline/recommendation_july_home_first_view_pair_20261124.json",
+      "baseline_rank_item_counts_sha256": "2e96668b3575b6412104ce088bc2b9f4043aa8fefff4d34d25b390887a03a014",
+      "full_rank_item_votes_sha256": "8077ec35ec8a9a19514edea46e7b0aed119d9b0eac012573e6b3169f278279bf",
+      "single_rank_item_sha256": "8a0f00ebc98c2d3d8501c7f583fde4e272ad42ccfb1bf49d6fb1e80e9677d625",
+      "incoming_first_view_rank": 6,
+      "incoming_training_first_view_visitors": 488,
+      "displaced_browse_rank": 10,
+      "displaced_item_rank_in_first_view_top_ten": null,
+      "displaced_training_views": 754,
+      "baseline_vs_full": {
+        "scored_visitors": 354930,
+        "both_hit": 1712,
+        "candidate_only_gained": 474,
+        "baseline_only_lost": 374,
+        "both_missed": 352370,
+        "net_hits": 100,
+        "gained_by_candidate_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          74,
+          0,
+          236,
+          0,
+          164
+        ],
+        "lost_by_baseline_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          98,
+          0,
+          0,
+          145,
+          131
+        ],
+        "baseline": {
+          "hits_at_10": 2086,
+          "hit_rate_at_10": 0.00587721522553743
+        },
+        "candidate": {
+          "hits_at_10": 2186,
+          "hit_rate_at_10": 0.006158960921871918
+        },
+        "hit_rate_change_percentage_points": 0.02817456963344885,
+        "scored_visitor_first_view_targets_sha256": "c82c8f89f10a50a0f6a43de80599902a8d1194e33f830176b7013c339675cbb7",
+        "paired_best_ranks_sha256": "cbdafc91c476b695b5ef2e8037cbefc938d16023e73df7e181f7c93c5c9a220b"
+      },
+      "baseline_vs_single": {
+        "scored_visitors": 354930,
+        "both_hit": 1955,
+        "candidate_only_gained": 74,
+        "baseline_only_lost": 131,
+        "both_missed": 352770,
+        "net_hits": -57,
+        "gained_by_candidate_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          74
+        ],
+        "lost_by_baseline_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131
+        ],
+        "baseline": {
+          "hits_at_10": 2086,
+          "hit_rate_at_10": 0.00587721522553743
+        },
+        "candidate": {
+          "hits_at_10": 2029,
+          "hit_rate_at_10": 0.005716620178626772
+        },
+        "hit_rate_change_percentage_points": -0.016059504691065846
+      },
+      "three_arm_best_ranks_sha256": "de312ca5e83669c508d714dc777cffea1d59b9d44e05685a08f3aeea080185bd",
+      "hit_patterns_baseline_single_full": {
+        "000": 352370,
+        "001": 400,
+        "010": 0,
+        "011": 74,
+        "100": 131,
+        "101": 0,
+        "110": 243,
+        "111": 1712
+      },
+      "single_vs_full_tradeoff": {
+        "full_gains_retained": 74,
+        "share_of_full_gains_retained": 0.15611814345991562,
+        "full_gains_forgone": 400,
+        "full_losses_recovered": 243,
+        "hits_in_both_original_lists_lost_by_single": 0,
+        "fewer_baseline_losses": 243,
+        "single_hits_minus_full_hits": -157
+      }
+    },
+    "2015-08": {
+      "utc_windows_start_inclusive_end_exclusive": {
+        "warmup": [
+          "2015-05-03T00:00:00Z",
+          "2015-05-04T00:00:00Z"
+        ],
+        "train": [
+          "2015-05-04T00:00:00Z",
+          "2015-08-01T00:00:00Z"
+        ],
+        "validation": [
+          "2015-08-01T00:00:00Z",
+          "2015-09-01T00:00:00Z"
+        ]
+      },
+      "scoring_ledger_role": "validation",
+      "archived_pair": "reports/mainline/recommendation_august_home_first_view_pair_20261124.json",
+      "baseline_rank_item_counts_sha256": "da27de3427b463da80581390d9f285ca1d45e69de30ca91097d452598dd3f019",
+      "full_rank_item_votes_sha256": "fb6f3b0849c159264b241d24f0a3c7e2621fcb7d807597d132d924c4eba10d28",
+      "single_rank_item_sha256": "e6e6f8afdd2e1887baa58e226e0700bafba1589ffcdf4fc66d25b1d17263abcd",
+      "incoming_first_view_rank": 6,
+      "incoming_training_first_view_visitors": 699,
+      "displaced_browse_rank": 10,
+      "displaced_item_rank_in_first_view_top_ten": null,
+      "displaced_training_views": 1031,
+      "baseline_vs_full": {
+        "scored_visitors": 287437,
+        "both_hit": 1233,
+        "candidate_only_gained": 361,
+        "baseline_only_lost": 244,
+        "both_missed": 285599,
+        "net_hits": 117,
+        "gained_by_candidate_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          250,
+          0,
+          30,
+          81,
+          0
+        ],
+        "lost_by_baseline_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          115,
+          0,
+          15,
+          114
+        ],
+        "baseline": {
+          "hits_at_10": 1477,
+          "hit_rate_at_10": 0.005138517309880078
+        },
+        "candidate": {
+          "hits_at_10": 1594,
+          "hit_rate_at_10": 0.005545563027724336
+        },
+        "hit_rate_change_percentage_points": 0.040704571784425804,
+        "scored_visitor_first_view_targets_sha256": "80030f5531050a8192b36da99d995ccc2b97ee80d500f7bc16e5d8aa044c52fc",
+        "paired_best_ranks_sha256": "40cdf50895b8af354415efd7a8f94e6d89075bb8466099750f88e9b742901cb6"
+      },
+      "baseline_vs_single": {
+        "scored_visitors": 287437,
+        "both_hit": 1363,
+        "candidate_only_gained": 250,
+        "baseline_only_lost": 114,
+        "both_missed": 285710,
+        "net_hits": 136,
+        "gained_by_candidate_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          250
+        ],
+        "lost_by_baseline_rank_1_to_10": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          114
+        ],
+        "baseline": {
+          "hits_at_10": 1477,
+          "hit_rate_at_10": 0.005138517309880078
+        },
+        "candidate": {
+          "hits_at_10": 1613,
+          "hit_rate_at_10": 0.00561166446908366
+        },
+        "hit_rate_change_percentage_points": 0.0473147159203582
+      },
+      "three_arm_best_ranks_sha256": "ead6731ec33d35c3206d07cdc065d7723da50bb5b62efae8ed6e1e3552b3d392",
+      "hit_patterns_baseline_single_full": {
+        "000": 285599,
+        "001": 111,
+        "010": 0,
+        "011": 250,
+        "100": 114,
+        "101": 0,
+        "110": 130,
+        "111": 1233
+      },
+      "single_vs_full_tradeoff": {
+        "full_gains_retained": 250,
+        "share_of_full_gains_retained": 0.6925207756232687,
+        "full_gains_forgone": 111,
+        "full_losses_recovered": 130,
+        "hits_in_both_original_lists_lost_by_single": 0,
+        "fewer_baseline_losses": 130,
+        "single_hits_minus_full_hits": 19
+      }
+    }
+  },
+  "same_incoming_item_in_both_months": false,
+  "limits": "First observed in this dataset. First-view overlap measures offline coverage of observed choices. Homepage impressions, clicks and causal effects are unavailable.",
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

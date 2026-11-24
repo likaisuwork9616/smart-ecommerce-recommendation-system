@@ -16,7 +16,7 @@
 | [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
-購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py)
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [新訪客首頁只換第十名值得嗎？](#home-first-view-single-slot)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -84,6 +84,24 @@
 | 八月 | 287,437 | 1,477（0.514%） | 1,594（0.555%） | 361 | 244 | +117 | +0.041 |
 
 核對原始商品編號後，七月首看榜第 8 名與八月第 6 名是同一件商品。它在七月貢獻 **236／474 人（49.8%）** 的新增命中，八月貢獻 **250／361 人（69.3%）**。其餘商品在七月合計新增 238 人，低於換榜失去的 374 人。八月其餘商品新增 111 人，也少於當月失去的 244 人。實際首頁點擊效果仍待曝光與點擊紀錄驗證。[七月成對報告](reports/mainline/recommendation_july_home_first_view_pair_20261124.json) · [名冊與逐席核對](docs/PROJECT_PROGRESS.md#july-home-first-view-pair)
+
+<a id="home-first-view-single-slot"></a>
+
+### 新訪客首頁只換第十名值得嗎？
+
+**建議首頁沿用熱門瀏覽榜。只換第十名，七月比原榜少命中 57 人，八月多命中 136 人。** 兩個月都保留原榜前九名，第十席換成首看榜中排名最高、且未進原榜前十的商品。兩次都選到當月首看榜第六名。帶來最多新增的同一件商品，七月排第八，到了八月才排第六，因此只有八月選中它。
+
+| 開發回測 | 新訪客 | 原熱門瀏覽榜命中 | 只換第十名命中 | 整張首看榜命中 | 只換一席比原榜淨增減 | 整張首看榜比原榜淨增 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 七月 | 354,930 | 2,086 | 2,029 | 2,186 | −57 | +100 |
+| 八月 | 287,437 | 1,477 | 1,613 | 1,594 | +136 | +117 |
+
+| 只換一席的得失 | 保住整榜新增的人數 | 失去的原有命中（單席／整榜） | 比換整榜少失去幾人 |
+| --- | ---: | ---: | ---: |
+| 七月 | 74／474（15.6%） | 131／374 | 243 |
+| 八月 | 250／361（69.3%） | 114／244 | 130 |
+
+七月只換一席，比換整榜救回了 243 位原本猜得到的訪客，卻少猜到 400 位新命中的訪客。八月剛好相反，救回 130 人，只少了 111 位新增，最後比整張首看榜多命中 19 人。整張首看榜兩月都優於原榜，保留為候選。這裡衡量的是榜單能否猜中訪客首次瀏覽的商品，實際首頁點擊效果仍待曝光與點擊紀錄驗證。[三榜逐人回測報告](reports/mainline/recommendation_home_first_view_single_slot_20261124.json) · [名冊與重現方式](docs/PROJECT_PROGRESS.md#home-first-view-single-slot)
 
 <a id="august-paired-results"></a>
 
