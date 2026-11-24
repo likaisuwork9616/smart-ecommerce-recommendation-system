@@ -1,0 +1,143 @@
+{
+  "study": "Weekly first-view gains and losses for two fixed homepage top tens",
+  "role": "August 2015 development backtest",
+  "monthly_report": "reports/mainline/recommendation_august_home_first_view_pair_20261124.json",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "candidate_rank_item_votes_sha256": "fb6f3b0849c159264b241d24f0a3c7e2621fcb7d807597d132d924c4eba10d28",
+  "scored_visitor_first_view_targets_sha256": "80030f5531050a8192b36da99d995ccc2b97ee80d500f7bc16e5d8aa044c52fc",
+  "paired_best_ranks_sha256": "40cdf50895b8af354415efd7a8f94e6d89075bb8466099750f88e9b742901cb6",
+  "grouping": "One observation per archived visitor, by earliest qualified August view in UTC. Calendar weeks run Monday to Sunday and are clipped to August.",
+  "attribution": "Rank 6 counts candidate-only hits whose best match is rank 6. Net minus rank 6 gains subtracts those gains from the observed net with all other outcomes held fixed.",
+  "month": {
+    "scored_visitors": 287437,
+    "baseline_hits": 1477,
+    "candidate_hits": 1594,
+    "both_hit": 1233,
+    "both_missed": 285599,
+    "candidate_only_gained": 361,
+    "baseline_only_lost": 244,
+    "net_hits": 117,
+    "rank_6_candidate_only": 250
+  },
+  "weeks": [
+    {
+      "start_date_utc": "2015-08-01",
+      "end_date_exclusive_utc": "2015-08-03",
+      "days": 2,
+      "scored_visitors": 16545,
+      "baseline_hits": 68,
+      "candidate_hits": 96,
+      "both_hit": 59,
+      "both_missed": 16440,
+      "candidate_only_gained": 37,
+      "baseline_only_lost": 9,
+      "net_hits": 28,
+      "rank_6_candidate_only": 12,
+      "share_of_month_rank_6_gains": 0.048,
+      "rank_6_gains_per_1000_visitors": 0.7252946509519492,
+      "net_minus_rank_6_gains": 16
+    },
+    {
+      "start_date_utc": "2015-08-03",
+      "end_date_exclusive_utc": "2015-08-10",
+      "days": 7,
+      "scored_visitors": 66864,
+      "baseline_hits": 417,
+      "candidate_hits": 432,
+      "both_hit": 358,
+      "both_missed": 66373,
+      "candidate_only_gained": 74,
+      "baseline_only_lost": 59,
+      "net_hits": 15,
+      "rank_6_candidate_only": 36,
+      "share_of_month_rank_6_gains": 0.144,
+      "rank_6_gains_per_1000_visitors": 0.5384063173007897,
+      "net_minus_rank_6_gains": -21
+    },
+    {
+      "start_date_utc": "2015-08-10",
+      "end_date_exclusive_utc": "2015-08-17",
+      "days": 7,
+      "scored_visitors": 64106,
+      "baseline_hits": 400,
+      "candidate_hits": 386,
+      "both_hit": 315,
+      "both_missed": 63635,
+      "candidate_only_gained": 71,
+      "baseline_only_lost": 85,
+      "net_hits": -14,
+      "rank_6_candidate_only": 58,
+      "share_of_month_rank_6_gains": 0.232,
+      "rank_6_gains_per_1000_visitors": 0.9047515053193149,
+      "net_minus_rank_6_gains": -72
+    },
+    {
+      "start_date_utc": "2015-08-17",
+      "end_date_exclusive_utc": "2015-08-24",
+      "days": 7,
+      "scored_visitors": 65083,
+      "baseline_hits": 299,
+      "candidate_hits": 322,
+      "both_hit": 242,
+      "both_missed": 64704,
+      "candidate_only_gained": 80,
+      "baseline_only_lost": 57,
+      "net_hits": 23,
+      "rank_6_candidate_only": 66,
+      "share_of_month_rank_6_gains": 0.264,
+      "rank_6_gains_per_1000_visitors": 1.0140897008435383,
+      "net_minus_rank_6_gains": -43
+    },
+    {
+      "start_date_utc": "2015-08-24",
+      "end_date_exclusive_utc": "2015-08-31",
+      "days": 7,
+      "scored_visitors": 65126,
+      "baseline_hits": 252,
+      "candidate_hits": 307,
+      "both_hit": 219,
+      "both_missed": 64786,
+      "candidate_only_gained": 88,
+      "baseline_only_lost": 33,
+      "net_hits": 55,
+      "rank_6_candidate_only": 69,
+      "share_of_month_rank_6_gains": 0.276,
+      "rank_6_gains_per_1000_visitors": 1.0594846912139544,
+      "net_minus_rank_6_gains": -14
+    },
+    {
+      "start_date_utc": "2015-08-31",
+      "end_date_exclusive_utc": "2015-09-01",
+      "days": 1,
+      "scored_visitors": 9713,
+      "baseline_hits": 41,
+      "candidate_hits": 51,
+      "both_hit": 40,
+      "both_missed": 9661,
+      "candidate_only_gained": 11,
+      "baseline_only_lost": 1,
+      "net_hits": 10,
+      "rank_6_candidate_only": 9,
+      "share_of_month_rank_6_gains": 0.036,
+      "rank_6_gains_per_1000_visitors": 0.9265932255739731,
+      "net_minus_rank_6_gains": 1
+    }
+  ],
+  "limits": "First observed within the dataset. No homepage exposures or referral paths are recorded; this measures offline first-view overlap.",
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

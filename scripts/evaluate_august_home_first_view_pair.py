@@ -44,16 +44,34 @@ def train_first_view_ranking(db, windows):
     }
 
 
-def paired_scores(rows, baseline, candidate):
+def summarize_rank_pairs(rank_pairs):
+    """Summarize frequencies of (baseline best rank, candidate best rank), using None for a miss."""
+    gained_by_rank = [rank_pairs[None, rank] for rank in range(1, TOP_K + 1)]
+    lost_by_rank = [rank_pairs[rank, None] for rank in range(1, TOP_K + 1)]
+    gained, lost = sum(gained_by_rank), sum(lost_by_rank)
+    scored = sum(rank_pairs.values())
+    both_missed = rank_pairs[None, None]
+    both = scored - gained - lost - both_missed
+    base_hits, candidate_hits = both + lost, both + gained
+    return {
+        "scored_visitors": scored, "both_hit": both, "candidate_only_gained": gained,
+        "baseline_only_lost": lost, "both_missed": both_missed, "net_hits": gained - lost,
+        "gained_by_candidate_rank_1_to_10": gained_by_rank,
+        "lost_by_baseline_rank_1_to_10": lost_by_rank,
+        "baseline": {"hits_at_10": base_hits, "hit_rate_at_10": base_hits / scored if scored else None},
+        "candidate": {"hits_at_10": candidate_hits, "hit_rate_at_10": candidate_hits / scored if scored else None},
+        "hit_rate_change_percentage_points": 100 * (gained - lost) / scored if scored else None,
+    }
+
+
+def paired_scores(rows, baseline, candidate, observe=None):
     base_rank = {item: rank for rank, (item, _) in enumerate(baseline, 1)}
     candidate_rank = {item: rank for rank, (item, _) in enumerate(candidate, 1)}
     if any(len(items) != TOP_K for items in (baseline, candidate, base_rank, candidate_rank)):
         raise ValueError("Each ranking must contain ten distinct products")
     roster = hashlib.sha256()
     observations = hashlib.sha256()
-    outcomes = Counter()
-    gained_by_rank = Counter()
-    lost_by_rank = Counter()
+    rank_pairs = Counter()
     for visitor, _, _, view_at, targets in grouped_visitors(rows):
         if not targets:
             continue
@@ -62,36 +80,25 @@ def paired_scores(rows, baseline, candidate):
         record = [visitor, view_at, sorted(targets, key=int)]
         digest_row(roster, record)
         digest_row(observations, [*record, baseline_best, candidate_best])
-        outcomes[baseline_best is not None, candidate_best is not None] += 1
-        if baseline_best is None and candidate_best is not None:
-            gained_by_rank[candidate_best] += 1
-        elif baseline_best is not None and candidate_best is None:
-            lost_by_rank[baseline_best] += 1
-
-    scored = sum(outcomes.values())
-    both = outcomes[True, True]
-    lost, gained = outcomes[True, False], outcomes[False, True]
-    base_hits, candidate_hits = both + lost, both + gained
+        rank_pairs[baseline_best, candidate_best] += 1
+        if observe is not None:
+            observe(view_at, baseline_best, candidate_best)
+    summary = summarize_rank_pairs(rank_pairs)
     return {
-        "scored_visitors": scored, "scored_visitor_first_view_targets_sha256": roster.hexdigest(),
+        "scored_visitors": summary.pop("scored_visitors"),
+        "scored_visitor_first_view_targets_sha256": roster.hexdigest(),
         "paired_best_ranks_sha256": observations.hexdigest(),
-        "both_hit": both, "candidate_only_gained": gained, "baseline_only_lost": lost,
-        "both_missed": outcomes[False, False], "net_hits": gained - lost,
-        "gained_by_candidate_rank_1_to_10": [gained_by_rank[r] for r in range(1, TOP_K + 1)],
-        "lost_by_baseline_rank_1_to_10": [lost_by_rank[r] for r in range(1, TOP_K + 1)],
-        "baseline": {"hits_at_10": base_hits, "hit_rate_at_10": base_hits / scored if scored else None},
-        "candidate": {"hits_at_10": candidate_hits, "hit_rate_at_10": candidate_hits / scored if scored else None},
-        "hit_rate_change_percentage_points": 100 * (gained - lost) / scored if scored else None,
+        **summary,
     }
 
 
-def study():
+def study(observe=None):
     baseline, scope, windows = load_study_inputs()
     previous = json.loads(BASELINE_REPORT.read_bytes())
     uri = (ROOT / DB).resolve().as_uri() + "?mode=ro&immutable=1"
     with closing(sqlite3.connect(uri, uri=True)) as db:
         candidate, training = train_first_view_ranking(db, windows)
-        result = paired_scores(visitor_rows(db, windows), baseline, candidate)
+        result = paired_scores(visitor_rows(db, windows), baseline, candidate, observe)
     if (result["scored_visitors"] != previous["scored_visitors"]
             or result["scored_visitor_first_view_targets_sha256"] != previous["scored_visitor_first_view_targets_sha256"]
             or result["baseline"]["hits_at_10"] != previous["hit_at_k"]["10"]["hits"]):
