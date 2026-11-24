@@ -1,0 +1,161 @@
+{
+  "role": "August 2015 development replay of the homepage acceptance scorer",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "cohort_reference": "reports/mainline/recommendation_august_home_browse_20261124.json",
+  "archived_pair": "reports/mainline/recommendation_august_home_first_view_pair_20261124.json",
+  "frozen_ranking_commit": "6ec81d7485abf4cf4bc6480620e6bebaf6932073",
+  "frozen_rankings": {
+    "baseline_rank_item_counts_sha256": "da27de3427b463da80581390d9f285ca1d45e69de30ca91097d452598dd3f019",
+    "full_rank_item_votes_sha256": "fb6f3b0849c159264b241d24f0a3c7e2621fcb7d807597d132d924c4eba10d28"
+  },
+  "previously_observed_visitors": 22800,
+  "new_visitors_without_view": 891,
+  "paired": {
+    "scored_visitors": 287437,
+    "both_hit": 1233,
+    "candidate_only_gained": 361,
+    "baseline_only_lost": 244,
+    "both_missed": 285599,
+    "net_hits": 117,
+    "gained_by_candidate_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      250,
+      0,
+      30,
+      81,
+      0
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      115,
+      0,
+      15,
+      114
+    ],
+    "baseline": {
+      "hits_at_10": 1477,
+      "hit_rate_at_10": 0.005138517309880078
+    },
+    "candidate": {
+      "hits_at_10": 1594,
+      "hit_rate_at_10": 0.005545563027724336
+    },
+    "hit_rate_change_percentage_points": 0.040704571784425804,
+    "scored_visitor_first_view_targets_sha256": "80030f5531050a8192b36da99d995ccc2b97ee80d500f7bc16e5d8aa044c52fc",
+    "paired_best_ranks_sha256": "40cdf50895b8af354415efd7a8f94e6d89075bb8466099750f88e9b742901cb6"
+  },
+  "visitor_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261120,
+    "bit_generator": "NumPy PCG64",
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "quantile_method": "linear",
+    "visitors": 287437,
+    "hit_rate_delta_95_percentile": [
+      0.000236573579601791,
+      0.0005775178560867251
+    ],
+    "hit_rate_delta_95_percentage_points": [
+      0.0236573579601791,
+      0.05775178560867251
+    ]
+  },
+  "gates": {
+    "practical_gain": true,
+    "positive_lower_bound": true
+  },
+  "decision_rule": {
+    "policy": "docs/HOME_FIRST_VIEW_ACCEPTANCE.md",
+    "policy_commit": "52333bafcdd60f6454647eea25aa224b10edfe46",
+    "minimum_gain_percentage_points_inclusive": 0.02,
+    "lower_bound_must_exceed": 0
+  },
+  "all_gates_pass": true,
+  "weekly": [
+    {
+      "week_monday_utc": "2015-07-27",
+      "scored_visitors": 16545,
+      "candidate_only_gained": 37,
+      "baseline_only_lost": 9,
+      "net_hits": 28
+    },
+    {
+      "week_monday_utc": "2015-08-03",
+      "scored_visitors": 66864,
+      "candidate_only_gained": 74,
+      "baseline_only_lost": 59,
+      "net_hits": 15
+    },
+    {
+      "week_monday_utc": "2015-08-10",
+      "scored_visitors": 64106,
+      "candidate_only_gained": 71,
+      "baseline_only_lost": 85,
+      "net_hits": -14
+    },
+    {
+      "week_monday_utc": "2015-08-17",
+      "scored_visitors": 65083,
+      "candidate_only_gained": 80,
+      "baseline_only_lost": 57,
+      "net_hits": 23
+    },
+    {
+      "week_monday_utc": "2015-08-24",
+      "scored_visitors": 65126,
+      "candidate_only_gained": 88,
+      "baseline_only_lost": 33,
+      "net_hits": 55
+    },
+    {
+      "week_monday_utc": "2015-08-31",
+      "scored_visitors": 9713,
+      "candidate_only_gained": 11,
+      "baseline_only_lost": 1,
+      "net_hits": 10
+    }
+  ],
+  "gained_share_by_candidate_rank_1_to_10": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.6925207756232687,
+    0.0,
+    0.08310249307479224,
+    0.22437673130193905,
+    0.0
+  ],
+  "homepage_default": "original browse popularity",
+  "gate_interpretation": "Development replay verifies the scoring rules. Only an independent roster informs adoption.",
+  "formal_acceptance": "pending independent roster",
+  "formal_scored_visitors": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
