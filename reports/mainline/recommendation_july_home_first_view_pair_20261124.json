@@ -1,0 +1,197 @@
+{
+  "study": "Compare first-view and browse-event popularity on July new visitors",
+  "role": "July 2015 retrospective development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-07-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-07-01T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ]
+  },
+  "event_ledger_roles": {
+    "warmup": "warmup",
+    "train": "train",
+    "validation": "train"
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "event_ledger_sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503",
+  "baseline_rule": "Rank all qualified fit-window view counts, ties by numeric item ID ascending.",
+  "candidate_rule": "Exclude anyone with any warmup event. Each distinct item at a fit visitor's first view timestamp gets one vote. Break count ties by numeric item ID ascending.",
+  "scoring_rule": "Exclude visitors seen in warmup or fit by any event and visitors without a July view. Score the first July view time once per visitor, retaining all distinct targets. A gain or loss is credited to the best matching rank of the only list that hit.",
+  "training_first_views": {
+    "visitors_with_first_view": 597679,
+    "visitors_with_multiple_first_items": 26,
+    "distinct_first_view_items": 137989,
+    "visitor_item_votes": 597705
+  },
+  "baseline_rank_item_counts_sha256": "2e96668b3575b6412104ce088bc2b9f4043aa8fefff4d34d25b390887a03a014",
+  "candidate_rank_item_votes_sha256": "8077ec35ec8a9a19514edea46e7b0aed119d9b0eac012573e6b3169f278279bf",
+  "candidate_ranking": [
+    {
+      "rank": 1,
+      "training_first_view_visitors": 1039,
+      "baseline_rank": 1,
+      "august_candidate_rank": 1
+    },
+    {
+      "rank": 2,
+      "training_first_view_visitors": 868,
+      "baseline_rank": 3,
+      "august_candidate_rank": 2
+    },
+    {
+      "rank": 3,
+      "training_first_view_visitors": 793,
+      "baseline_rank": 4,
+      "august_candidate_rank": 3
+    },
+    {
+      "rank": 4,
+      "training_first_view_visitors": 630,
+      "baseline_rank": 8,
+      "august_candidate_rank": 4
+    },
+    {
+      "rank": 5,
+      "training_first_view_visitors": 575,
+      "baseline_rank": 7,
+      "august_candidate_rank": 5
+    },
+    {
+      "rank": 6,
+      "training_first_view_visitors": 488,
+      "baseline_rank": null,
+      "august_candidate_rank": null
+    },
+    {
+      "rank": 7,
+      "training_first_view_visitors": 470,
+      "baseline_rank": 2,
+      "august_candidate_rank": 7
+    },
+    {
+      "rank": 8,
+      "training_first_view_visitors": 463,
+      "baseline_rank": null,
+      "august_candidate_rank": 6
+    },
+    {
+      "rank": 9,
+      "training_first_view_visitors": 418,
+      "baseline_rank": 5,
+      "august_candidate_rank": null
+    },
+    {
+      "rank": 10,
+      "training_first_view_visitors": 417,
+      "baseline_rank": null,
+      "august_candidate_rank": 9
+    }
+  ],
+  "baseline_view_counts_in_rank_order": [
+    1214,
+    1187,
+    1152,
+    1041,
+    976,
+    879,
+    810,
+    777,
+    758,
+    754
+  ],
+  "shared_items_in_top_ten": 7,
+  "july_cohort": {
+    "active": 377199,
+    "seen_in_warmup_only": 115,
+    "seen_in_training": 21319,
+    "first_observed_in_july": 355765,
+    "new_without_view": 835,
+    "new_with_view": 354930
+  },
+  "paired": {
+    "scored_visitors": 354930,
+    "scored_visitor_first_view_targets_sha256": "c82c8f89f10a50a0f6a43de80599902a8d1194e33f830176b7013c339675cbb7",
+    "paired_best_ranks_sha256": "cbdafc91c476b695b5ef2e8037cbefc938d16023e73df7e181f7c93c5c9a220b",
+    "both_hit": 1712,
+    "candidate_only_gained": 474,
+    "baseline_only_lost": 374,
+    "both_missed": 352370,
+    "net_hits": 100,
+    "gained_by_candidate_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      74,
+      0,
+      236,
+      0,
+      164
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      98,
+      0,
+      0,
+      145,
+      131
+    ],
+    "baseline": {
+      "hits_at_10": 2086,
+      "hit_rate_at_10": 0.00587721522553743
+    },
+    "candidate": {
+      "hits_at_10": 2186,
+      "hit_rate_at_10": 0.006158960921871918
+    },
+    "hit_rate_change_percentage_points": 0.02817456963344885
+  },
+  "gain_concentration": {
+    "top_candidate_ranks": [
+      8
+    ],
+    "gains_at_one_top_item": 236,
+    "share_of_gains": 0.4978902953586498,
+    "other_gains": 238,
+    "other_gains_minus_all_losses": -136
+  },
+  "august_comparison": {
+    "archived_report": "reports/mainline/recommendation_august_home_first_view_pair_20261124.json",
+    "verified_candidate_rank_item_votes_sha256": "fb6f3b0849c159264b241d24f0a3c7e2621fcb7d807597d132d924c4eba10d28",
+    "scored_visitors": 287437,
+    "baseline_hits": 1477,
+    "candidate_hits": 1594,
+    "gained": 361,
+    "lost": 244,
+    "net_hits": 117,
+    "hit_rate_change_percentage_points": 0.040704571784425804,
+    "gain_concentration": {
+      "top_candidate_ranks": [
+        6
+      ],
+      "gains_at_one_top_item": 250,
+      "share_of_gains": 0.6925207756232687,
+      "other_gains": 111,
+      "other_gains_minus_all_losses": -133
+    },
+    "shares_a_leading_gain_item_with_july": true
+  },
+  "limits": "First observed within the dataset. No homepage exposures or referral paths are recorded; this measures offline first-view overlap.",
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

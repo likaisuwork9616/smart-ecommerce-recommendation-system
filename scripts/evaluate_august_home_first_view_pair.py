@@ -65,6 +65,10 @@ def summarize_rank_pairs(rank_pairs):
 
 
 def paired_scores(rows, baseline, candidate, observe=None):
+    return paired_visitor_scores(grouped_visitors(rows), baseline, candidate, observe)
+
+
+def paired_visitor_scores(visitors, baseline, candidate, observe=None):
     base_rank = {item: rank for rank, (item, _) in enumerate(baseline, 1)}
     candidate_rank = {item: rank for rank, (item, _) in enumerate(candidate, 1)}
     if any(len(items) != TOP_K for items in (baseline, candidate, base_rank, candidate_rank)):
@@ -72,7 +76,7 @@ def paired_scores(rows, baseline, candidate, observe=None):
     roster = hashlib.sha256()
     observations = hashlib.sha256()
     rank_pairs = Counter()
-    for visitor, _, _, view_at, targets in grouped_visitors(rows):
+    for visitor, _, _, view_at, targets in visitors:
         if not targets:
             continue
         baseline_best = min((base_rank[item] for item in targets if item in base_rank), default=None)

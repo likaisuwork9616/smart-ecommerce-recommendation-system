@@ -19,39 +19,42 @@ HISTORY = ("seen_in_train", "seen_in_warmup_only", "first_observed_in_august")
 FIRST_ACTIVITY = ("first_activity_includes_view", "activity_precedes_first_view")
 
 
-def visitor_rows(db, windows):
+def visitor_rows(db, windows, *, scoring_role="validation", new_history=HISTORY[-1]):
+    if scoring_role not in ("train", "validation"):
+        raise ValueError("Only development ledger roles can supply first-view queries")
     # Resolve ties by collecting every view at the earliest view time; event row
     # order cannot tell us which item the visitor saw first in a tied timestamp.
     return db.execute("""
-        WITH august AS (
+        WITH scoring_month AS (
             SELECT v, MIN(t) AS first_activity, MIN(CASE WHEN e='view' THEN t END) AS first_view
             FROM qualified
-            WHERE role='validation' AND t>=? AND t<?
+            WHERE role=? AND t>=? AND t<?
             GROUP BY v
         ), cohort AS MATERIALIZED (
-            SELECT august.*,
+            SELECT scoring_month.*,
                 CASE WHEN EXISTS (
-                    SELECT 1 FROM qualified p WHERE p.v=august.v AND p.role='train' AND p.t>=? AND p.t<?
+                    SELECT 1 FROM qualified p WHERE p.v=scoring_month.v AND p.role='train' AND p.t>=? AND p.t<?
                 ) THEN 'seen_in_train'
                 WHEN EXISTS (
-                    SELECT 1 FROM qualified p WHERE p.v=august.v AND p.role='warmup' AND p.t>=? AND p.t<?
+                    SELECT 1 FROM qualified p WHERE p.v=scoring_month.v AND p.role='warmup' AND p.t>=? AND p.t<?
                 ) THEN 'seen_in_warmup_only'
-                ELSE 'first_observed_in_august' END AS history
-            FROM august
+                ELSE ? END AS history
+            FROM scoring_month
         )
         SELECT c.v, c.history, c.first_activity, c.first_view, q.i FROM cohort c
-        LEFT JOIN qualified q ON c.history='first_observed_in_august' AND q.v=c.v
-            AND q.t=c.first_view AND q.e='view' AND q.role='validation'
+        LEFT JOIN qualified q ON c.history=? AND q.v=c.v
+            AND q.t=c.first_view AND q.e='view' AND q.role=?
         ORDER BY c.v
-    """, (*windows["validation"], *windows["train"], *windows["warmup"]))
+    """, (scoring_role, *windows["validation"], *windows["train"], *windows["warmup"],
+          new_history, new_history, scoring_role))
 
 
-def grouped_visitors(rows):
-    """Yield one row per August visitor, collecting first-view items for new visitors."""
+def grouped_visitors(rows, *, new_history=HISTORY[-1]):
+    """Yield one row per visitor, collecting first-view items for new visitors."""
     for visitor, events in groupby(rows, key=itemgetter(0)):
         _, history, activity_at, view_at, first_item = next(events)
         targets = set()
-        if history == "first_observed_in_august" and view_at is not None:
+        if history == new_history and view_at is not None:
             if first_item is None:
                 raise ValueError("First view has no matching qualified item")
             targets.add(first_item)
