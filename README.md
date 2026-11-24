@@ -16,7 +16,7 @@
 | [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
-購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [新訪客首頁只換第十名值得嗎？](#home-first-view-single-slot)
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的換榜門檻](#home-first-view-acceptance)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -102,6 +102,21 @@
 | 八月 | 250／361（69.3%） | 114／244 | 130 |
 
 七月只換一席，比換整榜救回了 243 位原本猜得到的訪客，卻少猜到 400 位新命中的訪客。八月剛好相反，救回 130 人，只少了 111 位新增，最後比整張首看榜多命中 19 人。整張首看榜兩月都優於原榜，保留為候選。這裡衡量的是榜單能否猜中訪客首次瀏覽的商品，實際首頁點擊效果仍待曝光與點擊紀錄驗證。[三榜逐人回測報告](reports/mainline/recommendation_home_first_view_single_slot_20261124.json) · [名冊與重現方式](docs/PROJECT_PROGRESS.md#home-first-view-single-slot)
+
+<a id="home-first-view-acceptance"></a>
+
+### 新訪客首頁達到什麼門檻才換榜？
+
+**首頁沿用原熱門瀏覽榜，唯一候選是整張首看榜。** 兩榜固定使用 2015 年 8 月 1 日零時前排好的十件商品與順序。等獨立名冊到位，在同一批首次出現且有瀏覽的新訪客上逐人比較。同一毫秒看多件商品，任一件上榜就算命中，每人每榜最多計一次。
+
+只有候選猜中的算**新增**，只有原榜猜中的算**失去**。新增減失去就是**淨增人數**。兩榜都中和兩榜都沒中的訪客也計入分母。正式換榜須同時通過以下兩項門檻。
+
+| 換榜條件 | 怎麼判斷 |
+| --- | --- |
+| 實際多猜中多少人 | 每 10,000 位新訪客至少淨多命中 **2 人**，即命中率差至少 **+0.020 個百分點**。 |
+| 這個改善是否可靠 | 以訪客為單位成對重抽樣 2,000 次，命中率差的 **95% 區間下限須大於 0**。 |
+
+目前正式驗收 **0 人**。七月多命中 100 人、八月多命中 117 人，都是訂門檻時已看過的開發結果。正式判定只用新名冊，任一門檻未達就沿用原榜。九月保留測試繼續封存。[獨立名冊資格、逐人計分與換榜規則](docs/HOME_FIRST_VIEW_ACCEPTANCE.md)
 
 <a id="august-paired-results"></a>
 
