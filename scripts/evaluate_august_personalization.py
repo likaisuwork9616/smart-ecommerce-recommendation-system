@@ -116,7 +116,7 @@ def evaluate(records, model, catalog, bootstrap, *, progress=None):
     }
 
 
-def study(*, progress=None):
+def load_august_sources():
     policy = read_json(FREEZE)
     frozen = policy["scenarios"]["browse"]
     roster = frozen["development_roster"]
@@ -132,6 +132,13 @@ def study(*, progress=None):
     with closing(read_only(ROOT / EDGES)) as source:
         catalog = history_catalog(source)
     model = PersonalizationRanker.from_frozen(ROOT, catalog)
+    return policy, coverage, model, catalog
+
+
+def study(*, progress=None):
+    policy, coverage, model, catalog = load_august_sources()
+    frozen = policy["scenarios"]["browse"]
+    roster = frozen["development_roster"]
     with closing(read_only(ROOT / DB)) as database:
         result = evaluate(august_history_rows(database, frozen), model, catalog,
                           policy["adoption"]["hit_rate_ci"], progress=progress)

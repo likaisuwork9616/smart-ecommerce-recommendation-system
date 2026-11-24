@@ -4,6 +4,16 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="august-action-ablation-check"></a>
+
+## 2026-11-24｜拆開加購、購買對瀏覽推薦的影響
+
+沿用凍結的八月名冊、訪客歷史、C1 商品配對與熱門補位順序。瀏覽權重固定為 1，加購與購買分別用上輪選定的 3 與 5，各自單獨計入一次比較。同一訪客對同一商品的每種行為各計一次，加購與交易必須早於這筆查詢。只加入加購時，新增 310 次命中、失去 620 次。只加入購買時，新增 80 次、失去 221 次。兩版在全體與有可用訊號組的 MRR@10 均下降。[四榜與逐筆拆解](../README.md#august-action-ablation) · [聚合報告](../reports/mainline/recommendation_august_action_ablation_20261124.json)
+
+每筆查詢重新核對只用瀏覽與兩種行為合用的前十名，全量榜單摘要、成對指標與上輪報告相符。新增的兩榜沿用上輪每隔 5,000 筆取一筆、另取末筆的 35 筆樣本，從原始事件重建歷史後以精確分數獨立重排，共 700 席的摘要一致。56 項相關測試通過。本輪使用八月開發資料，正式驗收等獨立名冊，九月保留測試繼續封存。
+
+備妥[凍結的資料與模型來源](RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md)後，在專案根目錄執行 `.\.venv\Scripts\python.exe -B -m scripts.evaluate_august_action_ablation --progress` 即可重跑並輸出聚合 JSON。[回測程式](../scripts/evaluate_august_action_ablation.py)
+
 <a id="august-personalization-pair-check"></a>
 
 ## 2026-11-24｜八月個人化推薦的成對回測

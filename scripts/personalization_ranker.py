@@ -1,4 +1,4 @@
-"""Score two visitor histories on the frozen C1 graph using exact rational votes."""
+"""Score visitor histories on the frozen C1 graph using exact rational votes."""
 
 from collections import defaultdict
 from contextlib import closing
@@ -56,6 +56,9 @@ class PersonalizationRanker:
 
     def new_profile(self):
         return VisitorProfile(self)
+
+    def new_ablation_profile(self):
+        return AblationProfile(self)
 
 
 class _Votes:
@@ -130,6 +133,9 @@ class VisitorProfile:
         if not neighbors:
             return
         support = self.model.support[item]
+        self._add_votes(event, neighbors, support)
+
+    def _add_votes(self, event, neighbors, support):
         if event == "view":
             self.views.add(neighbors, support, WEIGHTS[event])
         elif self.weighted is None:
@@ -141,3 +147,48 @@ class VisitorProfile:
         views = self.views.ranking(query_ms)
         weighted = self.weighted.ranking(query_ms) if self.weighted is not None else views
         return views, weighted
+
+
+class AblationProfile(VisitorProfile):
+    """Compare views, views+cart, views+purchase and all three actions in order."""
+
+    def __init__(self, model):
+        super().__init__(model)
+        self.single_action = {}
+
+    @property
+    def has_paired_action(self):
+        return bool(self.single_action)
+
+    @property
+    def has_paired_cart(self):
+        return "addtocart" in self.single_action
+
+    @property
+    def has_paired_purchase(self):
+        return "transaction" in self.single_action
+
+    def _add_votes(self, event, neighbors, support):
+        weight = WEIGHTS[event]
+        if event == "view":
+            self.views.add(neighbors, support, weight)
+            for votes in self.single_action.values():
+                votes.add(neighbors, support, weight)
+        else:
+            if event not in self.single_action:
+                if self.single_action:
+                    # Until the second supported action, the combined arm is
+                    # identical to the first single-action arm.
+                    first_action = next(iter(self.single_action.values()))
+                    self.weighted = first_action.copy()
+                self.single_action[event] = self.views.copy()
+            self.single_action[event].add(neighbors, support, weight)
+        if self.weighted is not None:
+            self.weighted.add(neighbors, support, weight)
+
+    def rank(self, query_ms):
+        views = self.views.ranking(query_ms)
+        singles = {event: votes.ranking(query_ms) for event, votes in self.single_action.items()}
+        combined = (self.weighted.ranking(query_ms) if self.weighted is not None
+                    else next(iter(singles.values()), views))
+        return views, singles.get("addtocart", views), singles.get("transaction", views), combined
