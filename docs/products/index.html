@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="切換兩個匿名商品的瀏覽、加購與購買榜單，查看前十名與每席來源。">
+  <meta name="description" content="查看熱門商品與匿名案例的瀏覽、加購與購買推薦前十名，以及每席的推薦來源。">
   <meta name="theme-color" content="#f3f6ee">
   <title>互動推薦展示｜Retailrocket</title>
   <link rel="stylesheet" href="../recommendation-demo/demo.css">
@@ -23,15 +23,15 @@
 
   <main class="frame">
     <nav class="showcase-nav" aria-label="互動推薦展示">
-      <a href="../">首頁熱門商品</a>
-      <a href="./" aria-current="page">商品推薦案例</a>
+      <a href="../" id="back-to-ranking">首頁熱門商品</a>
+      <a href="./" id="examples-link" aria-current="page">商品推薦案例</a>
       <a href="../k1-recency/">K1 也留一席</a>
     </nav>
     <section class="intro" aria-labelledby="title">
       <div>
-        <p class="intro-label">互動推薦展示</p>
+        <p class="intro-label" id="intro-label">互動推薦展示</p>
         <h1 id="title">同一件商品，三種推薦</h1>
-        <p class="intro-copy">選擇一個匿名商品案例，看看瀏覽、加購與購買會各推哪十件。</p>
+        <p class="intro-copy" id="intro-copy">選擇一個匿名商品案例，看看瀏覽、加購與購買會各推哪十件。</p>
       </div>
       <div class="snapshot">
         <span>訓練資料截點</span>
@@ -40,7 +40,7 @@
     </section>
 
     <div class="demo" id="demo">
-      <section class="case-picker" aria-labelledby="case-heading">
+      <section class="case-picker" aria-labelledby="case-heading" id="case-picker">
         <h2 id="case-heading">選擇商品案例</h2>
         <div class="case-buttons" id="case-buttons" role="group" aria-label="匿名商品案例">
           <button type="button" data-case="paired" aria-pressed="true" disabled>
@@ -52,6 +52,11 @@
             <span><strong>商品 B</strong><span>共同榜為空</span></span>
           </button>
         </div>
+      </section>
+
+      <section class="case-picker" id="product-method" aria-labelledby="method-heading" hidden>
+        <h2 id="method-heading">哪些商品會排在前面？</h2>
+        <p class="popular-method" id="method-copy"></p>
       </section>
 
       <a class="analysis-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system#august-paired-results">

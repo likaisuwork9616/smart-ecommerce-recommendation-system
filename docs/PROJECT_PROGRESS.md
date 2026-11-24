@@ -4,6 +4,24 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="popular-product-details"></a>
+
+## 2026-11-24｜從熱門榜點進商品推薦
+
+首頁三榜的 30 個商品位置連到 22 件不同商品的推薦頁。從哪張榜點入，就先開啟同情境的前十名。切換模式或複製網址後，仍可返回原來的熱門榜。[公開首頁](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [商品 11 的加購推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=cart&from=cart)
+
+| 22 件熱門商品各推薦十件 | 共同配對席數 | 熱門補位席數 | 十席全靠熱門補位的商品數 |
+| --- | ---: | ---: | ---: |
+| 瀏覽 | 220 | 0 | 0 |
+| 加購 | 59 | 161 | 11 |
+| 購買 | 26 | 194 | 16 |
+
+這些席數描述首頁 22 件商品的推薦來源。每一榜都排除商品本身，同一商品最多出現一次。以商品 11 為例，瀏覽和加購兩榜都有十件共同配對，購買榜有八件，其餘兩席用熱門購買補足。正式推薦驗收仍等獨立名冊，九月保留測試繼續封存。
+
+從訓練期原始事件獨立重建三種推薦後，66 張榜的 660 席在商品代號、名次和來源上全部一致。瀏覽器逐一點過首頁 30 個連結，也核對了鍵盤操作、手機版、分享網址重開和返回原榜。另有 23 項匯出與相關模型測試通過。
+
+排名來自既有本機商品查詢，使用 2015 年 5 月 4 日至 7 月 31 日的訓練資料（UTC）。備妥凍結的模型、事件庫和舊商品案例的私有代號對照檔後，可執行 `.\.venv\Scripts\python.exe -B -m scripts.export_popular_product_recommendations --check` 核對公開檔。備份的代號對照檔可用 `--source-receipt` 指定。[匯出程式](../scripts/export_popular_product_recommendations.py) · [公開推薦資料](recommendation-demo/popular-products.json)
+
 <a id="homepage-popularity"></a>
 
 ## 2026-11-24｜沒有個人紀錄也能看的首頁熱門商品

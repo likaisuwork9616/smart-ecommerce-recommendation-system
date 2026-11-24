@@ -2,7 +2,9 @@
 
 一位訪客看完一件商品，接下來會點哪一件？這個專案用 Retailrocket 的歷史瀏覽紀錄比較熱門榜、共現與近鄰推薦，也用 Olist 訂單與 UCI 零售資料研究品類銷售與顧客行為。
 
-**[開啟首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。第一次到訪就能看到熱門瀏覽前十名，點「加購」或「購買」可切換榜單。想看選定商品後會推薦什麼，可開啟兩個[匿名商品案例](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/)。[K1 留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)可比較換掉第十名後新增與失去命中的兩筆案例。
+**[開啟首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選瀏覽、加購或購買榜，點任一商品就能看它的十件推薦。從加購榜點進去會先看到「其他人也加入購物車」，也能切到共同瀏覽或共同購買，逐席查看哪些商品來自共同配對、哪些由熱門榜補位。[商品 11 的加購推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=cart&from=cart)
+
+另外兩個[匿名商品案例](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/)可對照有共同配對和全靠熱門補位的差異。[K1 留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)可比較換掉第十名後新增與失去命中的兩筆案例。
 
 ### 首頁熱門商品怎麼排？
 
@@ -15,6 +17,8 @@
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
 購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py)
+
+**點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
 <a id="august-paired-results"></a>
 
@@ -329,7 +333,7 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | 公開首頁提供三張熱門商品前十名，並連到兩個匿名商品的三種推薦與兩筆 K1 留一席回放。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [K1 回放與圖卡](#k1-recency-replay) · [本機啟動方式](#開啟商品推薦網頁) |
+| 推薦展示 | 三張熱門榜上的 22 件商品都能點進推薦頁，切換瀏覽、加購與購買。公開展示另有兩個匿名商品案例和兩筆 K1 留一席回放。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [K1 回放與圖卡](#k1-recency-replay) · [本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |

@@ -32,7 +32,12 @@ function showRanking(mode) {
     rank.textContent = String(index + 1).padStart(2, "0");
     const product = row.insertCell();
     product.className = "rank-item";
-    product.textContent = "商品 " + item;
+    const link = document.createElement("a");
+    link.className = "product-link";
+    link.href = "./products/?" + new URLSearchParams({ item, mode, from: mode });
+    link.textContent = "商品 " + item;
+    link.setAttribute("aria-label", "查看商品 " + item + " 的推薦");
+    product.append(link);
     const value = row.insertCell();
     value.className = "popular-count-value";
     value.textContent = numberFormat.format(count);
