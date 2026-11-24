@@ -16,7 +16,7 @@
 | [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
-購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的換榜門檻](#home-first-view-acceptance)
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -107,22 +107,18 @@
 
 ### 新訪客首頁達到什麼門檻才換榜？
 
-**首頁沿用原熱門瀏覽榜，唯一候選是整張首看榜。** 兩榜固定使用 2015 年 8 月 1 日零時前排好的十件商品與順序。等獨立名冊到位，在同一批首次出現且有瀏覽的新訪客上逐人比較。同一毫秒看多件商品，任一件上榜就算命中，每人每榜最多計一次。
+**整張首看榜在八月兩項門檻都通過，首頁仍沿用原熱門瀏覽榜。** 八月是訂門檻時已看過的開發資料。是否換榜要等獨立名冊驗收，目前正式評分 **0 人**，九月保留測試繼續封存。
 
-只有候選猜中的算**新增**，只有原榜猜中的算**失去**。新增減失去就是**淨增人數**。兩榜都中和兩榜都沒中的訪客也計入分母。正式換榜須同時通過以下兩項門檻。
+![2015 年八月開發名冊共 287,437 位新訪客。原熱門瀏覽榜命中 1,477 人，整張首看榜命中 1,594 人。新增 361 人、失去 244 人，淨增 117 人，超過這批名冊所需的 58 人。命中率差 +0.04070 個百分點，成對 95% 區間為 +0.02366 至 +0.05775 個百分點，下限大於零。](docs/images/home-first-view-acceptance-august.png)
 
-| 換榜條件 | 怎麼判斷 |
+圖表依 Roman Zykov／Retailrocket 資料的八月聚合結果繪製。[八月計分報告](reports/mainline/recommendation_home_first_view_acceptance_august_20261124.json) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+| 換榜條件 | 八月開發結果 |
 | --- | --- |
-| 實際多猜中多少人 | 每 10,000 位新訪客至少淨多命中 **2 人**，即命中率差至少 **+0.020 個百分點**。 |
-| 這個改善是否可靠 | 以訪客為單位成對重抽樣 2,000 次，命中率差的 **95% 區間下限須大於 0**。 |
+| 每 10,000 位新訪客至少淨多命中 2 人，即命中率差至少 +0.020 個百分點。 | 這批 287,437 人至少要多命中 58 人，實際**淨增 117 人**。 |
+| 以訪客為單位成對重抽樣 2,000 次，命中率差的 95% 區間下限須大於 0。 | 區間下限為 **+0.02366 個百分點**。 |
 
-**八月開發名冊已用同一套計分入口逐人核對。** 原榜與整張首看榜都命中 1,233 人，兩榜都沒命中 285,599 人。其餘訪客決定了換榜的得失。
-
-| 八月新訪客 | 原榜命中 | 首看榜命中 | 新增 | 失去 | 淨增 | 命中率差（成對 95% 區間） |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 287,437 | 1,477 | 1,594 | 361 | 244 | **+117** | **+0.04070**（+0.02366 至 +0.05775）個百分點 |
-
-按這批人數，最低改善門檻是淨增 58 人。八月的 117 人達標，區間下限也高於零。合成案例驗證了兩條邊界。增益剛好等於 +0.020 個百分點可過第一關，區間下限剛好等於 0 就不能換榜。八月是訂門檻時已看過的資料。首頁繼續用原榜，正式驗收等獨立名冊，目前 **0 人**，九月保留測試繼續封存。[八月計分報告](reports/mainline/recommendation_home_first_view_acceptance_august_20261124.json) · [重跑八月與合成測試](docs/HOME_FIRST_VIEW_ACCEPTANCE.md#run-home-score) · [獨立名冊計分入口](docs/HOME_FIRST_VIEW_ACCEPTANCE.md#score-independent-roster)
+兩榜都取 2015 年 8 月 1 日零時前排好的十件商品。對同一位新訪客，首次瀏覽時看過的商品只要有一件上榜就算命中，每人每榜最多計一次。只有首看榜猜中的 361 人算新增，只有原榜猜中的 244 人算失去。兩榜都中的 1,233 人與兩榜都沒中的 285,599 人也計入分母。[重跑八月與合成測試](docs/HOME_FIRST_VIEW_ACCEPTANCE.md#run-home-score) · [獨立名冊計分入口](docs/HOME_FIRST_VIEW_ACCEPTANCE.md#score-independent-roster)
 
 <a id="august-paired-results"></a>
 
