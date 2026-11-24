@@ -93,7 +93,7 @@ for (const button of modeButtons) {
 
 async function load() {
   try {
-    const response = await fetch("./recommendation-demo/cases.json");
+    const response = await fetch("../recommendation-demo/cases.json");
     if (!response.ok) throw new Error("Could not load rankings");
     cases = await response.json();
     render();

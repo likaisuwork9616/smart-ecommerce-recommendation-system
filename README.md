@@ -2,7 +2,19 @@
 
 一位訪客看完一件商品，接下來會點哪一件？這個專案用 Retailrocket 的歷史瀏覽紀錄比較熱門榜、共現與近鄰推薦，也用 Olist 訂單與 UCI 零售資料研究品類銷售與顧客行為。
 
-**[開啟互動推薦展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。選擇兩個已核對的匿名商品，切換瀏覽、加購與購買，查看前十名和每席來源。也可直接開啟 **[K1 也留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)**，切換新增命中和擠掉原有命中的案例。
+**[開啟首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)**。第一次到訪就能看到熱門瀏覽前十名，點「加購」或「購買」可切換榜單。想看選定商品後會推薦什麼，可開啟兩個[匿名商品案例](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/)。[K1 留一席回放](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/k1-recency/)可比較換掉第十名後新增與失去命中的兩筆案例。
+
+### 首頁熱門商品怎麼排？
+
+所有訪客看到同一份歷史快照，無須登入或提供瀏覽紀錄。三榜都使用 Retailrocket 從 2015 年 5 月 4 日起、到 8 月 1 日零時前的訓練資料（UTC）。每榜十席，合計有 22 件不同商品。相同代號在三榜和商品案例中指同一件商品。
+
+| 可直接開啟的榜單 | 排名依據 | 第一名 |
+| --- | --- | --- |
+| [熱門瀏覽](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=browse) | 去除重複紀錄後的瀏覽事件數 | 商品 23，1,876 次 |
+| [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
+| [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
+
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣，八月開發回測的推薦命中數另列於下圖。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py)
 
 <a id="august-paired-results"></a>
 
@@ -317,7 +329,7 @@ K1 漏掉的查詢中，有 2,635 筆的最近合格商品就是實際目標。�
 
 | 工作 | 狀態 |
 | --- | --- |
-| 推薦展示 | 公開展示可切換兩個匿名商品的瀏覽、加購與購買榜單，也能看兩筆 K1 留一席回放。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[互動展示](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [K1 回放與圖卡](#k1-recency-replay) · [本機啟動方式](#開啟商品推薦網頁) |
+| 推薦展示 | 公開首頁提供三張熱門商品前十名，並連到兩個匿名商品的三種推薦與兩筆 K1 留一席回放。本機可搜尋 199,125 件訓練商品，也可查看十個瀏覽、四個加購與兩個購買回放案例。[首頁熱門商品](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/) · [K1 回放與圖卡](#k1-recency-replay) · [本機啟動方式](#開啟商品推薦網頁) |
 | 預設推薦驗收 | 三組候選與基準版本已固定，成對計分入口已通過合成與八月核對。正式採用等獨立名冊，九月保留測試繼續封存。[計分入口與驗收清單](docs/RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md#paired-scorer) |
 | 其他人也加入購物車 | 八月補位驗證將前十名命中由 110 次增至 130 次。GitHub 首頁可直接看空榜補位與短榜補位的新增命中及每席來源，本機也可切換兩例。[補位對照圖](#cart-fill-replay-cards) · [補位驗證與回放](docs/PROJECT_PROGRESS.md#cart-popular-fill) |
 | 其他人也買了 | 八月補滿十席命中 113 次，比原熱門購買榜多 19 次。GitHub 與本機都可看兩例的三榜名次及逐席來源。[三榜對照圖](#purchase-fill-replay-cards) |

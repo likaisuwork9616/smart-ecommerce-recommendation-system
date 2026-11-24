@@ -4,6 +4,20 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="homepage-popularity"></a>
+
+## 2026-11-24｜沒有個人紀錄也能看的首頁熱門商品
+
+[公開首頁](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/)預設顯示熱門瀏覽，另可切換加購與購買。三榜採用 2015 年 5 月 4 日至 7 月 31 日的 Retailrocket 訓練資料（UTC）。三榜共 30 席、22 件不同商品，沿用商品案例的匿名代號。選擇任一榜後，點「看商品 B 如何用熱門榜補位」即可對照該榜的十件商品在商品推薦中的位置。
+
+| 核對項目 | 結果 |
+| --- | --- |
+| 排序與計數 | 從訓練期原始事件用 SQL 獨立重算，30 席的商品、名次和計數皆相符。第一名依序是商品 23（1,876 次瀏覽）、商品 11（160 次加購）與商品 20（63 筆交易）。購買榜第二名商品 11 同為 63 筆。 |
+| 匿名瀏覽與既有頁面 | Chrome 逐席核對首頁 30 席、原商品案例 60 席與 K1 回放 40 席。首頁支援鍵盤切換，也在 390 與 320 像素寬度核對過三榜。舊商品案例網址仍可開啟原先選擇的商品與模式。 |
+| 驗收進度 | 本輪完成歷史人氣榜展示。正式推薦驗收仍等獨立名冊，九月保留測試繼續封存。 |
+
+備妥凍結的本機來源後，執行 `.\.venv\Scripts\python.exe -B -m scripts.export_home_popularity --check` 可重算並比對公開資料。移除 `--check` 可重新產生 JSON。[產榜程式](../scripts/export_home_popularity.py) · [公開榜單](recommendation-demo/popularity.json) · [資料名冊與來源](RECOMMENDATION_DEFAULT_ACCEPTANCE_CHECKLIST.md)
+
 <a id="august-action-ablation-check"></a>
 
 ## 2026-11-24｜拆開加購、購買對瀏覽推薦的影響

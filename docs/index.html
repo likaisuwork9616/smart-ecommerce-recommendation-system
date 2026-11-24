@@ -3,14 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="切換兩個匿名商品的瀏覽、加購與購買榜單，查看前十名與每席來源。">
+  <meta name="description" content="查看 Retailrocket 歷史熱門商品，切換瀏覽、加購與購買前十名及實際計數。">
   <meta name="theme-color" content="#f3f6ee">
-  <title>互動推薦展示｜Retailrocket</title>
+  <title>首頁熱門商品｜Retailrocket 互動推薦展示</title>
+  <script>
+    const originalQuery = new URLSearchParams(location.search);
+    if (originalQuery.has("case") || originalQuery.has("mode")) {
+      const productPage = new URL("./products/", location.href);
+      productPage.search = location.search;
+      productPage.hash = location.hash;
+      location.replace(productPage);
+    }
+  </script>
   <link rel="stylesheet" href="./recommendation-demo/demo.css">
-  <script src="./recommendation-demo/demo.js" defer></script>
+  <script src="./recommendation-demo/popularity.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#demo">跳到互動展示</a>
+  <a class="skip" href="#rankings">跳到熱門榜單</a>
   <header class="masthead">
     <div class="frame masthead-inner">
       <a class="brand" href="./">
@@ -23,79 +32,53 @@
 
   <main class="frame">
     <nav class="showcase-nav" aria-label="互動推薦展示">
-      <a href="./" aria-current="page">三種推薦</a>
+      <a href="./" aria-current="page">首頁熱門商品</a>
+      <a href="./products/">商品推薦案例</a>
       <a href="./k1-recency/">K1 也留一席</a>
     </nav>
     <section class="intro" aria-labelledby="title">
       <div>
-        <p class="intro-label">互動推薦展示</p>
-        <h1 id="title">同一件商品，三種推薦</h1>
-        <p class="intro-copy">選擇一個匿名商品案例，看看瀏覽、加購與購買會各推哪十件。</p>
+        <h1 id="title">首頁熱門商品</h1>
+        <p class="intro-copy">看看哪些商品最常被瀏覽、加入購物車或買下。</p>
       </div>
-      <div class="snapshot">
-        <span>訓練資料截點</span>
-        <time datetime="2015-08-01T00:00:00Z">2015-08-01 UTC</time>
+      <div class="snapshot popular-window">
+        <span>訓練期間（UTC）</span>
+        <strong id="popular-dates"></strong>
       </div>
     </section>
 
-    <div class="demo" id="demo">
-      <section class="case-picker" aria-labelledby="case-heading">
-        <h2 id="case-heading">選擇商品案例</h2>
-        <div class="case-buttons" id="case-buttons" role="group" aria-label="匿名商品案例">
-          <button type="button" data-case="paired" aria-pressed="true" disabled>
-            <span class="case-letter" aria-hidden="true">A</span>
-            <span><strong>商品 A</strong><span>有共同配對</span></span>
-          </button>
-          <button type="button" data-case="popular" aria-pressed="false" disabled>
-            <span class="case-letter" aria-hidden="true">B</span>
-            <span><strong>商品 B</strong><span>共同榜為空</span></span>
-          </button>
-        </div>
-      </section>
-
-      <a class="analysis-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system#august-paired-results">
-        <img src="./images/recommendation-default-paired-august.png" width="1640" height="1782" alt="">
-        <span><strong>八月成效對照圖</strong><span>比較三種情境的命中數、淨增與 95% 區間。</span></span>
-      </a>
-
-      <section class="results" aria-labelledby="ranking-title" aria-busy="true" id="results">
+    <div class="demo popular-demo" id="rankings">
+      <section class="results" id="popular-results" aria-labelledby="popular-heading" aria-busy="true">
         <div class="results-header">
-          <div>
-            <p id="selected-product">商品 A</p>
-            <h2 id="ranking-title">其他人也看了</h2>
-          </div>
-          <div class="mode-buttons" id="mode-buttons" role="group" aria-label="推薦模式">
-            <button type="button" data-mode="browse" aria-pressed="true" disabled>瀏覽</button>
-            <button type="button" data-mode="cart" aria-pressed="false" disabled>加購</button>
-            <button type="button" data-mode="purchase" aria-pressed="false" disabled>購買</button>
+          <h2 id="popular-heading">熱門瀏覽前十名</h2>
+          <div class="mode-buttons" role="group" aria-label="熱門榜單">
+            <button type="button" data-popular-mode="browse" aria-pressed="true" disabled>瀏覽</button>
+            <button type="button" data-popular-mode="cart" aria-pressed="false" disabled>加購</button>
+            <button type="button" data-popular-mode="purchase" aria-pressed="false" disabled>購買</button>
           </div>
         </div>
-        <p class="message" id="message" role="status">正在載入匿名排行榜…</p>
-        <div id="ranking-content" hidden>
-          <div class="mix">
-            <div class="mix-labels">
-              <span class="mix-shared" id="shared-count"></span>
-              <span class="mix-popular" id="popular-count"></span>
-            </div>
-            <div class="mix-track" id="mix-track" aria-hidden="true"></div>
-          </div>
-          <table class="ranking">
-            <caption class="sr-only" id="ranking-caption"></caption>
-            <thead>
-              <tr><th scope="col">名次</th><th scope="col">匿名商品</th><th scope="col">推薦來源</th></tr>
-            </thead>
-            <tbody id="ranking-rows"></tbody>
-          </table>
-          <p class="ranking-note" id="ranking-note"></p>
-        </div>
-        <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
-        <noscript><p class="message">啟用 JavaScript 後即可切換榜單，也可以直接查看八月成效圖。</p></noscript>
+        <p class="message" id="popular-message" role="status">正在載入熱門商品…</p>
+        <table class="ranking popular-ranking" id="popular-table" aria-labelledby="popular-heading" hidden>
+          <thead>
+            <tr><th scope="col">名次</th><th scope="col">匿名商品</th><th scope="col" id="popular-unit">瀏覽次數</th></tr>
+          </thead>
+          <tbody id="popular-rows"></tbody>
+        </table>
+        <p class="sr-only" id="popular-announcement" role="status" aria-atomic="true"></p>
+        <noscript><p class="message">啟用 JavaScript 即可切換三種熱門榜單，或直接查看<a href="./recommendation-demo/popularity.json">三榜資料</a>。</p></noscript>
       </section>
+      <section class="case-picker" aria-labelledby="method-heading">
+        <h2 id="method-heading">熱門怎麼算？</h2>
+        <p class="popular-method" id="popular-method">依訓練期間的瀏覽紀錄排序。</p>
+      </section>
+      <a class="analysis-link" id="popular-case-link" href="./products/?case=popular&amp;mode=browse">
+        <span><strong>看商品 B 如何用熱門榜補位</strong><span>商品 B 沒有共同配對，看看它的十席從哪裡來。</span></span>
+      </a>
     </div>
   </main>
 
   <footer class="frame credits">
-    <p>固定訓練榜單的匿名展示。正式採用待獨立名冊，九月保留測試繼續封存。</p>
+    <p>三榜沿用商品推薦案例的匿名代號。每位訪客看到相同的歷史榜單。</p>
     <p><a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
       <span aria-hidden="true">·</span>
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>

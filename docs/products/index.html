@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="切換兩個匿名商品的瀏覽、加購與購買榜單，查看前十名與每席來源。">
+  <meta name="theme-color" content="#f3f6ee">
+  <title>互動推薦展示｜Retailrocket</title>
+  <link rel="stylesheet" href="../recommendation-demo/demo.css">
+  <script src="../recommendation-demo/demo.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#demo">跳到互動展示</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <a class="repo-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system">GitHub 專案</a>
+    </div>
+  </header>
+
+  <main class="frame">
+    <nav class="showcase-nav" aria-label="互動推薦展示">
+      <a href="../">首頁熱門商品</a>
+      <a href="./" aria-current="page">商品推薦案例</a>
+      <a href="../k1-recency/">K1 也留一席</a>
+    </nav>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <p class="intro-label">互動推薦展示</p>
+        <h1 id="title">同一件商品，三種推薦</h1>
+        <p class="intro-copy">選擇一個匿名商品案例，看看瀏覽、加購與購買會各推哪十件。</p>
+      </div>
+      <div class="snapshot">
+        <span>訓練資料截點</span>
+        <time datetime="2015-08-01T00:00:00Z">2015-08-01 UTC</time>
+      </div>
+    </section>
+
+    <div class="demo" id="demo">
+      <section class="case-picker" aria-labelledby="case-heading">
+        <h2 id="case-heading">選擇商品案例</h2>
+        <div class="case-buttons" id="case-buttons" role="group" aria-label="匿名商品案例">
+          <button type="button" data-case="paired" aria-pressed="true" disabled>
+            <span class="case-letter" aria-hidden="true">A</span>
+            <span><strong>商品 A</strong><span>有共同配對</span></span>
+          </button>
+          <button type="button" data-case="popular" aria-pressed="false" disabled>
+            <span class="case-letter" aria-hidden="true">B</span>
+            <span><strong>商品 B</strong><span>共同榜為空</span></span>
+          </button>
+        </div>
+      </section>
+
+      <a class="analysis-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system#august-paired-results">
+        <img src="../images/recommendation-default-paired-august.png" width="1640" height="1782" alt="">
+        <span><strong>八月成效對照圖</strong><span>比較三種情境的命中數、淨增與 95% 區間。</span></span>
+      </a>
+
+      <section class="results" aria-labelledby="ranking-title" aria-busy="true" id="results">
+        <div class="results-header">
+          <div>
+            <p id="selected-product">商品 A</p>
+            <h2 id="ranking-title">其他人也看了</h2>
+          </div>
+          <div class="mode-buttons" id="mode-buttons" role="group" aria-label="推薦模式">
+            <button type="button" data-mode="browse" aria-pressed="true" disabled>瀏覽</button>
+            <button type="button" data-mode="cart" aria-pressed="false" disabled>加購</button>
+            <button type="button" data-mode="purchase" aria-pressed="false" disabled>購買</button>
+          </div>
+        </div>
+        <p class="message" id="message" role="status">正在載入匿名排行榜…</p>
+        <div id="ranking-content" hidden>
+          <div class="mix">
+            <div class="mix-labels">
+              <span class="mix-shared" id="shared-count"></span>
+              <span class="mix-popular" id="popular-count"></span>
+            </div>
+            <div class="mix-track" id="mix-track" aria-hidden="true"></div>
+          </div>
+          <table class="ranking">
+            <caption class="sr-only" id="ranking-caption"></caption>
+            <thead>
+              <tr><th scope="col">名次</th><th scope="col">匿名商品</th><th scope="col">推薦來源</th></tr>
+            </thead>
+            <tbody id="ranking-rows"></tbody>
+          </table>
+          <p class="ranking-note" id="ranking-note"></p>
+        </div>
+        <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
+        <noscript><p class="message">啟用 JavaScript 後即可切換榜單，也可以直接查看八月成效圖。</p></noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer class="frame credits">
+    <p>固定訓練榜單的匿名展示。正式採用待獨立名冊，九月保留測試繼續封存。</p>
+    <p><a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+  </footer>
+</body>
+</html>
