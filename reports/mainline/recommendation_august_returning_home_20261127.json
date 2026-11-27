@@ -1,0 +1,236 @@
+{
+  "study": "Last observed view for returning homepage visitors versus fixed browse popularity",
+  "role": "2015-08 development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "baseline_report": "reports/mainline/recommendation_august_home_browse_20261124.json",
+  "homepage_snapshot": "docs/recommendation-demo/popularity.json",
+  "rules": {
+    "roster": "Any qualified warmup or training event; at least one August view. One observation per visitor.",
+    "seed": "Last qualified view strictly before August in warmup or train. Select the smallest numeric item ID among distinct tied items before consulting the model.",
+    "baseline": "Fixed published training browse popularity top ten.",
+    "candidate": "Frozen C1 positive cooccurrence items for the seed, ordered by shared sessions, training views, then numeric ID. Fill to ten from the fixed baseline, skipping duplicates; the seed is allowed as a popular item.",
+    "fallback": "No prior view (no_history), or a seed with no positive training pair (no_pair), uses the full baseline.",
+    "target": "Any distinct item viewed at the visitor's earliest August view timestamp. Record the best matching rank; count one hit per visitor per arm.",
+    "uncertainty": "Resample paired visitors with replacement. Report the percentile interval of candidate minus baseline hit rate."
+  },
+  "overall": {
+    "scored_visitors": 22766,
+    "both_hit": 42,
+    "candidate_only_gained": 756,
+    "baseline_only_lost": 76,
+    "both_missed": 21892,
+    "net_hits": 680,
+    "gained_by_candidate_rank_1_to_10": [
+      237,
+      118,
+      105,
+      70,
+      53,
+      50,
+      42,
+      34,
+      22,
+      25
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      7,
+      2,
+      6,
+      3,
+      24,
+      2,
+      12,
+      2,
+      0,
+      18
+    ],
+    "baseline": {
+      "hits_at_10": 118,
+      "hit_rate_at_10": 0.005183167881929193
+    },
+    "candidate": {
+      "hits_at_10": 798,
+      "hit_rate_at_10": 0.03505227093033471
+    },
+    "hit_rate_change_percentage_points": 2.986910304840552
+  },
+  "by_strategy": {
+    "personalized": {
+      "scored_visitors": 18320,
+      "both_hit": 28,
+      "candidate_only_gained": 756,
+      "baseline_only_lost": 76,
+      "both_missed": 17460,
+      "net_hits": 680,
+      "gained_by_candidate_rank_1_to_10": [
+        237,
+        118,
+        105,
+        70,
+        53,
+        50,
+        42,
+        34,
+        22,
+        25
+      ],
+      "lost_by_baseline_rank_1_to_10": [
+        7,
+        2,
+        6,
+        3,
+        24,
+        2,
+        12,
+        2,
+        0,
+        18
+      ],
+      "baseline": {
+        "hits_at_10": 104,
+        "hit_rate_at_10": 0.005676855895196507
+      },
+      "candidate": {
+        "hits_at_10": 784,
+        "hit_rate_at_10": 0.04279475982532751
+      },
+      "hit_rate_change_percentage_points": 3.7117903930131004
+    },
+    "no_pair": {
+      "scored_visitors": 4419,
+      "both_hit": 14,
+      "candidate_only_gained": 0,
+      "baseline_only_lost": 0,
+      "both_missed": 4405,
+      "net_hits": 0,
+      "gained_by_candidate_rank_1_to_10": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lost_by_baseline_rank_1_to_10": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "baseline": {
+        "hits_at_10": 14,
+        "hit_rate_at_10": 0.0031681375876895226
+      },
+      "candidate": {
+        "hits_at_10": 14,
+        "hit_rate_at_10": 0.0031681375876895226
+      },
+      "hit_rate_change_percentage_points": 0.0
+    },
+    "no_history": {
+      "scored_visitors": 27,
+      "both_hit": 0,
+      "candidate_only_gained": 0,
+      "baseline_only_lost": 0,
+      "both_missed": 27,
+      "net_hits": 0,
+      "gained_by_candidate_rank_1_to_10": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lost_by_baseline_rank_1_to_10": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "baseline": {
+        "hits_at_10": 0,
+        "hit_rate_at_10": 0.0
+      },
+      "candidate": {
+        "hits_at_10": 0,
+        "hit_rate_at_10": 0.0
+      },
+      "hit_rate_change_percentage_points": 0.0
+    }
+  },
+  "by_observed_history": {
+    "seen_in_train": 22711,
+    "seen_in_warmup_only": 55
+  },
+  "coverage": {
+    "visitors_with_prior_view": 22739,
+    "visitors_with_cooccurrence": 18320,
+    "cooccurrence_rate": 0.804708776245278,
+    "visitors_with_changed_ranking": 18320,
+    "visitors_with_full_candidate_top_ten": 22766,
+    "multiple_first_view_items": 2,
+    "visitors_revisiting_prior_item": 2995
+  },
+  "scored_visitor_first_view_targets_sha256": "2e3563322cb2e432987575813543c582fa316d81abfe0b831c8ad7ede1eb38f7",
+  "paired_best_ranks_sha256": "c072f0c56f256a81a5ded5cf43d5d66f84d5e117da595ca666c79b3cacbd4eaa",
+  "visitor_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261120,
+    "bit_generator": "NumPy PCG64",
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "quantile_method": "linear",
+    "visitors": 22766,
+    "hit_rate_delta_95_percentile": [
+      0.027364271281735922,
+      0.032372836686286564
+    ],
+    "hit_rate_delta_95_percentage_points": [
+      2.736427128173592,
+      3.2372836686286566
+    ]
+  },
+  "limits": "Offline first-view overlap for observed returning visitors. The ledger has no homepage exposure, referral or conversion attribution.",
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
