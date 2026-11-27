@@ -1,0 +1,180 @@
+{
+  "study": "Keep rank ten for the last pre-August viewed item on returning-visitor homepages",
+  "role": "2015-08 development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "baseline_report": "reports/mainline/recommendation_august_returning_home_20261127.json",
+  "rules": {
+    "roster_seed_target": "Use the same returning visitors, last pre-August view and all distinct items at their first August view timestamp as in the baseline report.",
+    "baseline": "Frozen C1 positive cooccurrence items filled to ten from the fixed popularity list; use the whole popularity list when the prior baseline had no C1 pair or no prior view.",
+    "candidate": "Only replace the tenth item when the seed exists and is absent from the baseline ten. Otherwise use the baseline unchanged.",
+    "eligibility": "Every seed has a qualified view strictly before August and is therefore in the historical candidate catalog, including warmup items with no fitted C1 statistics.",
+    "metrics": "Each visitor contributes one observation. Use the best matching rank across their distinct targets. Reciprocal rank is zero for a miss. The percentile interval resamples paired visitors with replacement."
+  },
+  "overall": {
+    "scored_visitors": 22766,
+    "both_hit": 771,
+    "candidate_only_gained": 2994,
+    "baseline_only_lost": 27,
+    "both_missed": 18974,
+    "net_hits": 2967,
+    "gained_by_candidate_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2994
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      27
+    ],
+    "baseline": {
+      "hits_at_10": 798,
+      "hit_rate_at_10": 0.03505227093033471,
+      "first_hit_counts_rank_1_to_10": [
+        245,
+        120,
+        106,
+        72,
+        62,
+        56,
+        43,
+        41,
+        26,
+        27
+      ],
+      "mrr_at_10": 0.01743492105325541
+    },
+    "candidate": {
+      "hits_at_10": 3765,
+      "hit_rate_at_10": 0.16537819555477468,
+      "first_hit_counts_rank_1_to_10": [
+        245,
+        120,
+        106,
+        72,
+        62,
+        56,
+        43,
+        41,
+        26,
+        2994
+      ],
+      "mrr_at_10": 0.03046751351569941
+    },
+    "hit_rate_change_percentage_points": 13.032592462443995,
+    "mrr_at_10_delta": 0.013032592462443999
+  },
+  "by_slot_action": {
+    "replaced_rank_10": {
+      "scored_visitors": 22739,
+      "baseline_hits": 798,
+      "candidate_hits": 3765,
+      "gained": 2994,
+      "lost": 27,
+      "net_hits": 2967
+    },
+    "already_in_top_ten": {
+      "scored_visitors": 0,
+      "baseline_hits": 0,
+      "candidate_hits": 0,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    },
+    "no_prior_view": {
+      "scored_visitors": 27,
+      "baseline_hits": 0,
+      "candidate_hits": 0,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    }
+  },
+  "by_baseline_strategy": {
+    "personalized": {
+      "scored_visitors": 18320,
+      "baseline_hits": 784,
+      "candidate_hits": 3277,
+      "gained": 2519,
+      "lost": 26,
+      "net_hits": 2493
+    },
+    "no_pair": {
+      "scored_visitors": 4419,
+      "baseline_hits": 14,
+      "candidate_hits": 488,
+      "gained": 475,
+      "lost": 1,
+      "net_hits": 474
+    },
+    "no_history": {
+      "scored_visitors": 27,
+      "baseline_hits": 0,
+      "candidate_hits": 0,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    }
+  },
+  "repeat_views": {
+    "visitors": 2995,
+    "already_hit_by_baseline": 1,
+    "newly_hit": 2994
+  },
+  "visitor_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261120,
+    "bit_generator": "NumPy PCG64",
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "quantile_method": "linear",
+    "visitors": 22766,
+    "hit_rate_delta_95_percentile": [
+      0.12602125977334622,
+      0.134675612755864
+    ],
+    "hit_rate_delta_95_percentage_points": [
+      12.602125977334621,
+      13.467561275586402
+    ]
+  },
+  "scored_visitor_first_view_targets_sha256": "2e3563322cb2e432987575813543c582fa316d81abfe0b831c8ad7ede1eb38f7",
+  "previous_paired_best_ranks_sha256": "c072f0c56f256a81a5ded5cf43d5d66f84d5e117da595ca666c79b3cacbd4eaa",
+  "paired_best_ranks_sha256": "95cb97819af4b14ef18b08c2530bbc7b4e904ee5ba14ad96ab8fbb469055a3c8",
+  "limits": "Offline first-view overlap for observed returning visitors. The ledger has no homepage exposure, referral or conversion attribution.",
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

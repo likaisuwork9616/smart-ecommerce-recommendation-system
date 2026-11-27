@@ -18,7 +18,7 @@
 | [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
-購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance) · [回訪者的八月首頁回測](#august-returning-home)
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance) · [回訪者的八月首頁回測](#august-returning-home) · [回訪者留第十席的成效](#august-returning-home-slot)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -141,7 +141,24 @@
 
 80.47% 的回訪者拿得到共同瀏覽推薦。這些人的候選榜先放訓練期常被一起看的商品，剩餘名額依原熱門榜順序補滿。其餘 4,446 人直接用原榜。命中指榜上有訪客八月首次瀏覽當下看的商品。由於資料沒有首頁曝光紀錄，首頁實際點擊率仍待驗證。
 
-八月有 **2,995 人（13.16%）**回來就又看了上次瀏覽的商品。下一步值得比較「共同瀏覽補熱門」和「同一榜替上次看的商品留一席」，實測能保住多少原有命中、又能多猜中幾人。公開首頁沿用原榜，正式採用待獨立名冊驗收，九月保留測試繼續封存。[八月成對回測報告](reports/mainline/recommendation_august_returning_home_20261127.json) · [回訪者定義與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home)
+八月有 **2,995 人（13.16%）**回來就又看了上次瀏覽的商品。這也是下一個實驗選擇保留第十席的原因。[八月共同瀏覽回測報告](reports/mainline/recommendation_august_returning_home_20261127.json) · [回訪者定義與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home)
+
+<a id="august-returning-home-slot"></a>
+
+### 替回訪者上次看的商品留第十席，值得嗎？
+
+**在同一批 22,766 位回訪者中，留席讓首頁前十名從命中 798 人（3.51%）增至 3,765 人（16.54%）。** 基準是上面的「共同瀏覽優先、熱門補滿十件」。保留前九名，只在上次看的商品缺席時換掉第十名，新增命中 **2,994 人**、失去 **27 人**，淨增 **2,967 人**。命中率差為 **+13.03 個百分點**，成對 95% 區間為 **+12.60 至 +13.47 個百分點**。
+
+| 原先能提供的推薦 | 訪客數 | 留席前命中 | 留席後命中 | 新增 | 失去 | 淨增 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 有共同瀏覽配對 | 18,320 | 784 | 3,277 | 2,519 | 26 | +2,493 |
+| 有上次瀏覽商品，沒有共同配對 | 4,419 | 14 | 488 | 475 | 1 | +474 |
+| 先前只有加購或購買紀錄 | 27 | 0 | 0 | 0 | 0 | 0 |
+| **合計** | **22,766** | **798** | **3,765** | **2,994** | **27** | **+2,967** |
+
+2,995 位重看者中，有 1 人在同一毫秒看了多件商品，原榜已猜中其中一件，所以新增為 2,994 人。原先前九名猜中的 771 人全部保住，原先靠第十名猜中的 27 人全部失去。把名次也算進來，平均倒數排名（MRR@10）從 **0.01743** 升至 **0.03047**。
+
+留席版值得列為回訪者首頁候選。公開首頁沿用原熱門榜，正式採用待獨立名冊驗收，九月保留測試繼續封存。這裡衡量的是能否猜中首次瀏覽，首頁實際點擊率仍待曝光與點擊紀錄驗證。[八月留席回測報告](reports/mainline/recommendation_august_returning_home_slot_20261127.json) · [逐人核對與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-slot)
 
 <a id="august-paired-results"></a>
 
