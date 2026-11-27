@@ -1,15 +1,14 @@
 """Export the two frozen homepage top tens with August visitor-level gain/loss attribution."""
 import argparse
-from contextlib import closing
 import json
-import sqlite3
 
 from scripts.evaluate_august_home_first_view_pair import OUTPUT as PAIR_REPORT
-from scripts.evaluate_cart_recommendations import DB, ROOT
+from scripts.evaluate_cart_recommendations import ROOT
 from scripts.export_popular_product_recommendations import (
-    OUTPUT as PRODUCT_CARDS, SOURCE_RECEIPT, load_product_inputs, product_cards_with_aliases,
+    OUTPUT as PRODUCT_CARDS, SOURCE_RECEIPT, load_home_rankings, load_product_inputs,
+    product_cards_with_aliases, register_first_view_items,
 )
-from scripts.score_home_first_view_acceptance import FROZEN_WINDOWS, RANKING_FINGERPRINTS, frozen_rankings
+from scripts.score_home_first_view_acceptance import RANKING_FINGERPRINTS
 from scripts.verify_home_first_view_acceptance_august import OUTPUT as AUGUST_ACCEPTANCE
 
 
@@ -31,11 +30,7 @@ def snapshot(baseline, candidate, aliases, public_baseline, report):
     if public_baseline != [{"item": aliases[item], "count": count} for item, count in baseline]:
         raise ValueError("Baseline ranks, counts or product aliases differ from the public homepage")
     aliases = dict(aliases)
-    next_alias = max(int(value) for value in aliases.values() if value.isdecimal()) + 1
-    for item, _ in candidate:
-        if item not in aliases:
-            aliases[item] = str(next_alias)
-            next_alias += 1
+    register_first_view_items(aliases, candidate)
     paired = report["paired"]
     gained = paired["candidate_only_gained"]
     lost = paired["baseline_only_lost"]
@@ -65,12 +60,10 @@ def export():
             or report["frozen_rankings"] != RANKING_FINGERPRINTS):
         raise ValueError("August acceptance receipt differs from the frozen rankings or paired score")
     home, legacy_aliases, browsing, baskets = load_product_inputs(SOURCE_RECEIPT)
-    cards, aliases = product_cards_with_aliases(home, legacy_aliases, browsing, baskets)
+    baseline, candidate = load_home_rankings()
+    cards, aliases = product_cards_with_aliases(home, legacy_aliases, browsing, baskets, candidate=candidate)
     if cards != json.loads(PRODUCT_CARDS.read_bytes()):
         raise ValueError("Product detail aliases differ from the published recommendation cards")
-    uri = (ROOT / DB).resolve().as_uri() + "?mode=ro&immutable=1"
-    with closing(sqlite3.connect(uri, uri=True)) as db:
-        baseline, candidate = frozen_rankings(db, FROZEN_WINDOWS)
     return snapshot(baseline, candidate, aliases, home["rankings"]["browse"], report)
 
 

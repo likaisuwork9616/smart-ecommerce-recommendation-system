@@ -26,6 +26,7 @@ const modeButtons = [...element("mode-buttons").querySelectorAll("button")];
 const params = new URLSearchParams(window.location.search);
 const isProduct = params.has("item");
 const from = params.get("from");
+const fromFirstView = from === "home-first-view";
 let selectedMode = [params.get("mode"), from, "browse"].find((mode) => Object.hasOwn(modeInfo, mode));
 const originMode = Object.hasOwn(modeInfo, from) ? from : selectedMode;
 let selectedKey = isProduct ? params.get("item") :
@@ -37,11 +38,21 @@ if (isProduct) {
   element("case-picker").hidden = true;
   element("examples-link").removeAttribute("aria-current");
   element("intro-label").hidden = true;
-  element("title").textContent = "熱門商品推薦";
+  element("title").textContent = "商品推薦";
   element("intro-copy").textContent = "切換瀏覽、加購與購買，查看這件商品的相關推薦。";
   element("selected-product").hidden = true;
-  element("back-to-ranking").href = "../?ranking=" + originMode;
-  element("back-to-ranking").textContent = "回" + modeInfo[originMode].popular;
+  if (fromFirstView) {
+    const url = new URL("../home-first-view/", location.href);
+    if (params.get("changes") === "1") url.searchParams.set("changes", "1");
+    const arm = params.get("arm");
+    if (["baseline", "candidate"].includes(arm) && /^\d+$/.test(selectedKey)) url.hash = arm + "-" + selectedKey;
+    const link = element("back-to-first-view");
+    link.href = url.href;
+    link.textContent = "回新訪客雙榜";
+  } else {
+    element("back-to-ranking").href = "../?ranking=" + originMode;
+    element("back-to-ranking").textContent = "回" + modeInfo[originMode].popular;
+  }
 }
 
 function make(tag, className, text) {
@@ -103,7 +114,7 @@ function render() {
 function syncAddress() {
   const url = new URL(window.location.href);
   if (isProduct) {
-    url.searchParams.set("from", originMode);
+    url.searchParams.set("from", fromFirstView ? "home-first-view" : originMode);
   } else {
     url.searchParams.set("case", selectedKey);
   }
@@ -133,7 +144,7 @@ async function load() {
     if (!response.ok) throw new Error("Could not load rankings");
     entries = await response.json();
     if (!Object.hasOwn(entries, selectedKey)) {
-      element("message").textContent = "找不到這件商品的公開推薦。請回到熱門榜選擇商品。";
+      element("message").textContent = "找不到這件商品的公開推薦。請回到榜單選擇商品。";
       element("results").querySelector(".results-header").hidden = true;
       return;
     }

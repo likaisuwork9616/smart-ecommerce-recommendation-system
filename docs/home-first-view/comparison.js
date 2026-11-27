@@ -3,11 +3,16 @@
 const element = (id) => document.getElementById(id);
 const format = new Intl.NumberFormat("zh-TW");
 const filter = element("only-changes");
+const rows = element("ranking-rows");
 
 function appendProduct(row, entry, arm) {
   const cell = row.insertCell();
-  const item = document.createElement("span");
-  item.className = "item";
+  const item = document.createElement("a");
+  item.className = "item product-link";
+  item.id = arm + "-" + entry.item;
+  item.href = "../products/?" + new URLSearchParams({
+    item: entry.item, mode: "browse", from: "home-first-view", arm,
+  });
   item.textContent = "商品 " + entry.item;
   const detail = document.createElement("span");
   detail.className = "detail";
@@ -37,7 +42,7 @@ function display(data) {
     appendProduct(row, candidate, "candidate");
     fragment.append(row);
   });
-  element("ranking-rows").replaceChildren(fragment);
+  rows.replaceChildren(fragment);
   element("net").textContent = (data.net_hits > 0 ? "+" : "") + format.format(data.net_hits);
   element("gained").textContent = format.format(data.gained) + " 人";
   element("lost").textContent = format.format(data.lost) + " 人";
@@ -48,21 +53,60 @@ function display(data) {
   element("ranking-content").hidden = false;
   element("message").hidden = true;
   filter.disabled = false;
-  applyFilter();
+  restoreView();
+}
+
+function setChanges(url) {
+  if (filter.checked) url.searchParams.set("changes", "1");
+  else url.searchParams.delete("changes");
 }
 
 function applyFilter() {
   let visible = 0;
-  for (const row of element("ranking-rows").rows) {
+  for (const row of rows.rows) {
     row.hidden = filter.checked && row.dataset.changed === "false";
     if (!row.hidden) visible++;
+  }
+  for (const link of rows.querySelectorAll("a")) {
+    const url = new URL(link.href);
+    setChanges(url);
+    link.href = url.href;
   }
   element("announcement").textContent = filter.checked
     ? "目前顯示 " + visible + " 個有增減的名次。"
     : "已顯示兩榜完整前十名。";
 }
 
-filter.addEventListener("change", applyFilter);
+function restoreView() {
+  filter.checked = new URLSearchParams(location.search).get("changes") === "1";
+  applyFilter();
+  const origin = element(location.hash.slice(1));
+  if (origin?.matches("a.product-link") && rows.contains(origin) && !origin.closest("tr").hidden) {
+    origin.focus({ preventScroll: true });
+    origin.scrollIntoView({ block: "nearest" });
+  }
+}
+
+filter.addEventListener("change", () => {
+  const url = new URL(location.href);
+  setChanges(url);
+  if (rows.contains(element(url.hash.slice(1)))) url.hash = "";
+  history.replaceState(history.state, "", url);
+  applyFilter();
+});
+
+rows.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+  // Browser Back should restore the same column even when a product is in both lists.
+  const url = new URL(location.href);
+  url.hash = link.id;
+  history.replaceState(history.state, "", url);
+});
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted && !filter.disabled) restoreView();
+});
 
 async function load() {
   try {
