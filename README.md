@@ -20,7 +20,7 @@
 
 購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance)
 
-回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照](#july-returning-home-paired-slots)
+回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照](#july-returning-home-paired-slots) · [回訪者首頁換榜門檻](#returning-home-acceptance)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -194,6 +194,22 @@
 | MRR@10（純熱門 → 共同瀏覽） | 0.01603 → **0.03412** | 0.01440 → **0.03047** |
 
 七月新增的 720 位命中者中，**477 人在前三名就猜中**，其中 268 人排第一。共同瀏覽在兩個月都讓前十名命中率提高約 3 個百分點，全體回訪者的 MRR@10 也上升。七月紀錄曾用於八月模型的訓練，這兩次結果均屬開發回測。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[七月成對報告](reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [八月成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [重建榜單與核對方法](docs/PROJECT_PROGRESS.md#july-returning-home-paired-slots)
+
+<a id="returning-home-acceptance"></a>
+
+### 回訪者首頁什麼時候才換榜？
+
+**只有在獨立名冊上同時通過以下三項門檻，回訪者首頁才採用「共同瀏覽優先、熱門補滿＋留席」。** 正式比較的基準是「純熱門榜＋留席」。兩榜都在上次看的商品缺席時才換掉第十名。現在公開首頁仍顯示原熱門瀏覽榜。
+
+| 候選相對基準的改善 | 獨立名冊的換榜門檻 | 七月開發結果 | 八月開發結果 |
+| --- | --- | ---: | ---: |
+| 前十名命中率差 | **≥ +2.00 個百分點**，即每千人至少淨多命中 20 人 | +3.233 個百分點 | +3.053 個百分點 |
+| 命中率差的成對 95% 區間 | **下限 > 0 個百分點** | +2.980 至 +3.471 | +2.824 至 +3.299 |
+| 平均倒數排名差（MRR@10） | **≥ +0.010** | +0.01809 | +0.01607 |
+
+獨立名冊到位後，先固定評分窗，沿用八月回測的訓練快照。每位窗前已有行為、窗內有瀏覽的回訪者計一次。依窗前最後看的商品排出兩榜，再對照該人窗內首次瀏覽當下的全部商品。窗前只有加購或購買的人，兩榜都給原熱門榜。只有候選命中算新增，只有基準命中算失去，兩者相減就是淨增。命中率差與 MRR@10 都用全體可計分回訪者作分母。95% 區間按訪客成對重抽樣 2,000 次，三項一律用未四捨五入的值判斷。
+
+命中率差與 MRR@10 兩項門檻，分別要求保留較弱月份（八月）約 66% 與 62% 的改善。七、八月的開發結果都達到三個數值，正式名冊尚未到位，目前記為**待驗**。獨立驗收若有任一項未達，首頁仍沿用原榜。九月保留測試繼續封存。[完整換榜規則與計分步驟](docs/HOME_RETURNING_VISITOR_ACCEPTANCE.md) · [七、八月回測對照](#july-returning-home-paired-slots)
 
 <a id="august-paired-results"></a>
 

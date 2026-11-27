@@ -4,6 +4,20 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="returning-home-acceptance"></a>
+
+## 2026-11-27｜訂定回訪者首頁的正式換榜門檻
+
+首輪以純熱門留席榜為基準、共同瀏覽優先再用熱門補滿的留席榜為候選，沿用八月回測的訓練快照。正式名冊每位回訪者計一次，兩榜共用窗前最後瀏覽商品及窗內首看目標集合。新增扣除失去後，每千人至少多命中 20 人，命中率差的成對 95% 區間下限須嚴格大於零，MRR@10 差須至少 +0.010。三項必須在同一份獨立名冊同時通過。
+
+| 驗收進度 | 結果 |
+| --- | --- |
+| 換榜條件 | 已固定分母、兩榜版本、窗前歷史、逐人最佳名次、成對重抽樣及三項門檻的等號邊界。 |
+| 七、八月開發對照 | 七月命中率差 +3.233 個百分點、區間下限 +2.980、MRR@10 差 +0.01809。八月依序為 +3.053、+2.824、+0.01607。兩月的數值均達標。 |
+| 正式驗收與首頁 | 等獨立名冊。公開首頁沿用原熱門榜，九月繼續封存。 |
+
+下一步可用已封存的開發彙總與合成名冊驗證換榜判定的邊界，讓日後正式計分沿用同一套規則。[README 換榜條件](../README.md#returning-home-acceptance) · [正式名冊與計分步驟](HOME_RETURNING_VISITOR_ACCEPTANCE.md)
+
 <a id="july-returning-home-paired-slots"></a>
 
 ## 2026-11-27｜七月回訪者首頁雙榜留席回測
@@ -30,7 +44,7 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 .\.venv\Scripts\python.exe -B -m unittest tests.test_evaluate_july_returning_home_paired_slots
 ```
 
-兩個月的開發結果都支持將共同瀏覽留席版列為回訪者首頁候選。下一步可在取得獨立名冊前先訂採用門檻，以純熱門留席榜為基準。首頁維持原熱門榜，九月繼續封存。[七、八月對照表](../README.md#july-returning-home-paired-slots) · [七月報告](../reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [七月計分程式](../scripts/evaluate_july_returning_home_paired_slots.py) · [訓練程式](../scripts/fit_july_returning_home.py)
+兩個月的開發結果都支持將共同瀏覽留席版列為回訪者首頁候選。後續已用這兩月的結果訂定獨立名冊的採用門檻。首頁維持原熱門榜，九月繼續封存。[換榜規則](HOME_RETURNING_VISITOR_ACCEPTANCE.md) · [七、八月對照表](../README.md#july-returning-home-paired-slots) · [七月報告](../reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [七月計分程式](../scripts/evaluate_july_returning_home_paired_slots.py) · [訓練程式](../scripts/fit_july_returning_home.py)
 
 <a id="august-returning-home-paired-slots"></a>
 
