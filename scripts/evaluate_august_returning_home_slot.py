@@ -32,6 +32,30 @@ def group_summary(pairs):
     }
 
 
+def rank_summary(pairs):
+    overall = summarize_rank_pairs(pairs)
+    n = overall["scored_visitors"]
+    for column, arm in enumerate(("baseline", "candidate")):
+        positions = Counter()
+        for ranks, count in pairs.items():
+            positions[ranks[column]] += count
+        counts = [positions[r] for r in range(1, TOP_K + 1)]
+        overall[arm]["first_hit_counts_rank_1_to_10"] = counts
+        overall[arm]["mrr_at_10"] = sum(count / rank for rank, count in enumerate(counts, 1)) / n if n else None
+    overall["mrr_at_10_delta"] = overall["candidate"]["mrr_at_10"] - overall["baseline"]["mrr_at_10"] if n else None
+    return overall
+
+
+def hit_rate_interval(clusters):
+    if not clusters:
+        return None
+    uncertainty = {**BOOTSTRAP, **visitor_interval(clusters, BOOTSTRAP)}
+    uncertainty["hit_rate_delta_95_percentage_points"] = [
+        100 * bound for bound in uncertainty["hit_rate_delta_95_percentile"]
+    ]
+    return uncertainty
+
+
 def score_visitors(visitors, popular, model):
     """Score one first-view target set per visitor against two ten-item homepages."""
     if len(popular) != TOP_K or len(set(popular)) != TOP_K:
@@ -73,27 +97,11 @@ def score_visitors(visitors, popular, model):
         digest_row(previous_pairs, [*record, first_hit(popular, targets), old])
         digest_row(slot_pairs, [*record, old, new])
 
-    overall = summarize_rank_pairs(pairs)
-    n = overall["scored_visitors"]
-    for column, arm in enumerate(("baseline", "candidate")):
-        positions = Counter()
-        for ranks, count in pairs.items():
-            positions[ranks[column]] += count
-        counts = [positions[r] for r in range(1, TOP_K + 1)]
-        overall[arm]["first_hit_counts_rank_1_to_10"] = counts
-        overall[arm]["mrr_at_10"] = sum(count / rank for rank, count in enumerate(counts, 1)) / n if n else None
-    overall["mrr_at_10_delta"] = overall["candidate"]["mrr_at_10"] - overall["baseline"]["mrr_at_10"] if n else None
-    uncertainty = None
-    if n:
-        uncertainty = {**BOOTSTRAP, **visitor_interval(clusters, BOOTSTRAP)}
-        uncertainty["hit_rate_delta_95_percentage_points"] = [
-            100 * bound for bound in uncertainty["hit_rate_delta_95_percentile"]
-        ]
     return {
-        "overall": overall,
+        "overall": rank_summary(pairs),
         "by_slot_action": {action: group_summary(counts) for action, counts in actions.items()},
         "by_baseline_strategy": {strategy: group_summary(counts) for strategy, counts in strategies.items()},
-        "repeat_views": repeat, "visitor_bootstrap": uncertainty,
+        "repeat_views": repeat, "visitor_bootstrap": hit_rate_interval(clusters),
         "scored_visitor_first_view_targets_sha256": roster.hexdigest(),
         "previous_paired_best_ranks_sha256": previous_pairs.hexdigest(),
         "paired_best_ranks_sha256": slot_pairs.hexdigest(),

@@ -18,7 +18,9 @@
 | [熱門加購](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=cart) | 去除重複紀錄後的加購事件數 | 商品 11，160 次 |
 | [熱門購買](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/?ranking=purchase) | 含有該商品的交易筆數，同筆交易內同商品只計一次 | 商品 20，63 筆 |
 
-購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance) · [回訪者的八月首頁回測](#august-returning-home) · [回訪者留第十席的成效](#august-returning-home-slot)
+購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance)
+
+回訪者的八月回測分三步比較。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -159,6 +161,22 @@
 2,995 位重看者中，有 1 人在同一毫秒看了多件商品，原榜已猜中其中一件，所以新增為 2,994 人。原先前九名猜中的 771 人全部保住，原先靠第十名猜中的 27 人全部失去。把名次也算進來，平均倒數排名（MRR@10）從 **0.01743** 升至 **0.03047**。
 
 留席版值得列為回訪者首頁候選。公開首頁沿用原熱門榜，正式採用待獨立名冊驗收，九月保留測試繼續封存。這裡衡量的是能否猜中首次瀏覽，首頁實際點擊率仍待曝光與點擊紀錄驗證。[八月留席回測報告](reports/mainline/recommendation_august_returning_home_slot_20261127.json) · [逐人核對與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-slot)
+
+<a id="august-returning-home-paired-slots"></a>
+
+### 純熱門榜也留第十席後，共同瀏覽還能多猜中幾人？
+
+**八月同一批 22,766 位回訪者中，共同瀏覽留席榜比純熱門留席榜淨多猜中 695 人。** 兩榜各自保留上次看的商品。該商品已在榜上就維持原名次，缺席才換掉第十名。每人只比較八月首次瀏覽，兩榜都用八月前的資料排榜。
+
+| 八月開發回測 | 純熱門榜＋留席 | 共同瀏覽優先、熱門補滿＋留席 |
+| --- | ---: | ---: |
+| 前十名命中人數 | 3,070 | 3,765 |
+| 前十名命中率 | 13.49% | 16.54% |
+| 平均倒數排名（MRR@10） | 0.01440 | 0.03047 |
+
+逐人比較，**共同瀏覽新增 730 人、失去 35 人**。命中率提高 **3.053 個百分點**，成對 95% 區間為 **+2.824 至 +3.299 個百分點**。新增的 730 人中，有 **459 人在前三名就猜中**，其中 236 人在第一名。兩榜都命中的 3,035 人中，11 人的命中名次提前、41 人後移、2,983 人相同。
+
+全部增減都來自有共同瀏覽配對的 18,320 人。其餘 4,446 人拿到的兩張榜單相同。八月結果支持保留共同瀏覽留席版作為回訪者首頁候選。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[八月雙榜成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [分組結果與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-paired-slots)
 
 <a id="august-paired-results"></a>
 

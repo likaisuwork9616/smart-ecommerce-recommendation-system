@@ -4,6 +4,32 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="august-returning-home-paired-slots"></a>
+
+## 2026-11-27｜兩個回訪者首頁榜都留第十席，共同瀏覽能多猜中幾人？
+
+基準取訓練期的熱門瀏覽前十名。候選先列出訓練期與訪客上次瀏覽商品常被一起看的商品，再依同一份熱門榜補滿十件。兩榜各自檢查八月前最後瀏覽的商品，已在榜上就保留原名次，缺席才換掉該榜的第十名。有歷史瀏覽但沒有共同配對的人，兩榜都用熱門榜留席。沒有歷史瀏覽的人，兩榜都給原熱門榜。
+
+兩榜逐人預測 2015 年八月第一次瀏覽。沿用上一輪 22,766 位回訪者，同一毫秒若看了多件商品，取榜上最前的命中名次，每人每榜只計一次。MRR@10 對每位命中者取名次的倒數，未命中計零，再對全體取平均。[前輪回訪名冊與時間邊界](#august-returning-home) · [留第十席的規則](#august-returning-home-slot)
+
+| 回訪者 | 人數 | 純熱門留席命中 | 共同瀏覽留席命中 | 只有共同瀏覽命中 | 只有純熱門命中 | 淨增 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 有共同瀏覽配對 | 18,320 | 2,582 | 3,277 | 730 | 35 | +695 |
+| 有上次瀏覽商品，沒有配對 | 4,419 | 488 | 488 | 0 | 0 | 0 |
+| 先前只有加購或交易 | 27 | 0 | 0 | 0 | 0 | 0 |
+| **合計** | **22,766** | **3,070** | **3,765** | **730** | **35** | **+695** |
+
+純熱門榜有 117 位訪客的上次商品原本就在前十，另有 22,622 人換了第十名。共同瀏覽榜有 22,739 人換第十名。兩榜都保住上次商品後，兩者皆命中 3,035 人，皆未中 18,966 人。命中率從 13.485% 升至 16.538%，以訪客為單位成對重抽樣 2,000 次（PCG64，種子 20261120），命中率差的 95% 百分位區間為 +2.824 至 +3.299 個百分點。MRR@10 從 0.01440 升至 0.03047，差值為 +0.01607。
+
+前輪名冊、原先兩榜的逐人命中名次與共同瀏覽留席版逐人的命中名次均已核對。另從原始事件獨立重建本輪雙榜，每位訪客的命中名次也一致。本輪與上一輪報告均通過全量重算，30 項相關測試通過。備妥前輪的本機資料庫與凍結模型後，可在專案根目錄重算報告並執行合成測試。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m scripts.evaluate_august_returning_home_paired_slots --check
+.\.venv\Scripts\python.exe -B -m unittest tests.test_evaluate_august_returning_home_paired_slots
+```
+
+八月已用於比較候選。若要先檢查其他月份能否重現這項增益，可固定兩榜規則，只用七月前的紀錄產榜，在七月回訪者上另做開發回測。正式驗收仍待獨立名冊，九月繼續封存。[README 結果表](../README.md#august-returning-home-paired-slots) · [彙總報告](../reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [計分程式](../scripts/evaluate_august_returning_home_paired_slots.py)
+
 <a id="august-returning-home-slot"></a>
 
 ## 2026-11-27｜八月回訪者首頁替上次看的商品留第十席
@@ -24,7 +50,7 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 .\.venv\Scripts\python.exe -B -m unittest tests.test_evaluate_august_returning_home_slot
 ```
 
-此結果來自八月開發名冊。下一步可讓「純熱門榜」也按同一規則留第十席，逐人比較兩種留席榜，量出加上共同瀏覽推薦還能多猜中幾人。首頁維持原熱門榜，正式採用待獨立名冊驗收。[README 結果表](../README.md#august-returning-home-slot) · [八月報告](../reports/mainline/recommendation_august_returning_home_slot_20261127.json) · [計分程式](../scripts/evaluate_august_returning_home_slot.py)
+此結果來自八月開發名冊。後續也讓純熱門榜採用相同留席規則，逐人比較加入共同瀏覽的效果。[雙榜留席比較](#august-returning-home-paired-slots) · [README 結果表](../README.md#august-returning-home-slot) · [八月報告](../reports/mainline/recommendation_august_returning_home_slot_20261127.json) · [計分程式](../scripts/evaluate_august_returning_home_slot.py)
 
 <a id="august-returning-home"></a>
 

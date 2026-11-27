@@ -1,0 +1,168 @@
+{
+  "study": "Paired popularity and co-browse top tens with the same last-view slot for returning visitors",
+  "role": "2015-08 development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-08-01T00:00:00Z",
+      "2015-09-01T00:00:00Z"
+    ]
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "previous_report": "reports/mainline/recommendation_august_returning_home_slot_20261127.json",
+  "rules": {
+    "roster_seed_target": "Use the same returning visitors, last pre-August view and all distinct items at their first August view timestamp as in the baseline report.",
+    "baseline_before_slot": "Frozen training browse popularity top ten for everyone.",
+    "candidate_before_slot": "Frozen positive co-browse neighbors of the last pre-August view. Fill from the same popularity top ten in order, skipping duplicates. With no pair or no prior view, use the full popularity ranking.",
+    "shared_slot": "For each arm separately, keep the seed at its original rank if already present. If absent, replace only rank ten. If there is no seed, retain the whole ranking.",
+    "eligibility": "Every seed has a qualified view strictly before August and is therefore in the historical candidate catalog, including warmup items with no fitted C1 statistics.",
+    "metrics": "Each visitor contributes one observation. Use the best matching rank across their distinct targets. Reciprocal rank is zero for a miss. The percentile interval resamples paired visitors with replacement."
+  },
+  "overall": {
+    "scored_visitors": 22766,
+    "both_hit": 3035,
+    "candidate_only_gained": 730,
+    "baseline_only_lost": 35,
+    "both_missed": 18966,
+    "net_hits": 695,
+    "gained_by_candidate_rank_1_to_10": [
+      236,
+      118,
+      105,
+      70,
+      53,
+      50,
+      42,
+      34,
+      22,
+      0
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      6,
+      0,
+      2,
+      1,
+      14,
+      1,
+      10,
+      1,
+      0,
+      0
+    ],
+    "baseline": {
+      "hits_at_10": 3070,
+      "hit_rate_at_10": 0.13485021523324256,
+      "first_hit_counts_rank_1_to_10": [
+        12,
+        4,
+        8,
+        8,
+        44,
+        2,
+        14,
+        6,
+        1,
+        2971
+      ],
+      "mrr_at_10": 0.014396956475055395
+    },
+    "candidate": {
+      "hits_at_10": 3765,
+      "hit_rate_at_10": 0.16537819555477468,
+      "first_hit_counts_rank_1_to_10": [
+        245,
+        120,
+        106,
+        72,
+        62,
+        56,
+        43,
+        41,
+        26,
+        2994
+      ],
+      "mrr_at_10": 0.03046751351569941
+    },
+    "hit_rate_change_percentage_points": 3.052798032153211,
+    "mrr_at_10_delta": 0.016070557040644015,
+    "both_hit_rank_change": {
+      "earlier": 11,
+      "same": 2983,
+      "later": 41
+    }
+  },
+  "by_strategy": {
+    "personalized": {
+      "scored_visitors": 18320,
+      "baseline_hits": 2582,
+      "candidate_hits": 3277,
+      "gained": 730,
+      "lost": 35,
+      "net_hits": 695
+    },
+    "no_pair": {
+      "scored_visitors": 4419,
+      "baseline_hits": 488,
+      "candidate_hits": 488,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    },
+    "no_history": {
+      "scored_visitors": 27,
+      "baseline_hits": 0,
+      "candidate_hits": 0,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    }
+  },
+  "by_slot_action": {
+    "baseline": {
+      "replaced_rank_10": 22622,
+      "already_in_top_ten": 117,
+      "no_prior_view": 27
+    },
+    "candidate": {
+      "replaced_rank_10": 22739,
+      "already_in_top_ten": 0,
+      "no_prior_view": 27
+    }
+  },
+  "visitor_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261120,
+    "bit_generator": "NumPy PCG64",
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "quantile_method": "linear",
+    "visitors": 22766,
+    "hit_rate_delta_95_percentile": [
+      0.028243872441359924,
+      0.032987788807871385
+    ],
+    "hit_rate_delta_95_percentage_points": [
+      2.8243872441359925,
+      3.2987788807871383
+    ]
+  },
+  "scored_visitor_first_view_targets_sha256": "2e3563322cb2e432987575813543c582fa316d81abfe0b831c8ad7ede1eb38f7",
+  "unslotted_paired_best_ranks_sha256": "c072f0c56f256a81a5ded5cf43d5d66f84d5e117da595ca666c79b3cacbd4eaa",
+  "previous_slot_paired_best_ranks_sha256": "95cb97819af4b14ef18b08c2530bbc7b4e904ee5ba14ad96ab8fbb469055a3c8",
+  "paired_best_ranks_sha256": "11616e0a360145e19b0d5ed97830f701acbbd7df05ef22e44535c71ba83ad73f",
+  "limits": "Offline first-view overlap for observed returning visitors. The ledger has no homepage exposure, referral or conversion attribution.",
+  "new_model_fits": 0,
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}
