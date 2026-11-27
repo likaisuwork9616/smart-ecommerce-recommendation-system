@@ -1,0 +1,214 @@
+{
+  "study": "July returning visitors: popularity versus co-browse with the same last-view slot",
+  "role": "July 2015 retrospective development backtest",
+  "utc_windows_start_inclusive_end_exclusive": {
+    "warmup": [
+      "2015-05-03T00:00:00Z",
+      "2015-05-04T00:00:00Z"
+    ],
+    "train": [
+      "2015-05-04T00:00:00Z",
+      "2015-07-01T00:00:00Z"
+    ],
+    "validation": [
+      "2015-07-01T00:00:00Z",
+      "2015-08-01T00:00:00Z"
+    ]
+  },
+  "event_ledger_roles": {
+    "warmup": "warmup",
+    "train": "train",
+    "validation": "train"
+  },
+  "source_receipt": "reports/stage10/retailrocket_c1_p0_v1_research_release.json",
+  "contract": "docs/contracts/retailrocket_recommendation_v1.json",
+  "event_ledger_sha256": "5d7d49ec632c911c0d8e277674dd4d7ef46754886c4aeab3e77eeb21fe662503",
+  "july_home_report": "reports/mainline/recommendation_july_home_first_view_pair_20261124.json",
+  "training": {
+    "qualified_view_events": 1148591,
+    "baseline_rank_item_counts_sha256": "2e96668b3575b6412104ce088bc2b9f4043aa8fefff4d34d25b390887a03a014",
+    "c1_fit": {
+      "train_sessions": 734984,
+      "singleton_sessions": 618815,
+      "train_baskets": 1148337,
+      "basket_item_memberships": 1148591,
+      "distinct_session_item_memberships": 994473,
+      "exact_unordered_pair_emissions": 1354635,
+      "unique_pairs": 1165992,
+      "positive_support_items": 161912,
+      "start_ms": 1430697600000,
+      "end_ms": 1435708800000,
+      "fit_id": "30bdbffdfa8fdf2642ddca3538b3cf256444159146e161680eb59d2fe04b82e5"
+    }
+  },
+  "rules": {
+    "cohort": "Any qualified event before July and a July view. Score each visitor once against all distinct items at their earliest July view timestamp.",
+    "seed": "Last qualified view strictly before July, including warmup. At a tied timestamp choose the smallest numeric item ID.",
+    "baseline_before_slot": "Training browse popularity top ten ranked by qualified view count then ascending numeric item ID.",
+    "candidate_before_slot": "Positive co-browse neighbors of the seed ranked by shared training sessions, then training popularity and numeric item ID. Fill remaining seats from popularity without duplicates. No positive pair or no seed gives the popularity list.",
+    "shared_slot": "For each arm separately, keep the seed at its original rank if already present. If absent, replace only rank ten. If there is no seed, retain the whole ranking.",
+    "metrics": "Each visitor contributes one observation. Use the best matching rank across their distinct targets. Reciprocal rank is zero for a miss. The percentile interval resamples paired visitors with replacement."
+  },
+  "july_cohort": {
+    "active_returning": 21434,
+    "returning_with_view": 21406,
+    "returning_without_view": 28,
+    "all_visitors_with_view": 376336,
+    "new_with_view": 354930
+  },
+  "overall": {
+    "scored_visitors": 21406,
+    "both_hit": 3178,
+    "candidate_only_gained": 720,
+    "baseline_only_lost": 28,
+    "both_missed": 17480,
+    "net_hits": 692,
+    "gained_by_candidate_rank_1_to_10": [
+      268,
+      117,
+      92,
+      63,
+      52,
+      38,
+      47,
+      22,
+      21,
+      0
+    ],
+    "lost_by_baseline_rank_1_to_10": [
+      8,
+      3,
+      1,
+      4,
+      1,
+      3,
+      1,
+      3,
+      4,
+      0
+    ],
+    "baseline": {
+      "hits_at_10": 3206,
+      "hit_rate_at_10": 0.1497710922171354,
+      "first_hit_counts_rank_1_to_10": [
+        15,
+        11,
+        7,
+        10,
+        2,
+        10,
+        7,
+        9,
+        11,
+        3124
+      ],
+      "mrr_at_10": 0.0160304224153145
+    },
+    "candidate": {
+      "hits_at_10": 3898,
+      "hit_rate_at_10": 0.18209847706250584,
+      "first_hit_counts_rank_1_to_10": [
+        276,
+        124,
+        92,
+        68,
+        54,
+        38,
+        48,
+        24,
+        24,
+        3150
+      ],
+      "mrr_at_10": 0.034117715104354365
+    },
+    "hit_rate_change_percentage_points": 3.2327384845370455,
+    "mrr_at_10_delta": 0.018087292689039865,
+    "both_hit_rank_change": {
+      "earlier": 12,
+      "same": 3132,
+      "later": 34
+    }
+  },
+  "by_strategy": {
+    "personalized": {
+      "scored_visitors": 16334,
+      "baseline_hits": 2590,
+      "candidate_hits": 3282,
+      "gained": 720,
+      "lost": 28,
+      "net_hits": 692
+    },
+    "no_pair": {
+      "scored_visitors": 5042,
+      "baseline_hits": 616,
+      "candidate_hits": 616,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    },
+    "no_history": {
+      "scored_visitors": 30,
+      "baseline_hits": 0,
+      "candidate_hits": 0,
+      "gained": 0,
+      "lost": 0,
+      "net_hits": 0
+    }
+  },
+  "by_slot_action": {
+    "baseline": {
+      "replaced_rank_10": 21256,
+      "already_in_top_ten": 120,
+      "no_prior_view": 30
+    },
+    "candidate": {
+      "replaced_rank_10": 21376,
+      "already_in_top_ten": 0,
+      "no_prior_view": 30
+    }
+  },
+  "visitor_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261120,
+    "bit_generator": "NumPy PCG64",
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "quantile_method": "linear",
+    "visitors": 21406,
+    "hit_rate_delta_95_percentile": [
+      0.029803559749602915,
+      0.03470989442212464
+    ],
+    "hit_rate_delta_95_percentage_points": [
+      2.9803559749602915,
+      3.470989442212464
+    ]
+  },
+  "scored_visitor_first_view_targets_sha256": "9534f04a6636ded04433d7355843001ddee54ab6e88e0d178408ea196a8967dd",
+  "unslotted_paired_best_ranks_sha256": "9c2bb7fafbdaed1df4fb3609ba416491f400d77e379a3e544fdaf00d22208e68",
+  "previous_slot_paired_best_ranks_sha256": "f0f84d67f59b0c09fbd2f3bb56e451c61106926769c291abd397b60ceb5395b0",
+  "paired_best_ranks_sha256": "17c16a3e3bfe1bcc3ebf00a540d10ca3054da0acde74eb63356427d234eda2eb",
+  "august_comparison": {
+    "archived_report": "reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json",
+    "scored_visitors": 22766,
+    "baseline_hits": 3070,
+    "candidate_hits": 3765,
+    "gained": 730,
+    "lost": 35,
+    "net_hits": 695,
+    "hit_rate_change_percentage_points": 3.052798032153211,
+    "hit_rate_delta_95_percentage_points": [
+      2.8243872441359925,
+      3.2987788807871383
+    ],
+    "baseline_mrr_at_10": 0.014396956475055395,
+    "candidate_mrr_at_10": 0.03046751351569941,
+    "mrr_at_10_delta": 0.016070557040644015
+  },
+  "limits": "Offline first-view overlap for observed returning visitors. The ledger has no homepage exposure, referral or conversion attribution.",
+  "formal_scored_queries": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

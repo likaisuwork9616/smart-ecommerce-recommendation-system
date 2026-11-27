@@ -4,6 +4,34 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="july-returning-home-paired-slots"></a>
+
+## 2026-11-27｜七月回訪者首頁雙榜留席回測
+
+將產榜時間移到 2015 年 7 月 1 日零時（UTC）。純熱門榜依 5 月 4 日至 6 月 30 日的有效瀏覽次數排序。共同瀏覽榜用同一段資料重建配對，訪客相鄰兩次瀏覽相隔超過 30 分鐘才分成兩段，同一對商品在一段瀏覽中只計一次。與上次商品共同出現的次數越多，名次越前。同分時先比訓練期瀏覽次數，再依商品編號由小到大排序。共同瀏覽不足十件時，依純熱門榜的順序補滿並略過重複商品。
+
+5 月 3 日的暖身紀錄可用來辨認回訪者與上次看的商品。兩榜都取 7 月 1 日前最後一次瀏覽的商品，該商品已在榜上就保留原名次，缺席才換掉第十名。最後一刻同時看了多件時，沿用八月規則，取商品編號最小的一件作為推薦依據。沒有過往瀏覽的人沿用純熱門榜。每人只用七月首次瀏覽計分，同一毫秒看了多件就取最前的命中名次。既有資料名冊將 5 月 4 日至 7 月 31 日標為訓練期，本輪另設 7 月 1 日的截止點，將七月事件用於計分。[八月留席與計分規則](#august-returning-home-paired-slots)
+
+七月有 21,434 位之前出現過的訪客，其中 28 人整月只有加購或交易，沒有首次瀏覽可供計分。其餘 21,406 人各計一次。命中增減集中在有共同配對的 16,334 人，其餘人的兩張榜單相同。
+
+| 七月回訪者 | 人數 | 純熱門留席命中 | 共同瀏覽留席命中 | 新增 | 失去 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 有共同瀏覽配對 | 16,334 | 2,590 | 3,282 | 720 | 28 |
+| 上次有瀏覽，沒有共同配對 | 5,042 | 616 | 616 | 0 | 0 |
+| 先前只有加購或交易 | 30 | 0 | 0 | 0 | 0 |
+| **合計** | **21,406** | **3,206** | **3,898** | **720** | **28** |
+
+兩榜皆命中 3,178 人，皆未命中 17,480 人。七月淨增 692 人，命中率提高 3.233 個百分點，訪客成對重抽樣 2,000 次的 95% 百分位區間為 +2.980 至 +3.471 個百分點。MRR@10 將未命中計為零，以全體訪客為分母，從 0.01603 升至 0.03412（+0.01809）。八月沿用封存的彙總報告，命中率提高 3.053 個百分點，MRR@10 提高 0.01607。
+
+使用本機凍結的 Retailrocket 事件資料庫即可重跑。七月榜單用了 1,148,591 次七月前的有效瀏覽，組成 734,984 段瀏覽，得到 1,165,992 組不同的共同瀏覽配對。另從原始事件獨立去重重建，熱門前十、完整共同瀏覽模型、七月名冊與兩榜逐人的首次命中名次均一致。53 項相關測試通過。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m scripts.evaluate_july_returning_home_paired_slots --check
+.\.venv\Scripts\python.exe -B -m unittest tests.test_evaluate_july_returning_home_paired_slots
+```
+
+兩個月的開發結果都支持將共同瀏覽留席版列為回訪者首頁候選。下一步可在取得獨立名冊前先訂採用門檻，以純熱門留席榜為基準。首頁維持原熱門榜，九月繼續封存。[七、八月對照表](../README.md#july-returning-home-paired-slots) · [七月報告](../reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [七月計分程式](../scripts/evaluate_july_returning_home_paired_slots.py) · [訓練程式](../scripts/fit_july_returning_home.py)
+
 <a id="august-returning-home-paired-slots"></a>
 
 ## 2026-11-27｜兩個回訪者首頁榜都留第十席，共同瀏覽能多猜中幾人？
@@ -28,7 +56,7 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 .\.venv\Scripts\python.exe -B -m unittest tests.test_evaluate_august_returning_home_paired_slots
 ```
 
-八月已用於比較候選。若要先檢查其他月份能否重現這項增益，可固定兩榜規則，只用七月前的紀錄產榜，在七月回訪者上另做開發回測。正式驗收仍待獨立名冊，九月繼續封存。[README 結果表](../README.md#august-returning-home-paired-slots) · [彙總報告](../reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [計分程式](../scripts/evaluate_august_returning_home_paired_slots.py)
+後續沿用這兩個榜單的規則，以七月前的紀錄重新訓練，在七月回訪者上重做開發回測。正式驗收仍待獨立名冊，九月繼續封存。[七月回測](#july-returning-home-paired-slots) · [README 結果表](../README.md#august-returning-home-paired-slots) · [八月彙總報告](../reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [計分程式](../scripts/evaluate_august_returning_home_paired_slots.py)
 
 <a id="august-returning-home-slot"></a>
 

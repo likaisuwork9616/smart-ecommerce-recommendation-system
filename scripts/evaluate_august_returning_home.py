@@ -20,12 +20,14 @@ OUTPUT = ROOT / "reports/mainline/recommendation_august_returning_home_20261127.
 STRATEGIES = ("personalized", "no_pair", "no_history")
 
 
-def returning_visitors(db, windows):
-    """One row per previously observed visitor with an August view, in visitor-key order."""
+def returning_visitors(db, windows, *, scoring_role="validation"):
+    """One row per returning visitor with a view in the scoring window, in visitor-key order."""
+    if scoring_role not in ("train", "validation"):
+        raise ValueError("Only development ledger roles can supply first-view queries")
     rows = db.execute("""
-        WITH august AS MATERIALIZED (
+        WITH scoring_month AS MATERIALIZED (
             SELECT v, MIN(t) AS first_view FROM qualified
-            WHERE role='validation' AND t>=? AND t<? AND e='view'
+            WHERE role=? AND t>=? AND t<? AND e='view'
             GROUP BY v
         ), prior_activity AS MATERIALIZED (
             SELECT a.*, CASE WHEN EXISTS (
@@ -33,7 +35,7 @@ def returning_visitors(db, windows):
             ) THEN 'seen_in_train' WHEN EXISTS (
                 SELECT 1 FROM qualified p WHERE p.v=a.v AND p.role='warmup' AND p.t>=? AND p.t<?
             ) THEN 'seen_in_warmup_only' END AS history
-            FROM august a
+            FROM scoring_month a
         ), returning_cohort AS MATERIALIZED (
             SELECT a.*, (
                 SELECT p.i FROM qualified p WHERE p.v=a.v AND p.e='view' AND (
@@ -44,9 +46,10 @@ def returning_visitors(db, windows):
             FROM prior_activity a WHERE a.history IS NOT NULL
         )
         SELECT r.v, r.history, r.seed, r.first_view, q.i FROM returning_cohort r
-        JOIN qualified q ON q.v=r.v AND q.t=r.first_view AND q.e='view' AND q.role='validation'
+        JOIN qualified q ON q.v=r.v AND q.t=r.first_view AND q.e='view' AND q.role=?
         ORDER BY r.v
-    """, (*windows["validation"], *windows["train"], *windows["warmup"], *windows["warmup"], *windows["train"]))
+    """, (scoring_role, *windows["validation"], *windows["train"], *windows["warmup"],
+          *windows["warmup"], *windows["train"], scoring_role))
     for visitor, events in groupby(rows, key=itemgetter(0)):
         _, history, seed, first_view, item = next(events)
         yield visitor, history, seed, first_view, {item, *(row[4] for row in events)}
