@@ -4,6 +4,19 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="returning-home-replay"></a>
+
+## 2026-11-27｜在互動展示比較回訪者首頁兩張留席榜
+
+從八月 22,766 位回訪者的成對開發回測中，按封存名冊順序，在新增與失去命中的兩組各取第一筆「首次瀏覽只有一件商品」的案例。兩榜各自保留八月前最後看的商品，已在前十名就保留名次，缺席才換入第十名。這兩個案例中，兩榜都把上次看的商品放在第十名，命中的差別出在前九席。
+
+| 共同瀏覽的結果 | 八月前最後瀏覽 → 八月首次瀏覽 | 純熱門留席榜 | 共同瀏覽留席榜 |
+| --- | --- | --- | --- |
+| 新增命中，730 人中一例 | 商品 244 → 商品 06 | 前十名未命中 | 第 4 名命中 |
+| 失去命中，35 人中一例 | 商品 253 → 商品 28 | 第 7 名命中 | 前十名未命中 |
+
+匯出程式用八月開始前凍結的榜單重建排名，核對全月名冊、逐人命中名次的指紋與原成對報告，再比較兩例匿名化後的命中名次。網站只取用兩筆公開案例。備妥本機開發資料、凍結模型與既有匿名代號對照後，可執行 `.\.venv\Scripts\python.exe -B -m scripts.export_returning_home_cases --check` 重現。首頁沿用原熱門瀏覽榜，正式驗收等獨立名冊，九月保留測試繼續封存。[線上切換案例](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/returning-home/) · [公開案例](recommendation-demo/returning-home-cases.json) · [匯出程式](../scripts/export_returning_home_cases.py) · [七、八月成效圖](images/returning-home-acceptance-july-august.png) · [八月成對報告](../reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json)
+
 <a id="returning-home-acceptance-figure"></a>
 
 ## 2026-11-27｜回訪者首頁七、八月驗證對照圖

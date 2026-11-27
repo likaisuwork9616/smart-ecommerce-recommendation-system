@@ -20,7 +20,14 @@
 
 購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance)
 
-回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照圖](#returning-home-acceptance-figure) · [回訪者首頁換榜門檻](#returning-home-acceptance)
+**訪客回來第一眼看的商品，哪張榜猜中了？** 在八月的兩筆回放中切換案例，查看訪客上次看的商品，並排比較純熱門留席榜和共同瀏覽留席榜的十個名次。[共同瀏覽新增命中](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/returning-home/?case=gained) · [共同瀏覽失去命中](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/returning-home/?case=lost) · [七、八月成效對照圖](#returning-home-acceptance-figure)
+
+| 八月回放 | 八月前最後看的商品 | 八月回來第一眼 | 純熱門留席榜 | 共同瀏覽留席榜 |
+| --- | --- | --- | --- | --- |
+| 新增命中（730 人中一例） | 商品 244 | 商品 06 | 前十名未命中 | **第 4 名命中** |
+| 失去命中（35 人中一例） | 商品 253 | 商品 28 | **第 7 名命中** | 前十名未命中 |
+
+回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照](#returning-home-acceptance-figure) · [回訪者首頁換榜門檻](#returning-home-acceptance)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -176,7 +183,7 @@
 
 逐人比較，**共同瀏覽新增 730 人、失去 35 人**。命中率提高 **3.053 個百分點**，成對 95% 區間為 **+2.824 至 +3.299 個百分點**。新增的 730 人中，有 **459 人在前三名就猜中**，其中 236 人在第一名。兩榜都命中的 3,035 人中，11 人的命中名次提前、41 人後移、2,983 人相同。
 
-全部增減都來自有共同瀏覽配對的 18,320 人。其餘 4,446 人拿到的兩張榜單相同。八月結果支持保留共同瀏覽留席版作為回訪者首頁候選。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[八月雙榜成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [分組結果與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-paired-slots)
+全部增減都來自有共同瀏覽配對的 18,320 人。其餘 4,446 人拿到的兩張榜單相同。八月結果支持保留共同瀏覽留席版作為回訪者首頁候選。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[八月雙榜成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [分組結果與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-paired-slots) · [互動案例與名次核對](docs/PROJECT_PROGRESS.md#returning-home-replay)
 
 <a id="july-returning-home-paired-slots"></a>
 <a id="returning-home-acceptance-figure"></a>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="切換八月回訪者首頁的新增與失去命中案例，查看訪客上次看的商品、回訪首次瀏覽的商品和兩榜排名。">
+  <meta name="theme-color" content="#f3f6ee">
+  <title>回訪者首頁留席榜｜Retailrocket 互動推薦展示</title>
+  <link rel="stylesheet" href="../recommendation-demo/demo.css">
+  <script src="./replay.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#demo">跳到回放案例</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        Retailrocket
+      </a>
+      <a class="repo-link" href="https://github.com/likaisuwork9616/smart-ecommerce-recommendation-system">GitHub 專案</a>
+    </div>
+  </header>
+
+  <main class="frame">
+    <nav class="showcase-nav" aria-label="互動推薦展示">
+      <a href="../">首頁熱門商品</a>
+      <a href="../home-first-view/">新訪客首看榜</a>
+      <a href="./" aria-current="page">回訪者首頁留席榜</a>
+      <a href="../products/">商品推薦案例</a>
+      <a href="../k1-recency/">K1 也留一席</a>
+    </nav>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <h1 id="title">回訪者首頁留席榜</h1>
+        <p class="intro-copy">兩榜都替上次看的商品留一席。把共同瀏覽的商品排在熱門商品之前，能猜中訪客回來時第一眼看了什麼嗎？</p>
+      </div>
+      <div class="snapshot">
+        <span>開發回測月份</span>
+        <time datetime="2015-08">2015 年 8 月</time>
+      </div>
+    </section>
+
+    <div class="demo recency-demo" id="demo">
+      <section class="case-picker" aria-labelledby="case-heading">
+        <h2 id="case-heading">選擇八月回放案例</h2>
+        <div class="case-buttons" id="case-buttons" role="group" aria-label="共同瀏覽留席榜的成對結果">
+          <button type="button" data-case="gained" aria-pressed="true" aria-controls="rankings" disabled>
+            <span><strong>共同瀏覽新增命中</strong><span data-count></span></span>
+          </button>
+          <button type="button" data-case="lost" aria-pressed="false" aria-controls="rankings" disabled>
+            <span><strong>共同瀏覽失去命中</strong><span data-count></span></span>
+          </button>
+        </div>
+      </section>
+
+      <a class="analysis-link" href="../images/returning-home-acceptance-july-august.png">
+        <img src="../images/returning-home-acceptance-july-august.png" width="84" height="96" alt="">
+        <span><strong>查看七、八月成效對照圖</strong><span>兩榜各命中幾人、命中率差與三項換榜門檻。</span></span>
+      </a>
+
+      <section class="results" id="rankings" aria-labelledby="ranking-title" aria-busy="true">
+        <div class="results-header">
+          <div>
+            <p id="case-label"></p>
+            <h2 id="ranking-title">兩榜前十名</h2>
+          </div>
+        </div>
+        <p class="message" id="message" role="status">正在載入八月回放…</p>
+        <div id="ranking-content" hidden>
+          <dl class="recency-summary returning-summary">
+            <div><dt>上次看的商品（八月前最後一次瀏覽）</dt><dd id="previous"></dd></div>
+            <div><dt>回訪第一眼（八月首次瀏覽）</dt><dd id="actual"></dd></div>
+          </dl>
+          <table class="ranking recency-ranking returning-ranking">
+            <caption class="sr-only">兩榜各名次的商品與回訪首次瀏覽的命中情形</caption>
+            <thead><tr>
+              <th scope="col">名次</th>
+              <th scope="col">純熱門留席榜<span class="recency-outcome" id="baseline-outcome"></span></th>
+              <th scope="col">共同瀏覽留席榜<span class="recency-outcome" id="candidate-outcome"></span></th>
+            </tr></thead>
+            <tbody id="ranking-rows"></tbody>
+          </table>
+          <p class="ranking-note">共同瀏覽榜先排相關商品，再用熱門商品補滿。兩榜都保留上次看的商品原有名次，缺席才換進第十名。</p>
+        </div>
+        <p class="sr-only" id="announcement" role="status" aria-atomic="true"></p>
+        <noscript><p class="message">啟用 JavaScript 即可切換案例，也可以直接查看<a href="../images/returning-home-acceptance-july-august.png">七、八月成效圖</a>。</p></noscript>
+      </section>
+    </div>
+  </main>
+  <footer class="frame credits">
+    <p>首頁沿用原熱門瀏覽榜。正式換榜等獨立名冊驗收，九月保留測試繼續封存。</p>
+    <p><a href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset">Roman Zykov／Retailrocket</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA 4.0</a></p>
+  </footer>
+</body>
+</html>
