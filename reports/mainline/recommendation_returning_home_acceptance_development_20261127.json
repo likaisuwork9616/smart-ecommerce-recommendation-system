@@ -1,0 +1,286 @@
+{
+  "role": "July and August 2015 development replays and synthetic gate checks",
+  "policy": "docs/HOME_RETURNING_VISITOR_ACCEPTANCE.md",
+  "policy_commit": "189e130699752d5ef9bea6c5a443695b0926cf08",
+  "months": {
+    "2015-07": {
+      "archive": "reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json",
+      "utc_windows_start_inclusive_end_exclusive": {
+        "warmup": [
+          "2015-05-03T00:00:00Z",
+          "2015-05-04T00:00:00Z"
+        ],
+        "train": [
+          "2015-05-04T00:00:00Z",
+          "2015-07-01T00:00:00Z"
+        ],
+        "validation": [
+          "2015-07-01T00:00:00Z",
+          "2015-08-01T00:00:00Z"
+        ]
+      },
+      "scored_visitor_first_view_targets_sha256": "9534f04a6636ded04433d7355843001ddee54ab6e88e0d178408ea196a8967dd",
+      "paired_best_ranks_sha256": "17c16a3e3bfe1bcc3ebf00a540d10ca3054da0acde74eb63356427d234eda2eb",
+      "scored_visitors": 21406,
+      "both_hit": 3178,
+      "candidate_only_gained": 720,
+      "baseline_only_lost": 28,
+      "both_missed": 17480,
+      "net_hits": 692,
+      "baseline": {
+        "hits_at_10": 3206,
+        "hit_rate_at_10": 0.1497710922171354,
+        "first_hit_counts_rank_1_to_10": [
+          15,
+          11,
+          7,
+          10,
+          2,
+          10,
+          7,
+          9,
+          11,
+          3124
+        ],
+        "mrr_at_10": 0.0160304224153145
+      },
+      "candidate": {
+        "hits_at_10": 3898,
+        "hit_rate_at_10": 0.18209847706250584,
+        "first_hit_counts_rank_1_to_10": [
+          276,
+          124,
+          92,
+          68,
+          54,
+          38,
+          48,
+          24,
+          24,
+          3150
+        ],
+        "mrr_at_10": 0.034117715104354365
+      },
+      "hit_rate_change_percentage_points": 3.2327384845370455,
+      "visitor_bootstrap": {
+        "replicates": 2000,
+        "seed": 20261120,
+        "bit_generator": "NumPy PCG64",
+        "percentiles": [
+          2.5,
+          97.5
+        ],
+        "quantile_method": "linear",
+        "visitors": 21406,
+        "hit_rate_delta_95_percentile": [
+          0.029803559749602915,
+          0.03470989442212464
+        ],
+        "hit_rate_delta_95_percentage_points": [
+          2.9803559749602915,
+          3.470989442212464
+        ]
+      },
+      "mrr_at_10_delta": 0.018087292689039865,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": true
+    },
+    "2015-08": {
+      "archive": "reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json",
+      "utc_windows_start_inclusive_end_exclusive": {
+        "warmup": [
+          "2015-05-03T00:00:00Z",
+          "2015-05-04T00:00:00Z"
+        ],
+        "train": [
+          "2015-05-04T00:00:00Z",
+          "2015-08-01T00:00:00Z"
+        ],
+        "validation": [
+          "2015-08-01T00:00:00Z",
+          "2015-09-01T00:00:00Z"
+        ]
+      },
+      "scored_visitor_first_view_targets_sha256": "2e3563322cb2e432987575813543c582fa316d81abfe0b831c8ad7ede1eb38f7",
+      "paired_best_ranks_sha256": "11616e0a360145e19b0d5ed97830f701acbbd7df05ef22e44535c71ba83ad73f",
+      "scored_visitors": 22766,
+      "both_hit": 3035,
+      "candidate_only_gained": 730,
+      "baseline_only_lost": 35,
+      "both_missed": 18966,
+      "net_hits": 695,
+      "baseline": {
+        "hits_at_10": 3070,
+        "hit_rate_at_10": 0.13485021523324256,
+        "first_hit_counts_rank_1_to_10": [
+          12,
+          4,
+          8,
+          8,
+          44,
+          2,
+          14,
+          6,
+          1,
+          2971
+        ],
+        "mrr_at_10": 0.014396956475055395
+      },
+      "candidate": {
+        "hits_at_10": 3765,
+        "hit_rate_at_10": 0.16537819555477468,
+        "first_hit_counts_rank_1_to_10": [
+          245,
+          120,
+          106,
+          72,
+          62,
+          56,
+          43,
+          41,
+          26,
+          2994
+        ],
+        "mrr_at_10": 0.03046751351569941
+      },
+      "hit_rate_change_percentage_points": 3.052798032153211,
+      "visitor_bootstrap": {
+        "replicates": 2000,
+        "seed": 20261120,
+        "bit_generator": "NumPy PCG64",
+        "percentiles": [
+          2.5,
+          97.5
+        ],
+        "quantile_method": "linear",
+        "visitors": 22766,
+        "hit_rate_delta_95_percentile": [
+          0.028243872441359924,
+          0.032987788807871385
+        ],
+        "hit_rate_delta_95_percentage_points": [
+          2.8243872441359925,
+          3.2987788807871383
+        ]
+      },
+      "mrr_at_10_delta": 0.016070557040644015,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": true
+    }
+  },
+  "synthetic_boundaries": {
+    "hit_exact": {
+      "scored_visitors": 500,
+      "baseline_hits": 100,
+      "candidate_hits": 110,
+      "net_hits": 10,
+      "hit_rate_change_percentage_points": 2.0,
+      "hit_rate_delta_95_percentage_points": [
+        0.8,
+        3.2
+      ],
+      "baseline_mrr_at_10": 0.02,
+      "candidate_mrr_at_10": 0.04,
+      "mrr_at_10_delta": 0.02,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": true
+    },
+    "hit_just_below": {
+      "scored_visitors": 501,
+      "baseline_hits": 100,
+      "candidate_hits": 110,
+      "net_hits": 10,
+      "hit_rate_change_percentage_points": 1.996007984031936,
+      "hit_rate_delta_95_percentage_points": [
+        0.7984031936127743,
+        3.1936127744510974
+      ],
+      "baseline_mrr_at_10": 0.01996007984031936,
+      "candidate_mrr_at_10": 0.03992015968063872,
+      "mrr_at_10_delta": 0.01996007984031936,
+      "gates": {
+        "hit_at_10_delta": false,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": false
+    },
+    "mrr_exact": {
+      "scored_visitors": 500,
+      "baseline_hits": 100,
+      "candidate_hits": 120,
+      "net_hits": 20,
+      "hit_rate_change_percentage_points": 4.0,
+      "hit_rate_delta_95_percentage_points": [
+        2.4,
+        5.800000000000001
+      ],
+      "baseline_mrr_at_10": 0.02,
+      "candidate_mrr_at_10": 0.03,
+      "mrr_at_10_delta": 0.01,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": true
+    },
+    "mrr_just_below": {
+      "scored_visitors": 501,
+      "baseline_hits": 100,
+      "candidate_hits": 120,
+      "net_hits": 20,
+      "hit_rate_change_percentage_points": 3.992015968063872,
+      "hit_rate_delta_95_percentage_points": [
+        2.3952095808383236,
+        5.788423153692615
+      ],
+      "baseline_mrr_at_10": 0.01996007984031936,
+      "candidate_mrr_at_10": 0.029940119760479042,
+      "mrr_at_10_delta": 0.00998003992015968,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": true,
+        "mrr_at_10_delta": false
+      },
+      "all_gates_pass": false
+    },
+    "lower_bound_zero": {
+      "scored_visitors": 40,
+      "baseline_hits": 10,
+      "candidate_hits": 11,
+      "net_hits": 1,
+      "hit_rate_change_percentage_points": 2.5,
+      "hit_rate_delta_95_percentage_points": [
+        0.0,
+        7.5
+      ],
+      "baseline_mrr_at_10": 0.025,
+      "candidate_mrr_at_10": 0.05,
+      "mrr_at_10_delta": 0.025,
+      "gates": {
+        "hit_at_10_delta": true,
+        "positive_lower_bound": false,
+        "mrr_at_10_delta": true
+      },
+      "all_gates_pass": false
+    }
+  },
+  "homepage_default": "original browse popularity",
+  "formal_acceptance": "pending independent roster",
+  "formal_scored_visitors": 0,
+  "reserved_test": "locked",
+  "reserved_test_ranked_queries": 0
+}

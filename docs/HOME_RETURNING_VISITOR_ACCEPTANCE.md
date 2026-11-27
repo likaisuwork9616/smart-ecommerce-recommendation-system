@@ -41,3 +41,53 @@
 | 名冊與兩榜核對完成、N 大於零，三項全數通過 | 回訪者首頁可採用共同瀏覽留席榜。 |
 | 可完成計分，但任一門檻未達 | 沿用目前公開首頁的原熱門瀏覽榜。 |
 | 獨立名冊未到、N 為零，或資料與榜單無法核對 | 記為待驗，首頁沿用原熱門瀏覽榜。 |
+
+<a id="verify-returning-home"></a>
+
+## 在本機重現開發核對
+
+備妥專案凍結的 Retailrocket 事件資料庫與八月訓練快照後，在專案根目錄執行以下指令。第一行用七月前的訓練資料重建七月榜，並用八月原有快照重建八月榜，分別對照兩個月封存的逐人名次。第二行執行合成名冊與檔案入口的測試。
+
+```powershell
+.\.venv\Scripts\python.exe -B -m scripts.verify_returning_home_acceptance_development --check
+.\.venv\Scripts\python.exe -B -m unittest tests.test_score_returning_home_acceptance
+```
+
+五組合成名冊按同樣程序逐人產榜、計分與重抽樣。MRR@10 等號案例中，500 人裡有 100 人在兩榜第十名命中，另有 20 人只在候選第四名命中。新增的倒數排名總分為 20 × ¼ = 5，除以 500 人恰為 +0.010。入口以整數名次權重判定通過。若再加一位兩榜皆未中的人，差值成為 5/501，顯示值即使四捨五入為 +0.010，該項仍未通過。[五組實測結果](../README.md#returning-home-score) · [封存的驗證報告](../reports/mainline/recommendation_returning_home_acceptance_development_20261127.json)
+
+<a id="score-returning-home-packet"></a>
+
+## 獨立名冊到位後執行
+
+資料方須先確認評分用途、期間及窗前歷史的完整性。將 `manifest.json` 與逐人名冊 JSONL 放在同一個本機私有目錄。兩份輸入都使用 UTF-8。準備名冊時保留窗前最後一刻的所有相異瀏覽商品，讓程式依固定規則挑選商品。窗內首看時刻的所有相異商品共同作為目標。
+
+| Manifest 欄位 | 內容 |
+| --- | --- |
+| `schema`、`role`、`item_key_version` | 依序為 `returning_home_acceptance_v1`、`independent`、`retailrocket_original_itemid_v1`。兩榜與目標都使用 Retailrocket 原始商品編號。 |
+| `source_version`、`approval_ref`、`history_evidence` | 填入可回查的資料版本、這份名冊的評分授權識別碼，以及確認回訪與窗前瀏覽歷史的來源。 |
+| `window_utc_ms` | 兩個 UTC 整數毫秒 `[T, U]`，評分含 T、不含 U。T 最早為既有封存窗的終點（2015-09-18 00:00 UTC）。窗前資格事件與最後瀏覽時刻也須避開該封存區間。 |
+| `active_returning`、`returning_without_view`、`scored_visitors` | 依序為窗內有活動的回訪者、其中沒有瀏覽的人、實際計分的人。後兩項加總須等於第一項。 |
+| `roster` | 含 `file`（同目錄的 JSONL 檔名）與 `sha256`（該檔案原始位元組的 SHA-256，以小寫十六進位表示）。 |
+
+| 名冊 JSONL 每人一列 | 內容 |
+| --- | --- |
+| `visitor` | 穩定且唯一的匿名字串。 |
+| `prior_event` | 一筆證明回訪資格的窗前事件，包含 `type`（`view`、`addtocart` 或 `transaction`）、`time_ms`（整數 UTC 毫秒）及 `item`（商品鍵）。 |
+| `last_view` | 有過瀏覽時填入 `time_ms` 及 `items`，列出窗前最後一次瀏覽當下的所有相異商品。只有來源已確認窗前沒有瀏覽時才明填 `null`。 |
+| `first_view_ms`、`targets` | 窗內首次瀏覽的 UTC 毫秒，及當下看到的所有相異商品。商品鍵一律以無前導零的十進位字串提供。 |
+
+一列合成資料的格式如下。這位訪客先前在同一毫秒看過商品 12 與 2，兩榜都取數值較小的商品 2 作為上次瀏覽的商品。計分時，兩件首看目標 14 與 11 都會納入。
+
+```json
+{"visitor":"example-a","prior_event":{"type":"view","time_ms":1443743999999,"item":"12"},"last_view":{"time_ms":1443743999999,"items":["12","2"]},"first_view_ms":1443744000000,"targets":["14","11"]}
+```
+
+下列指令會核對授權識別碼與檔案指紋，用凍結的熱門統計與 C1 模型產生兩榜，並將彙總 JSON 寫到標準輸出。選用 `--rank-audit` 可將逐人最佳名次另存到私有目錄中的新檔案。[獨立名冊計分入口](../scripts/score_returning_home_acceptance.py)
+
+```powershell
+$manifestPath = Read-Host '已授權獨立名冊的 manifest.json 路徑'
+$rosterApproval = Read-Host '該名冊的評分授權識別碼'
+.\.venv\Scripts\python.exe -B -m scripts.score_returning_home_acceptance --manifest $manifestPath --approval-ref $rosterApproval
+```
+
+結果中的 `gates` 分列三項判定，`mrr_gate_evidence` 保存 MRR 差的整數分子與分母。`decision` 為 `adopt_candidate` 表示這份獨立名冊支持採用候選，`keep_original` 表示沿用原榜，零位可計分訪客回傳 `pending`。名冊或凍結版本核對失敗時，程式以錯誤碼結束，正式驗收維持待驗。首頁部署另行處理。

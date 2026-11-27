@@ -16,7 +16,7 @@ from scripts.score_recommendation_acceptance import window_ms
 OUTPUT = ROOT / "reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json"
 
 
-def study():
+def study(*, score=score_visitors):
     july = json.loads(JULY_HOME_REPORT.read_bytes())
     roles = json.loads((ROOT / CONTRACT).read_bytes())["time_roles"]
     scope = {"warmup": roles["warmup"], "train": [roles["train"][0], JULY_START],
@@ -34,7 +34,7 @@ def study():
         popular, model, training = fit_model(db, windows["train"])
         if training["baseline_rank_item_counts_sha256"] != july["baseline_rank_item_counts_sha256"]:
             raise ValueError("Refitted popularity differs from the archived pre-July top ten")
-        results = score_visitors(returning_visitors(db, windows, scoring_role="train"), popular, model)
+        results = score(returning_visitors(db, windows, scoring_role="train"), popular, model)
         visitors_with_view = db.execute("""
             SELECT COUNT(DISTINCT v) FROM qualified
             WHERE role='train' AND t>=? AND t<? AND e='view'

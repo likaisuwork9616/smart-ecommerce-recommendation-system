@@ -31,7 +31,7 @@ def slotted(ranking, seed):
     return revised, "replaced_rank_10"
 
 
-def score_visitors(visitors, popular, model):
+def score_visitors(visitors, popular, model, *, rank_audit=None):
     """Compare both final lists per visitor, recording best ranks against the same target set."""
     roster, unslotted_pairs = hashlib.sha256(), hashlib.sha256()
     previous_slot_pairs, slot_pairs = hashlib.sha256(), hashlib.sha256()
@@ -61,6 +61,8 @@ def score_visitors(visitors, popular, model):
         digest_row(unslotted_pairs, [*record, first_hit(popular, targets), original_rank])
         digest_row(previous_slot_pairs, [*record, original_rank, candidate_rank])
         digest_row(slot_pairs, [*record, base_rank, candidate_rank])
+        if rank_audit is not None:
+            rank_audit(visitor, first_view, base_rank, candidate_rank)
 
     overall = rank_summary(pairs)
     shared_hits = [(base, candidate, count) for (base, candidate), count in pairs.items()
@@ -81,12 +83,12 @@ def score_visitors(visitors, popular, model):
     }
 
 
-def study():
+def study(*, score=score_visitors):
     popular, scope, windows = load_study_inputs()
     model = C1DemoModel.load(ROOT)
     uri = (ROOT / DB).resolve().as_uri() + "?mode=ro&immutable=1"
     with closing(sqlite3.connect(uri, uri=True)) as db:
-        result = score_visitors(returning_visitors(db, windows), [item for item, _ in popular], model)
+        result = score(returning_visitors(db, windows), [item for item, _ in popular], model)
     previous = json.loads(PREVIOUS.read_bytes())
     if (result["scored_visitor_first_view_targets_sha256"] != previous["scored_visitor_first_view_targets_sha256"]
             or result["unslotted_paired_best_ranks_sha256"] != previous["previous_paired_best_ranks_sha256"]
