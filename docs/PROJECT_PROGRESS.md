@@ -4,6 +4,12 @@ Olist 的資料庫、SQL 與商業分析已有成果，延遲預測、低評分�
 
 本頁每一輪只留一列摘要，完整方法、數字與驗證寫在各輪文件；首頁只摘要目前結果。三個研究反覆使用的 2017-12、2018-02、2018-04 是已檢視的開發回測月份，不能當成未知資料成績。
 
+<a id="returning-home-acceptance-figure"></a>
+
+## 2026-11-27｜回訪者首頁七、八月驗證對照圖
+
+GitHub 首頁新增雙月對照圖，直接使用既有計分入口封存的開發彙總。每月並列兩榜的前十名命中人數、共同瀏覽新增與失去的人數，並將命中率差、其成對 95% 區間及 MRR@10 差對照換榜門檻。七月淨增 692 人、八月淨增 695 人，兩月三項均達標。正式換榜仍要在獨立名冊上通過同一套門檻，目前正式計分 0 人，公開首頁沿用原熱門瀏覽榜，九月保留測試繼續封存。[GitHub 首頁對照圖](../README.md#returning-home-acceptance-figure) · [開發驗證報告](../reports/mainline/recommendation_returning_home_acceptance_development_20261127.json) · [換榜規則](HOME_RETURNING_VISITOR_ACCEPTANCE.md)
+
 <a id="returning-home-score"></a>
 
 ## 2026-11-27｜回訪者首頁換榜計分入口

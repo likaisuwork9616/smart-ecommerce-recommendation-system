@@ -20,7 +20,7 @@
 
 購買榜第二名商品 11 也出現在 63 筆交易。各榜遇到同分，沿用原商品編號由小到大的順序。頁面上的次數描述訓練期人氣。[公開榜單資料](docs/recommendation-demo/popularity.json) · [產榜程式](scripts/export_home_popularity.py) · [只換第十名的結果](#home-first-view-single-slot) · [新訪客首頁的八月成效對照圖](#home-first-view-acceptance)
 
-回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照](#july-returning-home-paired-slots) · [回訪者首頁換榜門檻](#returning-home-acceptance)
+回訪者的八月回測分三步比較，並在七月用更早的紀錄重新產榜。[熱門榜與共同瀏覽榜](#august-returning-home) · [替上次看的商品留第十席](#august-returning-home-slot) · [兩榜都留席後的成效](#august-returning-home-paired-slots) · [七、八月成效對照圖](#returning-home-acceptance-figure) · [回訪者首頁換榜門檻](#returning-home-acceptance)
 
 **點進商品 11 會看到什麼？** 它的瀏覽榜和加購榜各有十件共同配對商品，第一名都是商品 33。切到購買榜後，前八席有共同購買紀錄，第九、十席依序由熱門商品 20、21 補上。切換模式後仍可一鍵回到剛才的熱門榜。[商品 11 的購買推薦](https://likaisuwork9616.github.io/smart-ecommerce-recommendation-system/products/?item=11&mode=purchase&from=cart) · [22 件商品的核對結果](docs/PROJECT_PROGRESS.md#popular-product-details)
 
@@ -179,10 +179,15 @@
 全部增減都來自有共同瀏覽配對的 18,320 人。其餘 4,446 人拿到的兩張榜單相同。八月結果支持保留共同瀏覽留席版作為回訪者首頁候選。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[八月雙榜成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [分組結果與重跑方式](docs/PROJECT_PROGRESS.md#august-returning-home-paired-slots)
 
 <a id="july-returning-home-paired-slots"></a>
+<a id="returning-home-acceptance-figure"></a>
 
-### 換到七月，共同瀏覽留席榜還能多猜中幾人？
+### 回訪者首頁的共同瀏覽留席榜，七、八月各多猜中幾人？
 
-**七月重現了八月的優勢。** 只用 2015 年 5 月 4 日至 6 月 30 日的瀏覽紀錄重排兩榜後，在同一批 21,406 位七月回訪者中，共同瀏覽新增命中 **720 人**、失去 **28 人**，比純熱門留席榜淨多命中 **692 人**。兩榜都保留上次看的商品，已在榜內就維持原名次，缺席才換掉第十名。
+**共同瀏覽留席榜在七月淨多命中 692 人，八月淨多命中 695 人，兩月都達到三項換榜門檻。** 七、八月資料已用於選擇候選方案和訂門檻。正式換榜要在獨立名冊上再驗，目前正式計分 0 人，公開首頁沿用原熱門瀏覽榜，九月保留測試繼續封存。
+
+![回訪者首頁開發回測。共同瀏覽留席榜比純熱門留席榜在七月淨多命中 692 人、八月 695 人。兩月三項門檻均通過，正式驗收待獨立名冊。](docs/images/returning-home-acceptance-july-august.png)
+
+圖中數字取自本專案以 Roman Zykov／Retailrocket 資料完成的開發回測。命中率差的 95% 區間按訪客成對重抽樣 2,000 次估計。[雙榜驗證報告](reports/mainline/recommendation_returning_home_acceptance_development_20261127.json) · [換榜規則](docs/HOME_RETURNING_VISITOR_ACCEPTANCE.md) · [資料來源](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) · [圖表授權 CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 | 開發回測 | 七月 | 八月 |
 | --- | ---: | ---: |
@@ -192,8 +197,9 @@
 | 共同瀏覽新增／失去／淨增 | 720／28／**+692 人** | 730／35／**+695 人** |
 | 命中率差（成對 95% 區間，百分點） | +3.233（+2.980 至 +3.471） | +3.053（+2.824 至 +3.299） |
 | MRR@10（純熱門 → 共同瀏覽） | 0.01603 → **0.03412** | 0.01440 → **0.03047** |
+| MRR@10 差 | +0.01809 | +0.01607 |
 
-七月新增的 720 位命中者中，**477 人在前三名就猜中**，其中 268 人排第一。共同瀏覽在兩個月都讓前十名命中率提高約 3 個百分點，全體回訪者的 MRR@10 也上升。七月紀錄曾用於八月模型的訓練，這兩次結果均屬開發回測。公開首頁沿用原熱門榜，正式驗收等獨立名冊，九月保留測試繼續封存。[七月成對報告](reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [八月成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [重建榜單與核對方法](docs/PROJECT_PROGRESS.md#july-returning-home-paired-slots)
+七月榜單用 2015 年 5 月 4 日至 6 月 30 日的資料訓練，八月榜單則用到 7 月 31 日。兩榜都保留訪客上次看的商品，已在榜內就維持原名次，缺席才換掉第十名。七月新增的 720 位命中者中，**477 人在前三名就猜中**，其中 268 人排第一。[七月成對報告](reports/mainline/recommendation_july_returning_home_paired_slots_20261127.json) · [八月成對報告](reports/mainline/recommendation_august_returning_home_paired_slots_20261127.json) · [重建榜單與核對方法](docs/PROJECT_PROGRESS.md#july-returning-home-paired-slots)
 
 <a id="returning-home-acceptance"></a>
 
